@@ -34,7 +34,7 @@
     <link rel="alternate" hreflang="de" href="../de/docs.html" />
     <link rel="alternate" hreflang="x-default" href="../docs.html" />
     <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=afe73d14" />
-    <link rel="stylesheet" href="../assets/site.css" />
+    <link rel="stylesheet" href="../assets/site.css?v=hero-balance-3" />
   </head>
   <body>
     <a class="g-skip-link" href="#docs-main">ドキュメントのテキストにスキップ</a>
@@ -378,13 +378,13 @@
                 class="g-btn g-btn-outline g-btn-sm docs-copy"
                 type="button"
                 data-g-copy
-                data-g-copy-value="npm install @gardener/css"
+                data-g-copy-value="npm install @gardenerim/css"
               >
                 コピー
               </button>
               <pre
                 class="site-code"
-              ><code>npm install @gardener/css</code></pre>
+              ><code>npm install @gardenerim/css</code></pre>
             </div>
             <div class="docs-table-wrap">
               <table class="docs-table">
@@ -397,7 +397,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><code>@gardener/css</code></td>
+                    <td><code>@gardenerim/css</code></td>
                     <td>完全な CSS + デフォルトのランタイム エントリ</td>
                     <td>箱から出してそのまま使用</td>
                   </tr>
@@ -488,17 +488,17 @@
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>import &quot;@gardener/css/core.css&quot;;
-import &quot;@gardener/css/themes.css&quot;;
-import &quot;@gardener/css/components.css&quot;;
-import &quot;@gardener/css/utilities.css&quot;;</code></pre>
+              ><code>import &quot;@gardenerim/css/core.css&quot;;
+import &quot;@gardenerim/css/themes.css&quot;;
+import &quot;@gardenerim/css/components.css&quot;;
+import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
             </div>
           </section>
 
           <section class="docs-section" id="vue">
             <h2>Gardener Vue 3 プロジェクト</h2>
             <p>
-              <a href="../../packages/vue/README.md"><code>@gardener/vue</code></a> は Gardener CSS 1.0.0 の公式 Vue 3 アダプテーション レイヤーであり、現在のバージョンは
+              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> は Gardener CSS 1.0.0 の公式 Vue 3 アダプテーション レイヤーであり、現在のバージョンは
               <strong>1.0.0 安定版</strong>、Vue をサポート
               <code>&gt;=3.4.0 &lt;4.0.0</code> Node.js を使用
               <code>&gt;=18.18</code>。 506 個の CSS コンポーネントすべてと 66 個の DOM 動作を項目ごとにマップし、538 個のルート ランタイム エクスポート、21 個の TypeScript タイプ エクスポート、29 個のパッケージ エントリ ポイント、および 28 個のコンポーネント CSS パッケージ プロキシを提供します。
@@ -512,12 +512,12 @@ import &quot;@gardener/css/utilities.css&quot;;</code></pre>
 
             <h3>インストールとグローバル プラグイン</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/vue @gardener/css vue</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/vue @gardenerim/css vue</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createApp } from &quot;vue&quot;;
-import GardenerVue from &quot;@gardener/vue&quot;;
-import &quot;@gardener/vue/style.css&quot;;
+import GardenerVue from &quot;@gardenerim/vue&quot;;
+import &quot;@gardenerim/vue/style.css&quot;;
 import App from &quot;./App.vue&quot;;
 
 createApp(App).use(GardenerVue).mount(&quot;#app&quot;);</code></pre>
@@ -532,8 +532,8 @@ createApp(App).use(GardenerVue).mount(&quot;#app&quot;);</code></pre>
             <h3>オンデマンドのコンポーネントとテーマのプロバイダー</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;script setup lang=&quot;ts&quot;&gt;
-import { GButton, GCard, GDialog, GardenerProvider } from &quot;@gardener/vue&quot;;
-import &quot;@gardener/vue/platform/web.css&quot;;
+import { GButton, GCard, GDialog, GardenerProvider } from &quot;@gardenerim/vue&quot;;
+import &quot;@gardenerim/vue/platform/web.css&quot;;
 &lt;/script&gt;
 
 &lt;template&gt;
@@ -619,7 +619,7 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               <table class="docs-table">
                 <thead><tr><th>入口</th><th>コンテンツ</th><th>該当するシナリオ</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/vue/style.css</code></td><td>完全なGardener様式</td><td>箱から出して試作品</td></tr>
+                  <tr><td><code>@gardenerim/vue/style.css</code></td><td>完全なGardener様式</td><td>箱から出して試作品</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>レイヤードスタイルエントリー</td><td>カスタムビルド</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>一般的な Web 機能</td><td>PC、レスポンシブ Web サイト、ダッシュボード</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>ユニバーサル + モバイルの組み合わせ</td><td>モバイル Web ページ、PWA、WebView</td></tr>
@@ -631,8 +631,8 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               </table>
             </div>
             <div class="docs-callout">
-              一般的なアプリケーションまたは <code>@gardener/vue/components</code> 最高のツリーシェイクを手に入れましょう。
-              <code>@gardener/vue/bundle.min.js</code> は、事前圧縮された単一ファイル エントリです。 SSR インポートはブラウザーのグローバル オブジェクトにアクセスせず、動作はコンポーネントがマウントされた後にのみ初期化されるため、サーバー側のレンダリングとハイドレーションに使用できます。
+              一般的なアプリケーションまたは <code>@gardenerim/vue/components</code> 最高のツリーシェイクを手に入れましょう。
+              <code>@gardenerim/vue/bundle.min.js</code> は、事前圧縮された単一ファイル エントリです。 SSR インポートはブラウザーのグローバル オブジェクトにアクセスせず、動作はコンポーネントがマウントされた後にのみ初期化されるため、サーバー側のレンダリングとハイドレーションに使用できます。
             </div>
 
             <h3>29 個のパブリック パッケージ エントリすべて</h3>
@@ -653,8 +653,8 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               <a href="../../packages/vue/metadata/public-api.json">パブリック API</a>、<a href="../../packages/vue/metadata/compatibility.json">互換性</a>
               と <a href="../../packages/vue/dist/gardener-vue.performance.json">パフォーマンス</a>
               どちらにも、不明なフィールドをオフにする JSON スキーマがあります。<a href="../../packages/vue/dist/catalog.json">コンポーネント カタログ JSON</a>
-              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全な圧縮パッケージの予算は、raw 328,220 B、gzip 51,602 B、Brotli 26,926 B です。独身
-              <code>GButton</code> の実際のツリーシェイキング結果は 3,718 B です。確定的ビルドは 87 ファイルをカバーし、npm パッケージは 98 ファイルをチェックし、284,183 B がパックされ、3,729,929 B がアンパックされます。
+              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全な圧縮パッケージの予算は、raw 328,236 B、gzip 51,605 B、Brotli 26,932 B です。独身
+              <code>GButton</code> の実際のツリーシェイキング結果は 3,720 B です。確定的ビルドは 87 ファイルをカバーし、npm パッケージは 98 ファイルをチェックし、284,318 B がパックされ、3,730,411 B がアンパックされます。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd vue
@@ -686,7 +686,7 @@ npm run release:verify
           <section class="docs-section" id="react">
             <h2>Gardener React プロジェクト</h2>
             <p>
-              <a href="../../packages/react/README.md"><code>@gardener/react</code></a> は Gardener CSS 1.0.0 の公式 React アダプテーション レイヤーであり、現在のバージョンは
+              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> は Gardener CSS 1.0.0 の公式 React アダプテーション レイヤーであり、現在のバージョンは
               <strong>1.0.0 安定版</strong>、React をサポート
               <code>&gt;=18.3.0 &lt;20.0.0</code> Node.js を使用
               <code>&gt;=18.18</code>。 506 個の CSS コンポーネントすべてと 66 個の DOM 動作を項目ごとにマップし、538 個のルート ランタイム エクスポート、22 個の TypeScript タイプ エクスポート、29 個のパブリック パッケージ エントリ ポイント、および 28 個のコンポーネント CSS パッケージ プロキシを提供します。
@@ -700,12 +700,12 @@ npm run release:verify
 
             <h3>インストールとルート コンポーネント</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/react @gardener/css react react-dom</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/react @gardenerim/css react react-dom</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createRoot } from &quot;react-dom/client&quot;;
-import { GButton, GCard, GardenerProvider } from &quot;@gardener/react&quot;;
-import &quot;@gardener/react/style.css&quot;;
+import { GButton, GCard, GardenerProvider } from &quot;@gardenerim/react&quot;;
+import &quot;@gardenerim/react/style.css&quot;;
 
 createRoot(document.getElementById(&quot;root&quot;)!).render(
   &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
@@ -715,7 +715,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
             </div>
             <p>
               コンポーネントはすべて、オンデマンドでの名前付きインポートをサポートしています。ビルダーはルート エントリから開始することも、
-              <code>@gardener/react/components</code> 木を揺らします。生成された各コンポーネントは、デフォルトの HTML タグの正確な属性タイプを保持します。 <code>GButton</code> 同意する
+              <code>@gardenerim/react/components</code> 木を揺らします。生成された各コンポーネントは、デフォルトの HTML タグの正確な属性タイプを保持します。 <code>GButton</code> 同意する
               <code>type=&quot;submit&quot;</code>，<code>GInput</code> 同意する
               <code>type</code> と <code>autoComplete</code>、許可しながら、
               <code>as</code> 他のネイティブ要素または React コンポーネントに切り替えます。
@@ -806,7 +806,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
               <table class="docs-table">
                 <thead><tr><th>入口</th><th>コンテンツ</th><th>該当するシナリオ</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/react/style.css</code></td><td>完全なGardener様式</td><td>箱から出して試作品</td></tr>
+                  <tr><td><code>@gardenerim/react/style.css</code></td><td>完全なGardener様式</td><td>箱から出して試作品</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>レイヤードスタイルエントリー</td><td>カスタムビルド</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>一般的な Web 機能</td><td>PC、レスポンシブ Web サイト、ダッシュボード</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>ユニバーサル + モバイルの組み合わせ</td><td>モバイル Web ページ、PWA、WebView</td></tr>
@@ -821,12 +821,12 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
             <h3>SSR、ハイドレーション、デスクトップブリッジング</h3>
             <div class="docs-callout">
               パッケージのエントリポイントはサーバー側でも安全に import でき、506 個すべてのコンポーネントについて個別に SSR を検証しています。ビヘイビアは Effect のライフサイクル内でのみ初期化されます。サーバーで生成したマークアップの Hydration では recoverable error が発生せず、StrictMode にも対応します。Tauri と Electron はそれぞれ
-              <code>@gardener/react/tauri</code> と
-              <code>@gardener/react/electron</code> ポータルを独立させ、どちらのポータルも別のプラットフォームのブリッジング API を誤ってエクスポートしないようにします。
+              <code>@gardenerim/react/tauri</code> と
+              <code>@gardenerim/react/electron</code> ポータルを独立させ、どちらのポータルも別のプラットフォームのブリッジング API を誤ってエクスポートしないようにします。
             </div>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>import { useTauriWindowControls } from &quot;@gardener/react/tauri&quot;;
-import &quot;@gardener/react/platform/tauri.css&quot;;
+              <pre class="site-code"><code>import { useTauriWindowControls } from &quot;@gardenerim/react/tauri&quot;;
+import &quot;@gardenerim/react/platform/tauri.css&quot;;
 
 function WindowChrome() {
   const root = useRef&lt;HTMLElement | null&gt;(null);
@@ -853,8 +853,8 @@ function WindowChrome() {
               <a href="../../packages/react/metadata/public-api.json">パブリック API</a>、<a href="../../packages/react/metadata/compatibility.json">互換性</a>
               と <a href="../../packages/react/dist/gardener-react.performance.json">パフォーマンス</a>
               どちらも不明なフィールドをオフにして JSON スキーマによって検証されました。<a href="../../packages/react/dist/catalog.json">コンポーネント カタログ JSON</a>
-              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全に圧縮されたパッケージの実測値は、raw で 326,064 B、gzip で 50,126 B、Brotli で 26,381 B です。独身
-              <code>GButton</code> の実際のツリーシェイク結果は 2,599 B です。決定論的ビルドでは 87 個のファイルがカバーされ、npm パッケージでは 98 個のファイルがチェックされ、262,706 個がパックされ、2,438,775 個がアンパックされ、運用環境の依存関係のセキュリティ監査では脆弱性は 0 件でした。
+              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全に圧縮されたパッケージの実測値は、raw で 326,076 B、gzip で 50,128 B、Brotli で 26,375 B です。独身
+              <code>GButton</code> の実際のツリーシェイク結果は 2,601 B です。決定論的ビルドでは 87 個のファイルがカバーされ、npm パッケージでは 98 個のファイルがチェックされ、262,883 個がパックされ、2,439,243 個がアンパックされ、運用環境の依存関係のセキュリティ監査では脆弱性は 0 件でした。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd react
@@ -886,7 +886,7 @@ npm run release:verify
           <section class="docs-section" id="angular">
             <h2>Gardener AngularJS プロジェクト</h2>
             <p>
-              <a href="../../packages/angularjs/README.md"><code>@gardener/angularjs</code></a>
+              <a href="../../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
               は Gardener CSS 1.0.0 の公式 AngularJS 1.x レガシー システム アダプテーション レイヤーであり、現在のバージョンは
               <strong>1.0.0 安定版</strong>。 AngularJS を検証します
               <code>&gt;=1.8.2 &lt;1.9.0</code> Node.js を使用
@@ -906,12 +906,12 @@ npm run release:verify
 
             <h3>インストール、ESM ロード、およびモジュール ファクトリ</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/angularjs @gardener/css angular</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/angularjs @gardenerim/css angular</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import &quot;angular/angular.js&quot;;
-import { createGardenerAngularJS } from &quot;@gardener/angularjs&quot;;
-import &quot;@gardener/angularjs/style.css&quot;;
+import { createGardenerAngularJS } from &quot;@gardenerim/angularjs&quot;;
+import &quot;@gardenerim/angularjs/style.css&quot;;
 
 const gardenerModule = createGardenerAngularJS(window.angular);
 window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
@@ -1014,7 +1014,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               <table class="docs-table">
                 <thead><tr><th>入口</th><th>コンテンツ</th><th>該当するシナリオ</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/angularjs/style.css</code></td><td>完全なGardener様式</td><td>すぐに使用できるレガシー システムへの漸進的な統合</td></tr>
+                  <tr><td><code>@gardenerim/angularjs/style.css</code></td><td>完全なGardener様式</td><td>すぐに使用できるレガシー システムへの漸進的な統合</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>レイヤードスタイルエントリー</td><td>カスタムビルド</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>一般的な Web 機能</td><td>PC ウェブサイトとダッシュボード</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>モバイル コンポーネントとセーフ ゾーン</td><td>モバイル Web ページ、PWA、WebView</td></tr>
@@ -1026,8 +1026,8 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               </table>
             </div>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>import { createTauriWindowService } from &quot;@gardener/angularjs/tauri&quot;;
-import { createElectronWindowService } from &quot;@gardener/angularjs/electron&quot;;</code></pre>
+              <pre class="site-code"><code>import { createTauriWindowService } from &quot;@gardenerim/angularjs/tauri&quot;;
+import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron&quot;;</code></pre>
             </div>
             <p>
               Tauri と Electron のエントリポイントは互いに分離され、どちらも <code>available</code> と
@@ -1052,8 +1052,8 @@ import { createElectronWindowService } from &quot;@gardener/angularjs/electron&q
               <a href="../../packages/angularjs/metadata/public-api.json">パブリック API</a>、<a href="../../packages/angularjs/metadata/compatibility.json">互換性</a> と
               <a href="../../packages/angularjs/dist/gardener-angularjs.performance.json">パフォーマンス</a>
               どちらも、不明なフィールドがオフになっている JSON スキーマによって検証されます。 AngularJS のサポート範囲は、機械可読な互換性ベースラインにも書き込まれます。<a href="../../packages/angularjs/dist/catalog.json">コンポーネント カタログ JSON</a>
-              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全な圧縮パッケージの実測値は、raw 404,094 B、gzip 59,499 B、Brotli 29,785 B です。独身
-              <code>GButtonDirective</code> の実際のツリーシェイク結果は 4,515 B です。決定論的ビルドでは 83 ファイル、npm パッケージ チェック 95 ファイル、パックされた 325,747 B、アンパックされた 2,938,245 B、Gardener 独自の運用負荷監査では脆弱性は 0 件でした。
+              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全な圧縮パッケージの実測値は、raw 404,104 B、gzip 59,503 B、Brotli 29,798 B です。独身
+              <code>GButtonDirective</code> の実際のツリーシェイク結果は 4,517 B です。決定論的ビルドでは 83 ファイル、npm パッケージ チェック 95 ファイル、パックされた 325,915 B、アンパックされた 2,938,691 B、Gardener 独自の運用負荷監査では脆弱性は 0 件でした。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
@@ -8250,7 +8250,7 @@ npm run test:net11</code></pre>
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>import Gardener from &quot;@gardener/css&quot;;
+              ><code>import Gardener from &quot;@gardenerim/css&quot;;
 
 Gardener.init(document);
 const dialog = Gardener.getInstance(&quot;#confirm&quot;, &quot;dialog&quot;);
@@ -8413,7 +8413,7 @@ Gardener.toast({
             <h3>安全なブリッジング</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>// Electron renderer
-import { bindElectronWindowControls } from &quot;@gardener/css/electron&quot;;
+import { bindElectronWindowControls } from &quot;@gardenerim/css/electron&quot;;
 bindElectronWindowControls();
 
 // preload ホワイトリスト アクションのみを公開する

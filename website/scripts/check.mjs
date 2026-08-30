@@ -87,30 +87,30 @@ for (const section of ["quick-start", "installation", "vue", "react", "angular",
 if (vuePublicApi.version !== "1.0.0" || vuePublicApi.status !== "stable") errors.push("Vue public API must document 1.0.0 stable");
 if (vuePublicApi.components !== vueCatalog.components.length || vuePublicApi.componentExports.length !== vueCatalog.components.length) errors.push("Vue component catalog and public API are not synchronized");
 if (vuePublicApi.componentExports.length !== new Set(vuePublicApi.componentExports).size) errors.push("Vue component export names must be unique");
-for (const marker of ["@gardener/vue", "506 个 CSS", "538 个根运行时导出", "29 个包入口", "28 个组件 CSS 包代理", "GardenerProvider", "v-gardener", "useTauriWindowControls", "useElectronWindowControls", "vue-component-catalog", "npm run release:verify"]) {
+for (const marker of ["@gardenerim/vue", "506 个 CSS", "538 个根运行时导出", "29 个包入口", "28 个组件 CSS 包代理", "GardenerProvider", "v-gardener", "useTauriWindowControls", "useElectronWindowControls", "vue-component-catalog", "npm run release:verify"]) {
   if (!docs.includes(marker)) errors.push(`docs.html: missing Vue documentation marker: ${marker}`);
 }
-for (const marker of ["@gardener/vue", "506 个组件", "538 runtime exports", "29 entrypoints", "28 CSS packs", "Vue 3.4+"]) {
+for (const marker of ["@gardenerim/vue", "506 个组件", "538 runtime exports", "29 entrypoints", "28 CSS packs", "Vue 3.4+"]) {
   if (!index.includes(marker)) errors.push(`index.html: missing Vue introduction marker: ${marker}`);
 }
 
 if (reactPublicApi.version !== "1.0.0" || reactPublicApi.status !== "stable") errors.push("React public API must document 1.0.0 stable");
 if (reactPublicApi.components !== reactCatalog.components.length || reactPublicApi.componentExports.length !== reactCatalog.components.length) errors.push("React component catalog and public API are not synchronized");
 if (reactPublicApi.componentExports.length !== new Set(reactPublicApi.componentExports).size) errors.push("React component export names must be unique");
-for (const marker of ["@gardener/react", "506 个 CSS", "538 个根运行时导出", "22 个 TypeScript 类型导出", "29 个公共包入口", "28 个组件 CSS 包代理", "GardenerProvider", "onValueChange", "useTauriWindowControls", "useElectronWindowControls", "react-component-catalog", "npm run release:verify"]) {
+for (const marker of ["@gardenerim/react", "506 个 CSS", "538 个根运行时导出", "22 个 TypeScript 类型导出", "29 个公共包入口", "28 个组件 CSS 包代理", "GardenerProvider", "onValueChange", "useTauriWindowControls", "useElectronWindowControls", "react-component-catalog", "npm run release:verify"]) {
   if (!docs.includes(marker)) errors.push(`docs.html: missing React documentation marker: ${marker}`);
 }
-for (const marker of ["@gardener/react", "506 个 CSS", "538 runtime exports", "29 entrypoints", "28 CSS packs", "React 18.3–19.x"]) {
+for (const marker of ["@gardenerim/react", "506 个 CSS", "538 runtime exports", "29 entrypoints", "28 CSS packs", "React 18.3–19.x"]) {
   if (!index.includes(marker)) errors.push(`index.html: missing React introduction marker: ${marker}`);
 }
 
 if (angularPublicApi.version !== "1.0.0" || angularPublicApi.status !== "stable" || angularPublicApi.angularjs !== ">=1.8.2 <1.9.0") errors.push("AngularJS public API must document the verified 1.0.0 stable range");
 if (angularPublicApi.components !== angularCatalog.components.length || angularPublicApi.componentExports.length !== angularCatalog.components.length) errors.push("AngularJS component catalog and public API are not synchronized");
 if (angularPublicApi.componentExports.length !== new Set(angularPublicApi.componentExports).size) errors.push("AngularJS component export names must be unique");
-for (const marker of ["@gardener/angularjs", "506 个 CSS", "535 个根运行时导出", "24 个 TypeScript 类型导出", "29 个公共包入口", "28 个组件 CSS 包代理", "createGardenerAngularJS", "gardenerProvider", "gGardener", "ngModel", "GardenerRuntime", "GardenerTheme", "GardenerToast", "AngularJS 安全基线", "angular-component-catalog", "npm run release:verify"]) {
+for (const marker of ["@gardenerim/angularjs", "506 个 CSS", "535 个根运行时导出", "24 个 TypeScript 类型导出", "29 个公共包入口", "28 个组件 CSS 包代理", "createGardenerAngularJS", "gardenerProvider", "gGardener", "ngModel", "GardenerRuntime", "GardenerTheme", "GardenerToast", "AngularJS 安全基线", "angular-component-catalog", "npm run release:verify"]) {
   if (!docs.includes(marker)) errors.push(`docs.html: missing AngularJS documentation marker: ${marker}`);
 }
-for (const marker of ["@gardener/angularjs", "506 个 CSS", "535 runtime exports", "29 entrypoints", "28 CSS packs", "AngularJS 1.8.2–1.8.3"]) {
+for (const marker of ["@gardenerim/angularjs", "506 个 CSS", "535 runtime exports", "29 entrypoints", "28 CSS packs", "AngularJS 1.8.2–1.8.3"]) {
   if (!index.includes(marker)) errors.push(`index.html: missing AngularJS introduction marker: ${marker}`);
 }
 

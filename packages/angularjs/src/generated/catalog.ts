@@ -1,4 +1,4 @@
-/** Generated from @gardener/css 1.0.0 metadata. */
+/** Generated from @gardenerim/css 1.0.0 metadata. */
 import type { GardenerComponentDefinition } from "../types.js";
 
 export const componentCatalog: readonly GardenerComponentDefinition[] = [

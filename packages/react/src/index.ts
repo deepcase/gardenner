@@ -1,4 +1,4 @@
-export { Gardener, destroy, emit, getInstance, init, observe, register, toast } from "@gardener/css/runtime";
+export { Gardener, destroy, emit, getInstance, init, observe, register, toast } from "@gardenerim/css/runtime";
 export { behaviorAttributes, configAttributes, createGardenerComponent, GardenerComponent, GardenerPart } from "./component.js";
 export { GardenerProvider, GardenerThemeContext, themeAttributes, themeAxes, useGardenerThemeContext } from "./provider.js";
 export { resolveGardenerTarget, useGardener, useGardenerBehavior, useGardenerEvent, useGardenerTheme, useGardenerToast } from "./hooks.js";

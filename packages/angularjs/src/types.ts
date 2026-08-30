@@ -3,7 +3,7 @@ import type {
   GardenerBehaviorInstance as RuntimeBehaviorInstance,
   GardenerBehaviorName as RuntimeBehaviorName,
   GardenerEventName as RuntimeEventName,
-} from "@gardener/css/runtime";
+} from "@gardenerim/css/runtime";
 import type {
   GardenerAngularJSComponentExportName,
   GardenerAngularJSComponentName,

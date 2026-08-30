@@ -1,5 +1,5 @@
 import { defineComponent, h, onBeforeUnmount, onMounted, ref, watch, type Component, type PropType } from "vue";
-import { destroy, init } from "@gardener/css/runtime";
+import { destroy, init } from "@gardenerim/css/runtime";
 import type { GardenerThemeState } from "./types.js";
 
 const axes: readonly (keyof GardenerThemeState)[] = ["theme", "mode", "neutral", "typography", "shape", "density", "elevation", "motion", "platform", "os"];

@@ -7,8 +7,15 @@ for (const { name, url } of releasePages) {
     // The documentation renders the complete 506-component catalog. Keep the
     // full-document Axe scan instead of weakening its rules or excluding the
     // generated catalog, but allow enough time for slower CI/browser hosts.
-    if (name === "website/docs.html") test.setTimeout(120_000);
+    if (name === "website/docs.html") test.setTimeout(240_000);
     await page.goto(url, { waitUntil: "networkidle" });
+    if (name.startsWith("website/")) {
+      const file = name.endsWith("docs.html") ? "docs.html" : "index.html";
+      await page.waitForURL(
+        ({ pathname }) => pathname === `/website/en/${file}`,
+        { waitUntil: "networkidle" },
+      );
+    }
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
       .analyze();

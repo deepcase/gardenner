@@ -1,6 +1,6 @@
 # Gardener Vue 组件完整目录
 
-本目录由 `@gardener/css@1.0.0` 元数据自动生成，共 506 个 Vue 组件，无省略。所有组件支持 `as`、`variant`、`state`、`config`、`initialize`、`modelValue`、`modelEvent`、`modelKey` 和原生 attributes/events/slots。
+本目录由 `@gardenerim/css@1.0.0` 元数据自动生成，共 506 个 Vue 组件，无省略。所有组件支持 `as`、`variant`、`state`、`config`、`initialize`、`modelValue`、`modelEvent`、`modelKey` 和原生 attributes/events/slots。
 
 | Vue 导出 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |
 | --- | --- | --- | --- | --- | --- |

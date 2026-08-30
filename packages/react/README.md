@@ -5,13 +5,13 @@ Gardener CSS 1.0.0 的官方 React 适配层，版本 `1.0.0`、状态 Stable。
 ## 快速开始
 
 ```bash
-npm install @gardener/react @gardener/css react react-dom
+npm install @gardenerim/react @gardenerim/css react react-dom
 ```
 
 ```tsx
 import { createRoot } from "react-dom/client";
-import { GButton, GCard, GardenerProvider } from "@gardener/react";
-import "@gardener/react/style.css";
+import { GButton, GCard, GardenerProvider } from "@gardenerim/react";
+import "@gardenerim/react/style.css";
 
 createRoot(document.getElementById("root")!).render(
   <GardenerProvider theme="garden" mode="light" shape="subtle">

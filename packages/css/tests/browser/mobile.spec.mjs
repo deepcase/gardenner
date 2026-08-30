@@ -33,6 +33,11 @@ for (const { name, url } of websitePages) {
   test(`${name} reflows in a touch viewport`, async ({ page }) => {
     const failures = collectPageFailures(page);
     await page.goto(url, { waitUntil: "networkidle" });
+    const file = name.endsWith("docs.html") ? "docs.html" : "index.html";
+    await page.waitForURL(
+      ({ pathname }) => pathname === `/website/en/${file}`,
+      { waitUntil: "networkidle" },
+    );
     const state = await page.evaluate(() => ({
       hasViewportMeta:
         document

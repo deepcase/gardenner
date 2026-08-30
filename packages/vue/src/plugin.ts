@@ -1,5 +1,5 @@
 import type { App, Plugin } from "vue";
-import { init } from "@gardener/css/runtime";
+import { init } from "@gardenerim/css/runtime";
 import { GardenerComponent, GardenerPart } from "./component.js";
 import { GardenerProvider } from "./provider.js";
 import { vGardener } from "./directives.js";

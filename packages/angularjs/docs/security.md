@@ -2,7 +2,7 @@
 
 ## 支持边界
 
-`@gardener/angularjs` 是 AngularJS 1.8.2–1.8.3 遗留应用适配层。AngularJS 已结束官方支持；截至 1.0.0，本地完整 `npm audit` 会报告 AngularJS 本体的 XSS、SVG 净化绕过和正则拒绝服务公告，且没有可用的上游修复版本。Gardener 将 `angular` 保持为 peer dependency，不会把它打进运行时产物，也不会声称消除这些框架级风险。
+`@gardenerim/angularjs` 是 AngularJS 1.8.2–1.8.3 遗留应用适配层。AngularJS 已结束官方支持；截至 1.0.0，本地完整 `npm audit` 会报告 AngularJS 本体的 XSS、SVG 净化绕过和正则拒绝服务公告，且没有可用的上游修复版本。Gardener 将 `angular` 保持为 peer dependency，不会把它打进运行时产物，也不会声称消除这些框架级风险。
 
 ## 上线要求
 

@@ -138,7 +138,7 @@ const customManifest = {
   css: basename(cssPath),
   minCss: basename(minCssPath),
   sourceMap: `${basename(minCssPath)}.map`,
-  runtime: "@gardener/css",
+  runtime: "@gardenerim/css",
   adapters: adapters.map((adapter) => `gardener.${adapter}.min.js`),
   minifier,
   compression,

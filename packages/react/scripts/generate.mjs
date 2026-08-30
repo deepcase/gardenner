@@ -63,7 +63,7 @@ const hooks = ["useGardener", "useGardenerBehavior", "useGardenerEvent", "useGar
 const packageEntrypoints = Object.keys(pkg.exports);
 const moduleExports = [...definitions.map(({ exportName }) => exportName), ...frameworkExports].sort();
 
-await writeFile(resolve(generated, "catalog.ts"), `/** Generated from @gardener/css 1.0.0 metadata. */\nimport type { GardenerComponentDefinition } from "../types.js";\n\nexport const componentCatalog: readonly GardenerComponentDefinition[] = ${JSON.stringify(definitions, null, 2)};\nexport const componentByName = new Map(componentCatalog.map((component) => [component.name, component] as const));\nexport const componentByExportName = new Map(componentCatalog.map((component) => [component.exportName, component] as const));\n`);
+await writeFile(resolve(generated, "catalog.ts"), `/** Generated from @gardenerim/css 1.0.0 metadata. */\nimport type { GardenerComponentDefinition } from "../types.js";\n\nexport const componentCatalog: readonly GardenerComponentDefinition[] = ${JSON.stringify(definitions, null, 2)};\nexport const componentByName = new Map(componentCatalog.map((component) => [component.name, component] as const));\nexport const componentByExportName = new Map(componentCatalog.map((component) => [component.exportName, component] as const));\n`);
 
 const componentLines = definitions.map((definition) => `export const ${definition.exportName} = /* @__PURE__ */ createGardenerComponent(${JSON.stringify(definition)} as GardenerComponentDefinition) as GardenerGeneratedComponent<${JSON.stringify(definition.tag)}>;`);
 const registryLines = definitions.map(({ exportName }) => `  ${exportName},`);
@@ -86,5 +86,5 @@ await writeFile(resolve(root, "metadata", "compatibility.json"), `${JSON.stringi
 
 await mkdir(resolve(root, "docs"), { recursive: true });
 const table = definitions.map((item) => `| \`${item.exportName}\` | \`${item.name}\` | ${item.category} | ${item.type} | \`${item.className || item.selector}\` | ${item.behaviors.join(", ") || "—"} |`).join("\n");
-await writeFile(resolve(root, "docs", "components.md"), `# Gardener React 组件完整目录\n\n本目录由 \`@gardener/css@1.0.0\` 元数据自动生成，共 ${definitions.length} 个 React 组件，无省略。所有组件支持 \`${componentProps.join("\`、\`")}\`、原生 attributes/events、children 和 ref handle。\n\n| React 导出 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |\n| --- | --- | --- | --- | --- | --- |\n${table}\n`);
+await writeFile(resolve(root, "docs", "components.md"), `# Gardener React 组件完整目录\n\n本目录由 \`@gardenerim/css@1.0.0\` 元数据自动生成，共 ${definitions.length} 个 React 组件，无省略。所有组件支持 \`${componentProps.join("\`、\`")}\`、原生 attributes/events、children 和 ref handle。\n\n| React 导出 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |\n| --- | --- | --- | --- | --- | --- |\n${table}\n`);
 console.log(`Generated ${definitions.length} React components and ${publicApi.javascript.behaviors.length} behavior bindings.`);

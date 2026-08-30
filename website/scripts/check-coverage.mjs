@@ -246,16 +246,16 @@ for (const marker of [...vuePublicApi.composables, ...vuePublicApi.componentProp
 for (const entrypoint of vuePublicApi.packageEntrypoints) {
   if (!docs.includes(entrypoint)) errors.push(`docs.html missing Vue package entrypoint: ${entrypoint}`);
 }
-for (const marker of ["1.0.0 Stable", "全部 506 个 Vue 组件", "538 个根运行时导出", "21 个 TypeScript 类型导出", "29 个公共包入口", "28 个组件 CSS 包", "328,220 B raw", "51,602 B gzip", "26,926 B Brotli", "3,718 B", "87", "98", "284,183 B packed", "3,729,929 B unpacked", "SSR", "Hydration", "npm run release:verify"]) {
+for (const marker of ["1.0.0 Stable", "全部 506 个 Vue 组件", "538 个根运行时导出", "21 个 TypeScript 类型导出", "29 个公共包入口", "28 个组件 CSS 包", "328,236 B raw", "51,605 B gzip", "26,932 B Brotli", "3,720 B", "87", "98", "284,318 B packed", "3,730,411 B unpacked", "SSR", "Hydration", "npm run release:verify"]) {
   if (!docsText.includes(marker)) errors.push(`docs.html missing Vue 1.0.0 documentation marker: ${marker}`);
 }
-for (const marker of ["Official Vue 3 bindings", "@gardener/vue", "506 个组件", "66 种 DOM", "538 runtime exports", "29 entrypoints", "28 CSS packs", "Vue 3.4+", "./docs.html#vue"]) {
+for (const marker of ["Official Vue 3 bindings", "@gardenerim/vue", "506 个组件", "66 种 DOM", "538 runtime exports", "29 entrypoints", "28 CSS packs", "Vue 3.4+", "./docs.html#vue"]) {
   if (!homePage.includes(marker)) errors.push(`index.html missing Vue project introduction marker: ${marker}`);
 }
-for (const marker of ["@gardener/vue 1.0.0", "506 个 Vue 组件", "538 个根运行时导出", "29 个公共包入口", "28 个组件 CSS 包", "Vue 公共 API", "Vue 组件目录"]) {
+for (const marker of ["@gardenerim/vue 1.0.0", "506 个 Vue 组件", "538 个根运行时导出", "29 个公共包入口", "28 个组件 CSS 包", "Vue 公共 API", "Vue 组件目录"]) {
   if (!homeReadme.includes(marker)) errors.push(`README.md missing Vue documentation inventory marker: ${marker}`);
 }
-if (vuePerformance.status !== "passed" || vuePerformance.metrics.raw !== 328220 || vuePerformance.metrics.gzip !== 51602 || vuePerformance.metrics.brotli !== 26926) errors.push("Vue documented performance budget is stale or failing");
+if (vuePerformance.status !== "passed" || vuePerformance.metrics.raw !== 328236 || vuePerformance.metrics.gzip !== 51605 || vuePerformance.metrics.brotli !== 26932) errors.push("Vue documented performance budget is stale or failing");
 
 if (!docs.includes('id="react"') || !docs.includes('id="react-component-catalog"')) errors.push("docs.html missing the complete React project documentation and catalog host");
 if (!siteJs.includes("setupReactCatalog") || !siteJs.includes("setupFrameworkCatalog") || !siteJs.includes("packages/react/metadata/public-api.json") || !siteJs.includes("packages/react/dist/catalog.json")) errors.push("site.js does not hydrate the React component catalog from canonical metadata");
@@ -274,19 +274,19 @@ for (const marker of reactPublicApi.moduleExports.filter((name) => !reactPublicA
 for (const entrypoint of reactPublicApi.packageEntrypoints) {
   if (!docs.includes(entrypoint)) errors.push(`docs.html missing React package entrypoint: ${entrypoint}`);
 }
-for (const marker of ["1.0.0 Stable", "全部 506 个 React 组件", "538 个根运行时导出", "22 个 TypeScript 类型导出", "29 个公共包入口", "28 个组件 CSS 包", "326,064 B raw", "50,126 B gzip", "26,381 B Brotli", "2,599 B", "87", "98", "262,706 B packed", "2,438,775 B unpacked", "SSR", "Hydration", "StrictMode", "npm run release:verify"]) {
+for (const marker of ["1.0.0 Stable", "全部 506 个 React 组件", "538 个根运行时导出", "22 个 TypeScript 类型导出", "29 个公共包入口", "28 个组件 CSS 包", "326,076 B raw", "50,128 B gzip", "26,375 B Brotli", "2,601 B", "87", "98", "262,883 B packed", "2,439,243 B unpacked", "SSR", "Hydration", "StrictMode", "npm run release:verify"]) {
   if (!docsText.includes(marker)) errors.push(`docs.html missing React 1.0.0 documentation marker: ${marker}`);
 }
-for (const marker of ["Official React bindings", "@gardener/react", "506 个 CSS", "66 种 DOM", "538 runtime exports", "29 entrypoints", "28 CSS packs", "React 18.3–19.x", "./docs.html#react"]) {
+for (const marker of ["Official React bindings", "@gardenerim/react", "506 个 CSS", "66 种 DOM", "538 runtime exports", "29 entrypoints", "28 CSS packs", "React 18.3–19.x", "./docs.html#react"]) {
   if (!homePage.includes(marker)) errors.push(`index.html missing React project introduction marker: ${marker}`);
 }
-for (const marker of ["@gardener/react 1.0.0", "506 个 React 组件", "538 个根运行时导出", "22 个类型导出", "29 个公共包入口", "React 公共 API", "React 组件目录"]) {
+for (const marker of ["@gardenerim/react 1.0.0", "506 个 React 组件", "538 个根运行时导出", "22 个类型导出", "29 个公共包入口", "React 公共 API", "React 组件目录"]) {
   if (!homeReadme.includes(marker)) errors.push(`README.md missing React documentation inventory marker: ${marker}`);
 }
-if (reactPerformance.status !== "passed" || reactPerformance.metrics.raw !== 326064 || reactPerformance.metrics.gzip !== 50126 || reactPerformance.metrics.brotli !== 26381) errors.push("React documented performance budget is stale or failing");
+if (reactPerformance.status !== "passed" || reactPerformance.metrics.raw !== 326076 || reactPerformance.metrics.gzip !== 50128 || reactPerformance.metrics.brotli !== 26375) errors.push("React documented performance budget is stale or failing");
 
 if (!docs.includes('id="angular"') || !docs.includes('id="angular-component-catalog"')) errors.push("docs.html missing the complete AngularJS project documentation and catalog host");
-if (!siteJs.includes("setupAngularCatalog") || !siteJs.includes("packages/angularjs/metadata/public-api.json") || !siteJs.includes("packages/angularjs/dist/catalog.json") || !siteJs.includes('packageName: "@gardener/angularjs"')) errors.push("site.js does not hydrate the AngularJS component catalog from canonical metadata");
+if (!siteJs.includes("setupAngularCatalog") || !siteJs.includes("packages/angularjs/metadata/public-api.json") || !siteJs.includes("packages/angularjs/dist/catalog.json") || !siteJs.includes('packageName: "@gardenerim/angularjs"')) errors.push("site.js does not hydrate the AngularJS component catalog from canonical metadata");
 if (angularPublicApi.version !== "1.0.0" || angularPublicApi.status !== "stable" || angularPublicApi.cssVersion !== packageManifest.version || angularPublicApi.angularjs !== angularPackageManifest.peerDependencies.angular) errors.push("AngularJS 1.0.0 stable metadata is missing or does not match Gardener CSS/package support");
 if (angularCatalog.version !== angularPublicApi.version || angularCatalog.components.length !== angularPublicApi.components || angularPublicApi.componentExports.length !== angularPublicApi.components) errors.push("AngularJS component counts are not synchronized");
 if (angularCompatibility.baseline.angularjs !== angularPublicApi.angularjs || angularCompatibility.baseline.componentNames.length !== angularCatalog.components.length || JSON.stringify(angularCompatibility.baseline.componentNames) !== JSON.stringify(angularCatalog.components.map(({ name }) => name))) errors.push("AngularJS compatibility baseline does not cover the supported version and every catalog component in order");
@@ -302,16 +302,16 @@ for (const marker of angularPublicApi.moduleExports.filter((name) => !angularPub
 for (const entrypoint of angularPublicApi.packageEntrypoints) {
   if (!docs.includes(entrypoint)) errors.push(`docs.html missing AngularJS package entrypoint: ${entrypoint}`);
 }
-for (const marker of ["1.0.0 Stable", "全部 506 个 AngularJS 组件", "535 个根运行时导出", "24 个 TypeScript 类型导出", "29 个公共包入口", "28 个组件 CSS 包代理", "404,094 B raw", "59,499 B gzip", "29,785 B Brotli", "4,515 B", "83 个文件", "95 个文件", "325,747 B packed", "2,938,245 B unpacked", "AngularJS 1.8.2 / 1.8.3", "17 项运行时/契约测试", "20 项五引擎与移动端浏览器集成测试", "Axe WCAG A/AA", "peer dependency", "AngularJS 安全基线", "npm run release:verify"]) {
+for (const marker of ["1.0.0 Stable", "全部 506 个 AngularJS 组件", "535 个根运行时导出", "24 个 TypeScript 类型导出", "29 个公共包入口", "28 个组件 CSS 包代理", "404,104 B raw", "59,503 B gzip", "29,798 B Brotli", "4,517 B", "83 个文件", "95 个文件", "325,915 B packed", "2,938,691 B unpacked", "AngularJS 1.8.2 / 1.8.3", "17 项运行时/契约测试", "20 项五引擎与移动端浏览器集成测试", "Axe WCAG A/AA", "peer dependency", "AngularJS 安全基线", "npm run release:verify"]) {
   if (!docsText.includes(marker)) errors.push(`docs.html missing AngularJS 1.0.0 documentation marker: ${marker}`);
 }
-for (const marker of ["Official AngularJS bindings", "@gardener/angularjs", "506 个 CSS", "66 种 DOM", "535 runtime exports", "29 entrypoints", "28 CSS packs", "AngularJS 1.8.2–1.8.3", "./docs.html#angular"]) {
+for (const marker of ["Official AngularJS bindings", "@gardenerim/angularjs", "506 个 CSS", "66 种 DOM", "535 runtime exports", "29 entrypoints", "28 CSS packs", "AngularJS 1.8.2–1.8.3", "./docs.html#angular"]) {
   if (!homePage.includes(marker)) errors.push(`index.html missing AngularJS project introduction marker: ${marker}`);
 }
-for (const marker of ["@gardener/angularjs 1.0.0", "506 个 AngularJS 组件", "535 个根运行时导出", "24 个类型导出", "29 个公共包入口", "AngularJS 公共 API", "AngularJS 组件目录", "EOL 安全基线"]) {
+for (const marker of ["@gardenerim/angularjs 1.0.0", "506 个 AngularJS 组件", "535 个根运行时导出", "24 个类型导出", "29 个公共包入口", "AngularJS 公共 API", "AngularJS 组件目录", "EOL 安全基线"]) {
   if (!homeReadme.includes(marker)) errors.push(`README.md missing AngularJS documentation inventory marker: ${marker}`);
 }
-if (angularPerformance.status !== "passed" || angularPerformance.metrics.raw !== 404094 || angularPerformance.metrics.gzip !== 59499 || angularPerformance.metrics.brotli !== 29785) errors.push("AngularJS documented performance budget is stale or failing");
+if (angularPerformance.status !== "passed" || angularPerformance.metrics.raw !== 404104 || angularPerformance.metrics.gzip !== 59503 || angularPerformance.metrics.brotli !== 29798) errors.push("AngularJS documented performance budget is stale or failing");
 
 if (!docs.includes('id="blazor"') || !docs.includes('id="blazor-component-catalog"')) errors.push("docs.html missing the complete Blazor project documentation and catalog host");
 if (!siteJs.includes("setupBlazorCatalog") || !siteJs.includes("packages/blazor/metadata/public-api.json") || !siteJs.includes("packages/blazor/metadata/components.json") || !siteJs.includes('packageName: "Gardener.Blazor"')) errors.push("site.js does not hydrate the Blazor component catalog from canonical metadata");

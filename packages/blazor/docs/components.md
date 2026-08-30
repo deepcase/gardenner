@@ -1,6 +1,6 @@
 # Gardener Blazor 组件完整目录
 
-由 `@gardener/css@1.0.0` 元数据生成，共 506 个 Razor 组件，无省略。全部组件继承 `GardenerComponentBase`，共享 20 个参数与 6 个实例成员；状态与无障碍契约原样保留。
+由 `@gardenerim/css@1.0.0` 元数据生成，共 506 个 Razor 组件，无省略。全部组件继承 `GardenerComponentBase`，共享 20 个参数与 6 个实例成员；状态与无障碍契约原样保留。
 
 | Razor 组件 | CSS 组件 | 分类 | 类型 | 状态 | 默认标签 | 根类/选择器 | 行为 | 无障碍契约 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |

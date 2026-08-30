@@ -71,8 +71,8 @@ AngularJS 归一化后的公共属性名为 `gardenerVariant`、`gardenerState`�
 平台入口彼此隔离：
 
 ```ts
-import { createTauriWindowService } from "@gardener/angularjs/tauri";
-import { createElectronWindowService } from "@gardener/angularjs/electron";
+import { createTauriWindowService } from "@gardenerim/angularjs/tauri";
+import { createElectronWindowService } from "@gardenerim/angularjs/electron";
 ```
 
 两个服务均返回带 `available` 与 `destroy()` 的绑定对象，并复用 Gardener CSS 的安全桥接契约。
@@ -81,7 +81,7 @@ import { createElectronWindowService } from "@gardener/angularjs/electron";
 
 提供完整、core、themes、utilities、components、AI，Web、Mobile、Desktop、Tauri、Electron 五个平台，以及 28 个 `component-css/*` 功能包代理。`component-css/forms` 与 `component-css/forms.css` 均有效。
 
-公共 API、Compatibility、Performance 均提供关闭未知字段的 JSON Schema。组件目录可从 `@gardener/angularjs/catalog` 或 `catalog.json` 读取。
+公共 API、Compatibility、Performance 均提供关闭未知字段的 JSON Schema。组件目录可从 `@gardenerim/angularjs/catalog` 或 `catalog.json` 读取。
 
 ## TypeScript 类型
 

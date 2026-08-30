@@ -1,5 +1,5 @@
 import type angular from "angular";
-import { destroy, getInstance, init } from "@gardener/css/runtime";
+import { destroy, getInstance, init } from "@gardenerim/css/runtime";
 import type {
   GardenerAngularJSDirectiveFactory,
   GardenerComponentDefinition,

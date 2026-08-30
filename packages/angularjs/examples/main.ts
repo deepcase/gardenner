@@ -1,7 +1,7 @@
 import "angular/angular.js";
 import type angular from "angular";
-import { componentCatalog, createGardenerAngularJS } from "@gardener/angularjs";
-import "@gardener/angularjs/style.css";
+import { componentCatalog, createGardenerAngularJS } from "@gardenerim/angularjs";
+import "@gardenerim/angularjs/style.css";
 
 declare global {
   interface Window {

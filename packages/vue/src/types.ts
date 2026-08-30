@@ -1,5 +1,5 @@
 import type { Component, Ref } from "vue";
-import type { GardenerBehaviorInstance, GardenerBehaviorName, GardenerEventName } from "@gardener/css/runtime";
+import type { GardenerBehaviorInstance, GardenerBehaviorName, GardenerEventName } from "@gardenerim/css/runtime";
 
 export type GardenerPlatform = "web" | "mobile" | "tablet" | "desktop" | "pwa" | "desktop-webview" | "tauri" | "electron" | "print";
 export type GardenerComponentKind = "css" | "interactive";
@@ -51,4 +51,4 @@ export interface GardenerDirectiveOptions {
 
 export type GardenerDirectiveValue = GardenerBehaviorName | string | readonly (GardenerBehaviorName | string)[] | GardenerDirectiveOptions;
 export type GardenerAs = string | Component;
-export type { GardenerBehaviorInstance, GardenerBehaviorName, GardenerEventName } from "@gardener/css/runtime";
+export type { GardenerBehaviorInstance, GardenerBehaviorName, GardenerEventName } from "@gardenerim/css/runtime";

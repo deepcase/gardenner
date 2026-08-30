@@ -9,6 +9,7 @@ const localeDefinitions = Object.freeze({
 });
 
 const sourceLocale = "zh-CN";
+const defaultLocale = "en";
 const textSources = new WeakMap();
 const attributeSources = new WeakMap();
 const translatedAttributes = ["aria-label", "placeholder", "title", "alt"];
@@ -28,6 +29,10 @@ const localizedPageUrl = (locale) => {
   const targetLocale = normalizeLocale(locale);
   const url = new URL(location.href);
   const segments = url.pathname.split("/");
+  // Directory-style entry URLs such as /website/ still publish concrete
+  // locale pages. Normalize them before inserting the locale so static hosts
+  // receive /website/en/index.html instead of the non-file /website/en/.
+  if (!segments.at(-1)) segments[segments.length - 1] = "index.html";
   const parent = decodeURIComponent(segments.at(-2) || "");
   if (Object.hasOwn(localeDefinitions, parent)) segments.splice(-2, 1);
   segments.splice(-1, 0, targetLocale);
@@ -140,7 +145,11 @@ export async function initI18n() {
     const locale = normalizeLocale(queryLocale);
     localStorage.setItem("gardener.locale", locale);
     location.replace(localizedPageUrl(locale).href);
-    return locale;
+    return null;
+  }
+  if (!document.documentElement.dataset.locale) {
+    location.replace(localizedPageUrl(defaultLocale).href);
+    return null;
   }
   const requested = document.documentElement.dataset.locale ||
     document.documentElement.lang || sourceLocale;

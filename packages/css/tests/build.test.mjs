@@ -41,11 +41,11 @@ test("1.0.0 build catalog covers every platform, pack, component, and integrity 
     assert.deepEqual(profile.components, expected, `${profile.name} component inventory must describe its emitted packs`);
   }
   assert.ok(pkg.sideEffects.includes("dist/**/*.css"));
-  assert.match(import.meta.resolve("@gardener/css/component/basic"), /dist\/components\/basic\.min\.css$/u);
-  assert.match(import.meta.resolve("@gardener/css/component/basic.css"), /dist\/components\/basic\.min\.css$/u);
-  assert.match(import.meta.resolve("@gardener/css/platform/tauri.css"), /dist\/platforms\/gardener\.tauri\.min\.css$/u);
-  assert.match(import.meta.resolve("@gardener/css/platform/electron.css"), /dist\/platforms\/gardener\.electron\.min\.css$/u);
-  assert.match(import.meta.resolve("@gardener/css/builds"), /dist\/gardener\.builds\.json$/u);
+  assert.match(import.meta.resolve("@gardenerim/css/component/basic"), /dist\/components\/basic\.min\.css$/u);
+  assert.match(import.meta.resolve("@gardenerim/css/component/basic.css"), /dist\/components\/basic\.min\.css$/u);
+  assert.match(import.meta.resolve("@gardenerim/css/platform/tauri.css"), /dist\/platforms\/gardener\.tauri\.min\.css$/u);
+  assert.match(import.meta.resolve("@gardenerim/css/platform/electron.css"), /dist\/platforms\/gardener\.electron\.min\.css$/u);
+  assert.match(import.meta.resolve("@gardenerim/css/builds"), /dist\/gardener\.builds\.json$/u);
 });
 
 test("formal CSS and JavaScript minification emits smaller parseable artifacts and source maps", async () => {
@@ -292,7 +292,7 @@ test("the packed npm artifact installs and resolves every targeted public entryp
     for (const [platform, expectation] of Object.entries(platformExpectations)) {
       const entry = resolve(temporary, `${platform}.css`);
       const output = resolve(temporary, `${platform}.bundle.css`);
-      await writeFile(entry, `@import "@gardener/css/platform/${platform}.css";\n`);
+      await writeFile(entry, `@import "@gardenerim/css/platform/${platform}.css";\n`);
       await buildWithEsbuild({ absWorkingDir: temporary, entryPoints: [entry], bundle: true, outfile: output, logLevel: "silent" });
       const css = await readFile(output, "utf8");
       assert.ok(css.includes(expectation.include), `${platform} package CSS must bundle its platform styles`);
@@ -301,28 +301,28 @@ test("the packed npm artifact installs and resolves every targeted public entryp
     }
     const componentEntry = resolve(temporary, "auth-component.css");
     const componentOutput = resolve(temporary, "auth-component.bundle.css");
-    await writeFile(componentEntry, '@import "@gardener/css/component/auth-compositions.css";\n');
+    await writeFile(componentEntry, '@import "@gardenerim/css/component/auth-compositions.css";\n');
     await buildWithEsbuild({ absWorkingDir: temporary, entryPoints: [componentEntry], bundle: true, outfile: componentOutput, logLevel: "silent" });
     const componentCss = await readFile(componentOutput, "utf8");
     assert.ok(componentCss.includes(".g-sign-in"));
     assert.equal(componentCss.includes(".g-titlebar"), false);
     assert.equal(componentCss.includes(".g-mobile-app-bar"), false);
     const specifiers = [
-      "@gardener/css",
-      ...catalog.componentPacks.flatMap(({ name }) => [`@gardener/css/component/${name}`, `@gardener/css/component/${name}.css`]),
-      ...["web", "mobile", "desktop", "tauri", "electron"].map((name) => `@gardener/css/platform/${name}.css`),
-      "@gardener/css/builds",
-      "@gardener/css/performance",
-      "@gardener/css/compatibility",
-      "@gardener/css/schema/compatibility",
-      "@gardener/css/package.json",
-      "@gardener/css/runtime",
-      "@gardener/css/runtime.js",
-      "@gardener/css/runtime.min.js",
-      "@gardener/css/tauri.min.js",
-      "@gardener/css/electron.min.js",
+      "@gardenerim/css",
+      ...catalog.componentPacks.flatMap(({ name }) => [`@gardenerim/css/component/${name}`, `@gardenerim/css/component/${name}.css`]),
+      ...["web", "mobile", "desktop", "tauri", "electron"].map((name) => `@gardenerim/css/platform/${name}.css`),
+      "@gardenerim/css/builds",
+      "@gardenerim/css/performance",
+      "@gardenerim/css/compatibility",
+      "@gardenerim/css/schema/compatibility",
+      "@gardenerim/css/package.json",
+      "@gardenerim/css/runtime",
+      "@gardenerim/css/runtime.js",
+      "@gardenerim/css/runtime.min.js",
+      "@gardenerim/css/tauri.min.js",
+      "@gardenerim/css/electron.min.js",
     ];
-    await writeFile(resolve(temporary, "smoke.mjs"), `const runtime = await import("@gardener/css");\nif (runtime.Gardener.version !== "1.0.0") throw new Error("runtime version mismatch");\nfor (const specifier of ${JSON.stringify(specifiers)}) import.meta.resolve(specifier);\nconsole.log("resolved ${specifiers.length} entrypoints");\n`);
+    await writeFile(resolve(temporary, "smoke.mjs"), `const runtime = await import("@gardenerim/css");\nif (runtime.Gardener.version !== "1.0.0") throw new Error("runtime version mismatch");\nfor (const specifier of ${JSON.stringify(specifiers)}) import.meta.resolve(specifier);\nconsole.log("resolved ${specifiers.length} entrypoints");\n`);
     const smoke = spawnSync(process.execPath, ["smoke.mjs"], { cwd: temporary, encoding: "utf8", windowsHide: true });
     assert.equal(smoke.status, 0, smoke.stderr);
     assert.match(smoke.stdout, new RegExp(`resolved ${specifiers.length} entrypoints`));

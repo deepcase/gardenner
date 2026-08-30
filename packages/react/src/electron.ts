@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
-import { bindElectronWindowControls, type GardenerElectronBinding, type GardenerElectronBridge } from "@gardener/css/electron";
+import { bindElectronWindowControls, type GardenerElectronBinding, type GardenerElectronBridge } from "@gardenerim/css/electron";
 import { adapterRootValue, type GardenerAdapterTarget } from "./adapter-target.js";
 
 export const useElectronWindowControls = (root?: RefObject<GardenerAdapterTarget>, bridge?: GardenerElectronBridge | null) => {

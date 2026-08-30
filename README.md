@@ -10,10 +10,10 @@ The repository includes the core CSS/runtime package, 506 documented components,
 
 | Package | Purpose | Location |
 | --- | --- | --- |
-| `@gardener/css` | Tokens, themes, utilities, layout systems, semantic components, runtime behaviors, platform builds | [`packages/css`](packages/css) |
-| `@gardener/vue` | Vue 3 components, composables, plugin, desktop adapters | [`packages/vue`](packages/vue) |
-| `@gardener/react` | React components, hooks, provider, desktop adapters | [`packages/react`](packages/react) |
-| `@gardener/angularjs` | AngularJS 1.8 directives and services for maintained legacy products | [`packages/angularjs`](packages/angularjs) |
+| `@gardenerim/css` | Tokens, themes, utilities, layout systems, semantic components, runtime behaviors, platform builds | [`packages/css`](packages/css) |
+| `@gardenerim/vue` | Vue 3 components, composables, plugin, desktop adapters | [`packages/vue`](packages/vue) |
+| `@gardenerim/react` | React components, hooks, provider, desktop adapters | [`packages/react`](packages/react) |
+| `@gardenerim/angularjs` | AngularJS 1.8 directives and services for maintained legacy products | [`packages/angularjs`](packages/angularjs) |
 | `Gardener.Blazor` | Razor component library targeting .NET 10 with .NET 11 compatibility checks | [`packages/blazor`](packages/blazor) |
 | Documentation website | Landing page, complete searchable catalogs, seven locales | [`website`](website) |
 
@@ -36,12 +36,12 @@ The machine-readable schemas and manifests under each package are the canonical 
 Choose the smallest integration that fits the application:
 
 ```sh
-npm install @gardener/css
+npm install @gardenerim/css
 ```
 
 ```js
-import "@gardener/css";
-import { init } from "@gardener/css/runtime";
+import "@gardenerim/css";
+import { init } from "@gardenerim/css/runtime";
 
 init();
 ```
@@ -49,9 +49,9 @@ init();
 Framework adapters use the same CSS and runtime contract:
 
 ```sh
-npm install @gardener/css @gardener/vue
-npm install @gardener/css @gardener/react
-npm install @gardener/css @gardener/angularjs angular
+npm install @gardenerim/css @gardenerim/vue
+npm install @gardenerim/css @gardenerim/react
+npm install @gardenerim/css @gardenerim/angularjs angular
 ```
 
 For Blazor, reference the `Gardener.Blazor` NuGet package or the project under `packages/blazor/src/Gardener.Blazor` while developing this monorepo.

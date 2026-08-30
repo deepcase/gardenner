@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { GAlert, GButton, GCard, GDialog, GardenerPart, GardenerProvider, useGardenerBehavior, type GardenerBehaviorInstance, type GardenerComponentPublicInstance } from "@gardener/vue";
+import { GAlert, GButton, GCard, GDialog, GardenerPart, GardenerProvider, useGardenerBehavior, type GardenerBehaviorInstance, type GardenerComponentPublicInstance } from "@gardenerim/vue";
 
 const dialog = ref<GardenerComponentPublicInstance | null>(null);
 interface DialogInstance extends GardenerBehaviorInstance { open(): void }

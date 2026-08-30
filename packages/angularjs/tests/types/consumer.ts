@@ -8,7 +8,7 @@ import {
   type GardenerAngularJSComponentExportName,
   type GardenerComponentHandle,
   type GardenerThemeState,
-} from "@gardener/angularjs";
+} from "@gardenerim/angularjs";
 
 declare const ng: angular.IAngularStatic;
 const options: GardenerAngularJSOptions = { components: ["button", "gInput"], initialize: true };

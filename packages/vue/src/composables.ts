@@ -1,5 +1,5 @@
 import { nextTick, onBeforeUnmount, onMounted, reactive, readonly, shallowRef, unref, watch, type Ref } from "vue";
-import { Gardener, destroy, getInstance, init, toast } from "@gardener/css/runtime";
+import { Gardener, destroy, getInstance, init, toast } from "@gardenerim/css/runtime";
 import { themeAttributes } from "./provider.js";
 import type { GardenerBehaviorInstance, GardenerBehaviorName, GardenerComponentPublicInstance, GardenerElementTarget, GardenerEventHandler, GardenerThemeState, GardenerTargetValue } from "./types.js";
 

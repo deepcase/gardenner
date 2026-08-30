@@ -1,5 +1,5 @@
 import { createElement, forwardRef, useEffect, useImperativeHandle, useMemo, useRef, type ElementType } from "react";
-import { destroy, getInstance, init } from "@gardener/css/runtime";
+import { destroy, getInstance, init } from "@gardenerim/css/runtime";
 import type { GardenerComponentDefinition, GardenerComponentHandle, GardenerComponentProps, GardenerConfigValue, GardenerGeneratedComponent } from "./types.js";
 
 const list = (value: string | readonly string[] | undefined): string[] => value == null ? [] : Array.isArray(value) ? [...value] : [value as string];

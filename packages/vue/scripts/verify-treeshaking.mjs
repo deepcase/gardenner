@@ -11,7 +11,7 @@ const bundle = async (entrypoint) => {
     format: "esm",
     platform: "browser",
     target: ["es2020"],
-    external: ["vue", "@gardener/css", "@gardener/css/*"],
+    external: ["vue", "@gardenerim/css", "@gardenerim/css/*"],
     legalComments: "none",
   });
   return result.outputFiles[0].contents.length;

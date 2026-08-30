@@ -25,11 +25,23 @@ The release gate must pass without increasing a performance budget merely to hid
 
 ## Publish order
 
-1. Publish `@gardener/css`.
+1. Publish `@gardenerim/css`.
 2. Publish Vue, React, and AngularJS adapters after their peer range accepts the released CSS version.
 3. Pack and publish `Gardener.Blazor`.
 4. Build and deploy the website from the exact released package state.
 5. Create a signed repository tag and release notes that link package changelogs and call out migrations or deprecations.
 
-Registry credentials and signing keys must come from protected CI environments, never committed files. Test publication in a temporary consumer before promoting a release tag. The repository does not assume a registry organization or hosting URL; set package `repository`, `homepage`, and `bugs` fields to the final public URLs before the first external publication.
+Registry credentials and signing keys must come from protected CI environments, never committed files. Test publication in a temporary consumer before promoting a release tag. The official npm scope is `@gardenerim`, the NuGet package ID is `Gardener.Blazor`, and release metadata points to `https://github.com/deecase/gardener`.
 
+The first npm release uses a short-lived granular access token stored as the
+`NPM_TOKEN` GitHub Actions secret. Grant it read/write access to the
+`@gardenerim` scope, enable bypass 2FA only for this bootstrap run, and revoke
+it immediately after all four packages exist. Then configure each package's
+trusted publisher for repository `deecase/gardener`, workflow `publish.yml`,
+environment `release`, and the `npm publish` action. Future releases use OIDC
+and require no npm token.
+
+Before the first NuGet release, create a pending trusted-publishing policy for
+owner `deecase`, repository `gardener`, workflow `publish.yml`, and environment
+`release` under the `gardenerim` NuGet account. The workflow exchanges its
+GitHub OIDC identity for a one-hour NuGet API key immediately before upload.

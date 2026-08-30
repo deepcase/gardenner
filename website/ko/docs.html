@@ -34,7 +34,7 @@
     <link rel="alternate" hreflang="de" href="../de/docs.html" />
     <link rel="alternate" hreflang="x-default" href="../docs.html" />
     <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=afe73d14" />
-    <link rel="stylesheet" href="../assets/site.css" />
+    <link rel="stylesheet" href="../assets/site.css?v=hero-balance-3" />
   </head>
   <body>
     <a class="g-skip-link" href="#docs-main">문서 텍스트로 건너뛰기</a>
@@ -378,13 +378,13 @@
                 class="g-btn g-btn-outline g-btn-sm docs-copy"
                 type="button"
                 data-g-copy
-                data-g-copy-value="npm install @gardener/css"
+                data-g-copy-value="npm install @gardenerim/css"
               >
                 복사
               </button>
               <pre
                 class="site-code"
-              ><code>npm install @gardener/css</code></pre>
+              ><code>npm install @gardenerim/css</code></pre>
             </div>
             <div class="docs-table-wrap">
               <table class="docs-table">
@@ -397,7 +397,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><code>@gardener/css</code></td>
+                    <td><code>@gardenerim/css</code></td>
                     <td>전체 CSS + 기본 런타임 항목</td>
                     <td>상자에서 꺼내 바로 사용</td>
                   </tr>
@@ -488,17 +488,17 @@
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>import &quot;@gardener/css/core.css&quot;;
-import &quot;@gardener/css/themes.css&quot;;
-import &quot;@gardener/css/components.css&quot;;
-import &quot;@gardener/css/utilities.css&quot;;</code></pre>
+              ><code>import &quot;@gardenerim/css/core.css&quot;;
+import &quot;@gardenerim/css/themes.css&quot;;
+import &quot;@gardenerim/css/components.css&quot;;
+import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
             </div>
           </section>
 
           <section class="docs-section" id="vue">
             <h2>Gardener Vue 3 프로젝트</h2>
             <p>
-              <a href="../../packages/vue/README.md"><code>@gardener/vue</code></a> 는 Gardener CSS 1.0.0의 공식 Vue 3 적응 레이어이며, 현재 버전은 다음과 같습니다.
+              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> 는 Gardener CSS 1.0.0의 공식 Vue 3 적응 레이어이며, 현재 버전은 다음과 같습니다.
               <strong>1.0.0 안정</strong>, Vue 지원
               <code>&gt;=3.4.0 &lt;4.0.0</code> Node.js 사용
               <code>&gt;=18.18</code>. 506개의 CSS 구성 요소와 66개의 DOM 동작을 항목별로 매핑하는 동시에 538개의 루트 런타임 내보내기, 21개의 TypeScript 유형 내보내기, 29개의 패키지 진입점 및 28개의 구성 요소 CSS 패키지 프록시를 제공합니다.
@@ -512,12 +512,12 @@ import &quot;@gardener/css/utilities.css&quot;;</code></pre>
 
             <h3>설치 및 글로벌 플러그인</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/vue @gardener/css vue</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/vue @gardenerim/css vue</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createApp } from &quot;vue&quot;;
-import GardenerVue from &quot;@gardener/vue&quot;;
-import &quot;@gardener/vue/style.css&quot;;
+import GardenerVue from &quot;@gardenerim/vue&quot;;
+import &quot;@gardenerim/vue/style.css&quot;;
 import App from &quot;./App.vue&quot;;
 
 createApp(App).use(GardenerVue).mount(&quot;#app&quot;);</code></pre>
@@ -532,8 +532,8 @@ createApp(App).use(GardenerVue).mount(&quot;#app&quot;);</code></pre>
             <h3>주문형 구성요소 및 테마 제공자</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;script setup lang=&quot;ts&quot;&gt;
-import { GButton, GCard, GDialog, GardenerProvider } from &quot;@gardener/vue&quot;;
-import &quot;@gardener/vue/platform/web.css&quot;;
+import { GButton, GCard, GDialog, GardenerProvider } from &quot;@gardenerim/vue&quot;;
+import &quot;@gardenerim/vue/platform/web.css&quot;;
 &lt;/script&gt;
 
 &lt;template&gt;
@@ -619,7 +619,7 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               <table class="docs-table">
                 <thead><tr><th>입구</th><th>내용</th><th>적용 가능한 시나리오</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/vue/style.css</code></td><td>Gardener 스타일 완료</td><td>즉시 사용 가능한 제품 및 프로토타입</td></tr>
+                  <tr><td><code>@gardenerim/vue/style.css</code></td><td>Gardener 스타일 완료</td><td>즉시 사용 가능한 제품 및 프로토타입</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>레이어드 스타일 항목</td><td>커스텀 빌드</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>일반 웹 기능</td><td>PC, 반응형웹, 대시보드</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>유니버셜+모바일 결합</td><td>모바일 웹페이지, PWA, WebView</td></tr>
@@ -631,8 +631,8 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               </table>
             </div>
             <div class="docs-callout">
-              일반 응용프로그램에 권장되는 루트 항목 또는 <code>@gardener/vue/components</code> 최고의 나무 흔들림을 얻으십시오.
-              <code>@gardener/vue/bundle.min.js</code> 은 사전 압축된 단일 파일 항목입니다. SSR 가져오기는 브라우저 전역 개체에 액세스하지 않으며 구성 요소가 마운트된 후에만 동작이 초기화되므로 서버 측 렌더링 및 Hydration에 사용할 수 있습니다.
+              일반 응용프로그램에 권장되는 루트 항목 또는 <code>@gardenerim/vue/components</code> 최고의 나무 흔들림을 얻으십시오.
+              <code>@gardenerim/vue/bundle.min.js</code> 은 사전 압축된 단일 파일 항목입니다. SSR 가져오기는 브라우저 전역 개체에 액세스하지 않으며 구성 요소가 마운트된 후에만 동작이 초기화되므로 서버 측 렌더링 및 Hydration에 사용할 수 있습니다.
             </div>
 
             <h3>공개 패키지 항목 29개 모두</h3>
@@ -653,8 +653,8 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               <a href="../../packages/vue/metadata/public-api.json">공개 API</a>、<a href="../../packages/vue/metadata/compatibility.json">호환성</a>
               그리고 <a href="../../packages/vue/dist/gardener-vue.performance.json">성능</a>
               둘 다 알 수 없는 필드를 끄는 JSON 스키마를 가지고 있습니다.<a href="../../packages/vue/dist/catalog.json">구성요소 카탈로그 JSON</a>
-              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 예산은 328,220B raw, 51,602B gzip, 26,926B Brotli입니다. 싱글
-              <code>GButton</code> 에 대한 실제 트리 쉐이킹 결과는 3,718B입니다. 결정적 빌드는 87개 파일을 다루고, npm 패키지는 98개 파일을 확인하며, 284,183B는 압축, 3,729,929B는 압축을 푼 상태입니다.
+              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 예산은 328,236B raw, 51,605B gzip, 26,932B Brotli입니다. 싱글
+              <code>GButton</code> 에 대한 실제 트리 쉐이킹 결과는 3,720B입니다. 결정적 빌드는 87개 파일을 다루고, npm 패키지는 98개 파일을 확인하며, 284,318B는 압축, 3,730,411B는 압축을 푼 상태입니다.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd vue
@@ -686,7 +686,7 @@ npm run release:verify
           <section class="docs-section" id="react">
             <h2>Gardener React Project</h2>
             <p>
-              <a href="../../packages/react/README.md"><code>@gardener/react</code></a> 는 Gardener CSS 1.0.0의 공식 React 적응 레이어이며, 현재 버전은 다음과 같습니다.
+              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> 는 Gardener CSS 1.0.0의 공식 React 적응 레이어이며, 현재 버전은 다음과 같습니다.
               <strong>1.0.0 안정</strong>, React 지원
               <code>&gt;=18.3.0 &lt;20.0.0</code> Node.js 사용
               <code>&gt;=18.18</code>. 506개의 CSS 구성 요소와 66개의 DOM 동작을 항목별로 매핑하는 동시에 538개의 루트 런타임 내보내기, 22개의 TypeScript 유형 내보내기, 29개의 공개 패키지 진입점 및 28개의 구성 요소 CSS 패키지 프록시를 제공합니다.
@@ -700,12 +700,12 @@ npm run release:verify
 
             <h3>설치 및 루트 구성 요소</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/react @gardener/css react react-dom</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/react @gardenerim/css react react-dom</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createRoot } from &quot;react-dom/client&quot;;
-import { GButton, GCard, GardenerProvider } from &quot;@gardener/react&quot;;
-import &quot;@gardener/react/style.css&quot;;
+import { GButton, GCard, GardenerProvider } from &quot;@gardenerim/react&quot;;
+import &quot;@gardenerim/react/style.css&quot;;
 
 createRoot(document.getElementById(&quot;root&quot;)!).render(
   &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
@@ -715,7 +715,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
             </div>
             <p>
               구성요소는 모두 요청 시 가져오기라는 이름의 지원을 지원합니다. 빌더는 루트 항목에서 시작할 수 있습니다.
-              <code>@gardener/react/components</code> 나무를 흔들어 보세요. 생성된 각 구성 요소는 기본 HTML 태그의 정확한 속성 유형을 유지합니다. <code>GButton</code> 수락
+              <code>@gardenerim/react/components</code> 나무를 흔들어 보세요. 생성된 각 구성 요소는 기본 HTML 태그의 정확한 속성 유형을 유지합니다. <code>GButton</code> 수락
               <code>type=&quot;submit&quot;</code>，<code>GInput</code> 수락
               <code>type</code> 그리고 <code>autoComplete</code>을 허용하면서
               <code>as</code> 다른 기본 요소 또는 React 구성요소로 전환합니다.
@@ -806,7 +806,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
               <table class="docs-table">
                 <thead><tr><th>입구</th><th>내용</th><th>적용 가능한 시나리오</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/react/style.css</code></td><td>Gardener 스타일 완료</td><td>즉시 사용 가능한 제품 및 프로토타입</td></tr>
+                  <tr><td><code>@gardenerim/react/style.css</code></td><td>Gardener 스타일 완료</td><td>즉시 사용 가능한 제품 및 프로토타입</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>레이어드 스타일 항목</td><td>커스텀 빌드</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>일반 웹 기능</td><td>PC, 반응형웹, 대시보드</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>유니버셜+모바일 결합</td><td>모바일 웹페이지, PWA, WebView</td></tr>
@@ -821,12 +821,12 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
             <h3>SSR, 수화 및 데스크탑 브리징</h3>
             <div class="docs-callout">
               패키지 항목을 서버 측에서 안전하게 가져올 수 있습니다. 506개의 모든 구성 요소는 항목별 SSR을 거쳤으며 동작은 효과 수명 주기 동안에만 초기화됩니다. 서버 측 표시 Hydration은 복구 가능한 오류를 생성하지 않으며 StrictMode와 호환됩니다. Tauri와 Electron이 각각 사용됩니다.
-              <code>@gardener/react/tauri</code> 그리고
-              <code>@gardener/react/electron</code> 포털이 실수로 다른 플랫폼의 브리징 API를 내보내지 않도록 하는 독립 포털입니다.
+              <code>@gardenerim/react/tauri</code> 그리고
+              <code>@gardenerim/react/electron</code> 포털이 실수로 다른 플랫폼의 브리징 API를 내보내지 않도록 하는 독립 포털입니다.
             </div>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>import { useTauriWindowControls } from &quot;@gardener/react/tauri&quot;;
-import &quot;@gardener/react/platform/tauri.css&quot;;
+              <pre class="site-code"><code>import { useTauriWindowControls } from &quot;@gardenerim/react/tauri&quot;;
+import &quot;@gardenerim/react/platform/tauri.css&quot;;
 
 function WindowChrome() {
   const root = useRef&lt;HTMLElement | null&gt;(null);
@@ -853,8 +853,8 @@ function WindowChrome() {
               <a href="../../packages/react/metadata/public-api.json">공개 API</a>、<a href="../../packages/react/metadata/compatibility.json">호환성</a>
               그리고 <a href="../../packages/react/dist/gardener-react.performance.json">성능</a>
               둘 다 알 수 없는 필드가 꺼진 JSON 스키마로 검증되었습니다.<a href="../../packages/react/dist/catalog.json">구성요소 카탈로그 JSON</a>
-              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 실제 측정값은 326,064 B raw, 50,126 B gzip, 26,381 B Brotli입니다. 싱글
-              <code>GButton</code> 에 대한 실제 트리 쉐이킹 결과는 2,599B입니다. 결정론적 빌드는 87개 파일을 다루었고, npm 패키지는 98개 파일을 검사했으며, 262,706B는 압축, 2,438,775B는 압축을 풀었고, 프로덕션 종속성 보안 감사에서는 취약점이 0이었습니다.
+              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 실제 측정값은 326,076 B raw, 50,128 B gzip, 26,375 B Brotli입니다. 싱글
+              <code>GButton</code> 에 대한 실제 트리 쉐이킹 결과는 2,601B입니다. 결정론적 빌드는 87개 파일을 다루었고, npm 패키지는 98개 파일을 검사했으며, 262,883B는 압축, 2,439,243B는 압축을 풀었고, 프로덕션 종속성 보안 감사에서는 취약점이 0이었습니다.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd react
@@ -886,7 +886,7 @@ npm run release:verify
           <section class="docs-section" id="angular">
             <h2>Gardener AngularJS Project</h2>
             <p>
-              <a href="../../packages/angularjs/README.md"><code>@gardener/angularjs</code></a>
+              <a href="../../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
               는 Gardener CSS 1.0.0에 대한 공식 AngularJS 1.x 레거시 시스템 적응 레이어이며, 현재 버전은 다음과 같습니다.
               <strong>1.0.0 안정</strong>. AngularJS의 유효성을 검사합니다.
               <code>&gt;=1.8.2 &lt;1.9.0</code> Node.js 사용
@@ -906,12 +906,12 @@ npm run release:verify
 
             <h3>설치, ESM 로딩 및 모듈공장</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/angularjs @gardener/css angular</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/angularjs @gardenerim/css angular</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import &quot;angular/angular.js&quot;;
-import { createGardenerAngularJS } from &quot;@gardener/angularjs&quot;;
-import &quot;@gardener/angularjs/style.css&quot;;
+import { createGardenerAngularJS } from &quot;@gardenerim/angularjs&quot;;
+import &quot;@gardenerim/angularjs/style.css&quot;;
 
 const gardenerModule = createGardenerAngularJS(window.angular);
 window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
@@ -1014,7 +1014,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               <table class="docs-table">
                 <thead><tr><th>입구</th><th>내용</th><th>적용 가능한 시나리오</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/angularjs/style.css</code></td><td>Gardener 스타일 완료</td><td>기존 시스템에 즉시 사용 가능하고 점진적인 통합</td></tr>
+                  <tr><td><code>@gardenerim/angularjs/style.css</code></td><td>Gardener 스타일 완료</td><td>기존 시스템에 즉시 사용 가능하고 점진적인 통합</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>레이어드 스타일 항목</td><td>커스텀 빌드</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>일반 웹 기능</td><td>PC 홈페이지 및 대시보드</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>모바일 구성요소 및 안전 지대</td><td>모바일 웹페이지, PWA, WebView</td></tr>
@@ -1026,8 +1026,8 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               </table>
             </div>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>import { createTauriWindowService } from &quot;@gardener/angularjs/tauri&quot;;
-import { createElectronWindowService } from &quot;@gardener/angularjs/electron&quot;;</code></pre>
+              <pre class="site-code"><code>import { createTauriWindowService } from &quot;@gardenerim/angularjs/tauri&quot;;
+import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron&quot;;</code></pre>
             </div>
             <p>
               타우리 입구와 전자 입구가 서로 분리되어 있으며 둘 다 벨트로 돌아갑니다. <code>available</code> 그리고
@@ -1052,8 +1052,8 @@ import { createElectronWindowService } from &quot;@gardener/angularjs/electron&q
               <a href="../../packages/angularjs/metadata/public-api.json">공개 API</a>、<a href="../../packages/angularjs/metadata/compatibility.json">호환성</a> 그리고
               <a href="../../packages/angularjs/dist/gardener-angularjs.performance.json">성능</a>
               둘 다 알 수 없는 필드가 꺼진 상태에서 JSON 스키마로 검증됩니다. AngularJS 지원 범위는 기계가 읽을 수 있는 호환성 기준에도 기록됩니다.<a href="../../packages/angularjs/dist/catalog.json">구성요소 카탈로그 JSON</a>
-              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 실제 측정값은 404,094 B raw, 59,499 B gzip, 29,785 B Brotli입니다. 싱글
-              <code>GButtonDirective</code> 에 대한 실제 트리 쉐이킹 결과는 4,515B입니다. 결정적 빌드에는 83개 파일, npm 패키지 확인 95개 파일, 325,747B 팩, 2,938,245B 언팩, Gardener의 자체 프로덕션 로드 감사에서는 취약점이 0이었습니다.
+              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 실제 측정값은 404,104 B raw, 59,503 B gzip, 29,798 B Brotli입니다. 싱글
+              <code>GButtonDirective</code> 에 대한 실제 트리 쉐이킹 결과는 4,517B입니다. 결정적 빌드에는 83개 파일, npm 패키지 확인 95개 파일, 325,915B 팩, 2,938,691B 언팩, Gardener의 자체 프로덕션 로드 감사에서는 취약점이 0이었습니다.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
@@ -8250,7 +8250,7 @@ npm run test:net11</code></pre>
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>import Gardener from &quot;@gardener/css&quot;;
+              ><code>import Gardener from &quot;@gardenerim/css&quot;;
 
 Gardener.init(document);
 const dialog = Gardener.getInstance(&quot;#confirm&quot;, &quot;dialog&quot;);
@@ -8413,7 +8413,7 @@ Gardener.toast({
             <h3>보안 브리징</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>// Electron renderer
-import { bindElectronWindowControls } from &quot;@gardener/css/electron&quot;;
+import { bindElectronWindowControls } from &quot;@gardenerim/css/electron&quot;;
 bindElectronWindowControls();
 
 // preload 화이트리스트 작업만 노출

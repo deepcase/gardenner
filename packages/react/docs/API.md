@@ -3,10 +3,10 @@
 ## 安装
 
 ```bash
-npm install @gardener/react @gardener/css react react-dom
+npm install @gardenerim/react @gardenerim/css react react-dom
 ```
 
-React 版本范围为 `>=18.3.0 <20.0.0`。加载 `@gardener/react/style.css` 可获得完整样式；按平台可改用 `platform/web.css`、`mobile.css`、`desktop.css`、`tauri.css` 或 `electron.css`。
+React 版本范围为 `>=18.3.0 <20.0.0`。加载 `@gardenerim/react/style.css` 可获得完整样式；按平台可改用 `platform/web.css`、`mobile.css`、`desktop.css`、`tauri.css` 或 `electron.css`。
 
 ## 组件公共属性
 
@@ -54,16 +54,16 @@ dialog.current?.getInstance("dialog");
 ## 按需引入
 
 ```tsx
-import { GButton, GCard, GDialog } from "@gardener/react/components";
-import { useGardenerBehavior } from "@gardener/react/hooks";
-import "@gardener/react/component-css/forms.css";
+import { GButton, GCard, GDialog } from "@gardenerim/react/components";
+import { useGardenerBehavior } from "@gardenerim/react/hooks";
+import "@gardenerim/react/component-css/forms.css";
 ```
 
 包提供 29 个入口，包括根入口、components、component、hooks、provider、adapters、tauri、electron、catalog、catalog.json、六个样式层、五个平台样式、`component-css/*.css` 正式入口与 `component-css/*` 兼容别名、预压缩 bundle、performance、三份 Schema 与 package.json。
 
 ## Tauri 与 Electron
 
-`useTauriWindowControls`、`useElectronWindowControls` 随 React 生命周期绑定并销毁桌面窗口按钮；`bindTauriWindowControls` 与 `bindElectronWindowControls` 也可直接使用。`@gardener/react/tauri` 与 `@gardener/react/electron` 是相互隔离的独立模块，单平台导入不会连带加载另一平台桥接。桥接对象保持显式注入，不向不可信页面暴露 Node 或原生对象。
+`useTauriWindowControls`、`useElectronWindowControls` 随 React 生命周期绑定并销毁桌面窗口按钮；`bindTauriWindowControls` 与 `bindElectronWindowControls` 也可直接使用。`@gardenerim/react/tauri` 与 `@gardenerim/react/electron` 是相互隔离的独立模块，单平台导入不会连带加载另一平台桥接。桥接对象保持显式注入，不向不可信页面暴露 Node 或原生对象。
 
 ## SSR、StrictMode 与 Hydration
 
@@ -71,10 +71,10 @@ import "@gardener/react/component-css/forms.css";
 
 ## 机器可读契约
 
-- `@gardener/react/schema/public-api`
-- `@gardener/react/schema/compatibility`
-- `@gardener/react/schema/performance`
-- `@gardener/react/catalog.json`
-- `@gardener/react/performance`
+- `@gardenerim/react/schema/public-api`
+- `@gardenerim/react/schema/compatibility`
+- `@gardenerim/react/schema/performance`
+- `@gardenerim/react/catalog.json`
+- `@gardenerim/react/performance`
 
 全部 506 个组件见 [components.md](./components.md)。

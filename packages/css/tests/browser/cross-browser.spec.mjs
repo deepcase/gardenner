@@ -10,6 +10,13 @@ for (const { name, url } of releasePages) {
       response?.ok(),
       `${name} must return a successful document response`,
     ).toBe(true);
+    if (name.startsWith("website/")) {
+      const file = name.endsWith("docs.html") ? "docs.html" : "index.html";
+      await page.waitForURL(
+        ({ pathname }) => pathname === `/website/en/${file}`,
+        { waitUntil: "networkidle" },
+      );
+    }
     await expect(page.locator("body")).toBeVisible();
 
     const documentState = await page.evaluate(() => ({

@@ -1,4 +1,4 @@
-import { Gardener, destroy, emit, getInstance, init, observe, toast } from "@gardener/css/runtime";
+import { Gardener, destroy, emit, getInstance, init, observe, toast } from "@gardenerim/css/runtime";
 import { themeAxes } from "./directives.js";
 import type { GardenerRuntimeService, GardenerThemeService, GardenerThemeState } from "./types.js";
 

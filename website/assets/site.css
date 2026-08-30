@@ -55,6 +55,18 @@
   .site-proof { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin-block-start: 2rem; padding: 0; color: var(--site-muted); font-size: .85rem; list-style: none; }
   .site-proof li::before { content: "✓"; margin-inline-end: .38rem; color: var(--site-accent); font-weight: 800; }
 
+  @media (min-width: 62.01rem) {
+    html:not([lang="zh-CN"]) .site-hero-grid { align-items: start; gap: clamp(2.5rem, 4.5vw, 4.5rem); }
+    html:not([lang="zh-CN"]) .site-hero-grid > :first-child { min-block-size: 31rem; display: flex; flex-direction: column; }
+    html[lang="ko"] .site-hero-grid > :first-child { min-block-size: 28rem; }
+    html:not([lang="zh-CN"]) .site-hero h1 { max-width: none; font-size: clamp(3rem, 3.5vw, 3.5rem); line-height: .98; letter-spacing: -.04em; }
+    html:is([lang="en"], [lang="ja"], [lang="ko"]) .site-hero h1 { font-size: clamp(3.25rem, 4vw, 4rem); }
+    html:not([lang="zh-CN"]) .site-hero-copy { max-width: 40rem; margin-block-start: 1.25rem; font-size: clamp(1rem, 1.2vw, 1.0625rem); line-height: 1.58; }
+    html:not([lang="zh-CN"]) .site-hero-actions,
+    html:not([lang="zh-CN"]) .site-proof { margin-block-start: 1.5rem; }
+    html:not([lang="zh-CN"]) .site-proof { margin-block-start: auto; padding-block-start: 1.5rem; }
+  }
+
   .site-demo { position: relative; }
   .site-demo::before { content: ""; position: absolute; z-index: -1; inset: -3rem -2rem; background: radial-gradient(circle at center, #e8f6ec 0, rgb(232 246 236 / 0) 68%); }
   .site-window { overflow: hidden; border: 1px solid #dbe2de; border-radius: .5rem; background: #fff; box-shadow: 0 22px 70px rgb(28 55 39 / .12); }

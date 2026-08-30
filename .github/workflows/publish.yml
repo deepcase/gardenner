@@ -1,0 +1,141 @@
+name: Publish Gardener packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to publish
+        required: true
+        default: 1.0.0
+        type: string
+      confirm:
+        description: Type PUBLISH to authorize the registry upload
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  guard:
+    name: Validate release ref and versions
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Validate explicit approval, tag, package names, and versions
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+          RELEASE_CONFIRM: ${{ inputs.confirm }}
+        run: >-
+          node -e "const fs=require('node:fs');
+          if(process.env.RELEASE_CONFIRM!=='PUBLISH')throw new Error('Confirmation must equal PUBLISH');
+          if(process.env.GITHUB_REF!=='refs/tags/v'+process.env.RELEASE_VERSION)throw new Error('Run this workflow from tag v'+process.env.RELEASE_VERSION);
+          for(const [path,name] of [['packages/css/package.json','@gardenerim/css'],['packages/vue/package.json','@gardenerim/vue'],['packages/react/package.json','@gardenerim/react'],['packages/angularjs/package.json','@gardenerim/angularjs']]){const p=JSON.parse(fs.readFileSync(path));if(p.name!==name||p.version!==process.env.RELEASE_VERSION)throw new Error(path+' does not match the requested release');}
+          const project=fs.readFileSync('packages/blazor/src/Gardener.Blazor/Gardener.Blazor.csproj','utf8');
+          if(!project.includes('<PackageId>Gardener.Blazor</PackageId>')||!project.includes('<Version>'+process.env.RELEASE_VERSION+'</Version>'))throw new Error('Gardener.Blazor does not match the requested release');"
+
+  npm-css:
+    name: Publish @gardenerim/css
+    needs: guard
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - run: npm install --global npm@11.17.0
+      - run: npm ci
+        working-directory: packages/css
+      - run: npx playwright install --with-deps chromium firefox webkit
+        working-directory: packages/css
+      - run: npm publish --access public
+        working-directory: packages/css
+        env:
+          # Required only for the one-time bootstrap publish. Once the package
+          # exists and its trusted publisher is configured, remove NPM_TOKEN
+          # from the repository; npm will authenticate through OIDC instead.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  npm-adapters:
+    name: Publish @gardenerim/${{ matrix.package }}
+    needs: npm-css
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [vue, react, angularjs]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - run: npm install --global npm@11.17.0
+      - run: npm ci
+        working-directory: packages/${{ matrix.package }}
+      - run: npx playwright install --with-deps chromium firefox webkit
+        working-directory: packages/${{ matrix.package }}
+      - run: npm publish --access public
+        working-directory: packages/${{ matrix.package }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  nuget:
+    name: Publish Gardener.Blazor
+    needs: guard
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.400
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: npm ci
+        working-directory: packages/blazor
+      - run: npx playwright install --with-deps chromium firefox webkit
+        working-directory: packages/blazor
+      - run: npm run release:verify
+        working-directory: packages/blazor
+        env:
+          GARDENER_REQUIRE_FIREFOX: "1"
+      - name: Exchange GitHub OIDC token for a temporary NuGet API key
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: gardenerim
+      - name: Publish Gardener.Blazor
+        working-directory: packages/blazor
+        run: >-
+          dotnet nuget push artifacts/Gardener.Blazor.${{ inputs.version }}.nupkg
+          --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}"
+          --source https://api.nuget.org/v3/index.json

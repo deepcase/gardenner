@@ -1,5 +1,5 @@
 import { computed, defineComponent, h, nextTick, onBeforeUnmount, onMounted, ref, watch, type Component, type PropType } from "vue";
-import { destroy, getInstance, init } from "@gardener/css/runtime";
+import { destroy, getInstance, init } from "@gardenerim/css/runtime";
 import type { GardenerComponentDefinition, GardenerComponentPublicInstance, GardenerConfigValue } from "./types.js";
 
 const list = (value: string | readonly string[] | undefined): string[] => value == null ? [] : Array.isArray(value) ? [...value] : [value as string];

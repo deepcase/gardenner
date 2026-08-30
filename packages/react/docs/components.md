@@ -1,6 +1,6 @@
 # Gardener React 组件完整目录
 
-本目录由 `@gardener/css@1.0.0` 元数据自动生成，共 506 个 React 组件，无省略。所有组件支持 `as`、`variant`、`state`、`config`、`initialize`、`value`、`defaultValue`、`valueEvent`、`valueKey`、`onValueChange`、原生 attributes/events、children 和 ref handle。
+本目录由 `@gardenerim/css@1.0.0` 元数据自动生成，共 506 个 React 组件，无省略。所有组件支持 `as`、`variant`、`state`、`config`、`initialize`、`value`、`defaultValue`、`valueEvent`、`valueKey`、`onValueChange`、原生 attributes/events、children 和 ref handle。
 
 | React 导出 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |
 | --- | --- | --- | --- | --- | --- |

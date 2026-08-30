@@ -10,14 +10,14 @@ import Gardener, {
   type GardenerBehaviorFactory,
   type GardenerBehaviorName,
   type GardenerEventName,
-} from "@gardener/css";
-import { bindTauriWindowControls, type GardenerTauriBridge } from "@gardener/css/tauri";
-import { bindElectronWindowControls, type GardenerElectronBridge } from "@gardener/css/electron";
-import runtime, { init as initRuntime } from "@gardener/css/runtime";
-import runtimeJs from "@gardener/css/runtime.js";
-import runtimeMin from "@gardener/css/runtime.min.js";
-import { bindTauriWindowControls as bindTauriMin } from "@gardener/css/tauri.min.js";
-import { bindElectronWindowControls as bindElectronMin } from "@gardener/css/electron.min.js";
+} from "@gardenerim/css";
+import { bindTauriWindowControls, type GardenerTauriBridge } from "@gardenerim/css/tauri";
+import { bindElectronWindowControls, type GardenerElectronBridge } from "@gardenerim/css/electron";
+import runtime, { init as initRuntime } from "@gardenerim/css/runtime";
+import runtimeJs from "@gardenerim/css/runtime.js";
+import runtimeMin from "@gardenerim/css/runtime.min.js";
+import { bindTauriWindowControls as bindTauriMin } from "@gardenerim/css/tauri.min.js";
+import { bindElectronWindowControls as bindElectronMin } from "@gardenerim/css/electron.min.js";
 
 const behavior: GardenerBehaviorName = "dialog";
 const event: GardenerEventName = "open";

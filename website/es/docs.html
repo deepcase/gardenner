@@ -34,7 +34,7 @@
     <link rel="alternate" hreflang="de" href="../de/docs.html" />
     <link rel="alternate" hreflang="x-default" href="../docs.html" />
     <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=afe73d14" />
-    <link rel="stylesheet" href="../assets/site.css" />
+    <link rel="stylesheet" href="../assets/site.css?v=hero-balance-3" />
   </head>
   <body>
     <a class="g-skip-link" href="#docs-main">Saltar al texto del documento</a>
@@ -378,13 +378,13 @@
                 class="g-btn g-btn-outline g-btn-sm docs-copy"
                 type="button"
                 data-g-copy
-                data-g-copy-value="npm install @gardener/css"
+                data-g-copy-value="npm install @gardenerim/css"
               >
                 Copiar
               </button>
               <pre
                 class="site-code"
-              ><code>npm install @gardener/css</code></pre>
+              ><code>npm install @gardenerim/css</code></pre>
             </div>
             <div class="docs-table-wrap">
               <table class="docs-table">
@@ -397,7 +397,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><code>@gardener/css</code></td>
+                    <td><code>@gardenerim/css</code></td>
                     <td>CSS completo + entrada de tiempo de ejecución predeterminado</td>
                     <td>Úselo directamente desde el primer momento</td>
                   </tr>
@@ -488,17 +488,17 @@
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>import &quot;@gardener/css/core.css&quot;;
-import &quot;@gardener/css/themes.css&quot;;
-import &quot;@gardener/css/components.css&quot;;
-import &quot;@gardener/css/utilities.css&quot;;</code></pre>
+              ><code>import &quot;@gardenerim/css/core.css&quot;;
+import &quot;@gardenerim/css/themes.css&quot;;
+import &quot;@gardenerim/css/components.css&quot;;
+import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
             </div>
           </section>
 
           <section class="docs-section" id="vue">
             <h2>Gardener Vue 3 Project</h2>
             <p>
-              <a href="../../packages/vue/README.md"><code>@gardener/vue</code></a> es la capa de adaptación oficial de Vue 3 de Gardener CSS 1.0.0, la versión actual es
+              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> es la capa de adaptación oficial de Vue 3 de Gardener CSS 1.0.0, la versión actual es
               <strong>1.0.0 Estable</strong>, compatible con Vue
               <code>&gt;=3.4.0 &lt;4.0.0</code> con Node.js
               <code>&gt;=18.18</code>. Mapea los 506 componentes CSS y 66 comportamientos DOM elemento por elemento, al tiempo que proporciona 538 exportaciones de tiempo de ejecución raíz, 21 exportaciones de tipo TypeScript, 29 puntos de entrada de paquetes y 28 proxies de paquetes CSS de componentes.
@@ -512,12 +512,12 @@ import &quot;@gardener/css/utilities.css&quot;;</code></pre>
 
             <h3>Instalación y complementos globales</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/vue @gardener/css vue</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/vue @gardenerim/css vue</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createApp } from &quot;vue&quot;;
-import GardenerVue from &quot;@gardener/vue&quot;;
-import &quot;@gardener/vue/style.css&quot;;
+import GardenerVue from &quot;@gardenerim/vue&quot;;
+import &quot;@gardenerim/vue/style.css&quot;;
 import App from &quot;./App.vue&quot;;
 
 createApp(App).use(GardenerVue).mount(&quot;#app&quot;);</code></pre>
@@ -532,8 +532,8 @@ createApp(App).use(GardenerVue).mount(&quot;#app&quot;);</code></pre>
             <h3>Proveedor de temas y componentes bajo demanda</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;script setup lang=&quot;ts&quot;&gt;
-import { GButton, GCard, GDialog, GardenerProvider } from &quot;@gardener/vue&quot;;
-import &quot;@gardener/vue/platform/web.css&quot;;
+import { GButton, GCard, GDialog, GardenerProvider } from &quot;@gardenerim/vue&quot;;
+import &quot;@gardenerim/vue/platform/web.css&quot;;
 &lt;/script&gt;
 
 &lt;template&gt;
@@ -619,7 +619,7 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               <table class="docs-table">
                 <thead><tr><th>Entrada</th><th>Contenido</th><th>Escenarios aplicables</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/vue/style.css</code></td><td>Estilo Gardener completo</td><td>Listo para usar y prototipo</td></tr>
+                  <tr><td><code>@gardenerim/vue/style.css</code></td><td>Estilo Gardener completo</td><td>Listo para usar y prototipo</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>Entrada de estilo en capas</td><td>Construcción personalizada</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>Capacidades web generales</td><td>PC, sitio web responsivo, Panel de control</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>Combinación universal + móvil</td><td>Página web móvil, PWA, WebView</td></tr>
@@ -631,8 +631,8 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               </table>
             </div>
             <div class="docs-callout">
-              Entrada raíz recomendada para aplicaciones generales o <code>@gardener/vue/components</code> Obtén el mejor batido de árboles;
-              <code>@gardener/vue/bundle.min.js</code> es una entrada de archivo único precomprimido. La importación SSR no accede a los objetos globales del navegador y el comportamiento solo se inicializa después de montar el componente, por lo que se puede utilizar para la renderización e hidratación del lado del servidor.
+              Entrada raíz recomendada para aplicaciones generales o <code>@gardenerim/vue/components</code> Obtén el mejor batido de árboles;
+              <code>@gardenerim/vue/bundle.min.js</code> es una entrada de archivo único precomprimido. La importación SSR no accede a los objetos globales del navegador y el comportamiento solo se inicializa después de montar el componente, por lo que se puede utilizar para la renderización e hidratación del lado del servidor.
             </div>
 
             <h3>Las 29 entradas de paquetes públicos</h3>
@@ -654,7 +654,7 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               y <a href="../../packages/vue/dist/gardener-vue.performance.json">Rendimiento</a>
               Ambos tienen esquemas JSON que desactivan campos desconocidos;<a href="../../packages/vue/dist/catalog.json">Catálogo de componentes JSON</a>
               Legible directamente mediante IA, generadores de código y herramientas de documentación. El presupuesto para el paquete comprimido completo es 328.220 B raw, 51.602 B gzip, 26.926 B Brotli; soltero
-              <code>GButton</code> El resultado real de la sacudida del árbol es 3718 B. La compilación determinista cubre 87 archivos, el paquete npm verifica 98 archivos, 284,183 B empaquetados, 3,729,929 B desempaquetados.
+              <code>GButton</code> El resultado real de la sacudida del árbol es 3720 B. La compilación determinista cubre 87 archivos, el paquete npm verifica 98 archivos, 284,318 B empaquetados, 3,730,411 B desempaquetados.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd vue
@@ -686,7 +686,7 @@ npm run release:verify
           <section class="docs-section" id="react">
             <h2>Gardener React Proyecto</h2>
             <p>
-              <a href="../../packages/react/README.md"><code>@gardener/react</code></a> es la capa de adaptación oficial de React de Gardener CSS 1.0.0, la versión actual es
+              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> es la capa de adaptación oficial de React de Gardener CSS 1.0.0, la versión actual es
               <strong>1.0.0 Estable</strong>, admite reaccionar
               <code>&gt;=18.3.0 &lt;20.0.0</code> con Node.js
               <code>&gt;=18.18</code>. Asigna los 506 componentes CSS y 66 comportamientos DOM elemento por elemento, al tiempo que proporciona 538 exportaciones de tiempo de ejecución raíz, 22 exportaciones de tipo TypeScript, 29 puntos de entrada de paquetes públicos y 28 proxies de paquetes CSS de componentes.
@@ -700,12 +700,12 @@ npm run release:verify
 
             <h3>Instalación y componentes raíz</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/react @gardener/css react react-dom</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/react @gardenerim/css react react-dom</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createRoot } from &quot;react-dom/client&quot;;
-import { GButton, GCard, GardenerProvider } from &quot;@gardener/react&quot;;
-import &quot;@gardener/react/style.css&quot;;
+import { GButton, GCard, GardenerProvider } from &quot;@gardenerim/react&quot;;
+import &quot;@gardenerim/react/style.css&quot;;
 
 createRoot(document.getElementById(&quot;root&quot;)!).render(
   &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
@@ -715,7 +715,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
             </div>
             <p>
               Todos los componentes admiten la importación bajo demanda; el constructor puede comenzar desde la entrada raíz o
-              <code>@gardener/react/components</code> Sacude el árbol. Cada componente generado conserva el tipo de atributo exacto de su etiqueta HTML predeterminada, p. <code>GButton</code> Aceptar
+              <code>@gardenerim/react/components</code> Sacude el árbol. Cada componente generado conserva el tipo de atributo exacto de su etiqueta HTML predeterminada, p. <code>GButton</code> Aceptar
               <code>type=&quot;submit&quot;</code>，<code>GInput</code> Aceptar
               <code>type</code> y <code>autoComplete</code>, al tiempo que permite
               <code>as</code> Cambiar a otros elementos nativos o componentes de React.
@@ -806,7 +806,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
               <table class="docs-table">
                 <thead><tr><th>Entrada</th><th>Contenido</th><th>Escenarios aplicables</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/react/style.css</code></td><td>Estilo Gardener completo</td><td>Listo para usar y prototipo</td></tr>
+                  <tr><td><code>@gardenerim/react/style.css</code></td><td>Estilo Gardener completo</td><td>Listo para usar y prototipo</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>Entrada de estilo en capas</td><td>Construcción personalizada</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>Capacidades web generales</td><td>PC, sitio web responsivo, Panel de control</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>Combinación universal + móvil</td><td>Página web móvil, PWA, WebView</td></tr>
@@ -821,12 +821,12 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
             <h3>SSR, hidratación y puenteo de escritorio</h3>
             <div class="docs-callout">
               La entrada del paquete se puede importar de forma segura en el lado del servidor. Los 506 componentes han pasado por SSR elemento por elemento y el comportamiento solo se inicializa durante el ciclo de vida del Efecto; la marca del lado del servidor Hydration no genera errores recuperables y es compatible con StrictMode. Tauri y Electron se utilizan respectivamente.
-              <code>@gardener/react/tauri</code> y
-              <code>@gardener/react/electron</code> Portales independientes para que ninguno de los portales exporte accidentalmente la API puente de otra plataforma.
+              <code>@gardenerim/react/tauri</code> y
+              <code>@gardenerim/react/electron</code> Portales independientes para que ninguno de los portales exporte accidentalmente la API puente de otra plataforma.
             </div>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>import { useTauriWindowControls } from &quot;@gardener/react/tauri&quot;;
-import &quot;@gardener/react/platform/tauri.css&quot;;
+              <pre class="site-code"><code>import { useTauriWindowControls } from &quot;@gardenerim/react/tauri&quot;;
+import &quot;@gardenerim/react/platform/tauri.css&quot;;
 
 function WindowChrome() {
   const root = useRef&lt;HTMLElement | null&gt;(null);
@@ -854,7 +854,7 @@ function WindowChrome() {
               y <a href="../../packages/react/dist/gardener-react.performance.json">Rendimiento</a>
               Ambos validados por el esquema JSON con campos desconocidos desactivados;<a href="../../packages/react/dist/catalog.json">Catálogo de componentes JSON</a>
               Legible directamente mediante IA, generadores de código y herramientas de documentación. La medida real del paquete comprimido completo es 326.064 B raw, 50.126 B gzip, 26.381 B Brotli; soltero
-              <code>GButton</code> El resultado real de la sacudida del árbol es 2599 B. La compilación determinista cubrió 87 archivos, el paquete npm verificó 98 archivos, 262 706 B empaquetados, 2 438 775 B desempaquetados y la auditoría de seguridad de la dependencia de producción fue 0 vulnerabilidades.
+              <code>GButton</code> El resultado real de la sacudida del árbol es 2601 B. La compilación determinista cubrió 87 archivos, el paquete npm verificó 98 archivos, 262 706 B empaquetados, 2 438 775 B desempaquetados y la auditoría de seguridad de la dependencia de producción fue 0 vulnerabilidades.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd react
@@ -886,7 +886,7 @@ npm run release:verify
           <section class="docs-section" id="angular">
             <h2>Gardener AngularJS Proyecto</h2>
             <p>
-              <a href="../../packages/angularjs/README.md"><code>@gardener/angularjs</code></a>
+              <a href="../../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
               es la capa oficial de adaptación del sistema heredado de AngularJS 1.x para Gardener CSS 1.0.0, la versión actual es
               <strong>1.0.0 Estable</strong>. Valida AngularJS
               <code>&gt;=1.8.2 &lt;1.9.0</code> con Node.js
@@ -906,12 +906,12 @@ npm run release:verify
 
             <h3>Instalación, carga de ESM y fábrica de módulos</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/angularjs @gardener/css angular</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/angularjs @gardenerim/css angular</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import &quot;angular/angular.js&quot;;
-import { createGardenerAngularJS } from &quot;@gardener/angularjs&quot;;
-import &quot;@gardener/angularjs/style.css&quot;;
+import { createGardenerAngularJS } from &quot;@gardenerim/angularjs&quot;;
+import &quot;@gardenerim/angularjs/style.css&quot;;
 
 const gardenerModule = createGardenerAngularJS(window.angular);
 window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
@@ -1014,7 +1014,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               <table class="docs-table">
                 <thead><tr><th>Entrada</th><th>Contenido</th><th>Escenarios aplicables</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/angularjs/style.css</code></td><td>Estilo Gardener completo</td><td>Integración progresiva y lista para usar en sistemas heredados</td></tr>
+                  <tr><td><code>@gardenerim/angularjs/style.css</code></td><td>Estilo Gardener completo</td><td>Integración progresiva y lista para usar en sistemas heredados</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>Entrada de estilo en capas</td><td>Construcción personalizada</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>Capacidades web generales</td><td>Sitio web y panel de control para PC</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>Componentes móviles y zonas seguras</td><td>Página web móvil, PWA, WebView</td></tr>
@@ -1026,8 +1026,8 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               </table>
             </div>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>import { createTauriWindowService } from &quot;@gardener/angularjs/tauri&quot;;
-import { createElectronWindowService } from &quot;@gardener/angularjs/electron&quot;;</code></pre>
+              <pre class="site-code"><code>import { createTauriWindowService } from &quot;@gardenerim/angularjs/tauri&quot;;
+import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron&quot;;</code></pre>
             </div>
             <p>
               Las entradas de Tauri y Electron están aisladas entre sí y ambas regresan al cinturón. <code>available</code> y
@@ -1053,7 +1053,7 @@ import { createElectronWindowService } from &quot;@gardener/angularjs/electron&q
               <a href="../../packages/angularjs/dist/gardener-angularjs.performance.json">Rendimiento</a>
               Ambos están validados por el esquema JSON con los campos desconocidos desactivados; Los rangos de soporte de AngularJS también se escriben en la línea base de compatibilidad legible por máquina.<a href="../../packages/angularjs/dist/catalog.json">Catálogo de componentes JSON</a>
               Legible directamente mediante IA, generadores de código y herramientas de documentación. La medida real del paquete comprimido completo es 404.094 B raw, 59.499 B gzip, 29.785 B Brotli; soltero
-              <code>GButtonDirective</code> es 4,515 B. La compilación determinista cubrió 83 archivos, la verificación del paquete npm 95 archivos, 325,747 B empaquetados, 2,938,245 B desempaquetados, la auditoría de carga de producción del propio Gardener fue 0 vulnerabilidades.
+              <code>GButtonDirective</code> es 4,517 B. La compilación determinista cubrió 83 archivos, la verificación del paquete npm 95 archivos, 325,915 B empaquetados, 2,938,691 B desempaquetados, la auditoría de carga de producción del propio Gardener fue 0 vulnerabilidades.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
@@ -8250,7 +8250,7 @@ npm run test:net11</code></pre>
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>import Gardener from &quot;@gardener/css&quot;;
+              ><code>import Gardener from &quot;@gardenerim/css&quot;;
 
 Gardener.init(document);
 const dialog = Gardener.getInstance(&quot;#confirm&quot;, &quot;dialog&quot;);
@@ -8413,7 +8413,7 @@ Gardener.toast({
             <h3>Puente seguro</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>// Electron renderer
-import { bindElectronWindowControls } from &quot;@gardener/css/electron&quot;;
+import { bindElectronWindowControls } from &quot;@gardenerim/css/electron&quot;;
 bindElectronWindowControls();
 
 // preload Exponer solo acciones de la lista blanca

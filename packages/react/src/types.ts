@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
-import type { GardenerBehaviorInstance as RuntimeBehaviorInstance, GardenerBehaviorName as RuntimeBehaviorName, GardenerEventName as RuntimeEventName } from "@gardener/css/runtime";
+import type { GardenerBehaviorInstance as RuntimeBehaviorInstance, GardenerBehaviorName as RuntimeBehaviorName, GardenerEventName as RuntimeEventName } from "@gardenerim/css/runtime";
 
 export type GardenerAs = ElementType;
 export type GardenerBehaviorName = RuntimeBehaviorName;

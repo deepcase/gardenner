@@ -3,7 +3,7 @@
 ## 1.0.0
 
 - 首个稳定版本。
-- 对应 `@gardener/css@1.0.0` 的全部 506 个组件和 66 种行为。
+- 对应 `@gardenerim/css@1.0.0` 的全部 506 个组件和 66 种行为。
 - 提供全局插件、具名组件、通用组件、Part、指令和五个 Composable。
 - 支持十轴主题、五类平台 CSS、SSR、TypeScript 和按需导入。
 - 支持原生表单与 Gardener 事件的 `v-model` 桥接、Tauri/Electron 生命周期适配及 28 个组件样式包入口。

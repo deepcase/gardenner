@@ -24,7 +24,7 @@
     />
     <title>Gardener 文档</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
-    <link rel="canonical" href="./zh-CN/docs.html" />
+    <link rel="canonical" href="./en/docs.html" />
     <link rel="alternate" hreflang="zh-CN" href="./zh-CN/docs.html" />
     <link rel="alternate" hreflang="en" href="./en/docs.html" />
     <link rel="alternate" hreflang="ja" href="./ja/docs.html" />
@@ -34,7 +34,7 @@
     <link rel="alternate" hreflang="de" href="./de/docs.html" />
     <link rel="alternate" hreflang="x-default" href="./docs.html" />
     <link rel="stylesheet" href="../packages/css/dist/gardener.css?v=afe73d14" />
-    <link rel="stylesheet" href="./assets/site.css" />
+    <link rel="stylesheet" href="./assets/site.css?v=hero-balance-3" />
   </head>
   <body>
     <a class="g-skip-link" href="#docs-main">跳到文档正文</a>
@@ -381,13 +381,13 @@
                 class="g-btn g-btn-outline g-btn-sm docs-copy"
                 type="button"
                 data-g-copy
-                data-g-copy-value="npm install @gardener/css"
+                data-g-copy-value="npm install @gardenerim/css"
               >
                 复制
               </button>
               <pre
                 class="site-code"
-              ><code>npm install @gardener/css</code></pre>
+              ><code>npm install @gardenerim/css</code></pre>
             </div>
             <div class="docs-table-wrap">
               <table class="docs-table">
@@ -400,7 +400,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><code>@gardener/css</code></td>
+                    <td><code>@gardenerim/css</code></td>
                     <td>完整 CSS + 默认运行时入口</td>
                     <td>直接开箱使用</td>
                   </tr>
@@ -491,17 +491,17 @@
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>import &quot;@gardener/css/core.css&quot;;
-import &quot;@gardener/css/themes.css&quot;;
-import &quot;@gardener/css/components.css&quot;;
-import &quot;@gardener/css/utilities.css&quot;;</code></pre>
+              ><code>import &quot;@gardenerim/css/core.css&quot;;
+import &quot;@gardenerim/css/themes.css&quot;;
+import &quot;@gardenerim/css/components.css&quot;;
+import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
             </div>
           </section>
 
           <section class="docs-section" id="vue">
             <h2>Gardener Vue 3 项目</h2>
             <p>
-              <a href="../packages/vue/README.md"><code>@gardener/vue</code></a> 是
+              <a href="../packages/vue/README.md"><code>@gardenerim/vue</code></a> 是
               Gardener CSS 1.0.0 的官方 Vue 3 适配层，当前版本为
               <strong>1.0.0 Stable</strong>，支持 Vue
               <code>&gt;=3.4.0 &lt;4.0.0</code> 与 Node.js
@@ -518,12 +518,12 @@ import &quot;@gardener/css/utilities.css&quot;;</code></pre>
 
             <h3>安装与全局插件</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/vue @gardener/css vue</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/vue @gardenerim/css vue</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createApp } from &quot;vue&quot;;
-import GardenerVue from &quot;@gardener/vue&quot;;
-import &quot;@gardener/vue/style.css&quot;;
+import GardenerVue from &quot;@gardenerim/vue&quot;;
+import &quot;@gardenerim/vue/style.css&quot;;
 import App from &quot;./App.vue&quot;;
 
 createApp(App).use(GardenerVue).mount(&quot;#app&quot;);</code></pre>
@@ -538,8 +538,8 @@ createApp(App).use(GardenerVue).mount(&quot;#app&quot;);</code></pre>
             <h3>按需组件与主题 Provider</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;script setup lang=&quot;ts&quot;&gt;
-import { GButton, GCard, GDialog, GardenerProvider } from &quot;@gardener/vue&quot;;
-import &quot;@gardener/vue/platform/web.css&quot;;
+import { GButton, GCard, GDialog, GardenerProvider } from &quot;@gardenerim/vue&quot;;
+import &quot;@gardenerim/vue/platform/web.css&quot;;
 &lt;/script&gt;
 
 &lt;template&gt;
@@ -626,7 +626,7 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               <table class="docs-table">
                 <thead><tr><th>入口</th><th>内容</th><th>适用场景</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/vue/style.css</code></td><td>完整 Gardener 样式</td><td>开箱即用与原型</td></tr>
+                  <tr><td><code>@gardenerim/vue/style.css</code></td><td>完整 Gardener 样式</td><td>开箱即用与原型</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>分层样式入口</td><td>定制构建</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>通用 Web 能力</td><td>PC、响应式网站、Dashboard</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>通用 + 移动端组合</td><td>移动网页、PWA、WebView</td></tr>
@@ -638,8 +638,8 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               </table>
             </div>
             <div class="docs-callout">
-              常规应用推荐根入口或 <code>@gardener/vue/components</code> 获得最佳摇树；
-              <code>@gardener/vue/bundle.min.js</code> 是预压缩单文件入口。SSR
+              常规应用推荐根入口或 <code>@gardenerim/vue/components</code> 获得最佳摇树；
+              <code>@gardenerim/vue/bundle.min.js</code> 是预压缩单文件入口。SSR
               导入不访问浏览器全局对象，行为只在组件挂载后初始化，因此可用于服务端渲染与 Hydration。
             </div>
 
@@ -663,9 +663,9 @@ import &quot;@gardener/vue/platform/web.css&quot;;
               <a href="../packages/vue/metadata/public-api.json">Public API</a>、<a href="../packages/vue/metadata/compatibility.json">Compatibility</a>
               和 <a href="../packages/vue/dist/gardener-vue.performance.json">Performance</a>
               均有关闭未知字段的 JSON Schema；<a href="../packages/vue/dist/catalog.json">组件目录 JSON</a>
-              可直接供 AI、代码生成器和文档工具读取。全量压缩包预算为 328,220 B raw、51,602 B gzip、26,926 B Brotli；单个
-              <code>GButton</code> 的真实摇树结果为 3,718 B。确定性构建覆盖 87
-              个文件，npm 包核对 98 个文件、284,183 B packed、3,729,929 B unpacked。
+              可直接供 AI、代码生成器和文档工具读取。全量压缩包预算为 328,236 B raw、51,605 B gzip、26,932 B Brotli；单个
+              <code>GButton</code> 的真实摇树结果为 3,720 B。确定性构建覆盖 87
+              个文件，npm 包核对 98 个文件、284,318 B packed、3,730,411 B unpacked。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd vue
@@ -698,7 +698,7 @@ npm run release:verify
           <section class="docs-section" id="react">
             <h2>Gardener React 项目</h2>
             <p>
-              <a href="../packages/react/README.md"><code>@gardener/react</code></a> 是
+              <a href="../packages/react/README.md"><code>@gardenerim/react</code></a> 是
               Gardener CSS 1.0.0 的官方 React 适配层，当前版本为
               <strong>1.0.0 Stable</strong>，支持 React
               <code>&gt;=18.3.0 &lt;20.0.0</code> 与 Node.js
@@ -715,12 +715,12 @@ npm run release:verify
 
             <h3>安装与根组件</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/react @gardener/css react react-dom</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/react @gardenerim/css react react-dom</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createRoot } from &quot;react-dom/client&quot;;
-import { GButton, GCard, GardenerProvider } from &quot;@gardener/react&quot;;
-import &quot;@gardener/react/style.css&quot;;
+import { GButton, GCard, GardenerProvider } from &quot;@gardenerim/react&quot;;
+import &quot;@gardenerim/react/style.css&quot;;
 
 createRoot(document.getElementById(&quot;root&quot;)!).render(
   &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
@@ -730,7 +730,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
             </div>
             <p>
               组件均支持按需具名导入；构建器可从根入口或
-              <code>@gardener/react/components</code> 摇树。每个生成组件都保留其默认
+              <code>@gardenerim/react/components</code> 摇树。每个生成组件都保留其默认
               HTML 标签的精确属性类型，例如 <code>GButton</code> 接受
               <code>type=&quot;submit&quot;</code>，<code>GInput</code> 接受
               <code>type</code> 与 <code>autoComplete</code>，同时允许通过
@@ -825,7 +825,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
               <table class="docs-table">
                 <thead><tr><th>入口</th><th>内容</th><th>适用场景</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/react/style.css</code></td><td>完整 Gardener 样式</td><td>开箱即用与原型</td></tr>
+                  <tr><td><code>@gardenerim/react/style.css</code></td><td>完整 Gardener 样式</td><td>开箱即用与原型</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>分层样式入口</td><td>定制构建</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>通用 Web 能力</td><td>PC、响应式网站、Dashboard</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>通用 + 移动端组合</td><td>移动网页、PWA、WebView</td></tr>
@@ -842,12 +842,12 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
               包入口可在服务端安全导入，全部 506 个组件均经过逐项 SSR，行为只在 Effect
               生命周期内初始化；服务端标记 Hydration 不产生 recoverable error，并兼容
               StrictMode。Tauri 与 Electron 分别使用
-              <code>@gardener/react/tauri</code> 和
-              <code>@gardener/react/electron</code> 独立入口，任一入口都不会意外导出另一平台的桥接 API。
+              <code>@gardenerim/react/tauri</code> 和
+              <code>@gardenerim/react/electron</code> 独立入口，任一入口都不会意外导出另一平台的桥接 API。
             </div>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>import { useTauriWindowControls } from &quot;@gardener/react/tauri&quot;;
-import &quot;@gardener/react/platform/tauri.css&quot;;
+              <pre class="site-code"><code>import { useTauriWindowControls } from &quot;@gardenerim/react/tauri&quot;;
+import &quot;@gardenerim/react/platform/tauri.css&quot;;
 
 function WindowChrome() {
   const root = useRef&lt;HTMLElement | null&gt;(null);
@@ -876,9 +876,9 @@ function WindowChrome() {
               <a href="../packages/react/metadata/public-api.json">Public API</a>、<a href="../packages/react/metadata/compatibility.json">Compatibility</a>
               和 <a href="../packages/react/dist/gardener-react.performance.json">Performance</a>
               均由关闭未知字段的 JSON Schema 验证；<a href="../packages/react/dist/catalog.json">组件目录 JSON</a>
-              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 326,064 B raw、50,126 B gzip、26,381 B Brotli；单个
-              <code>GButton</code> 的真实摇树结果为 2,599 B。确定性构建覆盖 87
-              个文件，npm 包核对 98 个文件、262,706 B packed、2,438,775 B unpacked，生产依赖安全审计为 0 个漏洞。
+              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 326,076 B raw、50,128 B gzip、26,375 B Brotli；单个
+              <code>GButton</code> 的真实摇树结果为 2,601 B。确定性构建覆盖 87
+              个文件，npm 包核对 98 个文件、262,883 B packed、2,439,243 B unpacked，生产依赖安全审计为 0 个漏洞。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd react
@@ -911,7 +911,7 @@ npm run release:verify
           <section class="docs-section" id="angular">
             <h2>Gardener AngularJS 项目</h2>
             <p>
-              <a href="../packages/angularjs/README.md"><code>@gardener/angularjs</code></a>
+              <a href="../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
               是 Gardener CSS 1.0.0 的官方 AngularJS 1.x 遗留系统适配层，当前版本为
               <strong>1.0.0 Stable</strong>。它验证 AngularJS
               <code>&gt;=1.8.2 &lt;1.9.0</code> 与 Node.js
@@ -932,12 +932,12 @@ npm run release:verify
 
             <h3>安装、ESM 加载与模块工厂</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>npm install @gardener/angularjs @gardener/css angular</code></pre>
+              <pre class="site-code"><code>npm install @gardenerim/angularjs @gardenerim/css angular</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import &quot;angular/angular.js&quot;;
-import { createGardenerAngularJS } from &quot;@gardener/angularjs&quot;;
-import &quot;@gardener/angularjs/style.css&quot;;
+import { createGardenerAngularJS } from &quot;@gardenerim/angularjs&quot;;
+import &quot;@gardenerim/angularjs/style.css&quot;;
 
 const gardenerModule = createGardenerAngularJS(window.angular);
 window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
@@ -1040,7 +1040,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               <table class="docs-table">
                 <thead><tr><th>入口</th><th>内容</th><th>适用场景</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardener/angularjs/style.css</code></td><td>完整 Gardener 样式</td><td>开箱即用与遗留系统渐进接入</td></tr>
+                  <tr><td><code>@gardenerim/angularjs/style.css</code></td><td>完整 Gardener 样式</td><td>开箱即用与遗留系统渐进接入</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>分层样式入口</td><td>定制构建</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>通用 Web 能力</td><td>PC 网站与 Dashboard</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>移动端组件和安全区</td><td>移动网页、PWA、WebView</td></tr>
@@ -1052,8 +1052,8 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               </table>
             </div>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>import { createTauriWindowService } from &quot;@gardener/angularjs/tauri&quot;;
-import { createElectronWindowService } from &quot;@gardener/angularjs/electron&quot;;</code></pre>
+              <pre class="site-code"><code>import { createTauriWindowService } from &quot;@gardenerim/angularjs/tauri&quot;;
+import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron&quot;;</code></pre>
             </div>
             <p>
               Tauri 与 Electron 入口相互隔离，均返回带 <code>available</code> 和
@@ -1080,8 +1080,8 @@ import { createElectronWindowService } from &quot;@gardener/angularjs/electron&q
               <a href="../packages/angularjs/metadata/public-api.json">Public API</a>、<a href="../packages/angularjs/metadata/compatibility.json">Compatibility</a> 和
               <a href="../packages/angularjs/dist/gardener-angularjs.performance.json">Performance</a>
               都由关闭未知字段的 JSON Schema 验证；AngularJS 支持范围也写入机器可读兼容基线。<a href="../packages/angularjs/dist/catalog.json">组件目录 JSON</a>
-              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 404,094 B raw、59,499 B gzip、29,785 B Brotli；单个
-              <code>GButtonDirective</code> 的真实摇树结果为 4,515 B。确定性构建覆盖 83 个文件，npm 包核对 95 个文件、325,747 B packed、2,938,245 B unpacked，Gardener 自有生产负载审计为 0 个漏洞。
+              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 404,104 B raw、59,503 B gzip、29,798 B Brotli；单个
+              <code>GButtonDirective</code> 的真实摇树结果为 4,517 B。确定性构建覆盖 83 个文件，npm 包核对 95 个文件、325,915 B packed、2,938,691 B unpacked，Gardener 自有生产负载审计为 0 个漏洞。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
@@ -8521,7 +8521,7 @@ npm run test:net11</code></pre>
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>import Gardener from &quot;@gardener/css&quot;;
+              ><code>import Gardener from &quot;@gardenerim/css&quot;;
 
 Gardener.init(document);
 const dialog = Gardener.getInstance(&quot;#confirm&quot;, &quot;dialog&quot;);
@@ -8691,7 +8691,7 @@ Gardener.toast({
             <h3>安全桥接</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>// Electron renderer
-import { bindElectronWindowControls } from &quot;@gardener/css/electron&quot;;
+import { bindElectronWindowControls } from &quot;@gardenerim/css/electron&quot;;
 bindElectronWindowControls();
 
 // preload 仅暴露白名单动作

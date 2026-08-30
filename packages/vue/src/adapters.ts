@@ -1,6 +1,6 @@
 import { onBeforeUnmount, onMounted, shallowRef, watch, type Ref } from "vue";
-import { bindElectronWindowControls, type GardenerElectronBinding, type GardenerElectronBridge } from "@gardener/css/electron";
-import { bindTauriWindowControls, type GardenerTauriBinding, type GardenerTauriBridge } from "@gardener/css/tauri";
+import { bindElectronWindowControls, type GardenerElectronBinding, type GardenerElectronBridge } from "@gardenerim/css/electron";
+import { bindTauriWindowControls, type GardenerTauriBinding, type GardenerTauriBridge } from "@gardenerim/css/tauri";
 import type { GardenerComponentPublicInstance } from "./types.js";
 
 type AdapterTarget = Element | GardenerComponentPublicInstance | null | undefined;

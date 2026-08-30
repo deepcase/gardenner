@@ -1,5 +1,5 @@
 import type { ObjectDirective } from "vue";
-import { destroy, init } from "@gardener/css/runtime";
+import { destroy, init } from "@gardenerim/css/runtime";
 import { behaviorAttributes, configAttributes } from "./component.js";
 import type { GardenerDirectiveOptions, GardenerDirectiveValue } from "./types.js";
 

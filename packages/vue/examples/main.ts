@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import GardenerVue from "@gardener/vue";
+import GardenerVue from "@gardenerim/vue";
 import "../src/style.css";
 import App from "./App.vue";
 

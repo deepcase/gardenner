@@ -60,14 +60,14 @@ npm test
 正式发布包直接提供平台入口：
 
 ```css
-@import "@gardener/css/platform/web.css";
-@import "@gardener/css/platform/mobile.css";
-@import "@gardener/css/platform/desktop.css";
-@import "@gardener/css/platform/tauri.css";
-@import "@gardener/css/platform/electron.css";
+@import "@gardenerim/css/platform/web.css";
+@import "@gardenerim/css/platform/mobile.css";
+@import "@gardenerim/css/platform/desktop.css";
+@import "@gardenerim/css/platform/tauri.css";
+@import "@gardenerim/css/platform/electron.css";
 ```
 
-Web 不包含移动端和桌面端专属包；Mobile 加入移动组合；Desktop 加入标题栏、Dock、窗口与桌面工作区。Tauri 和 Electron 各有独立正式 CSS 入口，通过轻量 `@import` 继承 Desktop 产物，避免复制近 1 MB 的相同样式，并分别搭配 `@gardener/css/tauri.min.js` 与 `@gardener/css/electron.min.js`。
+Web 不包含移动端和桌面端专属包；Mobile 加入移动组合；Desktop 加入标题栏、Dock、窗口与桌面工作区。Tauri 和 Electron 各有独立正式 CSS 入口，通过轻量 `@import` 继承 Desktop 产物，避免复制近 1 MB 的相同样式，并分别搭配 `@gardenerim/css/tauri.min.js` 与 `@gardenerim/css/electron.min.js`。
 
 在源码项目中生成可检查的独立平台构建：
 
@@ -82,10 +82,10 @@ npm run build:platform -- --platform mobile --out dist/custom/mobile-app
 28 个稳定组件包可直接按需引入：
 
 ```css
-@import "@gardener/css/core.min.css";
-@import "@gardener/css/component/basic.css";
-@import "@gardener/css/component/forms.css";
-@import "@gardener/css/component/auth-compositions.css";
+@import "@gardenerim/css/core.min.css";
+@import "@gardenerim/css/component/basic.css";
+@import "@gardenerim/css/component/forms.css";
+@import "@gardenerim/css/component/auth-compositions.css";
 ```
 
 也可以按清单中的具体组件名构建：

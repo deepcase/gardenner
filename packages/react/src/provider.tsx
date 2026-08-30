@@ -1,5 +1,5 @@
 import { createContext, createElement, forwardRef, useContext, useEffect, useMemo, useRef, type ElementType, type HTMLAttributes, type ReactNode } from "react";
-import { destroy, init } from "@gardener/css/runtime";
+import { destroy, init } from "@gardenerim/css/runtime";
 import type { GardenerThemeState } from "./types.js";
 
 export const themeAxes = ["theme", "mode", "neutral", "typography", "shape", "density", "elevation", "motion", "platform", "os"] as const;

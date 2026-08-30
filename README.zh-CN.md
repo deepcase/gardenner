@@ -10,10 +10,10 @@ Gardener 是面向人工开发和 AI 自动生成页面的通用 CSS 基础框�
 
 | 包 | 用途 | 目录 |
 | --- | --- | --- |
-| `@gardener/css` | Token、主题、工具类、布局、语义组件、运行时行为和平台构建 | [`packages/css`](packages/css) |
-| `@gardener/vue` | Vue 3 组件、组合式函数、插件和桌面适配 | [`packages/vue`](packages/vue) |
-| `@gardener/react` | React 组件、Hooks、Provider 和桌面适配 | [`packages/react`](packages/react) |
-| `@gardener/angularjs` | 用于存量系统的 AngularJS 1.8 指令和服务 | [`packages/angularjs`](packages/angularjs) |
+| `@gardenerim/css` | Token、主题、工具类、布局、语义组件、运行时行为和平台构建 | [`packages/css`](packages/css) |
+| `@gardenerim/vue` | Vue 3 组件、组合式函数、插件和桌面适配 | [`packages/vue`](packages/vue) |
+| `@gardenerim/react` | React 组件、Hooks、Provider 和桌面适配 | [`packages/react`](packages/react) |
+| `@gardenerim/angularjs` | 用于存量系统的 AngularJS 1.8 指令和服务 | [`packages/angularjs`](packages/angularjs) |
 | `Gardener.Blazor` | 基于 .NET 10，并持续检查 .NET 11 兼容性的 Razor 组件库 | [`packages/blazor`](packages/blazor) |
 | 官网与文档 | 落地页、完整可检索目录和七种语言 | [`website`](website) |
 
@@ -36,12 +36,12 @@ AngularJS 本身已经停止官方维护。该适配器用于明确的存量维�
 无框架项目：
 
 ```sh
-npm install @gardener/css
+npm install @gardenerim/css
 ```
 
 ```js
-import "@gardener/css";
-import { init } from "@gardener/css/runtime";
+import "@gardenerim/css";
+import { init } from "@gardenerim/css/runtime";
 
 init();
 ```
@@ -49,9 +49,9 @@ init();
 框架适配器共用同一套 CSS 和运行时契约：
 
 ```sh
-npm install @gardener/css @gardener/vue
-npm install @gardener/css @gardener/react
-npm install @gardener/css @gardener/angularjs angular
+npm install @gardenerim/css @gardenerim/vue
+npm install @gardenerim/css @gardenerim/react
+npm install @gardenerim/css @gardenerim/angularjs angular
 ```
 
 Blazor 项目可引用 `Gardener.Blazor` NuGet 包；在本仓库开发时，也可直接引用 `packages/blazor/src/Gardener.Blazor` 项目。完整导出、平台构建、浏览器范围、无障碍行为和发布门禁见各子包 README。

@@ -7,7 +7,7 @@ const budget = JSON.parse(await readFile(resolve(root, "config", "performance-bu
 const bundle = async (entrypoint) => (await build({
   stdin: { contents: `import { GButton } from ${JSON.stringify(entrypoint)}; console.log(GButton);`, resolveDir: root, sourcefile: "tree-shake-entry.js" },
   bundle: true, write: false, minify: true, format: "esm", platform: "browser", target: ["es2020"],
-  external: ["react", "react-dom", "@gardener/css", "@gardener/css/*"], legalComments: "none",
+  external: ["react", "react-dom", "@gardenerim/css", "@gardenerim/css/*"], legalComments: "none",
 })).outputFiles[0].contents.length;
 const componentsBytes = await bundle("./dist/generated/components.js");
 const rootBytes = await bundle("./dist/index.js");

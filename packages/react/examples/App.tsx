@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GAlert, GButton, GCard, GInput, GardenerProvider, componentCatalog } from "@gardener/react";
+import { GAlert, GButton, GCard, GInput, GardenerProvider, componentCatalog } from "@gardenerim/react";
 
 export function App() {
   const [name, setName] = useState("Gardener");

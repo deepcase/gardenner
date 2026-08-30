@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type Dispatch, type RefObject, type SetStateAction } from "react";
-import { Gardener, destroy, getInstance, init, toast } from "@gardener/css/runtime";
+import { Gardener, destroy, getInstance, init, toast } from "@gardenerim/css/runtime";
 import { themeAttributes, themeAxes } from "./provider.js";
 import type { GardenerBehaviorInstance, GardenerBehaviorName, GardenerComponentHandle, GardenerElementTarget, GardenerEventHandler, GardenerThemeState } from "./types.js";
 

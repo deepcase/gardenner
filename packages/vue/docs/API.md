@@ -3,13 +3,13 @@
 ## 安装
 
 ```bash
-npm install @gardener/vue @gardener/css vue
+npm install @gardenerim/vue @gardenerim/css vue
 ```
 
 ```ts
 import { createApp } from "vue";
-import GardenerVue from "@gardener/vue";
-import "@gardener/vue/style.css";
+import GardenerVue from "@gardenerim/vue";
+import "@gardenerim/vue/style.css";
 
 createApp(App).use(GardenerVue).mount("#app");
 ```
@@ -57,14 +57,14 @@ createApp(App).use(GardenerVue).mount("#app");
 ## 按需引入
 
 ```ts
-import { GButton, GCard, GDialog } from "@gardener/vue/components";
-import { useGardenerBehavior } from "@gardener/vue/composables";
+import { GButton, GCard, GDialog } from "@gardenerim/vue/components";
+import { useGardenerBehavior } from "@gardenerim/vue/composables";
 ```
 
-28 个组件样式包也可通过 `@gardener/vue/component-css/*` 引入，例如 `@gardener/vue/component-css/forms`。
+28 个组件样式包也可通过 `@gardenerim/vue/component-css/*` 引入，例如 `@gardenerim/vue/component-css/forms`。
 
-需要单文件预压缩入口时可导入 `@gardener/vue/bundle.min.js`；常规项目仍推荐根入口或 `components` 入口以获得最佳摇树结果。
+需要单文件预压缩入口时可导入 `@gardenerim/vue/bundle.min.js`；常规项目仍推荐根入口或 `components` 入口以获得最佳摇树结果。
 
-机器可读契约分别通过 `@gardener/vue/schema/public-api`、`@gardener/vue/schema/compatibility` 和 `@gardener/vue/schema/performance` 提供。
+机器可读契约分别通过 `@gardenerim/vue/schema/public-api`、`@gardenerim/vue/schema/compatibility` 和 `@gardenerim/vue/schema/performance` 提供。
 
 组件的完整逐项目录见 [components.md](./components.md)。

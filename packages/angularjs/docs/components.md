@@ -1,6 +1,6 @@
 # Gardener AngularJS 组件完整目录
 
-本目录由 `@gardener/css@1.0.0` 元数据自动生成，共 506 个 AngularJS 组件指令，无省略。每项同时支持元素与属性形式，并支持 `gardenerVariant`、`gardenerState`、`gardenerConfig`、`gardenerInitialize`、`ngModel`、`gardenerValueEvent`、`gardenerValueKey`、`gardenerOnValueChange`。
+本目录由 `@gardenerim/css@1.0.0` 元数据自动生成，共 506 个 AngularJS 组件指令，无省略。每项同时支持元素与属性形式，并支持 `gardenerVariant`、`gardenerState`、`gardenerConfig`、`gardenerInitialize`、`ngModel`、`gardenerValueEvent`、`gardenerValueKey`、`gardenerOnValueChange`。
 
 | ESM 导出 | 元素 / 指令名 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |
 | --- | --- | --- | --- | --- | --- | --- |

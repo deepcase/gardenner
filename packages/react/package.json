@@ -1,7 +1,16 @@
 {
-  "name": "@gardener/react",
+  "name": "@gardenerim/react",
   "version": "1.0.0",
   "description": "Official React bindings for the Gardener CSS framework and runtime.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deecase/gardener.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/deecase/gardener/tree/main/packages/react#readme",
+  "bugs": {
+    "url": "https://github.com/deecase/gardener/issues"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -62,12 +71,12 @@
     "dev": "vite"
   },
   "peerDependencies": {
-    "@gardener/css": ">=1.0.0 <2.0.0",
+    "@gardenerim/css": ">=1.0.0 <2.0.0",
     "react": ">=18.3.0 <20.0.0",
     "react-dom": ">=18.3.0 <20.0.0"
   },
   "devDependencies": {
-    "@gardener/css": "file:../css",
+    "@gardenerim/css": "file:../css",
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.62.1",
     "@types/node": "26.4.0",

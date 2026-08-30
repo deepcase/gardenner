@@ -59,7 +59,7 @@ const typeExports = [
 const componentProps = ["as", "variant", "state", "config", "initialize", "modelValue", "modelEvent", "modelKey"];
 const themeAxes = ["theme", "mode", "neutral", "typography", "shape", "density", "elevation", "motion", "platform", "os"];
 
-const catalog = `/** Generated from @gardener/css 1.0.0 metadata. */\nimport type { GardenerComponentDefinition } from "../types.js";\n\nexport const componentCatalog: readonly GardenerComponentDefinition[] = ${JSON.stringify(definitions, null, 2)};\nexport const componentByName = new Map(componentCatalog.map((component) => [component.name, component] as const));\nexport const componentByExportName = new Map(componentCatalog.map((component) => [component.exportName, component] as const));\n`;
+const catalog = `/** Generated from @gardenerim/css 1.0.0 metadata. */\nimport type { GardenerComponentDefinition } from "../types.js";\n\nexport const componentCatalog: readonly GardenerComponentDefinition[] = ${JSON.stringify(definitions, null, 2)};\nexport const componentByName = new Map(componentCatalog.map((component) => [component.name, component] as const));\nexport const componentByExportName = new Map(componentCatalog.map((component) => [component.exportName, component] as const));\n`;
 await writeFile(resolve(generated, "catalog.ts"), catalog);
 
 const componentLines = definitions.map((definition) => `export const ${definition.exportName} = /* @__PURE__ */ createGardenerComponent(${JSON.stringify(definition)} as GardenerComponentDefinition);`);
@@ -116,5 +116,5 @@ await writeFile(resolve(root, "metadata", "compatibility.json"), `${JSON.stringi
 
 await mkdir(resolve(root, "docs"), { recursive: true });
 const table = definitions.map((item) => `| \`${item.exportName}\` | \`${item.name}\` | ${item.category} | ${item.type} | \`${item.className || item.selector}\` | ${item.behaviors.join(", ") || "—"} |`).join("\n");
-await writeFile(resolve(root, "docs", "components.md"), `# Gardener Vue 组件完整目录\n\n本目录由 \`@gardener/css@1.0.0\` 元数据自动生成，共 ${definitions.length} 个 Vue 组件，无省略。所有组件支持 \`as\`、\`variant\`、\`state\`、\`config\`、\`initialize\`、\`modelValue\`、\`modelEvent\`、\`modelKey\` 和原生 attributes/events/slots。\n\n| Vue 导出 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |\n| --- | --- | --- | --- | --- | --- |\n${table}\n`);
+await writeFile(resolve(root, "docs", "components.md"), `# Gardener Vue 组件完整目录\n\n本目录由 \`@gardenerim/css@1.0.0\` 元数据自动生成，共 ${definitions.length} 个 Vue 组件，无省略。所有组件支持 \`as\`、\`variant\`、\`state\`、\`config\`、\`initialize\`、\`modelValue\`、\`modelEvent\`、\`modelKey\` 和原生 attributes/events/slots。\n\n| Vue 导出 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |\n| --- | --- | --- | --- | --- | --- |\n${table}\n`);
 console.log(`Generated ${definitions.length} Vue components and ${publicApi.javascript.behaviors.length} behavior bindings.`);

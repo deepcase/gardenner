@@ -30,11 +30,11 @@ const requiredFiles = [
   ".github/pull_request_template.md",
 ];
 const packages = new Map([
-  ["packages/css", "@gardener/css"],
-  ["packages/vue", "@gardener/vue"],
-  ["packages/react", "@gardener/react"],
-  ["packages/angularjs", "@gardener/angularjs"],
-  ["packages/blazor", "@gardener/blazor-workspace"],
+  ["packages/css", "@gardenerim/css"],
+  ["packages/vue", "@gardenerim/vue"],
+  ["packages/react", "@gardenerim/react"],
+  ["packages/angularjs", "@gardenerim/angularjs"],
+  ["packages/blazor", "@gardenerim/blazor-workspace"],
 ]);
 
 for (const file of requiredFiles) {

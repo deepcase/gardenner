@@ -1,4 +1,4 @@
-import { bindTauriWindowControls, type GardenerTauriBinding, type GardenerTauriBridge } from "@gardener/css/tauri";
+import { bindTauriWindowControls, type GardenerTauriBinding, type GardenerTauriBridge } from "@gardenerim/css/tauri";
 
 export const createTauriWindowService = (root?: Document | Element, bridge?: GardenerTauriBridge | null): GardenerTauriBinding =>
   bindTauriWindowControls(root, bridge);

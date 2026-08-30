@@ -1,7 +1,12 @@
 import Gardener from "../../packages/css/dist/gardener.runtime.js";
 import { formatNumber, initI18n, translate, translateTemplate } from "./i18n.js";
 
-if (!window.GardenerFileI18nActive) await initI18n();
+if (!window.GardenerFileI18nActive && (await initI18n()) === null) {
+  // Keep the source page dormant while location.replace() loads its
+  // locale-specific SEO page. Continuing would start requests that WebKit
+  // reports as access-control failures when the navigation cancels them.
+  await new Promise(() => {});
+}
 
 const manifestUrl = new URL(
   "../../packages/css/dist/gardener.manifest.json",
@@ -350,7 +355,7 @@ function setupComponentCatalog(components) {
 
 function setupFrameworkCatalog(api, catalog, framework, options = {}) {
   const id = options.id || framework.toLocaleLowerCase();
-  const packageName = options.packageName || `@gardener/${id}`;
+  const packageName = options.packageName || `@gardenerim/${id}`;
   const container = document.querySelector(`#${id}-component-catalog`);
   const search = document.querySelector(`#${id}-component-search`);
   const category = document.querySelector(`#${id}-component-category`);
@@ -402,7 +407,7 @@ function setupReactCatalog(api, catalog) {
 function setupAngularCatalog(api, catalog) {
   setupFrameworkCatalog(api, catalog, "AngularJS", {
     id: "angular",
-    packageName: "@gardener/angularjs",
+    packageName: "@gardenerim/angularjs",
   });
 }
 

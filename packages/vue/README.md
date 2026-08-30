@@ -5,13 +5,13 @@ Gardener CSS 1.0.0 的官方 Vue 3 适配层，版本 `1.0.0`。它完整映射 
 ## 快速开始
 
 ```bash
-npm install @gardener/vue @gardener/css vue
+npm install @gardenerim/vue @gardenerim/css vue
 ```
 
 ```ts
 import { createApp } from "vue";
-import GardenerVue from "@gardener/vue";
-import "@gardener/vue/style.css";
+import GardenerVue from "@gardenerim/vue";
+import "@gardenerim/vue/style.css";
 import App from "./App.vue";
 
 createApp(App).use(GardenerVue).mount("#app");
@@ -19,7 +19,7 @@ createApp(App).use(GardenerVue).mount("#app");
 
 ```vue
 <script setup lang="ts">
-import { GButton, GCard, GardenerProvider } from "@gardener/vue";
+import { GButton, GCard, GardenerProvider } from "@gardenerim/vue";
 </script>
 
 <template>
@@ -37,9 +37,9 @@ import { GButton, GCard, GardenerProvider } from "@gardener/vue";
 - 66 种 Gardener 行为的挂载、销毁和实例访问。
 - Web、Mobile、Desktop、Tauri、Electron 五种 CSS 平台入口。
 - 完整/核心/主题/工具/组件/AI 六种 CSS 入口。
-- 全局插件和 `@gardener/vue/components` 按需导出。
+- 全局插件和 `@gardenerim/vue/components` 按需导出。
 - 原生表单及 Gardener 自定义事件的 `v-model` 桥接。
-- 28 个 `@gardener/vue/component-css/*` 组件样式包代理入口。
+- 28 个 `@gardenerim/vue/component-css/*` 组件样式包代理入口。
 - `v-gardener` 指令、五个核心 Composable 和 Tauri/Electron 窗口控制 Composable。
 - 十轴主题 Provider，默认不引入深色模式。
 - TypeScript、SSR、原生 attributes、事件和 slots 支持。

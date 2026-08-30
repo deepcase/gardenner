@@ -1,4 +1,4 @@
-export { Gardener, destroy, emit, getInstance, init, observe, register, toast } from "@gardener/css/runtime";
+export { Gardener, destroy, emit, getInstance, init, observe, register, toast } from "@gardenerim/css/runtime";
 export * from "./types.js";
 export * from "./directives.js";
 export * from "./services.js";
