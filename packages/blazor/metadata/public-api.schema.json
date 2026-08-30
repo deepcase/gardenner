@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.dev/schemas/blazor-public-api-v1.json",
+  "title": "Gardener Blazor public API",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "version", "status", "cssVersion", "targetFramework", "compatibleFrameworks", "packageId", "components", "behaviors", "behaviorNames", "behaviorContracts", "events", "eventNames", "eventContracts", "guardEvents", "themeCount", "themes", "axisValues", "componentNames", "componentTypes", "frameworkTypes", "services", "componentParameters", "componentHandleMembers", "themeAxes", "staticAssets"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "version": { "const": "1.0.0" },
+    "status": { "const": "stable" },
+    "cssVersion": { "const": "1.0.0" },
+    "targetFramework": { "const": "net10.0" },
+    "compatibleFrameworks": { "type": "array", "minItems": 2, "maxItems": 2, "prefixItems": [{ "const": "net10.0" }, { "const": "net11.0" }], "items": false },
+    "dotnet11Status": { "enum": ["preview-compatible", "stable-compatible"] },
+    "packageId": { "const": "Gardener.Blazor" },
+    "components": { "const": 506 },
+    "behaviors": { "const": 66 },
+    "behaviorNames": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 66, "maxItems": 66 },
+    "behaviorContracts": { "type": "array", "minItems": 66, "maxItems": 66, "items": { "$ref": "#/$defs/behaviorContract" } },
+    "events": { "const": 75 },
+    "eventNames": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 75, "maxItems": 75 },
+    "eventContracts": { "type": "array", "minItems": 75, "maxItems": 75, "items": { "$ref": "#/$defs/eventContract" } },
+    "guardEvents": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 7, "maxItems": 7 },
+    "themeCount": { "const": 42 },
+    "themes": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 42, "maxItems": 42 },
+    "axisValues": { "type": "object", "minProperties": 9, "additionalProperties": { "$ref": "#/$defs/uniqueStrings" } },
+    "componentNames": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 506, "maxItems": 506 },
+    "componentTypes": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 506, "maxItems": 506 },
+    "frameworkTypes": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 28 },
+    "services": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 5 },
+    "componentParameters": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 20 },
+    "componentHandleMembers": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 6 },
+    "themeAxes": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 10, "maxItems": 10 },
+    "staticAssets": { "type": "array", "$ref": "#/$defs/uniqueStrings", "minItems": 43 }
+  },
+  "$defs": {
+    "uniqueStrings": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "behaviorContract": {
+      "type": "object", "additionalProperties": false, "required": ["name", "attribute", "instanceMembers"],
+      "properties": { "name": { "type": "string" }, "attribute": { "type": "string", "pattern": "^data-g-" }, "instanceMembers": { "$ref": "#/$defs/uniqueStrings" } }
+    },
+    "eventContract": {
+      "type": "object", "additionalProperties": false, "required": ["name", "detailKeys", "guard", "bubbles", "cancelable"],
+      "properties": { "name": { "type": "string" }, "detailKeys": { "$ref": "#/$defs/uniqueStrings" }, "guard": { "type": "boolean" }, "bubbles": { "type": "boolean" }, "cancelable": { "type": "boolean" } }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.style/schema/recipes.schema.json",
+  "title": "Gardener page and composition recipes",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "recipes"],
+  "properties": {
+    "$schema": { "enum": ["./recipes.schema.json", "../metadata/recipes.schema.json"] },
+    "schemaVersion": { "const": 2 },
+    "recipes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/recipe" },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "name": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$" },
+    "platform": { "enum": ["web", "mobile", "tablet", "desktop", "tauri", "electron", "pwa", "desktop-webview", "print"] },
+    "uniqueNames": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "recipe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "category", "platforms", "root", "parts", "useFor"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z][a-z0-9-]*)+$" },
+        "name": { "type": "string", "minLength": 1 },
+        "category": { "$ref": "#/$defs/name" },
+        "platforms": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/platform" }, "uniqueItems": true },
+        "root": { "type": "string", "pattern": "^\\.g-[a-z0-9-]+$" },
+        "parts": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^g-[a-z0-9]+(?:-[a-z0-9*]+)*$" }, "uniqueItems": true },
+        "behaviors": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/name" }, "uniqueItems": true },
+        "adapters": { "type": "array", "minItems": 1, "items": { "enum": ["tauri", "electron"] }, "uniqueItems": true },
+        "useFor": { "$ref": "#/$defs/uniqueNames" }
+      }
+    }
+  }
+}

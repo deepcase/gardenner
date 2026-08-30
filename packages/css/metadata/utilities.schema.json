@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.style/schema/utilities.schema.json",
+  "title": "Gardener generated utility catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "classPrefix", "count", "utilities"],
+  "properties": {
+    "$schema": { "const": "../metadata/utilities.schema.json" },
+    "schemaVersion": { "const": 2 },
+    "classPrefix": { "const": "g-" },
+    "count": { "type": "integer", "minimum": 0 },
+    "utilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["class", "selector", "declarations", "condition"],
+        "properties": {
+          "class": { "type": "string", "pattern": "^g-[A-Za-z0-9_:/.-]+$" },
+          "selector": { "type": "string", "minLength": 1 },
+          "declarations": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+          "condition": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

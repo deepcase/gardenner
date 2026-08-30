@@ -1,0 +1,44 @@
+@layer gardener.components {
+  .g-desktop-shell { height: 100dvh; min-width: 20rem; display: grid; grid-template: "title title title" var(--g-titlebar-height, 2.25rem) "activity main side" minmax(0, 1fr) "status status status" 1.5rem / auto minmax(0, 1fr) auto; overflow: hidden; background: var(--g-color-canvas); user-select: none; }
+  .g-titlebar { grid-area: title; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; min-height: var(--g-titlebar-height, 2.25rem); color: var(--g-color-text); background: var(--g-color-surface); border-bottom: 1px solid var(--g-color-border); -webkit-app-region: drag; app-region: drag; }
+  .g-titlebar-start, .g-titlebar-end { min-width: 0; display: flex; align-items: center; }
+  .g-titlebar-end { justify-content: flex-end; }
+  .g-titlebar-title { overflow: hidden; text-align: center; text-overflow: ellipsis; white-space: nowrap; font-size: var(--g-font-size-xs); }
+  .g-no-drag, .g-titlebar button, .g-titlebar a, .g-titlebar input, .g-window-controls { -webkit-app-region: no-drag; app-region: no-drag; }
+  .g-window-controls { height: 100%; display: flex; margin-inline-start: auto; }
+  .g-window-button { width: 2.875rem; height: 100%; display: grid; place-items: center; border: 0; border-radius: 0; background: transparent; color: inherit; }
+  .g-window-button:hover { background: var(--g-color-surface-subtle); }
+  .g-window-button[data-g-window-action="close"]:hover { color: #fff; background: #c42b1c; }
+  .g-activitybar { grid-area: activity; width: var(--g-activitybar-width, 3rem); display: flex; flex-direction: column; align-items: center; gap: var(--g-space-1); overflow: hidden; background: var(--g-color-surface-subtle); border-inline-end: 1px solid var(--g-color-border); }
+  .g-activitybar-item { position: relative; width: 100%; min-height: 3rem; display: grid; place-items: center; color: var(--g-color-text-muted); }
+  .g-activitybar-item[aria-current="page"], .g-activitybar-item.is-active { color: var(--g-color-text); }
+  .g-activitybar-item[aria-current="page"]::before, .g-activitybar-item.is-active::before { content: ""; position: absolute; inset-block: .45rem; inset-inline-start: 0; width: 2px; background: var(--g-color-primary); }
+  .g-workbench { grid-area: main; min-width: 0; min-height: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); overflow: hidden; }
+  .g-workbench-sidebar { width: var(--g-workbench-sidebar-width, 16rem); min-width: 10rem; max-width: 35rem; display: grid; grid-template-rows: auto minmax(0, 1fr); overflow: hidden; background: var(--g-color-surface); border-inline-end: 1px solid var(--g-color-border); }
+  .g-workbench-editor { min-width: 0; min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; overflow: hidden; background: var(--g-color-surface); }
+  .g-editor-tabs { display: flex; min-width: 0; overflow-x: auto; background: var(--g-color-surface-subtle); border-bottom: 1px solid var(--g-color-border); }
+  .g-editor-tab { flex: 0 0 auto; max-width: 14rem; min-height: 2.25rem; display: flex; align-items: center; gap: var(--g-space-2); padding-inline: var(--g-space-3); color: var(--g-color-text); border-inline-end: 1px solid var(--g-color-border); }
+  .g-editor-tab[aria-selected="true"], .g-editor-tab.is-active { color: var(--g-color-text); background: var(--g-color-surface); }
+  .g-editor-pane { min-width: 0; min-height: 0; overflow: auto; }
+  .g-bottom-panel { min-height: 6rem; max-height: 70%; display: grid; grid-template-rows: auto minmax(0, 1fr); overflow: hidden; border-top: 1px solid var(--g-color-border); }
+  .g-desktop-inspector { grid-area: side; width: var(--g-inspector-width, 18rem); min-width: 12rem; max-width: 36rem; overflow: auto; background: var(--g-color-surface); border-inline-start: 1px solid var(--g-color-border); }
+  .g-desktop-statusbar { grid-area: status; display: flex; align-items: center; justify-content: space-between; gap: var(--g-space-3); padding-inline: var(--g-space-2); font-size: .6875rem; color: var(--g-color-on-primary); background: var(--g-color-primary); }
+  .g-desktop-status-group { min-width: 0; height: 100%; display: flex; align-items: center; }
+  .g-desktop-status-item { height: 100%; display: flex; align-items: center; gap: .3rem; padding-inline: var(--g-space-2); white-space: nowrap; }
+  .g-desktop-status-item:hover { background: rgb(255 255 255 / .12); }
+  .g-menubar { display: flex; align-items: center; height: 100%; }
+  .g-menubar-item { height: 100%; padding-inline: var(--g-space-2); border: 0; background: transparent; color: inherit; font-size: var(--g-font-size-xs); }
+  .g-menubar-item:hover, .g-menubar-item[aria-expanded="true"] { background: var(--g-color-surface-subtle); }
+  .g-splitter { flex: 0 0 4px; position: relative; z-index: 2; background: transparent; touch-action: none; }
+  .g-splitter:hover, .g-splitter:focus-visible, .g-splitter.is-dragging { background: var(--g-color-primary); }
+  .g-splitter[aria-orientation="vertical"] { cursor: col-resize; }
+  .g-splitter[aria-orientation="horizontal"] { cursor: row-resize; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-titlebar { grid-template-columns: auto minmax(0, 1fr) auto; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-window-controls { order: -1; flex-direction: row-reverse; gap: .45rem; padding-inline: .75rem; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-window-button { width: .75rem; height: .75rem; border-radius: 50%; font-size: 0; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-window-button[data-g-window-action="close"] { background: #ff5f57; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-window-button[data-g-window-action="minimize"] { background: #febc2e; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-window-button[data-g-window-action="maximize"] { background: #28c840; }
+  @media (max-width: 55rem) { .g-desktop-inspector { display: none; } }
+  @media (max-width: 40rem) { .g-workbench-sidebar { display: none; } .g-titlebar { grid-template-columns: minmax(0, 1fr) auto; } .g-titlebar-title { text-align: start; padding-inline: var(--g-space-3); } .g-titlebar-start { display: none; } }
+}

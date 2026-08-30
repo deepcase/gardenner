@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.dev/schema/react/compatibility-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "version", "baselineVersion", "policy", "baseline"],
+  "properties": {
+    "$schema": { "const": "./compatibility.schema.json" },
+    "schemaVersion": { "const": 1 },
+    "version": { "const": "1.0.0" },
+    "baselineVersion": { "const": "1.0.0" },
+    "policy": {
+      "type": "object", "additionalProperties": false, "required": ["stage", "additions", "removals"],
+      "properties": { "stage": { "const": "stable" }, "additions": { "const": "allowed" }, "removals": { "const": "deprecate-before-removal" } }
+    },
+    "baseline": {
+      "type": "object", "additionalProperties": false,
+      "required": ["packageEntrypoints", "componentNames", "componentExports", "moduleExports", "typeExports", "behaviors", "hooks", "componentProps", "componentHandleMembers", "themeAxes"],
+      "properties": {
+        "packageEntrypoints": { "type": "array", "minItems": 29, "maxItems": 29, "uniqueItems": true, "items": { "type": "string" } },
+        "componentNames": { "type": "array", "minItems": 506, "maxItems": 506, "uniqueItems": true, "items": { "type": "string" } },
+        "componentExports": { "type": "array", "minItems": 506, "maxItems": 506, "uniqueItems": true, "items": { "type": "string", "pattern": "^G" } },
+        "moduleExports": { "type": "array", "minItems": 538, "maxItems": 538, "uniqueItems": true, "items": { "type": "string" } },
+        "typeExports": { "type": "array", "minItems": 22, "maxItems": 22, "uniqueItems": true, "items": { "type": "string" } },
+        "behaviors": { "type": "array", "minItems": 66, "maxItems": 66, "uniqueItems": true, "items": { "type": "string" } },
+        "hooks": { "type": "array", "minItems": 7, "maxItems": 7, "uniqueItems": true, "items": { "type": "string" } },
+        "componentProps": { "type": "array", "minItems": 10, "maxItems": 10, "uniqueItems": true, "items": { "type": "string" } },
+        "componentHandleMembers": { "type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true, "items": { "type": "string" } },
+        "themeAxes": { "type": "array", "minItems": 10, "maxItems": 10, "uniqueItems": true, "items": { "type": "string" } }
+      }
+    }
+  }
+}

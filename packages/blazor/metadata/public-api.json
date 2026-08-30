@@ -1,0 +1,2823 @@
+{
+  "$schema": "./public-api.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "status": "stable",
+  "cssVersion": "1.0.0",
+  "targetFramework": "net10.0",
+  "compatibleFrameworks": [
+    "net10.0",
+    "net11.0"
+  ],
+  "dotnet11Status": "preview-compatible",
+  "packageId": "Gardener.Blazor",
+  "components": 506,
+  "behaviors": 66,
+  "behaviorNames": [
+    "dialog",
+    "drawer",
+    "mobile-sheet",
+    "dropdown",
+    "tabs",
+    "accordion",
+    "auto-resize",
+    "combobox",
+    "password-toggle",
+    "clear-input",
+    "otp-input",
+    "password-strength",
+    "auth-timer",
+    "quantity-stepper",
+    "sku-selector",
+    "cart",
+    "coupon",
+    "pull-refresh",
+    "infinite-load",
+    "swipe-actions",
+    "wheel-picker",
+    "ai-composer",
+    "prompt-fill",
+    "ai-approval",
+    "ai-feedback",
+    "shortcut-recorder",
+    "desktop-tabs",
+    "native-file-picker",
+    "window-switcher",
+    "character-count",
+    "conditional-field",
+    "repeatable-field",
+    "tooltip",
+    "popover",
+    "tour",
+    "carousel",
+    "split-pane",
+    "tree",
+    "data-grid",
+    "table-sort",
+    "row-select",
+    "row-disclosure",
+    "column-toggle",
+    "data-filter",
+    "data-view",
+    "transfer",
+    "picker",
+    "cascader",
+    "saved-choice",
+    "builder-list",
+    "toast",
+    "copy",
+    "fullscreen",
+    "scroll-top",
+    "dropzone",
+    "nav-toggle",
+    "roving-nav",
+    "context-menu",
+    "scrollspy",
+    "jump-nav",
+    "upload-manager",
+    "file-browser",
+    "editor-shell",
+    "revision-compare",
+    "autosave",
+    "command-palette"
+  ],
+  "behaviorContracts": [
+    {
+      "name": "dialog",
+      "attribute": "data-g-dialog",
+      "instanceMembers": [
+        "open",
+        "close",
+        "toggle",
+        "isOpen",
+        "destroy"
+      ]
+    },
+    {
+      "name": "drawer",
+      "attribute": "data-g-drawer",
+      "instanceMembers": [
+        "open",
+        "close",
+        "toggle",
+        "isOpen",
+        "destroy"
+      ]
+    },
+    {
+      "name": "mobile-sheet",
+      "attribute": "data-g-mobile-sheet",
+      "instanceMembers": [
+        "open",
+        "close",
+        "toggle",
+        "isOpen",
+        "destroy"
+      ]
+    },
+    {
+      "name": "dropdown",
+      "attribute": "data-g-dropdown",
+      "instanceMembers": [
+        "open",
+        "close",
+        "toggle",
+        "destroy"
+      ]
+    },
+    {
+      "name": "tabs",
+      "attribute": "data-g-tabs",
+      "instanceMembers": [
+        "select",
+        "destroy"
+      ]
+    },
+    {
+      "name": "accordion",
+      "attribute": "data-g-accordion",
+      "instanceMembers": [
+        "toggle",
+        "destroy"
+      ]
+    },
+    {
+      "name": "auto-resize",
+      "attribute": "data-g-auto-resize",
+      "instanceMembers": [
+        "resize",
+        "destroy"
+      ]
+    },
+    {
+      "name": "combobox",
+      "attribute": "data-g-combobox",
+      "instanceMembers": [
+        "open",
+        "close",
+        "choose",
+        "destroy"
+      ]
+    },
+    {
+      "name": "password-toggle",
+      "attribute": "data-g-password-toggle",
+      "instanceMembers": [
+        "toggle",
+        "destroy"
+      ]
+    },
+    {
+      "name": "clear-input",
+      "attribute": "data-g-clear-input",
+      "instanceMembers": [
+        "clear",
+        "update",
+        "destroy"
+      ]
+    },
+    {
+      "name": "otp-input",
+      "attribute": "data-g-otp-input",
+      "instanceMembers": [
+        "value",
+        "fill",
+        "clear",
+        "destroy"
+      ]
+    },
+    {
+      "name": "password-strength",
+      "attribute": "data-g-password-strength",
+      "instanceMembers": [
+        "update",
+        "destroy"
+      ]
+    },
+    {
+      "name": "auth-timer",
+      "attribute": "data-g-auth-timer",
+      "instanceMembers": [
+        "start",
+        "reset",
+        "expire",
+        "remaining",
+        "destroy"
+      ]
+    },
+    {
+      "name": "quantity-stepper",
+      "attribute": "data-g-quantity-stepper",
+      "instanceMembers": [
+        "value",
+        "set",
+        "increment",
+        "decrement",
+        "destroy"
+      ]
+    },
+    {
+      "name": "sku-selector",
+      "attribute": "data-g-sku-selector",
+      "instanceMembers": [
+        "value",
+        "select",
+        "destroy"
+      ]
+    },
+    {
+      "name": "cart",
+      "attribute": "data-g-cart",
+      "instanceMembers": [
+        "update",
+        "summary",
+        "destroy"
+      ]
+    },
+    {
+      "name": "coupon",
+      "attribute": "data-g-coupon",
+      "instanceMembers": [
+        "apply",
+        "clear",
+        "state",
+        "destroy"
+      ]
+    },
+    {
+      "name": "pull-refresh",
+      "attribute": "data-g-pull-refresh",
+      "instanceMembers": [
+        "refresh",
+        "complete",
+        "isRefreshing",
+        "destroy"
+      ]
+    },
+    {
+      "name": "infinite-load",
+      "attribute": "data-g-infinite-load",
+      "instanceMembers": [
+        "load",
+        "complete",
+        "isLoading",
+        "destroy"
+      ]
+    },
+    {
+      "name": "swipe-actions",
+      "attribute": "data-g-swipe-actions",
+      "instanceMembers": [
+        "reveal",
+        "close",
+        "toggle",
+        "destroy"
+      ]
+    },
+    {
+      "name": "wheel-picker",
+      "attribute": "data-g-wheel-picker",
+      "instanceMembers": [
+        "select",
+        "values",
+        "destroy"
+      ]
+    },
+    {
+      "name": "ai-composer",
+      "attribute": "data-g-ai-composer",
+      "instanceMembers": [
+        "submit",
+        "stop",
+        "setStreaming",
+        "value",
+        "focus",
+        "destroy"
+      ]
+    },
+    {
+      "name": "prompt-fill",
+      "attribute": "data-g-prompt-fill",
+      "instanceMembers": [
+        "fill",
+        "destroy"
+      ]
+    },
+    {
+      "name": "ai-approval",
+      "attribute": "data-g-ai-approval",
+      "instanceMembers": [
+        "choose",
+        "reset",
+        "destroy"
+      ]
+    },
+    {
+      "name": "ai-feedback",
+      "attribute": "data-g-ai-feedback",
+      "instanceMembers": [
+        "select",
+        "submit",
+        "value",
+        "destroy"
+      ]
+    },
+    {
+      "name": "shortcut-recorder",
+      "attribute": "data-g-shortcut-recorder",
+      "instanceMembers": [
+        "start",
+        "stop",
+        "clear",
+        "value",
+        "destroy"
+      ]
+    },
+    {
+      "name": "desktop-tabs",
+      "attribute": "data-g-desktop-tabs",
+      "instanceMembers": [
+        "select",
+        "close",
+        "tabs",
+        "destroy"
+      ]
+    },
+    {
+      "name": "native-file-picker",
+      "attribute": "data-g-native-file-picker",
+      "instanceMembers": [
+        "open",
+        "files",
+        "clear",
+        "destroy"
+      ]
+    },
+    {
+      "name": "window-switcher",
+      "attribute": "data-g-window-switcher",
+      "instanceMembers": [
+        "open",
+        "close",
+        "select",
+        "isOpen",
+        "destroy"
+      ]
+    },
+    {
+      "name": "character-count",
+      "attribute": "data-g-character-count",
+      "instanceMembers": [
+        "update",
+        "destroy"
+      ]
+    },
+    {
+      "name": "conditional-field",
+      "attribute": "data-g-conditional-field",
+      "instanceMembers": [
+        "update",
+        "destroy"
+      ]
+    },
+    {
+      "name": "repeatable-field",
+      "attribute": "data-g-repeatable-field",
+      "instanceMembers": [
+        "add",
+        "sync",
+        "destroy"
+      ]
+    },
+    {
+      "name": "tooltip",
+      "attribute": "data-g-tooltip",
+      "instanceMembers": [
+        "open",
+        "close",
+        "toggle",
+        "destroy"
+      ]
+    },
+    {
+      "name": "popover",
+      "attribute": "data-g-popover",
+      "instanceMembers": [
+        "open",
+        "close",
+        "toggle",
+        "destroy"
+      ]
+    },
+    {
+      "name": "tour",
+      "attribute": "data-g-tour",
+      "instanceMembers": [
+        "open",
+        "close",
+        "next",
+        "previous",
+        "go",
+        "isOpen",
+        "current",
+        "destroy"
+      ]
+    },
+    {
+      "name": "carousel",
+      "attribute": "data-g-carousel",
+      "instanceMembers": [
+        "go",
+        "next",
+        "previous",
+        "start",
+        "stop",
+        "destroy"
+      ]
+    },
+    {
+      "name": "split-pane",
+      "attribute": "data-g-split-pane",
+      "instanceMembers": [
+        "set",
+        "destroy"
+      ]
+    },
+    {
+      "name": "tree",
+      "attribute": "data-g-tree",
+      "instanceMembers": [
+        "focus",
+        "destroy"
+      ]
+    },
+    {
+      "name": "data-grid",
+      "attribute": "data-g-data-grid",
+      "instanceMembers": [
+        "focus",
+        "destroy"
+      ]
+    },
+    {
+      "name": "table-sort",
+      "attribute": "data-g-table-sort",
+      "instanceMembers": [
+        "sort",
+        "destroy"
+      ]
+    },
+    {
+      "name": "row-select",
+      "attribute": "data-g-row-select",
+      "instanceMembers": [
+        "sync",
+        "clear",
+        "selectAll",
+        "invert",
+        "selected",
+        "destroy"
+      ]
+    },
+    {
+      "name": "row-disclosure",
+      "attribute": "data-g-row-disclosure",
+      "instanceMembers": [
+        "set",
+        "destroy"
+      ]
+    },
+    {
+      "name": "column-toggle",
+      "attribute": "data-g-column-toggle",
+      "instanceMembers": [
+        "set",
+        "destroy"
+      ]
+    },
+    {
+      "name": "data-filter",
+      "attribute": "data-g-data-filter",
+      "instanceMembers": [
+        "filter",
+        "clear",
+        "destroy"
+      ]
+    },
+    {
+      "name": "data-view",
+      "attribute": "data-g-data-view",
+      "instanceMembers": [
+        "select",
+        "destroy"
+      ]
+    },
+    {
+      "name": "transfer",
+      "attribute": "data-g-transfer",
+      "instanceMembers": [
+        "move",
+        "sync",
+        "values",
+        "destroy"
+      ]
+    },
+    {
+      "name": "picker",
+      "attribute": "data-g-picker",
+      "instanceMembers": [
+        "open",
+        "close",
+        "selected",
+        "choose",
+        "destroy"
+      ]
+    },
+    {
+      "name": "cascader",
+      "attribute": "data-g-cascader",
+      "instanceMembers": [
+        "choose",
+        "destroy"
+      ]
+    },
+    {
+      "name": "saved-choice",
+      "attribute": "data-g-saved-choice",
+      "instanceMembers": [
+        "select",
+        "destroy"
+      ]
+    },
+    {
+      "name": "builder-list",
+      "attribute": "data-g-builder-list",
+      "instanceMembers": [
+        "add",
+        "sync",
+        "destroy"
+      ]
+    },
+    {
+      "name": "toast",
+      "attribute": "data-g-toast",
+      "instanceMembers": [
+        "dismiss",
+        "pause",
+        "resume",
+        "destroy"
+      ]
+    },
+    {
+      "name": "copy",
+      "attribute": "data-g-copy",
+      "instanceMembers": [
+        "copy",
+        "destroy"
+      ]
+    },
+    {
+      "name": "fullscreen",
+      "attribute": "data-g-fullscreen",
+      "instanceMembers": [
+        "toggle",
+        "destroy"
+      ]
+    },
+    {
+      "name": "scroll-top",
+      "attribute": "data-g-scroll-top",
+      "instanceMembers": [
+        "update",
+        "scroll",
+        "destroy"
+      ]
+    },
+    {
+      "name": "dropzone",
+      "attribute": "data-g-dropzone",
+      "instanceMembers": [
+        "destroy"
+      ]
+    },
+    {
+      "name": "nav-toggle",
+      "attribute": "data-g-nav-toggle",
+      "instanceMembers": [
+        "open",
+        "close",
+        "toggle",
+        "isOpen",
+        "destroy"
+      ]
+    },
+    {
+      "name": "roving-nav",
+      "attribute": "data-g-roving-nav",
+      "instanceMembers": [
+        "select",
+        "destroy"
+      ]
+    },
+    {
+      "name": "context-menu",
+      "attribute": "data-g-context-menu",
+      "instanceMembers": [
+        "open",
+        "close",
+        "isOpen",
+        "destroy"
+      ]
+    },
+    {
+      "name": "scrollspy",
+      "attribute": "data-g-scrollspy",
+      "instanceMembers": [
+        "update",
+        "destroy"
+      ]
+    },
+    {
+      "name": "jump-nav",
+      "attribute": "data-g-jump-nav",
+      "instanceMembers": [
+        "jump",
+        "destroy"
+      ]
+    },
+    {
+      "name": "upload-manager",
+      "attribute": "data-g-upload-manager",
+      "instanceMembers": [
+        "sync",
+        "addFile",
+        "items",
+        "destroy"
+      ]
+    },
+    {
+      "name": "file-browser",
+      "attribute": "data-g-file-browser",
+      "instanceMembers": [
+        "select",
+        "filter",
+        "selected",
+        "destroy"
+      ]
+    },
+    {
+      "name": "editor-shell",
+      "attribute": "data-g-editor-shell",
+      "instanceMembers": [
+        "run",
+        "counts",
+        "surface",
+        "destroy"
+      ]
+    },
+    {
+      "name": "revision-compare",
+      "attribute": "data-g-revision-compare",
+      "instanceMembers": [
+        "setView",
+        "view",
+        "destroy"
+      ]
+    },
+    {
+      "name": "autosave",
+      "attribute": "data-g-autosave",
+      "instanceMembers": [
+        "save",
+        "state",
+        "destroy"
+      ]
+    },
+    {
+      "name": "command-palette",
+      "attribute": "data-g-command-palette",
+      "instanceMembers": [
+        "open",
+        "close",
+        "toggle",
+        "isOpen",
+        "destroy"
+      ]
+    }
+  ],
+  "events": 75,
+  "eventNames": [
+    "add",
+    "approval",
+    "attachmentremove",
+    "authtimerexpired",
+    "authtimerstart",
+    "autosavestate",
+    "beforeapproval",
+    "beforeclose",
+    "beforefilepicker",
+    "beforeopen",
+    "beforepromptstop",
+    "beforepromptsubmit",
+    "beforetabclose",
+    "builderchange",
+    "cartchange",
+    "cartremove",
+    "cascadechange",
+    "change",
+    "clear",
+    "close",
+    "collapse",
+    "columnchange",
+    "composerstate",
+    "copy",
+    "count",
+    "couponchange",
+    "desktoptabchange",
+    "desktoptabclose",
+    "disclosure",
+    "dismiss",
+    "drop",
+    "editorchange",
+    "editorcommand",
+    "error",
+    "expand",
+    "feedbackchange",
+    "feedbacksubmit",
+    "filefilter",
+    "files",
+    "fileselect",
+    "fileview",
+    "filter",
+    "fullscreenchange",
+    "init",
+    "loadcomplete",
+    "loadmore",
+    "nativefiles",
+    "open",
+    "otpchange",
+    "otpcomplete",
+    "passwordstrength",
+    "pickerchange",
+    "promptfill",
+    "promptstop",
+    "promptsubmit",
+    "quantitychange",
+    "refresh",
+    "refreshcomplete",
+    "remove",
+    "resize",
+    "revisionview",
+    "savedchoice",
+    "selectionchange",
+    "shortcutchange",
+    "skuchange",
+    "sort",
+    "swipechange",
+    "toggle",
+    "transferchange",
+    "uploadadd",
+    "uploadchange",
+    "viewchange",
+    "wheelchange",
+    "windowactivate",
+    "windowselect"
+  ],
+  "eventContracts": [
+    {
+      "name": "add",
+      "detailKeys": [
+        "item",
+        "index"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "approval",
+      "detailKeys": [
+        "value",
+        "choice",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "attachmentremove",
+      "detailKeys": [
+        "attachment"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "authtimerexpired",
+      "detailKeys": [
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "authtimerstart",
+      "detailKeys": [
+        "remaining",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "autosavestate",
+      "detailKeys": [
+        "state",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "beforeapproval",
+      "detailKeys": [
+        "value",
+        "choice",
+        "reason"
+      ],
+      "guard": true,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "beforeclose",
+      "detailKeys": [
+        "reason",
+        "trigger"
+      ],
+      "guard": true,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "beforefilepicker",
+      "detailKeys": [
+        "input"
+      ],
+      "guard": true,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "beforeopen",
+      "detailKeys": [
+        "source",
+        "trigger"
+      ],
+      "guard": true,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "beforepromptstop",
+      "detailKeys": [
+        "reason"
+      ],
+      "guard": true,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "beforepromptsubmit",
+      "detailKeys": [
+        "value",
+        "reason",
+        "input"
+      ],
+      "guard": true,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "beforetabclose",
+      "detailKeys": [
+        "tab",
+        "reason",
+        "dirty"
+      ],
+      "guard": true,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "builderchange",
+      "detailKeys": [
+        "count",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "cartchange",
+      "detailKeys": [
+        "subtotal",
+        "discount",
+        "shipping",
+        "tax",
+        "total",
+        "count",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "cartremove",
+      "detailKeys": [
+        "item"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "cascadechange",
+      "detailKeys": [
+        "value",
+        "path",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "change",
+      "detailKeys": [
+        "tab",
+        "trigger",
+        "expanded",
+        "visible",
+        "value",
+        "option",
+        "index",
+        "step",
+        "source",
+        "item",
+        "link",
+        "section",
+        "target"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "clear",
+      "detailKeys": [
+        "input"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "close",
+      "detailKeys": [
+        "reason",
+        "index",
+        "trigger"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "collapse",
+      "detailKeys": [
+        "item"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "columnchange",
+      "detailKeys": [
+        "key",
+        "visible"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "composerstate",
+      "detailKeys": [
+        "streaming",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "copy",
+      "detailKeys": [
+        "value"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "count",
+      "detailKeys": [
+        "count",
+        "maximum"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "couponchange",
+      "detailKeys": [
+        "state",
+        "code",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "desktoptabchange",
+      "detailKeys": [
+        "tab",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "desktoptabclose",
+      "detailKeys": [
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "disclosure",
+      "detailKeys": [
+        "trigger",
+        "targets",
+        "expanded",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "dismiss",
+      "detailKeys": [
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "drop",
+      "detailKeys": [
+        "files",
+        "dataTransfer"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "editorchange",
+      "detailKeys": [
+        "text",
+        "characters",
+        "words"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "editorcommand",
+      "detailKeys": [
+        "command",
+        "value",
+        "tool"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "error",
+      "detailKeys": [
+        "action",
+        "error"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "expand",
+      "detailKeys": [
+        "item"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "feedbackchange",
+      "detailKeys": [
+        "value",
+        "option",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "feedbacksubmit",
+      "detailKeys": [
+        "value",
+        "comment",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "filefilter",
+      "detailKeys": [
+        "query",
+        "visible"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "files",
+      "detailKeys": [
+        "files",
+        "input"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "fileselect",
+      "detailKeys": [
+        "item",
+        "value",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "fileview",
+      "detailKeys": [
+        "view"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "filter",
+      "detailKeys": [
+        "value",
+        "terms",
+        "count"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "fullscreenchange",
+      "detailKeys": [
+        "active",
+        "target"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "init",
+      "detailKeys": [
+        "name",
+        "instance"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "loadcomplete",
+      "detailKeys": [
+        "done"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "loadmore",
+      "detailKeys": [
+        "reason",
+        "complete"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "nativefiles",
+      "detailKeys": [
+        "files",
+        "input",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "open",
+      "detailKeys": [
+        "source",
+        "trigger",
+        "x",
+        "y"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "otpchange",
+      "detailKeys": [
+        "value",
+        "complete",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "otpcomplete",
+      "detailKeys": [
+        "value",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "passwordstrength",
+      "detailKeys": [
+        "score",
+        "checks",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "pickerchange",
+      "detailKeys": [
+        "values",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "promptfill",
+      "detailKeys": [
+        "value",
+        "item",
+        "target"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "promptstop",
+      "detailKeys": [
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "promptsubmit",
+      "detailKeys": [
+        "value",
+        "reason",
+        "input"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "quantitychange",
+      "detailKeys": [
+        "value",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "refresh",
+      "detailKeys": [
+        "reason",
+        "complete"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "refreshcomplete",
+      "detailKeys": [],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "remove",
+      "detailKeys": [
+        "index"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "resize",
+      "detailKeys": [
+        "value"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "revisionview",
+      "detailKeys": [
+        "view",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "savedchoice",
+      "detailKeys": [
+        "values",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "selectionchange",
+      "detailKeys": [
+        "selected",
+        "count",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "shortcutchange",
+      "detailKeys": [
+        "value",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "skuchange",
+      "detailKeys": [
+        "value",
+        "complete",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "sort",
+      "detailKeys": [
+        "key",
+        "direction",
+        "type",
+        "button"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "swipechange",
+      "detailKeys": [
+        "revealed",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "toggle",
+      "detailKeys": [
+        "expanded",
+        "trigger"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "transferchange",
+      "detailKeys": [
+        "source",
+        "target",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "uploadadd",
+      "detailKeys": [
+        "file",
+        "item"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "uploadchange",
+      "detailKeys": [
+        "items",
+        "counts",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "viewchange",
+      "detailKeys": [
+        "view"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "wheelchange",
+      "detailKeys": [
+        "values",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "windowactivate",
+      "detailKeys": [
+        "item",
+        "value"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    },
+    {
+      "name": "windowselect",
+      "detailKeys": [
+        "item",
+        "value",
+        "reason"
+      ],
+      "guard": false,
+      "bubbles": true,
+      "cancelable": true
+    }
+  ],
+  "guardEvents": [
+    "beforeapproval",
+    "beforeclose",
+    "beforefilepicker",
+    "beforeopen",
+    "beforepromptstop",
+    "beforepromptsubmit",
+    "beforetabclose"
+  ],
+  "themeCount": 42,
+  "themes": [
+    "garden",
+    "slate",
+    "graphite",
+    "zinc",
+    "stone",
+    "red",
+    "rose",
+    "ruby",
+    "crimson",
+    "coral",
+    "orange",
+    "amber",
+    "gold",
+    "yellow",
+    "lime",
+    "olive",
+    "green",
+    "forest",
+    "emerald",
+    "mint",
+    "teal",
+    "aqua",
+    "cyan",
+    "sky",
+    "blue",
+    "cobalt",
+    "navy",
+    "ocean",
+    "indigo",
+    "violet",
+    "purple",
+    "lavender",
+    "plum",
+    "fuchsia",
+    "magenta",
+    "pink",
+    "brown",
+    "coffee",
+    "sand",
+    "sunset",
+    "midnight",
+    "monochrome"
+  ],
+  "axisValues": {
+    "mode": [
+      "light",
+      "dark",
+      "system",
+      "high-contrast"
+    ],
+    "neutral": [
+      "cool",
+      "warm",
+      "gray",
+      "ink",
+      "cream",
+      "blueprint",
+      "paper"
+    ],
+    "typography": [
+      "system",
+      "corporate",
+      "humanist",
+      "editorial",
+      "technical",
+      "geometric",
+      "rounded",
+      "classic",
+      "compact",
+      "cjk"
+    ],
+    "shape": [
+      "small",
+      "sharp",
+      "medium",
+      "soft",
+      "round"
+    ],
+    "density": [
+      "standard",
+      "compact",
+      "comfortable",
+      "touch"
+    ],
+    "elevation": [
+      "bordered",
+      "flat",
+      "layered",
+      "floating"
+    ],
+    "motion": [
+      "none",
+      "calm",
+      "quick"
+    ],
+    "platform": [
+      "web",
+      "mobile",
+      "desktop",
+      "tauri",
+      "electron",
+      "macos"
+    ],
+    "os": [
+      "windows",
+      "macos",
+      "linux"
+    ]
+  },
+  "componentNames": [
+    "button",
+    "button-group",
+    "card",
+    "badge-tag-chip",
+    "avatar",
+    "alert",
+    "progress-meter",
+    "spinner-skeleton",
+    "empty-state",
+    "input",
+    "textarea",
+    "select",
+    "checkbox-radio",
+    "switch",
+    "range-color",
+    "file-drop",
+    "combobox",
+    "form",
+    "form-section",
+    "field",
+    "fieldset",
+    "form-row",
+    "form-grid",
+    "horizontal-form",
+    "inline-form",
+    "compact-form",
+    "input-group",
+    "input-affix",
+    "search-field",
+    "password-field",
+    "clearable-field",
+    "character-counter",
+    "validation-state",
+    "checkbox-group",
+    "radio-group",
+    "switch-row",
+    "choice-card-group",
+    "name-group",
+    "address-group",
+    "phone-group",
+    "money-group",
+    "date-range-group",
+    "time-range-group",
+    "unit-field",
+    "range-field",
+    "file-field",
+    "repeatable-field",
+    "conditional-field",
+    "form-actions",
+    "autosave-status",
+    "form-progress",
+    "form-review",
+    "consent-group",
+    "navbar",
+    "sidebar",
+    "breadcrumb",
+    "tabs",
+    "segmented-control",
+    "pagination",
+    "menu-dropdown",
+    "stepper",
+    "command-palette",
+    "primary-navigation",
+    "utility-navigation",
+    "sub-navigation",
+    "collapsible-navigation",
+    "navigation-rail",
+    "activity-bar",
+    "menu-bar",
+    "context-menu",
+    "tree-navigation",
+    "vertical-tabs",
+    "pill-navigation",
+    "scrollspy-navigation",
+    "cursor-pagination",
+    "load-more-navigation",
+    "wizard-navigation",
+    "back-navigation",
+    "previous-next-navigation",
+    "skip-navigation",
+    "mobile-top-navigation",
+    "bottom-navigation",
+    "mobile-tab-bar",
+    "drawer-navigation",
+    "command-navigation",
+    "jump-navigation",
+    "quick-navigation",
+    "locale-navigation",
+    "account-navigation",
+    "dialog",
+    "drawer",
+    "popover",
+    "tooltip",
+    "toast",
+    "accordion",
+    "table",
+    "data-grid",
+    "kpi-stat",
+    "description-list",
+    "list-group",
+    "tree",
+    "timeline",
+    "responsive-table",
+    "table-sort",
+    "row-selection",
+    "row-disclosure",
+    "column-toggle",
+    "data-filter",
+    "data-view",
+    "editable-grid",
+    "tree-table",
+    "grouped-table",
+    "expandable-table",
+    "comparison-table",
+    "key-value",
+    "record-detail",
+    "media-list",
+    "dense-list",
+    "audit-log-composition",
+    "stat-list",
+    "metric-card",
+    "sparkline",
+    "progress-stats",
+    "data-legend",
+    "ranking",
+    "status-summary",
+    "data-matrix",
+    "heatmap",
+    "data-toolbar",
+    "column-chooser",
+    "saved-views",
+    "export-panel",
+    "data-state",
+    "data-view-switcher",
+    "selection-summary",
+    "table-density",
+    "filter-summary",
+    "sort-builder",
+    "data-inspector",
+    "selection-controls",
+    "batch-toolbar",
+    "dual-list",
+    "tree-select",
+    "cascader",
+    "mention-picker",
+    "user-picker",
+    "organization-picker",
+    "resource-picker",
+    "media-picker",
+    "icon-picker",
+    "color-picker-composition",
+    "date-range-picker-composition",
+    "time-range-picker-composition",
+    "saved-filters",
+    "group-builder",
+    "entity-picker",
+    "tag-picker",
+    "relation-picker",
+    "bulk-confirmation",
+    "bulk-progress",
+    "filter-bar",
+    "code-block",
+    "terminal",
+    "diff-viewer",
+    "chart-container",
+    "grid-system",
+    "region-layout-system",
+    "classic-layout-primitives",
+    "page-header",
+    "section-header",
+    "subheader",
+    "toolbar",
+    "action-bar",
+    "status-bar",
+    "command-bar",
+    "context-bar",
+    "bulk-action-bar",
+    "footer-bar",
+    "floating-action-bar",
+    "divider-with-text",
+    "sticky-actions",
+    "page-loading",
+    "page-state-system",
+    "tip",
+    "inline-hint",
+    "help-text",
+    "help-trigger",
+    "rich-tooltip",
+    "help-popover",
+    "definition-help",
+    "callout",
+    "note",
+    "guidance-pair",
+    "key-hint",
+    "shortcut-list",
+    "help-card",
+    "help-panel",
+    "help-center",
+    "help-topics",
+    "faq",
+    "contextual-help",
+    "coach-mark",
+    "spotlight",
+    "hotspot",
+    "feature-hint",
+    "whats-new",
+    "help-checklist",
+    "troubleshooting",
+    "help-feedback",
+    "app-shell",
+    "dashboard",
+    "mobile-shell",
+    "chat",
+    "message",
+    "prompt-composer",
+    "attachment",
+    "thinking",
+    "tool-call",
+    "tool-approval",
+    "agent-status",
+    "agent-plan",
+    "sources-citations",
+    "artifact-panel",
+    "model-selector",
+    "context-meter",
+    "voice-state",
+    "generation-placeholder",
+    "ai-workspace",
+    "prompt-starter",
+    "ai-command-menu",
+    "streaming-response",
+    "multi-agent-board",
+    "agent-handoff",
+    "artifact-workspace",
+    "generation-gallery",
+    "ai-context-manager",
+    "ai-usage-panel",
+    "ai-safety-notice",
+    "ai-feedback",
+    "date-picker",
+    "time-picker",
+    "pin-input",
+    "rating",
+    "transfer-list",
+    "validation-summary",
+    "mega-menu",
+    "anchor-navigation",
+    "tour-spotlight",
+    "virtual-list",
+    "kanban",
+    "gantt-shell",
+    "query-builder",
+    "carousel",
+    "gallery-lightbox",
+    "media-player",
+    "document-viewer",
+    "split-pane",
+    "drag-sort",
+    "infinite-scroll",
+    "pull-refresh",
+    "product-card",
+    "cart-item",
+    "price-quantity",
+    "conversation-list",
+    "prompt-library",
+    "mention-slash-command",
+    "generation-card",
+    "file-tree",
+    "version-history",
+    "permission-scope",
+    "cost-rate-limit",
+    "privacy-notice",
+    "authentication-shell",
+    "mobile-category",
+    "cms-shell",
+    "visual-builder",
+    "rich-editor",
+    "media-library",
+    "content-workflow",
+    "localization-grid",
+    "site-header",
+    "hero",
+    "pricing",
+    "article-layout",
+    "product-detail",
+    "checkout",
+    "enterprise-settings",
+    "permission-matrix",
+    "audit-log",
+    "desktop-shell",
+    "desktop-titlebar",
+    "desktop-workbench",
+    "onboarding",
+    "wizard-layout",
+    "notification-center",
+    "inbox",
+    "search-results",
+    "calendar",
+    "agenda",
+    "file-manager",
+    "upload-queue",
+    "form-builder",
+    "filter-builder",
+    "pivot-table",
+    "organization-chart",
+    "map-shell",
+    "comment-thread",
+    "activity-feed",
+    "report-invoice",
+    "cookie-consent",
+    "copy-action",
+    "fullscreen-action",
+    "back-to-top",
+    "image-crop-shell",
+    "content-file-drop",
+    "content-file-list",
+    "content-upload-queue",
+    "chunk-upload",
+    "upload-progress-composition",
+    "failed-upload",
+    "file-card-composition",
+    "folder-tree-composition",
+    "file-browser-composition",
+    "file-preview-composition",
+    "media-library-composition",
+    "media-grid-composition",
+    "media-details-composition",
+    "image-crop-composition",
+    "image-annotation-composition",
+    "document-viewer-composition",
+    "pdf-viewer",
+    "video-player-shell",
+    "audio-player-shell",
+    "code-editor-shell",
+    "rich-text-editor-composition",
+    "markdown-editor",
+    "block-editor",
+    "revision-compare-composition",
+    "content-autosave-indicator",
+    "content-outline",
+    "editor-toolbar-composition",
+    "find-replace",
+    "comment-thread-composition",
+    "version-history-composition",
+    "file-properties",
+    "storage-meter",
+    "auth-centered",
+    "auth-split",
+    "sign-in-composition",
+    "registration-composition",
+    "password-recovery",
+    "password-reset",
+    "email-verification",
+    "phone-verification",
+    "mfa-challenge",
+    "otp-input",
+    "passkey-composition",
+    "sso-composition",
+    "qr-login",
+    "magic-link",
+    "invitation-composition",
+    "first-time-setup",
+    "lock-screen",
+    "session-expired",
+    "account-chooser",
+    "tenant-chooser",
+    "identity-switcher",
+    "profile-setup",
+    "account-security",
+    "device-management",
+    "login-activity",
+    "security-alert",
+    "recovery-codes",
+    "trusted-device",
+    "connected-accounts",
+    "password-strength",
+    "auth-consent",
+    "auth-result",
+    "commerce-product-card",
+    "commerce-product-list",
+    "commerce-product-detail",
+    "commerce-product-gallery",
+    "sku-selector",
+    "commerce-quantity-stepper",
+    "price-display",
+    "commerce-cart-item",
+    "commerce-cart",
+    "mini-cart",
+    "cart-summary",
+    "commerce-checkout",
+    "commerce-checkout-steps",
+    "address-selector",
+    "address-card",
+    "shipping-method",
+    "pickup-selector",
+    "coupon",
+    "promotion-list",
+    "invoice-information",
+    "payment-method",
+    "payment-sheet",
+    "payment-result",
+    "commerce-order-summary",
+    "commerce-order-timeline",
+    "order-detail",
+    "subscription-plan",
+    "pricing-comparison",
+    "commerce-usage-meter",
+    "billing-history",
+    "refund-status",
+    "tax-summary",
+    "mobile-safe-shell",
+    "mobile-app-bar",
+    "mobile-bottom-navigation",
+    "mobile-bottom-sheet",
+    "mobile-action-sheet",
+    "mobile-pull-refresh",
+    "mobile-infinite-load",
+    "mobile-swipe-actions",
+    "mobile-swipe-tabs",
+    "mobile-category-view",
+    "mobile-filter-sheet",
+    "mobile-purchase-bar",
+    "mobile-search",
+    "mobile-picker",
+    "mobile-wheel-picker",
+    "mobile-fab",
+    "mobile-fullscreen-dialog",
+    "mobile-keyboard-avoidance",
+    "mobile-gesture-hint",
+    "mobile-offline-banner",
+    "mobile-segmented-control",
+    "mobile-feed",
+    "mobile-card-carousel",
+    "mobile-form",
+    "mobile-auth",
+    "mobile-checkout",
+    "mobile-media-viewer",
+    "mobile-keyboard-toolbar",
+    "mobile-selection-mode",
+    "mobile-snackbar",
+    "mobile-permission-prompt",
+    "mobile-state",
+    "desktop-native-titlebar",
+    "desktop-window-controls-composition",
+    "desktop-menubar-composition",
+    "desktop-activity-bar-composition",
+    "desktop-dock-panel",
+    "desktop-split-pane",
+    "desktop-inspector-panel",
+    "desktop-status-bar",
+    "desktop-command-palette",
+    "shortcut-recorder",
+    "desktop-context-menu",
+    "desktop-document-tabs",
+    "desktop-drag-region",
+    "window-loading",
+    "update-available",
+    "desktop-permission-request",
+    "native-file-picker",
+    "tray-menu-shell",
+    "multi-window-placeholder",
+    "desktop-workspace-composition",
+    "desktop-window-switcher",
+    "recent-documents",
+    "desktop-toolbar",
+    "desktop-bottom-panel",
+    "background-task-center",
+    "desktop-notification-center",
+    "sync-status",
+    "update-progress",
+    "crash-recovery",
+    "single-instance-notice",
+    "deep-link-handler",
+    "about-dialog",
+    "solution-product-landing",
+    "solution-corporate-home",
+    "solution-personal-home",
+    "solution-portfolio-page",
+    "solution-blog-index",
+    "solution-article-page",
+    "solution-docs-portal",
+    "solution-help-center",
+    "solution-search-results",
+    "solution-contact-page",
+    "solution-pricing-page",
+    "solution-dashboard-overview",
+    "solution-admin-list",
+    "solution-record-detail",
+    "solution-settings-center",
+    "solution-user-center",
+    "solution-notification-center",
+    "solution-onboarding-flow",
+    "solution-crm-workspace",
+    "solution-project-workspace",
+    "solution-support-center",
+    "solution-approval-center",
+    "solution-knowledge-base",
+    "solution-learning-portal",
+    "solution-event-portal",
+    "solution-booking-portal",
+    "solution-healthcare-portal",
+    "solution-finance-portal",
+    "solution-public-service-portal",
+    "solution-marketplace-page",
+    "solution-community-page",
+    "solution-status-center"
+  ],
+  "componentTypes": [
+    "GButton",
+    "GButtonGroup",
+    "GCard",
+    "GBadgeTagChip",
+    "GAvatar",
+    "GAlert",
+    "GProgressMeter",
+    "GSpinnerSkeleton",
+    "GEmptyState",
+    "GInput",
+    "GTextarea",
+    "GSelect",
+    "GCheckboxRadio",
+    "GSwitch",
+    "GRangeColor",
+    "GFileDrop",
+    "GCombobox",
+    "GForm",
+    "GFormSection",
+    "GField",
+    "GFieldset",
+    "GFormRow",
+    "GFormGrid",
+    "GHorizontalForm",
+    "GInlineForm",
+    "GCompactForm",
+    "GInputGroup",
+    "GInputAffix",
+    "GSearchField",
+    "GPasswordField",
+    "GClearableField",
+    "GCharacterCounter",
+    "GValidationState",
+    "GCheckboxGroup",
+    "GRadioGroup",
+    "GSwitchRow",
+    "GChoiceCardGroup",
+    "GNameGroup",
+    "GAddressGroup",
+    "GPhoneGroup",
+    "GMoneyGroup",
+    "GDateRangeGroup",
+    "GTimeRangeGroup",
+    "GUnitField",
+    "GRangeField",
+    "GFileField",
+    "GRepeatableField",
+    "GConditionalField",
+    "GFormActions",
+    "GAutosaveStatus",
+    "GFormProgress",
+    "GFormReview",
+    "GConsentGroup",
+    "GNavbar",
+    "GSidebar",
+    "GBreadcrumb",
+    "GTabs",
+    "GSegmentedControl",
+    "GPagination",
+    "GMenuDropdown",
+    "GStepper",
+    "GCommandPalette",
+    "GPrimaryNavigation",
+    "GUtilityNavigation",
+    "GSubNavigation",
+    "GCollapsibleNavigation",
+    "GNavigationRail",
+    "GActivityBar",
+    "GMenuBar",
+    "GContextMenu",
+    "GTreeNavigation",
+    "GVerticalTabs",
+    "GPillNavigation",
+    "GScrollspyNavigation",
+    "GCursorPagination",
+    "GLoadMoreNavigation",
+    "GWizardNavigation",
+    "GBackNavigation",
+    "GPreviousNextNavigation",
+    "GSkipNavigation",
+    "GMobileTopNavigation",
+    "GBottomNavigation",
+    "GMobileTabBar",
+    "GDrawerNavigation",
+    "GCommandNavigation",
+    "GJumpNavigation",
+    "GQuickNavigation",
+    "GLocaleNavigation",
+    "GAccountNavigation",
+    "GDialog",
+    "GDrawer",
+    "GPopover",
+    "GTooltip",
+    "GToast",
+    "GAccordion",
+    "GTable",
+    "GDataGrid",
+    "GKpiStat",
+    "GDescriptionList",
+    "GListGroup",
+    "GTree",
+    "GTimeline",
+    "GResponsiveTable",
+    "GTableSort",
+    "GRowSelection",
+    "GRowDisclosure",
+    "GColumnToggle",
+    "GDataFilter",
+    "GDataView",
+    "GEditableGrid",
+    "GTreeTable",
+    "GGroupedTable",
+    "GExpandableTable",
+    "GComparisonTable",
+    "GKeyValue",
+    "GRecordDetail",
+    "GMediaList",
+    "GDenseList",
+    "GAuditLogComposition",
+    "GStatList",
+    "GMetricCard",
+    "GSparkline",
+    "GProgressStats",
+    "GDataLegend",
+    "GRanking",
+    "GStatusSummary",
+    "GDataMatrix",
+    "GHeatmap",
+    "GDataToolbar",
+    "GColumnChooser",
+    "GSavedViews",
+    "GExportPanel",
+    "GDataState",
+    "GDataViewSwitcher",
+    "GSelectionSummary",
+    "GTableDensity",
+    "GFilterSummary",
+    "GSortBuilder",
+    "GDataInspector",
+    "GSelectionControls",
+    "GBatchToolbar",
+    "GDualList",
+    "GTreeSelect",
+    "GCascader",
+    "GMentionPicker",
+    "GUserPicker",
+    "GOrganizationPicker",
+    "GResourcePicker",
+    "GMediaPicker",
+    "GIconPicker",
+    "GColorPickerComposition",
+    "GDateRangePickerComposition",
+    "GTimeRangePickerComposition",
+    "GSavedFilters",
+    "GGroupBuilder",
+    "GEntityPicker",
+    "GTagPicker",
+    "GRelationPicker",
+    "GBulkConfirmation",
+    "GBulkProgress",
+    "GFilterBar",
+    "GCodeBlock",
+    "GTerminal",
+    "GDiffViewer",
+    "GChartContainer",
+    "GGridSystem",
+    "GRegionLayoutSystem",
+    "GClassicLayoutPrimitives",
+    "GPageHeader",
+    "GSectionHeader",
+    "GSubheader",
+    "GToolbar",
+    "GActionBar",
+    "GStatusBar",
+    "GCommandBar",
+    "GContextBar",
+    "GBulkActionBar",
+    "GFooterBar",
+    "GFloatingActionBar",
+    "GDividerWithText",
+    "GStickyActions",
+    "GPageLoading",
+    "GPageStateSystem",
+    "GTip",
+    "GInlineHint",
+    "GHelpText",
+    "GHelpTrigger",
+    "GRichTooltip",
+    "GHelpPopover",
+    "GDefinitionHelp",
+    "GCallout",
+    "GNote",
+    "GGuidancePair",
+    "GKeyHint",
+    "GShortcutList",
+    "GHelpCard",
+    "GHelpPanel",
+    "GHelpCenter",
+    "GHelpTopics",
+    "GFaq",
+    "GContextualHelp",
+    "GCoachMark",
+    "GSpotlight",
+    "GHotspot",
+    "GFeatureHint",
+    "GWhatsNew",
+    "GHelpChecklist",
+    "GTroubleshooting",
+    "GHelpFeedback",
+    "GAppShell",
+    "GDashboard",
+    "GMobileShell",
+    "GChat",
+    "GMessage",
+    "GPromptComposer",
+    "GAttachment",
+    "GThinking",
+    "GToolCall",
+    "GToolApproval",
+    "GAgentStatus",
+    "GAgentPlan",
+    "GSourcesCitations",
+    "GArtifactPanel",
+    "GModelSelector",
+    "GContextMeter",
+    "GVoiceState",
+    "GGenerationPlaceholder",
+    "GAiWorkspace",
+    "GPromptStarter",
+    "GAiCommandMenu",
+    "GStreamingResponse",
+    "GMultiAgentBoard",
+    "GAgentHandoff",
+    "GArtifactWorkspace",
+    "GGenerationGallery",
+    "GAiContextManager",
+    "GAiUsagePanel",
+    "GAiSafetyNotice",
+    "GAiFeedback",
+    "GDatePicker",
+    "GTimePicker",
+    "GPinInput",
+    "GRating",
+    "GTransferList",
+    "GValidationSummary",
+    "GMegaMenu",
+    "GAnchorNavigation",
+    "GTourSpotlight",
+    "GVirtualList",
+    "GKanban",
+    "GGanttShell",
+    "GQueryBuilder",
+    "GCarousel",
+    "GGalleryLightbox",
+    "GMediaPlayer",
+    "GDocumentViewer",
+    "GSplitPane",
+    "GDragSort",
+    "GInfiniteScroll",
+    "GPullRefresh",
+    "GProductCard",
+    "GCartItem",
+    "GPriceQuantity",
+    "GConversationList",
+    "GPromptLibrary",
+    "GMentionSlashCommand",
+    "GGenerationCard",
+    "GFileTree",
+    "GVersionHistory",
+    "GPermissionScope",
+    "GCostRateLimit",
+    "GPrivacyNotice",
+    "GAuthenticationShell",
+    "GMobileCategory",
+    "GCmsShell",
+    "GVisualBuilder",
+    "GRichEditor",
+    "GMediaLibrary",
+    "GContentWorkflow",
+    "GLocalizationGrid",
+    "GSiteHeader",
+    "GHero",
+    "GPricing",
+    "GArticleLayout",
+    "GProductDetail",
+    "GCheckout",
+    "GEnterpriseSettings",
+    "GPermissionMatrix",
+    "GAuditLog",
+    "GDesktopShell",
+    "GDesktopTitlebar",
+    "GDesktopWorkbench",
+    "GOnboarding",
+    "GWizardLayout",
+    "GNotificationCenter",
+    "GInbox",
+    "GSearchResults",
+    "GCalendar",
+    "GAgenda",
+    "GFileManager",
+    "GUploadQueue",
+    "GFormBuilder",
+    "GFilterBuilder",
+    "GPivotTable",
+    "GOrganizationChart",
+    "GMapShell",
+    "GCommentThread",
+    "GActivityFeed",
+    "GReportInvoice",
+    "GCookieConsent",
+    "GCopyAction",
+    "GFullscreenAction",
+    "GBackToTop",
+    "GImageCropShell",
+    "GContentFileDrop",
+    "GContentFileList",
+    "GContentUploadQueue",
+    "GChunkUpload",
+    "GUploadProgressComposition",
+    "GFailedUpload",
+    "GFileCardComposition",
+    "GFolderTreeComposition",
+    "GFileBrowserComposition",
+    "GFilePreviewComposition",
+    "GMediaLibraryComposition",
+    "GMediaGridComposition",
+    "GMediaDetailsComposition",
+    "GImageCropComposition",
+    "GImageAnnotationComposition",
+    "GDocumentViewerComposition",
+    "GPdfViewer",
+    "GVideoPlayerShell",
+    "GAudioPlayerShell",
+    "GCodeEditorShell",
+    "GRichTextEditorComposition",
+    "GMarkdownEditor",
+    "GBlockEditor",
+    "GRevisionCompareComposition",
+    "GContentAutosaveIndicator",
+    "GContentOutline",
+    "GEditorToolbarComposition",
+    "GFindReplace",
+    "GCommentThreadComposition",
+    "GVersionHistoryComposition",
+    "GFileProperties",
+    "GStorageMeter",
+    "GAuthCentered",
+    "GAuthSplit",
+    "GSignInComposition",
+    "GRegistrationComposition",
+    "GPasswordRecovery",
+    "GPasswordReset",
+    "GEmailVerification",
+    "GPhoneVerification",
+    "GMfaChallenge",
+    "GOtpInput",
+    "GPasskeyComposition",
+    "GSsoComposition",
+    "GQrLogin",
+    "GMagicLink",
+    "GInvitationComposition",
+    "GFirstTimeSetup",
+    "GLockScreen",
+    "GSessionExpired",
+    "GAccountChooser",
+    "GTenantChooser",
+    "GIdentitySwitcher",
+    "GProfileSetup",
+    "GAccountSecurity",
+    "GDeviceManagement",
+    "GLoginActivity",
+    "GSecurityAlert",
+    "GRecoveryCodes",
+    "GTrustedDevice",
+    "GConnectedAccounts",
+    "GPasswordStrength",
+    "GAuthConsent",
+    "GAuthResult",
+    "GCommerceProductCard",
+    "GCommerceProductList",
+    "GCommerceProductDetail",
+    "GCommerceProductGallery",
+    "GSkuSelector",
+    "GCommerceQuantityStepper",
+    "GPriceDisplay",
+    "GCommerceCartItem",
+    "GCommerceCart",
+    "GMiniCart",
+    "GCartSummary",
+    "GCommerceCheckout",
+    "GCommerceCheckoutSteps",
+    "GAddressSelector",
+    "GAddressCard",
+    "GShippingMethod",
+    "GPickupSelector",
+    "GCoupon",
+    "GPromotionList",
+    "GInvoiceInformation",
+    "GPaymentMethod",
+    "GPaymentSheet",
+    "GPaymentResult",
+    "GCommerceOrderSummary",
+    "GCommerceOrderTimeline",
+    "GOrderDetail",
+    "GSubscriptionPlan",
+    "GPricingComparison",
+    "GCommerceUsageMeter",
+    "GBillingHistory",
+    "GRefundStatus",
+    "GTaxSummary",
+    "GMobileSafeShell",
+    "GMobileAppBar",
+    "GMobileBottomNavigation",
+    "GMobileBottomSheet",
+    "GMobileActionSheet",
+    "GMobilePullRefresh",
+    "GMobileInfiniteLoad",
+    "GMobileSwipeActions",
+    "GMobileSwipeTabs",
+    "GMobileCategoryView",
+    "GMobileFilterSheet",
+    "GMobilePurchaseBar",
+    "GMobileSearch",
+    "GMobilePicker",
+    "GMobileWheelPicker",
+    "GMobileFab",
+    "GMobileFullscreenDialog",
+    "GMobileKeyboardAvoidance",
+    "GMobileGestureHint",
+    "GMobileOfflineBanner",
+    "GMobileSegmentedControl",
+    "GMobileFeed",
+    "GMobileCardCarousel",
+    "GMobileForm",
+    "GMobileAuth",
+    "GMobileCheckout",
+    "GMobileMediaViewer",
+    "GMobileKeyboardToolbar",
+    "GMobileSelectionMode",
+    "GMobileSnackbar",
+    "GMobilePermissionPrompt",
+    "GMobileState",
+    "GDesktopNativeTitlebar",
+    "GDesktopWindowControlsComposition",
+    "GDesktopMenubarComposition",
+    "GDesktopActivityBarComposition",
+    "GDesktopDockPanel",
+    "GDesktopSplitPane",
+    "GDesktopInspectorPanel",
+    "GDesktopStatusBar",
+    "GDesktopCommandPalette",
+    "GShortcutRecorder",
+    "GDesktopContextMenu",
+    "GDesktopDocumentTabs",
+    "GDesktopDragRegion",
+    "GWindowLoading",
+    "GUpdateAvailable",
+    "GDesktopPermissionRequest",
+    "GNativeFilePicker",
+    "GTrayMenuShell",
+    "GMultiWindowPlaceholder",
+    "GDesktopWorkspaceComposition",
+    "GDesktopWindowSwitcher",
+    "GRecentDocuments",
+    "GDesktopToolbar",
+    "GDesktopBottomPanel",
+    "GBackgroundTaskCenter",
+    "GDesktopNotificationCenter",
+    "GSyncStatus",
+    "GUpdateProgress",
+    "GCrashRecovery",
+    "GSingleInstanceNotice",
+    "GDeepLinkHandler",
+    "GAboutDialog",
+    "GSolutionProductLanding",
+    "GSolutionCorporateHome",
+    "GSolutionPersonalHome",
+    "GSolutionPortfolioPage",
+    "GSolutionBlogIndex",
+    "GSolutionArticlePage",
+    "GSolutionDocsPortal",
+    "GSolutionHelpCenter",
+    "GSolutionSearchResults",
+    "GSolutionContactPage",
+    "GSolutionPricingPage",
+    "GSolutionDashboardOverview",
+    "GSolutionAdminList",
+    "GSolutionRecordDetail",
+    "GSolutionSettingsCenter",
+    "GSolutionUserCenter",
+    "GSolutionNotificationCenter",
+    "GSolutionOnboardingFlow",
+    "GSolutionCrmWorkspace",
+    "GSolutionProjectWorkspace",
+    "GSolutionSupportCenter",
+    "GSolutionApprovalCenter",
+    "GSolutionKnowledgeBase",
+    "GSolutionLearningPortal",
+    "GSolutionEventPortal",
+    "GSolutionBookingPortal",
+    "GSolutionHealthcarePortal",
+    "GSolutionFinancePortal",
+    "GSolutionPublicServicePortal",
+    "GSolutionMarketplacePage",
+    "GSolutionCommunityPage",
+    "GSolutionStatusCenter"
+  ],
+  "frameworkTypes": [
+    "GardenerAccessibilityDefinition",
+    "GardenerAssets",
+    "GardenerBehavior",
+    "GardenerBehaviorDefinition",
+    "GardenerBehaviors",
+    "GardenerComponent",
+    "GardenerComponentBase",
+    "GardenerConstants",
+    "GardenerElectronService",
+    "GardenerEventArgs",
+    "GardenerEventDefinition",
+    "GardenerEvents",
+    "GardenerField<TValue>",
+    "GardenerJsModule",
+    "GardenerOptions",
+    "GardenerPart",
+    "GardenerPlatform",
+    "GardenerProvider",
+    "GardenerRuntime",
+    "GardenerServiceCollectionExtensions",
+    "GardenerThemePresets",
+    "GardenerRuntimeCatalog",
+    "GardenerTauriService",
+    "GardenerThemeService",
+    "GardenerThemeState",
+    "GardenerToastService",
+    "GardenerValueChangedEventArgs",
+    "GardenerComponentDefinition"
+  ],
+  "services": [
+    "GardenerRuntime",
+    "GardenerThemeService",
+    "GardenerToastService",
+    "GardenerTauriService",
+    "GardenerElectronService"
+  ],
+  "componentParameters": [
+    "As",
+    "Id",
+    "Class",
+    "Style",
+    "Variant",
+    "Variants",
+    "State",
+    "States",
+    "Config",
+    "Initialize",
+    "Value",
+    "ValueChanged",
+    "ValueEvent",
+    "ValueKey",
+    "OnValueChange",
+    "EventNames",
+    "PreventDefaultEvents",
+    "OnEvent",
+    "ChildContent",
+    "AdditionalAttributes"
+  ],
+  "componentHandleMembers": [
+    "Element",
+    "RefreshAsync",
+    "DestroyAsync",
+    "FocusAsync",
+    "GetBehaviorMembersAsync",
+    "InvokeBehaviorAsync"
+  ],
+  "themeAxes": [
+    "Theme",
+    "Mode",
+    "Neutral",
+    "Typography",
+    "Shape",
+    "Density",
+    "Elevation",
+    "Motion",
+    "Platform",
+    "Os"
+  ],
+  "staticAssets": [
+    "gardener.css",
+    "gardener.min.css",
+    "gardener.min.css.map",
+    "gardener.runtime.min.js",
+    "gardener.runtime.min.js.map",
+    "gardener.blazor.js",
+    "gardener.tauri.min.js",
+    "gardener.tauri.min.js.map",
+    "gardener.electron.min.js",
+    "gardener.electron.min.js.map",
+    "platforms/gardener.web.min.css",
+    "platforms/gardener.mobile.min.css",
+    "platforms/gardener.desktop.min.css",
+    "platforms/gardener.tauri.min.css",
+    "platforms/gardener.electron.min.css",
+    "components/layouts.min.css",
+    "components/regions.min.css",
+    "components/primitives.min.css",
+    "components/grid.min.css",
+    "components/basic.min.css",
+    "components/forms.min.css",
+    "components/form-compositions.min.css",
+    "components/navigation.min.css",
+    "components/navigation-compositions.min.css",
+    "components/feedback.min.css",
+    "components/data.min.css",
+    "components/data-compositions.min.css",
+    "components/selection-compositions.min.css",
+    "components/content-compositions.min.css",
+    "components/auth-compositions.min.css",
+    "components/commerce-compositions.min.css",
+    "components/mobile-compositions.min.css",
+    "components/extended.min.css",
+    "components/page.min.css",
+    "components/help.min.css",
+    "components/recipes.min.css",
+    "components/desktop.min.css",
+    "components/desktop-compositions.min.css",
+    "components/solution-compositions.min.css",
+    "components/catalog.min.css",
+    "components/ai.min.css",
+    "components/ai-extended.min.css",
+    "components/ai-compositions.min.css"
+  ]
+}

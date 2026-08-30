@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light" data-g-shape="small">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Gardener AngularJS 1.0.0</title>
+    <script type="module" src="/examples/main.ts"></script>
+  </head>
+  <body>
+    <main id="app" class="g-layout-container g-py-8" ng-controller="AppController as vm">
+      <gardener-provider gardener-theme="garden" gardener-mode="light" gardener-shape="small">
+        <header class="g-page-header">
+          <div><span class="g-badge">AngularJS 1.0.0</span><h1>Gardener AngularJS</h1><p>506 个组件指令与 66 种 DOM 行为。</p></div>
+        </header>
+        <section class="g-card g-p-6 g-mt-6" aria-labelledby="example-title">
+          <h2 id="example-title">运行时集成</h2>
+          <div class="g-field g-mt-4">
+            <label class="g-label" for="keyword">关键词</label>
+            <input id="keyword" g-input class="g-input" ng-model="vm.keyword" gardener-on-value-change="vm.onValueChange($value)" />
+          </div>
+          <p id="value-output" class="g-mt-3">当前值：{{ vm.keyword }}</p>
+          <div class="g-field g-mt-4">
+            <label class="g-label" for="channels">通知渠道（可多选）</label>
+            <select id="channels" g-select class="g-select" multiple ng-model="vm.channels" gardener-on-value-change="vm.onSelectChange($value)">
+              <option value="email">邮件</option>
+              <option value="sms">短信</option>
+              <option value="push">推送</option>
+            </select>
+          </div>
+          <p id="channels-output" class="g-mt-3">已选：{{ vm.channels.join(', ') }}</p>
+          <button id="action-button" g-button gardener-variant="primary" ng-click="vm.increment()">执行操作</button>
+          <span id="click-output" class="g-badge g-ml-2">{{ vm.clicks }}</span>
+        </section>
+      </gardener-provider>
+    </main>
+  </body>
+</html>

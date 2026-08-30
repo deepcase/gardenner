@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.dev/schemas/blazor-components-v1.json",
+  "title": "Gardener Blazor component catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "version", "count", "components"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "version": { "const": "1.0.0" },
+    "count": { "const": 506 },
+    "components": { "type": "array", "minItems": 506, "maxItems": 506, "items": { "$ref": "#/$defs/component" } }
+  },
+  "$defs": {
+    "strings": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "componentType", "category", "kind", "selector", "cssSelector", "className", "defaultTag", "status", "variants", "states", "parts", "behaviors", "platforms", "accessibility"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "componentType": { "type": "string", "pattern": "^G[A-Za-z0-9]+$" },
+        "category": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "minLength": 1 },
+        "selector": { "type": "string", "minLength": 1 },
+        "cssSelector": { "type": ["string", "null"] },
+        "className": { "type": ["string", "null"] },
+        "defaultTag": { "type": "string", "minLength": 1 },
+        "status": { "type": ["string", "null"] },
+        "variants": { "$ref": "#/$defs/strings" },
+        "states": { "$ref": "#/$defs/strings" },
+        "parts": { "$ref": "#/$defs/strings" },
+        "behaviors": { "$ref": "#/$defs/strings" },
+        "platforms": { "$ref": "#/$defs/strings" },
+        "accessibility": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object", "additionalProperties": false, "required": ["roles", "keyboard", "focusTrap", "attributes"],
+              "properties": { "roles": { "$ref": "#/$defs/strings" }, "keyboard": { "$ref": "#/$defs/strings" }, "focusTrap": { "type": "boolean" }, "attributes": { "$ref": "#/$defs/strings" } }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

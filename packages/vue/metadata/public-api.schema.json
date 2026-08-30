@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.dev/schema/vue/public-api-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "version", "status", "cssVersion", "vue", "components", "behaviors", "componentExports", "moduleExports", "typeExports", "packageEntrypoints", "composables", "componentProps", "componentInstanceMembers", "themeAxes", "pluginOptions", "directive", "provider"],
+  "properties": {
+    "$schema": { "const": "./public-api.schema.json" },
+    "schemaVersion": { "const": 1 },
+    "version": { "const": "1.0.0" },
+    "status": { "const": "stable" },
+    "cssVersion": { "const": "1.0.0" },
+    "vue": { "type": "string", "minLength": 1 },
+    "components": { "const": 506 },
+    "behaviors": { "const": 66 },
+    "componentExports": { "type": "array", "minItems": 506, "maxItems": 506, "uniqueItems": true, "items": { "type": "string", "pattern": "^G[A-Z][A-Za-z0-9]*$" } },
+    "moduleExports": { "type": "array", "minItems": 538, "maxItems": 538, "uniqueItems": true, "items": { "type": "string" } },
+    "typeExports": { "type": "array", "minItems": 21, "uniqueItems": true, "items": { "type": "string" } },
+    "packageEntrypoints": { "type": "array", "minItems": 28, "uniqueItems": true, "items": { "type": "string", "pattern": "^\\." } },
+    "composables": { "type": "array", "minItems": 7, "uniqueItems": true, "items": { "type": "string", "pattern": "^use[A-Z]" } },
+    "componentProps": { "type": "array", "minItems": 8, "maxItems": 8, "uniqueItems": true, "items": { "type": "string" } },
+    "componentInstanceMembers": { "type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true, "items": { "type": "string" } },
+    "themeAxes": { "type": "array", "minItems": 10, "maxItems": 10, "uniqueItems": true, "items": { "type": "string" } },
+    "pluginOptions": { "type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true, "items": { "type": "string" } },
+    "directive": { "const": "vGardener" },
+    "provider": { "const": "GardenerProvider" }
+  }
+}

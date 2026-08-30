@@ -1,0 +1,27 @@
+{
+  "name": "gardener-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gardener CSS framework, official framework adapters, and documentation website.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "bootstrap": "npm --prefix packages/css ci && npm --prefix packages/vue ci && npm --prefix packages/react ci && npm --prefix packages/angularjs ci && npm --prefix packages/blazor ci",
+    "build": "npm run build:css && npm run build:vue && npm run build:react && npm run build:angularjs && npm run build:blazor",
+    "build:css": "npm --prefix packages/css run build",
+    "build:vue": "npm --prefix packages/vue run build",
+    "build:react": "npm --prefix packages/react run build",
+    "build:angularjs": "npm --prefix packages/angularjs run build",
+    "build:blazor": "npm --prefix packages/blazor run build",
+    "check": "npm run check:repository && npm run check:packages && npm run check:website",
+    "check:repository": "node scripts/check-repository.mjs",
+    "check:packages": "npm --prefix packages/css run check && npm --prefix packages/vue run check && npm --prefix packages/react run check && npm --prefix packages/angularjs run check && npm --prefix packages/blazor run check",
+    "build:website-locales": "node website/scripts/build-localized-pages.mjs",
+    "check:website": "node website/scripts/build-css-catalog.mjs && node website/scripts/build-localized-pages.mjs --check && node website/scripts/check.mjs && node website/scripts/check-coverage.mjs",
+    "test": "npm --prefix packages/css test && npm --prefix packages/vue test && npm --prefix packages/react test && npm --prefix packages/angularjs test && npm --prefix packages/blazor test",
+    "release:verify": "npm --prefix packages/css run release:verify && npm --prefix packages/vue run release:verify && npm --prefix packages/react run release:verify && npm --prefix packages/angularjs run release:verify && npm --prefix packages/blazor run release:verify && npm run check:website",
+    "serve": "node website/scripts/serve.mjs"
+  }
+}

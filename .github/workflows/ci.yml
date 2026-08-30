@@ -1,0 +1,80 @@
+name: Gardener CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  repository:
+    name: Repository contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm run check:repository
+
+  css:
+    name: CSS/runtime release gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GARDENER_REQUIRE_FIREFOX: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: packages/css/package-lock.json
+      - run: npm ci
+        working-directory: packages/css
+      - run: npx playwright install --with-deps chromium firefox webkit
+        working-directory: packages/css
+      - run: npm run release:verify
+        working-directory: packages/css
+
+  adapters:
+    name: ${{ matrix.package }} release gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [vue, react, angularjs]
+    env:
+      GARDENER_REQUIRE_FIREFOX: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: packages/${{ matrix.package }}/package-lock.json
+      - run: npm ci
+        working-directory: packages/${{ matrix.package }}
+      - run: npx playwright install --with-deps chromium firefox webkit
+        working-directory: packages/${{ matrix.package }}
+      - run: npm run release:verify
+        working-directory: packages/${{ matrix.package }}
+
+  website:
+    name: Complete website catalog
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm run check:website
+

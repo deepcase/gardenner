@@ -1,0 +1,3475 @@
+<!doctype html>
+<html
+  lang="zh-CN"
+  data-g-theme="garden"
+  data-g-mode="light"
+  data-g-neutral="cool"
+  data-g-shape="small"
+ data-locale="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Gardener 是面向人类开发者与 AI 页面生成器的通用 CSS、Vue 3、React、AngularJS 与 Blazor 组件、页面配方及桌面应用基础设施。"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'"
+    />
+    <title>Gardener — 为所有界面准备好的 CSS 基础设施</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="./index.html" />
+    <link rel="alternate" hreflang="zh-CN" href="../zh-CN/index.html" />
+    <link rel="alternate" hreflang="en" href="../en/index.html" />
+    <link rel="alternate" hreflang="ja" href="../ja/index.html" />
+    <link rel="alternate" hreflang="ko" href="../ko/index.html" />
+    <link rel="alternate" hreflang="es" href="../es/index.html" />
+    <link rel="alternate" hreflang="fr" href="../fr/index.html" />
+    <link rel="alternate" hreflang="de" href="../de/index.html" />
+    <link rel="alternate" hreflang="x-default" href="../index.html" />
+    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=afe73d14" />
+    <link rel="stylesheet" href="../assets/site.css" />
+  </head>
+  <body>
+    <a class="g-skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header">
+      <nav class="site-nav site-container" aria-label="主导航">
+        <a class="site-brand" href="./index.html" aria-label="Gardener 首页"
+          ><span class="site-brand-mark" aria-hidden="true">G</span
+          ><span>Gardener</span></a
+        >
+        <div class="site-nav-links" id="site-menu">
+          <a class="site-nav-link" href="#capabilities">能力</a>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">框架</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#vue">Vue</a>
+              <a class="site-nav-link" href="#react">React</a>
+              <a class="site-nav-link" href="#angular">AngularJS</a>
+              <a class="site-nav-link" href="#blazor">Blazor</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">基础</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#grid">栅格</a>
+              <a class="site-nav-link" href="#page-components">组件</a>
+              <a class="site-nav-link" href="#themes">主题</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">业务</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#data-compositions">数据</a>
+              <a class="site-nav-link" href="#content-compositions">内容</a>
+              <a class="site-nav-link" href="#auth-compositions">账号</a>
+              <a class="site-nav-link" href="#commerce-compositions">商业</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">平台</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#mobile-compositions">移动</a>
+              <a class="site-nav-link" href="#desktop-compositions">桌面</a>
+              <a class="site-nav-link" href="#ai-compositions">AI</a>
+              <a class="site-nav-link" href="#solution-compositions">场景</a>
+            </div>
+          </details>
+          <a class="site-nav-link" href="./docs.html">文档</a>
+        </div>
+        <div class="site-nav-actions">
+          <label class="g-sr-only" for="site-language">选择语言</label>
+          <select class="g-select g-select-sm site-language-select" id="site-language" data-site-language data-i18n-ignore translate="no">
+            <option value="zh-CN" lang="zh-CN" translate="no" selected>简体中文</option>
+            <option value="en" lang="en" translate="no">English</option>
+            <option value="ja" lang="ja" translate="no">日本語</option>
+            <option value="ko" lang="ko" translate="no">한국어</option>
+            <option value="es" lang="es" translate="no">Español</option>
+            <option value="fr" lang="fr" translate="no">Français</option>
+            <option value="de" lang="de" translate="no">Deutsch</option>
+          </select>
+          <a
+            class="g-btn g-btn-primary g-btn-sm site-docs-button"
+            href="./docs.html#quick-start"
+            >开始使用</a
+          >
+          <button
+            class="g-btn g-btn-outline g-btn-icon site-menu-button"
+            type="button"
+            data-site-menu
+            aria-controls="site-menu"
+            aria-expanded="false"
+            aria-label="打开导航"
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="site-hero">
+        <div class="site-container site-hero-grid">
+          <div>
+            <span class="site-eyebrow">Universal CSS Infrastructure</span>
+            <h1>让每一种界面都有<span>现成答案</span></h1>
+            <p class="site-hero-copy">
+              Gardener 把基础
+              CSS、交互组件、业务配方、桌面端适配与机器可读清单放进同一套系统。人可以直接开发，AI
+              可以准确选用，无需每次重新组织样式。
+            </p>
+            <div class="site-hero-actions">
+              <a
+                class="g-btn g-btn-primary g-btn-lg"
+                href="./docs.html#quick-start"
+                >阅读文档</a
+              >
+              <button
+                class="g-btn g-btn-outline g-btn-lg"
+                type="button"
+                data-g-copy
+                data-g-copy-value="npm install @gardener/css"
+              >
+                复制安装命令
+              </button>
+            </div>
+            <ul class="site-proof" aria-label="核心特点">
+              <li>零运行时依赖</li>
+              <li>白底中性默认</li>
+              <li>小圆角体系</li>
+              <li>Web 与桌面共用</li>
+            </ul>
+          </div>
+
+          <div class="site-demo" aria-label="Gardener Dashboard 预览">
+            <div class="site-window">
+              <div class="site-window-bar">
+                <div class="site-window-dots" aria-hidden="true">
+                  <i class="site-window-dot"></i><i class="site-window-dot"></i
+                  ><i class="site-window-dot"></i>
+                </div>
+                <span class="site-window-path"
+                  >gardener / workspace / overview</span
+                ><span class="g-badge">Live</span>
+              </div>
+              <div class="site-window-body">
+                <aside class="site-demo-rail" aria-label="演示导航">
+                  <button class="site-demo-icon is-active" aria-label="概览">
+                    OV</button
+                  ><button class="site-demo-icon" aria-label="内容">CT</button
+                  ><button class="site-demo-icon" aria-label="AI">AI</button
+                  ><button class="site-demo-icon" aria-label="设置">ST</button>
+                </aside>
+                <div class="site-demo-main">
+                  <div class="site-demo-toolbar">
+                    <div>
+                      <div class="site-demo-line is-long"></div>
+                      <div class="site-demo-line is-short g-mt-2"></div>
+                    </div>
+                    <button class="g-btn g-btn-primary g-btn-sm">
+                      新建页面
+                    </button>
+                  </div>
+                  <div class="site-demo-cards">
+                    <article class="site-demo-card is-accent">
+                      <span class="site-kicker">已发布页面</span>
+                      <div class="site-demo-value">2,480</div>
+                      <span class="g-badge g-badge-success">+12.6%</span>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">组件采用率</span>
+                      <div class="site-demo-value">94%</div>
+                      <div
+                        class="g-progress g-mt-3"
+                        role="progressbar"
+                        aria-label="组件采用率"
+                        aria-valuenow="94"
+                      >
+                        <span style="--g-progress: 94%"></span>
+                      </div>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">生成趋势</span>
+                      <div class="site-demo-chart" aria-hidden="true">
+                        <i style="height: 35%"></i><i style="height: 52%"></i
+                        ><i style="height: 43%"></i><i style="height: 72%"></i
+                        ><i style="height: 61%"></i><i style="height: 88%"></i
+                        ><i style="height: 100%"></i>
+                      </div>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">AI 任务</span>
+                      <div class="g-agent-status is-working g-mt-4">
+                        <span class="g-spinner"></span
+                        ><span>正在组合企业站点</span>
+                      </div>
+                      <div class="site-demo-line is-long g-mt-5"></div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="框架规模">
+        <div class="site-container site-stat-grid">
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="42">42</strong
+            ><span class="site-stat-label">颜色主题</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="506">506</strong
+            ><span class="site-stat-label">登记组件</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="11498">11,498</strong
+            ><span class="site-stat-label">工具类</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="52">52</strong
+            ><span class="site-stat-label">机器可读页面配方</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="capabilities">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">One system, every surface</span>
+            <h2 class="site-title">从一个按钮到超级 CMS</h2>
+            <p class="site-lead">
+              覆盖基础原子、通用组件、高密度后台、移动端、内容商业化、AI
+              工作区与桌面 WebView。默认足够克制，组合能力足够宽。
+            </p>
+          </header>
+          <div class="site-feature-grid">
+            <article class="site-feature">
+              <span class="site-feature-index">01</span>
+              <h3>完整基础层</h3>
+              <p>
+                Reset、Token、24 / 12
+                栅格、排版、间距、尺寸、逻辑方向、颜色、边框、阴影、状态和五档响应式工具类。
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">02</span>
+              <h3>可直接交付的组件</h3>
+              <p>
+                表单、导航、浮层、数据、媒体、商业、通信、法律、工作流和
+                Dashboard 均有稳定结构与状态约定。
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">03</span>
+              <h3>AI 原生交互</h3>
+              <p>
+                消息流、思考过程、工具调用、审批、Agent
+                状态、计划、引用、Artifact、模型选择和多模态生成。
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">04</span>
+              <h3>复杂业务配方</h3>
+              <p>
+                登录、移动分类、CMS
+                编辑器、媒体库、收件箱、文件管理、表单构建、商品详情、结算和企业设置。
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">05</span>
+              <h3>桌面应用适配</h3>
+              <p>
+                Tauri 与 Electron
+                共用标题栏、窗口控制、活动栏、编辑区、检查器、分栏与状态栏，桥接接口保持安全。
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">06</span>
+              <h3>环境矩阵完整</h3>
+              <p>
+                Light、Dark、System、高对比、RTL、Reduced Motion、Forced
+                Colors、Print、Mobile、Tablet 与 Desktop。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="vue">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">Official Vue 3 bindings · 1.0.0 Stable</span>
+            <h2 class="site-title">CSS 的全部能力，已经成为 Vue API</h2>
+            <p class="site-lead">
+              <code>@gardener/vue</code> 完整映射 506 个组件和 66 种 DOM
+              行为，提供插件、类型安全组件、指令、Composable、十轴主题
+              Provider、v-model、SSR 与 Tauri / Electron 适配。每个 CSS
+              组件都有独立的 <code>G*</code> 导出，AI 可以直接选组件，不必重新拼装样式。
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="Vue 项目指标">
+              <span class="g-badge">506 components</span>
+              <span class="g-badge">538 runtime exports</span>
+              <span class="g-badge">29 entrypoints</span>
+              <span class="g-badge">28 CSS packs</span>
+              <span class="g-badge">Vue 3.4+</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#vue">阅读 Vue 文档</a>
+              <a class="g-btn g-btn-outline" href="../../packages/vue/README.md">打开 Vue 项目说明</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>App.vue</span><span>按需导入 · 完整类型</span>
+            </div>
+            <pre class="site-code"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { GButton, GCard, GardenerProvider } from &quot;@gardener/vue&quot;;
+import &quot;@gardener/vue/style.css&quot;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
+    &lt;GCard&gt;
+      &lt;GButton variant=&quot;primary&quot;&gt;保存&lt;/GButton&gt;
+    &lt;/GCard&gt;
+  &lt;/GardenerProvider&gt;
+&lt;/template&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="react">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">Official React bindings · 1.0.0 Stable</span>
+            <h2 class="site-title">同一套 CSS，也有完整的 React 组件模型</h2>
+            <p class="site-lead">
+              <code>@gardener/react</code> 将 506 个 CSS 组件和 66 种 DOM
+              行为映射为类型安全的 React API，提供精确原生元素类型、十轴主题
+              Provider、受控与非受控值桥接、Imperative Handle、7 个 Hooks、SSR / Hydration
+              以及相互隔离的 Tauri / Electron 适配入口。组件、样式和机器可读目录保持一一对应。
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="React 项目指标">
+              <span class="g-badge">506 components</span>
+              <span class="g-badge">538 runtime exports</span>
+              <span class="g-badge">29 entrypoints</span>
+              <span class="g-badge">28 CSS packs</span>
+              <span class="g-badge">React 18.3–19.x</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#react">阅读 React 文档</a>
+              <a class="g-btn g-btn-outline" href="../../packages/react/README.md">打开 React 项目说明</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>App.tsx</span><span>按需导入 · 完整类型</span>
+            </div>
+            <pre class="site-code"><code>import { GButton, GCard, GardenerProvider } from &quot;@gardener/react&quot;;
+import &quot;@gardener/react/style.css&quot;;
+
+export function App() {
+  return (
+    &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
+      &lt;GCard&gt;
+        &lt;GButton variant=&quot;primary&quot;&gt;保存&lt;/GButton&gt;
+      &lt;/GCard&gt;
+    &lt;/GardenerProvider&gt;
+  );
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="angular">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">Official AngularJS bindings · 1.0.0 Stable</span>
+            <h2 class="site-title">让大型 AngularJS 遗留系统继续使用完整 Gardener API</h2>
+            <p class="site-lead">
+              <code>@gardener/angularjs</code> 把 506 个 CSS 组件和 66 种 DOM
+              行为映射为 AngularJS 元素/属性指令，提供模块工厂、严格组件子集、原生
+              ngModel、十轴主题、3 个可注入服务、动态生命周期与相互隔离的 Tauri / Electron
+              入口。它面向必须维护 AngularJS 1.8.x 的存量产品，并明确公开框架 EOL 安全边界。
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="AngularJS 项目指标">
+              <span class="g-badge">506 directives</span>
+              <span class="g-badge">535 runtime exports</span>
+              <span class="g-badge">29 entrypoints</span>
+              <span class="g-badge">28 CSS packs</span>
+              <span class="g-badge">AngularJS 1.8.2–1.8.3</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#angular">阅读 AngularJS 文档</a>
+              <a class="g-btn g-btn-outline" href="../../packages/angularjs/README.md">打开 AngularJS 项目说明</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>app.js</span><span>模块工厂 · ngModel · 完整类型</span>
+            </div>
+            <pre class="site-code"><code>import &quot;angular/angular.js&quot;;
+import { createGardenerAngularJS } from &quot;@gardener/angularjs&quot;;
+import &quot;@gardener/angularjs/style.css&quot;;
+
+const gardener = createGardenerAngularJS(window.angular, {
+  components: [&quot;button&quot;, &quot;input&quot;, &quot;card&quot;],
+});
+
+window.angular.module(&quot;app&quot;, [gardener]);
+
+// &lt;button g-button gardener-variant=&quot;primary&quot;&gt;保存&lt;/button&gt;
+// &lt;input g-input ng-model=&quot;vm.keyword&quot;&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="blazor">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">Official Blazor RCL · 1.0.0 Stable</span>
+            <h2 class="site-title">从静态 SSR 到桌面 WebView，使用同一套 Razor 组件</h2>
+            <p class="site-lead">
+              <code>Gardener.Blazor</code> 将 506 个 CSS/混合组件、66 种 DOM
+              行为和 75 种事件映射为强类型 Razor API。稳定包以
+              <code>net10.0</code> 为基线，已验证 <code>net11.0</code>
+              消费，覆盖 Blazor Web App、WebAssembly、Hybrid、Tauri 与 Electron
+              场景，并保留 SSR、表单、无障碍和十轴主题契约。
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="Blazor 项目指标">
+              <span class="g-badge">506 components</span>
+              <span class="g-badge">66 behaviors</span>
+              <span class="g-badge">75 events</span>
+              <span class="g-badge">43 static assets</span>
+              <span class="g-badge">.NET 10 / 11</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#blazor">阅读 Blazor 文档</a>
+              <a class="g-btn g-btn-outline" href="../../packages/blazor/README.md">打开 Blazor 项目说明</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>Dashboard.razor</span><span>RCL · SSR · 强类型事件</span>
+            </div>
+            <pre class="site-code"><code>@using Gardener.Blazor.Components
+
+&lt;GardenerProvider Theme=&quot;garden&quot; Mode=&quot;light&quot;
+                   Shape=&quot;small&quot; Platform=&quot;desktop&quot;&gt;
+  &lt;GAppShell&gt;
+    &lt;GSidebar&gt;导航&lt;/GSidebar&gt;
+    &lt;GMainRegion&gt;
+      &lt;GButton Variant=&quot;primary&quot; @onclick=&quot;Save&quot;&gt;
+        保存
+      &lt;/GButton&gt;
+    &lt;/GMainRegion&gt;
+  &lt;/GAppShell&gt;
+&lt;/GardenerProvider&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-grid-section" id="grid">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">24 / 12 responsive grid</span>
+            <h2 class="site-title">精确分栏，不再临时计算</h2>
+            <p class="site-lead">
+              24 栅格覆盖企业后台、CMS 和复杂表单，12
+              栅格兼容传统设计稿。列宽、偏移、顺序、网格线、间距、容器查询、RTL
+              和打印都有稳定接口。
+            </p>
+          </header>
+          <div class="site-grid-ruler" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+            ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+            ><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="g-grid-24 g-gutter-3 site-grid-demo">
+            <article class="g-col-24 g-md-col-6">
+              <span>START</span><strong>6 / 24</strong><small>导航与筛选</small>
+            </article>
+            <article class="g-col-24 g-md-col-12">
+              <span>MAIN</span><strong>12 / 24</strong
+              ><small>主要内容区域</small>
+            </article>
+            <article class="g-col-24 g-md-col-6">
+              <span>END</span><strong>6 / 24</strong><small>检查器与操作</small>
+            </article>
+            <article class="g-col-16 g-offset-4">
+              <span>OFFSET</span><strong>4 + 16 + 4</strong
+              ><small>居中表单或阅读区</small>
+            </article>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>五档视口响应 + 三档容器响应</strong
+              ><span
+                >480 / 768 / 1024 / 1280 / 1536px · CQ 480 / 768 / 1024px</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#grid-system"
+              >查看完整栅格文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="regions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">16 region layout patterns</span>
+            <h2 class="site-title">传统页面骨架，也有稳定接口</h2>
+            <p class="site-lead">
+              从上下主区、左右栏到 Holy Grail、Master /
+              Detail、Dock、可调分栏和全屏工作区，Web、移动端与 Tauri / Electron
+              直接选用，不必临时编写页面级布局 CSS。
+            </p>
+          </header>
+          <div
+            class="site-region-frame g-region-frame"
+            aria-label="五区域布局预览"
+          >
+            <header class="g-region-top"><b>TOP</b><span>Toolbar</span></header>
+            <aside class="g-region-start">
+              <b>START</b><span>Navigation</span>
+            </aside>
+            <main class="g-region-main">
+              <b>MAIN</b><strong>Workspace</strong>
+              <div class="site-region-cards"><i></i><i></i><i></i></div>
+            </main>
+            <aside class="g-region-end"><b>END</b><span>Inspector</span></aside>
+            <footer class="g-region-bottom">
+              <b>BOTTOM</b><span>Status</span>
+            </footer>
+          </div>
+          <div class="site-region-patterns" aria-label="区域布局清单">
+            <span>Top / Main / Bottom</span><span>Start / Main / End</span
+            ><span>Holy Grail</span><span>Master / Detail</span
+            ><span>List / Detail / Inspector</span><span>Fixed Header</span
+            ><span>Fixed Sidebar</span><span>Sticky Aside</span
+            ><span>Sticky Footer</span><span>Dock</span><span>Split View</span
+            ><span>Fullscreen</span><span>Mobile Safe Area</span
+            ><span>Desktop Shell</span><span>Container Query</span
+            ><span>RTL / Print</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>16 种成品骨架 + 统一区域部件</strong
+              ><span
+                >视口响应 · 容器响应 · 逻辑方向 · 打印展平 · 桌面工作台</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#region-layouts"
+              >查看完整区域布局文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="primitives">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">22 classic layout primitives</span>
+            <h2 class="site-title">让空间决定布局，不让断点猜布局</h2>
+            <p class="site-lead">
+              Stack、Cluster、Sidebar、Switcher、Reel、Media
+              Object、Masonry、Bento 等经典模式已经固化为内在响应接口。AI
+              只需选择意图和少量变量，无需重新发明
+              Flex、Grid、溢出与安全区规则。
+            </p>
+          </header>
+          <div class="site-primitive-showcase">
+            <div class="g-stack site-primitive-stack">
+              <span class="site-primitive-label">STACK</span>
+              <article></article>
+              <article></article>
+              <article></article>
+            </div>
+            <div class="g-bento site-primitive-bento">
+              <article class="g-bento-featured">
+                <span>BENTO</span><strong>Featured</strong>
+              </article>
+              <article class="g-bento-tall"><span>TALL</span></article>
+              <article><span>TILE</span></article>
+              <article><span>TILE</span></article>
+            </div>
+            <div class="g-stack site-primitive-flow">
+              <div class="g-cluster">
+                <span>Cluster</span><span>Wrap</span><span>Tags</span>
+              </div>
+              <div class="g-repel">
+                <strong>Repel</strong
+                ><button class="g-btn g-btn-primary g-btn-sm">Action</button>
+              </div>
+              <div class="g-media-object">
+                <i class="g-media-object-media">M</i>
+                <div class="g-media-object-body">
+                  <strong>Media Object</strong
+                  ><small>Media · Body · Action</small>
+                </div>
+                <span class="g-media-object-action">→</span>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="经典布局原语清单">
+            <span>Stack</span><span>Cluster</span><span>Center</span
+            ><span>Sidebar</span><span>Switcher</span><span>Cover</span
+            ><span>Reel</span><span>Frame</span><span>Media Object</span
+            ><span>Auto Fit</span><span>Auto Fill</span><span>Bleed</span
+            ><span>Repel</span><span>Imposter</span><span>Overlay</span
+            ><span>Masonry</span><span>Bento</span><span>Aspect Ratio</span
+            ><span>Scroll Area</span><span>Scroll Snap</span
+            ><span>Safe Area</span><span>Sticky Region</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>22 个稳定原语 + 零 JavaScript 布局</strong
+              ><span
+                >内在响应 · 容器查询 · RTL · Safe Area · Reduced Motion ·
+                Print</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#layout-primitives"
+              >查看完整原语文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="page-components">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">23 page-level patterns</span>
+            <h2 class="site-title">页面公共结构，直接进入交付状态</h2>
+            <p class="site-lead">
+              统一页头、工具栏、命令栏、筛选与批量操作，再把
+              Loading、Empty、Error、403、404、500、离线和维护状态准备完整。AI
+              生成的页面不再只有“正常数据”这一种情况。
+            </p>
+          </header>
+          <div class="site-page-demo">
+            <header class="g-page-header">
+              <div class="g-page-header-main">
+                <div class="g-page-header-eyebrow">Content workspace</div>
+                <h3 class="g-page-header-title">页面管理</h3>
+                <p class="g-page-header-description">
+                  管理内容、状态和发布时间。
+                </p>
+              </div>
+              <div class="g-page-header-meta">
+                <span>最近更新：刚刚</span
+                ><span class="g-badge g-badge-success">已同步</span>
+              </div>
+              <div class="g-page-header-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">预览</button
+                ><button class="g-btn g-btn-primary g-btn-sm">新建</button>
+              </div>
+            </header>
+            <div class="g-toolbar">
+              <div class="g-toolbar-start">
+                <strong class="g-toolbar-title">12 个页面</strong>
+              </div>
+              <div class="g-toolbar-center">
+                <span class="g-filter-chip">状态：全部</span
+                ><span class="g-filter-chip">语言：中文</span>
+              </div>
+              <div class="g-toolbar-end">
+                <button class="g-btn g-btn-ghost g-btn-sm">筛选</button>
+              </div>
+            </div>
+            <div class="g-context-bar is-info">
+              <span aria-hidden="true">i</span>
+              <div class="g-context-bar-content">当前显示生产环境内容</div>
+              <div class="g-context-bar-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">切换环境</button>
+              </div>
+            </div>
+            <div class="g-bulk-action-bar">
+              <strong class="g-bulk-action-count">已选择 3 项</strong>
+              <div class="g-bulk-action-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">移动</button
+                ><button class="g-btn g-btn-danger g-btn-sm">删除</button>
+              </div>
+            </div>
+            <div class="site-page-states">
+              <article class="g-page-empty">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-visual">∅</div>
+                  <strong class="g-page-state-title">Empty</strong>
+                  <p class="g-page-state-description">
+                    首次使用也有明确下一步。
+                  </p>
+                </div>
+              </article>
+              <article class="g-page-not-found">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-code">404</div>
+                  <strong class="g-page-state-title">Not found</strong>
+                  <p class="g-page-state-description">无效链接有稳定回退。</p>
+                </div>
+              </article>
+              <article class="g-page-offline">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-visual">⌁</div>
+                  <strong class="g-page-state-title">Offline</strong>
+                  <p class="g-page-state-description">
+                    断网仍告知数据安全状态。
+                  </p>
+                </div>
+              </article>
+            </div>
+            <footer class="g-status-bar">
+              <span class="g-status-bar-section"
+                ><i class="g-status-dot is-online"></i>Connected</span
+              ><span class="g-status-bar-section is-end"
+                >Gardener page contract</span
+              >
+            </footer>
+          </div>
+          <div class="site-region-patterns" aria-label="页面级公共组件清单">
+            <span>Page Header</span><span>Section Header</span
+            ><span>Subheader</span><span>Toolbar</span><span>Action Bar</span
+            ><span>Status Bar</span><span>Command Bar</span
+            ><span>Context Bar</span><span>Filter Bar</span
+            ><span>Bulk Action Bar</span><span>Footer Bar</span
+            ><span>Floating Action Bar</span><span>Back to Top</span
+            ><span>Divider with Text</span><span>Sticky Actions</span
+            ><span>Page Loading</span><span>Page Empty</span
+            ><span>Page Error</span><span>403</span><span>404</span
+            ><span>500</span><span>Offline</span><span>Maintenance</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>23 种完整页面状态与公共结构</strong
+              ><span
+                >Container Query · Sticky · Safe Area · RTL · Runtime ·
+                Print</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#page-components"
+              >查看完整页面组件文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="help-system">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">28 help and guidance patterns</span>
+            <h2 class="site-title">从一个 TIP，到完整帮助闭环</h2>
+            <p class="site-lead">
+              Tooltip、Popover、Callout、FAQ、帮助中心、Tour、Spotlight、新功能提示、排错和反馈全部使用稳定接口。用户在任何端遇到疑问，都有合适而一致的表达方式。
+            </p>
+          </header>
+          <div class="site-help-demo">
+            <div class="site-help-main">
+              <p class="g-tip">使用预览环境确认内容，再发布到生产环境。</p>
+              <aside class="g-callout is-info">
+                <span class="g-callout-icon">i</span>
+                <div class="g-callout-content">
+                  <strong class="g-callout-title">当前页面帮助</strong>
+                  <p>环境变量只在构建时读取；修改后需要重新部署。</p>
+                </div>
+              </aside>
+              <aside class="g-feature-hint">
+                <span class="g-feature-hint-badge">New</span>
+                <div>
+                  <strong class="g-feature-hint-title">跨端预览</strong>
+                  <p class="g-feature-hint-description">
+                    一次检查 PC、移动网页和桌面 WebView。
+                  </p>
+                </div>
+                <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  试用
+                </button>
+              </aside>
+              <ul class="g-shortcut-list">
+                <li class="g-shortcut-item">
+                  <span>打开帮助</span
+                  ><span class="g-shortcut-keys"
+                    ><kbd class="g-key-hint">?</kbd></span
+                  >
+                </li>
+                <li class="g-shortcut-item">
+                  <span>命令面板</span
+                  ><span class="g-shortcut-keys"
+                    ><kbd class="g-key-hint">Ctrl</kbd><span>+</span
+                    ><kbd class="g-key-hint">K</kbd></span
+                  >
+                </li>
+              </ul>
+            </div>
+            <aside class="g-help-panel site-help-panel">
+              <header class="g-help-panel-header">
+                <strong class="g-help-panel-title">帮助中心</strong
+                ><button
+                  class="g-help-trigger"
+                  type="button"
+                  aria-label="帮助说明"
+                >
+                  ?
+                </button>
+              </header>
+              <div class="g-help-panel-body">
+                <div class="g-help-search">
+                  <span class="g-help-search-icon" aria-hidden="true">⌕</span
+                  ><label class="g-sr-only" for="site-help-search"
+                    >搜索帮助</label
+                  ><input
+                    class="g-input"
+                    id="site-help-search"
+                    type="search"
+                    placeholder="搜索帮助…"
+                  />
+                </div>
+                <div class="g-help-topics g-mt-4">
+                  <a class="g-help-topic" href="./docs.html#help-system"
+                    ><strong class="g-help-topic-title">快速开始</strong
+                    ><span class="g-help-topic-meta">12 篇</span></a
+                  ><a class="g-help-topic" href="./docs.html#help-system"
+                    ><strong class="g-help-topic-title">发布与回滚</strong
+                    ><span class="g-help-topic-meta">18 篇</span></a
+                  >
+                </div>
+                <ul class="g-help-checklist g-mt-5">
+                  <li class="g-help-checklist-item is-complete">
+                    <span class="g-help-checklist-marker">✓</span
+                    ><span>创建空间</span>
+                  </li>
+                  <li class="g-help-checklist-item">
+                    <span class="g-help-checklist-marker">2</span
+                    ><span>完成第一次发布</span>
+                  </li>
+                </ul>
+              </div>
+              <footer class="g-help-panel-footer">
+                <a href="./docs.html#help-system">查看全部帮助组件</a>
+              </footer>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="Tip 与帮助系统清单">
+            <span>Tip</span><span>Inline Hint</span><span>Help Text</span
+            ><span>Help Trigger</span><span>Tooltip</span
+            ><span>Rich Tooltip</span><span>Help Popover</span
+            ><span>Definition</span><span>Callout</span><span>Note</span
+            ><span>Do / Don't</span><span>Key Hint</span
+            ><span>Shortcut List</span><span>Help Card</span
+            ><span>Help Panel</span><span>Help Center</span
+            ><span>Help Topics</span><span>FAQ</span><span>Contextual Help</span
+            ><span>Coach Mark</span><span>Guided Tour</span
+            ><span>Spotlight</span><span>Hotspot</span><span>Feature Hint</span
+            ><span>What's New</span><span>Help Checklist</span
+            ><span>Troubleshooting</span><span>Help Feedback</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>28 种提示、引导与支持模式</strong
+              ><span
+                >Collision Aware · Keyboard · Focus Restore · RTL · Reduced
+                Motion · Print</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#help-system"
+              >查看完整帮助系统文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="form-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">37 traditional form compositions</span>
+            <h2 class="site-title">表单不再从一堆 Input 开始</h2>
+            <p class="site-lead">
+              字段、分区、水平与行内布局、搜索/密码/计数、选择组、验证、姓名/地址/金额、条件与可重复项、审核和提交动作都已组合好。AI
+              只需选择业务意图，不必反复组织表单 CSS。
+            </p>
+          </header>
+          <div class="site-form-demo g-form-container">
+            <form class="g-form site-form-main" novalidate>
+              <section class="g-form-section">
+                <header class="g-form-section-header">
+                  <div>
+                    <h3 class="g-form-section-title">企业资料</h3>
+                    <p class="g-form-section-description">
+                      用于站点展示和服务通知。
+                    </p>
+                  </div>
+                  <span class="g-autosave-status is-saved">已保存</span>
+                </header>
+                <div class="g-form-row">
+                  <div class="g-field">
+                    <div class="g-field-header">
+                      <label class="g-label" for="site-company-name"
+                        >企业名称</label
+                      ><span class="g-field-required">必填</span>
+                    </div>
+                    <input
+                      class="g-input"
+                      id="site-company-name"
+                      value="Gardener Studio"
+                    />
+                  </div>
+                  <div class="g-field">
+                    <label class="g-label" for="site-company-email"
+                      >联系邮箱</label
+                    ><input
+                      class="g-input"
+                      id="site-company-email"
+                      type="email"
+                      value="hello@example.com"
+                    />
+                  </div>
+                </div>
+                <div class="g-field">
+                  <label class="g-label" for="site-company-description"
+                    >企业简介</label
+                  >
+                  <div class="g-character-field" data-g-character-count="80">
+                    <textarea
+                      class="g-textarea"
+                      id="site-company-description"
+                      maxlength="80"
+                      rows="3"
+                    >
+为不同终端提供一致而完整的页面体验。</textarea
+                    ><output
+                      class="g-character-count"
+                      data-g-character-output
+                    ></output>
+                  </div>
+                </div>
+                <fieldset class="g-fieldset">
+                  <legend class="g-fieldset-legend">发布方案</legend>
+                  <div class="g-choice-group">
+                    <label class="g-choice-card"
+                      ><input type="radio" name="site-plan" checked /><strong
+                        class="g-choice-card-title"
+                        >标准发布</strong
+                      ><span class="g-choice-card-description"
+                        >自动完成预检与版本快照。</span
+                      ></label
+                    ><label class="g-choice-card"
+                      ><input type="radio" name="site-plan" /><strong
+                        class="g-choice-card-title"
+                        >分阶段发布</strong
+                      ><span class="g-choice-card-description"
+                        >先向内部成员开放。</span
+                      ></label
+                    >
+                  </div>
+                </fieldset>
+              </section>
+              <div class="g-form-actions">
+                <button class="g-btn g-btn-outline" type="button">
+                  保存草稿</button
+                ><button class="g-btn g-btn-primary" type="button">继续</button>
+              </div>
+            </form>
+            <aside class="site-form-side">
+              <div class="g-form-progress">
+                <div class="g-form-progress-meta">
+                  <span>资料完成度</span><strong>72%</strong>
+                </div>
+                <div class="g-form-progress-track">
+                  <div
+                    class="g-form-progress-value"
+                    style="--g-form-progress: 72%"
+                  ></div>
+                </div>
+              </div>
+              <div class="g-form-review g-mt-5">
+                <div class="g-form-review-row">
+                  <span class="g-form-review-label">名称</span
+                  ><strong class="g-form-review-value">Gardener Studio</strong
+                  ><button class="g-btn g-btn-link g-btn-sm" type="button">
+                    编辑
+                  </button>
+                </div>
+                <div class="g-form-review-row">
+                  <span class="g-form-review-label">发布</span
+                  ><strong class="g-form-review-value">标准发布</strong
+                  ><button class="g-btn g-btn-link g-btn-sm" type="button">
+                    编辑
+                  </button>
+                </div>
+              </div>
+              <aside class="g-validation-summary g-mt-5">
+                <strong class="g-validation-summary-title">提交前检查</strong>
+                <ul class="g-validation-summary-list">
+                  <li>企业名称已填写</li>
+                  <li>还需确认服务条款</li>
+                </ul>
+              </aside>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="表单传统组合清单">
+            <span>Form</span><span>Form Section</span><span>Field</span
+            ><span>Fieldset</span><span>Form Row</span><span>Form Grid</span
+            ><span>Horizontal Form</span><span>Inline Form</span
+            ><span>Compact Form</span><span>Input Group</span
+            ><span>Input Affix</span><span>Search Field</span
+            ><span>Password Field</span><span>Clearable Field</span
+            ><span>Character Counter</span><span>Validation State</span
+            ><span>Validation Summary</span><span>Checkbox Group</span
+            ><span>Radio Group</span><span>Switch Row</span
+            ><span>Choice Cards</span><span>Name Group</span
+            ><span>Address Group</span><span>Phone Group</span
+            ><span>Money Group</span><span>Date Range</span
+            ><span>Time Range</span><span>Unit Field</span
+            ><span>Range Field</span><span>File Field</span
+            ><span>Repeatable Field</span><span>Conditional Field</span
+            ><span>Form Actions</span><span>Autosave Status</span
+            ><span>Form Progress</span><span>Form Review</span
+            ><span>Consent Group</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>37 种传统表单结构 + 5 类交互行为</strong
+              ><span
+                >Container Query · Validation · Business Groups · RTL · Safe
+                Area · Print</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#form-compositions"
+              >查看完整表单组合文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="navigation-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >Category 07 · Traditional navigation</span
+            >
+            <h2 class="site-title">每一个方向，都有现成导航</h2>
+            <p class="site-lead">
+              从企业站主导航到 CMS 树，从移动底栏到 Electron Activity
+              Bar，从右键菜单到 Scrollspy，38 种稳定模式让 AI 直接按意图选择。
+            </p>
+          </header>
+          <div class="site-navigation-demo g-nav-container">
+            <header class="g-navbar">
+              <div class="g-navbar-start">
+                <strong class="g-navbar-brand">Acme Cloud</strong>
+              </div>
+              <nav class="g-primary-nav" aria-label="产品演示导航">
+                <a
+                  class="g-primary-nav-link"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  >工作台</a
+                ><a class="g-primary-nav-link" href="#navigation-compositions"
+                  >内容</a
+                ><a class="g-primary-nav-link" href="#navigation-compositions"
+                  >数据</a
+                >
+              </nav>
+              <nav class="g-utility-nav">
+                <a class="g-utility-nav-link" href="#navigation-compositions"
+                  >帮助</a
+                >
+              </nav>
+              <div class="g-navbar-end">
+                <button
+                  class="g-btn g-btn-outline g-btn-sm g-navbar-toggle"
+                  type="button"
+                  data-g-nav-toggle="site-nav-drawer"
+                >
+                  菜单
+                </button>
+              </div>
+            </header>
+            <nav class="g-subnav" aria-label="二级演示导航">
+              <a
+                class="g-subnav-link"
+                href="#navigation-compositions"
+                aria-current="page"
+                >概览</a
+              ><a class="g-subnav-link" href="#navigation-compositions">页面</a
+              ><a class="g-subnav-link" href="#navigation-compositions">成员</a
+              ><a class="g-subnav-link" href="#navigation-compositions">设置</a>
+            </nav>
+            <div class="site-navigation-workspace">
+              <nav
+                class="g-nav-rail"
+                data-g-roving-nav
+                data-g-orientation="vertical"
+                aria-label="工作区演示"
+              >
+                <a
+                  class="g-nav-rail-item"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  ><span class="g-nav-icon">⌂</span><span>首页</span></a
+                ><a class="g-nav-rail-item" href="#navigation-compositions"
+                  ><span class="g-nav-icon">▤</span><span>内容</span></a
+                ><a class="g-nav-rail-item" href="#navigation-compositions"
+                  ><span class="g-nav-icon">AI</span><span>生成</span></a
+                >
+              </nav>
+              <div class="site-navigation-canvas">
+                <ol class="g-breadcrumb">
+                  <li class="g-breadcrumb-item">
+                    <a href="#navigation-compositions">工作区</a>
+                  </li>
+                  <li class="g-breadcrumb-item" aria-current="page">概览</li>
+                </ol>
+                <div class="g-tabs g-mt-5" data-g-tabs>
+                  <div class="g-tab-list" role="tablist">
+                    <button
+                      class="g-tab"
+                      role="tab"
+                      aria-controls="site-nav-overview"
+                      aria-selected="true"
+                    >
+                      概览</button
+                    ><button
+                      class="g-tab"
+                      role="tab"
+                      aria-controls="site-nav-activity"
+                    >
+                      活动
+                    </button>
+                  </div>
+                  <div
+                    class="g-tab-panel"
+                    id="site-nav-overview"
+                    role="tabpanel"
+                  >
+                    <div class="g-quick-nav">
+                      <a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >★ 收藏页面</a
+                      ><a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >◷ 最近编辑</a
+                      ><a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >＋ 新建内容</a
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="g-tab-panel"
+                    id="site-nav-activity"
+                    role="tabpanel"
+                    hidden
+                  >
+                    最近活动将显示在这里。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="g-drawer-nav" id="site-nav-drawer" hidden>
+            <header class="g-drawer-nav-header">
+              <strong>导航</strong
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm"
+                type="button"
+                data-g-nav-toggle="site-nav-drawer"
+              >
+                关闭
+              </button>
+            </header>
+            <div class="g-drawer-nav-body">
+              <nav class="g-nav-group">
+                <a
+                  class="g-nav-item"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  >工作台</a
+                ><a class="g-nav-item" href="#themes">主题</a
+                ><a class="g-nav-item" href="#recipes">配方</a>
+              </nav>
+            </div>
+          </aside>
+          <div class="site-region-patterns" aria-label="传统导航组合清单">
+            <span>Navbar</span><span>Primary</span><span>Utility</span
+            ><span>Subnav</span><span>Sidebar</span><span>Collapsible</span
+            ><span>Nav Rail</span><span>Activity Bar</span><span>Menubar</span
+            ><span>Mega Menu</span><span>Dropdown</span><span>Context Menu</span
+            ><span>Tree Nav</span><span>Breadcrumb</span><span>Tabs</span
+            ><span>Vertical Tabs</span><span>Segmented</span
+            ><span>Pill Nav</span><span>Anchor</span><span>Scrollspy</span
+            ><span>Pagination</span><span>Cursor</span><span>Load More</span
+            ><span>Stepper</span><span>Wizard</span><span>Back</span
+            ><span>Previous / Next</span><span>Skip Nav</span
+            ><span>Mobile Top</span><span>Bottom Nav</span
+            ><span>Mobile Tab Bar</span><span>Drawer</span
+            ><span>Command Palette</span><span>Command Nav</span
+            ><span>Jump Nav</span><span>Quick Nav</span><span>Locale</span
+            ><span>Account</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>38 种传统导航模式 + 9 类复用交互</strong
+              ><span
+                >Global · Local · Hierarchy · Workflow · Mobile · Desktop · RTL
+                · Print</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#navigation-compositions"
+              >查看完整导航组合文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="data-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >Category 08 · Data display & operations</span
+            >
+            <h2 class="site-title">数据不只要显示，还要立即可用</h2>
+            <p class="site-lead">
+              48
+              种数据模式覆盖表格、记录、列表、层级、指标、计划、地图与操作。排序、选择、展开、列管理、筛选和视图切换都有统一运行时。
+            </p>
+          </header>
+          <div
+            class="site-data-demo g-data-container"
+            id="site-customer-data"
+            data-g-table-sort
+            data-g-row-select
+            data-g-row-disclosure
+          >
+            <div class="site-data-metrics">
+              <article class="g-metric-card">
+                <div class="g-metric-card-main">
+                  <span class="g-metric-card-label">客户收入</span
+                  ><strong class="g-metric-card-value">¥286K</strong>
+                </div>
+                <div class="g-metric-card-trend">
+                  <div class="g-sparkline" role="img" aria-label="收入上升">
+                    <i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 30%"
+                    ></i
+                    ><i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 58%"
+                    ></i
+                    ><i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 88%"
+                    ></i>
+                  </div>
+                </div>
+              </article>
+              <div class="g-status-summary">
+                <div class="g-status-summary-item">
+                  <strong class="g-status-summary-value">128</strong
+                  ><span class="g-status-summary-label">活跃</span>
+                </div>
+                <div class="g-status-summary-item">
+                  <strong class="g-status-summary-value">6</strong
+                  ><span class="g-status-summary-label">风险</span>
+                </div>
+              </div>
+            </div>
+            <div class="g-data-toolbar">
+              <div class="g-data-toolbar-start">
+                <strong class="g-data-title">客户数据</strong
+                ><span class="g-data-toolbar-result">共 3 项</span>
+              </div>
+              <div class="g-data-toolbar-end">
+                <div class="g-data-view-switcher">
+                  <button
+                    class="g-data-view-button"
+                    type="button"
+                    aria-pressed="true"
+                  >
+                    表</button
+                  ><button
+                    class="g-data-view-button"
+                    type="button"
+                    aria-pressed="false"
+                  >
+                    卡
+                  </button>
+                </div>
+                <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                  导出
+                </button>
+              </div>
+            </div>
+            <div class="g-selection-summary" data-g-selection-summary hidden>
+              <span class="g-selection-summary-count"
+                >已选择 <strong data-g-selection-count>0</strong> 项</span
+              >
+              <div class="g-selection-summary-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">批量编辑</button>
+              </div>
+            </div>
+            <div class="g-responsive-table is-stacked">
+              <table class="g-table g-table-hover g-expandable-table">
+                <thead>
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        data-g-select-all
+                        aria-label="选择全部客户"
+                      />
+                    </th>
+                    <th aria-sort="none">
+                      <button
+                        class="g-sort-button"
+                        data-g-sort-key="name"
+                        type="button"
+                      >
+                        客户 <span class="g-table-sort-indicator"></span>
+                      </button>
+                    </th>
+                    <th>状态</th>
+                    <th aria-sort="none">
+                      <button
+                        class="g-sort-button"
+                        data-g-sort-key="revenue"
+                        data-g-sort-type="number"
+                        type="button"
+                      >
+                        收入 <span class="g-table-sort-indicator"></span>
+                      </button>
+                    </th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="g-table-row" id="site-data-a">
+                    <td data-g-label="选择">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="a"
+                        aria-label="选择星河科技"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="客户"
+                    >
+                      星河科技
+                    </td>
+                    <td data-g-label="状态">
+                      <span class="g-data-status is-success">活跃</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="128000"
+                      data-g-label="收入"
+                    >
+                      ¥128,000
+                    </td>
+                    <td data-g-label="操作">
+                      <button
+                        class="g-row-disclosure"
+                        data-g-row-toggle="site-data-detail-a"
+                        aria-expanded="false"
+                        aria-label="展开详情"
+                      >
+                        ›
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="g-expandable-table-detail"
+                    id="site-data-detail-a"
+                    data-g-detail-row="site-data-a"
+                    hidden
+                  >
+                    <td colspan="5">
+                      <div class="g-table-detail-content">
+                        企业版客户 · 最近联系 2 天前
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="g-table-row">
+                    <td data-g-label="选择">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="b"
+                        aria-label="选择远山设计"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="客户"
+                    >
+                      远山设计
+                    </td>
+                    <td data-g-label="状态">
+                      <span class="g-data-status is-warning">待跟进</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="86000"
+                      data-g-label="收入"
+                    >
+                      ¥86,000
+                    </td>
+                    <td data-g-label="操作">查看</td>
+                  </tr>
+                  <tr class="g-table-row">
+                    <td data-g-label="选择">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="c"
+                        aria-label="选择林海教育"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="客户"
+                    >
+                      林海教育
+                    </td>
+                    <td data-g-label="状态">
+                      <span class="g-data-status is-danger">风险</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="42000"
+                      data-g-label="收入"
+                    >
+                      ¥42,000
+                    </td>
+                    <td data-g-label="操作">查看</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="数据展示与操作模式清单">
+            <span>Table</span><span>Responsive Table</span><span>Data Grid</span
+            ><span>Editable Grid</span><span>Tree Table</span
+            ><span>Grouped Table</span><span>Expandable Table</span
+            ><span>Comparison</span><span>Pivot</span
+            ><span>Description List</span><span>Key Value</span
+            ><span>Record Detail</span><span>List Group</span
+            ><span>Media List</span><span>Dense List</span
+            ><span>Virtual List</span><span>Tree</span><span>Timeline</span
+            ><span>Activity Feed</span><span>Audit Log</span><span>KPI</span
+            ><span>Stat List</span><span>Metric Card</span><span>Sparkline</span
+            ><span>Progress Stats</span><span>Chart</span><span>Legend</span
+            ><span>Ranking</span><span>Status Summary</span><span>Calendar</span
+            ><span>Agenda</span><span>Kanban</span><span>Gantt</span
+            ><span>Org Chart</span><span>Map</span><span>Matrix</span
+            ><span>Heatmap</span><span>Data Toolbar</span
+            ><span>Column Chooser</span><span>Saved Views</span
+            ><span>Export Panel</span><span>Data State</span
+            ><span>View Switcher</span><span>Selection Summary</span
+            ><span>Density</span><span>Filter Summary</span
+            ><span>Sort Builder</span><span>Data Inspector</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>48 种数据展示与操作模式 + 8 类复用交互</strong
+              ><span
+                >Table · Record · Metric · Planning · Spatial · Keyboard · RTL ·
+                Print</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#data-compositions"
+              >查看完整数据组合文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="site-section site-section-soft"
+        id="selection-compositions"
+      >
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">32 selection and batch patterns</span>
+            <h2 class="site-title">从选中一项，到处理十万条记录</h2>
+            <p class="site-lead">
+              全选、反选、范围选择、批量工具栏、Transfer、树形与级联选择、人员/组织/资源/媒体选择器、日期时间范围、保存配置及排序/分组构建器均有稳定接口。AI
+              不必临时拼出复杂后台选择流程。
+            </p>
+          </header>
+          <div
+            class="site-selection-demo g-selection-container"
+            data-g-row-select
+          >
+            <section class="g-selection-scope">
+              <header class="g-selection-scope-header">
+                <strong class="g-selection-scope-title">站点页面</strong>
+                <div class="g-cluster">
+                  <label class="g-select-all-control"
+                    ><input type="checkbox" data-g-select-all /> 全选</label
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    type="button"
+                    data-g-invert-selection
+                  >
+                    反选
+                  </button>
+                </div>
+              </header>
+              <div class="g-selection-scope-list">
+                <label class="g-selection-item" data-g-selectable-row
+                  ><input type="checkbox" data-g-select-row value="home" /><span
+                    class="g-selection-item-content"
+                    ><span class="g-selection-item-title">首页</span
+                    ><span class="g-selection-item-description"
+                      >企业站入口</span
+                    ></span
+                  ><span class="g-selection-item-meta">已发布</span></label
+                ><label class="g-selection-item" data-g-selectable-row
+                  ><input
+                    type="checkbox"
+                    data-g-select-row
+                    value="product"
+                  /><span class="g-selection-item-content"
+                    ><span class="g-selection-item-title">产品中心</span
+                    ><span class="g-selection-item-description"
+                      >12 个关联页面</span
+                    ></span
+                  ><span class="g-selection-item-meta">草稿</span></label
+                ><label class="g-selection-item" data-g-selectable-row
+                  ><input
+                    type="checkbox"
+                    data-g-select-row
+                    value="about"
+                  /><span class="g-selection-item-content"
+                    ><span class="g-selection-item-title">关于我们</span
+                    ><span class="g-selection-item-description"
+                      >企业资料</span
+                    ></span
+                  ><span class="g-selection-item-meta">已发布</span></label
+                >
+              </div>
+            </section>
+            <aside class="site-selection-side">
+              <div class="g-user-picker">
+                <div class="g-picker-control">
+                  <span class="g-picker-value"
+                    ><span class="g-picker-avatar">王</span
+                    ><span class="g-picker-value-label">王林</span></span
+                  ><input
+                    class="g-picker-input"
+                    aria-label="添加负责人"
+                    placeholder="添加负责人"
+                  />
+                </div>
+              </div>
+              <div class="g-saved-filters g-mt-4" data-g-saved-choice>
+                <button
+                  class="g-saved-filter"
+                  data-g-saved-choice-item
+                  data-g-value="mine"
+                  aria-pressed="true"
+                >
+                  我的待办</button
+                ><button
+                  class="g-saved-filter"
+                  data-g-saved-choice-item
+                  data-g-value="risk"
+                  aria-pressed="false"
+                >
+                  风险项
+                </button>
+              </div>
+              <div class="g-batch-toolbar g-mt-4" data-g-batch-toolbar hidden>
+                <span class="g-batch-toolbar-summary"
+                  >已选 <strong data-g-selection-count>0</strong> 项</span
+                >
+                <div class="g-batch-toolbar-actions">
+                  <button class="g-btn g-btn-primary g-btn-sm">发布</button
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    type="button"
+                    data-g-clear-selection
+                  >
+                    取消
+                  </button>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="选择与批量操作组件清单">
+            <span>Selection Control</span><span>Select All</span
+            ><span>Invert</span><span>Range</span><span>Batch Toolbar</span
+            ><span>Selection Scope</span><span>Transfer</span
+            ><span>Dual List</span><span>Tree Select</span><span>Cascader</span
+            ><span>Mention Picker</span><span>User Picker</span
+            ><span>Organization Picker</span><span>Resource Picker</span
+            ><span>Media Picker</span><span>Icon Picker</span
+            ><span>Color Picker</span><span>Date Range</span
+            ><span>Time Range</span><span>Saved Filters</span
+            ><span>Saved Views</span><span>Column Chooser</span
+            ><span>Sort Builder</span><span>Group Builder</span
+            ><span>Entity Picker</span><span>Tag Picker</span
+            ><span>Relation Picker</span><span>Bulk Confirmation</span
+            ><span>Bulk Progress</span><span>Picker Panel</span
+            ><span>Picker Summary</span><span>Selection Summary</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 种选择与批量模式 + 7 类复用交互</strong
+              ><span
+                >Multi-select · Hierarchy · Search · Safe Area · Keyboard · RTL
+                · Print</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#selection-compositions"
+              >查看完整选择组件文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="content-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >Category 10 · File & content system</span
+            >
+            <h2 class="site-title">从上传一个文件，到完成整套内容生产</h2>
+            <p class="site-lead">
+              上传队列、文件浏览、媒体库、图片处理、文档/PDF/音视频查看、代码与富文本编辑、Markdown、区块、修订、评论和自动保存均有现成结构。
+            </p>
+          </header>
+          <div class="site-content-demo g-content-container">
+            <section class="g-upload-queue" data-g-upload-manager>
+              <header class="g-upload-queue-header">
+                <strong>内容上传</strong
+                ><span class="g-upload-summary"
+                  >完成 <b data-g-upload-count="success">0</b> · 处理中
+                  <b data-g-upload-count="active">0</b></span
+                >
+              </header>
+              <div data-g-upload-list>
+                <div
+                  class="g-upload-item"
+                  data-g-upload-item
+                  data-g-status="uploading"
+                  data-g-progress="50"
+                >
+                  <span class="g-file-icon">PDF</span
+                  ><span class="g-file-main"
+                    ><strong class="g-file-name">企业品牌手册.pdf</strong
+                    ><span class="g-file-meta">4.8 MB</span
+                    ><span
+                      class="g-upload-status"
+                      data-g-upload-status
+                    ></span></span
+                  ><span
+                    class="g-upload-progress"
+                    data-g-upload-progress
+                    role="progressbar"
+                    aria-label="品牌手册上传进度"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    ><i class="g-upload-progress-bar"></i></span
+                  ><span class="g-upload-actions"
+                    ><button
+                      class="g-btn g-btn-outline g-btn-sm"
+                      data-g-upload-action="advance"
+                      type="button"
+                    >
+                      推进
+                    </button></span
+                  >
+                </div>
+                <div
+                  class="g-upload-item"
+                  data-g-upload-item
+                  data-g-status="success"
+                  data-g-progress="100"
+                >
+                  <span class="g-file-icon">JPG</span
+                  ><span class="g-file-main"
+                    ><strong class="g-file-name">首页封面.jpg</strong
+                    ><span class="g-file-meta">880 KB</span
+                    ><span
+                      class="g-upload-status"
+                      data-g-upload-status
+                    ></span></span
+                  ><span
+                    class="g-upload-progress"
+                    data-g-upload-progress
+                    role="progressbar"
+                    aria-label="首页封面上传进度"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    ><i class="g-upload-progress-bar"></i></span
+                  ><span></span>
+                </div>
+              </div>
+            </section>
+            <section
+              class="g-file-browser"
+              data-g-file-browser
+              data-g-view="grid"
+            >
+              <header class="g-file-browser-header">
+                <strong>品牌资料</strong>
+                <div class="g-cluster">
+                  <label class="g-sr-only" for="home-file-search"
+                    >搜索文件</label
+                  ><input
+                    class="g-input g-input-sm"
+                    id="home-file-search"
+                    data-g-file-search
+                    type="search"
+                    placeholder="搜索"
+                  /><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    data-g-file-view="grid"
+                    aria-pressed="true"
+                    type="button"
+                  >
+                    网格</button
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    data-g-file-view="list"
+                    aria-pressed="false"
+                    type="button"
+                  >
+                    列表
+                  </button>
+                </div>
+              </header>
+              <aside class="g-file-browser-tree">
+                <nav class="g-folder-tree" aria-label="文件夹">
+                  <button
+                    class="g-folder-tree-item"
+                    aria-current="page"
+                    type="button"
+                  >
+                    <span>▾</span><span>品牌</span
+                    ><span class="g-folder-tree-count">3</span></button
+                  ><button
+                    class="g-folder-tree-item"
+                    style="--g-tree-level: 1"
+                    type="button"
+                  >
+                    <span>▸</span><span>图像</span
+                    ><span class="g-folder-tree-count">2</span>
+                  </button>
+                </nav>
+              </aside>
+              <div class="g-file-browser-main">
+                <div class="g-file-card-grid">
+                  <article
+                    class="g-file-card"
+                    data-g-file-item
+                    data-g-file-name="品牌手册.pdf"
+                    tabindex="0"
+                  >
+                    <div class="g-file-card-preview site-content-thumb">
+                      PDF
+                    </div>
+                    <div class="g-file-card-body">
+                      <strong class="g-file-name">品牌手册.pdf</strong
+                      ><span class="g-file-meta">4.8 MB</span>
+                    </div>
+                  </article>
+                  <article
+                    class="g-file-card"
+                    data-g-file-item
+                    data-g-file-name="首页封面.jpg"
+                    tabindex="-1"
+                  >
+                    <div class="g-file-card-preview site-content-thumb">
+                      IMG
+                    </div>
+                    <div class="g-file-card-body">
+                      <strong class="g-file-name">首页封面.jpg</strong
+                      ><span class="g-file-meta">880 KB</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <footer class="g-file-browser-status">
+                <span><b data-g-file-count>0</b> 个结果</span
+                ><span>已选：<b data-g-file-selection>未选择</b></span>
+              </footer>
+            </section>
+          </div>
+          <div class="site-region-patterns" aria-label="文件和内容系统组件清单">
+            <span>File Drop</span><span>File List</span><span>Upload Queue</span
+            ><span>Chunk Upload</span><span>Upload Progress</span
+            ><span>Failed Upload</span><span>File Card</span
+            ><span>Folder Tree</span><span>File Browser</span
+            ><span>File Preview</span><span>Media Library</span
+            ><span>Media Grid</span><span>Media Details</span
+            ><span>Image Crop</span><span>Image Annotation</span
+            ><span>Document Viewer</span><span>PDF Viewer</span
+            ><span>Video Player</span><span>Audio Player</span
+            ><span>Code Editor</span><span>Rich Text Editor</span
+            ><span>Markdown Editor</span><span>Block Editor</span
+            ><span>Revision Compare</span><span>Autosave</span
+            ><span>Content Outline</span><span>Editor Toolbar</span
+            ><span>Find & Replace</span><span>Comment Thread</span
+            ><span>Version History</span><span>File Properties</span
+            ><span>Storage Meter</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 种文件与内容模式 + 6 类复用交互</strong
+              ><span
+                >Upload · Browser · Editor · Revision · Keyboard · RTL ·
+                Print</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#content-compositions"
+              >查看完整内容系统文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="auth-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 11 · Identity lifecycle</span>
+            <h2 class="site-title">从第一次登录，到每一次安全审计</h2>
+            <p class="site-lead">
+              登录、注册、验证、MFA、Passkey、SSO、二维码、邀请、账号与租户选择、锁屏、会话恢复、设备管理和安全事件已组合为稳定页面结构，适合网站、移动端、Dashboard
+              与 Tauri/Electron。
+            </p>
+          </header>
+          <div class="site-auth-demo">
+            <form class="g-auth-panel g-sign-in">
+              <header class="g-auth-header">
+                <div class="g-auth-brand-row">
+                  <span class="g-auth-brand-mark">G</span
+                  ><span>Gardener Cloud</span>
+                </div>
+                <h3 class="g-auth-title">欢迎回来</h3>
+                <p class="g-auth-description">登录 Acme 企业工作区</p>
+              </header>
+              <div class="g-auth-provider-list">
+                <button class="g-auth-provider" type="button">
+                  <span class="g-auth-provider-icon">S</span
+                  ><span>使用企业 SSO</span><span>›</span>
+                </button>
+              </div>
+              <div class="g-auth-divider">或使用邮箱</div>
+              <label class="g-field"
+                ><span class="g-label">邮箱</span
+                ><input class="g-input" type="email" value="admin@example.com"
+              /></label>
+              <div class="g-password-field" data-g-password-toggle>
+                <label class="g-label" for="home-auth-password">密码</label
+                ><input
+                  class="g-input"
+                  id="home-auth-password"
+                  type="password"
+                  value="Gardener2026!"
+                /><button
+                  class="g-password-field-action"
+                  data-g-password-button
+                  type="button"
+                >
+                  <span data-g-password-label>显示密码</span>
+                </button>
+              </div>
+              <button class="g-btn g-btn-primary" type="submit">登录</button>
+            </form>
+            <div class="site-auth-side">
+              <section class="g-phone-verification">
+                <strong>手机验证</strong>
+                <p class="g-auth-description">
+                  输入发送到 +86 138****6608 的验证码
+                </p>
+                <div class="g-otp-input" data-g-otp-input>
+                  <input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="验证码第 1 位"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="验证码第 2 位"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="验证码第 3 位"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="验证码第 4 位"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="验证码第 5 位"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="验证码第 6 位"
+                  /><input type="hidden" data-g-otp-output />
+                </div>
+              </section>
+              <div class="g-security-alert">
+                <span class="g-security-alert-icon">!</span>
+                <div>
+                  <strong>检测到新设备</strong>
+                  <p class="g-auth-description">
+                    Linux · Firefox，从北京发起。
+                  </p>
+                </div>
+                <div class="g-security-alert-actions">
+                  <button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    这是我</button
+                  ><button class="g-btn g-btn-outline g-btn-sm" type="button">
+                    保护账号
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="登录与账号体系组件清单">
+            <span>Centered Auth</span><span>Split Auth</span><span>Sign In</span
+            ><span>Registration</span><span>Password Recovery</span
+            ><span>Password Reset</span><span>Email Verification</span
+            ><span>Phone Verification</span><span>MFA</span><span>OTP</span
+            ><span>Passkey</span><span>SSO</span><span>QR Login</span
+            ><span>Magic Link</span><span>Invitation</span
+            ><span>First Setup</span><span>Lock Screen</span
+            ><span>Session Expired</span><span>Account Chooser</span
+            ><span>Tenant Chooser</span><span>Identity Switcher</span
+            ><span>Profile Setup</span><span>Account Security</span
+            ><span>Devices</span><span>Login Activity</span
+            ><span>Security Alert</span><span>Recovery Codes</span
+            ><span>Trusted Device</span><span>Connected Accounts</span
+            ><span>Password Strength</span><span>Consent</span
+            ><span>Auth Result</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 种登录与账号模式 + 8 类复用交互</strong
+              ><span
+                >Password · OTP · MFA · Passkey · SSO · Session · Identity ·
+                Security</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#auth-compositions"
+              >查看完整账号体系文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="commerce-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 12 · Commerce & payment</span>
+            <h2 class="site-title">从看见商品，到交易与退款完成</h2>
+            <p class="site-lead">
+              商品卡、详情、SKU、购物车、结算、地址、配送、优惠、发票、支付、订单、订阅、用量、账单与退款已成为稳定结构。适合电商、数字商品、SaaS、企业采购、CMS
+              商业化和桌面客户端。
+            </p>
+          </header>
+          <div class="site-commerce-demo g-commerce-container">
+            <article class="g-commerce-product-card">
+              <div class="g-product-media site-commerce-media">
+                <span class="g-product-card-badge g-badge">企业版</span
+                ><strong>Gardener Studio</strong>
+              </div>
+              <div class="g-product-card-body">
+                <span class="g-product-card-meta">永久授权 · 三端可用</span>
+                <h3 class="g-product-card-title">Studio 商业套件</h3>
+                <div class="g-price-display">
+                  <strong class="g-price-current">¥699</strong
+                  ><del class="g-price-original">¥899</del
+                  ><span class="g-price-discount">-22%</span>
+                </div>
+                <div class="g-sku-selector" data-g-sku-selector>
+                  <div class="g-sku-group" data-g-sku-group="platform">
+                    <div class="g-sku-group-header">
+                      <strong>平台</strong
+                      ><span
+                        class="g-sku-selection"
+                        data-g-sku-selection
+                      ></span>
+                    </div>
+                    <div class="g-sku-options">
+                      <button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="Windows"
+                      >
+                        Windows</button
+                      ><button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="macOS"
+                      >
+                        macOS</button
+                      ><button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="Linux"
+                      >
+                        Linux
+                      </button>
+                    </div>
+                  </div>
+                  <input type="hidden" data-g-sku-output />
+                </div>
+              </div>
+            </article>
+            <div class="site-commerce-side">
+              <div
+                class="g-cart"
+                data-g-cart
+                data-g-currency="CNY"
+                data-g-shipping="1200"
+                data-g-discount="2000"
+              >
+                <article
+                  class="g-commerce-cart-item"
+                  data-g-cart-item
+                  data-g-unit-price="69900"
+                >
+                  <div class="g-cart-item-media site-commerce-media">G</div>
+                  <div class="g-cart-item-main">
+                    <strong>Studio 商业套件</strong
+                    ><span class="g-cart-item-variant">Windows · 企业授权</span>
+                    <div class="g-quantity-stepper" data-g-quantity-stepper>
+                      <button
+                        class="g-quantity-button"
+                        type="button"
+                        data-g-quantity-decrement
+                        aria-label="减少数量"
+                      >
+                        −</button
+                      ><input
+                        class="g-quantity-input"
+                        data-g-quantity-input
+                        type="number"
+                        min="1"
+                        max="9"
+                        value="1"
+                        aria-label="商品数量"
+                      /><button
+                        class="g-quantity-button"
+                        type="button"
+                        data-g-quantity-increment
+                        aria-label="增加数量"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="g-cart-item-side">
+                    <strong data-g-line-total>¥699.00</strong>
+                  </div>
+                </article>
+                <div class="g-cart-empty" data-g-cart-empty hidden>
+                  购物车为空
+                </div>
+                <div class="g-cart-summary">
+                  <div class="g-cart-summary-row">
+                    <span>商品</span><span data-g-cart-subtotal></span>
+                  </div>
+                  <div class="g-cart-summary-row">
+                    <span>优惠</span><span data-g-cart-discount></span>
+                  </div>
+                  <div class="g-cart-summary-row">
+                    <span>配送</span><span data-g-cart-shipping></span>
+                  </div>
+                  <div class="g-cart-summary-row g-cart-summary-total">
+                    <span>应付</span><span data-g-cart-total></span>
+                  </div>
+                </div>
+              </div>
+              <div class="g-coupon" data-g-coupon data-g-valid-codes="GARDEN20">
+                <div class="g-coupon-row">
+                  <label class="g-sr-only" for="home-coupon">优惠码</label
+                  ><input
+                    class="g-input"
+                    id="home-coupon"
+                    data-g-coupon-input
+                    value="GARDEN20"
+                  /><button
+                    class="g-btn g-btn-primary"
+                    type="button"
+                    data-g-coupon-apply
+                  >
+                    使用
+                  </button>
+                </div>
+                <span class="g-coupon-status" data-g-coupon-status></span>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="商业与支付组件清单">
+            <span>Product Card</span><span>Product List</span
+            ><span>Product Detail</span><span>Product Gallery</span
+            ><span>SKU Selector</span><span>Quantity Stepper</span
+            ><span>Price Display</span><span>Cart Item</span><span>Cart</span
+            ><span>Mini Cart</span><span>Cart Summary</span><span>Checkout</span
+            ><span>Checkout Steps</span><span>Address Selector</span
+            ><span>Address Card</span><span>Shipping Method</span
+            ><span>Pickup Selector</span><span>Coupon</span
+            ><span>Promotion List</span><span>Invoice Information</span
+            ><span>Payment Method</span><span>Payment Sheet</span
+            ><span>Payment Result</span><span>Order Summary</span
+            ><span>Order Timeline</span><span>Order Detail</span
+            ><span>Subscription Plan</span><span>Pricing Comparison</span
+            ><span>Usage Meter</span><span>Billing History</span
+            ><span>Refund Status</span><span>Tax Summary</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 种商业与支付模式 + 7 类复用交互</strong
+              ><span
+                >Catalog · Cart · Checkout · Fulfillment · Payment · Order ·
+                Billing</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#commerce-compositions"
+              >查看完整商业与支付文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="mobile-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 13 · Mobile specific</span>
+            <h2 class="site-title">不是缩小桌面，而是完整的移动应用层</h2>
+            <p class="site-lead">
+              安全区、动态视口、顶部栏、底部导航、Bottom/Action/Filter
+              Sheet、下拉刷新、无限加载、滑动操作、滚轮选择、键盘避让、移动认证与结算、权限和离线状态都有稳定契约，可直接用于移动网页、PWA
+              和 Tauri/Electron 移动式 WebView。
+            </p>
+          </header>
+          <div class="site-mobile-demo">
+            <section
+              class="g-mobile-safe-shell is-contained"
+              aria-label="Gardener 移动端组件预览"
+            >
+              <header class="g-mobile-app-bar">
+                <div class="g-mobile-app-bar-start">
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    aria-label="返回"
+                  >
+                    ←
+                  </button>
+                </div>
+                <h3 class="g-mobile-app-bar-title">内容中心</h3>
+                <div class="g-mobile-app-bar-actions">
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    data-g-mobile-sheet-open="home-mobile-sheet"
+                    aria-label="筛选"
+                  >
+                    ⌘
+                  </button>
+                </div>
+              </header>
+              <div class="g-mobile-safe-content g-p-0">
+                <form class="g-mobile-search" role="search">
+                  <div class="g-mobile-search-field">
+                    <span class="g-mobile-search-icon" aria-hidden="true"
+                      >⌕</span
+                    ><label class="g-sr-only" for="home-mobile-search"
+                      >搜索</label
+                    ><input
+                      class="g-input"
+                      id="home-mobile-search"
+                      type="search"
+                      placeholder="搜索内容"
+                    />
+                  </div>
+                  <button class="g-btn g-btn-ghost" type="submit">搜索</button>
+                </form>
+                <div
+                  class="g-mobile-swipe-tabs"
+                  role="tablist"
+                  aria-label="内容类型"
+                >
+                  <button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                  >
+                    推荐</button
+                  ><button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    最新</button
+                  ><button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    关注
+                  </button>
+                </div>
+                <div
+                  class="g-mobile-card-carousel g-py-4"
+                  tabindex="0"
+                  role="region"
+                  aria-label="移动卡片轮播"
+                >
+                  <article class="g-card g-p-4">
+                    <strong>安全区已就绪</strong>
+                    <p class="g-text-sm g-text-muted g-mt-2">
+                      刘海屏与 Home Indicator 自动保护。
+                    </p>
+                  </article>
+                  <article class="g-card g-p-4">
+                    <strong>适合 WebView</strong>
+                    <p class="g-text-sm g-text-muted g-mt-2">
+                      PWA、Tauri 与 Electron 共用结构。
+                    </p>
+                  </article>
+                </div>
+                <div class="g-mobile-feed">
+                  <article class="g-mobile-feed-item">
+                    <span class="site-mobile-avatar">G</span>
+                    <div class="g-mobile-feed-main">
+                      <strong>移动端内容流</strong>
+                      <p class="g-text-sm g-text-muted g-m-0">
+                        稳定的媒体、正文与尾部动作插槽。
+                      </p>
+                    </div>
+                    <button
+                      class="g-btn g-btn-ghost g-btn-icon"
+                      type="button"
+                      aria-label="收藏"
+                    >
+                      ☆
+                    </button>
+                  </article>
+                </div>
+              </div>
+              <nav
+                class="g-mobile-bottom-navigation"
+                aria-label="移动端一级导航"
+              >
+                <a
+                  class="g-mobile-bottom-navigation-item is-active"
+                  href="#mobile-compositions"
+                  aria-current="page"
+                  ><span aria-hidden="true">⌂</span><span>首页</span></a
+                ><a
+                  class="g-mobile-bottom-navigation-item"
+                  href="#mobile-compositions"
+                  ><span aria-hidden="true">▦</span><span>分类</span></a
+                ><button
+                  class="g-mobile-bottom-navigation-item"
+                  type="button"
+                  data-g-mobile-sheet-open="home-mobile-sheet"
+                >
+                  <span aria-hidden="true">⌘</span><span>筛选</span></button
+                ><a
+                  class="g-mobile-bottom-navigation-item"
+                  href="#mobile-compositions"
+                  ><span aria-hidden="true">○</span><span>我的</span></a
+                >
+              </nav>
+            </section>
+            <aside
+              class="g-mobile-filter-sheet"
+              id="home-mobile-sheet"
+              data-g-mobile-sheet
+              hidden
+            >
+              <div class="g-mobile-sheet-panel">
+                <div class="g-mobile-sheet-handle" aria-hidden="true"></div>
+                <header class="g-mobile-sheet-header">
+                  <h3>移动筛选</h3>
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    data-g-close
+                    aria-label="关闭"
+                  >
+                    ×
+                  </button>
+                </header>
+                <div class="g-mobile-picker" data-g-saved-choice>
+                  <div class="g-mobile-picker-grid">
+                    <button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="all"
+                      aria-pressed="true"
+                    >
+                      全部</button
+                    ><button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="web"
+                      aria-pressed="false"
+                    >
+                      网页</button
+                    ><button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="app"
+                      aria-pressed="false"
+                    >
+                      应用
+                    </button>
+                  </div>
+                </div>
+                <footer class="g-mobile-sheet-footer">
+                  <button
+                    class="g-btn g-btn-primary g-w-full"
+                    type="button"
+                    data-g-close
+                  >
+                    查看结果
+                  </button>
+                </footer>
+              </div>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="移动端特有组件清单">
+            <span>Safe Area Shell</span><span>Top App Bar</span
+            ><span>Bottom Navigation</span><span>Bottom Sheet</span
+            ><span>Action Sheet</span><span>Pull to Refresh</span
+            ><span>Infinite Load</span><span>Swipe Actions</span
+            ><span>Swipe Tabs</span><span>Mobile Category</span
+            ><span>Mobile Filter</span><span>Sticky Purchase Bar</span
+            ><span>Mobile Search</span><span>Mobile Picker</span
+            ><span>Wheel Picker</span><span>Floating Action Button</span
+            ><span>Fullscreen Dialog</span><span>Keyboard Avoidance</span
+            ><span>Gesture Hint</span><span>Offline Banner</span
+            ><span>Segmented Control</span><span>Mobile Feed</span
+            ><span>Card Carousel</span><span>Mobile Form</span
+            ><span>Mobile Auth</span><span>Mobile Checkout</span
+            ><span>Media Viewer</span><span>Keyboard Toolbar</span
+            ><span>Selection Mode</span><span>Snackbar</span
+            ><span>Permission Prompt</span><span>Empty / Error State</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 种移动端特有模式 + 14 类复用交互</strong
+              ><span
+                >Safe Area · Touch · Sheets · Gesture · Keyboard · PWA ·
+                WebView</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#mobile-compositions"
+              >查看完整移动端文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="desktop-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 14 · Desktop specific</span>
+            <h2 class="site-title">把 Web 技术变成完整桌面工作区</h2>
+            <p class="site-lead">
+              原生标题栏、窗口按钮、菜单和活动栏只是起点；文档标签、可调分栏、Dock、检查器、命令面板、文件选择、托盘、多窗口、后台任务、更新、权限与崩溃恢复均已有稳定组合，可直接落地
+              Tauri 与 Electron。
+            </p>
+          </header>
+          <div class="site-desktop-demo">
+            <section
+              class="g-desktop-workspace is-contained"
+              data-g-platform="electron"
+              aria-label="Gardener 桌面组件预览"
+            >
+              <header class="g-native-titlebar g-desktop-drag-region">
+                <div class="g-native-titlebar-start g-desktop-no-drag">
+                  <nav
+                    class="g-desktop-menubar"
+                    data-g-roving-nav
+                    aria-label="应用菜单"
+                  >
+                    <button class="g-desktop-menubar-item" type="button">
+                      文件</button
+                    ><button class="g-desktop-menubar-item" type="button">
+                      编辑</button
+                    ><button class="g-desktop-menubar-item" type="button">
+                      视图
+                    </button>
+                  </nav>
+                </div>
+                <strong class="g-native-titlebar-title"
+                  >Gardener Studio — 内容空间</strong
+                >
+                <div class="g-native-titlebar-end">
+                  <div class="g-desktop-window-controls">
+                    <button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="最小化"
+                    >
+                      —</button
+                    ><button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="最大化"
+                    >
+                      □</button
+                    ><button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="关闭"
+                    >
+                      ×
+                    </button>
+                  </div>
+                </div>
+              </header>
+              <nav
+                class="g-desktop-activity-bar"
+                data-g-roving-nav
+                aria-label="活动栏"
+              >
+                <button
+                  class="g-desktop-activity-item is-active"
+                  type="button"
+                  aria-current="page"
+                  aria-label="文件"
+                >
+                  ▤</button
+                ><button
+                  class="g-desktop-activity-item"
+                  type="button"
+                  aria-label="搜索"
+                >
+                  ⌕</button
+                ><button
+                  class="g-desktop-activity-item"
+                  type="button"
+                  aria-label="扩展"
+                >
+                  ▦
+                </button>
+              </nav>
+              <div class="g-desktop-workspace-main">
+                <div class="g-desktop-toolbar">
+                  <div class="g-desktop-toolbar-group">
+                    <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                      ←</button
+                    ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                      →
+                    </button>
+                  </div>
+                  <span class="g-desktop-toolbar-separator"></span
+                  ><button
+                    class="g-btn g-btn-ghost g-btn-sm"
+                    type="button"
+                    data-g-command-trigger="home-desktop-command"
+                  >
+                    ⌕ 搜索与命令</button
+                  ><span class="g-sync-status is-syncing g-ml-auto"
+                    ><i class="g-sync-status-dot"></i>同步中</span
+                  >
+                </div>
+                <div class="g-desktop-split-pane" data-g-split-pane>
+                  <aside
+                    class="g-split-panel g-desktop-dock-panel"
+                    data-g-pane="start"
+                  >
+                    <header class="g-desktop-panel-header">资源管理器</header>
+                    <div class="g-desktop-panel-body">
+                      <div class="g-recent-documents">
+                        <button class="g-recent-document" type="button">
+                          <span>▤</span
+                          ><span class="g-recent-document-main"
+                            ><strong>首页.json</strong
+                            ><small class="g-recent-document-path"
+                              >content/home.json</small
+                            ></span
+                          ></button
+                        ><button class="g-recent-document" type="button">
+                          <span>▤</span
+                          ><span class="g-recent-document-main"
+                            ><strong>主题.css</strong
+                            ><small class="g-recent-document-path"
+                              >styles/theme.css</small
+                            ></span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </aside>
+                  <button
+                    class="g-split-handle"
+                    type="button"
+                    role="separator"
+                    aria-label="调整面板宽度"
+                  ></button>
+                  <section class="g-split-panel" data-g-pane="end">
+                    <div class="g-desktop-document-tabs" data-g-desktop-tabs>
+                      <button
+                        class="g-desktop-document-tab is-active is-dirty"
+                        type="button"
+                        data-g-desktop-tab
+                        aria-selected="true"
+                        aria-controls="home-desktop-tab"
+                      >
+                        首页.json
+                      </button>
+                    </div>
+                    <div class="g-p-5" id="home-desktop-tab" role="tabpanel">
+                      <span class="site-eyebrow">Desktop CMS</span>
+                      <h3 class="g-mt-2">高密度工作区无需重新拼装</h3>
+                      <p class="g-text-sm g-text-muted g-mt-2">
+                        窗口
+                        Chrome、导航、编辑区、状态区和宿主桥接各有独立契约。
+                      </p>
+                      <button
+                        class="g-btn g-btn-primary g-btn-sm g-mt-3"
+                        type="button"
+                        data-g-command-trigger="home-desktop-command"
+                      >
+                        打开命令面板
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <aside class="g-desktop-inspector-panel">
+                <header class="g-desktop-panel-header">检查器</header>
+                <div class="g-desktop-panel-body">
+                  <div class="g-field">
+                    <label class="g-label" for="home-desktop-title"
+                      >页面标题</label
+                    ><input
+                      class="g-input"
+                      id="home-desktop-title"
+                      value="企业首页"
+                    />
+                  </div>
+                  <div
+                    class="g-shortcut-recorder g-mt-4"
+                    data-g-shortcut-recorder
+                  >
+                    <button
+                      class="g-shortcut-recorder-control"
+                      type="button"
+                      data-g-shortcut-control
+                      aria-pressed="false"
+                    >
+                      <span data-g-shortcut-display>Ctrl+P</span
+                      ><kbd>录制</kbd></button
+                    ><input
+                      type="hidden"
+                      data-g-shortcut-output
+                      value="Control+P"
+                    /><small
+                      class="g-shortcut-recorder-status"
+                      data-g-shortcut-status
+                    ></small>
+                  </div>
+                </div>
+              </aside>
+              <footer class="g-desktop-status-bar">
+                <div class="g-desktop-status-group">
+                  <span class="g-desktop-status-item">⑂ main</span
+                  ><span class="g-desktop-status-item">✓ 0 错误</span>
+                </div>
+                <div class="g-desktop-status-group">
+                  <span class="g-desktop-status-item">UTF-8</span>
+                </div>
+              </footer>
+            </section>
+          </div>
+          <div class="site-region-patterns" aria-label="桌面端特有组件清单">
+            <span>Native Titlebar</span><span>Window Controls</span
+            ><span>Menu Bar</span><span>Activity Bar</span
+            ><span>Dock Panel</span><span>Resizable Split Pane</span
+            ><span>Inspector</span><span>Status Bar</span
+            ><span>Command Palette</span><span>Shortcut Recorder</span
+            ><span>Context Menu</span><span>Unsaved Tabs</span
+            ><span>Drag Region</span><span>Window Loading</span
+            ><span>Update Available</span><span>Permission Request</span
+            ><span>Native File Picker</span><span>Tray Menu</span
+            ><span>Multi-window</span><span>Desktop Workspace</span
+            ><span>Window Switcher</span><span>Recent Documents</span
+            ><span>Desktop Toolbar</span><span>Bottom Panel</span
+            ><span>Background Tasks</span><span>Notification Center</span
+            ><span>Sync Status</span><span>Update Progress</span
+            ><span>Crash Recovery</span><span>Single Instance</span
+            ><span>Deep Link</span><span>About Dialog</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 种桌面端特有模式 + 11 类复用交互</strong
+              ><span
+                >Tauri · Electron · Window Chrome · Workspace · Native Bridge ·
+                Lifecycle</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#desktop-compositions"
+              >查看完整桌面端文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="ai-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 15 · AI native</span>
+            <h2 class="site-title">AI 交互不是一个聊天框</h2>
+            <p class="site-lead">
+              对话、Composer 与流式回答之外，还需要推理摘要、工具调用和批准、多
+              Agent
+              编排、来源引用、Artifact、上下文记忆、Token/费用、语音、权限、隐私、安全复核与反馈评估。Gardener
+              将整条 AI 任务链做成可直接复用的32种模式。
+            </p>
+          </header>
+          <div class="site-ai-demo">
+            <section
+              class="g-ai-shell is-contained"
+              aria-label="Gardener AI 组件预览"
+            >
+              <aside class="g-ai-sidebar">
+                <header class="g-ai-sidebar-header">
+                  <strong>对话</strong
+                  ><button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    ＋
+                  </button>
+                </header>
+                <nav class="g-conversation-list">
+                  <a
+                    class="g-conversation-item"
+                    href="#ai-compositions"
+                    aria-current="page"
+                    ><span>◉</span
+                    ><span class="g-conversation-title">生成企业门户</span></a
+                  ><a class="g-conversation-item" href="#ai-compositions"
+                    ><span>○</span
+                    ><span class="g-conversation-title">检查组件覆盖</span></a
+                  >
+                </nav>
+                <footer class="g-ai-sidebar-footer">
+                  <div class="g-privacy-notice">
+                    <span>⌾</span><span>企业隐私策略已启用</span>
+                  </div>
+                </footer>
+              </aside>
+              <section class="g-ai-main">
+                <header class="g-ai-header">
+                  <div class="g-model-selector" data-g-dropdown>
+                    <button
+                      class="g-model-selector-trigger"
+                      type="button"
+                      data-g-dropdown-trigger
+                    >
+                      Gardener Reasoner ▾
+                    </button>
+                    <div
+                      class="g-model-selector-menu"
+                      data-g-dropdown-menu
+                      hidden
+                    >
+                      <button
+                        class="g-model-option"
+                        type="button"
+                        role="menuitem"
+                      >
+                        <span>Gardener Reasoner</span
+                        ><small>复杂任务</small></button
+                      ><button
+                        class="g-model-option"
+                        type="button"
+                        role="menuitem"
+                      >
+                        <span>Gardener Fast</span><small>快速响应</small>
+                      </button>
+                    </div>
+                  </div>
+                  <span class="g-context-meter"
+                    >上下文 38%
+                    <span class="g-context-meter-bar"
+                      ><i
+                        class="g-context-meter-value"
+                        style="--g-context-value: 38%"
+                      ></i></span
+                  ></span>
+                </header>
+                <div class="g-chat">
+                  <div class="g-chat-list">
+                    <article class="g-message g-message-user">
+                      <div class="g-message-content">
+                        <div class="g-message-body">
+                          为超级 CMS 生成企业门户首页。
+                        </div>
+                      </div>
+                    </article>
+                    <article class="g-message">
+                      <span class="g-message-avatar">G</span>
+                      <div class="g-message-content">
+                        <div class="g-message-meta">
+                          <strong class="g-message-author"
+                            >Gardener Agent</strong
+                          ><span>正在工作</span>
+                        </div>
+                        <div class="g-message-body">
+                          <p>已选择企业门户配方，正在检查组件与权限。</p>
+                        </div>
+                        <section
+                          class="g-tool-call is-running"
+                          data-g-accordion
+                        >
+                          <button
+                            class="g-tool-call-header g-w-full g-border-0"
+                            type="button"
+                            data-g-tool-call-toggle
+                            aria-expanded="true"
+                            aria-controls="home-ai-tool"
+                          >
+                            <strong class="g-tool-call-name"
+                              >inspect_component_manifest</strong
+                            ><span class="g-tool-call-status">运行中</span>
+                          </button>
+                          <div class="g-tool-call-progress">
+                            <span style="--g-tool-progress: 72%"></span>
+                          </div>
+                          <div class="g-tool-call-body" id="home-ai-tool">
+                            正在匹配 Dashboard、CMS、权限和桌面工作区。
+                          </div>
+                        </section>
+                        <section class="g-approval" data-g-ai-approval>
+                          <div class="g-approval-title">允许写入页面模板？</div>
+                          <p class="g-approval-description">
+                            只修改当前项目的 generated 目录。
+                          </p>
+                          <div class="g-approval-actions">
+                            <button
+                              class="g-btn g-btn-primary g-btn-sm"
+                              type="button"
+                              data-g-approval-choice="approved"
+                            >
+                              允许一次</button
+                            ><button
+                              class="g-btn g-btn-outline g-btn-sm"
+                              type="button"
+                              data-g-approval-choice="rejected"
+                            >
+                              拒绝
+                            </button>
+                          </div>
+                        </section>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="g-composer-wrap">
+                  <form class="g-composer" data-g-ai-composer>
+                    <label class="g-sr-only" for="home-ai-input">发送消息</label
+                    ><textarea
+                      class="g-composer-input"
+                      id="home-ai-input"
+                      data-g-composer-input
+                      placeholder="继续描述页面需求"
+                    ></textarea>
+                    <div class="g-composer-toolbar">
+                      <div class="g-composer-tools">
+                        <button
+                          class="g-btn g-btn-ghost g-btn-sm"
+                          type="button"
+                        >
+                          ＋ 附件
+                        </button>
+                      </div>
+                      <div class="g-composer-actions">
+                        <button
+                          class="g-btn g-btn-outline g-btn-sm"
+                          type="button"
+                          data-g-composer-stop
+                          hidden
+                        >
+                          停止</button
+                        ><button
+                          class="g-btn g-btn-primary g-btn-sm"
+                          type="button"
+                          data-g-composer-send
+                        >
+                          发送
+                        </button>
+                      </div>
+                    </div>
+                    <div class="g-composer-status" data-g-composer-status></div>
+                  </form>
+                </div>
+              </section>
+            </section>
+          </div>
+          <div
+            class="site-region-patterns"
+            aria-label="AI 产品与智能交互组件清单"
+          >
+            <span>AI Workspace</span><span>Conversation List</span
+            ><span>Chat Thread</span><span>AI Message</span
+            ><span>Prompt Composer</span><span>Attachment</span
+            ><span>Prompt Starter</span><span>Prompt Library</span
+            ><span>Mention / Slash Menu</span><span>Model Selector</span
+            ><span>Thinking</span><span>Streaming Response</span
+            ><span>Tool Call</span><span>Tool Approval</span
+            ><span>Agent Status</span><span>Agent Plan</span
+            ><span>Multi-agent Board</span><span>Agent Handoff</span
+            ><span>Sources / Citations</span><span>Artifact Workspace</span
+            ><span>Artifact Panel</span><span>AI File Tree</span
+            ><span>Version History</span><span>Generation Gallery</span
+            ><span>Generation Placeholder</span><span>Context / Memory</span
+            ><span>Cost / Rate Limit</span><span>Voice Session</span
+            ><span>Permission Scope</span><span>Privacy Notice</span
+            ><span>Safety Notice</span><span>Feedback / Evaluation</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 种 AI 原生模式 + 9 类运行时</strong
+              ><span
+                >Chat · Multimodal · Tools · Agents · Artifacts · Context ·
+                Safety · Evaluation</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#ai-compositions"
+              >查看完整 AI 组件文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="solution-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 16 · Complete solutions</span>
+            <h2 class="site-title">从组件库，走到可以直接生成的完整页面</h2>
+            <p class="site-lead">
+              第 16
+              类把公共网站、个人内容、企业后台、业务工作台和垂直行业门户固化为
+              32 种整页契约。AI
+              先选择页面类型，再填充业务组件与内容，不再临时发明
+              Header、导航、主区、侧区和移动折叠规则。
+            </p>
+          </header>
+          <div class="site-solution-demo">
+            <article class="g-dashboard-overview">
+              <header class="g-dashboard-overview-header g-solution-header">
+                <div>
+                  <span class="site-eyebrow">Enterprise overview</span>
+                  <h3 class="g-m-0">超级 CMS 经营总览</h3>
+                  <p class="g-text-sm g-text-muted g-mt-2 g-mb-0">
+                    同一整页契约可切换企业、个人、医疗、金融或公共服务主题。
+                  </p>
+                </div>
+                <div class="g-solution-actions">
+                  <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                    导出</button
+                  ><button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    新建报告
+                  </button>
+                </div>
+              </header>
+              <div class="g-dashboard-metrics">
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">已发布站点</span
+                  ><strong class="g-solution-stat-value">28,640</strong
+                  ><small class="g-text-success">↑ 12.4%</small>
+                </div>
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">页面模板</span
+                  ><strong class="g-solution-stat-value">486k</strong
+                  ><small class="g-text-muted">32 个整页入口</small>
+                </div>
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">待审核</span
+                  ><strong class="g-solution-stat-value">138</strong
+                  ><small class="g-text-warning">需要处理</small>
+                </div>
+              </div>
+              <div class="g-dashboard-layout">
+                <section class="g-dashboard-panel">
+                  <div class="g-solution-toolbar">
+                    <strong>模板生成趋势</strong
+                    ><span class="g-badge">最近 30 天</span>
+                  </div>
+                  <div class="g-chart" style="min-height: 11rem"></div>
+                </section>
+                <aside class="g-dashboard-panel">
+                  <strong>业务入口</strong>
+                  <ul class="g-solution-list g-mt-3">
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">企业门户</span
+                      ><span>82%</span>
+                    </li>
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">业务工作台</span
+                      ><span>71%</span>
+                    </li>
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">行业服务</span
+                      ><span>63%</span>
+                    </li>
+                  </ul>
+                </aside>
+              </div>
+            </article>
+          </div>
+          <div
+            class="site-region-patterns"
+            aria-label="完整页面与行业解决方案清单"
+          >
+            <span>Product Landing</span><span>Corporate Home</span
+            ><span>Personal Home</span><span>Portfolio</span
+            ><span>Blog Index</span><span>Article</span><span>Docs Portal</span
+            ><span>Help Center</span><span>Search Results</span
+            ><span>Contact</span><span>Pricing</span><span>Dashboard</span
+            ><span>Admin List</span><span>Record Detail</span
+            ><span>Settings</span><span>User Center</span
+            ><span>Notifications</span><span>Onboarding</span><span>CRM</span
+            ><span>Project Workspace</span><span>Support Center</span
+            ><span>Approval Center</span><span>Knowledge Base</span
+            ><span>Learning Portal</span><span>Event Portal</span
+            ><span>Booking Portal</span><span>Healthcare</span
+            ><span>Finance</span><span>Public Service</span
+            ><span>Marketplace</span><span>Community</span
+            ><span>Status Center</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 种整页模式 + 52 个机器可读配方</strong
+              ><span
+                >Personal · Enterprise · Content · Operations · Industry ·
+                Cross-platform</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#solution-compositions"
+              >查看完整解决方案文档</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="themes">
+        <div class="site-container site-theme-layout">
+          <div class="site-theme-panel">
+            <span class="site-eyebrow">42 color themes</span>
+            <h2 class="site-title">换品牌，不换组件</h2>
+            <p class="site-lead">
+              颜色主题与中性色、字体、形状、密度、层次、动效、平台和操作系统正交组合。这里始终保持白色浅色界面，只切换品牌主色。
+            </p>
+            <div class="site-theme-preview g-mt-6">
+              <div class="site-theme-meta">
+                <span>当前主题</span><strong id="theme-name">garden</strong>
+              </div>
+              <div class="site-theme-sample">
+                <span class="g-badge">Primary</span>
+                <h3 class="g-mt-4">清晰而不过度装饰</h3>
+                <p class="g-text-muted g-mt-2">
+                  按钮、链接、焦点与选中状态自动跟随主题。
+                </p>
+                <div class="g-flex g-gap-2 g-mt-5">
+                  <button class="g-btn g-btn-primary">主要操作</button
+                  ><button class="g-btn g-btn-outline">次要操作</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="site-theme-swatches"
+              id="theme-swatches"
+              aria-label="颜色主题选择"
+            ></div>
+            <p class="site-kicker g-mt-4">
+              键盘可操作；每套主题都提供完整 50–950 色阶和独立可读前景色。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow"
+              >Predictable authoring · Stable 1.0.0</span
+            >
+            <h2 class="site-title">HTML 就是接口</h2>
+            <p class="site-lead">
+              统一的
+              <code class="docs-inline-code">g-</code>
+              前缀、稳定部件命名和声明式
+              <code class="docs-inline-code">data-g-*</code> 行为，让人和 AI
+              都能快速读懂。
+            </p>
+            <ul class="g-list-group g-mt-6" role="list">
+              <li class="g-list-item" role="listitem">
+                <strong>按层引入</strong
+                ><span class="g-text-muted"
+                  >Core / Themes / Utilities / Components / AI</span
+                >
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>声明式运行时</strong
+                ><span class="g-text-muted">自动初始化与动态 DOM 观察</span>
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>机器可读</strong
+                ><span class="g-text-muted"
+                  >Public API、组件、工具类、配方与能力清单</span
+                >
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>严格验证</strong
+                ><span class="g-text-muted"
+                  >十一套闭合 Schema、48 个标准 Schema 用例、10 个构建专项用例、66
+                  个运行时单元测试、125 个真实浏览器用例与 24 个结构用例</span
+                >
+              </li>
+            </ul>
+            <a class="g-btn g-btn-outline g-mt-5" href="./docs.html#public-api"
+              >查看公共 API 契约</a
+            >
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>index.html</span
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm"
+                type="button"
+                data-g-copy
+                data-g-copy-value='&lt;link rel="stylesheet" href="gardener.css"&gt;&#10;&lt;main class="g-dashboard"&gt;...&lt;/main&gt;&#10;&lt;script type="module" src="gardener.runtime.js"&gt;&lt;/script&gt;'
+              >
+                复制
+              </button>
+            </div>
+            <pre
+              class="site-code"
+            ><code><span class="token-tag">&lt;html</span> <span class="token-attr">data-g-theme</span>=<span class="token-value">&quot;garden&quot;</span> <span class="token-attr">data-g-mode</span>=<span class="token-value">&quot;light&quot;</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-value">&quot;stylesheet&quot;</span> <span class="token-attr">href</span>=<span class="token-value">&quot;gardener.css&quot;</span><span class="token-tag">&gt;</span>
+
+  <span class="token-tag">&lt;main</span> <span class="token-attr">class</span>=<span class="token-value">&quot;g-dashboard&quot;</span><span class="token-tag">&gt;</span>
+    <span class="token-tag">&lt;article</span> <span class="token-attr">class</span>=<span class="token-value">&quot;g-card g-p-5&quot;</span><span class="token-tag">&gt;</span>...<span class="token-tag">&lt;/article&gt;</span>
+  <span class="token-tag">&lt;/main&gt;</span>
+
+  <span class="token-tag">&lt;script</span> <span class="token-attr">type</span>=<span class="token-value">&quot;module&quot;</span> <span class="token-attr">src</span>=<span class="token-value">&quot;gardener.runtime.js&quot;</span><span class="token-tag">&gt;&lt;/script&gt;</span>
+<span class="token-tag">&lt;/html&gt;</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="build-system" aria-labelledby="build-title">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Release-ready delivery · 1.0.0</span>
+            <h2 class="site-title" id="build-title">只交付当前页面真正需要的平台与组件</h2>
+            <p class="site-lead">
+              5 个平台档案、28 个稳定组件包和 506 个组件归属映射，让开发者与 AI
+              可以直接选择正式产物，不再临时拆 CSS。语法级压缩、Source Map、SHA-256/SRI 完整性、可复现构建、TypeScript 类型、跨版本兼容基线与发布包门禁随构建一起交付。
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">5</span>
+              <h3>平台档案</h3>
+              <p>Web、Mobile、Desktop、Tauri、Electron，自动保留对应端能力。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">28</span>
+              <h3>组件包</h3>
+              <p>布局、表单、导航、数据、内容、账号、商业、移动、桌面和 AI 均可独立引入。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">506</span>
+              <h3>组件归属</h3>
+              <p>每个公共组件都能解析到完整所属包，并明确列出连带包含项。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">42</span>
+              <h3>双重产物预算</h3>
+              <p>raw、gzip、Brotli 的绝对上限与 0.9.0 基线增长任一超限即阻断发布。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">1,145</span>
+              <h3>兼容基线</h3>
+              <p>入口、主题、运行时、组件与配方只能新增；删除必须先经过至少两个次版本的废弃期。</p>
+            </article>
+          </div>
+          <div class="docs-code-wrap g-mt-6">
+            <pre class="site-code"><code>npm run build:platform -- --platform mobile --out dist/custom/mobile-app
+npm run build:custom -- --components button,card,dialog --out dist/custom/account-ui
+npm run verify:reproducible
+npm run verify:compatibility
+npm run test:types
+npm run verify:package
+npm run budget</code></pre>
+          </div>
+          <a class="g-btn g-btn-outline g-mt-6" href="./docs.html#targeted-builds">查看按需构建与性能预算</a>
+        </div>
+      </section>
+
+      <section
+        class="site-section site-section-soft"
+        aria-labelledby="quality-title"
+      >
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Release confidence · 1.0.0</span>
+            <h2 class="site-title" id="quality-title">
+              每一种页面，都要经得起真实环境
+            </h2>
+            <p class="site-lead">
+              默认执行 125 个真实浏览器用例和 24 个 HTML
+              结构用例；完整配置覆盖桌面三引擎、Android / iPhone 设备画像和 WCAG
+              自动检查。
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">WEB</span>
+              <h3>桌面多浏览器</h3>
+              <p>
+                Chromium 与 WebKit 进入默认门禁；Firefox
+                提供独立及三引擎完整门禁。
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">MOB</span>
+              <h3>移动设备</h3>
+              <p>
+                Pixel 7 与 iPhone 13 全量覆盖 21 个示例和 Home 两页，并检查 320px 窄屏、横屏、回流与 44px 触控目标。
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">A11Y</span>
+              <h3>无障碍</h3>
+              <p>
+                Axe WCAG 2 A/AA 全部自动违规归零，并覆盖键盘与焦点恢复、RTL、Reduced Motion、Forced Colors。
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">DOM</span>
+              <h3>结构完整性</h3>
+              <p>
+                全部 21 个示例、Home 落地页与文档检查解析、ID、ARIA 引用、标题和
+                Viewport。
+              </p>
+            </article>
+          </div>
+          <a class="g-btn g-btn-outline g-mt-6" href="./docs.html#accessibility"
+              >查看 1.0.0 测试矩阵</a
+          >
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">All endpoints</span>
+            <h2 class="site-title">同一套语言，覆盖所有端</h2>
+            <p class="site-lead">
+              页面结构、主题 Token
+              与交互语义保持一致，各端只增加必要的密度、窗口和安全区适配。
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">WEB</span>
+              <h3>PC 网站</h3>
+              <p>企业站、门户、内容站、电商与 SaaS。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">MOB</span>
+              <h3>移动网页 / PWA</h3>
+              <p>安全区、触控密度、底部导航和分类页。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">OPS</span>
+              <h3>Dashboard</h3>
+              <p>高密度数据、表格、过滤器和多栏应用。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">DSK</span>
+              <h3>Tauri / Electron</h3>
+              <p>桌面标题栏、窗口桥接与工作台布局。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">AI</span>
+              <h3>AI 产品</h3>
+              <p>流式消息、工具、Agent、Artifact 与生成状态。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="recipes">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Reusable recipes</span>
+            <h2 class="site-title">高频页面不必重新拼装</h2>
+            <p class="site-lead">
+              复杂但高复用的页面已经组合为配方。AI
+              应先选配方，再用组件和工具类做有限调整。
+            </p>
+          </header>
+          <div class="site-recipe-grid" id="recipe-preview">
+            <a class="site-recipe" href="./docs.html#recipes"
+              ><strong>企业登录</strong><span>SSO · MFA · 通行密钥</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>移动分类</strong><span>触控 · 安全区 · 双栏</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>桌面 CMS</strong><span>树 · 画布 · 检查器</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>AI 工作区</strong><span>聊天 · 工具 · Artifact</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>分析后台</strong><span>KPI · 图表 · 数据表格</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>文件管理器</strong><span>目录 · 网格 · 上传队列</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>商品与结算</strong><span>详情 · 购物车 · 订单</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>报告与发票</strong><span>屏幕 · PDF · 打印</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="ai-ready">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Built for AI authorship</span>
+            <h2 class="site-title">让 AI 选择，不让 AI 猜</h2>
+            <p class="site-lead">
+              Public
+              API、组件、工具类、配方与行业能力五类清单，把允许使用的名称、入口、平台、状态和响应条件结构化暴露出来，页面生成过程可以被约束、验证和复现。
+            </p>
+          </header>
+          <div class="site-ai-flow">
+            <article class="site-ai-step">
+              <b>01 / INTENT</b>
+              <h3>识别页面意图</h3>
+              <p>端类型、业务类别、密度、内容量与交互复杂度。</p>
+            </article>
+            <article class="site-ai-step">
+              <b>02 / RECIPE</b>
+              <h3>优先选择配方</h3>
+              <p>从 52 个成品结构中选择最接近的页面骨架。</p>
+            </article>
+            <article class="site-ai-step">
+              <b>03 / ASSEMBLE</b>
+              <h3>组合组件与工具</h3>
+              <p>只使用公共 API 和 Manifest 中真实存在的类与行为。</p>
+            </article>
+            <article class="site-ai-step">
+              <b>04 / VALIDATE</b>
+              <h3>校验契约与环境</h3>
+              <p>通过 Schema、键盘、可访问性、RTL、打印和响应端点检查。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-cta">
+        <div class="site-container site-cta-inner">
+          <div>
+            <h2>从完整系统开始。</h2>
+            <p>不要再为下一张页面重新发明基础设施。</p>
+          </div>
+          <div class="g-flex g-flex-wrap g-gap-3">
+            <a class="g-btn g-btn-primary g-btn-lg" href="./docs.html"
+              >打开完整文档</a
+            ><a
+              class="g-btn g-btn-outline g-btn-lg"
+              href="../../packages/css/examples/showcase.html"
+              >查看组件示例</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section
+      class="g-desktop-command-palette"
+      id="home-desktop-command"
+      data-g-command-palette
+      hidden
+      aria-label="桌面命令面板"
+    >
+      <div class="g-desktop-command-panel">
+        <label class="g-sr-only" for="home-desktop-command-input"
+          >输入命令</label
+        ><input
+          class="g-desktop-command-input"
+          id="home-desktop-command-input"
+          data-g-command-input
+          placeholder="输入命令或文件名"
+        />
+        <div class="g-desktop-command-results" role="listbox">
+          <button
+            class="g-desktop-command-item"
+            type="button"
+            data-g-command-item
+            data-g-value="new"
+          >
+            <span>＋</span><span>新建内容</span><kbd>Ctrl+N</kbd></button
+          ><button
+            class="g-desktop-command-item"
+            type="button"
+            data-g-command-item
+            data-g-value="publish"
+          >
+            <span>↑</span><span>发布当前页面</span><kbd>Ctrl+Shift+P</kbd>
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="site-container">
+        <div class="site-footer-grid">
+          <div>
+            <a class="site-brand" href="./index.html"
+              ><span class="site-brand-mark" aria-hidden="true">G</span
+              ><span>Gardener</span></a
+            >
+            <p class="site-footer-note">
+              为人类开发者与 AI 页面生成器准备的通用
+              CSS、组件与页面配方基础设施。
+            </p>
+          </div>
+          <div>
+            <h2>开始</h2>
+            <ul>
+              <li><a href="./docs.html#quick-start">快速开始</a></li>
+              <li><a href="./docs.html#installation">安装与包</a></li>
+              <li><a href="./docs.html#vue">Vue 3</a></li>
+              <li><a href="./docs.html#react">React</a></li>
+              <li><a href="./docs.html#angular">AngularJS</a></li>
+              <li><a href="./docs.html#blazor">Blazor</a></li>
+              <li><a href="./docs.html#customization">定制</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>能力</h2>
+            <ul>
+              <li><a href="./docs.html#themes">主题系统</a></li>
+              <li><a href="./docs.html#grid-system">24 / 12 栅格</a></li>
+              <li><a href="./docs.html#region-layouts">区域布局</a></li>
+              <li><a href="./docs.html#layout-primitives">经典布局原语</a></li>
+              <li><a href="./docs.html#page-components">页面组件</a></li>
+              <li><a href="./docs.html#help-system">帮助系统</a></li>
+              <li><a href="./docs.html#form-compositions">表单组合</a></li>
+              <li>
+                <a href="./docs.html#navigation-compositions">导航组合</a>
+              </li>
+              <li><a href="./docs.html#data-compositions">数据组合</a></li>
+              <li>
+                <a href="./docs.html#selection-compositions">选择与批量</a>
+              </li>
+              <li><a href="./docs.html#content-compositions">内容系统</a></li>
+              <li><a href="./docs.html#auth-compositions">账号体系</a></li>
+              <li>
+                <a href="./docs.html#commerce-compositions">商业与支付</a>
+              </li>
+              <li><a href="./docs.html#mobile-compositions">移动端特有</a></li>
+              <li><a href="./docs.html#desktop-compositions">桌面端特有</a></li>
+              <li><a href="./docs.html#ai-compositions">AI 智能交互</a></li>
+              <li>
+                <a href="./docs.html#solution-compositions"
+                  >完整页面与行业方案</a
+                >
+              </li>
+              <li><a href="./docs.html#components">组件目录</a></li>
+              <li><a href="./docs.html#runtime">运行时</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>平台</h2>
+            <ul>
+              <li>
+                <a href="./docs.html#desktop-compositions">Tauri / Electron</a>
+              </li>
+              <li><a href="./docs.html#vue">Vue 组件与 API</a></li>
+              <li><a href="./docs.html#react">React 组件与 API</a></li>
+              <li><a href="./docs.html#angular">AngularJS 指令与 API</a></li>
+              <li><a href="./docs.html#blazor">Blazor 组件与 API</a></li>
+              <li><a href="./docs.html#ai-compositions">AI 产品组件</a></li>
+              <li>
+                <a href="./docs.html#solution-compositions">行业页面方案</a>
+              </li>
+              <li><a href="./docs.html#ai-generation">AI 页面生成</a></li>
+              <li><a href="./docs.html#accessibility">无障碍</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer-bottom">
+          <span>Gardener v1.0.0 · MIT License</span
+          ><span>White canvas. Small radius. Broad coverage.</span>
+        </div>
+      </div>
+    </footer>
+    <div class="g-toast-region" aria-live="polite"></div>
+    <script src="../assets/file-i18n.js"></script>
+    <script type="module" src="../assets/site.js?v=1.0.0"></script>
+  </body>
+</html>

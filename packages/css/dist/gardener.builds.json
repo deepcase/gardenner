@@ -1,0 +1,7491 @@
+{
+  "$schema": "../metadata/builds.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "reproducibility": {
+    "deterministic": true,
+    "integrityAlgorithm": "sha256",
+    "verificationCommand": "npm run verify:reproducible"
+  },
+  "minifier": {
+    "name": "esbuild",
+    "version": "0.28.2",
+    "targets": [
+      "chrome100",
+      "firefox100",
+      "safari15.4"
+    ],
+    "legalComments": "inline",
+    "sourceMaps": true,
+    "sourceMapPolicy": "primary-and-custom"
+  },
+  "compression": {
+    "gzipLevel": 9,
+    "brotliQuality": 11
+  },
+  "componentSelection": {
+    "granularity": "owning-pack",
+    "dependencyPolicy": "include-pack-peers",
+    "runtimePolicy": "full-runtime",
+    "command": "npm run build:custom -- --components button,card,dialog --out dist/custom/ui"
+  },
+  "platforms": [
+    {
+      "name": "web",
+      "cssProfile": "web",
+      "cssDependencies": [],
+      "css": null,
+      "minCss": "platforms/gardener.web.min.css",
+      "runtime": "gardener.runtime.min.js",
+      "adapters": [],
+      "packs": [
+        "layouts",
+        "regions",
+        "primitives",
+        "grid",
+        "basic",
+        "forms",
+        "form-compositions",
+        "navigation",
+        "navigation-compositions",
+        "feedback",
+        "data",
+        "data-compositions",
+        "selection-compositions",
+        "content-compositions",
+        "auth-compositions",
+        "commerce-compositions",
+        "extended",
+        "page",
+        "help",
+        "recipes",
+        "solution-compositions",
+        "catalog",
+        "ai",
+        "ai-extended",
+        "ai-compositions"
+      ],
+      "platforms": [
+        "web",
+        "tablet",
+        "print",
+        "pwa"
+      ],
+      "components": [
+        "button",
+        "button-group",
+        "card",
+        "badge-tag-chip",
+        "avatar",
+        "alert",
+        "progress-meter",
+        "spinner-skeleton",
+        "empty-state",
+        "input",
+        "textarea",
+        "select",
+        "checkbox-radio",
+        "switch",
+        "range-color",
+        "file-drop",
+        "combobox",
+        "form",
+        "form-section",
+        "field",
+        "fieldset",
+        "form-row",
+        "form-grid",
+        "horizontal-form",
+        "inline-form",
+        "compact-form",
+        "input-group",
+        "input-affix",
+        "search-field",
+        "password-field",
+        "clearable-field",
+        "character-counter",
+        "validation-state",
+        "checkbox-group",
+        "radio-group",
+        "switch-row",
+        "choice-card-group",
+        "name-group",
+        "address-group",
+        "phone-group",
+        "money-group",
+        "date-range-group",
+        "time-range-group",
+        "unit-field",
+        "range-field",
+        "file-field",
+        "repeatable-field",
+        "conditional-field",
+        "form-actions",
+        "autosave-status",
+        "form-progress",
+        "form-review",
+        "consent-group",
+        "navbar",
+        "sidebar",
+        "breadcrumb",
+        "tabs",
+        "segmented-control",
+        "pagination",
+        "menu-dropdown",
+        "stepper",
+        "command-palette",
+        "primary-navigation",
+        "utility-navigation",
+        "sub-navigation",
+        "collapsible-navigation",
+        "navigation-rail",
+        "activity-bar",
+        "menu-bar",
+        "context-menu",
+        "tree-navigation",
+        "vertical-tabs",
+        "pill-navigation",
+        "scrollspy-navigation",
+        "cursor-pagination",
+        "load-more-navigation",
+        "wizard-navigation",
+        "back-navigation",
+        "previous-next-navigation",
+        "skip-navigation",
+        "mobile-top-navigation",
+        "bottom-navigation",
+        "mobile-tab-bar",
+        "drawer-navigation",
+        "command-navigation",
+        "jump-navigation",
+        "quick-navigation",
+        "locale-navigation",
+        "account-navigation",
+        "dialog",
+        "drawer",
+        "popover",
+        "tooltip",
+        "toast",
+        "accordion",
+        "table",
+        "data-grid",
+        "kpi-stat",
+        "description-list",
+        "list-group",
+        "tree",
+        "timeline",
+        "responsive-table",
+        "table-sort",
+        "row-selection",
+        "row-disclosure",
+        "column-toggle",
+        "data-filter",
+        "data-view",
+        "editable-grid",
+        "tree-table",
+        "grouped-table",
+        "expandable-table",
+        "comparison-table",
+        "key-value",
+        "record-detail",
+        "media-list",
+        "dense-list",
+        "audit-log-composition",
+        "stat-list",
+        "metric-card",
+        "sparkline",
+        "progress-stats",
+        "data-legend",
+        "ranking",
+        "status-summary",
+        "data-matrix",
+        "heatmap",
+        "data-toolbar",
+        "column-chooser",
+        "saved-views",
+        "export-panel",
+        "data-state",
+        "data-view-switcher",
+        "selection-summary",
+        "table-density",
+        "filter-summary",
+        "sort-builder",
+        "data-inspector",
+        "selection-controls",
+        "batch-toolbar",
+        "dual-list",
+        "tree-select",
+        "cascader",
+        "mention-picker",
+        "user-picker",
+        "organization-picker",
+        "resource-picker",
+        "media-picker",
+        "icon-picker",
+        "color-picker-composition",
+        "date-range-picker-composition",
+        "time-range-picker-composition",
+        "saved-filters",
+        "group-builder",
+        "entity-picker",
+        "tag-picker",
+        "relation-picker",
+        "bulk-confirmation",
+        "bulk-progress",
+        "filter-bar",
+        "code-block",
+        "terminal",
+        "diff-viewer",
+        "chart-container",
+        "grid-system",
+        "region-layout-system",
+        "classic-layout-primitives",
+        "page-header",
+        "section-header",
+        "subheader",
+        "toolbar",
+        "action-bar",
+        "status-bar",
+        "command-bar",
+        "context-bar",
+        "bulk-action-bar",
+        "footer-bar",
+        "floating-action-bar",
+        "divider-with-text",
+        "sticky-actions",
+        "page-loading",
+        "page-state-system",
+        "tip",
+        "inline-hint",
+        "help-text",
+        "help-trigger",
+        "rich-tooltip",
+        "help-popover",
+        "definition-help",
+        "callout",
+        "note",
+        "guidance-pair",
+        "key-hint",
+        "shortcut-list",
+        "help-card",
+        "help-panel",
+        "help-center",
+        "help-topics",
+        "faq",
+        "contextual-help",
+        "coach-mark",
+        "spotlight",
+        "hotspot",
+        "feature-hint",
+        "whats-new",
+        "help-checklist",
+        "troubleshooting",
+        "help-feedback",
+        "app-shell",
+        "dashboard",
+        "mobile-shell",
+        "chat",
+        "message",
+        "prompt-composer",
+        "attachment",
+        "thinking",
+        "tool-call",
+        "tool-approval",
+        "agent-status",
+        "agent-plan",
+        "sources-citations",
+        "artifact-panel",
+        "model-selector",
+        "context-meter",
+        "voice-state",
+        "generation-placeholder",
+        "ai-workspace",
+        "prompt-starter",
+        "ai-command-menu",
+        "streaming-response",
+        "multi-agent-board",
+        "agent-handoff",
+        "artifact-workspace",
+        "generation-gallery",
+        "ai-context-manager",
+        "ai-usage-panel",
+        "ai-safety-notice",
+        "ai-feedback",
+        "date-picker",
+        "time-picker",
+        "pin-input",
+        "rating",
+        "transfer-list",
+        "validation-summary",
+        "mega-menu",
+        "anchor-navigation",
+        "tour-spotlight",
+        "virtual-list",
+        "kanban",
+        "gantt-shell",
+        "query-builder",
+        "carousel",
+        "gallery-lightbox",
+        "media-player",
+        "document-viewer",
+        "split-pane",
+        "drag-sort",
+        "infinite-scroll",
+        "pull-refresh",
+        "product-card",
+        "cart-item",
+        "price-quantity",
+        "conversation-list",
+        "prompt-library",
+        "mention-slash-command",
+        "generation-card",
+        "file-tree",
+        "version-history",
+        "permission-scope",
+        "cost-rate-limit",
+        "privacy-notice",
+        "authentication-shell",
+        "mobile-category",
+        "cms-shell",
+        "visual-builder",
+        "rich-editor",
+        "media-library",
+        "content-workflow",
+        "localization-grid",
+        "site-header",
+        "hero",
+        "pricing",
+        "article-layout",
+        "product-detail",
+        "checkout",
+        "enterprise-settings",
+        "permission-matrix",
+        "audit-log",
+        "onboarding",
+        "wizard-layout",
+        "notification-center",
+        "inbox",
+        "search-results",
+        "calendar",
+        "agenda",
+        "file-manager",
+        "upload-queue",
+        "form-builder",
+        "filter-builder",
+        "pivot-table",
+        "organization-chart",
+        "map-shell",
+        "comment-thread",
+        "activity-feed",
+        "report-invoice",
+        "cookie-consent",
+        "copy-action",
+        "fullscreen-action",
+        "back-to-top",
+        "image-crop-shell",
+        "content-file-drop",
+        "content-file-list",
+        "content-upload-queue",
+        "chunk-upload",
+        "upload-progress-composition",
+        "failed-upload",
+        "file-card-composition",
+        "folder-tree-composition",
+        "file-browser-composition",
+        "file-preview-composition",
+        "media-library-composition",
+        "media-grid-composition",
+        "media-details-composition",
+        "image-crop-composition",
+        "image-annotation-composition",
+        "document-viewer-composition",
+        "pdf-viewer",
+        "video-player-shell",
+        "audio-player-shell",
+        "code-editor-shell",
+        "rich-text-editor-composition",
+        "markdown-editor",
+        "block-editor",
+        "revision-compare-composition",
+        "content-autosave-indicator",
+        "content-outline",
+        "editor-toolbar-composition",
+        "find-replace",
+        "comment-thread-composition",
+        "version-history-composition",
+        "file-properties",
+        "storage-meter",
+        "auth-centered",
+        "auth-split",
+        "sign-in-composition",
+        "registration-composition",
+        "password-recovery",
+        "password-reset",
+        "email-verification",
+        "phone-verification",
+        "mfa-challenge",
+        "otp-input",
+        "passkey-composition",
+        "sso-composition",
+        "qr-login",
+        "magic-link",
+        "invitation-composition",
+        "first-time-setup",
+        "lock-screen",
+        "session-expired",
+        "account-chooser",
+        "tenant-chooser",
+        "identity-switcher",
+        "profile-setup",
+        "account-security",
+        "device-management",
+        "login-activity",
+        "security-alert",
+        "recovery-codes",
+        "trusted-device",
+        "connected-accounts",
+        "password-strength",
+        "auth-consent",
+        "auth-result",
+        "commerce-product-card",
+        "commerce-product-list",
+        "commerce-product-detail",
+        "commerce-product-gallery",
+        "sku-selector",
+        "commerce-quantity-stepper",
+        "price-display",
+        "commerce-cart-item",
+        "commerce-cart",
+        "mini-cart",
+        "cart-summary",
+        "commerce-checkout",
+        "commerce-checkout-steps",
+        "address-selector",
+        "address-card",
+        "shipping-method",
+        "pickup-selector",
+        "coupon",
+        "promotion-list",
+        "invoice-information",
+        "payment-method",
+        "payment-sheet",
+        "payment-result",
+        "commerce-order-summary",
+        "commerce-order-timeline",
+        "order-detail",
+        "subscription-plan",
+        "pricing-comparison",
+        "commerce-usage-meter",
+        "billing-history",
+        "refund-status",
+        "tax-summary",
+        "solution-product-landing",
+        "solution-corporate-home",
+        "solution-personal-home",
+        "solution-portfolio-page",
+        "solution-blog-index",
+        "solution-article-page",
+        "solution-docs-portal",
+        "solution-help-center",
+        "solution-search-results",
+        "solution-contact-page",
+        "solution-pricing-page",
+        "solution-dashboard-overview",
+        "solution-admin-list",
+        "solution-record-detail",
+        "solution-settings-center",
+        "solution-user-center",
+        "solution-notification-center",
+        "solution-onboarding-flow",
+        "solution-crm-workspace",
+        "solution-project-workspace",
+        "solution-support-center",
+        "solution-approval-center",
+        "solution-knowledge-base",
+        "solution-learning-portal",
+        "solution-event-portal",
+        "solution-booking-portal",
+        "solution-healthcare-portal",
+        "solution-finance-portal",
+        "solution-public-service-portal",
+        "solution-marketplace-page",
+        "solution-community-page",
+        "solution-status-center"
+      ],
+      "metrics": {
+        "raw": 963624,
+        "gzip": 133333,
+        "brotli": 55851
+      }
+    },
+    {
+      "name": "mobile",
+      "cssProfile": "mobile",
+      "cssDependencies": [],
+      "css": null,
+      "minCss": "platforms/gardener.mobile.min.css",
+      "runtime": "gardener.runtime.min.js",
+      "adapters": [],
+      "packs": [
+        "layouts",
+        "regions",
+        "primitives",
+        "grid",
+        "basic",
+        "forms",
+        "form-compositions",
+        "navigation",
+        "navigation-compositions",
+        "feedback",
+        "data",
+        "data-compositions",
+        "selection-compositions",
+        "content-compositions",
+        "auth-compositions",
+        "commerce-compositions",
+        "extended",
+        "page",
+        "help",
+        "recipes",
+        "solution-compositions",
+        "catalog",
+        "ai",
+        "ai-extended",
+        "ai-compositions",
+        "mobile-compositions"
+      ],
+      "platforms": [
+        "web",
+        "mobile",
+        "tablet",
+        "print",
+        "pwa"
+      ],
+      "components": [
+        "button",
+        "button-group",
+        "card",
+        "badge-tag-chip",
+        "avatar",
+        "alert",
+        "progress-meter",
+        "spinner-skeleton",
+        "empty-state",
+        "input",
+        "textarea",
+        "select",
+        "checkbox-radio",
+        "switch",
+        "range-color",
+        "file-drop",
+        "combobox",
+        "form",
+        "form-section",
+        "field",
+        "fieldset",
+        "form-row",
+        "form-grid",
+        "horizontal-form",
+        "inline-form",
+        "compact-form",
+        "input-group",
+        "input-affix",
+        "search-field",
+        "password-field",
+        "clearable-field",
+        "character-counter",
+        "validation-state",
+        "checkbox-group",
+        "radio-group",
+        "switch-row",
+        "choice-card-group",
+        "name-group",
+        "address-group",
+        "phone-group",
+        "money-group",
+        "date-range-group",
+        "time-range-group",
+        "unit-field",
+        "range-field",
+        "file-field",
+        "repeatable-field",
+        "conditional-field",
+        "form-actions",
+        "autosave-status",
+        "form-progress",
+        "form-review",
+        "consent-group",
+        "navbar",
+        "sidebar",
+        "breadcrumb",
+        "tabs",
+        "segmented-control",
+        "pagination",
+        "menu-dropdown",
+        "stepper",
+        "command-palette",
+        "primary-navigation",
+        "utility-navigation",
+        "sub-navigation",
+        "collapsible-navigation",
+        "navigation-rail",
+        "activity-bar",
+        "menu-bar",
+        "context-menu",
+        "tree-navigation",
+        "vertical-tabs",
+        "pill-navigation",
+        "scrollspy-navigation",
+        "cursor-pagination",
+        "load-more-navigation",
+        "wizard-navigation",
+        "back-navigation",
+        "previous-next-navigation",
+        "skip-navigation",
+        "mobile-top-navigation",
+        "bottom-navigation",
+        "mobile-tab-bar",
+        "drawer-navigation",
+        "command-navigation",
+        "jump-navigation",
+        "quick-navigation",
+        "locale-navigation",
+        "account-navigation",
+        "dialog",
+        "drawer",
+        "popover",
+        "tooltip",
+        "toast",
+        "accordion",
+        "table",
+        "data-grid",
+        "kpi-stat",
+        "description-list",
+        "list-group",
+        "tree",
+        "timeline",
+        "responsive-table",
+        "table-sort",
+        "row-selection",
+        "row-disclosure",
+        "column-toggle",
+        "data-filter",
+        "data-view",
+        "editable-grid",
+        "tree-table",
+        "grouped-table",
+        "expandable-table",
+        "comparison-table",
+        "key-value",
+        "record-detail",
+        "media-list",
+        "dense-list",
+        "audit-log-composition",
+        "stat-list",
+        "metric-card",
+        "sparkline",
+        "progress-stats",
+        "data-legend",
+        "ranking",
+        "status-summary",
+        "data-matrix",
+        "heatmap",
+        "data-toolbar",
+        "column-chooser",
+        "saved-views",
+        "export-panel",
+        "data-state",
+        "data-view-switcher",
+        "selection-summary",
+        "table-density",
+        "filter-summary",
+        "sort-builder",
+        "data-inspector",
+        "selection-controls",
+        "batch-toolbar",
+        "dual-list",
+        "tree-select",
+        "cascader",
+        "mention-picker",
+        "user-picker",
+        "organization-picker",
+        "resource-picker",
+        "media-picker",
+        "icon-picker",
+        "color-picker-composition",
+        "date-range-picker-composition",
+        "time-range-picker-composition",
+        "saved-filters",
+        "group-builder",
+        "entity-picker",
+        "tag-picker",
+        "relation-picker",
+        "bulk-confirmation",
+        "bulk-progress",
+        "filter-bar",
+        "code-block",
+        "terminal",
+        "diff-viewer",
+        "chart-container",
+        "grid-system",
+        "region-layout-system",
+        "classic-layout-primitives",
+        "page-header",
+        "section-header",
+        "subheader",
+        "toolbar",
+        "action-bar",
+        "status-bar",
+        "command-bar",
+        "context-bar",
+        "bulk-action-bar",
+        "footer-bar",
+        "floating-action-bar",
+        "divider-with-text",
+        "sticky-actions",
+        "page-loading",
+        "page-state-system",
+        "tip",
+        "inline-hint",
+        "help-text",
+        "help-trigger",
+        "rich-tooltip",
+        "help-popover",
+        "definition-help",
+        "callout",
+        "note",
+        "guidance-pair",
+        "key-hint",
+        "shortcut-list",
+        "help-card",
+        "help-panel",
+        "help-center",
+        "help-topics",
+        "faq",
+        "contextual-help",
+        "coach-mark",
+        "spotlight",
+        "hotspot",
+        "feature-hint",
+        "whats-new",
+        "help-checklist",
+        "troubleshooting",
+        "help-feedback",
+        "app-shell",
+        "dashboard",
+        "mobile-shell",
+        "chat",
+        "message",
+        "prompt-composer",
+        "attachment",
+        "thinking",
+        "tool-call",
+        "tool-approval",
+        "agent-status",
+        "agent-plan",
+        "sources-citations",
+        "artifact-panel",
+        "model-selector",
+        "context-meter",
+        "voice-state",
+        "generation-placeholder",
+        "ai-workspace",
+        "prompt-starter",
+        "ai-command-menu",
+        "streaming-response",
+        "multi-agent-board",
+        "agent-handoff",
+        "artifact-workspace",
+        "generation-gallery",
+        "ai-context-manager",
+        "ai-usage-panel",
+        "ai-safety-notice",
+        "ai-feedback",
+        "date-picker",
+        "time-picker",
+        "pin-input",
+        "rating",
+        "transfer-list",
+        "validation-summary",
+        "mega-menu",
+        "anchor-navigation",
+        "tour-spotlight",
+        "virtual-list",
+        "kanban",
+        "gantt-shell",
+        "query-builder",
+        "carousel",
+        "gallery-lightbox",
+        "media-player",
+        "document-viewer",
+        "split-pane",
+        "drag-sort",
+        "infinite-scroll",
+        "pull-refresh",
+        "product-card",
+        "cart-item",
+        "price-quantity",
+        "conversation-list",
+        "prompt-library",
+        "mention-slash-command",
+        "generation-card",
+        "file-tree",
+        "version-history",
+        "permission-scope",
+        "cost-rate-limit",
+        "privacy-notice",
+        "authentication-shell",
+        "mobile-category",
+        "cms-shell",
+        "visual-builder",
+        "rich-editor",
+        "media-library",
+        "content-workflow",
+        "localization-grid",
+        "site-header",
+        "hero",
+        "pricing",
+        "article-layout",
+        "product-detail",
+        "checkout",
+        "enterprise-settings",
+        "permission-matrix",
+        "audit-log",
+        "onboarding",
+        "wizard-layout",
+        "notification-center",
+        "inbox",
+        "search-results",
+        "calendar",
+        "agenda",
+        "file-manager",
+        "upload-queue",
+        "form-builder",
+        "filter-builder",
+        "pivot-table",
+        "organization-chart",
+        "map-shell",
+        "comment-thread",
+        "activity-feed",
+        "report-invoice",
+        "cookie-consent",
+        "copy-action",
+        "fullscreen-action",
+        "back-to-top",
+        "image-crop-shell",
+        "content-file-drop",
+        "content-file-list",
+        "content-upload-queue",
+        "chunk-upload",
+        "upload-progress-composition",
+        "failed-upload",
+        "file-card-composition",
+        "folder-tree-composition",
+        "file-browser-composition",
+        "file-preview-composition",
+        "media-library-composition",
+        "media-grid-composition",
+        "media-details-composition",
+        "image-crop-composition",
+        "image-annotation-composition",
+        "document-viewer-composition",
+        "pdf-viewer",
+        "video-player-shell",
+        "audio-player-shell",
+        "code-editor-shell",
+        "rich-text-editor-composition",
+        "markdown-editor",
+        "block-editor",
+        "revision-compare-composition",
+        "content-autosave-indicator",
+        "content-outline",
+        "editor-toolbar-composition",
+        "find-replace",
+        "comment-thread-composition",
+        "version-history-composition",
+        "file-properties",
+        "storage-meter",
+        "auth-centered",
+        "auth-split",
+        "sign-in-composition",
+        "registration-composition",
+        "password-recovery",
+        "password-reset",
+        "email-verification",
+        "phone-verification",
+        "mfa-challenge",
+        "otp-input",
+        "passkey-composition",
+        "sso-composition",
+        "qr-login",
+        "magic-link",
+        "invitation-composition",
+        "first-time-setup",
+        "lock-screen",
+        "session-expired",
+        "account-chooser",
+        "tenant-chooser",
+        "identity-switcher",
+        "profile-setup",
+        "account-security",
+        "device-management",
+        "login-activity",
+        "security-alert",
+        "recovery-codes",
+        "trusted-device",
+        "connected-accounts",
+        "password-strength",
+        "auth-consent",
+        "auth-result",
+        "commerce-product-card",
+        "commerce-product-list",
+        "commerce-product-detail",
+        "commerce-product-gallery",
+        "sku-selector",
+        "commerce-quantity-stepper",
+        "price-display",
+        "commerce-cart-item",
+        "commerce-cart",
+        "mini-cart",
+        "cart-summary",
+        "commerce-checkout",
+        "commerce-checkout-steps",
+        "address-selector",
+        "address-card",
+        "shipping-method",
+        "pickup-selector",
+        "coupon",
+        "promotion-list",
+        "invoice-information",
+        "payment-method",
+        "payment-sheet",
+        "payment-result",
+        "commerce-order-summary",
+        "commerce-order-timeline",
+        "order-detail",
+        "subscription-plan",
+        "pricing-comparison",
+        "commerce-usage-meter",
+        "billing-history",
+        "refund-status",
+        "tax-summary",
+        "mobile-safe-shell",
+        "mobile-app-bar",
+        "mobile-bottom-navigation",
+        "mobile-bottom-sheet",
+        "mobile-action-sheet",
+        "mobile-pull-refresh",
+        "mobile-infinite-load",
+        "mobile-swipe-actions",
+        "mobile-swipe-tabs",
+        "mobile-category-view",
+        "mobile-filter-sheet",
+        "mobile-purchase-bar",
+        "mobile-search",
+        "mobile-picker",
+        "mobile-wheel-picker",
+        "mobile-fab",
+        "mobile-fullscreen-dialog",
+        "mobile-keyboard-avoidance",
+        "mobile-gesture-hint",
+        "mobile-offline-banner",
+        "mobile-segmented-control",
+        "mobile-feed",
+        "mobile-card-carousel",
+        "mobile-form",
+        "mobile-auth",
+        "mobile-checkout",
+        "mobile-media-viewer",
+        "mobile-keyboard-toolbar",
+        "mobile-selection-mode",
+        "mobile-snackbar",
+        "mobile-permission-prompt",
+        "mobile-state",
+        "solution-product-landing",
+        "solution-corporate-home",
+        "solution-personal-home",
+        "solution-portfolio-page",
+        "solution-blog-index",
+        "solution-article-page",
+        "solution-docs-portal",
+        "solution-help-center",
+        "solution-search-results",
+        "solution-contact-page",
+        "solution-pricing-page",
+        "solution-dashboard-overview",
+        "solution-admin-list",
+        "solution-record-detail",
+        "solution-settings-center",
+        "solution-user-center",
+        "solution-notification-center",
+        "solution-onboarding-flow",
+        "solution-crm-workspace",
+        "solution-project-workspace",
+        "solution-support-center",
+        "solution-approval-center",
+        "solution-knowledge-base",
+        "solution-learning-portal",
+        "solution-event-portal",
+        "solution-booking-portal",
+        "solution-healthcare-portal",
+        "solution-finance-portal",
+        "solution-public-service-portal",
+        "solution-marketplace-page",
+        "solution-community-page",
+        "solution-status-center"
+      ],
+      "metrics": {
+        "raw": 983609,
+        "gzip": 136196,
+        "brotli": 57778
+      }
+    },
+    {
+      "name": "desktop",
+      "cssProfile": "desktop",
+      "cssDependencies": [],
+      "css": null,
+      "minCss": "platforms/gardener.desktop.min.css",
+      "runtime": "gardener.runtime.min.js",
+      "adapters": [],
+      "packs": [
+        "layouts",
+        "regions",
+        "primitives",
+        "grid",
+        "basic",
+        "forms",
+        "form-compositions",
+        "navigation",
+        "navigation-compositions",
+        "feedback",
+        "data",
+        "data-compositions",
+        "selection-compositions",
+        "content-compositions",
+        "auth-compositions",
+        "commerce-compositions",
+        "extended",
+        "page",
+        "help",
+        "recipes",
+        "solution-compositions",
+        "catalog",
+        "ai",
+        "ai-extended",
+        "ai-compositions",
+        "desktop",
+        "desktop-compositions"
+      ],
+      "platforms": [
+        "web",
+        "desktop",
+        "desktop-webview",
+        "print",
+        "pwa"
+      ],
+      "components": [
+        "button",
+        "button-group",
+        "card",
+        "badge-tag-chip",
+        "avatar",
+        "alert",
+        "progress-meter",
+        "spinner-skeleton",
+        "empty-state",
+        "input",
+        "textarea",
+        "select",
+        "checkbox-radio",
+        "switch",
+        "range-color",
+        "file-drop",
+        "combobox",
+        "form",
+        "form-section",
+        "field",
+        "fieldset",
+        "form-row",
+        "form-grid",
+        "horizontal-form",
+        "inline-form",
+        "compact-form",
+        "input-group",
+        "input-affix",
+        "search-field",
+        "password-field",
+        "clearable-field",
+        "character-counter",
+        "validation-state",
+        "checkbox-group",
+        "radio-group",
+        "switch-row",
+        "choice-card-group",
+        "name-group",
+        "address-group",
+        "phone-group",
+        "money-group",
+        "date-range-group",
+        "time-range-group",
+        "unit-field",
+        "range-field",
+        "file-field",
+        "repeatable-field",
+        "conditional-field",
+        "form-actions",
+        "autosave-status",
+        "form-progress",
+        "form-review",
+        "consent-group",
+        "navbar",
+        "sidebar",
+        "breadcrumb",
+        "tabs",
+        "segmented-control",
+        "pagination",
+        "menu-dropdown",
+        "stepper",
+        "command-palette",
+        "primary-navigation",
+        "utility-navigation",
+        "sub-navigation",
+        "collapsible-navigation",
+        "navigation-rail",
+        "activity-bar",
+        "menu-bar",
+        "context-menu",
+        "tree-navigation",
+        "vertical-tabs",
+        "pill-navigation",
+        "scrollspy-navigation",
+        "cursor-pagination",
+        "load-more-navigation",
+        "wizard-navigation",
+        "back-navigation",
+        "previous-next-navigation",
+        "skip-navigation",
+        "mobile-top-navigation",
+        "bottom-navigation",
+        "mobile-tab-bar",
+        "drawer-navigation",
+        "command-navigation",
+        "jump-navigation",
+        "quick-navigation",
+        "locale-navigation",
+        "account-navigation",
+        "dialog",
+        "drawer",
+        "popover",
+        "tooltip",
+        "toast",
+        "accordion",
+        "table",
+        "data-grid",
+        "kpi-stat",
+        "description-list",
+        "list-group",
+        "tree",
+        "timeline",
+        "responsive-table",
+        "table-sort",
+        "row-selection",
+        "row-disclosure",
+        "column-toggle",
+        "data-filter",
+        "data-view",
+        "editable-grid",
+        "tree-table",
+        "grouped-table",
+        "expandable-table",
+        "comparison-table",
+        "key-value",
+        "record-detail",
+        "media-list",
+        "dense-list",
+        "audit-log-composition",
+        "stat-list",
+        "metric-card",
+        "sparkline",
+        "progress-stats",
+        "data-legend",
+        "ranking",
+        "status-summary",
+        "data-matrix",
+        "heatmap",
+        "data-toolbar",
+        "column-chooser",
+        "saved-views",
+        "export-panel",
+        "data-state",
+        "data-view-switcher",
+        "selection-summary",
+        "table-density",
+        "filter-summary",
+        "sort-builder",
+        "data-inspector",
+        "selection-controls",
+        "batch-toolbar",
+        "dual-list",
+        "tree-select",
+        "cascader",
+        "mention-picker",
+        "user-picker",
+        "organization-picker",
+        "resource-picker",
+        "media-picker",
+        "icon-picker",
+        "color-picker-composition",
+        "date-range-picker-composition",
+        "time-range-picker-composition",
+        "saved-filters",
+        "group-builder",
+        "entity-picker",
+        "tag-picker",
+        "relation-picker",
+        "bulk-confirmation",
+        "bulk-progress",
+        "filter-bar",
+        "code-block",
+        "terminal",
+        "diff-viewer",
+        "chart-container",
+        "grid-system",
+        "region-layout-system",
+        "classic-layout-primitives",
+        "page-header",
+        "section-header",
+        "subheader",
+        "toolbar",
+        "action-bar",
+        "status-bar",
+        "command-bar",
+        "context-bar",
+        "bulk-action-bar",
+        "footer-bar",
+        "floating-action-bar",
+        "divider-with-text",
+        "sticky-actions",
+        "page-loading",
+        "page-state-system",
+        "tip",
+        "inline-hint",
+        "help-text",
+        "help-trigger",
+        "rich-tooltip",
+        "help-popover",
+        "definition-help",
+        "callout",
+        "note",
+        "guidance-pair",
+        "key-hint",
+        "shortcut-list",
+        "help-card",
+        "help-panel",
+        "help-center",
+        "help-topics",
+        "faq",
+        "contextual-help",
+        "coach-mark",
+        "spotlight",
+        "hotspot",
+        "feature-hint",
+        "whats-new",
+        "help-checklist",
+        "troubleshooting",
+        "help-feedback",
+        "app-shell",
+        "dashboard",
+        "mobile-shell",
+        "chat",
+        "message",
+        "prompt-composer",
+        "attachment",
+        "thinking",
+        "tool-call",
+        "tool-approval",
+        "agent-status",
+        "agent-plan",
+        "sources-citations",
+        "artifact-panel",
+        "model-selector",
+        "context-meter",
+        "voice-state",
+        "generation-placeholder",
+        "ai-workspace",
+        "prompt-starter",
+        "ai-command-menu",
+        "streaming-response",
+        "multi-agent-board",
+        "agent-handoff",
+        "artifact-workspace",
+        "generation-gallery",
+        "ai-context-manager",
+        "ai-usage-panel",
+        "ai-safety-notice",
+        "ai-feedback",
+        "date-picker",
+        "time-picker",
+        "pin-input",
+        "rating",
+        "transfer-list",
+        "validation-summary",
+        "mega-menu",
+        "anchor-navigation",
+        "tour-spotlight",
+        "virtual-list",
+        "kanban",
+        "gantt-shell",
+        "query-builder",
+        "carousel",
+        "gallery-lightbox",
+        "media-player",
+        "document-viewer",
+        "split-pane",
+        "drag-sort",
+        "infinite-scroll",
+        "pull-refresh",
+        "product-card",
+        "cart-item",
+        "price-quantity",
+        "conversation-list",
+        "prompt-library",
+        "mention-slash-command",
+        "generation-card",
+        "file-tree",
+        "version-history",
+        "permission-scope",
+        "cost-rate-limit",
+        "privacy-notice",
+        "authentication-shell",
+        "mobile-category",
+        "cms-shell",
+        "visual-builder",
+        "rich-editor",
+        "media-library",
+        "content-workflow",
+        "localization-grid",
+        "site-header",
+        "hero",
+        "pricing",
+        "article-layout",
+        "product-detail",
+        "checkout",
+        "enterprise-settings",
+        "permission-matrix",
+        "audit-log",
+        "desktop-shell",
+        "desktop-titlebar",
+        "desktop-workbench",
+        "onboarding",
+        "wizard-layout",
+        "notification-center",
+        "inbox",
+        "search-results",
+        "calendar",
+        "agenda",
+        "file-manager",
+        "upload-queue",
+        "form-builder",
+        "filter-builder",
+        "pivot-table",
+        "organization-chart",
+        "map-shell",
+        "comment-thread",
+        "activity-feed",
+        "report-invoice",
+        "cookie-consent",
+        "copy-action",
+        "fullscreen-action",
+        "back-to-top",
+        "image-crop-shell",
+        "content-file-drop",
+        "content-file-list",
+        "content-upload-queue",
+        "chunk-upload",
+        "upload-progress-composition",
+        "failed-upload",
+        "file-card-composition",
+        "folder-tree-composition",
+        "file-browser-composition",
+        "file-preview-composition",
+        "media-library-composition",
+        "media-grid-composition",
+        "media-details-composition",
+        "image-crop-composition",
+        "image-annotation-composition",
+        "document-viewer-composition",
+        "pdf-viewer",
+        "video-player-shell",
+        "audio-player-shell",
+        "code-editor-shell",
+        "rich-text-editor-composition",
+        "markdown-editor",
+        "block-editor",
+        "revision-compare-composition",
+        "content-autosave-indicator",
+        "content-outline",
+        "editor-toolbar-composition",
+        "find-replace",
+        "comment-thread-composition",
+        "version-history-composition",
+        "file-properties",
+        "storage-meter",
+        "auth-centered",
+        "auth-split",
+        "sign-in-composition",
+        "registration-composition",
+        "password-recovery",
+        "password-reset",
+        "email-verification",
+        "phone-verification",
+        "mfa-challenge",
+        "otp-input",
+        "passkey-composition",
+        "sso-composition",
+        "qr-login",
+        "magic-link",
+        "invitation-composition",
+        "first-time-setup",
+        "lock-screen",
+        "session-expired",
+        "account-chooser",
+        "tenant-chooser",
+        "identity-switcher",
+        "profile-setup",
+        "account-security",
+        "device-management",
+        "login-activity",
+        "security-alert",
+        "recovery-codes",
+        "trusted-device",
+        "connected-accounts",
+        "password-strength",
+        "auth-consent",
+        "auth-result",
+        "commerce-product-card",
+        "commerce-product-list",
+        "commerce-product-detail",
+        "commerce-product-gallery",
+        "sku-selector",
+        "commerce-quantity-stepper",
+        "price-display",
+        "commerce-cart-item",
+        "commerce-cart",
+        "mini-cart",
+        "cart-summary",
+        "commerce-checkout",
+        "commerce-checkout-steps",
+        "address-selector",
+        "address-card",
+        "shipping-method",
+        "pickup-selector",
+        "coupon",
+        "promotion-list",
+        "invoice-information",
+        "payment-method",
+        "payment-sheet",
+        "payment-result",
+        "commerce-order-summary",
+        "commerce-order-timeline",
+        "order-detail",
+        "subscription-plan",
+        "pricing-comparison",
+        "commerce-usage-meter",
+        "billing-history",
+        "refund-status",
+        "tax-summary",
+        "desktop-native-titlebar",
+        "desktop-window-controls-composition",
+        "desktop-menubar-composition",
+        "desktop-activity-bar-composition",
+        "desktop-dock-panel",
+        "desktop-split-pane",
+        "desktop-inspector-panel",
+        "desktop-status-bar",
+        "desktop-command-palette",
+        "shortcut-recorder",
+        "desktop-context-menu",
+        "desktop-document-tabs",
+        "desktop-drag-region",
+        "window-loading",
+        "update-available",
+        "desktop-permission-request",
+        "native-file-picker",
+        "tray-menu-shell",
+        "multi-window-placeholder",
+        "desktop-workspace-composition",
+        "desktop-window-switcher",
+        "recent-documents",
+        "desktop-toolbar",
+        "desktop-bottom-panel",
+        "background-task-center",
+        "desktop-notification-center",
+        "sync-status",
+        "update-progress",
+        "crash-recovery",
+        "single-instance-notice",
+        "deep-link-handler",
+        "about-dialog",
+        "solution-product-landing",
+        "solution-corporate-home",
+        "solution-personal-home",
+        "solution-portfolio-page",
+        "solution-blog-index",
+        "solution-article-page",
+        "solution-docs-portal",
+        "solution-help-center",
+        "solution-search-results",
+        "solution-contact-page",
+        "solution-pricing-page",
+        "solution-dashboard-overview",
+        "solution-admin-list",
+        "solution-record-detail",
+        "solution-settings-center",
+        "solution-user-center",
+        "solution-notification-center",
+        "solution-onboarding-flow",
+        "solution-crm-workspace",
+        "solution-project-workspace",
+        "solution-support-center",
+        "solution-approval-center",
+        "solution-knowledge-base",
+        "solution-learning-portal",
+        "solution-event-portal",
+        "solution-booking-portal",
+        "solution-healthcare-portal",
+        "solution-finance-portal",
+        "solution-public-service-portal",
+        "solution-marketplace-page",
+        "solution-community-page",
+        "solution-status-center"
+      ],
+      "metrics": {
+        "raw": 986414,
+        "gzip": 136515,
+        "brotli": 59077
+      }
+    },
+    {
+      "name": "tauri",
+      "cssProfile": "tauri",
+      "cssDependencies": [
+        "platforms/gardener.desktop.min.css"
+      ],
+      "css": null,
+      "minCss": "platforms/gardener.tauri.min.css",
+      "runtime": "gardener.runtime.min.js",
+      "adapters": [
+        "gardener.tauri.min.js"
+      ],
+      "packs": [
+        "layouts",
+        "regions",
+        "primitives",
+        "grid",
+        "basic",
+        "forms",
+        "form-compositions",
+        "navigation",
+        "navigation-compositions",
+        "feedback",
+        "data",
+        "data-compositions",
+        "selection-compositions",
+        "content-compositions",
+        "auth-compositions",
+        "commerce-compositions",
+        "extended",
+        "page",
+        "help",
+        "recipes",
+        "solution-compositions",
+        "catalog",
+        "ai",
+        "ai-extended",
+        "ai-compositions",
+        "desktop",
+        "desktop-compositions"
+      ],
+      "platforms": [
+        "desktop",
+        "desktop-webview",
+        "tauri",
+        "print"
+      ],
+      "components": [
+        "button",
+        "button-group",
+        "card",
+        "badge-tag-chip",
+        "avatar",
+        "alert",
+        "progress-meter",
+        "spinner-skeleton",
+        "empty-state",
+        "input",
+        "textarea",
+        "select",
+        "checkbox-radio",
+        "switch",
+        "range-color",
+        "file-drop",
+        "combobox",
+        "form",
+        "form-section",
+        "field",
+        "fieldset",
+        "form-row",
+        "form-grid",
+        "horizontal-form",
+        "inline-form",
+        "compact-form",
+        "input-group",
+        "input-affix",
+        "search-field",
+        "password-field",
+        "clearable-field",
+        "character-counter",
+        "validation-state",
+        "checkbox-group",
+        "radio-group",
+        "switch-row",
+        "choice-card-group",
+        "name-group",
+        "address-group",
+        "phone-group",
+        "money-group",
+        "date-range-group",
+        "time-range-group",
+        "unit-field",
+        "range-field",
+        "file-field",
+        "repeatable-field",
+        "conditional-field",
+        "form-actions",
+        "autosave-status",
+        "form-progress",
+        "form-review",
+        "consent-group",
+        "navbar",
+        "sidebar",
+        "breadcrumb",
+        "tabs",
+        "segmented-control",
+        "pagination",
+        "menu-dropdown",
+        "stepper",
+        "command-palette",
+        "primary-navigation",
+        "utility-navigation",
+        "sub-navigation",
+        "collapsible-navigation",
+        "navigation-rail",
+        "activity-bar",
+        "menu-bar",
+        "context-menu",
+        "tree-navigation",
+        "vertical-tabs",
+        "pill-navigation",
+        "scrollspy-navigation",
+        "cursor-pagination",
+        "load-more-navigation",
+        "wizard-navigation",
+        "back-navigation",
+        "previous-next-navigation",
+        "skip-navigation",
+        "mobile-top-navigation",
+        "bottom-navigation",
+        "mobile-tab-bar",
+        "drawer-navigation",
+        "command-navigation",
+        "jump-navigation",
+        "quick-navigation",
+        "locale-navigation",
+        "account-navigation",
+        "dialog",
+        "drawer",
+        "popover",
+        "tooltip",
+        "toast",
+        "accordion",
+        "table",
+        "data-grid",
+        "kpi-stat",
+        "description-list",
+        "list-group",
+        "tree",
+        "timeline",
+        "responsive-table",
+        "table-sort",
+        "row-selection",
+        "row-disclosure",
+        "column-toggle",
+        "data-filter",
+        "data-view",
+        "editable-grid",
+        "tree-table",
+        "grouped-table",
+        "expandable-table",
+        "comparison-table",
+        "key-value",
+        "record-detail",
+        "media-list",
+        "dense-list",
+        "audit-log-composition",
+        "stat-list",
+        "metric-card",
+        "sparkline",
+        "progress-stats",
+        "data-legend",
+        "ranking",
+        "status-summary",
+        "data-matrix",
+        "heatmap",
+        "data-toolbar",
+        "column-chooser",
+        "saved-views",
+        "export-panel",
+        "data-state",
+        "data-view-switcher",
+        "selection-summary",
+        "table-density",
+        "filter-summary",
+        "sort-builder",
+        "data-inspector",
+        "selection-controls",
+        "batch-toolbar",
+        "dual-list",
+        "tree-select",
+        "cascader",
+        "mention-picker",
+        "user-picker",
+        "organization-picker",
+        "resource-picker",
+        "media-picker",
+        "icon-picker",
+        "color-picker-composition",
+        "date-range-picker-composition",
+        "time-range-picker-composition",
+        "saved-filters",
+        "group-builder",
+        "entity-picker",
+        "tag-picker",
+        "relation-picker",
+        "bulk-confirmation",
+        "bulk-progress",
+        "filter-bar",
+        "code-block",
+        "terminal",
+        "diff-viewer",
+        "chart-container",
+        "grid-system",
+        "region-layout-system",
+        "classic-layout-primitives",
+        "page-header",
+        "section-header",
+        "subheader",
+        "toolbar",
+        "action-bar",
+        "status-bar",
+        "command-bar",
+        "context-bar",
+        "bulk-action-bar",
+        "footer-bar",
+        "floating-action-bar",
+        "divider-with-text",
+        "sticky-actions",
+        "page-loading",
+        "page-state-system",
+        "tip",
+        "inline-hint",
+        "help-text",
+        "help-trigger",
+        "rich-tooltip",
+        "help-popover",
+        "definition-help",
+        "callout",
+        "note",
+        "guidance-pair",
+        "key-hint",
+        "shortcut-list",
+        "help-card",
+        "help-panel",
+        "help-center",
+        "help-topics",
+        "faq",
+        "contextual-help",
+        "coach-mark",
+        "spotlight",
+        "hotspot",
+        "feature-hint",
+        "whats-new",
+        "help-checklist",
+        "troubleshooting",
+        "help-feedback",
+        "app-shell",
+        "dashboard",
+        "mobile-shell",
+        "chat",
+        "message",
+        "prompt-composer",
+        "attachment",
+        "thinking",
+        "tool-call",
+        "tool-approval",
+        "agent-status",
+        "agent-plan",
+        "sources-citations",
+        "artifact-panel",
+        "model-selector",
+        "context-meter",
+        "voice-state",
+        "generation-placeholder",
+        "ai-workspace",
+        "prompt-starter",
+        "ai-command-menu",
+        "streaming-response",
+        "multi-agent-board",
+        "agent-handoff",
+        "artifact-workspace",
+        "generation-gallery",
+        "ai-context-manager",
+        "ai-usage-panel",
+        "ai-safety-notice",
+        "ai-feedback",
+        "date-picker",
+        "time-picker",
+        "pin-input",
+        "rating",
+        "transfer-list",
+        "validation-summary",
+        "mega-menu",
+        "anchor-navigation",
+        "tour-spotlight",
+        "virtual-list",
+        "kanban",
+        "gantt-shell",
+        "query-builder",
+        "carousel",
+        "gallery-lightbox",
+        "media-player",
+        "document-viewer",
+        "split-pane",
+        "drag-sort",
+        "infinite-scroll",
+        "pull-refresh",
+        "product-card",
+        "cart-item",
+        "price-quantity",
+        "conversation-list",
+        "prompt-library",
+        "mention-slash-command",
+        "generation-card",
+        "file-tree",
+        "version-history",
+        "permission-scope",
+        "cost-rate-limit",
+        "privacy-notice",
+        "authentication-shell",
+        "mobile-category",
+        "cms-shell",
+        "visual-builder",
+        "rich-editor",
+        "media-library",
+        "content-workflow",
+        "localization-grid",
+        "site-header",
+        "hero",
+        "pricing",
+        "article-layout",
+        "product-detail",
+        "checkout",
+        "enterprise-settings",
+        "permission-matrix",
+        "audit-log",
+        "desktop-shell",
+        "desktop-titlebar",
+        "desktop-workbench",
+        "onboarding",
+        "wizard-layout",
+        "notification-center",
+        "inbox",
+        "search-results",
+        "calendar",
+        "agenda",
+        "file-manager",
+        "upload-queue",
+        "form-builder",
+        "filter-builder",
+        "pivot-table",
+        "organization-chart",
+        "map-shell",
+        "comment-thread",
+        "activity-feed",
+        "report-invoice",
+        "cookie-consent",
+        "copy-action",
+        "fullscreen-action",
+        "back-to-top",
+        "image-crop-shell",
+        "content-file-drop",
+        "content-file-list",
+        "content-upload-queue",
+        "chunk-upload",
+        "upload-progress-composition",
+        "failed-upload",
+        "file-card-composition",
+        "folder-tree-composition",
+        "file-browser-composition",
+        "file-preview-composition",
+        "media-library-composition",
+        "media-grid-composition",
+        "media-details-composition",
+        "image-crop-composition",
+        "image-annotation-composition",
+        "document-viewer-composition",
+        "pdf-viewer",
+        "video-player-shell",
+        "audio-player-shell",
+        "code-editor-shell",
+        "rich-text-editor-composition",
+        "markdown-editor",
+        "block-editor",
+        "revision-compare-composition",
+        "content-autosave-indicator",
+        "content-outline",
+        "editor-toolbar-composition",
+        "find-replace",
+        "comment-thread-composition",
+        "version-history-composition",
+        "file-properties",
+        "storage-meter",
+        "auth-centered",
+        "auth-split",
+        "sign-in-composition",
+        "registration-composition",
+        "password-recovery",
+        "password-reset",
+        "email-verification",
+        "phone-verification",
+        "mfa-challenge",
+        "otp-input",
+        "passkey-composition",
+        "sso-composition",
+        "qr-login",
+        "magic-link",
+        "invitation-composition",
+        "first-time-setup",
+        "lock-screen",
+        "session-expired",
+        "account-chooser",
+        "tenant-chooser",
+        "identity-switcher",
+        "profile-setup",
+        "account-security",
+        "device-management",
+        "login-activity",
+        "security-alert",
+        "recovery-codes",
+        "trusted-device",
+        "connected-accounts",
+        "password-strength",
+        "auth-consent",
+        "auth-result",
+        "commerce-product-card",
+        "commerce-product-list",
+        "commerce-product-detail",
+        "commerce-product-gallery",
+        "sku-selector",
+        "commerce-quantity-stepper",
+        "price-display",
+        "commerce-cart-item",
+        "commerce-cart",
+        "mini-cart",
+        "cart-summary",
+        "commerce-checkout",
+        "commerce-checkout-steps",
+        "address-selector",
+        "address-card",
+        "shipping-method",
+        "pickup-selector",
+        "coupon",
+        "promotion-list",
+        "invoice-information",
+        "payment-method",
+        "payment-sheet",
+        "payment-result",
+        "commerce-order-summary",
+        "commerce-order-timeline",
+        "order-detail",
+        "subscription-plan",
+        "pricing-comparison",
+        "commerce-usage-meter",
+        "billing-history",
+        "refund-status",
+        "tax-summary",
+        "desktop-native-titlebar",
+        "desktop-window-controls-composition",
+        "desktop-menubar-composition",
+        "desktop-activity-bar-composition",
+        "desktop-dock-panel",
+        "desktop-split-pane",
+        "desktop-inspector-panel",
+        "desktop-status-bar",
+        "desktop-command-palette",
+        "shortcut-recorder",
+        "desktop-context-menu",
+        "desktop-document-tabs",
+        "desktop-drag-region",
+        "window-loading",
+        "update-available",
+        "desktop-permission-request",
+        "native-file-picker",
+        "tray-menu-shell",
+        "multi-window-placeholder",
+        "desktop-workspace-composition",
+        "desktop-window-switcher",
+        "recent-documents",
+        "desktop-toolbar",
+        "desktop-bottom-panel",
+        "background-task-center",
+        "desktop-notification-center",
+        "sync-status",
+        "update-progress",
+        "crash-recovery",
+        "single-instance-notice",
+        "deep-link-handler",
+        "about-dialog",
+        "solution-product-landing",
+        "solution-corporate-home",
+        "solution-personal-home",
+        "solution-portfolio-page",
+        "solution-blog-index",
+        "solution-article-page",
+        "solution-docs-portal",
+        "solution-help-center",
+        "solution-search-results",
+        "solution-contact-page",
+        "solution-pricing-page",
+        "solution-dashboard-overview",
+        "solution-admin-list",
+        "solution-record-detail",
+        "solution-settings-center",
+        "solution-user-center",
+        "solution-notification-center",
+        "solution-onboarding-flow",
+        "solution-crm-workspace",
+        "solution-project-workspace",
+        "solution-support-center",
+        "solution-approval-center",
+        "solution-knowledge-base",
+        "solution-learning-portal",
+        "solution-event-portal",
+        "solution-booking-portal",
+        "solution-healthcare-portal",
+        "solution-finance-portal",
+        "solution-public-service-portal",
+        "solution-marketplace-page",
+        "solution-community-page",
+        "solution-status-center"
+      ],
+      "metrics": {
+        "raw": 82,
+        "gzip": 87,
+        "brotli": 82
+      }
+    },
+    {
+      "name": "electron",
+      "cssProfile": "electron",
+      "cssDependencies": [
+        "platforms/gardener.desktop.min.css"
+      ],
+      "css": null,
+      "minCss": "platforms/gardener.electron.min.css",
+      "runtime": "gardener.runtime.min.js",
+      "adapters": [
+        "gardener.electron.min.js"
+      ],
+      "packs": [
+        "layouts",
+        "regions",
+        "primitives",
+        "grid",
+        "basic",
+        "forms",
+        "form-compositions",
+        "navigation",
+        "navigation-compositions",
+        "feedback",
+        "data",
+        "data-compositions",
+        "selection-compositions",
+        "content-compositions",
+        "auth-compositions",
+        "commerce-compositions",
+        "extended",
+        "page",
+        "help",
+        "recipes",
+        "solution-compositions",
+        "catalog",
+        "ai",
+        "ai-extended",
+        "ai-compositions",
+        "desktop",
+        "desktop-compositions"
+      ],
+      "platforms": [
+        "desktop",
+        "desktop-webview",
+        "electron",
+        "print"
+      ],
+      "components": [
+        "button",
+        "button-group",
+        "card",
+        "badge-tag-chip",
+        "avatar",
+        "alert",
+        "progress-meter",
+        "spinner-skeleton",
+        "empty-state",
+        "input",
+        "textarea",
+        "select",
+        "checkbox-radio",
+        "switch",
+        "range-color",
+        "file-drop",
+        "combobox",
+        "form",
+        "form-section",
+        "field",
+        "fieldset",
+        "form-row",
+        "form-grid",
+        "horizontal-form",
+        "inline-form",
+        "compact-form",
+        "input-group",
+        "input-affix",
+        "search-field",
+        "password-field",
+        "clearable-field",
+        "character-counter",
+        "validation-state",
+        "checkbox-group",
+        "radio-group",
+        "switch-row",
+        "choice-card-group",
+        "name-group",
+        "address-group",
+        "phone-group",
+        "money-group",
+        "date-range-group",
+        "time-range-group",
+        "unit-field",
+        "range-field",
+        "file-field",
+        "repeatable-field",
+        "conditional-field",
+        "form-actions",
+        "autosave-status",
+        "form-progress",
+        "form-review",
+        "consent-group",
+        "navbar",
+        "sidebar",
+        "breadcrumb",
+        "tabs",
+        "segmented-control",
+        "pagination",
+        "menu-dropdown",
+        "stepper",
+        "command-palette",
+        "primary-navigation",
+        "utility-navigation",
+        "sub-navigation",
+        "collapsible-navigation",
+        "navigation-rail",
+        "activity-bar",
+        "menu-bar",
+        "context-menu",
+        "tree-navigation",
+        "vertical-tabs",
+        "pill-navigation",
+        "scrollspy-navigation",
+        "cursor-pagination",
+        "load-more-navigation",
+        "wizard-navigation",
+        "back-navigation",
+        "previous-next-navigation",
+        "skip-navigation",
+        "mobile-top-navigation",
+        "bottom-navigation",
+        "mobile-tab-bar",
+        "drawer-navigation",
+        "command-navigation",
+        "jump-navigation",
+        "quick-navigation",
+        "locale-navigation",
+        "account-navigation",
+        "dialog",
+        "drawer",
+        "popover",
+        "tooltip",
+        "toast",
+        "accordion",
+        "table",
+        "data-grid",
+        "kpi-stat",
+        "description-list",
+        "list-group",
+        "tree",
+        "timeline",
+        "responsive-table",
+        "table-sort",
+        "row-selection",
+        "row-disclosure",
+        "column-toggle",
+        "data-filter",
+        "data-view",
+        "editable-grid",
+        "tree-table",
+        "grouped-table",
+        "expandable-table",
+        "comparison-table",
+        "key-value",
+        "record-detail",
+        "media-list",
+        "dense-list",
+        "audit-log-composition",
+        "stat-list",
+        "metric-card",
+        "sparkline",
+        "progress-stats",
+        "data-legend",
+        "ranking",
+        "status-summary",
+        "data-matrix",
+        "heatmap",
+        "data-toolbar",
+        "column-chooser",
+        "saved-views",
+        "export-panel",
+        "data-state",
+        "data-view-switcher",
+        "selection-summary",
+        "table-density",
+        "filter-summary",
+        "sort-builder",
+        "data-inspector",
+        "selection-controls",
+        "batch-toolbar",
+        "dual-list",
+        "tree-select",
+        "cascader",
+        "mention-picker",
+        "user-picker",
+        "organization-picker",
+        "resource-picker",
+        "media-picker",
+        "icon-picker",
+        "color-picker-composition",
+        "date-range-picker-composition",
+        "time-range-picker-composition",
+        "saved-filters",
+        "group-builder",
+        "entity-picker",
+        "tag-picker",
+        "relation-picker",
+        "bulk-confirmation",
+        "bulk-progress",
+        "filter-bar",
+        "code-block",
+        "terminal",
+        "diff-viewer",
+        "chart-container",
+        "grid-system",
+        "region-layout-system",
+        "classic-layout-primitives",
+        "page-header",
+        "section-header",
+        "subheader",
+        "toolbar",
+        "action-bar",
+        "status-bar",
+        "command-bar",
+        "context-bar",
+        "bulk-action-bar",
+        "footer-bar",
+        "floating-action-bar",
+        "divider-with-text",
+        "sticky-actions",
+        "page-loading",
+        "page-state-system",
+        "tip",
+        "inline-hint",
+        "help-text",
+        "help-trigger",
+        "rich-tooltip",
+        "help-popover",
+        "definition-help",
+        "callout",
+        "note",
+        "guidance-pair",
+        "key-hint",
+        "shortcut-list",
+        "help-card",
+        "help-panel",
+        "help-center",
+        "help-topics",
+        "faq",
+        "contextual-help",
+        "coach-mark",
+        "spotlight",
+        "hotspot",
+        "feature-hint",
+        "whats-new",
+        "help-checklist",
+        "troubleshooting",
+        "help-feedback",
+        "app-shell",
+        "dashboard",
+        "mobile-shell",
+        "chat",
+        "message",
+        "prompt-composer",
+        "attachment",
+        "thinking",
+        "tool-call",
+        "tool-approval",
+        "agent-status",
+        "agent-plan",
+        "sources-citations",
+        "artifact-panel",
+        "model-selector",
+        "context-meter",
+        "voice-state",
+        "generation-placeholder",
+        "ai-workspace",
+        "prompt-starter",
+        "ai-command-menu",
+        "streaming-response",
+        "multi-agent-board",
+        "agent-handoff",
+        "artifact-workspace",
+        "generation-gallery",
+        "ai-context-manager",
+        "ai-usage-panel",
+        "ai-safety-notice",
+        "ai-feedback",
+        "date-picker",
+        "time-picker",
+        "pin-input",
+        "rating",
+        "transfer-list",
+        "validation-summary",
+        "mega-menu",
+        "anchor-navigation",
+        "tour-spotlight",
+        "virtual-list",
+        "kanban",
+        "gantt-shell",
+        "query-builder",
+        "carousel",
+        "gallery-lightbox",
+        "media-player",
+        "document-viewer",
+        "split-pane",
+        "drag-sort",
+        "infinite-scroll",
+        "pull-refresh",
+        "product-card",
+        "cart-item",
+        "price-quantity",
+        "conversation-list",
+        "prompt-library",
+        "mention-slash-command",
+        "generation-card",
+        "file-tree",
+        "version-history",
+        "permission-scope",
+        "cost-rate-limit",
+        "privacy-notice",
+        "authentication-shell",
+        "mobile-category",
+        "cms-shell",
+        "visual-builder",
+        "rich-editor",
+        "media-library",
+        "content-workflow",
+        "localization-grid",
+        "site-header",
+        "hero",
+        "pricing",
+        "article-layout",
+        "product-detail",
+        "checkout",
+        "enterprise-settings",
+        "permission-matrix",
+        "audit-log",
+        "desktop-shell",
+        "desktop-titlebar",
+        "desktop-workbench",
+        "onboarding",
+        "wizard-layout",
+        "notification-center",
+        "inbox",
+        "search-results",
+        "calendar",
+        "agenda",
+        "file-manager",
+        "upload-queue",
+        "form-builder",
+        "filter-builder",
+        "pivot-table",
+        "organization-chart",
+        "map-shell",
+        "comment-thread",
+        "activity-feed",
+        "report-invoice",
+        "cookie-consent",
+        "copy-action",
+        "fullscreen-action",
+        "back-to-top",
+        "image-crop-shell",
+        "content-file-drop",
+        "content-file-list",
+        "content-upload-queue",
+        "chunk-upload",
+        "upload-progress-composition",
+        "failed-upload",
+        "file-card-composition",
+        "folder-tree-composition",
+        "file-browser-composition",
+        "file-preview-composition",
+        "media-library-composition",
+        "media-grid-composition",
+        "media-details-composition",
+        "image-crop-composition",
+        "image-annotation-composition",
+        "document-viewer-composition",
+        "pdf-viewer",
+        "video-player-shell",
+        "audio-player-shell",
+        "code-editor-shell",
+        "rich-text-editor-composition",
+        "markdown-editor",
+        "block-editor",
+        "revision-compare-composition",
+        "content-autosave-indicator",
+        "content-outline",
+        "editor-toolbar-composition",
+        "find-replace",
+        "comment-thread-composition",
+        "version-history-composition",
+        "file-properties",
+        "storage-meter",
+        "auth-centered",
+        "auth-split",
+        "sign-in-composition",
+        "registration-composition",
+        "password-recovery",
+        "password-reset",
+        "email-verification",
+        "phone-verification",
+        "mfa-challenge",
+        "otp-input",
+        "passkey-composition",
+        "sso-composition",
+        "qr-login",
+        "magic-link",
+        "invitation-composition",
+        "first-time-setup",
+        "lock-screen",
+        "session-expired",
+        "account-chooser",
+        "tenant-chooser",
+        "identity-switcher",
+        "profile-setup",
+        "account-security",
+        "device-management",
+        "login-activity",
+        "security-alert",
+        "recovery-codes",
+        "trusted-device",
+        "connected-accounts",
+        "password-strength",
+        "auth-consent",
+        "auth-result",
+        "commerce-product-card",
+        "commerce-product-list",
+        "commerce-product-detail",
+        "commerce-product-gallery",
+        "sku-selector",
+        "commerce-quantity-stepper",
+        "price-display",
+        "commerce-cart-item",
+        "commerce-cart",
+        "mini-cart",
+        "cart-summary",
+        "commerce-checkout",
+        "commerce-checkout-steps",
+        "address-selector",
+        "address-card",
+        "shipping-method",
+        "pickup-selector",
+        "coupon",
+        "promotion-list",
+        "invoice-information",
+        "payment-method",
+        "payment-sheet",
+        "payment-result",
+        "commerce-order-summary",
+        "commerce-order-timeline",
+        "order-detail",
+        "subscription-plan",
+        "pricing-comparison",
+        "commerce-usage-meter",
+        "billing-history",
+        "refund-status",
+        "tax-summary",
+        "desktop-native-titlebar",
+        "desktop-window-controls-composition",
+        "desktop-menubar-composition",
+        "desktop-activity-bar-composition",
+        "desktop-dock-panel",
+        "desktop-split-pane",
+        "desktop-inspector-panel",
+        "desktop-status-bar",
+        "desktop-command-palette",
+        "shortcut-recorder",
+        "desktop-context-menu",
+        "desktop-document-tabs",
+        "desktop-drag-region",
+        "window-loading",
+        "update-available",
+        "desktop-permission-request",
+        "native-file-picker",
+        "tray-menu-shell",
+        "multi-window-placeholder",
+        "desktop-workspace-composition",
+        "desktop-window-switcher",
+        "recent-documents",
+        "desktop-toolbar",
+        "desktop-bottom-panel",
+        "background-task-center",
+        "desktop-notification-center",
+        "sync-status",
+        "update-progress",
+        "crash-recovery",
+        "single-instance-notice",
+        "deep-link-handler",
+        "about-dialog",
+        "solution-product-landing",
+        "solution-corporate-home",
+        "solution-personal-home",
+        "solution-portfolio-page",
+        "solution-blog-index",
+        "solution-article-page",
+        "solution-docs-portal",
+        "solution-help-center",
+        "solution-search-results",
+        "solution-contact-page",
+        "solution-pricing-page",
+        "solution-dashboard-overview",
+        "solution-admin-list",
+        "solution-record-detail",
+        "solution-settings-center",
+        "solution-user-center",
+        "solution-notification-center",
+        "solution-onboarding-flow",
+        "solution-crm-workspace",
+        "solution-project-workspace",
+        "solution-support-center",
+        "solution-approval-center",
+        "solution-knowledge-base",
+        "solution-learning-portal",
+        "solution-event-portal",
+        "solution-booking-portal",
+        "solution-healthcare-portal",
+        "solution-finance-portal",
+        "solution-public-service-portal",
+        "solution-marketplace-page",
+        "solution-community-page",
+        "solution-status-center"
+      ],
+      "metrics": {
+        "raw": 82,
+        "gzip": 87,
+        "brotli": 82
+      }
+    }
+  ],
+  "componentPacks": [
+    {
+      "name": "layouts",
+      "files": [
+        "layouts/layouts.css"
+      ],
+      "css": null,
+      "minCss": "components/layouts.min.css",
+      "components": [
+        "app-shell",
+        "dashboard",
+        "mobile-shell"
+      ],
+      "metrics": {
+        "raw": 3189,
+        "gzip": 976,
+        "brotli": 825
+      }
+    },
+    {
+      "name": "regions",
+      "files": [
+        "layouts/regions.css"
+      ],
+      "css": null,
+      "minCss": "components/regions.min.css",
+      "components": [
+        "region-layout-system",
+        "split-pane"
+      ],
+      "metrics": {
+        "raw": 9458,
+        "gzip": 1890,
+        "brotli": 1646
+      }
+    },
+    {
+      "name": "primitives",
+      "files": [
+        "layouts/primitives.css"
+      ],
+      "css": null,
+      "minCss": "components/primitives.min.css",
+      "components": [
+        "classic-layout-primitives"
+      ],
+      "metrics": {
+        "raw": 9303,
+        "gzip": 2251,
+        "brotli": 2012
+      }
+    },
+    {
+      "name": "grid",
+      "files": [
+        "generated/grid.css"
+      ],
+      "css": null,
+      "minCss": "components/grid.min.css",
+      "components": [
+        "grid-system"
+      ],
+      "metrics": {
+        "raw": 72420,
+        "gzip": 6891,
+        "brotli": 2442
+      }
+    },
+    {
+      "name": "basic",
+      "files": [
+        "components/basic.css"
+      ],
+      "css": null,
+      "minCss": "components/basic.min.css",
+      "components": [
+        "button",
+        "button-group",
+        "card",
+        "badge-tag-chip",
+        "avatar",
+        "alert",
+        "progress-meter",
+        "spinner-skeleton",
+        "empty-state",
+        "divider-with-text"
+      ],
+      "metrics": {
+        "raw": 8583,
+        "gzip": 2058,
+        "brotli": 1779
+      }
+    },
+    {
+      "name": "forms",
+      "files": [
+        "components/forms.css"
+      ],
+      "css": null,
+      "minCss": "components/forms.min.css",
+      "components": [
+        "input",
+        "textarea",
+        "select",
+        "checkbox-radio",
+        "switch",
+        "range-color",
+        "file-drop",
+        "combobox",
+        "field",
+        "form-row",
+        "input-group",
+        "form-actions",
+        "content-file-drop"
+      ],
+      "metrics": {
+        "raw": 5385,
+        "gzip": 1484,
+        "brotli": 1280
+      }
+    },
+    {
+      "name": "form-compositions",
+      "files": [
+        "components/form-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/form-compositions.min.css",
+      "components": [
+        "button",
+        "input",
+        "textarea",
+        "select",
+        "form",
+        "form-section",
+        "field",
+        "fieldset",
+        "form-row",
+        "form-grid",
+        "horizontal-form",
+        "inline-form",
+        "compact-form",
+        "input-group",
+        "input-affix",
+        "search-field",
+        "password-field",
+        "clearable-field",
+        "character-counter",
+        "validation-state",
+        "checkbox-group",
+        "radio-group",
+        "switch-row",
+        "choice-card-group",
+        "name-group",
+        "address-group",
+        "phone-group",
+        "money-group",
+        "date-range-group",
+        "time-range-group",
+        "unit-field",
+        "range-field",
+        "file-field",
+        "repeatable-field",
+        "conditional-field",
+        "form-actions",
+        "autosave-status",
+        "form-progress",
+        "form-review",
+        "consent-group",
+        "validation-summary"
+      ],
+      "metrics": {
+        "raw": 13989,
+        "gzip": 2891,
+        "brotli": 2530
+      }
+    },
+    {
+      "name": "navigation",
+      "files": [
+        "components/navigation.css"
+      ],
+      "css": null,
+      "minCss": "components/navigation.min.css",
+      "components": [
+        "navbar",
+        "sidebar",
+        "breadcrumb",
+        "tabs",
+        "segmented-control",
+        "pagination",
+        "menu-dropdown",
+        "stepper",
+        "command-palette"
+      ],
+      "metrics": {
+        "raw": 7292,
+        "gzip": 1564,
+        "brotli": 1328
+      }
+    },
+    {
+      "name": "navigation-compositions",
+      "files": [
+        "components/navigation-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/navigation-compositions.min.css",
+      "components": [
+        "field",
+        "sidebar",
+        "breadcrumb",
+        "pagination",
+        "menu-dropdown",
+        "stepper",
+        "primary-navigation",
+        "utility-navigation",
+        "sub-navigation",
+        "collapsible-navigation",
+        "navigation-rail",
+        "activity-bar",
+        "menu-bar",
+        "context-menu",
+        "tree-navigation",
+        "vertical-tabs",
+        "pill-navigation",
+        "scrollspy-navigation",
+        "cursor-pagination",
+        "load-more-navigation",
+        "wizard-navigation",
+        "back-navigation",
+        "previous-next-navigation",
+        "skip-navigation",
+        "mobile-top-navigation",
+        "bottom-navigation",
+        "mobile-tab-bar",
+        "drawer-navigation",
+        "command-navigation",
+        "jump-navigation",
+        "quick-navigation",
+        "locale-navigation",
+        "account-navigation",
+        "mega-menu",
+        "anchor-navigation"
+      ],
+      "metrics": {
+        "raw": 17055,
+        "gzip": 3125,
+        "brotli": 2755
+      }
+    },
+    {
+      "name": "feedback",
+      "files": [
+        "components/feedback.css"
+      ],
+      "css": null,
+      "minCss": "components/feedback.min.css",
+      "components": [
+        "dialog",
+        "drawer",
+        "popover",
+        "tooltip",
+        "toast",
+        "accordion"
+      ],
+      "metrics": {
+        "raw": 5529,
+        "gzip": 1460,
+        "brotli": 1261
+      }
+    },
+    {
+      "name": "data",
+      "files": [
+        "components/data.css"
+      ],
+      "css": null,
+      "minCss": "components/data.min.css",
+      "components": [
+        "table",
+        "data-grid",
+        "kpi-stat",
+        "description-list",
+        "list-group",
+        "tree",
+        "timeline",
+        "table-sort",
+        "stat-list",
+        "filter-bar",
+        "code-block",
+        "terminal",
+        "diff-viewer",
+        "chart-container"
+      ],
+      "metrics": {
+        "raw": 7991,
+        "gzip": 1808,
+        "brotli": 1560
+      }
+    },
+    {
+      "name": "data-compositions",
+      "files": [
+        "components/data-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/data-compositions.min.css",
+      "components": [
+        "table",
+        "responsive-table",
+        "row-selection",
+        "row-disclosure",
+        "column-toggle",
+        "data-filter",
+        "data-view",
+        "editable-grid",
+        "tree-table",
+        "grouped-table",
+        "expandable-table",
+        "comparison-table",
+        "key-value",
+        "record-detail",
+        "media-list",
+        "dense-list",
+        "audit-log-composition",
+        "metric-card",
+        "sparkline",
+        "progress-stats",
+        "data-legend",
+        "ranking",
+        "status-summary",
+        "data-matrix",
+        "heatmap",
+        "data-toolbar",
+        "column-chooser",
+        "saved-views",
+        "export-panel",
+        "data-state",
+        "data-view-switcher",
+        "selection-summary",
+        "table-density",
+        "filter-summary",
+        "sort-builder",
+        "data-inspector",
+        "chart-container",
+        "virtual-list",
+        "audit-log",
+        "pivot-table"
+      ],
+      "metrics": {
+        "raw": 21010,
+        "gzip": 3786,
+        "brotli": 3342
+      }
+    },
+    {
+      "name": "selection-compositions",
+      "files": [
+        "components/selection-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/selection-compositions.min.css",
+      "components": [
+        "column-toggle",
+        "column-chooser",
+        "saved-views",
+        "sort-builder",
+        "selection-controls",
+        "batch-toolbar",
+        "dual-list",
+        "tree-select",
+        "cascader",
+        "mention-picker",
+        "user-picker",
+        "organization-picker",
+        "resource-picker",
+        "media-picker",
+        "icon-picker",
+        "color-picker-composition",
+        "date-range-picker-composition",
+        "time-range-picker-composition",
+        "saved-filters",
+        "group-builder",
+        "entity-picker",
+        "tag-picker",
+        "relation-picker",
+        "bulk-confirmation",
+        "bulk-progress",
+        "transfer-list"
+      ],
+      "metrics": {
+        "raw": 15589,
+        "gzip": 2719,
+        "brotli": 2387
+      }
+    },
+    {
+      "name": "content-compositions",
+      "files": [
+        "components/content-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/content-compositions.min.css",
+      "components": [
+        "button",
+        "file-drop",
+        "diff-viewer",
+        "document-viewer",
+        "version-history",
+        "media-library",
+        "upload-queue",
+        "comment-thread",
+        "image-crop-shell",
+        "content-file-drop",
+        "content-file-list",
+        "content-upload-queue",
+        "chunk-upload",
+        "upload-progress-composition",
+        "failed-upload",
+        "file-card-composition",
+        "folder-tree-composition",
+        "file-browser-composition",
+        "file-preview-composition",
+        "media-library-composition",
+        "media-grid-composition",
+        "media-details-composition",
+        "image-crop-composition",
+        "image-annotation-composition",
+        "document-viewer-composition",
+        "pdf-viewer",
+        "video-player-shell",
+        "audio-player-shell",
+        "code-editor-shell",
+        "rich-text-editor-composition",
+        "markdown-editor",
+        "block-editor",
+        "revision-compare-composition",
+        "content-autosave-indicator",
+        "content-outline",
+        "editor-toolbar-composition",
+        "find-replace",
+        "comment-thread-composition",
+        "version-history-composition",
+        "file-properties",
+        "storage-meter"
+      ],
+      "metrics": {
+        "raw": 24333,
+        "gzip": 4146,
+        "brotli": 3670
+      }
+    },
+    {
+      "name": "auth-compositions",
+      "files": [
+        "components/auth-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/auth-compositions.min.css",
+      "components": [
+        "auth-centered",
+        "auth-split",
+        "sign-in-composition",
+        "registration-composition",
+        "password-recovery",
+        "password-reset",
+        "email-verification",
+        "phone-verification",
+        "mfa-challenge",
+        "otp-input",
+        "passkey-composition",
+        "sso-composition",
+        "qr-login",
+        "magic-link",
+        "invitation-composition",
+        "first-time-setup",
+        "lock-screen",
+        "session-expired",
+        "account-chooser",
+        "tenant-chooser",
+        "identity-switcher",
+        "profile-setup",
+        "account-security",
+        "device-management",
+        "login-activity",
+        "security-alert",
+        "recovery-codes",
+        "trusted-device",
+        "connected-accounts",
+        "password-strength",
+        "auth-consent",
+        "auth-result"
+      ],
+      "metrics": {
+        "raw": 15655,
+        "gzip": 3111,
+        "brotli": 2698
+      }
+    },
+    {
+      "name": "commerce-compositions",
+      "files": [
+        "components/commerce-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/commerce-compositions.min.css",
+      "components": [
+        "button",
+        "input",
+        "commerce-product-card",
+        "commerce-product-list",
+        "commerce-product-detail",
+        "commerce-product-gallery",
+        "sku-selector",
+        "commerce-quantity-stepper",
+        "price-display",
+        "commerce-cart-item",
+        "commerce-cart",
+        "mini-cart",
+        "cart-summary",
+        "commerce-checkout",
+        "commerce-checkout-steps",
+        "address-selector",
+        "address-card",
+        "shipping-method",
+        "pickup-selector",
+        "coupon",
+        "promotion-list",
+        "invoice-information",
+        "payment-method",
+        "payment-sheet",
+        "payment-result",
+        "commerce-order-summary",
+        "commerce-order-timeline",
+        "order-detail",
+        "subscription-plan",
+        "pricing-comparison",
+        "commerce-usage-meter",
+        "billing-history",
+        "refund-status",
+        "tax-summary"
+      ],
+      "metrics": {
+        "raw": 18641,
+        "gzip": 3547,
+        "brotli": 3084
+      }
+    },
+    {
+      "name": "mobile-compositions",
+      "files": [
+        "components/mobile-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/mobile-compositions.min.css",
+      "components": [
+        "button",
+        "spinner-skeleton",
+        "input",
+        "mobile-safe-shell",
+        "mobile-app-bar",
+        "mobile-bottom-navigation",
+        "mobile-bottom-sheet",
+        "mobile-action-sheet",
+        "mobile-pull-refresh",
+        "mobile-infinite-load",
+        "mobile-swipe-actions",
+        "mobile-swipe-tabs",
+        "mobile-category-view",
+        "mobile-filter-sheet",
+        "mobile-purchase-bar",
+        "mobile-search",
+        "mobile-picker",
+        "mobile-wheel-picker",
+        "mobile-fab",
+        "mobile-fullscreen-dialog",
+        "mobile-keyboard-avoidance",
+        "mobile-gesture-hint",
+        "mobile-offline-banner",
+        "mobile-segmented-control",
+        "mobile-feed",
+        "mobile-card-carousel",
+        "mobile-form",
+        "mobile-auth",
+        "mobile-checkout",
+        "mobile-media-viewer",
+        "mobile-keyboard-toolbar",
+        "mobile-selection-mode",
+        "mobile-snackbar",
+        "mobile-permission-prompt",
+        "mobile-state"
+      ],
+      "metrics": {
+        "raw": 20141,
+        "gzip": 3699,
+        "brotli": 3297
+      }
+    },
+    {
+      "name": "extended",
+      "files": [
+        "components/extended.css"
+      ],
+      "css": null,
+      "minCss": "components/extended.min.css",
+      "components": [
+        "input",
+        "spotlight",
+        "date-picker",
+        "time-picker",
+        "pin-input",
+        "rating",
+        "transfer-list",
+        "validation-summary",
+        "mega-menu",
+        "anchor-navigation",
+        "tour-spotlight",
+        "virtual-list",
+        "kanban",
+        "gantt-shell",
+        "query-builder",
+        "carousel",
+        "gallery-lightbox",
+        "media-player",
+        "document-viewer",
+        "split-pane",
+        "drag-sort",
+        "infinite-scroll",
+        "pull-refresh",
+        "product-card",
+        "cart-item",
+        "price-quantity",
+        "copy-action",
+        "fullscreen-action",
+        "back-to-top",
+        "image-crop-shell",
+        "image-crop-composition",
+        "document-viewer-composition"
+      ],
+      "metrics": {
+        "raw": 11728,
+        "gzip": 2774,
+        "brotli": 2412
+      }
+    },
+    {
+      "name": "page",
+      "files": [
+        "components/page.css"
+      ],
+      "css": null,
+      "minCss": "components/page.min.css",
+      "components": [
+        "button",
+        "filter-bar",
+        "page-header",
+        "section-header",
+        "subheader",
+        "toolbar",
+        "action-bar",
+        "status-bar",
+        "command-bar",
+        "context-bar",
+        "bulk-action-bar",
+        "footer-bar",
+        "floating-action-bar",
+        "divider-with-text",
+        "sticky-actions",
+        "page-loading",
+        "page-state-system",
+        "back-to-top"
+      ],
+      "metrics": {
+        "raw": 15141,
+        "gzip": 2807,
+        "brotli": 2465
+      }
+    },
+    {
+      "name": "help",
+      "files": [
+        "components/help.css"
+      ],
+      "css": null,
+      "minCss": "components/help.min.css",
+      "components": [
+        "input",
+        "tooltip",
+        "tip",
+        "inline-hint",
+        "help-text",
+        "help-trigger",
+        "rich-tooltip",
+        "help-popover",
+        "definition-help",
+        "callout",
+        "note",
+        "guidance-pair",
+        "key-hint",
+        "shortcut-list",
+        "help-card",
+        "help-panel",
+        "help-center",
+        "help-topics",
+        "faq",
+        "contextual-help",
+        "coach-mark",
+        "spotlight",
+        "hotspot",
+        "feature-hint",
+        "whats-new",
+        "help-checklist",
+        "troubleshooting",
+        "help-feedback",
+        "tour-spotlight"
+      ],
+      "metrics": {
+        "raw": 16793,
+        "gzip": 3128,
+        "brotli": 2750
+      }
+    },
+    {
+      "name": "recipes",
+      "files": [
+        "components/recipes.css"
+      ],
+      "css": null,
+      "minCss": "components/recipes.min.css",
+      "components": [
+        "authentication-shell",
+        "mobile-category",
+        "cms-shell",
+        "visual-builder",
+        "rich-editor",
+        "media-library",
+        "content-workflow",
+        "localization-grid",
+        "site-header",
+        "hero",
+        "pricing",
+        "article-layout",
+        "product-detail",
+        "checkout",
+        "enterprise-settings",
+        "permission-matrix",
+        "audit-log",
+        "media-library-composition",
+        "media-grid-composition",
+        "editor-toolbar-composition"
+      ],
+      "metrics": {
+        "raw": 16891,
+        "gzip": 3423,
+        "brotli": 3025
+      }
+    },
+    {
+      "name": "desktop",
+      "files": [
+        "components/desktop.css"
+      ],
+      "css": null,
+      "minCss": "components/desktop.min.css",
+      "components": [
+        "activity-bar",
+        "menu-bar",
+        "desktop-shell",
+        "desktop-titlebar",
+        "desktop-workbench"
+      ],
+      "metrics": {
+        "raw": 5694,
+        "gzip": 1479,
+        "brotli": 1262
+      }
+    },
+    {
+      "name": "desktop-compositions",
+      "files": [
+        "components/desktop-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/desktop-compositions.min.css",
+      "components": [
+        "desktop-native-titlebar",
+        "desktop-window-controls-composition",
+        "desktop-menubar-composition",
+        "desktop-activity-bar-composition",
+        "desktop-dock-panel",
+        "desktop-split-pane",
+        "desktop-inspector-panel",
+        "desktop-status-bar",
+        "desktop-command-palette",
+        "shortcut-recorder",
+        "desktop-context-menu",
+        "desktop-document-tabs",
+        "desktop-drag-region",
+        "window-loading",
+        "update-available",
+        "desktop-permission-request",
+        "native-file-picker",
+        "tray-menu-shell",
+        "multi-window-placeholder",
+        "desktop-workspace-composition",
+        "desktop-window-switcher",
+        "recent-documents",
+        "desktop-toolbar",
+        "desktop-bottom-panel",
+        "background-task-center",
+        "desktop-notification-center",
+        "sync-status",
+        "update-progress",
+        "crash-recovery",
+        "single-instance-notice",
+        "deep-link-handler",
+        "about-dialog"
+      ],
+      "metrics": {
+        "raw": 17408,
+        "gzip": 3215,
+        "brotli": 2824
+      }
+    },
+    {
+      "name": "solution-compositions",
+      "files": [
+        "components/solution-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/solution-compositions.min.css",
+      "components": [
+        "solution-product-landing",
+        "solution-corporate-home",
+        "solution-personal-home",
+        "solution-portfolio-page",
+        "solution-blog-index",
+        "solution-article-page",
+        "solution-docs-portal",
+        "solution-help-center",
+        "solution-search-results",
+        "solution-contact-page",
+        "solution-pricing-page",
+        "solution-dashboard-overview",
+        "solution-admin-list",
+        "solution-record-detail",
+        "solution-settings-center",
+        "solution-user-center",
+        "solution-notification-center",
+        "solution-onboarding-flow",
+        "solution-crm-workspace",
+        "solution-project-workspace",
+        "solution-support-center",
+        "solution-approval-center",
+        "solution-knowledge-base",
+        "solution-learning-portal",
+        "solution-event-portal",
+        "solution-booking-portal",
+        "solution-healthcare-portal",
+        "solution-finance-portal",
+        "solution-public-service-portal",
+        "solution-marketplace-page",
+        "solution-community-page",
+        "solution-status-center"
+      ],
+      "metrics": {
+        "raw": 21740,
+        "gzip": 3584,
+        "brotli": 3045
+      }
+    },
+    {
+      "name": "catalog",
+      "files": [
+        "components/catalog.css"
+      ],
+      "css": null,
+      "minCss": "components/catalog.min.css",
+      "components": [
+        "button",
+        "wizard-navigation",
+        "onboarding",
+        "wizard-layout",
+        "notification-center",
+        "inbox",
+        "search-results",
+        "calendar",
+        "agenda",
+        "file-manager",
+        "upload-queue",
+        "form-builder",
+        "filter-builder",
+        "pivot-table",
+        "organization-chart",
+        "map-shell",
+        "comment-thread",
+        "activity-feed",
+        "report-invoice",
+        "cookie-consent",
+        "content-upload-queue",
+        "file-card-composition",
+        "comment-thread-composition"
+      ],
+      "metrics": {
+        "raw": 10069,
+        "gzip": 2067,
+        "brotli": 1784
+      }
+    },
+    {
+      "name": "ai",
+      "files": [
+        "components/ai.css"
+      ],
+      "css": null,
+      "minCss": "components/ai.min.css",
+      "components": [
+        "avatar",
+        "chat",
+        "message",
+        "prompt-composer",
+        "attachment",
+        "thinking",
+        "tool-call",
+        "tool-approval",
+        "agent-status",
+        "agent-plan",
+        "sources-citations",
+        "artifact-panel",
+        "model-selector",
+        "context-meter",
+        "voice-state",
+        "generation-placeholder",
+        "ai-workspace",
+        "agent-handoff",
+        "artifact-workspace"
+      ],
+      "metrics": {
+        "raw": 11032,
+        "gzip": 2369,
+        "brotli": 2055
+      }
+    },
+    {
+      "name": "ai-extended",
+      "files": [
+        "components/ai-extended.css"
+      ],
+      "css": null,
+      "minCss": "components/ai-extended.min.css",
+      "components": [
+        "generation-gallery",
+        "conversation-list",
+        "prompt-library",
+        "mention-slash-command",
+        "generation-card",
+        "file-tree",
+        "version-history",
+        "permission-scope",
+        "cost-rate-limit",
+        "privacy-notice"
+      ],
+      "metrics": {
+        "raw": 3019,
+        "gzip": 954,
+        "brotli": 779
+      }
+    },
+    {
+      "name": "ai-compositions",
+      "files": [
+        "components/ai-compositions.css"
+      ],
+      "css": null,
+      "minCss": "components/ai-compositions.min.css",
+      "components": [
+        "chat",
+        "message",
+        "prompt-composer",
+        "attachment",
+        "thinking",
+        "tool-call",
+        "tool-approval",
+        "agent-status",
+        "agent-plan",
+        "sources-citations",
+        "artifact-panel",
+        "model-selector",
+        "voice-state",
+        "generation-placeholder",
+        "ai-workspace",
+        "prompt-starter",
+        "ai-command-menu",
+        "streaming-response",
+        "multi-agent-board",
+        "agent-handoff",
+        "artifact-workspace",
+        "generation-gallery",
+        "ai-context-manager",
+        "ai-usage-panel",
+        "ai-safety-notice",
+        "ai-feedback",
+        "conversation-list",
+        "prompt-library",
+        "generation-card",
+        "file-tree",
+        "version-history",
+        "permission-scope",
+        "privacy-notice"
+      ],
+      "metrics": {
+        "raw": 11824,
+        "gzip": 2332,
+        "brotli": 1994
+      }
+    }
+  ],
+  "componentSignatures": {
+    "button": [
+      ".g-btn",
+      ".g-button"
+    ],
+    "button-group": [
+      ".g-btn-group",
+      ".g-button-group"
+    ],
+    "card": [
+      ".g-card"
+    ],
+    "badge-tag-chip": [
+      ".g-badge",
+      ".g-badge-tag-chip"
+    ],
+    "avatar": [
+      ".g-avatar"
+    ],
+    "alert": [
+      ".g-alert"
+    ],
+    "progress-meter": [
+      ".g-progress",
+      ".g-progress-meter"
+    ],
+    "spinner-skeleton": [
+      ".g-spinner",
+      ".g-spinner-skeleton"
+    ],
+    "empty-state": [
+      ".g-empty",
+      ".g-empty-state"
+    ],
+    "input": [
+      ".g-input"
+    ],
+    "textarea": [
+      ".g-textarea"
+    ],
+    "select": [
+      ".g-select"
+    ],
+    "checkbox-radio": [
+      ".g-check",
+      ".g-checkbox-radio"
+    ],
+    "switch": [
+      ".g-switch"
+    ],
+    "range-color": [
+      ".g-range",
+      ".g-range-color"
+    ],
+    "file-drop": [
+      ".g-file-drop",
+      "[data-g-dropzone]"
+    ],
+    "combobox": [
+      "[data-g-combobox]",
+      ".g-combobox"
+    ],
+    "form": [
+      ".g-form"
+    ],
+    "form-section": [
+      ".g-form-section"
+    ],
+    "field": [
+      ".g-field"
+    ],
+    "fieldset": [
+      ".g-fieldset"
+    ],
+    "form-row": [
+      ".g-form-row"
+    ],
+    "form-grid": [
+      ".g-form-grid"
+    ],
+    "horizontal-form": [
+      ".g-form-horizontal",
+      ".g-horizontal-form"
+    ],
+    "inline-form": [
+      ".g-form-inline",
+      ".g-inline-form"
+    ],
+    "compact-form": [
+      ".g-form-compact",
+      ".g-compact-form"
+    ],
+    "input-group": [
+      ".g-input-group"
+    ],
+    "input-affix": [
+      ".g-input-affix"
+    ],
+    "search-field": [
+      ".g-search-field"
+    ],
+    "password-field": [
+      ".g-password-field",
+      "[data-g-password-toggle]"
+    ],
+    "clearable-field": [
+      ".g-clearable-field",
+      "[data-g-clear-input]"
+    ],
+    "character-counter": [
+      ".g-character-field",
+      "[data-g-character-count]",
+      ".g-character-counter"
+    ],
+    "validation-state": [
+      ".g-validation-state"
+    ],
+    "checkbox-group": [
+      ".g-check-group",
+      ".g-checkbox-group"
+    ],
+    "radio-group": [
+      ".g-radio-group"
+    ],
+    "switch-row": [
+      ".g-switch-row"
+    ],
+    "choice-card-group": [
+      ".g-choice-group",
+      ".g-choice-card-group"
+    ],
+    "name-group": [
+      ".g-name-group"
+    ],
+    "address-group": [
+      ".g-address-group"
+    ],
+    "phone-group": [
+      ".g-phone-group"
+    ],
+    "money-group": [
+      ".g-money-group"
+    ],
+    "date-range-group": [
+      ".g-date-range-group"
+    ],
+    "time-range-group": [
+      ".g-time-range-group"
+    ],
+    "unit-field": [
+      ".g-unit-field"
+    ],
+    "range-field": [
+      ".g-range-field"
+    ],
+    "file-field": [
+      ".g-file-field"
+    ],
+    "repeatable-field": [
+      ".g-repeatable-field",
+      "[data-g-repeatable-field]"
+    ],
+    "conditional-field": [
+      ".g-conditional-field",
+      "[data-g-conditional-field]"
+    ],
+    "form-actions": [
+      ".g-form-actions"
+    ],
+    "autosave-status": [
+      ".g-autosave-status"
+    ],
+    "form-progress": [
+      ".g-form-progress"
+    ],
+    "form-review": [
+      ".g-form-review"
+    ],
+    "consent-group": [
+      ".g-consent-group"
+    ],
+    "navbar": [
+      ".g-navbar"
+    ],
+    "sidebar": [
+      ".g-sidebar"
+    ],
+    "breadcrumb": [
+      ".g-breadcrumb"
+    ],
+    "tabs": [
+      "[data-g-tabs]",
+      ".g-tabs"
+    ],
+    "segmented-control": [
+      ".g-segmented",
+      ".g-segmented-control"
+    ],
+    "pagination": [
+      ".g-pagination"
+    ],
+    "menu-dropdown": [
+      ".g-dropdown",
+      "[data-g-dropdown]",
+      ".g-menu-dropdown"
+    ],
+    "stepper": [
+      ".g-stepper"
+    ],
+    "command-palette": [
+      ".g-command-palette",
+      "[data-g-command-palette]"
+    ],
+    "primary-navigation": [
+      ".g-primary-nav",
+      ".g-primary-navigation"
+    ],
+    "utility-navigation": [
+      ".g-utility-nav",
+      ".g-utility-navigation"
+    ],
+    "sub-navigation": [
+      ".g-subnav",
+      ".g-sub-navigation"
+    ],
+    "collapsible-navigation": [
+      ".g-collapsible-nav",
+      "[data-g-nav-toggle]",
+      ".g-collapsible-navigation"
+    ],
+    "navigation-rail": [
+      ".g-nav-rail",
+      "[data-g-roving-nav]",
+      ".g-navigation-rail"
+    ],
+    "activity-bar": [
+      ".g-activitybar",
+      ".g-activity-bar"
+    ],
+    "menu-bar": [
+      ".g-menubar",
+      ".g-menu-bar"
+    ],
+    "context-menu": [
+      ".g-context-menu",
+      "[data-g-context-menu]"
+    ],
+    "tree-navigation": [
+      ".g-tree-nav",
+      "[data-g-tree]",
+      ".g-tree-navigation"
+    ],
+    "vertical-tabs": [
+      ".g-vertical-tabs",
+      "[data-g-tabs]"
+    ],
+    "pill-navigation": [
+      ".g-pill-nav",
+      ".g-pill-navigation"
+    ],
+    "scrollspy-navigation": [
+      ".g-scrollspy-nav",
+      "[data-g-scrollspy]",
+      ".g-scrollspy-navigation"
+    ],
+    "cursor-pagination": [
+      ".g-cursor-pagination"
+    ],
+    "load-more-navigation": [
+      ".g-load-more-nav",
+      ".g-load-more-navigation"
+    ],
+    "wizard-navigation": [
+      ".g-wizard-nav",
+      ".g-wizard-navigation"
+    ],
+    "back-navigation": [
+      ".g-back-nav",
+      ".g-back-navigation"
+    ],
+    "previous-next-navigation": [
+      ".g-prev-next-nav",
+      ".g-previous-next-navigation"
+    ],
+    "skip-navigation": [
+      ".g-skip-nav",
+      ".g-skip-navigation"
+    ],
+    "mobile-top-navigation": [
+      ".g-mobile-top-nav",
+      ".g-mobile-top-navigation"
+    ],
+    "bottom-navigation": [
+      ".g-bottom-nav",
+      ".g-bottom-navigation"
+    ],
+    "mobile-tab-bar": [
+      ".g-mobile-tab-bar"
+    ],
+    "drawer-navigation": [
+      ".g-drawer-nav",
+      ".g-drawer-navigation"
+    ],
+    "command-navigation": [
+      ".g-command-nav",
+      ".g-command-navigation"
+    ],
+    "jump-navigation": [
+      ".g-jump-nav",
+      "[data-g-jump-nav]",
+      ".g-jump-navigation"
+    ],
+    "quick-navigation": [
+      ".g-quick-nav",
+      ".g-quick-navigation"
+    ],
+    "locale-navigation": [
+      ".g-locale-nav",
+      ".g-locale-navigation"
+    ],
+    "account-navigation": [
+      ".g-account-nav",
+      ".g-account-navigation"
+    ],
+    "dialog": [
+      "[data-g-dialog]",
+      ".g-dialog"
+    ],
+    "drawer": [
+      "[data-g-drawer]",
+      ".g-drawer"
+    ],
+    "popover": [
+      "[data-g-popover]",
+      ".g-popover"
+    ],
+    "tooltip": [
+      ".g-tooltip",
+      "[data-g-tooltip]"
+    ],
+    "toast": [
+      "[data-g-toast]",
+      ".g-toast"
+    ],
+    "accordion": [
+      "[data-g-accordion]",
+      ".g-accordion"
+    ],
+    "table": [
+      ".g-table"
+    ],
+    "data-grid": [
+      "[data-g-data-grid]",
+      ".g-data-grid"
+    ],
+    "kpi-stat": [
+      ".g-kpi",
+      ".g-kpi-stat"
+    ],
+    "description-list": [
+      ".g-description-list"
+    ],
+    "list-group": [
+      ".g-list-group"
+    ],
+    "tree": [
+      "[data-g-tree]",
+      ".g-tree"
+    ],
+    "timeline": [
+      ".g-timeline"
+    ],
+    "responsive-table": [
+      ".g-responsive-table"
+    ],
+    "table-sort": [
+      ".g-sort-button",
+      "[data-g-table-sort]",
+      ".g-table-sort"
+    ],
+    "row-selection": [
+      ".g-selection-summary",
+      "[data-g-row-select]",
+      ".g-row-selection"
+    ],
+    "row-disclosure": [
+      ".g-row-disclosure",
+      "[data-g-row-disclosure]"
+    ],
+    "column-toggle": [
+      ".g-column-chooser",
+      "[data-g-column-toggle]",
+      ".g-column-toggle"
+    ],
+    "data-filter": [
+      ".g-data-toolbar",
+      "[data-g-data-filter]",
+      ".g-data-filter"
+    ],
+    "data-view": [
+      ".g-data-view-switcher",
+      "[data-g-data-view]",
+      ".g-data-view"
+    ],
+    "editable-grid": [
+      ".g-editable-grid",
+      "[data-g-data-grid]"
+    ],
+    "tree-table": [
+      ".g-tree-table"
+    ],
+    "grouped-table": [
+      ".g-grouped-table"
+    ],
+    "expandable-table": [
+      ".g-expandable-table"
+    ],
+    "comparison-table": [
+      ".g-comparison-table"
+    ],
+    "key-value": [
+      ".g-key-value"
+    ],
+    "record-detail": [
+      ".g-record-detail"
+    ],
+    "media-list": [
+      ".g-media-list"
+    ],
+    "dense-list": [
+      ".g-dense-list"
+    ],
+    "audit-log-composition": [
+      ".g-audit-log",
+      ".g-audit-log-composition"
+    ],
+    "stat-list": [
+      ".g-stat-list"
+    ],
+    "metric-card": [
+      ".g-metric-card"
+    ],
+    "sparkline": [
+      ".g-sparkline"
+    ],
+    "progress-stats": [
+      ".g-progress-stats"
+    ],
+    "data-legend": [
+      ".g-data-legend"
+    ],
+    "ranking": [
+      ".g-ranking"
+    ],
+    "status-summary": [
+      ".g-status-summary"
+    ],
+    "data-matrix": [
+      ".g-data-matrix"
+    ],
+    "heatmap": [
+      ".g-heatmap"
+    ],
+    "data-toolbar": [
+      ".g-data-toolbar"
+    ],
+    "column-chooser": [
+      ".g-column-chooser"
+    ],
+    "saved-views": [
+      ".g-saved-views",
+      "[data-g-saved-choice]"
+    ],
+    "export-panel": [
+      ".g-export-panel"
+    ],
+    "data-state": [
+      ".g-data-state"
+    ],
+    "data-view-switcher": [
+      ".g-data-view-switcher"
+    ],
+    "selection-summary": [
+      ".g-selection-summary"
+    ],
+    "table-density": [
+      ".g-table-density"
+    ],
+    "filter-summary": [
+      ".g-filter-summary"
+    ],
+    "sort-builder": [
+      ".g-sort-builder",
+      "[data-g-builder-list]"
+    ],
+    "data-inspector": [
+      ".g-data-inspector"
+    ],
+    "selection-controls": [
+      ".g-selection-control",
+      ".g-selection-scope",
+      "[data-g-row-select]",
+      ".g-selection-controls"
+    ],
+    "batch-toolbar": [
+      ".g-batch-toolbar"
+    ],
+    "dual-list": [
+      ".g-dual-list",
+      "[data-g-transfer]"
+    ],
+    "tree-select": [
+      ".g-tree-select",
+      "[data-g-picker]"
+    ],
+    "cascader": [
+      ".g-cascader",
+      "[data-g-cascader]"
+    ],
+    "mention-picker": [
+      ".g-mention-picker",
+      "[data-g-picker]"
+    ],
+    "user-picker": [
+      ".g-user-picker",
+      "[data-g-picker]"
+    ],
+    "organization-picker": [
+      ".g-organization-picker",
+      "[data-g-picker]"
+    ],
+    "resource-picker": [
+      ".g-resource-picker",
+      "[data-g-picker]"
+    ],
+    "media-picker": [
+      ".g-media-picker",
+      "[data-g-picker]"
+    ],
+    "icon-picker": [
+      ".g-icon-picker",
+      "[data-g-saved-choice]"
+    ],
+    "color-picker-composition": [
+      ".g-color-picker",
+      "[data-g-saved-choice]",
+      ".g-color-picker-composition"
+    ],
+    "date-range-picker-composition": [
+      ".g-date-range-picker",
+      ".g-date-range-picker-composition"
+    ],
+    "time-range-picker-composition": [
+      ".g-time-range-picker",
+      ".g-time-range-picker-composition"
+    ],
+    "saved-filters": [
+      ".g-saved-filters",
+      "[data-g-saved-choice]"
+    ],
+    "group-builder": [
+      ".g-group-builder",
+      "[data-g-builder-list]"
+    ],
+    "entity-picker": [
+      ".g-entity-picker",
+      "[data-g-picker]"
+    ],
+    "tag-picker": [
+      ".g-tag-picker",
+      "[data-g-picker]"
+    ],
+    "relation-picker": [
+      ".g-relation-picker",
+      "[data-g-picker]"
+    ],
+    "bulk-confirmation": [
+      ".g-bulk-confirmation"
+    ],
+    "bulk-progress": [
+      ".g-bulk-progress"
+    ],
+    "filter-bar": [
+      ".g-filter-bar"
+    ],
+    "code-block": [
+      ".g-code-block"
+    ],
+    "terminal": [
+      ".g-terminal"
+    ],
+    "diff-viewer": [
+      ".g-diff",
+      ".g-diff-viewer"
+    ],
+    "chart-container": [
+      ".g-chart",
+      ".g-chart-container"
+    ],
+    "grid-system": [
+      ".g-grid-24",
+      ".g-grid-system"
+    ],
+    "region-layout-system": [
+      ".g-region-frame",
+      ".g-region-layout-system"
+    ],
+    "classic-layout-primitives": [
+      ".g-stack",
+      ".g-classic-layout-primitives"
+    ],
+    "page-header": [
+      ".g-page-header"
+    ],
+    "section-header": [
+      ".g-section-header"
+    ],
+    "subheader": [
+      ".g-subheader"
+    ],
+    "toolbar": [
+      ".g-toolbar"
+    ],
+    "action-bar": [
+      ".g-action-bar"
+    ],
+    "status-bar": [
+      ".g-status-bar"
+    ],
+    "command-bar": [
+      ".g-command-bar"
+    ],
+    "context-bar": [
+      ".g-context-bar"
+    ],
+    "bulk-action-bar": [
+      ".g-bulk-action-bar"
+    ],
+    "footer-bar": [
+      ".g-footer-bar"
+    ],
+    "floating-action-bar": [
+      ".g-floating-action-bar"
+    ],
+    "divider-with-text": [
+      ".g-divider",
+      ".g-divider-with-text"
+    ],
+    "sticky-actions": [
+      ".g-sticky-actions"
+    ],
+    "page-loading": [
+      ".g-page-loading"
+    ],
+    "page-state-system": [
+      ".g-page-state",
+      ".g-page-state-system"
+    ],
+    "tip": [
+      ".g-tip"
+    ],
+    "inline-hint": [
+      ".g-inline-hint"
+    ],
+    "help-text": [
+      ".g-help-text"
+    ],
+    "help-trigger": [
+      ".g-help-trigger"
+    ],
+    "rich-tooltip": [
+      ".g-tooltip-rich",
+      ".g-rich-tooltip"
+    ],
+    "help-popover": [
+      ".g-help-popover"
+    ],
+    "definition-help": [
+      ".g-definition",
+      ".g-definition-help"
+    ],
+    "callout": [
+      ".g-callout"
+    ],
+    "note": [
+      ".g-note"
+    ],
+    "guidance-pair": [
+      ".g-guidance-pair"
+    ],
+    "key-hint": [
+      ".g-key-hint"
+    ],
+    "shortcut-list": [
+      ".g-shortcut-list"
+    ],
+    "help-card": [
+      ".g-help-card"
+    ],
+    "help-panel": [
+      ".g-help-panel"
+    ],
+    "help-center": [
+      ".g-help-center"
+    ],
+    "help-topics": [
+      ".g-help-topics"
+    ],
+    "faq": [
+      ".g-faq"
+    ],
+    "contextual-help": [
+      ".g-contextual-help"
+    ],
+    "coach-mark": [
+      ".g-coach-mark"
+    ],
+    "spotlight": [
+      ".g-spotlight"
+    ],
+    "hotspot": [
+      ".g-hotspot"
+    ],
+    "feature-hint": [
+      ".g-feature-hint"
+    ],
+    "whats-new": [
+      ".g-whats-new"
+    ],
+    "help-checklist": [
+      ".g-help-checklist"
+    ],
+    "troubleshooting": [
+      ".g-troubleshooting"
+    ],
+    "help-feedback": [
+      ".g-help-feedback"
+    ],
+    "app-shell": [
+      ".g-app-shell"
+    ],
+    "dashboard": [
+      ".g-dashboard"
+    ],
+    "mobile-shell": [
+      ".g-mobile-shell"
+    ],
+    "chat": [
+      ".g-chat"
+    ],
+    "message": [
+      ".g-message"
+    ],
+    "prompt-composer": [
+      ".g-composer",
+      "[data-g-ai-composer]",
+      ".g-prompt-composer"
+    ],
+    "attachment": [
+      ".g-attachment"
+    ],
+    "thinking": [
+      ".g-thinking",
+      "[data-g-accordion]"
+    ],
+    "tool-call": [
+      ".g-tool-call",
+      "[data-g-accordion]"
+    ],
+    "tool-approval": [
+      ".g-approval",
+      "[data-g-ai-approval]",
+      ".g-tool-approval"
+    ],
+    "agent-status": [
+      ".g-agent-status"
+    ],
+    "agent-plan": [
+      ".g-plan",
+      ".g-agent-plan"
+    ],
+    "sources-citations": [
+      ".g-sources",
+      ".g-sources-citations"
+    ],
+    "artifact-panel": [
+      ".g-artifact-panel",
+      "[data-g-tabs]"
+    ],
+    "model-selector": [
+      ".g-model-selector",
+      "[data-g-dropdown]"
+    ],
+    "context-meter": [
+      ".g-context-meter"
+    ],
+    "voice-state": [
+      ".g-voice-state"
+    ],
+    "generation-placeholder": [
+      ".g-generation-placeholder"
+    ],
+    "ai-workspace": [
+      ".g-ai-shell",
+      ".g-ai-workspace"
+    ],
+    "prompt-starter": [
+      ".g-prompt-starter",
+      "[data-g-prompt-fill]"
+    ],
+    "ai-command-menu": [
+      ".g-ai-command-menu",
+      "[data-g-roving-nav]"
+    ],
+    "streaming-response": [
+      ".g-streaming-response"
+    ],
+    "multi-agent-board": [
+      ".g-agent-board",
+      ".g-multi-agent-board"
+    ],
+    "agent-handoff": [
+      ".g-agent-handoff"
+    ],
+    "artifact-workspace": [
+      ".g-artifact-layout",
+      ".g-artifact-workspace"
+    ],
+    "generation-gallery": [
+      ".g-generation-grid",
+      ".g-generation-gallery"
+    ],
+    "ai-context-manager": [
+      ".g-ai-context-manager"
+    ],
+    "ai-usage-panel": [
+      ".g-ai-usage-panel"
+    ],
+    "ai-safety-notice": [
+      ".g-ai-safety-notice"
+    ],
+    "ai-feedback": [
+      ".g-ai-feedback",
+      "[data-g-ai-feedback]"
+    ],
+    "date-picker": [
+      ".g-date-picker"
+    ],
+    "time-picker": [
+      ".g-time-picker"
+    ],
+    "pin-input": [
+      ".g-pin-input"
+    ],
+    "rating": [
+      ".g-rating"
+    ],
+    "transfer-list": [
+      ".g-transfer",
+      "[data-g-transfer]",
+      ".g-transfer-list"
+    ],
+    "validation-summary": [
+      ".g-validation-summary"
+    ],
+    "mega-menu": [
+      ".g-mega-menu"
+    ],
+    "anchor-navigation": [
+      ".g-anchor-nav",
+      ".g-anchor-navigation"
+    ],
+    "tour-spotlight": [
+      ".g-tour",
+      "[data-g-tour]",
+      ".g-tour-spotlight"
+    ],
+    "virtual-list": [
+      ".g-virtual-list"
+    ],
+    "kanban": [
+      ".g-kanban"
+    ],
+    "gantt-shell": [
+      ".g-gantt",
+      ".g-gantt-shell"
+    ],
+    "query-builder": [
+      ".g-query-builder"
+    ],
+    "carousel": [
+      "[data-g-carousel]",
+      ".g-carousel"
+    ],
+    "gallery-lightbox": [
+      ".g-gallery",
+      ".g-gallery-lightbox"
+    ],
+    "media-player": [
+      ".g-media-player"
+    ],
+    "document-viewer": [
+      ".g-document-viewer"
+    ],
+    "split-pane": [
+      "[data-g-split-pane]",
+      ".g-split-pane"
+    ],
+    "drag-sort": [
+      ".g-sortable-item",
+      ".g-drag-sort"
+    ],
+    "infinite-scroll": [
+      ".g-infinite-status",
+      ".g-infinite-scroll"
+    ],
+    "pull-refresh": [
+      ".g-pull-refresh"
+    ],
+    "product-card": [
+      ".g-product-card"
+    ],
+    "cart-item": [
+      ".g-cart-item"
+    ],
+    "price-quantity": [
+      ".g-price",
+      ".g-price-quantity"
+    ],
+    "conversation-list": [
+      ".g-conversation-list"
+    ],
+    "prompt-library": [
+      ".g-prompt-library"
+    ],
+    "mention-slash-command": [
+      ".g-mention",
+      ".g-mention-slash-command"
+    ],
+    "generation-card": [
+      ".g-generation-card"
+    ],
+    "file-tree": [
+      ".g-file-tree"
+    ],
+    "version-history": [
+      ".g-version-list",
+      ".g-version-history"
+    ],
+    "permission-scope": [
+      ".g-permission-scope"
+    ],
+    "cost-rate-limit": [
+      ".g-cost",
+      ".g-cost-rate-limit"
+    ],
+    "privacy-notice": [
+      ".g-privacy-notice"
+    ],
+    "authentication-shell": [
+      ".g-auth-shell",
+      ".g-authentication-shell"
+    ],
+    "mobile-category": [
+      ".g-mobile-category"
+    ],
+    "cms-shell": [
+      ".g-cms-shell"
+    ],
+    "visual-builder": [
+      ".g-cms-canvas",
+      ".g-visual-builder"
+    ],
+    "rich-editor": [
+      ".g-editor",
+      ".g-rich-editor"
+    ],
+    "media-library": [
+      ".g-media-library"
+    ],
+    "content-workflow": [
+      ".g-workflow",
+      ".g-content-workflow"
+    ],
+    "localization-grid": [
+      ".g-localization-grid"
+    ],
+    "site-header": [
+      ".g-site-header"
+    ],
+    "hero": [
+      ".g-hero"
+    ],
+    "pricing": [
+      ".g-pricing-grid",
+      ".g-pricing"
+    ],
+    "article-layout": [
+      ".g-article-shell",
+      ".g-article-layout"
+    ],
+    "product-detail": [
+      ".g-product-detail"
+    ],
+    "checkout": [
+      ".g-checkout-layout",
+      ".g-checkout"
+    ],
+    "enterprise-settings": [
+      ".g-settings-shell",
+      ".g-enterprise-settings"
+    ],
+    "permission-matrix": [
+      ".g-permission-matrix"
+    ],
+    "audit-log": [
+      ".g-audit-event",
+      ".g-audit-log"
+    ],
+    "desktop-shell": [
+      ".g-desktop-shell"
+    ],
+    "desktop-titlebar": [
+      ".g-titlebar",
+      ".g-desktop-titlebar"
+    ],
+    "desktop-workbench": [
+      ".g-workbench",
+      ".g-desktop-workbench"
+    ],
+    "onboarding": [
+      ".g-onboarding"
+    ],
+    "wizard-layout": [
+      ".g-wizard-layout"
+    ],
+    "notification-center": [
+      ".g-notification-center"
+    ],
+    "inbox": [
+      ".g-inbox"
+    ],
+    "search-results": [
+      ".g-search-page",
+      ".g-search-results"
+    ],
+    "calendar": [
+      ".g-calendar"
+    ],
+    "agenda": [
+      ".g-agenda"
+    ],
+    "file-manager": [
+      ".g-file-manager"
+    ],
+    "upload-queue": [
+      ".g-upload-queue"
+    ],
+    "form-builder": [
+      ".g-form-builder"
+    ],
+    "filter-builder": [
+      ".g-filter-builder"
+    ],
+    "pivot-table": [
+      ".g-pivot",
+      ".g-pivot-table"
+    ],
+    "organization-chart": [
+      ".g-org-chart",
+      ".g-organization-chart"
+    ],
+    "map-shell": [
+      ".g-map-shell"
+    ],
+    "comment-thread": [
+      ".g-comment-thread"
+    ],
+    "activity-feed": [
+      ".g-activity-feed"
+    ],
+    "report-invoice": [
+      ".g-report",
+      ".g-report-invoice"
+    ],
+    "cookie-consent": [
+      ".g-cookie-banner",
+      ".g-cookie-consent"
+    ],
+    "copy-action": [
+      "[data-g-copy]",
+      ".g-copy-action"
+    ],
+    "fullscreen-action": [
+      "[data-g-fullscreen]",
+      ".g-fullscreen-action"
+    ],
+    "back-to-top": [
+      ".g-back-to-top",
+      "[data-g-scroll-top]"
+    ],
+    "image-crop-shell": [
+      ".g-image-crop",
+      ".g-image-crop-shell"
+    ],
+    "content-file-drop": [
+      ".g-file-drop",
+      "[data-g-dropzone]",
+      ".g-content-file-drop"
+    ],
+    "content-file-list": [
+      ".g-file-list",
+      ".g-content-file-list"
+    ],
+    "content-upload-queue": [
+      ".g-upload-queue",
+      "[data-g-upload-manager]",
+      ".g-content-upload-queue"
+    ],
+    "chunk-upload": [
+      ".g-chunk-upload"
+    ],
+    "upload-progress-composition": [
+      ".g-upload-progress",
+      "[data-g-upload-manager]",
+      ".g-upload-progress-composition"
+    ],
+    "failed-upload": [
+      ".g-failed-upload",
+      "[data-g-upload-manager]"
+    ],
+    "file-card-composition": [
+      ".g-file-card",
+      ".g-file-card-composition"
+    ],
+    "folder-tree-composition": [
+      ".g-folder-tree",
+      ".g-folder-tree-composition"
+    ],
+    "file-browser-composition": [
+      ".g-file-browser",
+      "[data-g-file-browser]",
+      ".g-file-browser-composition"
+    ],
+    "file-preview-composition": [
+      ".g-file-preview",
+      ".g-file-preview-composition"
+    ],
+    "media-library-composition": [
+      ".g-media-library",
+      "[data-g-file-browser]",
+      ".g-media-library-composition"
+    ],
+    "media-grid-composition": [
+      ".g-media-grid",
+      ".g-media-grid-composition"
+    ],
+    "media-details-composition": [
+      ".g-media-details",
+      ".g-media-details-composition"
+    ],
+    "image-crop-composition": [
+      ".g-image-crop",
+      ".g-content-image-crop",
+      ".g-image-crop-composition"
+    ],
+    "image-annotation-composition": [
+      ".g-image-annotation",
+      ".g-image-annotation-composition"
+    ],
+    "document-viewer-composition": [
+      ".g-document-viewer",
+      ".g-content-document-viewer",
+      ".g-document-viewer-composition"
+    ],
+    "pdf-viewer": [
+      ".g-pdf-viewer"
+    ],
+    "video-player-shell": [
+      ".g-video-player",
+      ".g-video-player-shell"
+    ],
+    "audio-player-shell": [
+      ".g-audio-player",
+      ".g-audio-player-shell"
+    ],
+    "code-editor-shell": [
+      ".g-code-editor",
+      "[data-g-editor-shell]",
+      ".g-code-editor-shell"
+    ],
+    "rich-text-editor-composition": [
+      ".g-rich-text-editor",
+      "[data-g-editor-shell]",
+      ".g-rich-text-editor-composition"
+    ],
+    "markdown-editor": [
+      ".g-markdown-editor",
+      "[data-g-editor-shell]"
+    ],
+    "block-editor": [
+      ".g-block-editor",
+      "[data-g-editor-shell]"
+    ],
+    "revision-compare-composition": [
+      ".g-revision-compare",
+      "[data-g-revision-compare]",
+      ".g-revision-compare-composition"
+    ],
+    "content-autosave-indicator": [
+      ".g-autosave-indicator",
+      "[data-g-autosave]",
+      ".g-content-autosave-indicator"
+    ],
+    "content-outline": [
+      ".g-content-outline"
+    ],
+    "editor-toolbar-composition": [
+      ".g-editor-toolbar",
+      "[data-g-editor-shell]",
+      ".g-editor-toolbar-composition"
+    ],
+    "find-replace": [
+      ".g-find-replace"
+    ],
+    "comment-thread-composition": [
+      ".g-comment-thread",
+      ".g-content-comment-thread",
+      ".g-comment-thread-composition"
+    ],
+    "version-history-composition": [
+      ".g-version-history",
+      ".g-version-history-composition"
+    ],
+    "file-properties": [
+      ".g-file-properties"
+    ],
+    "storage-meter": [
+      ".g-storage-meter"
+    ],
+    "auth-centered": [
+      ".g-auth-centered"
+    ],
+    "auth-split": [
+      ".g-auth-split"
+    ],
+    "sign-in-composition": [
+      ".g-sign-in",
+      ".g-sign-in-composition"
+    ],
+    "registration-composition": [
+      ".g-registration",
+      ".g-registration-composition"
+    ],
+    "password-recovery": [
+      ".g-password-recovery"
+    ],
+    "password-reset": [
+      ".g-password-reset"
+    ],
+    "email-verification": [
+      ".g-email-verification"
+    ],
+    "phone-verification": [
+      ".g-phone-verification"
+    ],
+    "mfa-challenge": [
+      ".g-mfa-challenge"
+    ],
+    "otp-input": [
+      ".g-otp-input",
+      "[data-g-otp-input]"
+    ],
+    "passkey-composition": [
+      ".g-passkey",
+      ".g-passkey-composition"
+    ],
+    "sso-composition": [
+      ".g-sso",
+      ".g-sso-composition"
+    ],
+    "qr-login": [
+      ".g-qr-login",
+      "[data-g-auth-timer]"
+    ],
+    "magic-link": [
+      ".g-magic-link"
+    ],
+    "invitation-composition": [
+      ".g-invitation",
+      ".g-invitation-composition"
+    ],
+    "first-time-setup": [
+      ".g-first-time-setup"
+    ],
+    "lock-screen": [
+      ".g-lock-screen"
+    ],
+    "session-expired": [
+      ".g-session-expired"
+    ],
+    "account-chooser": [
+      ".g-account-chooser",
+      "[data-g-saved-choice]"
+    ],
+    "tenant-chooser": [
+      ".g-tenant-chooser",
+      "[data-g-saved-choice]"
+    ],
+    "identity-switcher": [
+      ".g-identity-switcher",
+      "[data-g-dropdown]"
+    ],
+    "profile-setup": [
+      ".g-profile-setup"
+    ],
+    "account-security": [
+      ".g-account-security"
+    ],
+    "device-management": [
+      ".g-device-management"
+    ],
+    "login-activity": [
+      ".g-login-activity"
+    ],
+    "security-alert": [
+      ".g-security-alert"
+    ],
+    "recovery-codes": [
+      ".g-recovery-codes"
+    ],
+    "trusted-device": [
+      ".g-trusted-device"
+    ],
+    "connected-accounts": [
+      ".g-connected-accounts"
+    ],
+    "password-strength": [
+      ".g-password-strength",
+      "[data-g-password-strength]"
+    ],
+    "auth-consent": [
+      ".g-auth-consent"
+    ],
+    "auth-result": [
+      ".g-auth-result"
+    ],
+    "commerce-product-card": [
+      ".g-commerce-product-card"
+    ],
+    "commerce-product-list": [
+      ".g-commerce-product-list"
+    ],
+    "commerce-product-detail": [
+      ".g-commerce-product-detail"
+    ],
+    "commerce-product-gallery": [
+      ".g-commerce-product-gallery",
+      "[data-g-carousel]"
+    ],
+    "sku-selector": [
+      ".g-sku-selector",
+      "[data-g-sku-selector]"
+    ],
+    "commerce-quantity-stepper": [
+      ".g-quantity-stepper",
+      "[data-g-quantity-stepper]",
+      ".g-commerce-quantity-stepper"
+    ],
+    "price-display": [
+      ".g-price-display"
+    ],
+    "commerce-cart-item": [
+      ".g-commerce-cart-item"
+    ],
+    "commerce-cart": [
+      ".g-cart",
+      "[data-g-cart]",
+      ".g-commerce-cart"
+    ],
+    "mini-cart": [
+      ".g-mini-cart",
+      "[data-g-dropdown]"
+    ],
+    "cart-summary": [
+      ".g-cart-summary"
+    ],
+    "commerce-checkout": [
+      ".g-commerce-checkout"
+    ],
+    "commerce-checkout-steps": [
+      ".g-checkout-steps",
+      ".g-commerce-checkout-steps"
+    ],
+    "address-selector": [
+      ".g-address-selector",
+      "[data-g-saved-choice]"
+    ],
+    "address-card": [
+      ".g-address-card"
+    ],
+    "shipping-method": [
+      ".g-shipping-method",
+      "[data-g-saved-choice]"
+    ],
+    "pickup-selector": [
+      ".g-pickup-selector",
+      "[data-g-saved-choice]"
+    ],
+    "coupon": [
+      ".g-coupon",
+      "[data-g-coupon]"
+    ],
+    "promotion-list": [
+      ".g-promotion-list"
+    ],
+    "invoice-information": [
+      ".g-invoice-information"
+    ],
+    "payment-method": [
+      ".g-payment-method",
+      "[data-g-saved-choice]"
+    ],
+    "payment-sheet": [
+      ".g-payment-sheet"
+    ],
+    "payment-result": [
+      ".g-payment-result"
+    ],
+    "commerce-order-summary": [
+      ".g-commerce-order-summary"
+    ],
+    "commerce-order-timeline": [
+      ".g-commerce-order-timeline"
+    ],
+    "order-detail": [
+      ".g-order-detail"
+    ],
+    "subscription-plan": [
+      ".g-subscription-plan"
+    ],
+    "pricing-comparison": [
+      ".g-pricing-comparison"
+    ],
+    "commerce-usage-meter": [
+      ".g-commerce-usage-meter"
+    ],
+    "billing-history": [
+      ".g-billing-history"
+    ],
+    "refund-status": [
+      ".g-refund-status"
+    ],
+    "tax-summary": [
+      ".g-tax-summary"
+    ],
+    "mobile-safe-shell": [
+      ".g-mobile-safe-shell"
+    ],
+    "mobile-app-bar": [
+      ".g-mobile-app-bar"
+    ],
+    "mobile-bottom-navigation": [
+      ".g-mobile-bottom-navigation"
+    ],
+    "mobile-bottom-sheet": [
+      ".g-mobile-bottom-sheet",
+      "[data-g-mobile-sheet]"
+    ],
+    "mobile-action-sheet": [
+      ".g-mobile-action-sheet",
+      "[data-g-mobile-sheet]"
+    ],
+    "mobile-pull-refresh": [
+      ".g-mobile-pull-refresh",
+      "[data-g-pull-refresh]"
+    ],
+    "mobile-infinite-load": [
+      ".g-mobile-infinite-load",
+      "[data-g-infinite-load]"
+    ],
+    "mobile-swipe-actions": [
+      ".g-mobile-swipe-actions",
+      "[data-g-swipe-actions]"
+    ],
+    "mobile-swipe-tabs": [
+      ".g-mobile-swipe-tabs",
+      "[data-g-tabs]"
+    ],
+    "mobile-category-view": [
+      ".g-mobile-category-view"
+    ],
+    "mobile-filter-sheet": [
+      ".g-mobile-filter-sheet",
+      "[data-g-mobile-sheet]"
+    ],
+    "mobile-purchase-bar": [
+      ".g-mobile-purchase-bar"
+    ],
+    "mobile-search": [
+      ".g-mobile-search",
+      "[data-g-clear-input]"
+    ],
+    "mobile-picker": [
+      ".g-mobile-picker",
+      "[data-g-saved-choice]"
+    ],
+    "mobile-wheel-picker": [
+      ".g-mobile-wheel-picker",
+      "[data-g-wheel-picker]"
+    ],
+    "mobile-fab": [
+      ".g-mobile-fab"
+    ],
+    "mobile-fullscreen-dialog": [
+      ".g-mobile-fullscreen-dialog",
+      "[data-g-dialog]"
+    ],
+    "mobile-keyboard-avoidance": [
+      ".g-mobile-keyboard-avoidance"
+    ],
+    "mobile-gesture-hint": [
+      ".g-mobile-gesture-hint"
+    ],
+    "mobile-offline-banner": [
+      ".g-mobile-offline-banner"
+    ],
+    "mobile-segmented-control": [
+      ".g-mobile-segmented-control",
+      "[data-g-saved-choice]"
+    ],
+    "mobile-feed": [
+      ".g-mobile-feed"
+    ],
+    "mobile-card-carousel": [
+      ".g-mobile-card-carousel",
+      "[data-g-carousel]"
+    ],
+    "mobile-form": [
+      ".g-mobile-form"
+    ],
+    "mobile-auth": [
+      ".g-mobile-auth",
+      "[data-g-password-toggle]"
+    ],
+    "mobile-checkout": [
+      ".g-mobile-checkout"
+    ],
+    "mobile-media-viewer": [
+      ".g-mobile-media-viewer",
+      "[data-g-dialog]"
+    ],
+    "mobile-keyboard-toolbar": [
+      ".g-mobile-keyboard-toolbar"
+    ],
+    "mobile-selection-mode": [
+      ".g-mobile-selection-mode",
+      "[data-g-row-select]"
+    ],
+    "mobile-snackbar": [
+      ".g-mobile-snackbar",
+      "[data-g-toast]"
+    ],
+    "mobile-permission-prompt": [
+      ".g-mobile-permission-prompt"
+    ],
+    "mobile-state": [
+      ".g-mobile-state"
+    ],
+    "desktop-native-titlebar": [
+      ".g-native-titlebar",
+      ".g-desktop-native-titlebar"
+    ],
+    "desktop-window-controls-composition": [
+      ".g-desktop-window-controls",
+      ".g-desktop-window-controls-composition"
+    ],
+    "desktop-menubar-composition": [
+      ".g-desktop-menubar",
+      "[data-g-roving-nav]",
+      ".g-desktop-menubar-composition"
+    ],
+    "desktop-activity-bar-composition": [
+      ".g-desktop-activity-bar",
+      "[data-g-roving-nav]",
+      ".g-desktop-activity-bar-composition"
+    ],
+    "desktop-dock-panel": [
+      ".g-desktop-dock-panel"
+    ],
+    "desktop-split-pane": [
+      ".g-desktop-split-pane",
+      "[data-g-split-pane]"
+    ],
+    "desktop-inspector-panel": [
+      ".g-desktop-inspector-panel"
+    ],
+    "desktop-status-bar": [
+      ".g-desktop-status-bar"
+    ],
+    "desktop-command-palette": [
+      ".g-desktop-command-palette",
+      "[data-g-command-palette]"
+    ],
+    "shortcut-recorder": [
+      ".g-shortcut-recorder",
+      "[data-g-shortcut-recorder]"
+    ],
+    "desktop-context-menu": [
+      ".g-desktop-context-menu",
+      "[data-g-context-menu]"
+    ],
+    "desktop-document-tabs": [
+      ".g-desktop-document-tabs",
+      "[data-g-desktop-tabs]"
+    ],
+    "desktop-drag-region": [
+      ".g-desktop-drag-region"
+    ],
+    "window-loading": [
+      ".g-window-loading"
+    ],
+    "update-available": [
+      ".g-update-available"
+    ],
+    "desktop-permission-request": [
+      ".g-desktop-permission-request"
+    ],
+    "native-file-picker": [
+      ".g-native-file-picker",
+      "[data-g-native-file-picker]"
+    ],
+    "tray-menu-shell": [
+      ".g-tray-menu",
+      "[data-g-dropdown]",
+      ".g-tray-menu-shell"
+    ],
+    "multi-window-placeholder": [
+      ".g-multi-window-placeholder"
+    ],
+    "desktop-workspace-composition": [
+      ".g-desktop-workspace",
+      ".g-desktop-workspace-composition"
+    ],
+    "desktop-window-switcher": [
+      ".g-desktop-window-switcher",
+      "[data-g-window-switcher]"
+    ],
+    "recent-documents": [
+      ".g-recent-documents"
+    ],
+    "desktop-toolbar": [
+      ".g-desktop-toolbar"
+    ],
+    "desktop-bottom-panel": [
+      ".g-desktop-bottom-panel"
+    ],
+    "background-task-center": [
+      ".g-background-task-center"
+    ],
+    "desktop-notification-center": [
+      ".g-desktop-notification-center"
+    ],
+    "sync-status": [
+      ".g-sync-status"
+    ],
+    "update-progress": [
+      ".g-update-progress"
+    ],
+    "crash-recovery": [
+      ".g-crash-recovery"
+    ],
+    "single-instance-notice": [
+      ".g-single-instance-notice"
+    ],
+    "deep-link-handler": [
+      ".g-deep-link-handler"
+    ],
+    "about-dialog": [
+      ".g-about-dialog",
+      "[data-g-dialog]"
+    ],
+    "solution-product-landing": [
+      ".g-product-landing",
+      ".g-solution-product-landing"
+    ],
+    "solution-corporate-home": [
+      ".g-corporate-home",
+      ".g-solution-corporate-home"
+    ],
+    "solution-personal-home": [
+      ".g-personal-home",
+      ".g-solution-personal-home"
+    ],
+    "solution-portfolio-page": [
+      ".g-portfolio-page",
+      ".g-solution-portfolio-page"
+    ],
+    "solution-blog-index": [
+      ".g-blog-index",
+      ".g-solution-blog-index"
+    ],
+    "solution-article-page": [
+      ".g-article-page",
+      ".g-solution-article-page"
+    ],
+    "solution-docs-portal": [
+      ".g-docs-portal",
+      ".g-solution-docs-portal"
+    ],
+    "solution-help-center": [
+      ".g-help-center-page",
+      ".g-solution-help-center"
+    ],
+    "solution-search-results": [
+      ".g-search-results-page",
+      ".g-solution-search-results"
+    ],
+    "solution-contact-page": [
+      ".g-contact-page",
+      ".g-solution-contact-page"
+    ],
+    "solution-pricing-page": [
+      ".g-pricing-page",
+      ".g-solution-pricing-page"
+    ],
+    "solution-dashboard-overview": [
+      ".g-dashboard-overview",
+      ".g-solution-dashboard-overview"
+    ],
+    "solution-admin-list": [
+      ".g-admin-list-page",
+      ".g-solution-admin-list"
+    ],
+    "solution-record-detail": [
+      ".g-record-detail-page",
+      ".g-solution-record-detail"
+    ],
+    "solution-settings-center": [
+      ".g-settings-center",
+      ".g-solution-settings-center"
+    ],
+    "solution-user-center": [
+      ".g-user-center",
+      ".g-solution-user-center"
+    ],
+    "solution-notification-center": [
+      ".g-notification-center-page",
+      ".g-solution-notification-center"
+    ],
+    "solution-onboarding-flow": [
+      ".g-onboarding-flow",
+      ".g-solution-onboarding-flow"
+    ],
+    "solution-crm-workspace": [
+      ".g-crm-workspace",
+      ".g-solution-crm-workspace"
+    ],
+    "solution-project-workspace": [
+      ".g-project-workspace",
+      ".g-solution-project-workspace"
+    ],
+    "solution-support-center": [
+      ".g-support-center",
+      ".g-solution-support-center"
+    ],
+    "solution-approval-center": [
+      ".g-approval-center",
+      ".g-solution-approval-center"
+    ],
+    "solution-knowledge-base": [
+      ".g-knowledge-base",
+      ".g-solution-knowledge-base"
+    ],
+    "solution-learning-portal": [
+      ".g-learning-portal",
+      ".g-solution-learning-portal"
+    ],
+    "solution-event-portal": [
+      ".g-event-portal",
+      ".g-solution-event-portal"
+    ],
+    "solution-booking-portal": [
+      ".g-booking-portal",
+      ".g-solution-booking-portal"
+    ],
+    "solution-healthcare-portal": [
+      ".g-healthcare-portal",
+      ".g-solution-healthcare-portal"
+    ],
+    "solution-finance-portal": [
+      ".g-finance-portal",
+      ".g-solution-finance-portal"
+    ],
+    "solution-public-service-portal": [
+      ".g-public-service-portal",
+      ".g-solution-public-service-portal"
+    ],
+    "solution-marketplace-page": [
+      ".g-marketplace-page",
+      ".g-solution-marketplace-page"
+    ],
+    "solution-community-page": [
+      ".g-community-page",
+      ".g-solution-community-page"
+    ],
+    "solution-status-center": [
+      ".g-status-center-page",
+      ".g-solution-status-center"
+    ]
+  },
+  "componentOwnership": {
+    "button": [
+      "basic",
+      "form-compositions",
+      "content-compositions",
+      "commerce-compositions",
+      "mobile-compositions",
+      "page",
+      "catalog"
+    ],
+    "button-group": [
+      "basic"
+    ],
+    "card": [
+      "basic"
+    ],
+    "badge-tag-chip": [
+      "basic"
+    ],
+    "avatar": [
+      "basic",
+      "ai"
+    ],
+    "alert": [
+      "basic"
+    ],
+    "progress-meter": [
+      "basic"
+    ],
+    "spinner-skeleton": [
+      "basic",
+      "mobile-compositions"
+    ],
+    "empty-state": [
+      "basic"
+    ],
+    "input": [
+      "forms",
+      "form-compositions",
+      "commerce-compositions",
+      "mobile-compositions",
+      "extended",
+      "help"
+    ],
+    "textarea": [
+      "forms",
+      "form-compositions"
+    ],
+    "select": [
+      "forms",
+      "form-compositions"
+    ],
+    "checkbox-radio": [
+      "forms"
+    ],
+    "switch": [
+      "forms"
+    ],
+    "range-color": [
+      "forms"
+    ],
+    "file-drop": [
+      "forms",
+      "content-compositions"
+    ],
+    "combobox": [
+      "forms"
+    ],
+    "form": [
+      "form-compositions"
+    ],
+    "form-section": [
+      "form-compositions"
+    ],
+    "field": [
+      "forms",
+      "form-compositions",
+      "navigation-compositions"
+    ],
+    "fieldset": [
+      "form-compositions"
+    ],
+    "form-row": [
+      "forms",
+      "form-compositions"
+    ],
+    "form-grid": [
+      "form-compositions"
+    ],
+    "horizontal-form": [
+      "form-compositions"
+    ],
+    "inline-form": [
+      "form-compositions"
+    ],
+    "compact-form": [
+      "form-compositions"
+    ],
+    "input-group": [
+      "forms",
+      "form-compositions"
+    ],
+    "input-affix": [
+      "form-compositions"
+    ],
+    "search-field": [
+      "form-compositions"
+    ],
+    "password-field": [
+      "form-compositions"
+    ],
+    "clearable-field": [
+      "form-compositions"
+    ],
+    "character-counter": [
+      "form-compositions"
+    ],
+    "validation-state": [
+      "form-compositions"
+    ],
+    "checkbox-group": [
+      "form-compositions"
+    ],
+    "radio-group": [
+      "form-compositions"
+    ],
+    "switch-row": [
+      "form-compositions"
+    ],
+    "choice-card-group": [
+      "form-compositions"
+    ],
+    "name-group": [
+      "form-compositions"
+    ],
+    "address-group": [
+      "form-compositions"
+    ],
+    "phone-group": [
+      "form-compositions"
+    ],
+    "money-group": [
+      "form-compositions"
+    ],
+    "date-range-group": [
+      "form-compositions"
+    ],
+    "time-range-group": [
+      "form-compositions"
+    ],
+    "unit-field": [
+      "form-compositions"
+    ],
+    "range-field": [
+      "form-compositions"
+    ],
+    "file-field": [
+      "form-compositions"
+    ],
+    "repeatable-field": [
+      "form-compositions"
+    ],
+    "conditional-field": [
+      "form-compositions"
+    ],
+    "form-actions": [
+      "forms",
+      "form-compositions"
+    ],
+    "autosave-status": [
+      "form-compositions"
+    ],
+    "form-progress": [
+      "form-compositions"
+    ],
+    "form-review": [
+      "form-compositions"
+    ],
+    "consent-group": [
+      "form-compositions"
+    ],
+    "navbar": [
+      "navigation"
+    ],
+    "sidebar": [
+      "navigation",
+      "navigation-compositions"
+    ],
+    "breadcrumb": [
+      "navigation",
+      "navigation-compositions"
+    ],
+    "tabs": [
+      "navigation"
+    ],
+    "segmented-control": [
+      "navigation"
+    ],
+    "pagination": [
+      "navigation",
+      "navigation-compositions"
+    ],
+    "menu-dropdown": [
+      "navigation",
+      "navigation-compositions"
+    ],
+    "stepper": [
+      "navigation",
+      "navigation-compositions"
+    ],
+    "command-palette": [
+      "navigation"
+    ],
+    "primary-navigation": [
+      "navigation-compositions"
+    ],
+    "utility-navigation": [
+      "navigation-compositions"
+    ],
+    "sub-navigation": [
+      "navigation-compositions"
+    ],
+    "collapsible-navigation": [
+      "navigation-compositions"
+    ],
+    "navigation-rail": [
+      "navigation-compositions"
+    ],
+    "activity-bar": [
+      "navigation-compositions",
+      "desktop"
+    ],
+    "menu-bar": [
+      "navigation-compositions",
+      "desktop"
+    ],
+    "context-menu": [
+      "navigation-compositions"
+    ],
+    "tree-navigation": [
+      "navigation-compositions"
+    ],
+    "vertical-tabs": [
+      "navigation-compositions"
+    ],
+    "pill-navigation": [
+      "navigation-compositions"
+    ],
+    "scrollspy-navigation": [
+      "navigation-compositions"
+    ],
+    "cursor-pagination": [
+      "navigation-compositions"
+    ],
+    "load-more-navigation": [
+      "navigation-compositions"
+    ],
+    "wizard-navigation": [
+      "navigation-compositions",
+      "catalog"
+    ],
+    "back-navigation": [
+      "navigation-compositions"
+    ],
+    "previous-next-navigation": [
+      "navigation-compositions"
+    ],
+    "skip-navigation": [
+      "navigation-compositions"
+    ],
+    "mobile-top-navigation": [
+      "navigation-compositions"
+    ],
+    "bottom-navigation": [
+      "navigation-compositions"
+    ],
+    "mobile-tab-bar": [
+      "navigation-compositions"
+    ],
+    "drawer-navigation": [
+      "navigation-compositions"
+    ],
+    "command-navigation": [
+      "navigation-compositions"
+    ],
+    "jump-navigation": [
+      "navigation-compositions"
+    ],
+    "quick-navigation": [
+      "navigation-compositions"
+    ],
+    "locale-navigation": [
+      "navigation-compositions"
+    ],
+    "account-navigation": [
+      "navigation-compositions"
+    ],
+    "dialog": [
+      "feedback"
+    ],
+    "drawer": [
+      "feedback"
+    ],
+    "popover": [
+      "feedback"
+    ],
+    "tooltip": [
+      "feedback",
+      "help"
+    ],
+    "toast": [
+      "feedback"
+    ],
+    "accordion": [
+      "feedback"
+    ],
+    "table": [
+      "data",
+      "data-compositions"
+    ],
+    "data-grid": [
+      "data"
+    ],
+    "kpi-stat": [
+      "data"
+    ],
+    "description-list": [
+      "data"
+    ],
+    "list-group": [
+      "data"
+    ],
+    "tree": [
+      "data"
+    ],
+    "timeline": [
+      "data"
+    ],
+    "responsive-table": [
+      "data-compositions"
+    ],
+    "table-sort": [
+      "data"
+    ],
+    "row-selection": [
+      "data-compositions"
+    ],
+    "row-disclosure": [
+      "data-compositions"
+    ],
+    "column-toggle": [
+      "data-compositions",
+      "selection-compositions"
+    ],
+    "data-filter": [
+      "data-compositions"
+    ],
+    "data-view": [
+      "data-compositions"
+    ],
+    "editable-grid": [
+      "data-compositions"
+    ],
+    "tree-table": [
+      "data-compositions"
+    ],
+    "grouped-table": [
+      "data-compositions"
+    ],
+    "expandable-table": [
+      "data-compositions"
+    ],
+    "comparison-table": [
+      "data-compositions"
+    ],
+    "key-value": [
+      "data-compositions"
+    ],
+    "record-detail": [
+      "data-compositions"
+    ],
+    "media-list": [
+      "data-compositions"
+    ],
+    "dense-list": [
+      "data-compositions"
+    ],
+    "audit-log-composition": [
+      "data-compositions"
+    ],
+    "stat-list": [
+      "data"
+    ],
+    "metric-card": [
+      "data-compositions"
+    ],
+    "sparkline": [
+      "data-compositions"
+    ],
+    "progress-stats": [
+      "data-compositions"
+    ],
+    "data-legend": [
+      "data-compositions"
+    ],
+    "ranking": [
+      "data-compositions"
+    ],
+    "status-summary": [
+      "data-compositions"
+    ],
+    "data-matrix": [
+      "data-compositions"
+    ],
+    "heatmap": [
+      "data-compositions"
+    ],
+    "data-toolbar": [
+      "data-compositions"
+    ],
+    "column-chooser": [
+      "data-compositions",
+      "selection-compositions"
+    ],
+    "saved-views": [
+      "data-compositions",
+      "selection-compositions"
+    ],
+    "export-panel": [
+      "data-compositions"
+    ],
+    "data-state": [
+      "data-compositions"
+    ],
+    "data-view-switcher": [
+      "data-compositions"
+    ],
+    "selection-summary": [
+      "data-compositions"
+    ],
+    "table-density": [
+      "data-compositions"
+    ],
+    "filter-summary": [
+      "data-compositions"
+    ],
+    "sort-builder": [
+      "data-compositions",
+      "selection-compositions"
+    ],
+    "data-inspector": [
+      "data-compositions"
+    ],
+    "selection-controls": [
+      "selection-compositions"
+    ],
+    "batch-toolbar": [
+      "selection-compositions"
+    ],
+    "dual-list": [
+      "selection-compositions"
+    ],
+    "tree-select": [
+      "selection-compositions"
+    ],
+    "cascader": [
+      "selection-compositions"
+    ],
+    "mention-picker": [
+      "selection-compositions"
+    ],
+    "user-picker": [
+      "selection-compositions"
+    ],
+    "organization-picker": [
+      "selection-compositions"
+    ],
+    "resource-picker": [
+      "selection-compositions"
+    ],
+    "media-picker": [
+      "selection-compositions"
+    ],
+    "icon-picker": [
+      "selection-compositions"
+    ],
+    "color-picker-composition": [
+      "selection-compositions"
+    ],
+    "date-range-picker-composition": [
+      "selection-compositions"
+    ],
+    "time-range-picker-composition": [
+      "selection-compositions"
+    ],
+    "saved-filters": [
+      "selection-compositions"
+    ],
+    "group-builder": [
+      "selection-compositions"
+    ],
+    "entity-picker": [
+      "selection-compositions"
+    ],
+    "tag-picker": [
+      "selection-compositions"
+    ],
+    "relation-picker": [
+      "selection-compositions"
+    ],
+    "bulk-confirmation": [
+      "selection-compositions"
+    ],
+    "bulk-progress": [
+      "selection-compositions"
+    ],
+    "filter-bar": [
+      "data",
+      "page"
+    ],
+    "code-block": [
+      "data"
+    ],
+    "terminal": [
+      "data"
+    ],
+    "diff-viewer": [
+      "data",
+      "content-compositions"
+    ],
+    "chart-container": [
+      "data",
+      "data-compositions"
+    ],
+    "grid-system": [
+      "grid"
+    ],
+    "region-layout-system": [
+      "regions"
+    ],
+    "classic-layout-primitives": [
+      "primitives"
+    ],
+    "page-header": [
+      "page"
+    ],
+    "section-header": [
+      "page"
+    ],
+    "subheader": [
+      "page"
+    ],
+    "toolbar": [
+      "page"
+    ],
+    "action-bar": [
+      "page"
+    ],
+    "status-bar": [
+      "page"
+    ],
+    "command-bar": [
+      "page"
+    ],
+    "context-bar": [
+      "page"
+    ],
+    "bulk-action-bar": [
+      "page"
+    ],
+    "footer-bar": [
+      "page"
+    ],
+    "floating-action-bar": [
+      "page"
+    ],
+    "divider-with-text": [
+      "basic",
+      "page"
+    ],
+    "sticky-actions": [
+      "page"
+    ],
+    "page-loading": [
+      "page"
+    ],
+    "page-state-system": [
+      "page"
+    ],
+    "tip": [
+      "help"
+    ],
+    "inline-hint": [
+      "help"
+    ],
+    "help-text": [
+      "help"
+    ],
+    "help-trigger": [
+      "help"
+    ],
+    "rich-tooltip": [
+      "help"
+    ],
+    "help-popover": [
+      "help"
+    ],
+    "definition-help": [
+      "help"
+    ],
+    "callout": [
+      "help"
+    ],
+    "note": [
+      "help"
+    ],
+    "guidance-pair": [
+      "help"
+    ],
+    "key-hint": [
+      "help"
+    ],
+    "shortcut-list": [
+      "help"
+    ],
+    "help-card": [
+      "help"
+    ],
+    "help-panel": [
+      "help"
+    ],
+    "help-center": [
+      "help"
+    ],
+    "help-topics": [
+      "help"
+    ],
+    "faq": [
+      "help"
+    ],
+    "contextual-help": [
+      "help"
+    ],
+    "coach-mark": [
+      "help"
+    ],
+    "spotlight": [
+      "extended",
+      "help"
+    ],
+    "hotspot": [
+      "help"
+    ],
+    "feature-hint": [
+      "help"
+    ],
+    "whats-new": [
+      "help"
+    ],
+    "help-checklist": [
+      "help"
+    ],
+    "troubleshooting": [
+      "help"
+    ],
+    "help-feedback": [
+      "help"
+    ],
+    "app-shell": [
+      "layouts"
+    ],
+    "dashboard": [
+      "layouts"
+    ],
+    "mobile-shell": [
+      "layouts"
+    ],
+    "chat": [
+      "ai",
+      "ai-compositions"
+    ],
+    "message": [
+      "ai",
+      "ai-compositions"
+    ],
+    "prompt-composer": [
+      "ai",
+      "ai-compositions"
+    ],
+    "attachment": [
+      "ai",
+      "ai-compositions"
+    ],
+    "thinking": [
+      "ai",
+      "ai-compositions"
+    ],
+    "tool-call": [
+      "ai",
+      "ai-compositions"
+    ],
+    "tool-approval": [
+      "ai",
+      "ai-compositions"
+    ],
+    "agent-status": [
+      "ai",
+      "ai-compositions"
+    ],
+    "agent-plan": [
+      "ai",
+      "ai-compositions"
+    ],
+    "sources-citations": [
+      "ai",
+      "ai-compositions"
+    ],
+    "artifact-panel": [
+      "ai",
+      "ai-compositions"
+    ],
+    "model-selector": [
+      "ai",
+      "ai-compositions"
+    ],
+    "context-meter": [
+      "ai"
+    ],
+    "voice-state": [
+      "ai",
+      "ai-compositions"
+    ],
+    "generation-placeholder": [
+      "ai",
+      "ai-compositions"
+    ],
+    "ai-workspace": [
+      "ai",
+      "ai-compositions"
+    ],
+    "prompt-starter": [
+      "ai-compositions"
+    ],
+    "ai-command-menu": [
+      "ai-compositions"
+    ],
+    "streaming-response": [
+      "ai-compositions"
+    ],
+    "multi-agent-board": [
+      "ai-compositions"
+    ],
+    "agent-handoff": [
+      "ai",
+      "ai-compositions"
+    ],
+    "artifact-workspace": [
+      "ai",
+      "ai-compositions"
+    ],
+    "generation-gallery": [
+      "ai-extended",
+      "ai-compositions"
+    ],
+    "ai-context-manager": [
+      "ai-compositions"
+    ],
+    "ai-usage-panel": [
+      "ai-compositions"
+    ],
+    "ai-safety-notice": [
+      "ai-compositions"
+    ],
+    "ai-feedback": [
+      "ai-compositions"
+    ],
+    "date-picker": [
+      "extended"
+    ],
+    "time-picker": [
+      "extended"
+    ],
+    "pin-input": [
+      "extended"
+    ],
+    "rating": [
+      "extended"
+    ],
+    "transfer-list": [
+      "selection-compositions",
+      "extended"
+    ],
+    "validation-summary": [
+      "form-compositions",
+      "extended"
+    ],
+    "mega-menu": [
+      "navigation-compositions",
+      "extended"
+    ],
+    "anchor-navigation": [
+      "navigation-compositions",
+      "extended"
+    ],
+    "tour-spotlight": [
+      "extended",
+      "help"
+    ],
+    "virtual-list": [
+      "data-compositions",
+      "extended"
+    ],
+    "kanban": [
+      "extended"
+    ],
+    "gantt-shell": [
+      "extended"
+    ],
+    "query-builder": [
+      "extended"
+    ],
+    "carousel": [
+      "extended"
+    ],
+    "gallery-lightbox": [
+      "extended"
+    ],
+    "media-player": [
+      "extended"
+    ],
+    "document-viewer": [
+      "content-compositions",
+      "extended"
+    ],
+    "split-pane": [
+      "regions",
+      "extended"
+    ],
+    "drag-sort": [
+      "extended"
+    ],
+    "infinite-scroll": [
+      "extended"
+    ],
+    "pull-refresh": [
+      "extended"
+    ],
+    "product-card": [
+      "extended"
+    ],
+    "cart-item": [
+      "extended"
+    ],
+    "price-quantity": [
+      "extended"
+    ],
+    "conversation-list": [
+      "ai-extended",
+      "ai-compositions"
+    ],
+    "prompt-library": [
+      "ai-extended",
+      "ai-compositions"
+    ],
+    "mention-slash-command": [
+      "ai-extended"
+    ],
+    "generation-card": [
+      "ai-extended",
+      "ai-compositions"
+    ],
+    "file-tree": [
+      "ai-extended",
+      "ai-compositions"
+    ],
+    "version-history": [
+      "content-compositions",
+      "ai-extended",
+      "ai-compositions"
+    ],
+    "permission-scope": [
+      "ai-extended",
+      "ai-compositions"
+    ],
+    "cost-rate-limit": [
+      "ai-extended"
+    ],
+    "privacy-notice": [
+      "ai-extended",
+      "ai-compositions"
+    ],
+    "authentication-shell": [
+      "recipes"
+    ],
+    "mobile-category": [
+      "recipes"
+    ],
+    "cms-shell": [
+      "recipes"
+    ],
+    "visual-builder": [
+      "recipes"
+    ],
+    "rich-editor": [
+      "recipes"
+    ],
+    "media-library": [
+      "content-compositions",
+      "recipes"
+    ],
+    "content-workflow": [
+      "recipes"
+    ],
+    "localization-grid": [
+      "recipes"
+    ],
+    "site-header": [
+      "recipes"
+    ],
+    "hero": [
+      "recipes"
+    ],
+    "pricing": [
+      "recipes"
+    ],
+    "article-layout": [
+      "recipes"
+    ],
+    "product-detail": [
+      "recipes"
+    ],
+    "checkout": [
+      "recipes"
+    ],
+    "enterprise-settings": [
+      "recipes"
+    ],
+    "permission-matrix": [
+      "recipes"
+    ],
+    "audit-log": [
+      "data-compositions",
+      "recipes"
+    ],
+    "desktop-shell": [
+      "desktop"
+    ],
+    "desktop-titlebar": [
+      "desktop"
+    ],
+    "desktop-workbench": [
+      "desktop"
+    ],
+    "onboarding": [
+      "catalog"
+    ],
+    "wizard-layout": [
+      "catalog"
+    ],
+    "notification-center": [
+      "catalog"
+    ],
+    "inbox": [
+      "catalog"
+    ],
+    "search-results": [
+      "catalog"
+    ],
+    "calendar": [
+      "catalog"
+    ],
+    "agenda": [
+      "catalog"
+    ],
+    "file-manager": [
+      "catalog"
+    ],
+    "upload-queue": [
+      "content-compositions",
+      "catalog"
+    ],
+    "form-builder": [
+      "catalog"
+    ],
+    "filter-builder": [
+      "catalog"
+    ],
+    "pivot-table": [
+      "data-compositions",
+      "catalog"
+    ],
+    "organization-chart": [
+      "catalog"
+    ],
+    "map-shell": [
+      "catalog"
+    ],
+    "comment-thread": [
+      "content-compositions",
+      "catalog"
+    ],
+    "activity-feed": [
+      "catalog"
+    ],
+    "report-invoice": [
+      "catalog"
+    ],
+    "cookie-consent": [
+      "catalog"
+    ],
+    "copy-action": [
+      "extended"
+    ],
+    "fullscreen-action": [
+      "extended"
+    ],
+    "back-to-top": [
+      "extended",
+      "page"
+    ],
+    "image-crop-shell": [
+      "content-compositions",
+      "extended"
+    ],
+    "content-file-drop": [
+      "forms",
+      "content-compositions"
+    ],
+    "content-file-list": [
+      "content-compositions"
+    ],
+    "content-upload-queue": [
+      "content-compositions",
+      "catalog"
+    ],
+    "chunk-upload": [
+      "content-compositions"
+    ],
+    "upload-progress-composition": [
+      "content-compositions"
+    ],
+    "failed-upload": [
+      "content-compositions"
+    ],
+    "file-card-composition": [
+      "content-compositions",
+      "catalog"
+    ],
+    "folder-tree-composition": [
+      "content-compositions"
+    ],
+    "file-browser-composition": [
+      "content-compositions"
+    ],
+    "file-preview-composition": [
+      "content-compositions"
+    ],
+    "media-library-composition": [
+      "content-compositions",
+      "recipes"
+    ],
+    "media-grid-composition": [
+      "content-compositions",
+      "recipes"
+    ],
+    "media-details-composition": [
+      "content-compositions"
+    ],
+    "image-crop-composition": [
+      "content-compositions",
+      "extended"
+    ],
+    "image-annotation-composition": [
+      "content-compositions"
+    ],
+    "document-viewer-composition": [
+      "content-compositions",
+      "extended"
+    ],
+    "pdf-viewer": [
+      "content-compositions"
+    ],
+    "video-player-shell": [
+      "content-compositions"
+    ],
+    "audio-player-shell": [
+      "content-compositions"
+    ],
+    "code-editor-shell": [
+      "content-compositions"
+    ],
+    "rich-text-editor-composition": [
+      "content-compositions"
+    ],
+    "markdown-editor": [
+      "content-compositions"
+    ],
+    "block-editor": [
+      "content-compositions"
+    ],
+    "revision-compare-composition": [
+      "content-compositions"
+    ],
+    "content-autosave-indicator": [
+      "content-compositions"
+    ],
+    "content-outline": [
+      "content-compositions"
+    ],
+    "editor-toolbar-composition": [
+      "content-compositions",
+      "recipes"
+    ],
+    "find-replace": [
+      "content-compositions"
+    ],
+    "comment-thread-composition": [
+      "content-compositions",
+      "catalog"
+    ],
+    "version-history-composition": [
+      "content-compositions"
+    ],
+    "file-properties": [
+      "content-compositions"
+    ],
+    "storage-meter": [
+      "content-compositions"
+    ],
+    "auth-centered": [
+      "auth-compositions"
+    ],
+    "auth-split": [
+      "auth-compositions"
+    ],
+    "sign-in-composition": [
+      "auth-compositions"
+    ],
+    "registration-composition": [
+      "auth-compositions"
+    ],
+    "password-recovery": [
+      "auth-compositions"
+    ],
+    "password-reset": [
+      "auth-compositions"
+    ],
+    "email-verification": [
+      "auth-compositions"
+    ],
+    "phone-verification": [
+      "auth-compositions"
+    ],
+    "mfa-challenge": [
+      "auth-compositions"
+    ],
+    "otp-input": [
+      "auth-compositions"
+    ],
+    "passkey-composition": [
+      "auth-compositions"
+    ],
+    "sso-composition": [
+      "auth-compositions"
+    ],
+    "qr-login": [
+      "auth-compositions"
+    ],
+    "magic-link": [
+      "auth-compositions"
+    ],
+    "invitation-composition": [
+      "auth-compositions"
+    ],
+    "first-time-setup": [
+      "auth-compositions"
+    ],
+    "lock-screen": [
+      "auth-compositions"
+    ],
+    "session-expired": [
+      "auth-compositions"
+    ],
+    "account-chooser": [
+      "auth-compositions"
+    ],
+    "tenant-chooser": [
+      "auth-compositions"
+    ],
+    "identity-switcher": [
+      "auth-compositions"
+    ],
+    "profile-setup": [
+      "auth-compositions"
+    ],
+    "account-security": [
+      "auth-compositions"
+    ],
+    "device-management": [
+      "auth-compositions"
+    ],
+    "login-activity": [
+      "auth-compositions"
+    ],
+    "security-alert": [
+      "auth-compositions"
+    ],
+    "recovery-codes": [
+      "auth-compositions"
+    ],
+    "trusted-device": [
+      "auth-compositions"
+    ],
+    "connected-accounts": [
+      "auth-compositions"
+    ],
+    "password-strength": [
+      "auth-compositions"
+    ],
+    "auth-consent": [
+      "auth-compositions"
+    ],
+    "auth-result": [
+      "auth-compositions"
+    ],
+    "commerce-product-card": [
+      "commerce-compositions"
+    ],
+    "commerce-product-list": [
+      "commerce-compositions"
+    ],
+    "commerce-product-detail": [
+      "commerce-compositions"
+    ],
+    "commerce-product-gallery": [
+      "commerce-compositions"
+    ],
+    "sku-selector": [
+      "commerce-compositions"
+    ],
+    "commerce-quantity-stepper": [
+      "commerce-compositions"
+    ],
+    "price-display": [
+      "commerce-compositions"
+    ],
+    "commerce-cart-item": [
+      "commerce-compositions"
+    ],
+    "commerce-cart": [
+      "commerce-compositions"
+    ],
+    "mini-cart": [
+      "commerce-compositions"
+    ],
+    "cart-summary": [
+      "commerce-compositions"
+    ],
+    "commerce-checkout": [
+      "commerce-compositions"
+    ],
+    "commerce-checkout-steps": [
+      "commerce-compositions"
+    ],
+    "address-selector": [
+      "commerce-compositions"
+    ],
+    "address-card": [
+      "commerce-compositions"
+    ],
+    "shipping-method": [
+      "commerce-compositions"
+    ],
+    "pickup-selector": [
+      "commerce-compositions"
+    ],
+    "coupon": [
+      "commerce-compositions"
+    ],
+    "promotion-list": [
+      "commerce-compositions"
+    ],
+    "invoice-information": [
+      "commerce-compositions"
+    ],
+    "payment-method": [
+      "commerce-compositions"
+    ],
+    "payment-sheet": [
+      "commerce-compositions"
+    ],
+    "payment-result": [
+      "commerce-compositions"
+    ],
+    "commerce-order-summary": [
+      "commerce-compositions"
+    ],
+    "commerce-order-timeline": [
+      "commerce-compositions"
+    ],
+    "order-detail": [
+      "commerce-compositions"
+    ],
+    "subscription-plan": [
+      "commerce-compositions"
+    ],
+    "pricing-comparison": [
+      "commerce-compositions"
+    ],
+    "commerce-usage-meter": [
+      "commerce-compositions"
+    ],
+    "billing-history": [
+      "commerce-compositions"
+    ],
+    "refund-status": [
+      "commerce-compositions"
+    ],
+    "tax-summary": [
+      "commerce-compositions"
+    ],
+    "mobile-safe-shell": [
+      "mobile-compositions"
+    ],
+    "mobile-app-bar": [
+      "mobile-compositions"
+    ],
+    "mobile-bottom-navigation": [
+      "mobile-compositions"
+    ],
+    "mobile-bottom-sheet": [
+      "mobile-compositions"
+    ],
+    "mobile-action-sheet": [
+      "mobile-compositions"
+    ],
+    "mobile-pull-refresh": [
+      "mobile-compositions"
+    ],
+    "mobile-infinite-load": [
+      "mobile-compositions"
+    ],
+    "mobile-swipe-actions": [
+      "mobile-compositions"
+    ],
+    "mobile-swipe-tabs": [
+      "mobile-compositions"
+    ],
+    "mobile-category-view": [
+      "mobile-compositions"
+    ],
+    "mobile-filter-sheet": [
+      "mobile-compositions"
+    ],
+    "mobile-purchase-bar": [
+      "mobile-compositions"
+    ],
+    "mobile-search": [
+      "mobile-compositions"
+    ],
+    "mobile-picker": [
+      "mobile-compositions"
+    ],
+    "mobile-wheel-picker": [
+      "mobile-compositions"
+    ],
+    "mobile-fab": [
+      "mobile-compositions"
+    ],
+    "mobile-fullscreen-dialog": [
+      "mobile-compositions"
+    ],
+    "mobile-keyboard-avoidance": [
+      "mobile-compositions"
+    ],
+    "mobile-gesture-hint": [
+      "mobile-compositions"
+    ],
+    "mobile-offline-banner": [
+      "mobile-compositions"
+    ],
+    "mobile-segmented-control": [
+      "mobile-compositions"
+    ],
+    "mobile-feed": [
+      "mobile-compositions"
+    ],
+    "mobile-card-carousel": [
+      "mobile-compositions"
+    ],
+    "mobile-form": [
+      "mobile-compositions"
+    ],
+    "mobile-auth": [
+      "mobile-compositions"
+    ],
+    "mobile-checkout": [
+      "mobile-compositions"
+    ],
+    "mobile-media-viewer": [
+      "mobile-compositions"
+    ],
+    "mobile-keyboard-toolbar": [
+      "mobile-compositions"
+    ],
+    "mobile-selection-mode": [
+      "mobile-compositions"
+    ],
+    "mobile-snackbar": [
+      "mobile-compositions"
+    ],
+    "mobile-permission-prompt": [
+      "mobile-compositions"
+    ],
+    "mobile-state": [
+      "mobile-compositions"
+    ],
+    "desktop-native-titlebar": [
+      "desktop-compositions"
+    ],
+    "desktop-window-controls-composition": [
+      "desktop-compositions"
+    ],
+    "desktop-menubar-composition": [
+      "desktop-compositions"
+    ],
+    "desktop-activity-bar-composition": [
+      "desktop-compositions"
+    ],
+    "desktop-dock-panel": [
+      "desktop-compositions"
+    ],
+    "desktop-split-pane": [
+      "desktop-compositions"
+    ],
+    "desktop-inspector-panel": [
+      "desktop-compositions"
+    ],
+    "desktop-status-bar": [
+      "desktop-compositions"
+    ],
+    "desktop-command-palette": [
+      "desktop-compositions"
+    ],
+    "shortcut-recorder": [
+      "desktop-compositions"
+    ],
+    "desktop-context-menu": [
+      "desktop-compositions"
+    ],
+    "desktop-document-tabs": [
+      "desktop-compositions"
+    ],
+    "desktop-drag-region": [
+      "desktop-compositions"
+    ],
+    "window-loading": [
+      "desktop-compositions"
+    ],
+    "update-available": [
+      "desktop-compositions"
+    ],
+    "desktop-permission-request": [
+      "desktop-compositions"
+    ],
+    "native-file-picker": [
+      "desktop-compositions"
+    ],
+    "tray-menu-shell": [
+      "desktop-compositions"
+    ],
+    "multi-window-placeholder": [
+      "desktop-compositions"
+    ],
+    "desktop-workspace-composition": [
+      "desktop-compositions"
+    ],
+    "desktop-window-switcher": [
+      "desktop-compositions"
+    ],
+    "recent-documents": [
+      "desktop-compositions"
+    ],
+    "desktop-toolbar": [
+      "desktop-compositions"
+    ],
+    "desktop-bottom-panel": [
+      "desktop-compositions"
+    ],
+    "background-task-center": [
+      "desktop-compositions"
+    ],
+    "desktop-notification-center": [
+      "desktop-compositions"
+    ],
+    "sync-status": [
+      "desktop-compositions"
+    ],
+    "update-progress": [
+      "desktop-compositions"
+    ],
+    "crash-recovery": [
+      "desktop-compositions"
+    ],
+    "single-instance-notice": [
+      "desktop-compositions"
+    ],
+    "deep-link-handler": [
+      "desktop-compositions"
+    ],
+    "about-dialog": [
+      "desktop-compositions"
+    ],
+    "solution-product-landing": [
+      "solution-compositions"
+    ],
+    "solution-corporate-home": [
+      "solution-compositions"
+    ],
+    "solution-personal-home": [
+      "solution-compositions"
+    ],
+    "solution-portfolio-page": [
+      "solution-compositions"
+    ],
+    "solution-blog-index": [
+      "solution-compositions"
+    ],
+    "solution-article-page": [
+      "solution-compositions"
+    ],
+    "solution-docs-portal": [
+      "solution-compositions"
+    ],
+    "solution-help-center": [
+      "solution-compositions"
+    ],
+    "solution-search-results": [
+      "solution-compositions"
+    ],
+    "solution-contact-page": [
+      "solution-compositions"
+    ],
+    "solution-pricing-page": [
+      "solution-compositions"
+    ],
+    "solution-dashboard-overview": [
+      "solution-compositions"
+    ],
+    "solution-admin-list": [
+      "solution-compositions"
+    ],
+    "solution-record-detail": [
+      "solution-compositions"
+    ],
+    "solution-settings-center": [
+      "solution-compositions"
+    ],
+    "solution-user-center": [
+      "solution-compositions"
+    ],
+    "solution-notification-center": [
+      "solution-compositions"
+    ],
+    "solution-onboarding-flow": [
+      "solution-compositions"
+    ],
+    "solution-crm-workspace": [
+      "solution-compositions"
+    ],
+    "solution-project-workspace": [
+      "solution-compositions"
+    ],
+    "solution-support-center": [
+      "solution-compositions"
+    ],
+    "solution-approval-center": [
+      "solution-compositions"
+    ],
+    "solution-knowledge-base": [
+      "solution-compositions"
+    ],
+    "solution-learning-portal": [
+      "solution-compositions"
+    ],
+    "solution-event-portal": [
+      "solution-compositions"
+    ],
+    "solution-booking-portal": [
+      "solution-compositions"
+    ],
+    "solution-healthcare-portal": [
+      "solution-compositions"
+    ],
+    "solution-finance-portal": [
+      "solution-compositions"
+    ],
+    "solution-public-service-portal": [
+      "solution-compositions"
+    ],
+    "solution-marketplace-page": [
+      "solution-compositions"
+    ],
+    "solution-community-page": [
+      "solution-compositions"
+    ],
+    "solution-status-center": [
+      "solution-compositions"
+    ]
+  },
+  "artifacts": {
+    "gardener.min.css": {
+      "raw": 1006444,
+      "gzip": 139269,
+      "brotli": 60547
+    },
+    "gardener.core.min.css": {
+      "raw": 60165,
+      "gzip": 7714,
+      "brotli": 5280
+    },
+    "gardener.themes.min.css": {
+      "raw": 56305,
+      "gzip": 6274,
+      "brotli": 4057
+    },
+    "gardener.utilities.min.css": {
+      "raw": 533961,
+      "gzip": 76723,
+      "brotli": 15027
+    },
+    "gardener.components.min.css": {
+      "raw": 387339,
+      "gzip": 52400,
+      "brotli": 38337
+    },
+    "gardener.ai.min.css": {
+      "raw": 25611,
+      "gzip": 4361,
+      "brotli": 3838
+    },
+    "gardener.runtime.min.js": {
+      "raw": 97485,
+      "gzip": 25989,
+      "brotli": 22604
+    },
+    "gardener.tauri.min.js": {
+      "raw": 905,
+      "gzip": 514,
+      "brotli": 436
+    },
+    "gardener.electron.min.js": {
+      "raw": 633,
+      "gzip": 421,
+      "brotli": 344
+    },
+    "platforms/gardener.web.min.css": {
+      "raw": 963624,
+      "gzip": 133333,
+      "brotli": 55851
+    },
+    "platforms/gardener.mobile.min.css": {
+      "raw": 983609,
+      "gzip": 136196,
+      "brotli": 57778
+    },
+    "platforms/gardener.desktop.min.css": {
+      "raw": 986414,
+      "gzip": 136515,
+      "brotli": 59077
+    },
+    "platforms/gardener.tauri.min.css": {
+      "raw": 82,
+      "gzip": 87,
+      "brotli": 82
+    },
+    "platforms/gardener.electron.min.css": {
+      "raw": 82,
+      "gzip": 87,
+      "brotli": 82
+    },
+    "components/layouts.min.css": {
+      "raw": 3189,
+      "gzip": 976,
+      "brotli": 825
+    },
+    "components/regions.min.css": {
+      "raw": 9458,
+      "gzip": 1890,
+      "brotli": 1646
+    },
+    "components/primitives.min.css": {
+      "raw": 9303,
+      "gzip": 2251,
+      "brotli": 2012
+    },
+    "components/grid.min.css": {
+      "raw": 72420,
+      "gzip": 6891,
+      "brotli": 2442
+    },
+    "components/basic.min.css": {
+      "raw": 8583,
+      "gzip": 2058,
+      "brotli": 1779
+    },
+    "components/forms.min.css": {
+      "raw": 5385,
+      "gzip": 1484,
+      "brotli": 1280
+    },
+    "components/form-compositions.min.css": {
+      "raw": 13989,
+      "gzip": 2891,
+      "brotli": 2530
+    },
+    "components/navigation.min.css": {
+      "raw": 7292,
+      "gzip": 1564,
+      "brotli": 1328
+    },
+    "components/navigation-compositions.min.css": {
+      "raw": 17055,
+      "gzip": 3125,
+      "brotli": 2755
+    },
+    "components/feedback.min.css": {
+      "raw": 5529,
+      "gzip": 1460,
+      "brotli": 1261
+    },
+    "components/data.min.css": {
+      "raw": 7991,
+      "gzip": 1808,
+      "brotli": 1560
+    },
+    "components/data-compositions.min.css": {
+      "raw": 21010,
+      "gzip": 3786,
+      "brotli": 3342
+    },
+    "components/selection-compositions.min.css": {
+      "raw": 15589,
+      "gzip": 2719,
+      "brotli": 2387
+    },
+    "components/content-compositions.min.css": {
+      "raw": 24333,
+      "gzip": 4146,
+      "brotli": 3670
+    },
+    "components/auth-compositions.min.css": {
+      "raw": 15655,
+      "gzip": 3111,
+      "brotli": 2698
+    },
+    "components/commerce-compositions.min.css": {
+      "raw": 18641,
+      "gzip": 3547,
+      "brotli": 3084
+    },
+    "components/mobile-compositions.min.css": {
+      "raw": 20141,
+      "gzip": 3699,
+      "brotli": 3297
+    },
+    "components/extended.min.css": {
+      "raw": 11728,
+      "gzip": 2774,
+      "brotli": 2412
+    },
+    "components/page.min.css": {
+      "raw": 15141,
+      "gzip": 2807,
+      "brotli": 2465
+    },
+    "components/help.min.css": {
+      "raw": 16793,
+      "gzip": 3128,
+      "brotli": 2750
+    },
+    "components/recipes.min.css": {
+      "raw": 16891,
+      "gzip": 3423,
+      "brotli": 3025
+    },
+    "components/desktop.min.css": {
+      "raw": 5694,
+      "gzip": 1479,
+      "brotli": 1262
+    },
+    "components/desktop-compositions.min.css": {
+      "raw": 17408,
+      "gzip": 3215,
+      "brotli": 2824
+    },
+    "components/solution-compositions.min.css": {
+      "raw": 21740,
+      "gzip": 3584,
+      "brotli": 3045
+    },
+    "components/catalog.min.css": {
+      "raw": 10069,
+      "gzip": 2067,
+      "brotli": 1784
+    },
+    "components/ai.min.css": {
+      "raw": 11032,
+      "gzip": 2369,
+      "brotli": 2055
+    },
+    "components/ai-extended.min.css": {
+      "raw": 3019,
+      "gzip": 954,
+      "brotli": 779
+    },
+    "components/ai-compositions.min.css": {
+      "raw": 11824,
+      "gzip": 2332,
+      "brotli": 1994
+    }
+  },
+  "artifactIntegrity": {
+    "gardener.min.css": {
+      "algorithm": "sha256",
+      "sha256": "746ba34bdb2615dbbc4787e5104e3e8fa90a9a4fd8a6d962322829c5575212b5",
+      "sri": "sha256-dGujS9smFdu8R4flEE4+j6kKmk/YptliMigpxVdSErU="
+    },
+    "gardener.core.min.css": {
+      "algorithm": "sha256",
+      "sha256": "0ef2d3e2ee5afa2af4d1143fb5bb9c56ea7793069b2fed8eca58b7a5b449af05",
+      "sri": "sha256-DvLT4u5a+ir00RQ/tbucVup3kwabL+2Oyli3pbRJrwU="
+    },
+    "gardener.themes.min.css": {
+      "algorithm": "sha256",
+      "sha256": "5362928100dc9429f6fdb4fd8b01181b7aa4a8bd978c89c9e40d38b76ca5e7c1",
+      "sri": "sha256-U2KSgQDclCn2/bT9iwEYG3qkqL2XjInJ5A04t2yl58E="
+    },
+    "gardener.utilities.min.css": {
+      "algorithm": "sha256",
+      "sha256": "172a00ebf3bfee50d68cca17f6050c1f0dfc61262b31c638db41484bf67e9740",
+      "sri": "sha256-FyoA6/O/7lDWjMoX9gUMHw38YSYrMcY420FIS/Z+l0A="
+    },
+    "gardener.components.min.css": {
+      "algorithm": "sha256",
+      "sha256": "5b46d6bd614a0631d6a637bb73700e75d80029be67d18348c70a53f9ffdc3c4d",
+      "sri": "sha256-W0bWvWFKBjHWpje7c3AOddgAKb5n0YNIxwpT+f/cPE0="
+    },
+    "gardener.ai.min.css": {
+      "algorithm": "sha256",
+      "sha256": "f6ba1f49fec1d3289df8f770811b2787df0d79cbc4c37fd4534070ccc5aa48b3",
+      "sri": "sha256-9rofSf7B0yid+PdwgRsnh98NecvEw3/UU0BwzMWqSLM="
+    },
+    "gardener.runtime.min.js": {
+      "algorithm": "sha256",
+      "sha256": "a4c4a4b474a1e02e7945c1ea4cd7c65b6f5ac63220c61c8a0277bc792fa0bbee",
+      "sri": "sha256-pMSktHSh4C55RcHqTNfGW29axjIgxhyKAne8eS+gu+4="
+    },
+    "gardener.tauri.min.js": {
+      "algorithm": "sha256",
+      "sha256": "d8ce2b2afae442fd2d3f22a2021a5d1d8b674a2d7f28db17620151339bc8f60a",
+      "sri": "sha256-2M4rKvrkQv0tPyKiAhpdHYtnSi1/KNsXYgFRM5vI9go="
+    },
+    "gardener.electron.min.js": {
+      "algorithm": "sha256",
+      "sha256": "e1326860aff158f0fe21738bbbf618190c9b1490469ec7d637f0e56b98c217d8",
+      "sri": "sha256-4TJoYK/xWPD+IXOLu/YYGQybFJBGnsfWN/Dla5jCF9g="
+    },
+    "platforms/gardener.web.min.css": {
+      "algorithm": "sha256",
+      "sha256": "ccc213157bd4f03d2e968f5572d266fa968c5db43a55ba13924be1c34de62827",
+      "sri": "sha256-zMITFXvU8D0ulo9VctJm+paMXbQ6VboTkkvhw03mKCc="
+    },
+    "platforms/gardener.mobile.min.css": {
+      "algorithm": "sha256",
+      "sha256": "fef5b9cfb4615a4bbe7363341fc7a3a810c65da52efc09bf927b37716d7f90e6",
+      "sri": "sha256-/vW5z7RhWku+c2M0H8ejqBDGXaUu/Am/kns3cW1/kOY="
+    },
+    "platforms/gardener.desktop.min.css": {
+      "algorithm": "sha256",
+      "sha256": "6c6ab1917e6a38bfdbae73f2d7ed77c9a9a731054e966f266064eff7de897852",
+      "sri": "sha256-bGqxkX5qOL/brnPy1+13yamnMQVOlm8mYGTv996JeFI="
+    },
+    "platforms/gardener.tauri.min.css": {
+      "algorithm": "sha256",
+      "sha256": "ded250262f1fc07bd56a46d40d74431cb42de41fab12fead0bb576c96c6c1636",
+      "sri": "sha256-3tJQJi8fwHvVakbUDXRDHLQt5B+rEv6tC7V2yWxsFjY="
+    },
+    "platforms/gardener.electron.min.css": {
+      "algorithm": "sha256",
+      "sha256": "ded250262f1fc07bd56a46d40d74431cb42de41fab12fead0bb576c96c6c1636",
+      "sri": "sha256-3tJQJi8fwHvVakbUDXRDHLQt5B+rEv6tC7V2yWxsFjY="
+    },
+    "components/layouts.min.css": {
+      "algorithm": "sha256",
+      "sha256": "5c36fa31f939743667e8779d1cd27c8ca050fd2969108b514ccfd2350ea5a252",
+      "sri": "sha256-XDb6Mfk5dDZn6HedHNJ8jKBQ/SlpEItRTM/SNQ6lolI="
+    },
+    "components/regions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "e5eebc756aff9952063c092b3a7d50735064102492d72a30665d90986189820e",
+      "sri": "sha256-5e68dWr/mVIGPAkrOn1Qc1BkECSS1yowZl2QmGGJgg4="
+    },
+    "components/primitives.min.css": {
+      "algorithm": "sha256",
+      "sha256": "d2a07d84cceebbc02826e3f63018d7e89a3fd33bb7fb4c96f3870e77c3601d1a",
+      "sri": "sha256-0qB9hMzuu8AoJuP2MBjX6Jo/0zu3+0yW84cOd8NgHRo="
+    },
+    "components/grid.min.css": {
+      "algorithm": "sha256",
+      "sha256": "af0bc3d399da2547a3053038fd3a18929a7092ec0d297c7d1e688673b40a7187",
+      "sri": "sha256-rwvD05naJUejBTA4/ToYkppwkuwNKXx9HmiGc7QKcYc="
+    },
+    "components/basic.min.css": {
+      "algorithm": "sha256",
+      "sha256": "fe94797bcc707f5bd061aaaff558977557247fdcb0347642e7b819d93278473e",
+      "sri": "sha256-/pR5e8xwf1vQYaqv9ViXdVckf9ywNHZC57gZ2TJ4Rz4="
+    },
+    "components/forms.min.css": {
+      "algorithm": "sha256",
+      "sha256": "606981cd6b4f1d2e974ab03fb269286239029588e6c8f4e92fcf516c9fda4cd2",
+      "sri": "sha256-YGmBzWtPHS6XSrA/smkoYjkClYjmyPTpL89RbJ/aTNI="
+    },
+    "components/form-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "79c13e818606949ffbbd193c6ccd020a30815da4d22c97966ead784d04a93277",
+      "sri": "sha256-ecE+gYYGlJ/7vRk8bM0CCjCBXaTSLJeWbq14TQSpMnc="
+    },
+    "components/navigation.min.css": {
+      "algorithm": "sha256",
+      "sha256": "c6be4f2ac40b589fe0dc6b99178daffd91ef95081d4281299ae98dcf325d189b",
+      "sri": "sha256-xr5PKsQLWJ/g3GuZF42v/ZHvlQgdQoEpmumNzzJdGJs="
+    },
+    "components/navigation-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "4806ce857845680b7a3b1b7274e5354cd3ab9e1b35413057f9323a268baa2371",
+      "sri": "sha256-SAbOhXhFaAt6OxtydOU1TNOrnhs1QTBX+TI6JouqI3E="
+    },
+    "components/feedback.min.css": {
+      "algorithm": "sha256",
+      "sha256": "ba12664e0670a9c103b5651a6560e2c50ed31458e04daf368a96aa507f759b9c",
+      "sri": "sha256-uhJmTgZwqcEDtWUaZWDixQ7TFFjgTa82ipaqUH91m5w="
+    },
+    "components/data.min.css": {
+      "algorithm": "sha256",
+      "sha256": "37c9f6e4ede7ab82e6a5cde631f0d915982d4297608620c5ee7cf0d3687d6089",
+      "sri": "sha256-N8n25O3nq4Lmpc3mMfDZFZgtQpdghiDF7nzw02h9YIk="
+    },
+    "components/data-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "468b6c5cc286dc46f7b443e6450cdff72317cbdd2cfff682bbedbf1379e5afbb",
+      "sri": "sha256-RotsXMKG3Eb3tEPmRQzf9yMXy90s//aCu+2/E3nlr7s="
+    },
+    "components/selection-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "b1d57f9ec05ce2297d4fb206035c363255dd2c2862e819e303cad68571f20d01",
+      "sri": "sha256-sdV/nsBc4il9T7IGA1w2MlXdLChi6BnjA8rWhXHyDQE="
+    },
+    "components/content-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "775e346b74ac4691752f545b2a64b8cf67bfa457fe8934aa2451db37d53f2921",
+      "sri": "sha256-d140a3SsRpF1L1RbKmS4z2e/pFf+iTSqJFHbN9U/KSE="
+    },
+    "components/auth-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "56ddd8553971e28a88ee0e761a0da54d45630500b3de2d8622368944c245c447",
+      "sri": "sha256-Vt3YVTlx4oqI7g52Gg2lTUVjBQCz3i2GIjaJRMJFxEc="
+    },
+    "components/commerce-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "8714251f69b788e294fa195c6e6df02d7e355057e84f55c7d3e0c7a1dec573b9",
+      "sri": "sha256-hxQlH2m3iOKU+hlcbm3wLX41UFfoT1XH0+DHod7Fc7k="
+    },
+    "components/mobile-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "e2929e568eae3fd495e9633bb01bf3637b75321baf81c93d55c745712cc0c67f",
+      "sri": "sha256-4pKeVo6uP9SV6WM7sBvzY3t1Mhuvgck9VcdFcSzAxn8="
+    },
+    "components/extended.min.css": {
+      "algorithm": "sha256",
+      "sha256": "b9a17ba26d0ca41a61a9412811d2086c66a3924f282f1c42749b88f239ac6afc",
+      "sri": "sha256-uaF7om0MpBphqUEoEdIIbGajkk8oLxxCdJuI8jmsavw="
+    },
+    "components/page.min.css": {
+      "algorithm": "sha256",
+      "sha256": "1f4e9256ae81a27964ba28fada7d37ff6f714e7b3adc1d816546ba44dd27e8d2",
+      "sri": "sha256-H06SVq6Bonlkuij62n03/29xTns63B2BZUa6RN0n6NI="
+    },
+    "components/help.min.css": {
+      "algorithm": "sha256",
+      "sha256": "87e1b0883731d305553c3e838b6d9523133fc51f55b3ed7001ca650d3ef29c63",
+      "sri": "sha256-h+GwiDcx0wVVPD6Di22VIxM/xR9Vs+1wAcplDT7ynGM="
+    },
+    "components/recipes.min.css": {
+      "algorithm": "sha256",
+      "sha256": "63ad0971ed1507fd3d55e2724bc1370c29a95fa07ba0bc03c8f61470622c593b",
+      "sri": "sha256-Y60Jce0VB/09VeJyS8E3DCmpX6B7oLwDyPYUcGIsWTs="
+    },
+    "components/desktop.min.css": {
+      "algorithm": "sha256",
+      "sha256": "8d71cb5b3d6d7a2383842059f4c75e7c9bc56d1f2f053ef69745c0db1a683a0c",
+      "sri": "sha256-jXHLWz1teiODhCBZ9MdefJvFbR8vBT72l0XA2xpoOgw="
+    },
+    "components/desktop-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "53677e7fc1a83044a31624744edca70b9143f58f125ff03475122b24d375991c",
+      "sri": "sha256-U2d+f8GoMESjFiR0TtynC5FD9Y8SX/A0dRIrJNN1mRw="
+    },
+    "components/solution-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "1f2d2fdd6650fc12dceb956cf9b5d6717ea315edd17ac8d4049649fe812fa7ab",
+      "sri": "sha256-Hy0v3WZQ/BLc65Vs+bXWcX6jFe3ResjUBJZJ/oEvp6s="
+    },
+    "components/catalog.min.css": {
+      "algorithm": "sha256",
+      "sha256": "8e6b3ef0ab7a5e3499efc572a0bcc525ec1ac92e534069b0345c5948948f2c09",
+      "sri": "sha256-jms+8Kt6XjSZ78VyoLzFJewayS5TQGmwNFxZSJSPLAk="
+    },
+    "components/ai.min.css": {
+      "algorithm": "sha256",
+      "sha256": "e863a381845c0270d0d2223be056651f4005cb2a0da316fff2ba00eae4e686a5",
+      "sri": "sha256-6GOjgYRcAnDQ0iI74FZlH0AFyyoNoxb/8roA6uTmhqU="
+    },
+    "components/ai-extended.min.css": {
+      "algorithm": "sha256",
+      "sha256": "4aa0186b4328cbfbbdc113a26bcb418da905a34fb3a50312d87a73d673cc3894",
+      "sri": "sha256-SqAYa0Moy/u9wROia8tBjakFo0+zpQMS2Hpz1nPMOJQ="
+    },
+    "components/ai-compositions.min.css": {
+      "algorithm": "sha256",
+      "sha256": "f6bc296de5437527f3626b1f7161f1cc57f41b2233d480bc01878c892a6a3667",
+      "sri": "sha256-9rwpbeVDdSfzYmsfcWHxzFf0GyIz1IC8AYeMiSpqNmc="
+    }
+  }
+}

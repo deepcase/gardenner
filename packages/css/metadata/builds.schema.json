@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.style/schema/builds.schema.json",
+  "title": "Gardener build catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "version", "reproducibility", "minifier", "compression", "componentSelection", "platforms", "componentPacks", "componentSignatures", "componentOwnership", "artifacts", "artifactIntegrity"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "version": { "$ref": "#/$defs/version" },
+    "reproducibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deterministic", "integrityAlgorithm", "verificationCommand"],
+      "properties": {
+        "deterministic": { "const": true },
+        "integrityAlgorithm": { "const": "sha256" },
+        "verificationCommand": { "const": "npm run verify:reproducible" }
+      }
+    },
+    "minifier": { "$ref": "#/$defs/minifier" },
+    "compression": { "$ref": "#/$defs/compression" },
+    "componentSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["granularity", "dependencyPolicy", "runtimePolicy", "command"],
+      "properties": {
+        "granularity": { "const": "owning-pack" },
+        "dependencyPolicy": { "const": "include-pack-peers" },
+        "runtimePolicy": { "const": "full-runtime" },
+        "command": { "type": "string", "minLength": 1 }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "minItems": 5,
+      "items": { "$ref": "#/$defs/platform" }
+    },
+    "componentPacks": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/pack" }
+    },
+    "componentOwnership": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/nonEmptyStrings" }
+    },
+    "componentSignatures": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/nonEmptyStrings" }
+    },
+    "artifacts": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/metrics" }
+    },
+    "artifactIntegrity": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/integrity" }
+    }
+  },
+  "$defs": {
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw", "gzip", "brotli"],
+      "properties": {
+        "raw": { "type": "integer", "minimum": 1 },
+        "gzip": { "type": "integer", "minimum": 1 },
+        "brotli": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "sha256", "sri"],
+      "properties": {
+        "algorithm": { "const": "sha256" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "sri": { "type": "string", "pattern": "^sha256-[A-Za-z0-9+/]{43}=$" }
+      }
+    },
+    "minifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "targets", "legalComments", "sourceMaps", "sourceMapPolicy"],
+      "properties": {
+        "name": { "const": "esbuild" },
+        "version": { "$ref": "#/$defs/version" },
+        "targets": { "$ref": "#/$defs/nonEmptyStrings" },
+        "legalComments": { "enum": ["inline", "eof", "linked", "external"] },
+        "sourceMaps": { "const": true },
+        "sourceMapPolicy": { "const": "primary-and-custom" }
+      }
+    },
+    "compression": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gzipLevel", "brotliQuality"],
+      "properties": {
+        "gzipLevel": { "const": 9 },
+        "brotliQuality": { "const": 11 }
+      }
+    },
+    "platform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "cssProfile", "cssDependencies", "css", "minCss", "runtime", "adapters", "packs", "platforms", "components", "metrics"],
+      "properties": {
+        "name": { "enum": ["web", "mobile", "desktop", "tauri", "electron"] },
+        "cssProfile": { "enum": ["web", "mobile", "desktop", "tauri", "electron"] },
+        "cssDependencies": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "css": { "type": ["string", "null"] },
+        "minCss": { "type": "string", "minLength": 1 },
+        "runtime": { "type": "string", "minLength": 1 },
+        "adapters": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "packs": { "$ref": "#/$defs/nonEmptyStrings" },
+        "platforms": { "$ref": "#/$defs/nonEmptyStrings" },
+        "components": { "$ref": "#/$defs/nonEmptyStrings" },
+        "metrics": { "$ref": "#/$defs/metrics" }
+      }
+    },
+    "pack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "files", "css", "minCss", "components", "metrics"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$" },
+        "files": { "$ref": "#/$defs/nonEmptyStrings" },
+        "css": { "type": ["string", "null"] },
+        "minCss": { "type": "string", "minLength": 1 },
+        "components": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "metrics": { "$ref": "#/$defs/metrics" }
+      }
+    }
+  }
+}

@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="blue">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gardener 文件和内容系统</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+    <style>
+      body {
+        margin: 0;
+        background: #fff;
+      }
+      .demo-shell {
+        width: min(1180px, calc(100% - 2rem));
+        margin: auto;
+        padding: 2rem 0 5rem;
+      }
+      .demo-head {
+        padding-block: 1rem 2rem;
+      }
+      .demo-head h1 {
+        margin: 0.4rem 0;
+      }
+      .demo-section {
+        margin-block: 1.25rem;
+        padding: 1rem;
+        border: 1px solid var(--g-color-border);
+        border-radius: var(--g-radius-md);
+        background: var(--g-color-surface);
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+        gap: 1rem;
+      }
+      .demo-thumb {
+        background: linear-gradient(135deg, #dbeafe, #fef3c7);
+        color: #334155;
+      }
+      .demo-stage {
+        position: relative;
+        width: min(90%, 30rem);
+        aspect-ratio: 16/9;
+        background: linear-gradient(135deg, #bfdbfe, #fde68a);
+      }
+      .demo-stage .g-annotation-pin:nth-child(1) {
+        inset: 20% auto auto 28%;
+      }
+      .demo-stage .g-annotation-pin:nth-child(2) {
+        inset: auto 20% 24% auto;
+      }
+      .demo-code {
+        display: block;
+      }
+      .demo-document h3 {
+        margin-top: 0;
+      }
+      .demo-document p {
+        line-height: 1.8;
+      }
+      .demo-surface {
+        min-height: 14rem;
+      }
+      .demo-title {
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--g-color-primary-text);
+      }
+      @media (max-width: 640px) {
+        .demo-shell {
+          width: min(100% - 1rem, 1180px);
+          padding-top: 0.5rem;
+        }
+        .demo-section {
+          padding: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-shell g-content-container">
+      <header class="demo-head">
+        <span class="demo-title">Category 10 · 32 patterns</span>
+        <h1>文件和内容系统</h1>
+        <p>
+          上传、浏览、预览、媒体处理、文档查看、内容编辑、修订与存储状态的完整预组合。
+        </p>
+      </header>
+
+      <section class="demo-section">
+        <h2>File Drop / Upload Queue / Chunk / Failed</h2>
+        <div class="demo-grid g-mt-4">
+          <div>
+            <label class="g-file-drop" data-g-dropzone
+              ><input
+                class="g-sr-only"
+                type="file"
+                multiple
+                aria-label="选择要上传的文件"
+              /><span
+                class="g-file-drop-icon"
+                >↑</span
+              ><strong class="g-file-drop-title">拖放文件，或点击选择</strong
+              ><span class="g-file-drop-rules"
+                >PDF、图片、视频；单文件不超过 2 GB</span
+              ></label
+            >
+            <div class="g-chunk-upload g-mt-3">
+              <div class="g-repel">
+                <strong>分片上传</strong><span>6 / 10</span>
+              </div>
+              <div
+                class="g-chunk-map"
+                role="progressbar"
+                aria-label="分片进度"
+                aria-valuemin="0"
+                aria-valuemax="10"
+                aria-valuenow="6"
+              >
+                <i class="g-chunk is-complete"></i
+                ><i class="g-chunk is-complete"></i
+                ><i class="g-chunk is-complete"></i
+                ><i class="g-chunk is-complete"></i
+                ><i class="g-chunk is-complete"></i
+                ><i class="g-chunk is-active"></i><i class="g-chunk"></i
+                ><i class="g-chunk"></i><i class="g-chunk"></i
+                ><i class="g-chunk"></i>
+              </div>
+            </div>
+          </div>
+          <div class="g-upload-queue" data-g-upload-manager>
+            <header class="g-upload-queue-header">
+              <strong>上传队列</strong
+              ><span class="g-upload-summary"
+                ><span>共 <b data-g-upload-count="total">0</b></span
+                ><span>完成 <b data-g-upload-count="success">0</b></span
+                ><span>失败 <b data-g-upload-count="error">0</b></span></span
+              >
+            </header>
+            <div data-g-upload-list>
+              <div
+                class="g-upload-item"
+                data-g-upload-item
+                data-g-status="uploading"
+                data-g-progress="50"
+              >
+                <span class="g-file-icon">PDF</span
+                ><span class="g-file-main"
+                  ><strong class="g-file-name">品牌手册.pdf</strong
+                  ><span class="g-file-meta">4.8 MB</span
+                  ><span
+                    class="g-upload-status"
+                    data-g-upload-status
+                  ></span></span
+                ><span
+                  class="g-upload-progress"
+                  data-g-upload-progress
+                  role="progressbar"
+                  aria-label="品牌手册上传进度"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  ><i class="g-upload-progress-bar"></i></span
+                ><span class="g-upload-actions"
+                  ><button
+                    class="g-btn g-btn-ghost g-btn-sm"
+                    data-g-upload-action="advance"
+                    type="button"
+                  >
+                    推进</button
+                  ><button
+                    class="g-btn g-btn-ghost g-btn-sm"
+                    data-g-upload-action="pause"
+                    type="button"
+                  >
+                    暂停
+                  </button></span
+                >
+              </div>
+              <div
+                class="g-upload-item"
+                data-g-upload-item
+                data-g-status="success"
+                data-g-progress="100"
+              >
+                <span class="g-file-icon">JPG</span
+                ><span class="g-file-main"
+                  ><strong class="g-file-name">封面.jpg</strong
+                  ><span class="g-file-meta">880 KB</span
+                  ><span
+                    class="g-upload-status"
+                    data-g-upload-status
+                  ></span></span
+                ><span
+                  class="g-upload-progress"
+                  data-g-upload-progress
+                  role="progressbar"
+                  aria-label="封面上传进度"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  ><i class="g-upload-progress-bar"></i></span
+                ><span class="g-upload-actions"
+                  ><button
+                    class="g-btn g-btn-ghost g-btn-sm"
+                    data-g-upload-action="remove"
+                    type="button"
+                  >
+                    移除
+                  </button></span
+                >
+              </div>
+              <div
+                class="g-upload-item g-failed-upload"
+                data-g-upload-item
+                data-g-status="error"
+                data-g-progress="25"
+              >
+                <span class="g-file-icon">MOV</span
+                ><span class="g-file-main"
+                  ><strong class="g-file-name">访谈.mov</strong
+                  ><span class="g-file-meta">网络中断</span
+                  ><span
+                    class="g-upload-status"
+                    data-g-upload-status
+                  ></span></span
+                ><span
+                  class="g-upload-progress"
+                  data-g-upload-progress
+                  role="progressbar"
+                  aria-label="访谈视频上传进度"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  ><i class="g-upload-progress-bar"></i></span
+                ><span class="g-upload-actions"
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    data-g-upload-action="retry"
+                    type="button"
+                  >
+                    重试
+                  </button></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>File List / Card / Folder Tree / Browser</h2>
+        <div class="g-file-browser" data-g-file-browser data-g-view="grid">
+          <header class="g-file-browser-header">
+            <div class="g-cluster">
+              <strong>企业资料</strong
+              ><span class="g-breadcrumb">根目录 / 品牌</span>
+            </div>
+            <div class="g-cluster">
+              <label class="g-sr-only" for="file-search-demo">搜索文件</label
+              ><input
+                class="g-input g-input-sm"
+                id="file-search-demo"
+                data-g-file-search
+                type="search"
+                placeholder="搜索文件"
+              /><button
+                class="g-btn g-btn-outline g-btn-sm"
+                data-g-file-view="grid"
+                aria-pressed="true"
+                type="button"
+              >
+                网格</button
+              ><button
+                class="g-btn g-btn-outline g-btn-sm"
+                data-g-file-view="list"
+                aria-pressed="false"
+                type="button"
+              >
+                列表
+              </button>
+            </div>
+          </header>
+          <aside class="g-file-browser-tree">
+            <nav class="g-folder-tree" aria-label="文件夹">
+              <button
+                class="g-folder-tree-item"
+                type="button"
+                aria-current="page"
+              >
+                <span>▾</span><span>品牌</span
+                ><span class="g-folder-tree-count">12</span></button
+              ><button
+                class="g-folder-tree-item"
+                style="--g-tree-level: 1"
+                type="button"
+              >
+                <span>▸</span><span>图像</span
+                ><span class="g-folder-tree-count">8</span></button
+              ><button
+                class="g-folder-tree-item"
+                style="--g-tree-level: 1"
+                type="button"
+              >
+                <span>▸</span><span>文档</span
+                ><span class="g-folder-tree-count">4</span>
+              </button>
+            </nav>
+          </aside>
+          <div class="g-file-browser-main">
+            <div class="g-file-card-grid" aria-label="文件列表">
+              <article
+                class="g-file-card"
+                data-g-file-item
+                data-g-file-name="品牌手册.pdf"
+                data-g-filter-text="品牌手册 pdf 文档"
+                tabindex="0"
+              >
+                <div class="g-file-card-preview demo-thumb">PDF</div>
+                <div class="g-file-card-body">
+                  <strong class="g-file-name">品牌手册.pdf</strong
+                  ><span class="g-file-meta">4.8 MB · 今天</span>
+                </div>
+                <footer class="g-file-card-footer"><span>文档</span></footer>
+              </article>
+              <article
+                class="g-file-card"
+                data-g-file-item
+                data-g-file-name="品牌封面.jpg"
+                data-g-filter-text="品牌封面 jpg 图片"
+                tabindex="-1"
+              >
+                <div class="g-file-card-preview demo-thumb">IMG</div>
+                <div class="g-file-card-body">
+                  <strong class="g-file-name">品牌封面.jpg</strong
+                  ><span class="g-file-meta">880 KB · 昨天</span>
+                </div>
+                <footer class="g-file-card-footer"><span>图片</span></footer>
+              </article>
+              <article
+                class="g-file-card"
+                data-g-file-item
+                data-g-file-name="发布说明.md"
+                data-g-filter-text="发布说明 markdown 文本"
+                tabindex="-1"
+              >
+                <div class="g-file-card-preview demo-thumb">MD</div>
+                <div class="g-file-card-body">
+                  <strong class="g-file-name">发布说明.md</strong
+                  ><span class="g-file-meta">12 KB · 8月24日</span>
+                </div>
+                <footer class="g-file-card-footer"><span>文本</span></footer>
+              </article>
+            </div>
+            <div class="g-file-list g-mt-4">
+              <header class="g-file-list-header">
+                <strong>最近文件</strong><span>跨端紧凑列表</span>
+              </header>
+              <div class="g-file-row">
+                <span class="g-file-icon">XLS</span
+                ><span class="g-file-main"
+                  ><strong class="g-file-name">数据模板.xlsx</strong
+                  ><span class="g-file-meta">负责人：林青</span></span
+                ><span class="g-file-actions"
+                  ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                    打开
+                  </button></span
+                >
+              </div>
+            </div>
+          </div>
+          <footer class="g-file-browser-status">
+            <span><b data-g-file-count>0</b> 个结果</span
+            ><span>已选：<b data-g-file-selection>未选择</b></span>
+          </footer>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Preview / Media Library / Details</h2>
+        <div class="demo-grid g-mt-4">
+          <article class="g-file-preview">
+            <header class="g-file-preview-toolbar">
+              <strong>品牌封面.jpg</strong>
+              <div class="g-cluster">
+                <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  −</button
+                ><span>100%</span
+                ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  ＋
+                </button>
+              </div>
+            </header>
+            <div class="g-file-preview-stage">
+              <div class="demo-stage"></div>
+            </div>
+            <footer class="g-file-preview-meta">
+              <span>1920 × 1080</span><span>sRGB</span><span>880 KB</span>
+            </footer>
+          </article>
+          <article class="g-media-library" data-g-file-browser>
+            <div class="g-media-library-main">
+              <header class="g-media-library-header">
+                <strong>媒体库</strong><span>3 项</span>
+              </header>
+              <div class="g-media-grid" aria-label="媒体列表">
+                <button
+                  class="g-media-item"
+                  data-g-file-item
+                  data-g-file-name="hero.jpg"
+                  type="button"
+                >
+                  <span class="g-media-thumb demo-thumb">IMG</span
+                  ><span class="g-media-label">hero.jpg</span></button
+                ><button
+                  class="g-media-item"
+                  data-g-file-item
+                  data-g-file-name="intro.mp4"
+                  type="button"
+                >
+                  <span class="g-media-thumb demo-thumb">VID</span
+                  ><span class="g-media-label">intro.mp4</span></button
+                ><button
+                  class="g-media-item"
+                  data-g-file-item
+                  data-g-file-name="logo.svg"
+                  type="button"
+                >
+                  <span class="g-media-thumb demo-thumb">SVG</span
+                  ><span class="g-media-label">logo.svg</span>
+                </button>
+              </div>
+            </div>
+            <aside
+              class="g-media-details"
+              role="region"
+              aria-label="媒体详情"
+              tabindex="0"
+            >
+              <div class="g-media-details-preview demo-thumb">PREVIEW</div>
+              <dl class="g-file-properties">
+                <div class="g-file-property">
+                  <dt>名称</dt>
+                  <dd data-g-file-selection>未选择</dd>
+                </div>
+                <div class="g-file-property">
+                  <dt>尺寸</dt>
+                  <dd>1920 × 1080</dd>
+                </div>
+                <div class="g-file-property">
+                  <dt>版权</dt>
+                  <dd>企业内部</dd>
+                </div>
+              </dl>
+            </aside>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Image Crop / Annotation</h2>
+        <div class="demo-grid g-mt-4">
+          <article class="g-image-crop">
+            <nav class="g-image-tools" aria-label="裁剪工具">
+              <button
+                class="g-btn g-btn-ghost g-btn-icon"
+                aria-label="裁剪"
+                type="button"
+              >
+                ⌗</button
+              ><button
+                class="g-btn g-btn-ghost g-btn-icon"
+                aria-label="旋转"
+                type="button"
+              >
+                ↻
+              </button>
+            </nav>
+            <div class="g-image-stage"><div class="g-crop-frame"></div></div>
+            <aside class="g-image-inspector">
+              <strong>裁剪</strong
+              ><label class="g-field g-mt-3"
+                ><span class="g-label">比例</span
+                ><select class="g-select">
+                  <option>16:9</option>
+                  <option>1:1</option>
+                </select></label
+              >
+            </aside>
+          </article>
+          <article class="g-image-annotation">
+            <nav class="g-image-tools" aria-label="标注工具">
+              <button
+                class="g-btn g-btn-ghost g-btn-icon"
+                aria-label="标记"
+                type="button"
+              >
+                ●</button
+              ><button
+                class="g-btn g-btn-ghost g-btn-icon"
+                aria-label="文本"
+                type="button"
+              >
+                T
+              </button>
+            </nav>
+            <div class="g-image-stage">
+              <div class="demo-stage">
+                <span class="g-annotation-pin">1</span
+                ><span class="g-annotation-pin">2</span>
+              </div>
+            </div>
+            <aside class="g-image-inspector">
+              <strong>2 条标注</strong>
+              <p class="g-text-muted g-mt-3">指出图片需要调整的位置。</p>
+            </aside>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Document / PDF Viewer</h2>
+        <article class="g-document-viewer">
+          <header class="g-viewer-toolbar">
+            <strong>年度报告.pdf</strong>
+            <div class="g-cluster">
+              <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                上一页</button
+              ><span>1 / 24</span
+              ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                下一页
+              </button>
+            </div>
+          </header>
+          <aside class="g-viewer-thumbnails">
+            <button
+              class="g-viewer-thumbnail"
+              aria-current="page"
+              type="button"
+            >
+              第 1 页</button
+            ><button class="g-viewer-thumbnail" type="button">第 2 页</button>
+          </aside>
+          <div class="g-viewer-page">
+            <article class="g-document-page demo-document">
+              <h3>2026 年度报告</h3>
+              <p>
+                这是文档与 PDF
+                查看器的页面画布。支持缩略图、分页、缩放、搜索、打印和全屏工具栏组合。
+              </p>
+              <hr />
+              <p>正文区域使用稳定纸张尺寸，并在移动端隐藏缩略图侧栏。</p>
+            </article>
+          </div>
+          <footer class="g-viewer-status">
+            <span>PDF Viewer Shell</span><span>100%</span>
+          </footer>
+        </article>
+        <div class="g-pdf-viewer g-mt-4" style="min-height: 10rem">
+          <header class="g-viewer-toolbar">
+            <strong>PDF 专用壳别名</strong>
+          </header>
+          <div class="g-viewer-page">
+            <span>可接入 PDF.js、浏览器原生查看器或桌面桥接。</span>
+          </div>
+          <footer class="g-viewer-status"><span>第 1 页</span></footer>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Video / Audio / Code</h2>
+        <div class="demo-grid g-mt-4">
+          <article class="g-video-player">
+            <div class="g-video-stage">16:9 视频画布</div>
+            <div class="g-media-controls">
+              <button
+                class="g-btn g-btn-ghost g-btn-icon"
+                aria-label="播放视频"
+                type="button"
+              >
+                ▶</button
+              ><input
+                class="g-media-timeline"
+                aria-label="视频进度"
+                type="range"
+                value="32"
+              /><span class="g-media-time">01:32 / 04:20</span>
+            </div>
+          </article>
+          <article class="g-audio-player">
+            <span class="g-audio-art">♪</span
+            ><span
+              ><strong class="g-file-name">访谈录音.mp3</strong
+              ><span class="g-file-meta">产品访谈</span></span
+            >
+            <div class="g-media-controls">
+              <button
+                class="g-btn g-btn-ghost g-btn-icon"
+                aria-label="播放音频"
+                type="button"
+              >
+                ▶</button
+              ><input
+                class="g-media-timeline"
+                aria-label="音频进度"
+                type="range"
+                value="18"
+              />
+            </div>
+          </article>
+        </div>
+        <article class="g-code-editor g-mt-4" data-g-editor-shell>
+          <header class="g-editor-toolbar">
+            <div class="g-editor-toolbar-group">
+              <button
+                class="g-btn g-btn-ghost g-btn-sm g-editor-tool"
+                data-g-editor-command="undo"
+                type="button"
+              >
+                撤销</button
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm g-editor-tool"
+                data-g-editor-command="redo"
+                type="button"
+              >
+                重做
+              </button>
+            </div>
+            <span>HTML · UTF-8</span>
+          </header>
+          <div class="g-code-editor-body">
+            <pre class="g-code-gutter">
+1
+2
+3</pre
+            >
+            <textarea
+              class="g-code-content demo-code"
+              data-g-editor-surface
+              aria-label="代码内容"
+            >
+&lt;main class="g-container"&gt;
+  &lt;h1&gt;Gardener&lt;/h1&gt;
+&lt;/main&gt;</textarea
+            >
+          </div>
+          <footer class="g-editor-status">
+            <span><b data-g-editor-count="words">0</b> 词</span
+            ><span><b data-g-editor-count="characters">0</b> 字符</span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="demo-section">
+        <h2>Rich Text / Markdown / Block Editor</h2>
+        <article class="g-rich-text-editor" data-g-editor-shell>
+          <header class="g-editor-toolbar">
+            <div class="g-editor-toolbar-group">
+              <button
+                class="g-btn g-btn-ghost g-btn-sm g-editor-tool"
+                data-g-editor-command="bold"
+                aria-pressed="false"
+                type="button"
+              >
+                <b>B</b></button
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm g-editor-tool"
+                data-g-editor-command="italic"
+                aria-pressed="false"
+                type="button"
+              >
+                <i>I</i></button
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm g-editor-tool"
+                data-g-editor-command="insertUnorderedList"
+                type="button"
+              >
+                列表
+              </button>
+            </div>
+            <div
+              class="g-autosave-indicator"
+              data-g-autosave
+              data-g-autosave-delay="500"
+              data-g-autosave-state="saved"
+            >
+              <i class="g-autosave-dot"></i
+              ><span data-g-autosave-label>已保存</span
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm"
+                data-g-autosave-now
+                type="button"
+              >
+                立即保存
+              </button>
+            </div>
+          </header>
+          <div
+            class="g-editor-surface demo-surface"
+            data-g-editor-surface
+            contenteditable="true"
+            role="textbox"
+            aria-multiline="true"
+            aria-label="富文本内容"
+          >
+            <h3>企业内容标题</h3>
+            <p>可直接编辑这段文字，并观察字符、词数和自动保存状态。</p>
+          </div>
+          <footer class="g-editor-status">
+            <span
+              ><b data-g-editor-count="words">0</b> 词 ·
+              <b data-g-editor-count="characters">0</b> 字符</span
+            ><span>草稿</span>
+          </footer>
+        </article>
+        <article class="g-markdown-editor g-mt-4" data-g-editor-shell>
+          <header class="g-editor-toolbar">
+            <strong>Markdown Editor</strong
+            ><button
+              class="g-btn g-btn-ghost g-btn-sm g-editor-tool"
+              data-g-editor-command="undo"
+              type="button"
+            >
+              撤销
+            </button>
+          </header>
+          <textarea
+            class="g-markdown-source"
+            data-g-editor-surface
+            aria-label="Markdown 源码"
+          >
+# 产品说明
+
+这是 Gardener 的 Markdown 编辑器。</textarea
+          >
+          <article class="g-markdown-preview">
+            <h1>产品说明</h1>
+            <p>这是 Gardener 的 Markdown 编辑器。</p>
+          </article>
+          <footer class="g-editor-status">
+            <span><b data-g-editor-count="characters">0</b> 字符</span
+            ><span>源代码 / 预览</span>
+          </footer>
+        </article>
+        <article class="g-block-editor g-mt-4" data-g-editor-shell>
+          <header class="g-editor-toolbar">
+            <strong>Block Editor</strong
+            ><button class="g-btn g-btn-outline g-btn-sm" type="button">
+              添加区块
+            </button>
+          </header>
+          <div
+            class="g-editor-surface g-p-0"
+            data-g-editor-surface
+            contenteditable="true"
+            aria-label="区块内容"
+          >
+            <section class="g-block">
+              <span class="g-block-handle">⋮⋮</span>
+              <div class="g-block-content"><h3>区块标题</h3></div>
+              <button
+                class="g-btn g-btn-ghost g-btn-icon"
+                aria-label="区块菜单"
+                type="button"
+              >
+                •••
+              </button>
+            </section>
+            <section class="g-block">
+              <span class="g-block-handle">⋮⋮</span>
+              <div class="g-block-content">
+                <p>每个区块都有固定手柄、内容与操作区。</p>
+              </div>
+              <button
+                class="g-btn g-btn-ghost g-btn-icon"
+                aria-label="区块菜单"
+                type="button"
+              >
+                •••
+              </button>
+            </section>
+          </div>
+          <footer class="g-editor-status">
+            <span><b data-g-editor-count="words">0</b> 词</span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="demo-section">
+        <h2>Outline / Find / Comments / Revision</h2>
+        <div class="demo-grid g-mt-4">
+          <article>
+            <nav class="g-content-outline" aria-label="内容大纲">
+              <a class="g-content-outline-item" aria-current="location" href="#"
+                >产品概览</a
+              ><a
+                class="g-content-outline-item"
+                style="--g-outline-level: 1"
+                href="#"
+                >核心能力</a
+              ><a
+                class="g-content-outline-item"
+                style="--g-outline-level: 1"
+                href="#"
+                >使用限制</a
+              >
+            </nav>
+            <form class="g-find-replace g-mt-3">
+              <label class="g-field"
+                ><span class="g-label">查找</span
+                ><span class="g-find-replace-row"
+                  ><input class="g-input" value="Gardener" /><button
+                    class="g-btn g-btn-outline"
+                    type="button"
+                  >
+                    下一个
+                  </button></span
+                ></label
+              ><label class="g-field"
+                ><span class="g-label">替换</span
+                ><span class="g-find-replace-row"
+                  ><input class="g-input" value="园丁" /><button
+                    class="g-btn g-btn-outline"
+                    type="button"
+                  >
+                    全部替换
+                  </button></span
+                ></label
+              >
+            </form>
+          </article>
+          <article class="g-comment-thread">
+            <div class="g-comment">
+              <span class="g-comment-avatar">林</span>
+              <div class="g-comment-body">
+                <div class="g-comment-meta">
+                  <strong>林青</strong><time>10:24</time>
+                </div>
+                <p>这里需要补充企业客户的使用场景。</p>
+              </div>
+            </div>
+            <div class="g-comment">
+              <span class="g-comment-avatar">周</span>
+              <div class="g-comment-body">
+                <div class="g-comment-meta">
+                  <strong>周禾</strong><time>10:32</time>
+                </div>
+                <p>已补充，并关联到第 3 节。</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <article
+          class="g-revision-compare g-mt-4"
+          data-g-revision-compare
+          data-g-revision-view="split"
+        >
+          <header class="g-revision-toolbar">
+            <div>
+              <strong>修订对比</strong
+              ><span class="g-file-meta">v18 → v19</span>
+            </div>
+            <div class="g-cluster">
+              <button
+                class="g-btn g-btn-outline g-btn-sm"
+                data-g-revision-view="split"
+                aria-pressed="true"
+                type="button"
+              >
+                并排</button
+              ><button
+                class="g-btn g-btn-outline g-btn-sm"
+                data-g-revision-view="unified"
+                aria-pressed="false"
+                type="button"
+              >
+                统一
+              </button>
+            </div>
+          </header>
+          <div class="g-revision-panels">
+            <section class="g-revision-panel" data-g-revision-panel="old">
+              <header class="g-revision-header">旧版本</header>
+              <pre
+                class="g-diff"
+              ><span class="g-diff-line g-diff-line-remove">- 支持网页端。</span><span class="g-diff-line">  默认小圆角。</span></pre>
+            </section>
+            <section class="g-revision-panel" data-g-revision-panel="new">
+              <header class="g-revision-header">新版本</header>
+              <pre
+                class="g-diff"
+              ><span class="g-diff-line g-diff-line-add">+ 支持网页、移动和桌面端。</span><span class="g-diff-line">  默认小圆角。</span></pre>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <section class="demo-section">
+        <h2>Version / Properties / Storage</h2>
+        <div class="demo-grid g-mt-4">
+          <ol class="g-version-history">
+            <li class="g-version-item" aria-current="true">
+              <i class="g-version-dot"></i
+              ><span
+                ><strong>v19 当前版本</strong
+                ><span class="g-file-meta">周禾 · 2 分钟前</span></span
+              ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                查看
+              </button>
+            </li>
+            <li class="g-version-item">
+              <i class="g-version-dot"></i
+              ><span
+                ><strong>v18</strong
+                ><span class="g-file-meta">林青 · 昨天</span></span
+              ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                恢复
+              </button>
+            </li>
+          </ol>
+          <dl class="g-file-properties">
+            <div class="g-file-property">
+              <dt>类型</dt>
+              <dd>PDF 文档</dd>
+            </div>
+            <div class="g-file-property">
+              <dt>所有者</dt>
+              <dd>品牌中心</dd>
+            </div>
+            <div class="g-file-property">
+              <dt>校验值</dt>
+              <dd>sha256:8ec2…21bf</dd>
+            </div>
+          </dl>
+          <div class="g-storage-meter">
+            <div class="g-storage-header">
+              <strong>企业存储</strong><span>68 GB / 100 GB</span>
+            </div>
+            <div
+              class="g-storage-track"
+              role="progressbar"
+              aria-label="企业存储使用量"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="68"
+            >
+              <i class="g-storage-value" style="--g-progress: 68%"></i>
+            </div>
+            <div class="g-storage-legend">
+              <span>图片 28 GB</span><span>视频 31 GB</span
+              ><span>其他 9 GB</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script
+      type="module"
+      src="../dist/gardener.runtime.js?v=category-10"
+    ></script>
+  </body>
+</html>

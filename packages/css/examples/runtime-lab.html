@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="yellow" data-g-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gardener Runtime Lab</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+  </head>
+  <body>
+    <main class="g-container g-py-8 g-grid g-gap-8">
+      <header>
+        <span class="g-badge">Runtime Lab</span>
+        <h1 class="g-mt-3">交互与无障碍回归</h1>
+        <p class="g-text-muted">
+          覆盖键盘导航、动态初始化、浮层、数据部件与常用浏览器能力。
+        </p>
+        <button id="lab-rtl" class="g-btn g-btn-outline g-mt-3" type="button">
+          切换 RTL
+        </button>
+      </header>
+
+      <section class="g-card">
+        <div class="g-card-header">
+          <h2 class="g-card-title">Tabs 与 Dropdown</h2>
+        </div>
+        <div class="g-card-body g-grid g-gap-5">
+          <div data-g-tabs>
+            <div class="g-tabs" role="tablist" aria-label="测试标签">
+              <button
+                class="g-tab"
+                id="lab-tab-a"
+                role="tab"
+                aria-controls="lab-panel-a"
+                aria-selected="true"
+              >
+                概览</button
+              ><button
+                class="g-tab"
+                id="lab-tab-b"
+                role="tab"
+                aria-controls="lab-panel-b"
+                aria-disabled="true"
+              >
+                禁用</button
+              ><button
+                class="g-tab"
+                id="lab-tab-c"
+                role="tab"
+                aria-controls="lab-panel-c"
+              >
+                设置
+              </button>
+            </div>
+            <div
+              id="lab-panel-a"
+              role="tabpanel"
+              aria-labelledby="lab-tab-a"
+              class="g-p-3"
+            >
+              概览面板
+            </div>
+            <div
+              id="lab-panel-b"
+              role="tabpanel"
+              aria-labelledby="lab-tab-b"
+              class="g-p-3"
+            >
+              禁用面板
+            </div>
+            <div
+              id="lab-panel-c"
+              role="tabpanel"
+              aria-labelledby="lab-tab-c"
+              class="g-p-3"
+            >
+              设置面板
+            </div>
+          </div>
+          <div class="g-dropdown" data-g-dropdown>
+            <button class="g-btn g-btn-outline" data-g-dropdown-trigger>
+              初始展开菜单
+            </button>
+            <div class="g-dropdown-menu g-menu" data-g-dropdown-menu>
+              <button class="g-menu-item" role="menuitem">新建</button
+              ><button class="g-menu-item" role="menuitem">打开</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="g-grid-auto">
+        <article class="g-card">
+          <div class="g-card-header">
+            <h2 class="g-card-title">Combobox</h2>
+          </div>
+          <div class="g-card-body">
+            <div class="g-combobox" data-g-combobox>
+              <label class="g-label" for="lab-search">选择框架</label
+              ><input
+                id="lab-search"
+                class="g-input"
+                role="combobox"
+                autocomplete="off"
+              />
+              <div class="g-combobox-list" role="listbox">
+                <div
+                  class="g-combobox-option"
+                  role="option"
+                  data-g-value="Gardener"
+                >
+                  Gardener
+                </div>
+                <div
+                  class="g-combobox-option"
+                  role="option"
+                  data-g-value="Native"
+                >
+                  Native CSS
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="g-card">
+          <div class="g-card-header">
+            <h2 class="g-card-title">Tooltip 与 Popover</h2>
+          </div>
+          <div class="g-card-body g-flex g-gap-3">
+            <span data-g-tooltip
+              ><button class="g-btn g-btn-outline" data-g-tooltip-trigger>
+                提示</button
+              ><span class="g-tooltip" data-g-tooltip-content hidden
+                >键盘也可访问</span
+              ></span
+            ><span data-g-popover
+              ><button class="g-btn g-btn-outline" data-g-popover-trigger>
+                弹出</button
+              ><span class="g-popover" data-g-popover-content hidden
+                >可交互内容</span
+              ></span
+            >
+          </div>
+        </article>
+      </section>
+
+      <section class="g-grid-auto">
+        <article class="g-card">
+          <div class="g-card-header"><h2 class="g-card-title">Tree</h2></div>
+          <div class="g-card-body">
+            <ul class="g-tree" data-g-tree aria-label="文件树">
+              <li role="treeitem" aria-expanded="false">
+                <div class="g-tree-item">src</div>
+                <ul role="group">
+                  <li role="treeitem">
+                    <div class="g-tree-item">index.js</div>
+                  </li>
+                </ul>
+              </li>
+              <li role="treeitem"><div class="g-tree-item">README.md</div></li>
+            </ul>
+          </div>
+        </article>
+        <article class="g-card">
+          <div class="g-card-header">
+            <h2 class="g-card-title">Data Grid</h2>
+          </div>
+          <div class="g-card-body">
+            <div class="g-data-grid" data-g-data-grid aria-label="用户表格">
+              <div role="row">
+                <span role="columnheader">姓名</span
+                ><span role="columnheader">状态</span>
+              </div>
+              <div role="row">
+                <span role="gridcell">Ada</span
+                ><span role="gridcell">启用</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="g-card">
+        <div class="g-card-header">
+          <h2 class="g-card-title">Carousel 与 Split Pane</h2>
+        </div>
+        <div class="g-card-body g-grid g-gap-6">
+          <div class="g-carousel" data-g-carousel aria-label="示例轮播">
+            <div class="g-carousel-track">
+              <div class="g-carousel-slide g-p-8 g-bg-subtle">第一屏</div>
+              <div class="g-carousel-slide g-p-8 g-bg-info">第二屏</div>
+            </div>
+            <button
+              class="g-btn g-btn-icon g-carousel-control g-carousel-prev"
+              aria-label="上一张"
+            >
+              ←</button
+            ><button
+              class="g-btn g-btn-icon g-carousel-control g-carousel-next"
+              aria-label="下一张"
+            >
+              →
+            </button>
+            <div class="g-carousel-dots">
+              <button class="g-carousel-dot" aria-label="第一张"></button
+              ><button class="g-carousel-dot" aria-label="第二张"></button>
+            </div>
+          </div>
+          <div class="g-split-pane g-h-32" data-g-split-pane>
+            <div class="g-split-panel g-p-3 g-bg-subtle">左侧</div>
+            <div
+              class="g-split-handle"
+              role="separator"
+              aria-label="调整面板"
+            ></div>
+            <div class="g-split-panel g-p-3">右侧</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="g-card">
+        <div class="g-card-header">
+          <h2 class="g-card-title">动态 DOM 与常用能力</h2>
+        </div>
+        <div class="g-card-body g-grid g-gap-4">
+          <div class="g-flex g-flex-wrap g-gap-2">
+            <button id="lab-dynamic" class="g-btn g-btn-outline">
+              添加动态输入框</button
+            ><button id="lab-toast" class="g-btn g-btn-outline">
+              创建 Toast</button
+            ><button
+              class="g-btn g-btn-outline"
+              data-g-copy
+              data-g-copy-value="Gardener copied"
+            >
+              复制</button
+            ><button
+              class="g-btn g-btn-outline"
+              data-g-fullscreen="lab-fullscreen"
+            >
+              全屏</button
+            ><button
+              class="g-btn g-btn-outline"
+              data-g-command-trigger="lab-command"
+            >
+              命令面板
+            </button>
+          </div>
+          <div id="lab-dynamic-host"></div>
+          <div
+            id="lab-fullscreen"
+            class="g-fullscreen-target g-file-drop"
+            data-g-dropzone
+            tabindex="0"
+          >
+            拖放文件到这里
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button
+      class="g-btn g-btn-primary g-btn-icon g-back-to-top"
+      data-g-scroll-top
+      aria-label="返回顶部"
+    >
+      ↑
+    </button>
+    <div
+      id="lab-command"
+      class="g-dialog-backdrop"
+      data-g-command-palette
+      hidden
+    >
+      <section
+        class="g-command-palette"
+        role="dialog"
+        aria-modal="true"
+        aria-label="命令面板"
+      >
+        <input
+          class="g-command-input"
+          aria-label="搜索命令"
+          placeholder="输入命令"
+        />
+        <div class="g-command-results">
+          <div class="g-menu">
+            <button class="g-menu-item">新建页面</button
+            ><button class="g-menu-item">切换主题</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module">
+      import Gardener from "../dist/gardener.runtime.js";
+      window.labGardener = Gardener;
+      document
+        .querySelector("#lab-rtl")
+        .addEventListener(
+          "click",
+          () =>
+            (document.documentElement.dir =
+              document.documentElement.dir === "rtl" ? "ltr" : "rtl"),
+        );
+      document.querySelector("#lab-dynamic").addEventListener("click", () => {
+        const area = document.createElement("textarea");
+        area.className = "g-textarea";
+        area.setAttribute("aria-label", "动态输入框");
+        document.querySelector("#lab-dynamic-host").append(area);
+        queueMicrotask(() => area.setAttribute("data-g-auto-resize", ""));
+      });
+      document
+        .querySelector("#lab-toast")
+        .addEventListener("click", () =>
+          Gardener.toast({
+            title: "完成",
+            message: "Toast 已动态初始化",
+            tone: "success",
+            timeout: 10000,
+          }),
+        );
+    </script>
+  </body>
+</html>

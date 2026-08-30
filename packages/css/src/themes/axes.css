@@ -1,0 +1,76 @@
+@layer gardener.tokens {
+  :where(:root:not([data-g-neutral])),
+  [data-g-neutral="cool"] {
+    --g-color-canvas: #f8fafc;
+    --g-color-surface: #ffffff;
+    --g-color-surface-raised: #ffffff;
+    --g-color-surface-subtle: #f1f5f9;
+    --g-color-surface-sunken: #e9eef5;
+    --g-color-text: #172033;
+    --g-color-text-muted: #667085;
+    --g-color-text-subtle: #657080;
+    --g-color-border: #d9e0ea;
+    --g-color-border-strong: #aeb8c7;
+  }
+
+  [data-g-neutral="warm"] { --g-color-canvas: #faf9f7; --g-color-surface: #fffefd; --g-color-surface-raised: #fff; --g-color-surface-subtle: #f4f1ec; --g-color-surface-sunken: #ebe6de; --g-color-text: #29251f; --g-color-text-muted: #6f675d; --g-color-text-subtle: #756b5f; --g-color-border: #ded8cf; --g-color-border-strong: #b7aea1; }
+  [data-g-neutral="gray"] { --g-color-canvas: #f7f7f7; --g-color-surface: #fff; --g-color-surface-raised: #fff; --g-color-surface-subtle: #eeeeee; --g-color-surface-sunken: #e4e4e4; --g-color-text: #202020; --g-color-text-muted: #666; --g-color-text-subtle: #6b6b6b; --g-color-border: #d5d5d5; --g-color-border-strong: #aaa; }
+  [data-g-neutral="ink"] { --g-color-canvas: #f5f7fb; --g-color-surface: #fff; --g-color-surface-raised: #fff; --g-color-surface-subtle: #edf0f6; --g-color-surface-sunken: #e2e7f0; --g-color-text: #101828; --g-color-text-muted: #475467; --g-color-text-subtle: #647083; --g-color-border: #d0d5dd; --g-color-border-strong: #98a2b3; }
+  [data-g-neutral="cream"] { --g-color-canvas: #fbf7ee; --g-color-surface: #fffdf8; --g-color-surface-raised: #fff; --g-color-surface-subtle: #f5eedf; --g-color-surface-sunken: #ebe0cc; --g-color-text: #30291d; --g-color-text-muted: #756954; --g-color-text-subtle: #756954; --g-color-border: #dfd3bd; --g-color-border-strong: #b9a889; }
+  [data-g-neutral="blueprint"] { --g-color-canvas: #f4f7fb; --g-color-surface: #fff; --g-color-surface-raised: #fff; --g-color-surface-subtle: #eaf0f8; --g-color-surface-sunken: #dae4f1; --g-color-text: #14243a; --g-color-text-muted: #536781; --g-color-text-subtle: #5f7187; --g-color-border: #cad6e5; --g-color-border-strong: #94a8c0; }
+  [data-g-neutral="paper"] { --g-color-canvas: #f5f3ef; --g-color-surface: #fff; --g-color-surface-raised: #fff; --g-color-surface-subtle: #efede8; --g-color-surface-sunken: #e2dfd8; --g-color-text: #252525; --g-color-text-muted: #606060; --g-color-text-subtle: #6c6c6c; --g-color-border: #d4d1ca; --g-color-border-strong: #aaa69e; }
+
+  [data-g-mode="dark"] { --g-color-canvas: #0c111b; --g-color-surface: #131b29; --g-color-surface-raised: #192334; --g-color-surface-subtle: #1c2738; --g-color-surface-sunken: #080d15; --g-color-text: #eef2f7; --g-color-text-muted: #aab5c5; --g-color-text-subtle: #7f8da1; --g-color-border: #2c394d; --g-color-border-strong: #506077; }
+
+  [data-g-mode="dark"][data-g-neutral="warm"] { --g-color-canvas: #15120f; --g-color-surface: #1e1a16; --g-color-surface-raised: #26211c; --g-color-surface-subtle: #2c261f; --g-color-surface-sunken: #0e0c0a; --g-color-text: #f5efe6; --g-color-text-muted: #beb1a2; --g-color-text-subtle: #8e8174; --g-color-border: #443a30; --g-color-border-strong: #6e5f50; }
+  [data-g-mode="dark"][data-g-neutral="gray"] { --g-color-canvas: #101010; --g-color-surface: #181818; --g-color-surface-raised: #202020; --g-color-surface-subtle: #272727; --g-color-surface-sunken: #090909; --g-color-text: #f3f3f3; --g-color-text-muted: #b5b5b5; --g-color-text-subtle: #828282; --g-color-border: #373737; --g-color-border-strong: #606060; }
+  [data-g-mode="dark"][data-g-neutral="ink"] { --g-color-canvas: #080d16; --g-color-surface: #101827; --g-color-surface-raised: #172235; --g-color-surface-subtle: #1c293d; --g-color-surface-sunken: #050810; --g-color-text: #f4f6fa; --g-color-text-muted: #b3becf; --g-color-text-subtle: #7d8ba1; --g-color-border: #2a3950; --g-color-border-strong: #52627a; }
+  [data-g-mode="dark"][data-g-neutral="blueprint"] { --g-color-canvas: #0b1420; --g-color-surface: #111e2e; --g-color-surface-raised: #18283b; --g-color-surface-subtle: #1c2d42; --g-color-surface-sunken: #07101a; --g-color-text: #edf4fc; --g-color-text-muted: #a9bbcf; --g-color-text-subtle: #758aa2; --g-color-border: #2b4058; --g-color-border-strong: #536d88; }
+  [data-g-mode="dark"][data-g-neutral="cream"], [data-g-mode="dark"][data-g-neutral="paper"] { --g-color-canvas: #15130f; --g-color-surface: #1d1a15; --g-color-surface-raised: #25211a; --g-color-surface-subtle: #2b261e; --g-color-surface-sunken: #0d0b09; --g-color-text: #f2eee5; --g-color-text-muted: #b9b1a2; --g-color-text-subtle: #888174; --g-color-border: #413a30; --g-color-border-strong: #6b6255; }
+
+  @media (prefers-color-scheme: dark) {
+    :is(:root:not([data-g-mode]), [data-g-mode="system"]) { --g-color-canvas: #0c111b; --g-color-surface: #131b29; --g-color-surface-raised: #192334; --g-color-surface-subtle: #1c2738; --g-color-surface-sunken: #080d15; --g-color-text: #eef2f7; --g-color-text-muted: #aab5c5; --g-color-text-subtle: #7f8da1; --g-color-border: #2c394d; --g-color-border-strong: #506077; }
+  }
+
+  :where(:root:not([data-g-typography]):not([data-g-type])),
+  :is([data-g-typography="system"], [data-g-type="system"]) { --g-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --g-heading-weight: 650; --g-letter-spacing-heading: -0.015em; }
+  :is([data-g-typography="corporate"], [data-g-type="corporate"]) { --g-font-sans: Arial, "Helvetica Neue", sans-serif; --g-heading-weight: 700; --g-letter-spacing-heading: -0.01em; }
+  :is([data-g-typography="humanist"], [data-g-type="humanist"]) { --g-font-sans: "Segoe UI", Candara, Calibri, sans-serif; --g-heading-weight: 600; --g-letter-spacing-heading: 0; }
+  :is([data-g-typography="editorial"], [data-g-type="editorial"]) { --g-font-sans: Georgia, Cambria, "Times New Roman", serif; --g-heading-weight: 600; --g-letter-spacing-heading: -0.01em; }
+  :is([data-g-typography="technical"], [data-g-type="technical"]) { --g-font-sans: "IBM Plex Sans", "Segoe UI", sans-serif; --g-font-mono: "IBM Plex Mono", Consolas, monospace; --g-heading-weight: 600; }
+  :is([data-g-typography="geometric"], [data-g-type="geometric"]) { --g-font-sans: Avenir, Montserrat, Futura, ui-sans-serif, sans-serif; --g-heading-weight: 700; --g-letter-spacing-heading: -0.02em; }
+  :is([data-g-typography="rounded"], [data-g-type="rounded"]) { --g-font-sans: "Nunito Sans", "Arial Rounded MT Bold", ui-sans-serif, sans-serif; --g-heading-weight: 700; }
+  :is([data-g-typography="classic"], [data-g-type="classic"]) { --g-font-sans: Garamond, Georgia, serif; --g-heading-weight: 600; }
+  :is([data-g-typography="compact"], [data-g-type="compact"]) { --g-font-sans: "Arial Narrow", "Roboto Condensed", Arial, sans-serif; --g-heading-weight: 700; }
+  :is([data-g-typography="cjk"], [data-g-type="cjk"]) { --g-font-sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif; --g-heading-weight: 600; --g-letter-spacing-heading: 0; }
+
+  :root,
+  [data-g-shape="small"] { --g-radius-xs: 0.125rem; --g-radius-sm: 0.1875rem; --g-radius-md: 0.25rem; --g-radius-lg: 0.375rem; --g-radius-xl: 0.5rem; --g-radius-2xl: 0.75rem; }
+  [data-g-shape="sharp"] { --g-radius-xs: 0; --g-radius-sm: 0; --g-radius-md: 0; --g-radius-lg: 0; --g-radius-xl: 0; --g-radius-2xl: 0; }
+  [data-g-shape="medium"] { --g-radius-xs: 0.1875rem; --g-radius-sm: 0.25rem; --g-radius-md: 0.375rem; --g-radius-lg: 0.5rem; --g-radius-xl: 0.75rem; --g-radius-2xl: 1rem; }
+  [data-g-shape="soft"] { --g-radius-xs: 0.25rem; --g-radius-sm: 0.375rem; --g-radius-md: 0.5rem; --g-radius-lg: 0.75rem; --g-radius-xl: 1rem; --g-radius-2xl: 1.5rem; }
+  [data-g-shape="round"] { --g-radius-xs: 0.375rem; --g-radius-sm: 0.5rem; --g-radius-md: 0.75rem; --g-radius-lg: 1rem; --g-radius-xl: 1.5rem; --g-radius-2xl: 2rem; }
+
+  :root,
+  [data-g-density="standard"] { --g-density-factor: 1; }
+  [data-g-density="compact"] { --g-density-factor: 0.875; }
+  [data-g-density="comfortable"] { --g-density-factor: 1.075; }
+  [data-g-density="touch"] { --g-density-factor: 1.15; --g-control-height-sm: 2.5rem; --g-control-height-md: 2.875rem; --g-control-height-lg: 3.25rem; --g-touch-target: 3rem; }
+
+  :root,
+  [data-g-elevation="bordered"] { --g-shadow-xs: 0 1px 2px rgb(15 23 42 / 0.04); --g-shadow-sm: 0 1px 3px rgb(15 23 42 / 0.08); --g-shadow-md: 0 4px 12px rgb(15 23 42 / 0.1); --g-surface-border-width: 1px; }
+  [data-g-elevation="flat"] { --g-shadow-xs: none; --g-shadow-sm: none; --g-shadow-md: none; --g-shadow-lg: none; --g-shadow-xl: none; --g-surface-border-width: 1px; }
+  [data-g-elevation="layered"] { --g-shadow-xs: 0 1px 2px rgb(15 23 42 / 0.06); --g-shadow-sm: 0 2px 6px rgb(15 23 42 / 0.1); --g-shadow-md: 0 8px 20px rgb(15 23 42 / 0.13); --g-shadow-lg: 0 18px 40px rgb(15 23 42 / 0.16); }
+  [data-g-elevation="floating"] { --g-shadow-xs: 0 2px 5px rgb(15 23 42 / 0.08); --g-shadow-sm: 0 6px 16px rgb(15 23 42 / 0.12); --g-shadow-md: 0 14px 34px rgb(15 23 42 / 0.16); --g-shadow-lg: 0 28px 64px rgb(15 23 42 / 0.2); }
+
+  [data-g-motion="none"] { --g-duration-fast: 0ms; --g-duration-normal: 0ms; --g-duration-slow: 0ms; }
+  [data-g-motion="calm"] { --g-duration-fast: 150ms; --g-duration-normal: 240ms; --g-duration-slow: 400ms; }
+  [data-g-motion="quick"] { --g-duration-fast: 80ms; --g-duration-normal: 140ms; --g-duration-slow: 220ms; }
+
+  [data-g-platform="desktop"] { --g-header-height: 2.75rem; --g-touch-target: 2rem; --g-control-height-sm: 1.75rem; --g-control-height-md: 2.125rem; --g-control-height-lg: 2.5rem; --g-desktop-titlebar-height: 2rem; --g-desktop-statusbar-height: 1.5rem; }
+  :is([data-g-platform="tauri"], [data-g-platform="electron"]) { --g-header-height: 2.75rem; --g-touch-target: 2rem; --g-control-height-sm: 1.75rem; --g-control-height-md: 2.125rem; --g-control-height-lg: 2.5rem; --g-desktop-titlebar-height: 2rem; --g-desktop-statusbar-height: 1.5rem; }
+  [data-g-platform="mobile"] { --g-touch-target: 2.75rem; --g-control-height-sm: 2.25rem; --g-control-height-md: 2.75rem; --g-control-height-lg: 3.25rem; }
+
+  /* Mode wins over every optional axis. */
+  [data-g-mode="high-contrast"] { --g-color-canvas: #fff; --g-color-surface: #fff; --g-color-surface-raised: #fff; --g-color-surface-subtle: #f2f2f2; --g-color-surface-sunken: #e6e6e6; --g-color-text: #000; --g-color-text-muted: #222; --g-color-text-subtle: #333; --g-color-border: #000; --g-color-border-strong: #000; --g-shadow-xs: none; --g-shadow-sm: none; --g-shadow-md: none; --g-shadow-lg: none; --g-shadow-xl: none; }
+}

@@ -1,0 +1,158 @@
+{
+  "name": "@gardener/vue",
+  "version": "1.0.0",
+  "description": "Official Vue 3 bindings for the Gardener CSS framework and runtime.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "metadata",
+    "docs",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/generated/components.d.ts",
+      "import": "./dist/generated/components.js",
+      "default": "./dist/generated/components.js"
+    },
+    "./component": {
+      "types": "./dist/component.d.ts",
+      "import": "./dist/component.js",
+      "default": "./dist/component.js"
+    },
+    "./composables": {
+      "types": "./dist/composables.d.ts",
+      "import": "./dist/composables.js",
+      "default": "./dist/composables.js"
+    },
+    "./directives": {
+      "types": "./dist/directives.d.ts",
+      "import": "./dist/directives.js",
+      "default": "./dist/directives.js"
+    },
+    "./plugin": {
+      "types": "./dist/plugin.d.ts",
+      "import": "./dist/plugin.js",
+      "default": "./dist/plugin.js"
+    },
+    "./adapters": {
+      "types": "./dist/adapters.d.ts",
+      "import": "./dist/adapters.js",
+      "default": "./dist/adapters.js"
+    },
+    "./tauri": {
+      "types": "./dist/adapters.d.ts",
+      "import": "./dist/adapters.js",
+      "default": "./dist/adapters.js"
+    },
+    "./electron": {
+      "types": "./dist/adapters.d.ts",
+      "import": "./dist/adapters.js",
+      "default": "./dist/adapters.js"
+    },
+    "./catalog": {
+      "types": "./dist/generated/catalog.d.ts",
+      "import": "./dist/generated/catalog.js",
+      "default": "./dist/generated/catalog.js"
+    },
+    "./catalog.json": "./dist/catalog.json",
+    "./style.css": "./dist/style.css",
+    "./core.css": "./dist/core.css",
+    "./themes.css": "./dist/themes.css",
+    "./utilities.css": "./dist/utilities.css",
+    "./components.css": "./dist/components.css",
+    "./ai.css": "./dist/ai.css",
+    "./platform/web.css": "./dist/platform/web.css",
+    "./platform/mobile.css": "./dist/platform/mobile.css",
+    "./platform/desktop.css": "./dist/platform/desktop.css",
+    "./platform/tauri.css": "./dist/platform/tauri.css",
+    "./platform/electron.css": "./dist/platform/electron.css",
+    "./component-css/*": "./dist/component-css/*.css",
+    "./bundle.min.js": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/gardener-vue.min.js",
+      "default": "./dist/gardener-vue.min.js"
+    },
+    "./performance": "./dist/gardener-vue.performance.json",
+    "./schema/public-api": "./metadata/public-api.schema.json",
+    "./schema/compatibility": "./metadata/compatibility.schema.json",
+    "./schema/performance": "./metadata/performance.schema.json",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "generate": "node scripts/generate.mjs",
+    "build": "npm run clean && npm run generate && tsc -p tsconfig.build.json && node scripts/postbuild.mjs",
+    "build:example": "vite build",
+    "check": "node scripts/check.mjs",
+    "budget": "node scripts/budget.mjs",
+    "verify:reproducible": "node scripts/verify-reproducible.mjs",
+    "verify:treeshaking": "node scripts/verify-treeshaking.mjs",
+    "verify:package": "node scripts/verify-package.mjs && publint",
+    "test:types": "vue-tsc --noEmit -p tsconfig.test.json",
+    "test:schema": "node --test --test-concurrency=1 tests/schema.test.mjs",
+    "test:unit": "node --test --test-concurrency=1 tests/contracts.test.mjs tests/runtime.test.mjs",
+    "test:browser": "playwright test --project=desktop-chromium --project=desktop-webkit --project=mobile-chromium",
+    "test:browser:firefox": "node scripts/test-firefox.mjs",
+    "test:a11y": "playwright test --project=accessibility-chromium",
+    "test:e2e": "npm run test:browser && npm run test:browser:firefox && npm run test:a11y",
+    "test": "npm run build && npm run check && npm run budget && npm run test:schema && npm run test:types && npm run test:unit && npm run build:example && npm run test:e2e && npm run verify:treeshaking && npm run verify:reproducible && npm run verify:package",
+    "release:verify": "npm test",
+    "prepublishOnly": "npm run release:verify",
+    "dev": "vite"
+  },
+  "peerDependencies": {
+    "@gardener/css": ">=1.0.0 <2.0.0",
+    "vue": ">=3.4.0 <4.0.0"
+  },
+  "devDependencies": {
+    "@gardener/css": "file:../css",
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.62.1",
+    "@types/node": "26.4.0",
+    "@vitejs/plugin-vue": "6.0.8",
+    "@vue/compiler-sfc": "3.5.42",
+    "ajv": "8.20.0",
+    "esbuild": "0.28.2",
+    "happy-dom": "20.11.12",
+    "publint": "0.3.24",
+    "typescript": "5.9.3",
+    "vite": "8.2.2",
+    "vue": "3.5.42",
+    "vue-tsc": "3.3.11"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "gardener",
+    "css-framework",
+    "component-library",
+    "design-system",
+    "dashboard",
+    "mobile",
+    "ai-ui",
+    "tauri",
+    "electron"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

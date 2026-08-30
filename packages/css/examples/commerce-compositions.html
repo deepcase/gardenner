@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Gardener 商业与支付组件</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+    <style>
+      @layer gardener.overrides {
+        body {
+          background: #fff;
+        }
+        .demo-wrap {
+          width: min(100% - 2rem, 78rem);
+          margin-inline: auto;
+          padding-block: 3rem;
+        }
+        .demo-grid {
+          display: grid;
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(min(100%, 22rem), 1fr)
+          );
+          gap: 1rem;
+        }
+        .demo-wide {
+          grid-column: 1/-1;
+        }
+        .demo-card {
+          padding: 1.25rem;
+          border: 1px solid var(--g-color-border);
+          border-radius: var(--g-radius-md);
+          background: #fff;
+        }
+        .demo-card > h2 {
+          margin-block-end: 1rem;
+          font-size: 1.05rem;
+        }
+        .demo-media {
+          display: grid;
+          place-items: center;
+          background: linear-gradient(135deg, #eef7f0, #f8fbf8);
+          color: #287049;
+          font-weight: 700;
+        }
+        .demo-thumb {
+          inline-size: 100%;
+          block-size: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-wrap g-commerce-container">
+      <header class="g-stack g-gap-2 g-mb-8">
+        <span class="g-badge">第 12 类 · 32 patterns</span>
+        <h1>商业与支付</h1>
+        <p class="g-text-muted">
+          商品目录、交易、履约、订单、订阅与财务状态的完整浅色组合。
+        </p>
+      </header>
+      <section class="demo-grid">
+        <article class="demo-card">
+          <h2>01 商品卡</h2>
+          <div class="g-commerce-product-card">
+            <div class="g-product-media demo-media">
+              <span class="g-product-card-badge g-badge">新品</span>Garden Pro
+            </div>
+            <div class="g-product-card-body">
+              <span class="g-product-card-meta">桌面工具</span>
+              <h3 class="g-product-card-title">Gardener Pro</h3>
+              <div class="g-price-display">
+                <strong class="g-price-current">¥299</strong
+                ><del class="g-price-original">¥399</del
+                ><span class="g-price-discount">-25%</span>
+              </div>
+              <div class="g-product-card-actions">
+                <span class="g-stock-status">有货</span
+                ><button class="g-btn g-btn-primary g-btn-sm">
+                  加入购物车
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>02 商品列表</h2>
+          <div class="g-commerce-product-list">
+            <article class="g-product-list-item">
+              <div class="g-product-list-media demo-media">A</div>
+              <div class="g-product-list-main">
+                <strong>团队版年费</strong>
+                <p class="g-product-card-meta">10 位成员 · 自动续费</p>
+              </div>
+              <div class="g-product-list-action"><strong>¥1,999</strong></div>
+            </article>
+            <article class="g-product-list-item">
+              <div class="g-product-list-media demo-media">B</div>
+              <div class="g-product-list-main">
+                <strong>企业扩展包</strong>
+                <p class="g-product-card-meta">审计与 SSO</p>
+              </div>
+              <div class="g-product-list-action"><strong>询价</strong></div>
+            </article>
+          </div>
+        </article>
+        <article class="demo-card demo-wide">
+          <h2>03–07 商品详情 / 图库 / SKU / 数量 / 价格</h2>
+          <div class="g-commerce-product-detail">
+            <div class="g-commerce-product-gallery" data-g-carousel>
+              <div class="g-product-gallery-thumbs">
+                <button
+                  class="g-product-gallery-thumb"
+                  data-g-carousel-dot
+                  aria-current="true"
+                  aria-label="查看商品图 1"
+                >
+                  <span class="demo-media demo-thumb">1</span></button
+                ><button
+                  class="g-product-gallery-thumb"
+                  data-g-carousel-dot
+                  aria-label="查看商品图 2"
+                >
+                  <span class="demo-media demo-thumb">2</span>
+                </button>
+              </div>
+              <div class="g-product-gallery-stage">
+                <div class="g-carousel-track">
+                  <span
+                    class="g-carousel-slide demo-media"
+                    data-g-carousel-slide
+                    >Gardener Studio</span
+                  ><span
+                    class="g-carousel-slide demo-media"
+                    data-g-carousel-slide
+                    aria-hidden="true"
+                    >三端授权</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="g-product-detail-summary">
+              <span class="g-product-vendor">Gardener Labs</span>
+              <h3 class="g-product-detail-title">Studio 企业套件</h3>
+              <span class="g-product-sku">SKU: GS-2026</span>
+              <div class="g-price-display">
+                <strong class="g-price-current">¥699</strong
+                ><span class="g-price-note">含税 · 永久授权</span>
+              </div>
+              <div class="g-sku-selector" data-g-sku-selector>
+                <div class="g-sku-group" data-g-sku-group="platform">
+                  <div class="g-sku-group-header">
+                    <strong>平台</strong
+                    ><span class="g-sku-selection" data-g-sku-selection></span>
+                  </div>
+                  <div class="g-sku-options">
+                    <button
+                      class="g-sku-option"
+                      data-g-sku-option
+                      data-g-value="Windows"
+                    >
+                      Windows</button
+                    ><button
+                      class="g-sku-option"
+                      data-g-sku-option
+                      data-g-value="macOS"
+                    >
+                      macOS</button
+                    ><button
+                      class="g-sku-option"
+                      data-g-sku-option
+                      data-g-value="Linux"
+                      aria-disabled="true"
+                    >
+                      Linux
+                    </button>
+                  </div>
+                </div>
+                <div class="g-sku-group" data-g-sku-group="license">
+                  <strong>授权</strong>
+                  <div class="g-sku-options">
+                    <button
+                      class="g-sku-option"
+                      data-g-sku-option
+                      data-g-value="个人"
+                    >
+                      个人</button
+                    ><button
+                      class="g-sku-option"
+                      data-g-sku-option
+                      data-g-value="团队"
+                    >
+                      团队
+                    </button>
+                  </div>
+                </div>
+                <input type="hidden" data-g-sku-output />
+              </div>
+              <div class="g-commerce-row">
+                <div class="g-quantity-stepper" data-g-quantity-stepper>
+                  <button
+                    class="g-quantity-button"
+                    type="button"
+                    data-g-quantity-decrement
+                    aria-label="减少数量"
+                  >
+                    −</button
+                  ><input
+                    class="g-quantity-input"
+                    data-g-quantity-input
+                    type="number"
+                    min="1"
+                    max="9"
+                    value="1"
+                    aria-label="购买数量"
+                  /><button
+                    class="g-quantity-button"
+                    type="button"
+                    data-g-quantity-increment
+                    aria-label="增加数量"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="g-stock-status">库存充足</span>
+              </div>
+              <button class="g-btn g-btn-primary">立即购买</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-card demo-wide">
+          <h2>08–11 购物车条目 / 购物车 / 迷你购物车 / 汇总</h2>
+          <div class="g-commerce-checkout">
+            <div
+              class="g-cart"
+              data-g-cart
+              data-g-currency="CNY"
+              data-g-shipping="1200"
+              data-g-discount="2000"
+            >
+              <article
+                class="g-commerce-cart-item"
+                data-g-cart-item
+                data-g-unit-price="29900"
+              >
+                <div class="g-cart-item-media demo-media">G</div>
+                <div class="g-cart-item-main">
+                  <h3 class="g-cart-item-title">Gardener Pro</h3>
+                  <span class="g-cart-item-variant">Windows · 企业授权</span>
+                  <div class="g-quantity-stepper" data-g-quantity-stepper>
+                    <button
+                      class="g-quantity-button"
+                      data-g-quantity-decrement
+                      aria-label="减少数量"
+                    >
+                      −</button
+                    ><input
+                      class="g-quantity-input"
+                      data-g-quantity-input
+                      type="number"
+                      min="1"
+                      max="20"
+                      value="2"
+                      aria-label="商品数量"
+                    /><button
+                      class="g-quantity-button"
+                      data-g-quantity-increment
+                      aria-label="增加数量"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div class="g-cart-item-side">
+                  <strong data-g-line-total>¥598.00</strong>
+                  <div class="g-cart-item-actions">
+                    <button
+                      class="g-btn g-btn-ghost g-btn-sm"
+                      data-g-cart-remove
+                    >
+                      移除
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <div class="g-cart-empty" data-g-cart-empty hidden>
+                <strong>购物车为空</strong>
+              </div>
+            </div>
+            <aside class="g-cart-summary g-commerce-panel">
+              <div class="g-cart-summary-row">
+                <span>商品小计</span><span data-g-cart-subtotal></span>
+              </div>
+              <div class="g-cart-summary-row">
+                <span>优惠</span><span data-g-cart-discount></span>
+              </div>
+              <div class="g-cart-summary-row">
+                <span>配送</span><span data-g-cart-shipping></span>
+              </div>
+              <div class="g-cart-summary-row g-cart-summary-total">
+                <span>合计</span><span data-g-cart-total></span>
+              </div>
+              <button class="g-btn g-btn-primary">去结算</button>
+            </aside>
+          </div>
+          <div class="g-mini-cart g-mt-5">
+            <div class="g-mini-cart-list">
+              <div class="g-mini-cart-item">
+                <span class="demo-media">G</span
+                ><span
+                  ><strong>Gardener Pro</strong
+                  ><small class="g-product-card-meta">数量 2</small></span
+                ><strong>¥598</strong>
+              </div>
+            </div>
+            <footer class="g-mini-cart-footer">
+              <div class="g-commerce-header">
+                <span>小计</span><strong>¥598</strong>
+              </div>
+            </footer>
+          </div>
+        </article>
+
+        <article class="demo-card demo-wide">
+          <h2>12–17 结算 / 步骤 / 地址 / 配送 / 自提</h2>
+          <nav class="g-checkout-steps" style="--g-checkout-step-count: 4">
+            <span class="g-checkout-step is-complete"
+              ><b class="g-checkout-step-marker">✓</b>购物车</span
+            ><span class="g-checkout-step" aria-current="step"
+              ><b class="g-checkout-step-marker">2</b>履约</span
+            ><span class="g-checkout-step"
+              ><b class="g-checkout-step-marker">3</b>支付</span
+            ><span class="g-checkout-step"
+              ><b class="g-checkout-step-marker">4</b>完成</span
+            >
+          </nav>
+          <div class="g-commerce-checkout">
+            <div class="g-checkout-main">
+              <section class="g-checkout-section">
+                <header class="g-checkout-section-header">
+                  <div>
+                    <h3>收货地址</h3>
+                    <p class="g-text-muted">选择或新增地址</p>
+                  </div>
+                  <button class="g-btn g-btn-outline g-btn-sm">新增</button>
+                </header>
+                <div class="g-address-selector" data-g-saved-choice>
+                  <label
+                    class="g-address-card"
+                    data-g-saved-choice-item
+                    data-g-value="home"
+                    ><input type="radio" name="address" checked /><span
+                      class="g-address-main"
+                      ><strong>林晓 · 138****6608</strong
+                      ><span class="g-address-meta"
+                        >上海市浦东新区示例路 88 号</span
+                      ></span
+                    ><span class="g-badge">默认</span></label
+                  ><label
+                    class="g-address-card"
+                    data-g-saved-choice-item
+                    data-g-value="office"
+                    ><input type="radio" name="address" /><span
+                      class="g-address-main"
+                      ><strong>公司</strong
+                      ><span class="g-address-meta"
+                        >杭州市西湖区协作街 10 号</span
+                      ></span
+                    ><span>编辑</span></label
+                  >
+                </div>
+              </section>
+              <section class="g-checkout-section">
+                <h3>配送方式</h3>
+                <div class="g-shipping-method" data-g-saved-choice>
+                  <label
+                    class="g-shipping-option"
+                    data-g-saved-choice-item
+                    data-g-value="standard"
+                    ><input type="radio" name="shipping" checked /><span
+                      class="g-shipping-main"
+                      ><strong>标准配送</strong
+                      ><span class="g-shipping-meta"
+                        >预计 2–3 个工作日</span
+                      ></span
+                    ><span class="g-shipping-price">¥12</span></label
+                  ><label
+                    class="g-shipping-option"
+                    data-g-saved-choice-item
+                    data-g-value="express"
+                    ><input type="radio" name="shipping" /><span
+                      class="g-shipping-main"
+                      ><strong>次日达</strong
+                      ><span class="g-shipping-meta">明日 18:00 前</span></span
+                    ><span class="g-shipping-price">¥28</span></label
+                  >
+                </div>
+                <div class="g-pickup-selector" data-g-saved-choice>
+                  <label
+                    class="g-pickup-option"
+                    data-g-saved-choice-item
+                    data-g-value="store"
+                    ><input type="radio" name="pickup" /><span
+                      class="g-pickup-main"
+                      ><strong>门店自提</strong
+                      ><span class="g-pickup-meta">陆家嘴店 · 现货</span></span
+                    ><span>免费</span></label
+                  >
+                </div>
+              </section>
+            </div>
+            <aside class="g-checkout-sidebar g-commerce-order-summary">
+              <strong>订单摘要</strong>
+              <div class="g-order-summary-row">
+                <span>2 件商品</span><span>¥598</span>
+              </div>
+              <div class="g-order-summary-row g-order-summary-total">
+                <span>应付</span><span>¥590</span>
+              </div>
+            </aside>
+          </div>
+          <div class="g-checkout-mobile-actions">
+            <button class="g-btn g-btn-outline">返回</button
+            ><button class="g-btn g-btn-primary">¥590 · 继续支付</button>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <h2>18–19 优惠码 / 促销</h2>
+          <div
+            class="g-coupon"
+            data-g-coupon
+            data-g-valid-codes="GARDEN20,VIP10"
+          >
+            <div class="g-coupon-row">
+              <label class="g-sr-only" for="coupon-demo">优惠码</label
+              ><input
+                class="g-input"
+                id="coupon-demo"
+                data-g-coupon-input
+                value="GARDEN20"
+              /><button class="g-btn g-btn-primary" data-g-coupon-apply>
+                使用</button
+              ><button class="g-btn g-btn-ghost" data-g-coupon-clear>
+                清除
+              </button>
+            </div>
+            <span class="g-coupon-status" data-g-coupon-status></span>
+          </div>
+          <div class="g-promotion-list g-mt-5">
+            <div class="g-promotion-item">
+              <code class="g-promotion-code">GARDEN20</code
+              ><span>满 ¥299 减 ¥20</span>
+            </div>
+            <div class="g-promotion-item">
+              <code class="g-promotion-code">SHIPFREE</code
+              ><span>企业版免配送费</span>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>20 发票信息</h2>
+          <form class="g-invoice-information">
+            <div class="g-invoice-type">
+              <label class="g-check"
+                ><input type="radio" name="invoice" checked /> 电子普票</label
+              ><label class="g-check"
+                ><input type="radio" name="invoice" /> 增值税专票</label
+              >
+            </div>
+            <div class="g-invoice-fields">
+              <label class="g-field"
+                ><span class="g-label">抬头</span
+                ><input class="g-input" value="示例科技有限公司" /></label
+              ><label class="g-field"
+                ><span class="g-label">税号</span
+                ><input class="g-input" value="91310000XXXXXXXXXX"
+              /></label>
+            </div>
+          </form>
+        </article>
+        <article class="demo-card">
+          <h2>21–22 支付方式 / 支付面板</h2>
+          <div class="g-payment-method" data-g-saved-choice>
+            <label
+              class="g-payment-option"
+              data-g-saved-choice-item
+              data-g-value="card"
+              ><input type="radio" name="payment" checked /><span
+                class="g-payment-main"
+                ><strong>企业银行卡</strong
+                ><span class="g-payment-meta">尾号 8842</span></span
+              ><span class="g-payment-brand">CARD</span></label
+            ><label
+              class="g-payment-option"
+              data-g-saved-choice-item
+              data-g-value="wallet"
+              ><input type="radio" name="payment" /><span class="g-payment-main"
+                ><strong>企业钱包</strong
+                ><span class="g-payment-meta">余额 ¥2,840</span></span
+              ><span class="g-payment-mark">余额</span></label
+            >
+          </div>
+          <div class="g-payment-sheet g-mt-5">
+            <div class="g-payment-sheet-total">
+              <span>本次支付</span><strong class="g-price-current">¥590</strong>
+            </div>
+            <button class="g-btn g-btn-primary">确认支付</button>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>23 支付结果</h2>
+          <div class="g-payment-result">
+            <span class="g-payment-result-icon">✓</span>
+            <h3>支付成功</h3>
+            <p class="g-text-muted">订单 G20260827001 已创建</p>
+            <div class="g-payment-result-actions">
+              <button class="g-btn g-btn-primary">查看订单</button
+              ><button class="g-btn g-btn-outline">下载凭证</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <h2>24 订单摘要</h2>
+          <div class="g-commerce-order-summary">
+            <div class="g-order-summary-row">
+              <span>商品</span><span>¥699</span>
+            </div>
+            <div class="g-order-summary-row">
+              <span>税费</span><span>¥41.94</span>
+            </div>
+            <div class="g-order-summary-row g-order-summary-total">
+              <span>实付</span><span>¥740.94</span>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>25 订单时间线</h2>
+          <div class="g-commerce-order-timeline">
+            <div class="g-order-timeline-item is-complete">
+              <span class="g-order-timeline-dot"></span
+              ><span class="g-order-timeline-content"
+                ><strong>支付成功</strong
+                ><time class="g-order-meta">08-27 10:24</time></span
+              >
+            </div>
+            <div class="g-order-timeline-item" aria-current="step">
+              <span class="g-order-timeline-dot"></span
+              ><span class="g-order-timeline-content"
+                ><strong>正在交付</strong
+                ><span class="g-order-meta">许可证生成中</span></span
+              >
+            </div>
+            <div class="g-order-timeline-item">
+              <span class="g-order-timeline-dot"></span
+              ><span class="g-order-timeline-content"
+                ><strong>交付完成</strong></span
+              >
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>26 订单详情</h2>
+          <div class="g-order-detail">
+            <header class="g-order-detail-header">
+              <div>
+                <strong>订单 G20260827001</strong>
+                <p class="g-order-meta">2026-08-27 10:24</p>
+              </div>
+              <span class="g-badge">处理中</span>
+            </header>
+            <section class="g-order-detail-section">
+              <div class="g-commerce-header">
+                <span>Gardener Studio</span><strong>¥699</strong>
+              </div>
+            </section>
+            <section class="g-order-detail-section">
+              <span class="g-order-meta">企业采购 · 电子发票 · 在线交付</span>
+            </section>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <h2>27 订阅套餐</h2>
+          <div class="g-subscription-plan is-featured">
+            <span class="g-badge">推荐</span>
+            <h3>Business</h3>
+            <div class="g-plan-price">
+              <strong class="g-plan-price-value">¥199</strong
+              ><span class="g-billing-period">/ 月</span>
+            </div>
+            <ul class="g-plan-features">
+              <li>✓ 20 位成员</li>
+              <li>✓ 1 TB 存储</li>
+              <li>✓ SSO 与审计</li>
+            </ul>
+            <button class="g-btn g-btn-primary">开始订阅</button>
+          </div>
+        </article>
+        <article class="demo-card demo-wide">
+          <h2>28 定价对比</h2>
+          <div class="g-overflow-x-auto">
+            <table class="g-pricing-comparison">
+              <thead>
+                <tr>
+                  <th>能力</th>
+                  <th>Free</th>
+                  <th>Pro</th>
+                  <th>Business</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>成员</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>AI 生成</td>
+                  <td>50 次</td>
+                  <td>2,000 次</td>
+                  <td>不限</td>
+                </tr>
+                <tr>
+                  <td>SSO</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>✓</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>29 用量计</h2>
+          <div class="g-commerce-usage-meter" style="--g-usage: 72%">
+            <div class="g-usage-meter-header">
+              <strong>AI 生成次数</strong><span>1,440 / 2,000</span>
+            </div>
+            <div class="g-usage-meter-track">
+              <span class="g-usage-meter-value"></span>
+            </div>
+            <span class="g-price-note">下月 1 日重置</span>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>30 账单历史</h2>
+          <div class="g-billing-history">
+            <header class="g-billing-history-header">
+              <strong>最近账单</strong
+              ><button class="g-btn g-btn-ghost g-btn-sm">全部</button>
+            </header>
+            <div class="g-billing-history-item">
+              <time>2026-08-01</time><span>Business 月付</span
+              ><strong>¥199</strong><a href="#">PDF</a>
+            </div>
+            <div class="g-billing-history-item">
+              <time>2026-07-01</time><span>Business 月付</span
+              ><strong>¥199</strong><a href="#">PDF</a>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>31 退款状态</h2>
+          <div class="g-refund-status">
+            <header class="g-refund-status-header">
+              <div>
+                <strong>退款 ¥199</strong>
+                <p class="g-order-meta">预计 1–3 个工作日到账</p>
+              </div>
+              <span class="g-badge">处理中</span>
+            </header>
+            <div class="g-refund-status-progress">
+              <span class="g-refund-status-step is-complete"></span
+              ><span class="g-refund-status-step is-complete"></span
+              ><span class="g-refund-status-step"></span>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>32 税费摘要</h2>
+          <div class="g-tax-summary">
+            <div class="g-tax-summary-row">
+              <span>未税金额</span><span>¥699.00</span>
+            </div>
+            <div class="g-tax-summary-row">
+              <span>增值税（6%）</span><span>¥41.94</span>
+            </div>
+            <div class="g-tax-summary-row">
+              <strong>含税合计</strong><strong>¥740.94</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="../dist/gardener.runtime.js"></script>
+  </body>
+</html>

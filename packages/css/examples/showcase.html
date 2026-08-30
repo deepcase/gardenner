@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gardener Showcase</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+    <style>
+      .showcase-section {
+        padding-block: 2rem;
+        border-bottom: 1px solid var(--g-color-border);
+      }
+      .showcase-theme-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+        gap: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="g-skip-link" href="#main">跳到主要内容</a>
+    <header class="g-navbar g-sticky-top">
+      <a class="g-navbar-brand" href="#">Gardener</a>
+      <nav class="g-navbar-nav" aria-label="示例导航">
+        <a class="g-nav-link is-active" href="#components">组件</a>
+        <a class="g-nav-link" href="#dashboard">Dashboard</a>
+        <a class="g-nav-link" href="#ai">AI</a>
+      </nav>
+      <div class="g-cluster g-ml-auto">
+        <select
+          class="g-select g-select-sm g-w-auto"
+          id="theme-select"
+          aria-label="颜色主题"
+        ></select>
+        <button class="g-btn g-btn-sm" id="mode-button">模式：Light</button>
+      </div>
+    </header>
+
+    <main id="main" class="g-container">
+      <section class="showcase-section">
+        <div class="g-stack" style="--g-stack-gap: 0.75rem">
+          <span class="g-badge">Gardener 1.0.0</span>
+          <h1>通用界面的基础设施</h1>
+          <p class="g-text-muted">
+            中性默认风格、小圆角、42 套颜色主题，以及 PC、移动端、Dashboard 和
+            AI 组件。
+          </p>
+          <div class="g-cluster">
+            <button
+              class="g-btn g-btn-primary"
+              data-g-dialog-open="demo-dialog"
+            >
+              打开 Dialog
+            </button>
+            <button class="g-btn g-btn-outline">次要操作</button>
+            <button class="g-btn g-btn-ghost">轻量操作</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="components" class="showcase-section g-stack">
+        <h2 class="g-text-2xl">基础组件</h2>
+        <div class="g-grid-auto">
+          <article class="g-card">
+            <header class="g-card-header">
+              <span class="g-card-title">表单</span
+              ><span class="g-badge g-badge-success">Ready</span>
+            </header>
+            <div class="g-card-body g-stack">
+              <label class="g-field"
+                ><span class="g-label g-label-required">项目名称</span
+                ><input class="g-input" value="Gardener" /><span class="g-help"
+                  >使用清晰、稳定的名称。</span
+                ></label
+              >
+              <label class="g-field"
+                ><span class="g-label">类型</span
+                ><select class="g-select">
+                  <option>CSS 框架</option>
+                  <option>组件库</option>
+                </select></label
+              >
+              <label class="g-switch"
+                ><input type="checkbox" checked /><span
+                  class="g-switch-track"
+                ></span
+                ><span>启用自动构建</span></label
+              >
+            </div>
+          </article>
+          <article class="g-card">
+            <header class="g-card-header">
+              <span class="g-card-title">反馈状态</span>
+            </header>
+            <div class="g-card-body g-stack">
+              <div class="g-alert g-alert-success">
+                <span>✓</span>
+                <div>
+                  <div class="g-alert-title">构建成功</div>
+                  <div class="g-alert-description">所有检查均已通过。</div>
+                </div>
+              </div>
+              <div
+                class="g-progress"
+                role="progressbar"
+                aria-label="进度"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="72"
+              >
+                <div
+                  class="g-progress-bar"
+                  style="--g-progress-value: 72%"
+                ></div>
+              </div>
+              <div class="g-cluster">
+                <span class="g-badge">默认</span
+                ><span class="g-badge g-badge-warning">警告</span
+                ><span class="g-badge g-badge-danger">错误</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="dashboard" class="showcase-section g-stack">
+        <h2 class="g-text-2xl">Dashboard</h2>
+        <div class="g-dashboard-grid">
+          <article class="g-kpi g-span-3">
+            <div class="g-kpi-label">组件</div>
+            <div class="g-kpi-value">137</div>
+            <div class="g-kpi-change is-up">↑ 持续增加</div>
+          </article>
+          <article class="g-kpi g-span-3">
+            <div class="g-kpi-label">主题</div>
+            <div class="g-kpi-value">42</div>
+            <div class="g-kpi-change is-up">满足目标</div>
+          </article>
+          <article class="g-kpi g-span-3">
+            <div class="g-kpi-label">模式</div>
+            <div class="g-kpi-value">4</div>
+            <div class="g-kpi-change">独立切换</div>
+          </article>
+          <article class="g-kpi g-span-3">
+            <div class="g-kpi-label">依赖</div>
+            <div class="g-kpi-value">0</div>
+            <div class="g-kpi-change">零运行时依赖</div>
+          </article>
+        </div>
+        <div class="g-table-wrap">
+          <table class="g-table g-table-hover">
+            <thead>
+              <tr>
+                <th>模块</th>
+                <th>状态</th>
+                <th>目标</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Core</td>
+                <td><span class="g-badge g-badge-success">完成</span></td>
+                <td>所有网页</td>
+              </tr>
+              <tr>
+                <td>AI UI</td>
+                <td><span class="g-badge g-badge-success">完成</span></td>
+                <td>AI 产品</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="ai" class="showcase-section g-stack">
+        <h2 class="g-text-2xl">AI 交互</h2>
+        <div class="g-message">
+          <span class="g-avatar">G</span>
+          <div class="g-message-content">
+            <div class="g-message-meta">
+              <span class="g-message-author">Gardener</span
+              ><span>正在生成</span>
+            </div>
+            <div class="g-message-body">
+              <p>
+                我正在构建一套完整、稳定、可被 AI 准确使用的组件系统<span
+                  class="g-stream-cursor"
+                ></span>
+              </p>
+            </div>
+            <div class="g-tool-call is-success">
+              <div class="g-tool-call-header">
+                <span class="g-tool-call-name">build_css</span
+                ><span class="g-tool-call-status">✓ 成功</span>
+              </div>
+              <div class="g-tool-call-body">已生成主题、工具类和组件。</div>
+            </div>
+          </div>
+        </div>
+        <div class="g-composer">
+          <textarea
+            class="g-composer-input"
+            data-g-auto-resize
+            aria-label="消息内容"
+            placeholder="向 Gardener 提出页面需求"
+          ></textarea>
+          <div class="g-composer-toolbar">
+            <div class="g-composer-tools">
+              <button
+                class="g-btn g-btn-ghost g-btn-icon"
+                aria-label="添加附件"
+              >
+                ＋
+              </button>
+            </div>
+            <button class="g-btn g-btn-primary">发送</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="demo-dialog" class="g-dialog-backdrop" data-g-dialog hidden>
+      <section
+        class="g-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="dialog-title"
+      >
+        <header class="g-dialog-header">
+          <h2 id="dialog-title" class="g-dialog-title">Gardener Dialog</h2>
+          <button
+            class="g-btn g-btn-ghost g-btn-icon"
+            data-g-close
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </header>
+        <div class="g-dialog-body">
+          <p>Dialog 支持焦点约束、Escape、背景关闭、滚动锁定和焦点恢复。</p>
+        </div>
+        <footer class="g-dialog-footer">
+          <button class="g-btn" data-g-close>取消</button
+          ><button class="g-btn g-btn-primary" data-g-close>确认</button>
+        </footer>
+      </section>
+    </div>
+
+    <script type="module" src="../dist/gardener.runtime.js"></script>
+    <script type="module">
+      const themes = [
+        "garden",
+        "slate",
+        "graphite",
+        "zinc",
+        "stone",
+        "red",
+        "rose",
+        "ruby",
+        "crimson",
+        "coral",
+        "orange",
+        "amber",
+        "gold",
+        "yellow",
+        "lime",
+        "olive",
+        "green",
+        "forest",
+        "emerald",
+        "mint",
+        "teal",
+        "aqua",
+        "cyan",
+        "sky",
+        "blue",
+        "cobalt",
+        "navy",
+        "ocean",
+        "indigo",
+        "violet",
+        "purple",
+        "lavender",
+        "plum",
+        "fuchsia",
+        "magenta",
+        "pink",
+        "brown",
+        "coffee",
+        "sand",
+        "sunset",
+        "midnight",
+        "monochrome",
+      ];
+      const select = document.querySelector("#theme-select");
+      themes.forEach((theme) => select.add(new Option(theme, theme)));
+      select.addEventListener(
+        "change",
+        () => (document.documentElement.dataset.gTheme = select.value),
+      );
+      const modes = ["light", "dark", "system", "high-contrast"];
+      const modeButton = document.querySelector("#mode-button");
+      modeButton.addEventListener("click", () => {
+        const current = document.documentElement.dataset.gMode;
+        document.documentElement.dataset.gMode =
+          modes[(modes.indexOf(current) + 1) % modes.length];
+        modeButton.textContent = `模式：${document.documentElement.dataset.gMode}`;
+      });
+    </script>
+  </body>
+</html>

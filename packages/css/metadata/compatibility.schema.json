@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.style/schema/compatibility.schema.json",
+  "title": "Gardener cross-version compatibility baseline",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "version", "baselineVersion", "policy", "support", "baseline", "deprecatedAliases"],
+  "properties": {
+    "$schema": { "enum": ["./compatibility.schema.json", "../metadata/compatibility.schema.json"] },
+    "schemaVersion": { "const": 1 },
+    "version": { "$ref": "#/$defs/version" },
+    "baselineVersion": { "$ref": "#/$defs/version" },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage", "additions", "removals", "minimumDeprecationMinorReleases", "stableTarget"],
+      "properties": {
+        "stage": { "const": "stable" },
+        "additions": { "const": "allowed" },
+        "removals": { "const": "deprecate-before-removal" },
+        "minimumDeprecationMinorReleases": { "type": "integer", "minimum": 2 },
+        "stableTarget": { "const": "1.0.0" }
+      }
+    },
+    "support": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["node", "browsers", "module"],
+      "properties": {
+        "node": { "type": "string", "pattern": "^>=\\d+\\.\\d+$" },
+        "module": { "const": "esm" },
+        "browsers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["chrome", "edge", "firefox", "safari", "ios"],
+          "properties": {
+            "chrome": { "type": "string", "minLength": 1 },
+            "edge": { "type": "string", "minLength": 1 },
+            "firefox": { "type": "string", "minLength": 1 },
+            "safari": { "type": "string", "minLength": 1 },
+            "ios": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packageEntrypoints", "cssLayers", "themeAttributes", "moduleExports", "gardenerProperties", "behaviors", "events", "dataAttributes", "adapters", "componentNames", "recipeIds", "themeNames", "modes"],
+      "properties": {
+        "packageEntrypoints": { "$ref": "#/$defs/uniqueStrings" },
+        "cssLayers": { "$ref": "#/$defs/uniqueStrings" },
+        "themeAttributes": { "$ref": "#/$defs/uniqueStrings" },
+        "moduleExports": { "$ref": "#/$defs/uniqueStrings" },
+        "gardenerProperties": { "$ref": "#/$defs/uniqueStrings" },
+        "behaviors": { "$ref": "#/$defs/uniqueStrings" },
+        "events": { "$ref": "#/$defs/uniqueStrings" },
+        "dataAttributes": { "$ref": "#/$defs/uniqueStrings" },
+        "adapters": { "$ref": "#/$defs/uniqueStrings" },
+        "componentNames": { "$ref": "#/$defs/uniqueStrings" },
+        "recipeIds": { "$ref": "#/$defs/uniqueStrings" },
+        "themeNames": { "$ref": "#/$defs/uniqueStrings" },
+        "modes": { "$ref": "#/$defs/uniqueStrings" }
+      }
+    },
+    "deprecatedAliases": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "replacement", "removeIn"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "replacement": { "type": "string", "minLength": 1 },
+          "removeIn": { "$ref": "#/$defs/version" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "uniqueStrings": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+  }
+}

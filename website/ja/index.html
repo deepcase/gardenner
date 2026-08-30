@@ -1,0 +1,3404 @@
+<!doctype html>
+<html
+  lang="ja"
+  data-g-theme="garden"
+  data-g-mode="light"
+  data-g-neutral="cool"
+  data-g-shape="small"
+ data-locale="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Gardener は、人間の開発者と AI ページ ビルダー向けのユニバーサル CSS、Vue 3、React、AngularJS、Blazor コンポーネント、ページ レシピ、デスクトップ アプリケーション インフラストラクチャです。"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'"
+    />
+    <title>Gardener — すべてのインターフェイスに対応した CSS インフラストラクチャ</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="./index.html" />
+    <link rel="alternate" hreflang="zh-CN" href="../zh-CN/index.html" />
+    <link rel="alternate" hreflang="en" href="../en/index.html" />
+    <link rel="alternate" hreflang="ja" href="../ja/index.html" />
+    <link rel="alternate" hreflang="ko" href="../ko/index.html" />
+    <link rel="alternate" hreflang="es" href="../es/index.html" />
+    <link rel="alternate" hreflang="fr" href="../fr/index.html" />
+    <link rel="alternate" hreflang="de" href="../de/index.html" />
+    <link rel="alternate" hreflang="x-default" href="../index.html" />
+    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=afe73d14" />
+    <link rel="stylesheet" href="../assets/site.css" />
+  </head>
+  <body>
+    <a class="g-skip-link" href="#main">メインコンテンツにスキップ</a>
+    <header class="site-header">
+      <nav class="site-nav site-container" aria-label="メインナビゲーション">
+        <a class="site-brand" href="./index.html" aria-label="Gardener ホームページ"
+          ><span class="site-brand-mark" aria-hidden="true">G</span
+          ><span>Gardener</span></a
+        >
+        <div class="site-nav-links" id="site-menu">
+          <a class="site-nav-link" href="#capabilities">機能</a>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">フレームワーク</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#vue">Vue</a>
+              <a class="site-nav-link" href="#react">React</a>
+              <a class="site-nav-link" href="#angular">AngularJS</a>
+              <a class="site-nav-link" href="#blazor">Blazor</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">基本</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#grid">グリッド</a>
+              <a class="site-nav-link" href="#page-components">コンポーネント</a>
+              <a class="site-nav-link" href="#themes">トピック</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">ビジネス</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#data-compositions">データ</a>
+              <a class="site-nav-link" href="#content-compositions">コンテンツ</a>
+              <a class="site-nav-link" href="#auth-compositions">アカウント</a>
+              <a class="site-nav-link" href="#commerce-compositions">ビジネス</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">プラットフォーム</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#mobile-compositions">移動</a>
+              <a class="site-nav-link" href="#desktop-compositions">デスクトップ</a>
+              <a class="site-nav-link" href="#ai-compositions">AI</a>
+              <a class="site-nav-link" href="#solution-compositions">シーン</a>
+            </div>
+          </details>
+          <a class="site-nav-link" href="./docs.html">ドキュメント</a>
+        </div>
+        <div class="site-nav-actions">
+          <label class="g-sr-only" for="site-language">言語を選択してください</label>
+          <select class="g-select g-select-sm site-language-select" id="site-language" data-site-language data-i18n-ignore translate="no">
+            <option value="zh-CN" lang="zh-CN" translate="no">简体中文</option>
+            <option value="en" lang="en" translate="no">English</option>
+            <option value="ja" lang="ja" translate="no" selected>日本語</option>
+            <option value="ko" lang="ko" translate="no">한국어</option>
+            <option value="es" lang="es" translate="no">Español</option>
+            <option value="fr" lang="fr" translate="no">Français</option>
+            <option value="de" lang="de" translate="no">Deutsch</option>
+          </select>
+          <a
+            class="g-btn g-btn-primary g-btn-sm site-docs-button"
+            href="./docs.html#quick-start"
+            >はじめに</a
+          >
+          <button
+            class="g-btn g-btn-outline g-btn-icon site-menu-button"
+            type="button"
+            data-site-menu
+            aria-controls="site-menu"
+            aria-expanded="false"
+            aria-label="ナビゲーションを開く"
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="site-hero">
+        <div class="site-container site-hero-grid">
+          <div>
+            <span class="site-eyebrow">ユニバーサル CSS インフラストラクチャ</span>
+            <h1>すべてのインターフェイスに<span>既製の回答</span></h1>
+            <p class="site-hero-copy">
+              Gardener は、基本的な CSS、インタラクティブ コンポーネント、ビジネス レシピ、デスクトップ アダプテーション、および機械可読マニフェストを 1 つのシステムに統合します。人が直接開発することができ、毎回スタイルを再編成することなく、AI が正確に選択して使用することができます。
+            </p>
+            <div class="site-hero-actions">
+              <a
+                class="g-btn g-btn-primary g-btn-lg"
+                href="./docs.html#quick-start"
+                >ドキュメントを読む</a
+              >
+              <button
+                class="g-btn g-btn-outline g-btn-lg"
+                type="button"
+                data-g-copy
+                data-g-copy-value="npm install @gardener/css"
+              >
+                コピーインストールコマンド
+              </button>
+            </div>
+            <ul class="site-proof" aria-label="コア機能">
+              <li>ランタイム依存関係なし</li>
+              <li>白い背景にニュートラルなデフォルト</li>
+              <li>小さな角丸システム</li>
+              <li>Web とデスクトップの共有</li>
+            </ul>
+          </div>
+
+          <div class="site-demo" aria-label="Gardenerダッシュボードプレビュー">
+            <div class="site-window">
+              <div class="site-window-bar">
+                <div class="site-window-dots" aria-hidden="true">
+                  <i class="site-window-dot"></i><i class="site-window-dot"></i
+                  ><i class="site-window-dot"></i>
+                </div>
+                <span class="site-window-path"
+                  >gardener / workspace / overview</span
+                ><span class="g-badge">ライブ</span>
+              </div>
+              <div class="site-window-body">
+                <aside class="site-demo-rail" aria-label="デモナビゲーション">
+                  <button class="site-demo-icon is-active" aria-label="概要">
+                    OV</button
+                  ><button class="site-demo-icon" aria-label="コンテンツ">CT</button
+                  ><button class="site-demo-icon" aria-label="AI">AI</button
+                  ><button class="site-demo-icon" aria-label="設定">ST</button>
+                </aside>
+                <div class="site-demo-main">
+                  <div class="site-demo-toolbar">
+                    <div>
+                      <div class="site-demo-line is-long"></div>
+                      <div class="site-demo-line is-short g-mt-2"></div>
+                    </div>
+                    <button class="g-btn g-btn-primary g-btn-sm">
+                      新しいページ
+                    </button>
+                  </div>
+                  <div class="site-demo-cards">
+                    <article class="site-demo-card is-accent">
+                      <span class="site-kicker">公開ページ</span>
+                      <div class="site-demo-value">2,480</div>
+                      <span class="g-badge g-badge-success">+12.6%</span>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">コンポーネントの採用率</span>
+                      <div class="site-demo-value">94%</div>
+                      <div
+                        class="g-progress g-mt-3"
+                        role="progressbar"
+                        aria-label="コンポーネントの採用率"
+                        aria-valuenow="94"
+                      >
+                        <span style="--g-progress: 94%"></span>
+                      </div>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">トレンドの生成</span>
+                      <div class="site-demo-chart" aria-hidden="true">
+                        <i style="height: 35%"></i><i style="height: 52%"></i
+                        ><i style="height: 43%"></i><i style="height: 72%"></i
+                        ><i style="height: 61%"></i><i style="height: 88%"></i
+                        ><i style="height: 100%"></i>
+                      </div>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">AI タスク</span>
+                      <div class="g-agent-status is-working g-mt-4">
+                        <span class="g-spinner"></span
+                        ><span>エンタープライズ サイトの組み立て</span>
+                      </div>
+                      <div class="site-demo-line is-long g-mt-5"></div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="フレームサイズ">
+        <div class="site-container site-stat-grid">
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="42">42</strong
+            ><span class="site-stat-label">カラーテーマ</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="506">506</strong
+            ><span class="site-stat-label">レジスタコンポーネント</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="11498">11,498</strong
+            ><span class="site-stat-label">ツール</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="52">52</strong
+            ><span class="site-stat-label">機械可読ページレシピ</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="capabilities">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">1 つのシステム、すべての表面</span>
+            <h2 class="site-title">ボタン 1 つからスーパー CMS へ</h2>
+            <p class="site-lead">
+              基本的なアトム、共通コンポーネント、高密度バックエンド、モバイル端末、コンテンツの商用化、AI ワークスペース、デスクトップ WebView をカバーします。デフォルトも十分に抑えられており、組み合わせの幅も十分に広い。
+            </p>
+          </header>
+          <div class="site-feature-grid">
+            <article class="site-feature">
+              <span class="site-feature-index">01</span>
+              <h3>完全なベースレイヤー</h3>
+              <p>
+                リセット、トークン、24 / 12 グリッド、タイポグラフィ、間隔、サイズ、論理方向、色、境界線、シャドウ、ステータス、および 5 レベルの応答性の高いツール クラス。
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">02</span>
+              <h3>すぐに提供できるコンポーネント</h3>
+              <p>
+                フォーム、ナビゲーション、オーバーレイ、データ、メディア、ビジネス、コミュニケーション、法律、ワークフロー、ダッシュボードはすべて、安定した構造と状態規約を持っています。
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">03</span>
+              <h3>AI ネイティブ インタラクション</h3>
+              <p>
+                メッセージ フロー、思考プロセス、ツールの呼び出し、承認、エージェントのステータス、スケジュール、参照、アーティファクト、モデルの選択、およびマルチモーダル生成。
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">04</span>
+              <h3>複雑なビジネスレシピ</h3>
+              <p>
+                ログイン、モバイル カテゴリ、CMS エディタ、メディア ライブラリ、受信トレイ、ファイル管理、フォーム構築、ストアの掲載情報、請求、およびエンタープライズ設定。
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">05</span>
+              <h3>デスクトップ アプリケーションの適応</h3>
+              <p>
+                Tauri と Electron は、タイトル バー、ウィンドウ コントロール、アクティビティ バー、編集領域、インスペクター、列、ステータス バーを共有し、ブリッジ インターフェイスは安全なままです。
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">06</span>
+              <h3>環境マトリックスが完了しました</h3>
+              <p>
+                ライト、ダーク、システム、ハイコントラスト、RTL、モーション軽減、強制カラー、印刷、モバイル、タブレット、デスクトップ。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="vue">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">公式 Vue 3 バインディング · 1.0.0 安定版</span>
+            <h2 class="site-title">CSS の全機能が Vue API になりました</h2>
+            <p class="site-lead">
+              <code>@gardener/vue</code> 506 のコンポーネントと 66 の DOM 動作の完全なマッピング。プラグイン、タイプセーフ コンポーネント、ディレクティブ、コンポーザブル、10 軸テーマ プロバイダー、v モデル、SSR、および Tauri / Electron の適応を提供します。各 CSS コンポーネントには独自の <code>G*</code> エクスポート時に、AI はスタイルを再構築せずにコンポーネントを直接選択できます。
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="Vue プロジェクトのメトリクス">
+              <span class="g-badge">506 コンポーネント</span>
+              <span class="g-badge">538 ランタイムエクスポート</span>
+              <span class="g-badge">29 エントリ ポイント</span>
+              <span class="g-badge">28 CSS パック</span>
+              <span class="g-badge">Vue 3.4+</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#vue">Vue ドキュメントを読む</a>
+              <a class="g-btn g-btn-outline" href="../../packages/vue/README.md">Vue プロジェクトの説明を開く</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>App.vue</span><span>オンデマンドインポート・コンプリートタイプ</span>
+            </div>
+            <pre class="site-code"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { GButton, GCard, GardenerProvider } from &quot;@gardener/vue&quot;;
+import &quot;@gardener/vue/style.css&quot;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
+    &lt;GCard&gt;
+      &lt;GButton variant=&quot;primary&quot;&gt;保存&lt;/GButton&gt;
+    &lt;/GCard&gt;
+  &lt;/GardenerProvider&gt;
+&lt;/template&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="react">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">公式 React バインディング · 1.0.0 安定版</span>
+            <h2 class="site-title">同じ CSS セットに完全な React コンポーネント モデルもあります</h2>
+            <p class="site-lead">
+              <code>@gardener/react</code> 506 個の CSS コンポーネントと 66 個の DOM 動作をタイプセーフな React API にマッピングし、正確なネイティブ要素タイプ、10 軸のテーマプロバイダー、制御された値と制御されていない値のブリッジング、命令型ハンドル、7 つのフック、SSR / ハイドレーション、および分離された Tauri / Electron 適応入口を提供します。コンポーネント、スタイル、および機械可読ディレクトリは 1 対 1 の対応を維持します。
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="React プロジェクトのメトリクス">
+              <span class="g-badge">506 コンポーネント</span>
+              <span class="g-badge">538 ランタイムエクスポート</span>
+              <span class="g-badge">29 エントリ ポイント</span>
+              <span class="g-badge">28 CSS パック</span>
+              <span class="g-badge">React 18.3-19.xの</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#react">React ドキュメントを読む</a>
+              <a class="g-btn g-btn-outline" href="../../packages/react/README.md">React プロジェクトの説明を開く</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>App.tsx</span><span>オンデマンドインポート・コンプリートタイプ</span>
+            </div>
+            <pre class="site-code"><code>import { GButton, GCard, GardenerProvider } from &quot;@gardener/react&quot;;
+import &quot;@gardener/react/style.css&quot;;
+
+export function App() {
+  return (
+    &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
+      &lt;GCard&gt;
+        &lt;GButton variant=&quot;primary&quot;&gt;保存&lt;/GButton&gt;
+      &lt;/GCard&gt;
+    &lt;/GardenerProvider&gt;
+  );
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="angular">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">公式 AngularJS バインディング · 1.0.0 安定版</span>
+            <h2 class="site-title">大規模な AngularJS レガシー システムで完全な Gardener API を引き続き使用できるようにする</h2>
+            <p class="site-lead">
+              <code>@gardener/angularjs</code> 506 個の CSS コンポーネントと 66 個の DOM 動作を AngularJS 要素/属性ディレクティブにマッピングし、モジュール ファクトリ、厳密なコンポーネントのサブセット化、ネイティブ ngModel、10 軸テーマ、3 つの注入可能なサービス、動的なライフ サイクル、分離された Tauri / Electron エントリを提供します。これは、AngularJS 1.8.x を維持する必要があるストック製品を対象とし、フレームワークの EOL セキュリティ境界を明示的に公開します。
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="AngularJS プロジェクトのメトリクス">
+              <span class="g-badge">506 ディレクティブ</span>
+              <span class="g-badge">535 ランタイムエクスポート</span>
+              <span class="g-badge">29 エントリ ポイント</span>
+              <span class="g-badge">28 CSS パック</span>
+              <span class="g-badge">AngularJS 1.8.2–1.8.3</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#angular">AngularJS ドキュメントを読む</a>
+              <a class="g-btn g-btn-outline" href="../../packages/angularjs/README.md">AngularJS プロジェクトの説明を開く</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>app.js</span><span>モジュールファクトリー・ngModel・完全型</span>
+            </div>
+            <pre class="site-code"><code>import &quot;angular/angular.js&quot;;
+import { createGardenerAngularJS } from &quot;@gardener/angularjs&quot;;
+import &quot;@gardener/angularjs/style.css&quot;;
+
+const gardener = createGardenerAngularJS(window.angular, {
+  components: [&quot;button&quot;, &quot;input&quot;, &quot;card&quot;],
+});
+
+window.angular.module(&quot;app&quot;, [gardener]);
+
+// &lt;button g-button gardener-variant=&quot;primary&quot;&gt;保存&lt;/button&gt;
+// &lt;input g-input ng-model=&quot;vm.keyword&quot;&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="blazor">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">公式 Blazor RCL · 1.0.0 安定版</span>
+            <h2 class="site-title">同じ Razor コンポーネント セットを使用した静的 SSR からデスクトップ WebView へ</h2>
+            <p class="site-lead">
+              <code>Gardener.Blazor</code> 506 個の CSS/ハイブリッド コンポーネント、66 個の DOM 動作、および 75 個のイベントを、厳密に型指定された Razor API にマップします。安定したパッケージ
+              <code>net10.0</code> はベースラインであり、検証済みです <code>net11.0</code>
+              消費。Blazor Web App、WebAssembly、Hybrid、Tauri、および Electron のシナリオをカバーし、SSR、Forms、Accessibility、および Ten-axis テーマのコントラクトを保持します。
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="Blazor プロジェクトのメトリック">
+              <span class="g-badge">506 コンポーネント</span>
+              <span class="g-badge">66 の動作</span>
+              <span class="g-badge">75 イベント</span>
+              <span class="g-badge">43 の静的アセット</span>
+              <span class="g-badge">.NET 10/11</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#blazor">Blazor ドキュメントを読む</a>
+              <a class="g-btn g-btn-outline" href="../../packages/blazor/README.md">Blazor プロジェクトの説明を開く</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>ダッシュボード.razor</span><span>RCL · SSR · 厳密に型指定されたイベント</span>
+            </div>
+            <pre class="site-code"><code>@using Gardener.Blazor.Components
+
+&lt;GardenerProvider Theme=&quot;garden&quot; Mode=&quot;light&quot;
+                   Shape=&quot;small&quot; Platform=&quot;desktop&quot;&gt;
+  &lt;GAppShell&gt;
+    &lt;GSidebar&gt;ナビゲーション&lt;/GSidebar&gt;
+    &lt;GMainRegion&gt;
+      &lt;GButton Variant=&quot;primary&quot; @onclick=&quot;Save&quot;&gt;
+        保存
+      &lt;/GButton&gt;
+    &lt;/GMainRegion&gt;
+  &lt;/GAppShell&gt;
+&lt;/GardenerProvider&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-grid-section" id="grid">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">24/12 応答グリッド</span>
+            <h2 class="site-title">正確な列分割、一時的な計算は不要になりました</h2>
+            <p class="site-lead">
+              24 グリッドはエンタープライズ バックエンド、CMS、複雑なフォームをカバーし、12 グリッドは従来のデザイン ドラフトと互換​​性があります。列幅、オフセット、順序、グリッド線、間隔、コンテナ クエリ、RTL、印刷用の安定したインターフェイスがあります。
+            </p>
+          </header>
+          <div class="site-grid-ruler" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+            ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+            ><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="g-grid-24 g-gutter-3 site-grid-demo">
+            <article class="g-col-24 g-md-col-6">
+              <span>スタート</span><strong>6 / 24</strong><small>ナビゲーションとフィルタリング</small>
+            </article>
+            <article class="g-col-24 g-md-col-12">
+              <span>メイン</span><strong>12 / 24</strong
+              ><small>メインコンテンツエリア</small>
+            </article>
+            <article class="g-col-24 g-md-col-6">
+              <span>終了</span><strong>6 / 24</strong><small>インスペクターとアクション</small>
+            </article>
+            <article class="g-col-16 g-offset-4">
+              <span>オフセット</span><strong>4 + 16 + 4</strong
+              ><small>中央のフォームまたは読み取り領域</small>
+            </article>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>5 レベルのビューポート応答 + 3 レベルのコンテナ応答</strong
+              ><span
+                >480 / 768 / 1024 / 1280 / 1536px · CQ 480 / 768 / 1024px</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#grid-system"
+              >ラスター ドキュメント全体を表示</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="regions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">16 領域のレイアウト パターン</span>
+            <h2 class="site-title">従来のページ スケルトン、安定したインターフェイスも備えています</h2>
+            <p class="site-lead">
+              上下のメインエリア、左右の列から聖杯、マスター/ディテール、ドック、調整可能な列と全画面ワークスペース、Web、モバイル端末、Tauri/Electron をページレベルのレイアウト CSS を一時的に記述することなく直接選択できます。
+            </p>
+          </header>
+          <div
+            class="site-region-frame g-region-frame"
+            aria-label="5 つのエリアのレイアウトのプレビュー"
+          >
+            <header class="g-region-top"><b>トップへ</b><span>ツールバー</span></header>
+            <aside class="g-region-start">
+              <b>スタート</b><span>ナビゲーション</span>
+            </aside>
+            <main class="g-region-main">
+              <b>メイン</b><strong>ワークスペース</strong>
+              <div class="site-region-cards"><i></i><i></i><i></i></div>
+            </main>
+            <aside class="g-region-end"><b>終了</b><span>検査官</span></aside>
+            <footer class="g-region-bottom">
+              <b>ボトム</b><span>ステータス</span>
+            </footer>
+          </div>
+          <div class="site-region-patterns" aria-label="エリアレイアウト一覧">
+            <span>上/メイン/下</span><span>スタート/メイン/エンド</span
+            ><span>聖杯</span><span>マスター/詳細</span
+            ><span>リスト/詳細/検査者</span><span>固定ヘッダー</span
+            ><span>サイドバーを修正</span><span>粘着性のある脇</span
+            ><span>スティッキーフッター</span><span>ドック</span><span>分割ビュー</span
+            ><span>フルスクリーン</span><span>モバイルセーフエリア</span
+            ><span>デスクトップシェル</span><span>コンテナクエリ</span
+            ><span>RTL/印刷</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>完成スケルトン16種＋統一エリアパーツ</strong
+              ><span
+                >ビューポートの応答性 · コンテナーの応答性 · 論理方向 · 印刷のフラット化 · デスクトップ ワークベンチ</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#region-layouts"
+              >ゾーン レイアウトの完全なドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="primitives">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">22 個のクラシック レイアウト プリミティブ</span>
+            <h2 class="site-title">スペースによってレイアウトを決定し、ブレークポイントにレイアウトを推測させないでください</h2>
+            <p class="site-lead">
+              スタック、クラスター、サイドバー、スイッチャー、リール、メディア オブジェクト、メイソンリー、ベントなどの古典的なパターンが、固有の応答インターフェイスに統合されました。 AI は意図といくつかの変数を選択するだけでよく、フレックス、グリッド、オーバーフロー、安全領域のルールを再発明する必要はありません。
+            </p>
+          </header>
+          <div class="site-primitive-showcase">
+            <div class="g-stack site-primitive-stack">
+              <span class="site-primitive-label">スタック</span>
+              <article></article>
+              <article></article>
+              <article></article>
+            </div>
+            <div class="g-bento site-primitive-bento">
+              <article class="g-bento-featured">
+                <span>お弁当</span><strong>注目の</strong>
+              </article>
+              <article class="g-bento-tall"><span>背が高い</span></article>
+              <article><span>タイル</span></article>
+              <article><span>タイル</span></article>
+            </div>
+            <div class="g-stack site-primitive-flow">
+              <div class="g-cluster">
+                <span>クラスター</span><span>ラップ</span><span>タグ</span>
+              </div>
+              <div class="g-repel">
+                <strong>撃退</strong
+                ><button class="g-btn g-btn-primary g-btn-sm">アクション</button>
+              </div>
+              <div class="g-media-object">
+                <i class="g-media-object-media">M</i>
+                <div class="g-media-object-body">
+                  <strong>メディア オブジェクト</strong
+                  ><small>メディア・ボディ・アクション</small>
+                </div>
+                <span class="g-media-object-action">→</span>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="クラシック レイアウト プリミティブのリスト">
+            <span>スタック</span><span>クラスター</span><span>センター</span
+            ><span>サイドバー</span><span>スイッチャー</span><span>カバー</span
+            ><span>リール</span><span>フレーム</span><span>メディア オブジェクト</span
+            ><span>自動フィット</span><span>オートフィル</span><span>ブリード</span
+            ><span>撃退</span><span>詐欺師</span><span>オーバーレイ</span
+            ><span>石積み</span><span>お弁当</span><span>アスペクト比</span
+            ><span>スクロールエリア</span><span>スクロールスナップ</span
+            ><span>安全領域</span><span>粘着領域</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>22 の安定したプリミティブ + JavaScript レイアウトなし</strong
+              ><span
+                >組み込み応答 · コンテナ クエリ · RTL · セーフ エリア · 縮小モーション · 印刷</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#layout-primitives"
+              >完全な基本ドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="page-components">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">23 ページレベルのパターン</span>
+            <h2 class="site-title">ページのパブリック構造、配信状態に直接入る</h2>
+            <p class="site-lead">
+              ページ ヘッダー、ツールバー、コマンド バー、フィルタリング、バッチ操作を統合し、読み込み中、空、エラー、403、404、500、オフライン、メンテナンスのステータスを完全に準備します。 AI によって生成されたページはもはや単なる「通常のデータ」ではありません。
+            </p>
+          </header>
+          <div class="site-page-demo">
+            <header class="g-page-header">
+              <div class="g-page-header-main">
+                <div class="g-page-header-eyebrow">コンテンツワークスペース</div>
+                <h3 class="g-page-header-title">ページ管理</h3>
+                <p class="g-page-header-description">
+                  コンテンツ、ステータス、公開時間を管理します。
+                </p>
+              </div>
+              <div class="g-page-header-meta">
+                <span>最終更新日: たった今</span
+                ><span class="g-badge g-badge-success">同期済み</span>
+              </div>
+              <div class="g-page-header-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">プレビュー</button
+                ><button class="g-btn g-btn-primary g-btn-sm">新規</button>
+              </div>
+            </header>
+            <div class="g-toolbar">
+              <div class="g-toolbar-start">
+                <strong class="g-toolbar-title">12ページ</strong>
+              </div>
+              <div class="g-toolbar-center">
+                <span class="g-filter-chip">ステータス: すべて</span
+                ><span class="g-filter-chip">言語: 中国語</span>
+              </div>
+              <div class="g-toolbar-end">
+                <button class="g-btn g-btn-ghost g-btn-sm">フィルター</button>
+              </div>
+            </div>
+            <div class="g-context-bar is-info">
+              <span aria-hidden="true">私</span>
+              <div class="g-context-bar-content">現在実稼働環境のコンテンツを表示しています</div>
+              <div class="g-context-bar-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">スイッチ環境</button>
+              </div>
+            </div>
+            <div class="g-bulk-action-bar">
+              <strong class="g-bulk-action-count">3 個のアイテムが選択されました</strong>
+              <div class="g-bulk-action-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">移動</button
+                ><button class="g-btn g-btn-danger g-btn-sm">削除</button>
+              </div>
+            </div>
+            <div class="site-page-states">
+              <article class="g-page-empty">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-visual">∅</div>
+                  <strong class="g-page-state-title">空</strong>
+                  <p class="g-page-state-description">
+                    初めて使用する場合の明確な次のステップもあります。
+                  </p>
+                </div>
+              </article>
+              <article class="g-page-not-found">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-code">404</div>
+                  <strong class="g-page-state-title">見つかりません</strong>
+                  <p class="g-page-state-description">無効なリンクに対する安定したフォールバック。</p>
+                </div>
+              </article>
+              <article class="g-page-offline">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-visual">⌁</div>
+                  <strong class="g-page-state-title">オフライン</strong>
+                  <p class="g-page-state-description">
+                    ネットワークが切断されても、データ セキュリティ ステータスが通知されます。
+                  </p>
+                </div>
+              </article>
+            </div>
+            <footer class="g-status-bar">
+              <span class="g-status-bar-section"
+                ><i class="g-status-dot is-online"></i>接続されました</span
+              ><span class="g-status-bar-section is-end"
+                >Gardenerページ契約</span
+              >
+            </footer>
+          </div>
+          <div class="site-region-patterns" aria-label="ページレベルの共通コンポーネントのリスト">
+            <span>ページヘッダー</span><span>セクションヘッダー</span
+            ><span>サブヘッダー</span><span>ツールバー</span><span>アクションバー</span
+            ><span>ステータスバー</span><span>コマンド バー</span
+            ><span>コンテキストバー</span><span>フィルターバー</span
+            ><span>バルクアクションバー</span><span>フッターバー</span
+            ><span>フローティングアクションバー</span><span>トップに戻る</span
+            ><span>テキスト付きの仕切り</span><span>スティッキーアクション</span
+            ><span>ページの読み込み中</span><span>ページが空です</span
+            ><span>ページエラー</span><span>403</span><span>404</span
+            ><span>500</span><span>オフライン</span><span>メンテナンス</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>23 の完全なページ状態と共通構造</strong
+              ><span
+                >コンテナ クエリ · スティッキー · セーフ エリア · RTL · ランタイム · 印刷</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#page-components"
+              >全ページのコンポーネント ドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="help-system">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">28 のヘルプとガイダンスのパターン</span>
+            <h2 class="site-title">ヒントから完全なヘルプの閉ループへ</h2>
+            <p class="site-lead">
+              ツールチップ、ポップオーバー、吹き出し、FAQ、ヘルプセンター、ツアー、スポットライト、新機能のヒント、トラブルシューティング、フィードバックはすべて安定したインターフェイスを使用します。ユーザーは端で質問に遭遇したとき、適切かつ一貫した表現をします。
+            </p>
+          </header>
+          <div class="site-help-demo">
+            <div class="site-help-main">
+              <p class="g-tip">実稼働環境に公開する前に、プレビュー環境を使用してコンテンツを確認します。</p>
+              <aside class="g-callout is-info">
+                <span class="g-callout-icon">私</span>
+                <div class="g-callout-content">
+                  <strong class="g-callout-title">現在のページのヘルプ</strong>
+                  <p>環境変数はビルド時にのみ読み取られます。変更後に再デプロイする必要があります。</p>
+                </div>
+              </aside>
+              <aside class="g-feature-hint">
+                <span class="g-feature-hint-badge">新規</span>
+                <div>
+                  <strong class="g-feature-hint-title">クロスエンド プレビュー</strong>
+                  <p class="g-feature-hint-description">
+                    PC、モバイル Web、デスクトップの WebView を一度に確認できます。
+                  </p>
+                </div>
+                <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  トライアル
+                </button>
+              </aside>
+              <ul class="g-shortcut-list">
+                <li class="g-shortcut-item">
+                  <span>ヘルプを開く</span
+                  ><span class="g-shortcut-keys"
+                    ><kbd class="g-key-hint">?</kbd></span
+                  >
+                </li>
+                <li class="g-shortcut-item">
+                  <span>コマンド パネル</span
+                  ><span class="g-shortcut-keys"
+                    ><kbd class="g-key-hint">Ctrl</kbd><span>+</span
+                    ><kbd class="g-key-hint">K</kbd></span
+                  >
+                </li>
+              </ul>
+            </div>
+            <aside class="g-help-panel site-help-panel">
+              <header class="g-help-panel-header">
+                <strong class="g-help-panel-title">ヘルプセンター</strong
+                ><button
+                  class="g-help-trigger"
+                  type="button"
+                  aria-label="ヘルプの説明"
+                >
+                  ?
+                </button>
+              </header>
+              <div class="g-help-panel-body">
+                <div class="g-help-search">
+                  <span class="g-help-search-icon" aria-hidden="true">⌕</span
+                  ><label class="g-sr-only" for="site-help-search"
+                    >検索ヘルプ</label
+                  ><input
+                    class="g-input"
+                    id="site-help-search"
+                    type="search"
+                    placeholder="検索ヘルプ…"
+                  />
+                </div>
+                <div class="g-help-topics g-mt-4">
+                  <a class="g-help-topic" href="./docs.html#help-system"
+                    ><strong class="g-help-topic-title">クイックスタート</strong
+                    ><span class="g-help-topic-meta">12 件の記事</span></a
+                  ><a class="g-help-topic" href="./docs.html#help-system"
+                    ><strong class="g-help-topic-title">リリースとロールバック</strong
+                    ><span class="g-help-topic-meta">18 件の記事</span></a
+                  >
+                </div>
+                <ul class="g-help-checklist g-mt-5">
+                  <li class="g-help-checklist-item is-complete">
+                    <span class="g-help-checklist-marker">✓</span
+                    ><span>スペースを作成する</span>
+                  </li>
+                  <li class="g-help-checklist-item">
+                    <span class="g-help-checklist-marker">2</span
+                    ><span>最初のリリースが完了しました</span>
+                  </li>
+                </ul>
+              </div>
+              <footer class="g-help-panel-footer">
+                <a href="./docs.html#help-system">すべてのヘルプ コンポーネントを表示する</a>
+              </footer>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="ヒントとヘルプ システムのリスト">
+            <span>ヒント</span><span>インラインヒント</span><span>ヘルプテキスト</span
+            ><span>ヘルプトリガー</span><span>ツールチップ</span
+            ><span>豊富なツールチップ</span><span>ヘルプポップオーバー</span
+            ><span>定義</span><span>吹き出し</span><span>注記</span
+            ><span>する/しないでください</span><span>キーヒント</span
+            ><span>ショートカット一覧</span><span>ヘルプカード</span
+            ><span>ヘルプパネル</span><span>ヘルプセンター</span
+            ><span>ヘルプ トピック</span><span>よくある質問</span><span>コンテキストヘルプ</span
+            ><span>コーチマーク</span><span>ガイド付きツアー</span
+            ><span>スポットライト</span><span>ホットスポット</span><span>機能のヒント</span
+            ><span>新機能</span><span>ヘルプ チェックリスト</span
+            ><span>トラブルシューティング</span><span>ヘルプのフィードバック</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>28 のプロンプト、ガイダンス、サポート モード</strong
+              ><span
+                >衝突認識 · キーボード · フォーカス復元 · RTL · モーション軽減 · 印刷</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#help-system"
+              >完全なヘルプ システム ドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="form-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">37 の伝統的なフォーム構成</span>
+            <h2 class="site-title">フォームが大量の入力で始まらなくなりました</h2>
+            <p class="site-lead">
+              フィールド、パーティション、水平およびインラインレイアウト、検索/パスワード/カウント、グループの選択、検証、名前/アドレス/金額、条件と反復可能性、レビューおよび送信アクションがすべて組み合わされています。 AI はビジネス目的を選択するだけでよく、フォーム CSS を何度も整理する必要はありません。
+            </p>
+          </header>
+          <div class="site-form-demo g-form-container">
+            <form class="g-form site-form-main" novalidate>
+              <section class="g-form-section">
+                <header class="g-form-section-header">
+                  <div>
+                    <h3 class="g-form-section-title">会社概要</h3>
+                    <p class="g-form-section-description">
+                      サイト表示およびサービス通知用。
+                    </p>
+                  </div>
+                  <span class="g-autosave-status is-saved">保存しました</span>
+                </header>
+                <div class="g-form-row">
+                  <div class="g-field">
+                    <div class="g-field-header">
+                      <label class="g-label" for="site-company-name"
+                        >会社名</label
+                      ><span class="g-field-required">必須</span>
+                    </div>
+                    <input
+                      class="g-input"
+                      id="site-company-name"
+                      value="Gardener Studio"
+                    />
+                  </div>
+                  <div class="g-field">
+                    <label class="g-label" for="site-company-email"
+                      >連絡先メールアドレス</label
+                    ><input
+                      class="g-input"
+                      id="site-company-email"
+                      type="email"
+                      value="hello@example.com"
+                    />
+                  </div>
+                </div>
+                <div class="g-field">
+                  <label class="g-label" for="site-company-description"
+                    >会社概要</label
+                  >
+                  <div class="g-character-field" data-g-character-count="80">
+                    <textarea
+                      class="g-textarea"
+                      id="site-company-description"
+                      maxlength="80"
+                      rows="3"
+                    >
+さまざまな端末に一貫した完全なページ エクスペリエンスを提供します。</textarea
+                    ><output
+                      class="g-character-count"
+                      data-g-character-output
+                    ></output>
+                  </div>
+                </div>
+                <fieldset class="g-fieldset">
+                  <legend class="g-fieldset-legend">発売予定</legend>
+                  <div class="g-choice-group">
+                    <label class="g-choice-card"
+                      ><input type="radio" name="site-plan" checked /><strong
+                        class="g-choice-card-title"
+                        >標準リリース</strong
+                      ><span class="g-choice-card-description"
+                        >プリフライトおよびバージョンのスナップショットを自動的に完了します。</span
+                      ></label
+                    ><label class="g-choice-card"
+                      ><input type="radio" name="site-plan" /><strong
+                        class="g-choice-card-title"
+                        >段階的リリース</strong
+                      ><span class="g-choice-card-description"
+                        >まず内部メンバーに公開します。</span
+                      ></label
+                    >
+                  </div>
+                </fieldset>
+              </section>
+              <div class="g-form-actions">
+                <button class="g-btn g-btn-outline" type="button">
+                  下書きを保存</button
+                ><button class="g-btn g-btn-primary" type="button">続行</button>
+              </div>
+            </form>
+            <aside class="site-form-side">
+              <div class="g-form-progress">
+                <div class="g-form-progress-meta">
+                  <span>データ補完</span><strong>72%</strong>
+                </div>
+                <div class="g-form-progress-track">
+                  <div
+                    class="g-form-progress-value"
+                    style="--g-form-progress: 72%"
+                  ></div>
+                </div>
+              </div>
+              <div class="g-form-review g-mt-5">
+                <div class="g-form-review-row">
+                  <span class="g-form-review-label">名前</span
+                  ><strong class="g-form-review-value">Gardenerスタジオ</strong
+                  ><button class="g-btn g-btn-link g-btn-sm" type="button">
+                    編集
+                  </button>
+                </div>
+                <div class="g-form-review-row">
+                  <span class="g-form-review-label">リリース</span
+                  ><strong class="g-form-review-value">標準リリース</strong
+                  ><button class="g-btn g-btn-link g-btn-sm" type="button">
+                    編集
+                  </button>
+                </div>
+              </div>
+              <aside class="g-validation-summary g-mt-5">
+                <strong class="g-validation-summary-title">コミット前チェック</strong>
+                <ul class="g-validation-summary-list">
+                  <li>会社名が入力されました</li>
+                  <li>利用規約を確認する必要があります</li>
+                </ul>
+              </aside>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="従来の組み合わせリストを作成する">
+            <span>フォーム</span><span>フォームセクション</span><span>フィールド</span
+            ><span>フィールドセット</span><span>フォーム行</span><span>フォームグリッド</span
+            ><span>横型フォルム</span><span>インラインフォーム</span
+            ><span>コンパクトなフォルム</span><span>入力グループ</span
+            ><span>入力接辞</span><span>検索フィールド</span
+            ><span>パスワードフィールド</span><span>クリア可能なフィールド</span
+            ><span>キャラクターカウンター</span><span>検証状態</span
+            ><span>検証の概要</span><span>チェックボックスグループ</span
+            ><span>無線グループ</span><span>スイッチ列</span
+            ><span>チョイスカード</span><span>名前グループ</span
+            ><span>アドレスグループ</span><span>電話グループ</span
+            ><span>マネーグループ</span><span>日付範囲</span
+            ><span>時間範囲</span><span>単位フィールド</span
+            ><span>範囲フィールド</span><span>ファイルフィールド</span
+            ><span>反復可能なフィールド</span><span>条件付きフィールド</span
+            ><span>フォームアクション</span><span>自動保存ステータス</span
+            ><span>フォームの進行状況</span><span>フォームのレビュー</span
+            ><span>同意グループ</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>37 種類の伝統的なフォーム構造 + 5 種類のインタラクティブな動作</strong
+              ><span
+                >コンテナクエリ · 検証 · ビジネスグループ · RTL · セーフエリア · 印刷</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#form-compositions"
+              >フォームの組み合わせに関する完全なドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="navigation-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >カテゴリ 07 · 従来のナビゲーション</span
+            >
+            <h2 class="site-title">あらゆる方向へのナビゲーションが用意されています</h2>
+            <p class="site-lead">
+              エンタープライズ サイト所有者のナビゲーションから CMS ツリーまで、モバイルのボトム バーから Electron アクティビティ バーまで、右クリック メニューから Scrollspy まで、38 の安定したモードにより、AI は意図に従って直接選択できます。
+            </p>
+          </header>
+          <div class="site-navigation-demo g-nav-container">
+            <header class="g-navbar">
+              <div class="g-navbar-start">
+                <strong class="g-navbar-brand">アクメクラウド</strong>
+              </div>
+              <nav class="g-primary-nav" aria-label="製品デモ ナビゲーション">
+                <a
+                  class="g-primary-nav-link"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  >作業台</a
+                ><a class="g-primary-nav-link" href="#navigation-compositions"
+                  >コンテンツ</a
+                ><a class="g-primary-nav-link" href="#navigation-compositions"
+                  >データ</a
+                >
+              </nav>
+              <nav class="g-utility-nav">
+                <a class="g-utility-nav-link" href="#navigation-compositions"
+                  >ヘルプ</a
+                >
+              </nav>
+              <div class="g-navbar-end">
+                <button
+                  class="g-btn g-btn-outline g-btn-sm g-navbar-toggle"
+                  type="button"
+                  data-g-nav-toggle="site-nav-drawer"
+                >
+                  メニュー
+                </button>
+              </div>
+            </header>
+            <nav class="g-subnav" aria-label="二次デモ ナビゲーション">
+              <a
+                class="g-subnav-link"
+                href="#navigation-compositions"
+                aria-current="page"
+                >概要</a
+              ><a class="g-subnav-link" href="#navigation-compositions">ページ</a
+              ><a class="g-subnav-link" href="#navigation-compositions">メンバー</a
+              ><a class="g-subnav-link" href="#navigation-compositions">設定</a>
+            </nav>
+            <div class="site-navigation-workspace">
+              <nav
+                class="g-nav-rail"
+                data-g-roving-nav
+                data-g-orientation="vertical"
+                aria-label="ワークスペースのデモ"
+              >
+                <a
+                  class="g-nav-rail-item"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  ><span class="g-nav-icon">⌂</span><span>ホームページ</span></a
+                ><a class="g-nav-rail-item" href="#navigation-compositions"
+                  ><span class="g-nav-icon">▤</span><span>コンテンツ</span></a
+                ><a class="g-nav-rail-item" href="#navigation-compositions"
+                  ><span class="g-nav-icon">AI</span><span>生成する</span></a
+                >
+              </nav>
+              <div class="site-navigation-canvas">
+                <ol class="g-breadcrumb">
+                  <li class="g-breadcrumb-item">
+                    <a href="#navigation-compositions">ワークスペース</a>
+                  </li>
+                  <li class="g-breadcrumb-item" aria-current="page">概要</li>
+                </ol>
+                <div class="g-tabs g-mt-5" data-g-tabs>
+                  <div class="g-tab-list" role="tablist">
+                    <button
+                      class="g-tab"
+                      role="tab"
+                      aria-controls="site-nav-overview"
+                      aria-selected="true"
+                    >
+                      概要</button
+                    ><button
+                      class="g-tab"
+                      role="tab"
+                      aria-controls="site-nav-activity"
+                    >
+                      アクティビティ
+                    </button>
+                  </div>
+                  <div
+                    class="g-tab-panel"
+                    id="site-nav-overview"
+                    role="tabpanel"
+                  >
+                    <div class="g-quick-nav">
+                      <a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >★コレクションページ</a
+                      ><a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >◷ 最近の編集</a
+                      ><a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >+ 新しいコンテンツ</a
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="g-tab-panel"
+                    id="site-nav-activity"
+                    role="tabpanel"
+                    hidden
+                  >
+                    最近のアクティビティがここに表示されます。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="g-drawer-nav" id="site-nav-drawer" hidden>
+            <header class="g-drawer-nav-header">
+              <strong>ナビゲーション</strong
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm"
+                type="button"
+                data-g-nav-toggle="site-nav-drawer"
+              >
+                閉じる
+              </button>
+            </header>
+            <div class="g-drawer-nav-body">
+              <nav class="g-nav-group">
+                <a
+                  class="g-nav-item"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  >作業台</a
+                ><a class="g-nav-item" href="#themes">トピック</a
+                ><a class="g-nav-item" href="#recipes">レシピ</a>
+              </nav>
+            </div>
+          </aside>
+          <div class="site-region-patterns" aria-label="従来のナビゲーション組み合わせリスト">
+            <span>ナビゲーションバー</span><span>プライマリー</span><span>ユーティリティ</span
+            ><span>サブナビゲーション</span><span>サイドバー</span><span>折りたたみ可能</span
+            ><span>ナビレール</span><span>アクティビティバー</span><span>メニューバー</span
+            ><span>メガメニュー</span><span>ドロップダウン</span><span>コンテキスト メニュー</span
+            ><span>ツリーナビゲーション</span><span>ブレッドクラム</span><span>タブ</span
+            ><span>垂直タブ</span><span>セグメント化</span
+            ><span>ピルナビ</span><span>アンカー</span><span>スクロールスパイ</span
+            ><span>ページネーション</span><span>カーソル</span><span>もっと読み込む</span
+            ><span>ステッパー</span><span>ウィザード</span><span>戻る</span
+            ><span>前へ / 次へ</span><span>ナビゲーションをスキップ</span
+            ><span>モバイルトップ</span><span>下部ナビゲーション</span
+            ><span>モバイル タブ バー</span><span>引き出し</span
+            ><span>コマンドパレット</span><span>コマンドナビ</span
+            ><span>ジャンプナビ</span><span>クイックナビ</span><span>ロケール</span
+            ><span>アカウント</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>38 の従来のナビゲーション モード + 9 種類の再利用可能なインタラクション</strong
+              ><span
+                >グローバル、ローカル、階層、ワークフロー、モバイル、デスクトップ、RTL、印刷</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#navigation-compositions"
+              >ナビゲーションの組み合わせに関する完全なドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="data-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >カテゴリ08・データ表示と操作</span
+            >
+            <h2 class="site-title">データは表示するだけでなく、すぐに利用できる必要があります</h2>
+            <p class="site-lead">
+              テーブル、レコード、リスト、階層、インジケーター、プラン、マップ、操作をカバーする 48 のデータ モード。並べ替え、選択、展開、列管理、フィルタリング、およびビュー切り替えのための統合されたランタイムがあります。
+            </p>
+          </header>
+          <div
+            class="site-data-demo g-data-container"
+            id="site-customer-data"
+            data-g-table-sort
+            data-g-row-select
+            data-g-row-disclosure
+          >
+            <div class="site-data-metrics">
+              <article class="g-metric-card">
+                <div class="g-metric-card-main">
+                  <span class="g-metric-card-label">顧客収益</span
+                  ><strong class="g-metric-card-value">¥286K</strong>
+                </div>
+                <div class="g-metric-card-trend">
+                  <div class="g-sparkline" role="img" aria-label="収益の増加">
+                    <i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 30%"
+                    ></i
+                    ><i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 58%"
+                    ></i
+                    ><i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 88%"
+                    ></i>
+                  </div>
+                </div>
+              </article>
+              <div class="g-status-summary">
+                <div class="g-status-summary-item">
+                  <strong class="g-status-summary-value">128</strong
+                  ><span class="g-status-summary-label">アクティブ</span>
+                </div>
+                <div class="g-status-summary-item">
+                  <strong class="g-status-summary-value">6</strong
+                  ><span class="g-status-summary-label">リスク</span>
+                </div>
+              </div>
+            </div>
+            <div class="g-data-toolbar">
+              <div class="g-data-toolbar-start">
+                <strong class="g-data-title">顧客データ</strong
+                ><span class="g-data-toolbar-result">全3点</span>
+              </div>
+              <div class="g-data-toolbar-end">
+                <div class="g-data-view-switcher">
+                  <button
+                    class="g-data-view-button"
+                    type="button"
+                    aria-pressed="true"
+                  >
+                    テーブル</button
+                  ><button
+                    class="g-data-view-button"
+                    type="button"
+                    aria-pressed="false"
+                  >
+                    カード
+                  </button>
+                </div>
+                <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                  エクスポート
+                </button>
+              </div>
+            </div>
+            <div class="g-selection-summary" data-g-selection-summary hidden>
+              <span class="g-selection-summary-count"
+                >選択済み <strong data-g-selection-count>0</strong> アイテム</span
+              >
+              <div class="g-selection-summary-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">バッチ編集</button>
+              </div>
+            </div>
+            <div class="g-responsive-table is-stacked">
+              <table class="g-table g-table-hover g-expandable-table">
+                <thead>
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        data-g-select-all
+                        aria-label="すべての顧客を選択してください"
+                      />
+                    </th>
+                    <th aria-sort="none">
+                      <button
+                        class="g-sort-button"
+                        data-g-sort-key="name"
+                        type="button"
+                      >
+                        顧客 <span class="g-table-sort-indicator"></span>
+                      </button>
+                    </th>
+                    <th>ステータス</th>
+                    <th aria-sort="none">
+                      <button
+                        class="g-sort-button"
+                        data-g-sort-key="revenue"
+                        data-g-sort-type="number"
+                        type="button"
+                      >
+                        収入 <span class="g-table-sort-indicator"></span>
+                      </button>
+                    </th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="g-table-row" id="site-data-a">
+                    <td data-g-label="選択してください">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="a"
+                        aria-label="Galaxy テクノロジーを選択してください"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="顧客"
+                    >
+                      ギャラクシーテクノロジー
+                    </td>
+                    <td data-g-label="ステータス">
+                      <span class="g-data-status is-success">アクティブ</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="128000"
+                      data-g-label="収入"
+                    >
+                      ¥128,000
+                    </td>
+                    <td data-g-label="操作">
+                      <button
+                        class="g-row-disclosure"
+                        data-g-row-toggle="site-data-detail-a"
+                        aria-expanded="false"
+                        aria-label="詳細を展開"
+                      >
+                        ›
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="g-expandable-table-detail"
+                    id="site-data-detail-a"
+                    data-g-detail-row="site-data-a"
+                    hidden
+                  >
+                    <td colspan="5">
+                      <div class="g-table-detail-content">
+                        Enterprise Edition のお客様 · 最終連絡は 2 日前
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="g-table-row">
+                    <td data-g-label="選択してください">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="b"
+                        aria-label="遠山デザインを選択"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="顧客"
+                    >
+                      圓山デザイン
+                    </td>
+                    <td data-g-label="ステータス">
+                      <span class="g-data-status is-warning">経過観察中</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="86000"
+                      data-g-label="収入"
+                    >
+                      ¥86,000
+                    </td>
+                    <td data-g-label="操作">表示</td>
+                  </tr>
+                  <tr class="g-table-row">
+                    <td data-g-label="選択してください">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="c"
+                        aria-label="臨海教育を選択してください"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="顧客"
+                    >
+                      臨海教育
+                    </td>
+                    <td data-g-label="ステータス">
+                      <span class="g-data-status is-danger">リスク</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="42000"
+                      data-g-label="収入"
+                    >
+                      ¥42,000
+                    </td>
+                    <td data-g-label="操作">表示</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="データ表示と動作モード一覧">
+            <span>テーブル</span><span>レスポンシブテーブル</span><span>データグリッド</span
+            ><span>編集可能なグリッド</span><span>ツリーテーブル</span
+            ><span>グループ化されたテーブル</span><span>拡張可能なテーブル</span
+            ><span>比較</span><span>ピボット</span
+            ><span>説明リスト</span><span>キー値</span
+            ><span>レコードの詳細</span><span>リストグループ</span
+            ><span>メディア一覧</span><span>密集リスト</span
+            ><span>仮想リスト</span><span>木</span><span>タイムライン</span
+            ><span>アクティビティ フィード</span><span>監査ログ</span><span>KPI</span
+            ><span>ステータス一覧</span><span>メトリックカード</span><span>スパークライン</span
+            ><span>進行状況の統計</span><span>チャート</span><span>凡例</span
+            ><span>ランキング</span><span>ステータスの概要</span><span>カレンダー</span
+            ><span>議題</span><span>カンバン</span><span>ガントチャート</span
+            ><span>組織図</span><span>地図</span><span>マトリックス</span
+            ><span>ヒートマップ</span><span>データツールバー</span
+            ><span>列選択ツール</span><span>保存されたビュー</span
+            ><span>エクスポートパネル</span><span>データの状態</span
+            ><span>ビュースイッチャー</span><span>選択の概要</span
+            ><span>密度</span><span>フィルターの概要</span
+            ><span>ソートビルダー</span><span>データインスペクター</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>48 種類のデータ表示および操作モード + 8 種類の再利用インタラクション</strong
+              ><span
+                >テーブル、レコード、メトリック、プランニング、空間、キーボード、RTL、印刷</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#data-compositions"
+              >完全なデータ結合ドキュメントを表示</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="site-section site-section-soft"
+        id="selection-compositions"
+      >
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">32 の選択およびバッチ パターン</span>
+            <h2 class="site-title">1 つの項目の選択から 100,000 レコードの処理まで</h2>
+            <p class="site-lead">
+              すべて選択、反転選択、範囲選択、バッチ ツールバー、転送、ツリーおよびカスケード選択、人/組織/リソース/メディア セレクター、日付時刻範囲、設定の保存、並べ替え/グループ ビルダーはすべて安定したインターフェイスを備えています。 AI は複雑なバックエンド選択プロセスを即興で行う必要はありません。
+            </p>
+          </header>
+          <div
+            class="site-selection-demo g-selection-container"
+            data-g-row-select
+          >
+            <section class="g-selection-scope">
+              <header class="g-selection-scope-header">
+                <strong class="g-selection-scope-title">サイトページ</strong>
+                <div class="g-cluster">
+                  <label class="g-select-all-control"
+                    ><input type="checkbox" data-g-select-all /> すべて選択</label
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    type="button"
+                    data-g-invert-selection
+                  >
+                    逆選択
+                  </button>
+                </div>
+              </header>
+              <div class="g-selection-scope-list">
+                <label class="g-selection-item" data-g-selectable-row
+                  ><input type="checkbox" data-g-select-row value="home" /><span
+                    class="g-selection-item-content"
+                    ><span class="g-selection-item-title">ホームページ</span
+                    ><span class="g-selection-item-description"
+                      >エンタープライズ駅入口</span
+                    ></span
+                  ><span class="g-selection-item-meta">公開されました</span></label
+                ><label class="g-selection-item" data-g-selectable-row
+                  ><input
+                    type="checkbox"
+                    data-g-select-row
+                    value="product"
+                  /><span class="g-selection-item-content"
+                    ><span class="g-selection-item-title">プロダクトセンター</span
+                    ><span class="g-selection-item-description"
+                      >関連ページ 12 件</span
+                    ></span
+                  ><span class="g-selection-item-meta">ドラフト</span></label
+                ><label class="g-selection-item" data-g-selectable-row
+                  ><input
+                    type="checkbox"
+                    data-g-select-row
+                    value="about"
+                  /><span class="g-selection-item-content"
+                    ><span class="g-selection-item-title">私たちについて</span
+                    ><span class="g-selection-item-description"
+                      >会社概要</span
+                    ></span
+                  ><span class="g-selection-item-meta">公開されました</span></label
+                >
+              </div>
+            </section>
+            <aside class="site-selection-side">
+              <div class="g-user-picker">
+                <div class="g-picker-control">
+                  <span class="g-picker-value"
+                    ><span class="g-picker-avatar">王</span
+                    ><span class="g-picker-value-label">王林</span></span
+                  ><input
+                    class="g-picker-input"
+                    aria-label="担当者を追加"
+                    placeholder="担当者を追加"
+                  />
+                </div>
+              </div>
+              <div class="g-saved-filters g-mt-4" data-g-saved-choice>
+                <button
+                  class="g-saved-filter"
+                  data-g-saved-choice-item
+                  data-g-value="mine"
+                  aria-pressed="true"
+                >
+                  私のやるべきこと</button
+                ><button
+                  class="g-saved-filter"
+                  data-g-saved-choice-item
+                  data-g-value="risk"
+                  aria-pressed="false"
+                >
+                  リスク項目
+                </button>
+              </div>
+              <div class="g-batch-toolbar g-mt-4" data-g-batch-toolbar hidden>
+                <span class="g-batch-toolbar-summary"
+                  >選択済み <strong data-g-selection-count>0</strong> アイテム</span
+                >
+                <div class="g-batch-toolbar-actions">
+                  <button class="g-btn g-btn-primary g-btn-sm">リリース</button
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    type="button"
+                    data-g-clear-selection
+                  >
+                    キャンセル
+                  </button>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="コンポーネント リストの選択とバッチ処理">
+            <span>選択コントロール</span><span>すべて選択</span
+            ><span>反転</span><span>範囲</span><span>バッチツールバー</span
+            ><span>選択範囲</span><span>転送</span
+            ><span>デュアルリスト</span><span>ツリー選択</span><span>カスケード</span
+            ><span>メンションピッカー</span><span>ユーザーピッカー</span
+            ><span>組織ピッカー</span><span>リソースピッカー</span
+            ><span>メディアピッカー</span><span>アイコンピッカー</span
+            ><span>カラーピッカー</span><span>日付範囲</span
+            ><span>時間範囲</span><span>保存されたフィルター</span
+            ><span>保存されたビュー</span><span>列選択ツール</span
+            ><span>ソートビルダー</span><span>グループビルダー</span
+            ><span>エンティティピッカー</span><span>タグピッカー</span
+            ><span>リレーションピッカー</span><span>一括確認</span
+            ><span>一括進行状況</span><span>ピッカーパネル</span
+            ><span>ピッカーの概要</span><span>選択の概要</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 の選択はバッチ モード + 7 カテゴリの多重化と相互作用します</strong
+              ><span
+                >複数選択、階層、検索、セーフエリア、キーボード、RTL、印刷</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#selection-compositions"
+              >選択コンポーネントの完全なドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="content-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >カテゴリ 10 · ファイルおよびコンテンツ システム</span
+            >
+            <h2 class="site-title">ファイルのアップロードからコンテンツ制作全体の完了まで</h2>
+            <p class="site-lead">
+              アップロード キュー、ファイルの参照、メディア ライブラリ、画像処理、ドキュメント/PDF/オーディオとビデオの表示、コードとリッチ テキストの編集、マークダウン、ブロック、リビジョン、コメント、自動保存はすべて既製の構造を持っています。
+            </p>
+          </header>
+          <div class="site-content-demo g-content-container">
+            <section class="g-upload-queue" data-g-upload-manager>
+              <header class="g-upload-queue-header">
+                <strong>コンテンツのアップロード</strong
+                ><span class="g-upload-summary"
+                  >完了 <b data-g-upload-count="success">0</b> ・加工中
+                  <b data-g-upload-count="active">0</b></span
+                >
+              </header>
+              <div data-g-upload-list>
+                <div
+                  class="g-upload-item"
+                  data-g-upload-item
+                  data-g-status="uploading"
+                  data-g-progress="50"
+                >
+                  <span class="g-file-icon">PDF</span
+                  ><span class="g-file-main"
+                    ><strong class="g-file-name">コーポレートブランドマニュアル.pdf</strong
+                    ><span class="g-file-meta">4.8MB</span
+                    ><span
+                      class="g-upload-status"
+                      data-g-upload-status
+                    ></span></span
+                  ><span
+                    class="g-upload-progress"
+                    data-g-upload-progress
+                    role="progressbar"
+                    aria-label="ブランド手動アップロードの進行状況"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    ><i class="g-upload-progress-bar"></i></span
+                  ><span class="g-upload-actions"
+                    ><button
+                      class="g-btn g-btn-outline g-btn-sm"
+                      data-g-upload-action="advance"
+                      type="button"
+                    >
+                      アドバンス
+                    </button></span
+                  >
+                </div>
+                <div
+                  class="g-upload-item"
+                  data-g-upload-item
+                  data-g-status="success"
+                  data-g-progress="100"
+                >
+                  <span class="g-file-icon">JPG</span
+                  ><span class="g-file-main"
+                    ><strong class="g-file-name">ホームページの表紙.jpg</strong
+                    ><span class="g-file-meta">880KB</span
+                    ><span
+                      class="g-upload-status"
+                      data-g-upload-status
+                    ></span></span
+                  ><span
+                    class="g-upload-progress"
+                    data-g-upload-progress
+                    role="progressbar"
+                    aria-label="ホームページのカバーのアップロードの進行状況"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    ><i class="g-upload-progress-bar"></i></span
+                  ><span></span>
+                </div>
+              </div>
+            </section>
+            <section
+              class="g-file-browser"
+              data-g-file-browser
+              data-g-view="grid"
+            >
+              <header class="g-file-browser-header">
+                <strong>ブランド情報</strong>
+                <div class="g-cluster">
+                  <label class="g-sr-only" for="home-file-search"
+                    >ファイルの検索</label
+                  ><input
+                    class="g-input g-input-sm"
+                    id="home-file-search"
+                    data-g-file-search
+                    type="search"
+                    placeholder="検索"
+                  /><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    data-g-file-view="grid"
+                    aria-pressed="true"
+                    type="button"
+                  >
+                    グリッド</button
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    data-g-file-view="list"
+                    aria-pressed="false"
+                    type="button"
+                  >
+                    一覧
+                  </button>
+                </div>
+              </header>
+              <aside class="g-file-browser-tree">
+                <nav class="g-folder-tree" aria-label="フォルダー">
+                  <button
+                    class="g-folder-tree-item"
+                    aria-current="page"
+                    type="button"
+                  >
+                    <span>▾</span><span>ブランド</span
+                    ><span class="g-folder-tree-count">3</span></button
+                  ><button
+                    class="g-folder-tree-item"
+                    style="--g-tree-level: 1"
+                    type="button"
+                  >
+                    <span>▸</span><span>画像</span
+                    ><span class="g-folder-tree-count">2</span>
+                  </button>
+                </nav>
+              </aside>
+              <div class="g-file-browser-main">
+                <div class="g-file-card-grid">
+                  <article
+                    class="g-file-card"
+                    data-g-file-item
+                    data-g-file-name="ブランドマニュアル.pdf"
+                    tabindex="0"
+                  >
+                    <div class="g-file-card-preview site-content-thumb">
+                      PDF
+                    </div>
+                    <div class="g-file-card-body">
+                      <strong class="g-file-name">ブランドマニュアル.pdf</strong
+                      ><span class="g-file-meta">4.8MB</span>
+                    </div>
+                  </article>
+                  <article
+                    class="g-file-card"
+                    data-g-file-item
+                    data-g-file-name="ホームページの表紙.jpg"
+                    tabindex="-1"
+                  >
+                    <div class="g-file-card-preview site-content-thumb">
+                      IMG
+                    </div>
+                    <div class="g-file-card-body">
+                      <strong class="g-file-name">ホームページの表紙.jpg</strong
+                      ><span class="g-file-meta">880KB</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <footer class="g-file-browser-status">
+                <span><b data-g-file-count>0</b> の結果</span
+                ><span>選択済み:<b data-g-file-selection>未選択</b></span>
+              </footer>
+            </section>
+          </div>
+          <div class="site-region-patterns" aria-label="ファイルおよびコンテンツ システム コンポーネント リスト">
+            <span>ファイルドロップ</span><span>ファイルリスト</span><span>アップロードキュー</span
+            ><span>チャンクのアップロード</span><span>アップロードの進行状況</span
+            ><span>アップロードに失敗しました</span><span>ファイルカード</span
+            ><span>フォルダーツリー</span><span>ファイルブラウザ</span
+            ><span>ファイルのプレビュー</span><span>メディア ライブラリ</span
+            ><span>メディアグリッド</span><span>メディアの詳細</span
+            ><span>画像のトリミング</span><span>画像の注釈</span
+            ><span>ドキュメント ビューア</span><span>PDF ビューア</span
+            ><span>ビデオプレーヤー</span><span>オーディオプレーヤー</span
+            ><span>コードエディタ</span><span>リッチ テキスト エディター</span
+            ><span>マークダウン エディター</span><span>ブロックエディター</span
+            ><span>リビジョン比較</span><span>自動保存</span
+            ><span>コンテンツ概要</span><span>エディター ツールバー</span
+            ><span>検索と置換</span><span>コメントスレッド</span
+            ><span>バージョン履歴</span><span>ファイルのプロパティ</span
+            ><span>ストレージメーター</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 のファイルおよびコンテンツ モード + 6 種類の再利用インタラクション</strong
+              ><span
+                >アップロード · ブラウザ · エディタ · リビジョン · キーボード · RTL · 印刷</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#content-compositions"
+              >コンテンツ システムの完全なドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="auth-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">カテゴリ 11 · ID ライフサイクル</span>
+            <h2 class="site-title">最初のログインからすべてのセキュリティ監査まで</h2>
+            <p class="site-lead">
+              ログイン、登録、検証、MFA、パスキー、SSO、QR コード、招待、アカウントとテナントの選択、ロック画面、セッション回復、デバイス管理、セキュリティ イベントが、Web サイト、モバイル端末、ダッシュボード、Tauri/Electron に適した安定したページ構造に統合されました。
+            </p>
+          </header>
+          <div class="site-auth-demo">
+            <form class="g-auth-panel g-sign-in">
+              <header class="g-auth-header">
+                <div class="g-auth-brand-row">
+                  <span class="g-auth-brand-mark">G</span
+                  ><span>Gardenerクラウド</span>
+                </div>
+                <h3 class="g-auth-title">おかえり</h3>
+                <p class="g-auth-description">Acme Enterprise Workspace にサインインします</p>
+              </header>
+              <div class="g-auth-provider-list">
+                <button class="g-auth-provider" type="button">
+                  <span class="g-auth-provider-icon">S</span
+                  ><span>エンタープライズ SSO の使用</span><span>›</span>
+                </button>
+              </div>
+              <div class="g-auth-divider">または電子メールを使用してください</div>
+              <label class="g-field"
+                ><span class="g-label">メール</span
+                ><input class="g-input" type="email" value="admin@example.com"
+              /></label>
+              <div class="g-password-field" data-g-password-toggle>
+                <label class="g-label" for="home-auth-password">パスワード</label
+                ><input
+                  class="g-input"
+                  id="home-auth-password"
+                  type="password"
+                  value="Gardener2026!"
+                /><button
+                  class="g-password-field-action"
+                  data-g-password-button
+                  type="button"
+                >
+                  <span data-g-password-label>パスワードを表示</span>
+                </button>
+              </div>
+              <button class="g-btn g-btn-primary" type="submit">ログイン</button>
+            </form>
+            <div class="site-auth-side">
+              <section class="g-phone-verification">
+                <strong>携帯電話認証</strong>
+                <p class="g-auth-description">
+                  +86 138****6608 に送信された確認コードを入力してください
+                </p>
+                <div class="g-otp-input" data-g-otp-input>
+                  <input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="認証コードの桁 1"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="認証コード 桁 2"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="認証コード 桁 3"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="認証コード 桁 4"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="認証コード 5 桁目"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="認証コード 6 桁"
+                  /><input type="hidden" data-g-otp-output />
+                </div>
+              </section>
+              <div class="g-security-alert">
+                <span class="g-security-alert-icon">!</span>
+                <div>
+                  <strong>新しいデバイスが検出されました</strong>
+                  <p class="g-auth-description">
+                    Linux · Firefox、北京から発売。
+                  </p>
+                </div>
+                <div class="g-security-alert-actions">
+                  <button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    これが私です</button
+                  ><button class="g-btn g-btn-outline g-btn-sm" type="button">
+                    アカウントを保護する
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="ログインおよびアカウント システム コンポーネントのリスト">
+            <span>集中認証</span><span>分割認証</span><span>サインイン</span
+            ><span>登録</span><span>パスワードの回復</span
+            ><span>パスワードのリセット</span><span>電子メールの検証</span
+            ><span>電話認証</span><span>MFA</span><span>OTP</span
+            ><span>パスキー</span><span>SSO</span><span>QRログイン</span
+            ><span>マジックリンク</span><span>招待状</span
+            ><span>最初のセットアップ</span><span>ロック画面</span
+            ><span>セッションが期限切れになりました</span><span>アカウント選択ツール</span
+            ><span>テナント選択者</span><span>ID スイッチャー</span
+            ><span>プロファイルのセットアップ</span><span>アカウントのセキュリティ</span
+            ><span>デバイス</span><span>ログインアクティビティ</span
+            ><span>セキュリティ警告</span><span>リカバリー コード</span
+            ><span>信頼できるデバイス</span><span>接続されたアカウント</span
+            ><span>パスワードの強度</span><span>同意</span
+            ><span>認証結果</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 のログインおよびアカウント モード + 8 種類の再利用インタラクション</strong
+              ><span
+                >パスワード、OTP、MFA、パスキー、SSO、セッション、アイデンティティ、セキュリティ</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#auth-compositions"
+              >アカウント システムの完全なドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="commerce-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">カテゴリ 12 · コマースおよび支払い</span>
+            <h2 class="site-title">商品の確認から取引完了、返金まで</h2>
+            <p class="site-lead">
+              製品カード、詳細、SKU、ショッピング カート、チェックアウト、住所、配送、オファー、請求書、支払い、注文、サブスクリプション、使用状況、請求、返金が安定した構造になりました。電子商取引、デジタル商品、SaaS、企業調達、CMS の商品化、デスクトップ クライアントに適しています。
+            </p>
+          </header>
+          <div class="site-commerce-demo g-commerce-container">
+            <article class="g-commerce-product-card">
+              <div class="g-product-media site-commerce-media">
+                <span class="g-product-card-badge g-badge">エンタープライズ版</span
+                ><strong>Gardenerスタジオ</strong>
+              </div>
+              <div class="g-product-card-body">
+                <span class="g-product-card-meta">永久ライセンス・3台の端末が利用可能</span>
+                <h3 class="g-product-card-title">スタジオ ビジネス スイート</h3>
+                <div class="g-price-display">
+                  <strong class="g-price-current">¥699</strong
+                  ><del class="g-price-original">¥899</del
+                  ><span class="g-price-discount">-22%</span>
+                </div>
+                <div class="g-sku-selector" data-g-sku-selector>
+                  <div class="g-sku-group" data-g-sku-group="platform">
+                    <div class="g-sku-group-header">
+                      <strong>プラットフォーム</strong
+                      ><span
+                        class="g-sku-selection"
+                        data-g-sku-selection
+                      ></span>
+                    </div>
+                    <div class="g-sku-options">
+                      <button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="Windows"
+                      >
+                        Windows</button
+                      ><button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="macOS"
+                      >
+                        macOS</button
+                      ><button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="Linux"
+                      >
+                        Linux
+                      </button>
+                    </div>
+                  </div>
+                  <input type="hidden" data-g-sku-output />
+                </div>
+              </div>
+            </article>
+            <div class="site-commerce-side">
+              <div
+                class="g-cart"
+                data-g-cart
+                data-g-currency="CNY"
+                data-g-shipping="1200"
+                data-g-discount="2000"
+              >
+                <article
+                  class="g-commerce-cart-item"
+                  data-g-cart-item
+                  data-g-unit-price="69900"
+                >
+                  <div class="g-cart-item-media site-commerce-media">G</div>
+                  <div class="g-cart-item-main">
+                    <strong>スタジオ ビジネス スイート</strong
+                    ><span class="g-cart-item-variant">Windows · Enterprise ライセンス</span>
+                    <div class="g-quantity-stepper" data-g-quantity-stepper>
+                      <button
+                        class="g-quantity-button"
+                        type="button"
+                        data-g-quantity-decrement
+                        aria-label="数量を減らします"
+                      >
+                        −</button
+                      ><input
+                        class="g-quantity-input"
+                        data-g-quantity-input
+                        type="number"
+                        min="1"
+                        max="9"
+                        value="1"
+                        aria-label="製品数量"
+                      /><button
+                        class="g-quantity-button"
+                        type="button"
+                        data-g-quantity-increment
+                        aria-label="数量を増やす"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="g-cart-item-side">
+                    <strong data-g-line-total>¥699.00</strong>
+                  </div>
+                </article>
+                <div class="g-cart-empty" data-g-cart-empty hidden>
+                  ショッピングカートは空です
+                </div>
+                <div class="g-cart-summary">
+                  <div class="g-cart-summary-row">
+                    <span>商品</span><span data-g-cart-subtotal></span>
+                  </div>
+                  <div class="g-cart-summary-row">
+                    <span>割引</span><span data-g-cart-discount></span>
+                  </div>
+                  <div class="g-cart-summary-row">
+                    <span>配送</span><span data-g-cart-shipping></span>
+                  </div>
+                  <div class="g-cart-summary-row g-cart-summary-total">
+                    <span>対処</span><span data-g-cart-total></span>
+                  </div>
+                </div>
+              </div>
+              <div class="g-coupon" data-g-coupon data-g-valid-codes="GARDEN20">
+                <div class="g-coupon-row">
+                  <label class="g-sr-only" for="home-coupon">割引コード</label
+                  ><input
+                    class="g-input"
+                    id="home-coupon"
+                    data-g-coupon-input
+                    value="GARDEN20"
+                  /><button
+                    class="g-btn g-btn-primary"
+                    type="button"
+                    data-g-coupon-apply
+                  >
+                    使用する
+                  </button>
+                </div>
+                <span class="g-coupon-status" data-g-coupon-status></span>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="コマーシャルおよび支払いコンポーネントのリスト">
+            <span>プロダクトカード</span><span>製品一覧</span
+            ><span>商品詳細</span><span>製品ギャラリー</span
+            ><span>SKU セレクター</span><span>数量ステッパー</span
+            ><span>価格表示</span><span>カート商品</span><span>カート</span
+            ><span>ミニカート</span><span>カートの概要</span><span>チェックアウト</span
+            ><span>チェックアウト手順</span><span>アドレスセレクター</span
+            ><span>アドレスカード</span><span>配送方法</span
+            ><span>ピックアップセレクター</span><span>クーポン</span
+            ><span>プロモーションリスト</span><span>請求書情報</span
+            ><span>お支払い方法</span><span>支払いシート</span
+            ><span>支払い結果</span><span>注文概要</span
+            ><span>注文スケジュール</span><span>注文詳細</span
+            ><span>サブスクリプション プラン</span><span>価格比較</span
+            ><span>使用量メーター</span><span>請求履歴</span
+            ><span>返金ステータス</span><span>税金の概要</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 のビジネスおよび支払いモデル + 7 種類の再利用インタラクション</strong
+              ><span
+                >カタログ、カート、チェックアウト、フルフィルメント、支払い、注文、請求</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#commerce-compositions"
+              >ビジネスおよび支払いに関する完全な文書を表示</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="mobile-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">カテゴリ 13 · モバイル固有</span>
+            <h2 class="site-title">小さなデスクトップではなく、完全なモバイル アプリ層</h2>
+            <p class="site-lead">
+              セーフ エリア、ダイナミック ビューポート、トップ バー、ボトム ナビゲーション、ボトム/アクション/フィルター シート、プルして更新、無限ロード、スライド操作、ホイール選択、キーボード回避、モバイル認証と決済、権限とオフライン ステータスには安定した契約があり、モバイル Web ページ、PWA および Tauri/Electron モバイル WebView に直接使用できます。
+            </p>
+          </header>
+          <div class="site-mobile-demo">
+            <section
+              class="g-mobile-safe-shell is-contained"
+              aria-label="Gardener モバイル コンポーネントのプレビュー"
+            >
+              <header class="g-mobile-app-bar">
+                <div class="g-mobile-app-bar-start">
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    aria-label="戻る"
+                  >
+                    ←
+                  </button>
+                </div>
+                <h3 class="g-mobile-app-bar-title">コンテンツ センター</h3>
+                <div class="g-mobile-app-bar-actions">
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    data-g-mobile-sheet-open="home-mobile-sheet"
+                    aria-label="フィルター"
+                  >
+                    ⌘
+                  </button>
+                </div>
+              </header>
+              <div class="g-mobile-safe-content g-p-0">
+                <form class="g-mobile-search" role="search">
+                  <div class="g-mobile-search-field">
+                    <span class="g-mobile-search-icon" aria-hidden="true"
+                      >⌕</span
+                    ><label class="g-sr-only" for="home-mobile-search"
+                      >検索</label
+                    ><input
+                      class="g-input"
+                      id="home-mobile-search"
+                      type="search"
+                      placeholder="コンテンツの検索"
+                    />
+                  </div>
+                  <button class="g-btn g-btn-ghost" type="submit">検索</button>
+                </form>
+                <div
+                  class="g-mobile-swipe-tabs"
+                  role="tablist"
+                  aria-label="コンテンツ タイプ"
+                >
+                  <button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                  >
+                    推奨</button
+                  ><button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    最新</button
+                  ><button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    フォローする
+                  </button>
+                </div>
+                <div
+                  class="g-mobile-card-carousel g-py-4"
+                  tabindex="0"
+                  role="region"
+                  aria-label="モバイル カード カルーセル"
+                >
+                  <article class="g-card g-p-4">
+                    <strong>セーフゾーンの準備ができました</strong>
+                    <p class="g-text-sm g-text-muted g-mt-2">
+                      ノッチとホーム インジケーターの自動保護。
+                    </p>
+                  </article>
+                  <article class="g-card g-p-4">
+                    <strong>WebView に適しています</strong>
+                    <p class="g-text-sm g-text-muted g-mt-2">
+                      PWA、Tauri、および Electron の共有構造。
+                    </p>
+                  </article>
+                </div>
+                <div class="g-mobile-feed">
+                  <article class="g-mobile-feed-item">
+                    <span class="site-mobile-avatar">G</span>
+                    <div class="g-mobile-feed-main">
+                      <strong>モバイル コンテンツのストリーミング</strong>
+                      <p class="g-text-sm g-text-muted g-m-0">
+                        安定したメディア、ボディ、テールアクションスロット。
+                      </p>
+                    </div>
+                    <button
+                      class="g-btn g-btn-ghost g-btn-icon"
+                      type="button"
+                      aria-label="コレクション"
+                    >
+                      ☆
+                    </button>
+                  </article>
+                </div>
+              </div>
+              <nav
+                class="g-mobile-bottom-navigation"
+                aria-label="モバイル端末の第 1 レベルのナビゲーション"
+              >
+                <a
+                  class="g-mobile-bottom-navigation-item is-active"
+                  href="#mobile-compositions"
+                  aria-current="page"
+                  ><span aria-hidden="true">⌂</span><span>ホームページ</span></a
+                ><a
+                  class="g-mobile-bottom-navigation-item"
+                  href="#mobile-compositions"
+                  ><span aria-hidden="true">▦</span><span>分類</span></a
+                ><button
+                  class="g-mobile-bottom-navigation-item"
+                  type="button"
+                  data-g-mobile-sheet-open="home-mobile-sheet"
+                >
+                  <span aria-hidden="true">⌘</span><span>フィルター</span></button
+                ><a
+                  class="g-mobile-bottom-navigation-item"
+                  href="#mobile-compositions"
+                  ><span aria-hidden="true">○</span><span>私のもの</span></a
+                >
+              </nav>
+            </section>
+            <aside
+              class="g-mobile-filter-sheet"
+              id="home-mobile-sheet"
+              data-g-mobile-sheet
+              hidden
+            >
+              <div class="g-mobile-sheet-panel">
+                <div class="g-mobile-sheet-handle" aria-hidden="true"></div>
+                <header class="g-mobile-sheet-header">
+                  <h3>モバイル フィルタリング</h3>
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    data-g-close
+                    aria-label="閉じる"
+                  >
+                    ×
+                  </button>
+                </header>
+                <div class="g-mobile-picker" data-g-saved-choice>
+                  <div class="g-mobile-picker-grid">
+                    <button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="all"
+                      aria-pressed="true"
+                    >
+                      すべて</button
+                    ><button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="web"
+                      aria-pressed="false"
+                    >
+                      ウェブページ</button
+                    ><button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="app"
+                      aria-pressed="false"
+                    >
+                      アプリケーション
+                    </button>
+                  </div>
+                </div>
+                <footer class="g-mobile-sheet-footer">
+                  <button
+                    class="g-btn g-btn-primary g-w-full"
+                    type="button"
+                    data-g-close
+                  >
+                    結果を見る
+                  </button>
+                </footer>
+              </div>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="モバイル固有のコンポーネントのリスト">
+            <span>セーフエリアシェル</span><span>トップアプリバー</span
+            ><span>下部のナビゲーション</span><span>ボトムシート</span
+            ><span>アクションシート</span><span>プルしてリフレッシュ</span
+            ><span>無限ロード</span><span>スワイプアクション</span
+            ><span>タブのスワイプ</span><span>モバイル カテゴリ</span
+            ><span>モバイルフィルター</span><span>スティッキー購入バー</span
+            ><span>モバイル検索</span><span>モバイルピッカー</span
+            ><span>ホイールピッカー</span><span>フローティングアクションボタン</span
+            ><span>全画面ダイアログ</span><span>キーボードの回避</span
+            ><span>ジェスチャーのヒント</span><span>オフライン バナー</span
+            ><span>セグメント化されたコントロール</span><span>モバイル フィード</span
+            ><span>カードカルーセル</span><span>モバイルフォーム</span
+            ><span>モバイル認証</span><span>モバイル チェックアウト</span
+            ><span>メディアビューア</span><span>キーボード ツールバー</span
+            ><span>選択モード</span><span>スナックバー</span
+            ><span>許可のプロンプト</span><span>空/エラー状態</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 のモバイル固有モード + 14 種類の再利用インタラクション</strong
+              ><span
+                >セーフエリア · タッチ · シート · ジェスチャー · キーボード · PWA · WebView</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#mobile-compositions"
+              >完全なモバイル ドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="desktop-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">カテゴリ 14 · デスクトップ固有</span>
+            <h2 class="site-title">Web テクノロジーを完全なデスクトップ ワークスペースに変える</h2>
+            <p class="site-lead">
+              ネイティブのタイトル バー、ウィンドウ ボタン、メニュー、およびアクティビティ バーは出発点にすぎません。ドキュメント ラベル、調整可能な列、Dock、インスペクター、コマンド パネル、ファイル選択、トレイ、マルチ ウィンドウ、バックグラウンド タスク、更新、アクセス許可、クラッシュ リカバリがすべて安定して組み合わされており、Tauri と Electron に直接実装できます。
+            </p>
+          </header>
+          <div class="site-desktop-demo">
+            <section
+              class="g-desktop-workspace is-contained"
+              data-g-platform="electron"
+              aria-label="Gardener デスクトップ コンポーネントのプレビュー"
+            >
+              <header class="g-native-titlebar g-desktop-drag-region">
+                <div class="g-native-titlebar-start g-desktop-no-drag">
+                  <nav
+                    class="g-desktop-menubar"
+                    data-g-roving-nav
+                    aria-label="アプリケーションメニュー"
+                  >
+                    <button class="g-desktop-menubar-item" type="button">
+                      ファイル</button
+                    ><button class="g-desktop-menubar-item" type="button">
+                      編集</button
+                    ><button class="g-desktop-menubar-item" type="button">
+                      表示
+                    </button>
+                  </nav>
+                </div>
+                <strong class="g-native-titlebar-title"
+                  >Gardenerスタジオ — コンテンツスペース</strong
+                >
+                <div class="g-native-titlebar-end">
+                  <div class="g-desktop-window-controls">
+                    <button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="最小化"
+                    >
+                      —</button
+                    ><button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="最大化"
+                    >
+                      □</button
+                    ><button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="閉じる"
+                    >
+                      ×
+                    </button>
+                  </div>
+                </div>
+              </header>
+              <nav
+                class="g-desktop-activity-bar"
+                data-g-roving-nav
+                aria-label="アクティビティ列"
+              >
+                <button
+                  class="g-desktop-activity-item is-active"
+                  type="button"
+                  aria-current="page"
+                  aria-label="ファイル"
+                >
+                  ▤</button
+                ><button
+                  class="g-desktop-activity-item"
+                  type="button"
+                  aria-label="検索"
+                >
+                  ⌕</button
+                ><button
+                  class="g-desktop-activity-item"
+                  type="button"
+                  aria-label="拡張子"
+                >
+                  ▦
+                </button>
+              </nav>
+              <div class="g-desktop-workspace-main">
+                <div class="g-desktop-toolbar">
+                  <div class="g-desktop-toolbar-group">
+                    <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                      ←</button
+                    ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                      →
+                    </button>
+                  </div>
+                  <span class="g-desktop-toolbar-separator"></span
+                  ><button
+                    class="g-btn g-btn-ghost g-btn-sm"
+                    type="button"
+                    data-g-command-trigger="home-desktop-command"
+                  >
+                    ⌕ 検索とコマンド</button
+                  ><span class="g-sync-status is-syncing g-ml-auto"
+                    ><i class="g-sync-status-dot"></i>同期中</span
+                  >
+                </div>
+                <div class="g-desktop-split-pane" data-g-split-pane>
+                  <aside
+                    class="g-split-panel g-desktop-dock-panel"
+                    data-g-pane="start"
+                  >
+                    <header class="g-desktop-panel-header">リソースマネージャー</header>
+                    <div class="g-desktop-panel-body">
+                      <div class="g-recent-documents">
+                        <button class="g-recent-document" type="button">
+                          <span>▤</span
+                          ><span class="g-recent-document-main"
+                            ><strong>ホーム.json</strong
+                            ><small class="g-recent-document-path"
+                              >content/home.json</small
+                            ></span
+                          ></button
+                        ><button class="g-recent-document" type="button">
+                          <span>▤</span
+                          ><span class="g-recent-document-main"
+                            ><strong>テーマ.css</strong
+                            ><small class="g-recent-document-path"
+                              >スタイル/テーマ.css</small
+                            ></span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </aside>
+                  <button
+                    class="g-split-handle"
+                    type="button"
+                    role="separator"
+                    aria-label="パネルの幅を調整する"
+                  ></button>
+                  <section class="g-split-panel" data-g-pane="end">
+                    <div class="g-desktop-document-tabs" data-g-desktop-tabs>
+                      <button
+                        class="g-desktop-document-tab is-active is-dirty"
+                        type="button"
+                        data-g-desktop-tab
+                        aria-selected="true"
+                        aria-controls="home-desktop-tab"
+                      >
+                        ホーム.json
+                      </button>
+                    </div>
+                    <div class="g-p-5" id="home-desktop-tab" role="tabpanel">
+                      <span class="site-eyebrow">デスクトップ CMS</span>
+                      <h3 class="g-mt-2">高密度のワークスペースで再組み立ては不要</h3>
+                      <p class="g-text-sm g-text-muted g-mt-2">
+                        ウィンドウ Chrome、ナビゲーション、編集エリア、ステータスエリア、ホストブリッジはそれぞれ独立した契約を持っています。
+                      </p>
+                      <button
+                        class="g-btn g-btn-primary g-btn-sm g-mt-3"
+                        type="button"
+                        data-g-command-trigger="home-desktop-command"
+                      >
+                        コマンド パネルを開く
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <aside class="g-desktop-inspector-panel">
+                <header class="g-desktop-panel-header">検査官</header>
+                <div class="g-desktop-panel-body">
+                  <div class="g-field">
+                    <label class="g-label" for="home-desktop-title"
+                      >ページタイトル</label
+                    ><input
+                      class="g-input"
+                      id="home-desktop-title"
+                      value="企業のホームページ"
+                    />
+                  </div>
+                  <div
+                    class="g-shortcut-recorder g-mt-4"
+                    data-g-shortcut-recorder
+                  >
+                    <button
+                      class="g-shortcut-recorder-control"
+                      type="button"
+                      data-g-shortcut-control
+                      aria-pressed="false"
+                    >
+                      <span data-g-shortcut-display>Ctrl+P</span
+                      ><kbd>録音</kbd></button
+                    ><input
+                      type="hidden"
+                      data-g-shortcut-output
+                      value="Control+P"
+                    /><small
+                      class="g-shortcut-recorder-status"
+                      data-g-shortcut-status
+                    ></small>
+                  </div>
+                </div>
+              </aside>
+              <footer class="g-desktop-status-bar">
+                <div class="g-desktop-status-group">
+                  <span class="g-desktop-status-item">⑂メイン</span
+                  ><span class="g-desktop-status-item">✓ 0 エラー</span>
+                </div>
+                <div class="g-desktop-status-group">
+                  <span class="g-desktop-status-item">UTF-8</span>
+                </div>
+              </footer>
+            </section>
+          </div>
+          <div class="site-region-patterns" aria-label="デスクトップ固有のコンポーネントのリスト">
+            <span>ネイティブ タイトルバー</span><span>ウィンドウ コントロール</span
+            ><span>メニューバー</span><span>アクティビティバー</span
+            ><span>ドックパネル</span><span>サイズ変更可能な分割ペイン</span
+            ><span>検査官</span><span>ステータスバー</span
+            ><span>コマンドパレット</span><span>ショートカットレコーダー</span
+            ><span>コンテキスト メニュー</span><span>未保存のタブ</span
+            ><span>領域をドラッグ</span><span>ウィンドウの読み込み</span
+            ><span>アップデートが利用可能</span><span>許可リクエスト</span
+            ><span>ネイティブ ファイル ピッカー</span><span>トレイメニュー</span
+            ><span>マルチウィンドウ</span><span>デスクトップワークスペース</span
+            ><span>ウィンドウスイッチャー</span><span>最近のドキュメント</span
+            ><span>デスクトップ ツールバー</span><span>底面パネル</span
+            ><span>バックグラウンドタスク</span><span>通知センター</span
+            ><span>同期ステータス</span><span>アップデートの進行状況</span
+            ><span>クラッシュからの回復</span><span>単一インスタンス</span
+            ><span>ディープリンク</span><span>ダイアログについて</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 のデスクトップ固有モード + 11 種類の再利用可能なインタラクション</strong
+              ><span
+                >Tauri · Electron · Window Chrome · ワークスペース · ネイティブ ブリッジ · ライフサイクル</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#desktop-compositions"
+              >デスクトップの完全なドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="ai-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">カテゴリ 15 · AI ネイティブ</span>
+            <h2 class="site-title">AI インタラクションはチャット ボックスではありません</h2>
+            <p class="site-lead">
+              対話に加えて、Composer とストリーミング回答、推論の要約、ツールの呼び出しと承認、マルチエージェント オーケストレーション、ソース引用、アーティファクト、コンテキスト メモリ、トークン/料金、音声、権限、プライバシー、セキュリティ レビュー、フィードバック評価も必要です。 Gardener は、AI タスク チェーン全体を直接再利用できる 32 のモードにします。
+            </p>
+          </header>
+          <div class="site-ai-demo">
+            <section
+              class="g-ai-shell is-contained"
+              aria-label="Gardener AI コンポーネントのプレビュー"
+            >
+              <aside class="g-ai-sidebar">
+                <header class="g-ai-sidebar-header">
+                  <strong>ダイアログ</strong
+                  ><button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    ＋
+                  </button>
+                </header>
+                <nav class="g-conversation-list">
+                  <a
+                    class="g-conversation-item"
+                    href="#ai-compositions"
+                    aria-current="page"
+                    ><span>◉</span
+                    ><span class="g-conversation-title">エンタープライズ ポータルの生成</span></a
+                  ><a class="g-conversation-item" href="#ai-compositions"
+                    ><span>○</span
+                    ><span class="g-conversation-title">コンポーネントの適用範囲を確認してください</span></a
+                  >
+                </nav>
+                <footer class="g-ai-sidebar-footer">
+                  <div class="g-privacy-notice">
+                    <span>⌾</span><span>エンタープライズ プライバシー ポリシーが有効になっています</span>
+                  </div>
+                </footer>
+              </aside>
+              <section class="g-ai-main">
+                <header class="g-ai-header">
+                  <div class="g-model-selector" data-g-dropdown>
+                    <button
+                      class="g-model-selector-trigger"
+                      type="button"
+                      data-g-dropdown-trigger
+                    >
+                      Gardenerのレゾナー ̇
+                    </button>
+                    <div
+                      class="g-model-selector-menu"
+                      data-g-dropdown-menu
+                      hidden
+                    >
+                      <button
+                        class="g-model-option"
+                        type="button"
+                        role="menuitem"
+                      >
+                        <span>Gardenerのレゾナー</span
+                        ><small>複雑なタスク</small></button
+                      ><button
+                        class="g-model-option"
+                        type="button"
+                        role="menuitem"
+                      >
+                        <span>Gardener Fast</span><small>素早い対応</small>
+                      </button>
+                    </div>
+                  </div>
+                  <span class="g-context-meter"
+                    >コンテキスト 38%
+                    <span class="g-context-meter-bar"
+                      ><i
+                        class="g-context-meter-value"
+                        style="--g-context-value: 38%"
+                      ></i></span
+                  ></span>
+                </header>
+                <div class="g-chat">
+                  <div class="g-chat-list">
+                    <article class="g-message g-message-user">
+                      <div class="g-message-content">
+                        <div class="g-message-body">
+                          Super CMS のエンタープライズ ポータル ホームページを生成します。
+                        </div>
+                      </div>
+                    </article>
+                    <article class="g-message">
+                      <span class="g-message-avatar">G</span>
+                      <div class="g-message-content">
+                        <div class="g-message-meta">
+                          <strong class="g-message-author"
+                            >Gardener Agent</strong
+                          ><span>作業中</span>
+                        </div>
+                        <div class="g-message-body">
+                          <p>エンタープライズ ポータルのレシピが選択され、コンポーネントと権限がチェックされています。</p>
+                        </div>
+                        <section
+                          class="g-tool-call is-running"
+                          data-g-accordion
+                        >
+                          <button
+                            class="g-tool-call-header g-w-full g-border-0"
+                            type="button"
+                            data-g-tool-call-toggle
+                            aria-expanded="true"
+                            aria-controls="home-ai-tool"
+                          >
+                            <strong class="g-tool-call-name"
+                              >検査コンポーネント_マニフェスト</strong
+                            ><span class="g-tool-call-status">ランニング</span>
+                          </button>
+                          <div class="g-tool-call-progress">
+                            <span style="--g-tool-progress: 72%"></span>
+                          </div>
+                          <div class="g-tool-call-body" id="home-ai-tool">
+                            ダッシュボード、CMS、権限、デスクトップ ワークスペースの一致。
+                          </div>
+                        </section>
+                        <section class="g-approval" data-g-ai-approval>
+                          <div class="g-approval-title">ページ テンプレートへの書き込みを許可しますか?</div>
+                          <p class="g-approval-description">
+                            現在のプロジェクトの生成されたディレクトリのみを変更します。
+                          </p>
+                          <div class="g-approval-actions">
+                            <button
+                              class="g-btn g-btn-primary g-btn-sm"
+                              type="button"
+                              data-g-approval-choice="approved"
+                            >
+                              1 回のみ許可</button
+                            ><button
+                              class="g-btn g-btn-outline g-btn-sm"
+                              type="button"
+                              data-g-approval-choice="rejected"
+                            >
+                              拒否
+                            </button>
+                          </div>
+                        </section>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="g-composer-wrap">
+                  <form class="g-composer" data-g-ai-composer>
+                    <label class="g-sr-only" for="home-ai-input">メッセージを送信</label
+                    ><textarea
+                      class="g-composer-input"
+                      id="home-ai-input"
+                      data-g-composer-input
+                      placeholder="ページ要件の説明を続ける"
+                    ></textarea>
+                    <div class="g-composer-toolbar">
+                      <div class="g-composer-tools">
+                        <button
+                          class="g-btn g-btn-ghost g-btn-sm"
+                          type="button"
+                        >
+                          + アタッチメント
+                        </button>
+                      </div>
+                      <div class="g-composer-actions">
+                        <button
+                          class="g-btn g-btn-outline g-btn-sm"
+                          type="button"
+                          data-g-composer-stop
+                          hidden
+                        >
+                          停止</button
+                        ><button
+                          class="g-btn g-btn-primary g-btn-sm"
+                          type="button"
+                          data-g-composer-send
+                        >
+                          送信
+                        </button>
+                      </div>
+                    </div>
+                    <div class="g-composer-status" data-g-composer-status></div>
+                  </form>
+                </div>
+              </section>
+            </section>
+          </div>
+          <div
+            class="site-region-patterns"
+            aria-label="AI 製品およびインテリジェント インタラクション コンポーネントのリスト"
+          >
+            <span>AI ワークスペース</span><span>会話リスト</span
+            ><span>チャット スレッド</span><span>AIメッセージ</span
+            ><span>プロンプトコンポーザー</span><span>アタッチメント</span
+            ><span>プロンプトスターター</span><span>プロンプト ライブラリ</span
+            ><span>メンション/スラッシュメニュー</span><span>モデルセレクター</span
+            ><span>思考</span><span>ストリーミング応答</span
+            ><span>ツールコール</span><span>ツールの承認</span
+            ><span>エージェントのステータス</span><span>エージェント プラン</span
+            ><span>マルチエージェントボード</span><span>エージェントのハンドオフ</span
+            ><span>出典/引用</span><span>アーティファクトワークスペース</span
+            ><span>アーティファクトパネル</span><span>AI ファイル ツリー</span
+            ><span>バージョン履歴</span><span>ジェネレーションギャラリー</span
+            ><span>生成プレースホルダー</span><span>コンテキスト/メモリ</span
+            ><span>コスト/レート制限</span><span>ボイスセッション</span
+            ><span>権限の範囲</span><span>プライバシーに関する通知</span
+            ><span>安全上の注意</span><span>フィードバック/評価</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32種類のAIネイティブモード+9種類のランタイム</strong
+              ><span
+                >チャット、マルチモーダル、ツール、エージェント、アーティファクト、コンテキスト、安全性、評価</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#ai-compositions"
+              >AI コンポーネントの完全なドキュメントを表示する</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="solution-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">カテゴリ 16 · 完全なソリューション</span>
+            <h2 class="site-title">コンポーネント ライブラリから、直接生成できる完全なページに移動します</h2>
+            <p class="site-lead">
+              カテゴリ 16 は、公開 Web サイト、個人コンテンツ、エンタープライズ バックエンド、ビジネス ワークベンチ、および垂直産業ポータルを 32 の全ページ契約に統合します。 AI はまずページの種類を選択し、次にビジネス コンポーネントとコンテンツを入力します。ヘッダー、ナビゲーション、メインエリア、サイドエリア、モバイルの折りたたみルールを一時的に作成することはなくなりました。
+            </p>
+          </header>
+          <div class="site-solution-demo">
+            <article class="g-dashboard-overview">
+              <header class="g-dashboard-overview-header g-solution-header">
+                <div>
+                  <span class="site-eyebrow">企業の概要</span>
+                  <h3 class="g-m-0">スーパー CMS 動作概要</h3>
+                  <p class="g-text-sm g-text-muted g-mt-2 g-mb-0">
+                    同じ全ページ契約書で、ビジネス、個人、医療、金融、または公共サービスのトピックを切り替えることができます。
+                  </p>
+                </div>
+                <div class="g-solution-actions">
+                  <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                    エクスポート</button
+                  ><button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    新しいレポート
+                  </button>
+                </div>
+              </header>
+              <div class="g-dashboard-metrics">
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">公開サイト</span
+                  ><strong class="g-solution-stat-value">28,640</strong
+                  ><small class="g-text-success">↑ 12.4%</small>
+                </div>
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">ページテンプレート</span
+                  ><strong class="g-solution-stat-value">486k</strong
+                  ><small class="g-text-muted">32 のフルページエントリ</small>
+                </div>
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">審査待ち</span
+                  ><strong class="g-solution-stat-value">138</strong
+                  ><small class="g-text-warning">処理が必要です</small>
+                </div>
+              </div>
+              <div class="g-dashboard-layout">
+                <section class="g-dashboard-panel">
+                  <div class="g-solution-toolbar">
+                    <strong>テンプレート生成の傾向</strong
+                    ><span class="g-badge">過去 30 日間</span>
+                  </div>
+                  <div class="g-chart" style="min-height: 11rem"></div>
+                </section>
+                <aside class="g-dashboard-panel">
+                  <strong>ビジネス入口</strong>
+                  <ul class="g-solution-list g-mt-3">
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">エンタープライズ ポータル</span
+                      ><span>82%</span>
+                    </li>
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">ビジネスワークベンチ</span
+                      ><span>71%</span>
+                    </li>
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">産業サービス</span
+                      ><span>63%</span>
+                    </li>
+                  </ul>
+                </aside>
+              </div>
+            </article>
+          </div>
+          <div
+            class="site-region-patterns"
+            aria-label="業界ソリューションの全ページとリスト"
+          >
+            <span>製品の着陸</span><span>企業ホーム</span
+            ><span>個人宅</span><span>ポートフォリオ</span
+            ><span>ブログインデックス</span><span>記事</span><span>ドキュメントポータル</span
+            ><span>ヘルプセンター</span><span>検索結果</span
+            ><span>お問い合わせ</span><span>価格</span><span>ダッシュボード</span
+            ><span>管理者リスト</span><span>レコードの詳細</span
+            ><span>設定</span><span>ユーザー センター</span
+            ><span>通知</span><span>オンボーディング</span><span>CRM</span
+            ><span>プロジェクト ワークスペース</span><span>サポートセンター</span
+            ><span>承認センター</span><span>ナレッジベース</span
+            ><span>学習ポータル</span><span>イベントポータル</span
+            ><span>予約ポータル</span><span>ヘルスケア</span
+            ><span>金融</span><span>公共サービス</span
+            ><span>マーケットプレイス</span><span>コミュニティ</span
+            ><span>ステータス センター</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 のフルページ モード + 52 の機械可読レシピ</strong
+              ><span
+                >個人、エンタープライズ、コンテンツ、運用、業界、クロスプラットフォーム</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#solution-compositions"
+              >完全なソリューション ドキュメントを表示</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="themes">
+        <div class="site-container site-theme-layout">
+          <div class="site-theme-panel">
+            <span class="site-eyebrow">42 色のテーマ</span>
+            <h2 class="site-title">ブランドは変更しますが、コンポーネントは変更しません</h2>
+            <p class="site-lead">
+              カラーテーマは、ニュートラル、フォント、形状、濃度、レイヤー、アニメーション、プラットフォーム、オペレーティング システムと直交して組み合わされます。ここでは白と明るいインターフェースが常に維持され、メインのブランドカラーのみが切り替わります。
+            </p>
+            <div class="site-theme-preview g-mt-6">
+              <div class="site-theme-meta">
+                <span>現在のトピック</span><strong id="theme-name">庭園</strong>
+              </div>
+              <div class="site-theme-sample">
+                <span class="g-badge">プライマリー</span>
+                <h3 class="g-mt-4">飾りすぎずクリア</h3>
+                <p class="g-text-muted g-mt-2">
+                  ボタン、リンク、フォーカス、および選択された状態は自動的にテーマに従います。
+                </p>
+                <div class="g-flex g-gap-2 g-mt-5">
+                  <button class="g-btn g-btn-primary">主な操作</button
+                  ><button class="g-btn g-btn-outline">二次操作</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="site-theme-swatches"
+              id="theme-swatches"
+              aria-label="カラーテーマの選択"
+            ></div>
+            <p class="site-kicker g-mt-4">
+              キーボード操作可能。各テーマは、50 ～ 950 の完全なカラー グラデーションと独立して読み取り可能な前景色を提供します。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow"
+              >予測可能なオーサリング · 安定版 1.0.0</span
+            >
+            <h2 class="site-title">HTML はインターフェースです</h2>
+            <p class="site-lead">
+              統一
+              <code class="docs-inline-code">g-</code>
+              プレフィックス、安定したコンポーネントの命名、および宣言
+              <code class="docs-inline-code">data-g-*</code> 人間と AI の両方がすぐに理解できる動作。
+            </p>
+            <ul class="g-list-group g-mt-6" role="list">
+              <li class="g-list-item" role="listitem">
+                <strong>レイヤーごとにインポート</strong
+                ><span class="g-text-muted"
+                  >コア/テーマ/ユーティリティ/コンポーネント/AI</span
+                >
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>宣言型ランタイム</strong
+                ><span class="g-text-muted">自動初期化と動的 DOM 観察</span>
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>機械可読</strong
+                ><span class="g-text-muted"
+                  >パブリック API、コンポーネント、ツール クラス、レシピ、機能のリスト</span
+                >
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>厳密な検証</strong
+                ><span class="g-text-muted"
+                  >11 セットのクローズド スキーマ、48 の標準スキーマ ユース ケース、10 のビルド固有のユース ケース、66 のランタイム単体テスト、125 の実際のブラウザのユース ケース、および 24 の構造のユース ケース</span
+                >
+              </li>
+            </ul>
+            <a class="g-btn g-btn-outline g-mt-5" href="./docs.html#public-api"
+              >パブリック API コントラクトを表示する</a
+            >
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>index.html</span
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm"
+                type="button"
+                data-g-copy
+                data-g-copy-value='&lt;link rel="stylesheet" href="gardener.css"&gt;&#10;&lt;main class="g-dashboard"&gt;...&lt;/main&gt;&#10;&lt;script type="module" src="gardener.runtime.js"&gt;&lt;/script&gt;'
+              >
+                コピー
+              </button>
+            </div>
+            <pre
+              class="site-code"
+            ><code><span class="token-tag">&lt;html</span> <span class="token-attr">data-g-theme</span>=<span class="token-value">&quot;garden&quot;</span> <span class="token-attr">data-g-mode</span>=<span class="token-value">&quot;light&quot;</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-value">&quot;stylesheet&quot;</span> <span class="token-attr">href</span>=<span class="token-value">&quot;gardener.css&quot;</span><span class="token-tag">&gt;</span>
+
+  <span class="token-tag">&lt;main</span> <span class="token-attr">class</span>=<span class="token-value">&quot;g-dashboard&quot;</span><span class="token-tag">&gt;</span>
+    <span class="token-tag">&lt;article</span> <span class="token-attr">class</span>=<span class="token-value">&quot;g-card g-p-5&quot;</span><span class="token-tag">&gt;</span>...<span class="token-tag">&lt;/article&gt;</span>
+  <span class="token-tag">&lt;/main&gt;</span>
+
+  <span class="token-tag">&lt;script</span> <span class="token-attr">type</span>=<span class="token-value">&quot;module&quot;</span> <span class="token-attr">src</span>=<span class="token-value">&quot;gardener.runtime.js&quot;</span><span class="token-tag">&gt;&lt;/script&gt;</span>
+<span class="token-tag">&lt;/html&gt;</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="build-system" aria-labelledby="build-title">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">リリース準備完了の配信 · 1.0.0</span>
+            <h2 class="site-title" id="build-title">現在のページに本当に必要なプラットフォームとコンポーネントのみを提供します</h2>
+            <p class="site-lead">
+              5 つのプラットフォーム ファイル、28 の安定したコンポーネント パッケージ、および 506 のコンポーネント所有権マッピングにより、開発者と AI は一時的に CSS を逆アセンブルすることなく公式製品を直接選択できます。構文レベルの圧縮、ソース マップ、SHA-256/SRI の整合性、再現可能なビルド、TypeScript タイピング、バージョン間の互換性ベースライン、およびリリース パッケージ ゲーティングがビルドとともに提供されます。
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">5</span>
+              <h3>プラットフォーム ファイル</h3>
+              <p>Web、モバイル、デスクトップ、Tauri、および Electron は、対応するエンド機能を自動的に保持します。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">28</span>
+              <h3>コンポーネント パッケージ</h3>
+              <p>レイアウト、フォーム、ナビゲーション、データ、コンテンツ、アカウント、コマース、モバイル、デスクトップ、AI はすべて独立して導入できます。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">506</span>
+              <h3>コンポーネントの所有権</h3>
+              <p>各パブリック コンポーネントは、明示的なインクルージョンがリストされた、それが属する完全なパッケージに解決されます。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">42</span>
+              <h3>デュアル製品予算</h3>
+              <p>raw、gzip、Brotli の絶対上限と 0.9.0 ベースラインの増加により、制限を超えるとリリースがブロックされます。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">1,145</span>
+              <h3>互換性のあるベースライン</h3>
+              <p>エントリ、テーマ、ランタイム、コンポーネント、レシピは追加のみ可能です。削除するには、少なくとも 2 つのマイナー バージョンの廃止期間を経過する必要があります。</p>
+            </article>
+          </div>
+          <div class="docs-code-wrap g-mt-6">
+            <pre class="site-code"><code>npm run build:platform -- --platform mobile --out dist/custom/mobile-app
+npm run build:custom -- --components button,card,dialog --out dist/custom/account-ui
+npm run verify:reproducible
+npm run verify:compatibility
+npm run test:types
+npm run verify:package
+npm run budget</code></pre>
+          </div>
+          <a class="g-btn g-btn-outline g-mt-6" href="./docs.html#targeted-builds">オンデマンド ビルドとパフォーマンス バジェットを比較する</a>
+        </div>
+      </section>
+
+      <section
+        class="site-section site-section-soft"
+        aria-labelledby="quality-title"
+      >
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">リリースの信頼性 · 1.0.0</span>
+            <h2 class="site-title" id="quality-title">
+              すべてのページは実際の環境に耐える必要があります
+            </h2>
+            <p class="site-lead">
+              デフォルトで 125 の実際のブラウザのユース ケースと 24 の HTML 構造のユース ケースを実行します。完全な構成には、デスクトップの 3 つのエンジン、Android/iPhone デバイスのポートレート、および WCAG 自動チェックが含まれます。
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">ウェブ</span>
+              <h3>デスクトップ マルチブラウザ</h3>
+              <p>
+                Chromium と WebKit はデフォルトのアクセス制御に入ります。 Firefox は、独立した 3 つのエンジンによる完全なアクセス制御を提供します。
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">MOB</span>
+              <h3>モバイルデバイス</h3>
+              <p>
+                Pixel 7 と iPhone 13 は 21 のサンプルとホーム 2 ページで完全にカバーされており、320 ピクセルの狭い画面、横画面、リフロー、44 ピクセルのタッチ ターゲットを確認します。
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">A11Y</span>
+              <h3>アクセシビリティ</h3>
+              <p>
+                Axe WCAG 2 A/AA すべての自動違反がゼロになり、キーボードとフォーカスの回復、RTL、モーションの減少、強制カラーがカバーされます。
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">DOM</span>
+              <h3>構造の完全性</h3>
+              <p>
+                全 21 例、ホーム ランディング ページとドキュメント チェック解析、ID、ARIA 参照、タイトル、ビューポート。
+              </p>
+            </article>
+          </div>
+          <a class="g-btn g-btn-outline g-mt-6" href="./docs.html#accessibility"
+              >1.0.0 テスト マトリックスを表示</a
+          >
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">すべてのエンドポイント</span>
+            <h2 class="site-title">同じ言語がすべての端末に適用されます</h2>
+            <p class="site-lead">
+              ページ構造、テーマ トークン、およびインタラクション セマンティクスは一貫しており、必要な密度、ウィンドウ、およびセーフ ゾーンの適応のみが両端に追加されます。
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">ウェブ</span>
+              <h3>PCサイト</h3>
+              <p>エンタープライズ Web サイト、ポータル、コンテンツ Web サイト、電子商取引、および SaaS。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">MOB</span>
+              <h3>モバイルウェブ/PWA</h3>
+              <p>セーフエリア、タッチ密度、下部ナビゲーションおよびカテゴリページ。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">OPS</span>
+              <h3>ダッシュボード</h3>
+              <p>高密度データ、テーブル、フィルター、および複数列のアプリケーション。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">DSK</span>
+              <h3>Tauri / Electron</h3>
+              <p>デスクトップのタイトル バー、ウィンドウ ブリッジ、およびワークベンチのレイアウト。</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">AI</span>
+              <h3>AI 製品</h3>
+              <p>メッセージ、ツール、エージェント、アーティファクト、ビルド状態のストリーミング。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="recipes">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">再利用可能なレシピ</span>
+            <h2 class="site-title">高頻度のページを再構築する必要はありません</h2>
+            <p class="site-lead">
+              複雑だが再利用性の高いページがレシピに結合されました。 AI は最初にレシピを選択し、次にコンポーネントとツール クラスを使用して限定的な調整を行う必要があります。
+            </p>
+          </header>
+          <div class="site-recipe-grid" id="recipe-preview">
+            <a class="site-recipe" href="./docs.html#recipes"
+              ><strong>エンタープライズ ログイン</strong><span>SSO・MFA・パスキー</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>モバイル分類</strong><span>タッチ・セーフエリア・ダブルカラム</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>デスクトップ CMS</strong><span>ツリー・キャンバス・インスペクター</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>AI ワークスペース</strong><span>チャット · ツール · アーティファクト</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>分析の背景</strong><span>KPI・チャート・データテーブル</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>ファイルマネージャー</strong><span>ディレクトリ · グリッド · アップロードキュー</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>商品と決済</strong><span>詳細 · ショッピングカート · 注文</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>レポートと請求書</strong><span>画面・PDF・印刷</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="ai-ready">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">AI の作成者向けに構築</span>
+            <h2 class="site-title">AI に推測させず、AI に選択させます</h2>
+            <p class="site-lead">
+              パブリック API、コンポーネント、ツール クラス、レシピ、業界機能の 5 つのカテゴリのリストは、許可された名前、入り口、プラットフォーム、ステータス、および応答条件を構造化された方法で公開します。ページ生成プロセスは、制約、検証、再現できます。
+            </p>
+          </header>
+          <div class="site-ai-flow">
+            <article class="site-ai-step">
+              <b>01/意図</b>
+              <h3>ページの意図を特定する</h3>
+              <p>エンドタイプ、ビジネスカテゴリ、密度、コンテンツ量、およびインタラクションの複雑さ。</p>
+            </article>
+            <article class="site-ai-step">
+              <b>02/レシピ</b>
+              <h3>レシピ選択を優先する</h3>
+              <p>52 の完成した構造から最も近いページ スケルトンを選択します。</p>
+            </article>
+            <article class="site-ai-step">
+              <b>03/組み立て</b>
+              <h3>コンポーネントとツールの組み合わせ</h3>
+              <p>マニフェストに実際に存在するパブリック API、クラス、および動作のみを使用してください。</p>
+            </article>
+            <article class="site-ai-step">
+              <b>04/検証</b>
+              <h3>契約と環境を確認する</h3>
+              <p>スキーマ、キーボード、アクセシビリティ、RTL、印刷、および応答エンドポイントのチェックに合格します。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-cta">
+        <div class="site-container site-cta-inner">
+          <div>
+            <h2>完全なシステムから始めます。</h2>
+            <p>次のページに向けてインフラストラクチャを再発明するのはやめてください。</p>
+          </div>
+          <div class="g-flex g-flex-wrap g-gap-3">
+            <a class="g-btn g-btn-primary g-btn-lg" href="./docs.html"
+              >ドキュメント全体を開く</a
+            ><a
+              class="g-btn g-btn-outline g-btn-lg"
+              href="../../packages/css/examples/showcase.html"
+              >コンポーネントの例を表示する</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section
+      class="g-desktop-command-palette"
+      id="home-desktop-command"
+      data-g-command-palette
+      hidden
+      aria-label="デスクトップ コマンド パネル"
+    >
+      <div class="g-desktop-command-panel">
+        <label class="g-sr-only" for="home-desktop-command-input"
+          >コマンドを入力してください</label
+        ><input
+          class="g-desktop-command-input"
+          id="home-desktop-command-input"
+          data-g-command-input
+          placeholder="コマンドまたはファイル名を入力してください"
+        />
+        <div class="g-desktop-command-results" role="listbox">
+          <button
+            class="g-desktop-command-item"
+            type="button"
+            data-g-command-item
+            data-g-value="new"
+          >
+            <span>＋</span><span>新しいコンテンツ</span><kbd>Ctrl+N</kbd></button
+          ><button
+            class="g-desktop-command-item"
+            type="button"
+            data-g-command-item
+            data-g-value="publish"
+          >
+            <span>↑</span><span>現在のページを公開</span><kbd>Ctrl+Shift+P</kbd>
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="site-container">
+        <div class="site-footer-grid">
+          <div>
+            <a class="site-brand" href="./index.html"
+              ><span class="site-brand-mark" aria-hidden="true">G</span
+              ><span>Gardener</span></a
+            >
+            <p class="site-footer-note">
+              人間の開発者と AI ページ ビルダー向けの共通 CSS、コンポーネント、ページ レシピ インフラストラクチャ。
+            </p>
+          </div>
+          <div>
+            <h2>開始</h2>
+            <ul>
+              <li><a href="./docs.html#quick-start">クイックスタート</a></li>
+              <li><a href="./docs.html#installation">インストールとパッケージ</a></li>
+              <li><a href="./docs.html#vue">Vue 3</a></li>
+              <li><a href="./docs.html#react">React</a></li>
+              <li><a href="./docs.html#angular">AngularJS</a></li>
+              <li><a href="./docs.html#blazor">Blazor</a></li>
+              <li><a href="./docs.html#customization">カスタマイズ済み</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>機能</h2>
+            <ul>
+              <li><a href="./docs.html#themes">テーマシステム</a></li>
+              <li><a href="./docs.html#grid-system">24/12グリッド</a></li>
+              <li><a href="./docs.html#region-layouts">エリアレイアウト</a></li>
+              <li><a href="./docs.html#layout-primitives">クラシック レイアウト プリミティブ</a></li>
+              <li><a href="./docs.html#page-components">ページのコンポーネント</a></li>
+              <li><a href="./docs.html#help-system">ヘルプ システム</a></li>
+              <li><a href="./docs.html#form-compositions">フォームの組み合わせ</a></li>
+              <li>
+                <a href="./docs.html#navigation-compositions">ナビゲーションの組み合わせ</a>
+              </li>
+              <li><a href="./docs.html#data-compositions">データの組み合わせ</a></li>
+              <li>
+                <a href="./docs.html#selection-compositions">選択してバッチ処理</a>
+              </li>
+              <li><a href="./docs.html#content-compositions">コンテンツ システム</a></li>
+              <li><a href="./docs.html#auth-compositions">アカウントシステム</a></li>
+              <li>
+                <a href="./docs.html#commerce-compositions">コマースと支払い</a>
+              </li>
+              <li><a href="./docs.html#mobile-compositions">モバイル固有</a></li>
+              <li><a href="./docs.html#desktop-compositions">デスクトップのみ</a></li>
+              <li><a href="./docs.html#ai-compositions">AI インテリジェント インタラクション</a></li>
+              <li>
+                <a href="./docs.html#solution-compositions"
+                  >完全なページと業界プラン</a
+                >
+              </li>
+              <li><a href="./docs.html#components">コンポーネントカタログ</a></li>
+              <li><a href="./docs.html#runtime">ランタイム</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>プラットフォーム</h2>
+            <ul>
+              <li>
+                <a href="./docs.html#desktop-compositions">Tauri / Electron</a>
+              </li>
+              <li><a href="./docs.html#vue">Vue コンポーネントと API</a></li>
+              <li><a href="./docs.html#react">React コンポーネントと API</a></li>
+              <li><a href="./docs.html#angular">AngularJS ディレクティブと API</a></li>
+              <li><a href="./docs.html#blazor">Blazor コンポーネントと API</a></li>
+              <li><a href="./docs.html#ai-compositions">AI 製品コンポーネント</a></li>
+              <li>
+                <a href="./docs.html#solution-compositions">業界ページ ソリューション</a>
+              </li>
+              <li><a href="./docs.html#ai-generation">AI ページの生成</a></li>
+              <li><a href="./docs.html#accessibility">アクセシビリティ</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer-bottom">
+          <span>Gardener v1.0.0 · MIT ライセンス</span
+          ><span>ホワイトキャンバス。半径が小さい。幅広いカバレッジ。</span>
+        </div>
+      </div>
+    </footer>
+    <div class="g-toast-region" aria-live="polite"></div>
+    <script src="../assets/file-i18n.js"></script>
+    <script type="module" src="../assets/site.js?v=1.0.0"></script>
+  </body>
+</html>

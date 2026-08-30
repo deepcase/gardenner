@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.dev/schemas/blazor-performance-budgets-v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "assembly", "staticAssets", "entrypoints", "package", "generatedSource"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "version": { "const": "1.0.0" },
+    "assembly": { "$ref": "#/$defs/bytes" },
+    "staticAssets": { "$ref": "#/$defs/bytes" },
+    "generatedSource": { "$ref": "#/$defs/bytes" },
+    "entrypoints": {
+      "type": "object", "additionalProperties": false, "required": ["css", "runtime", "blazor"],
+      "properties": {
+        "css": { "$ref": "#/$defs/entrypoint" },
+        "runtime": { "$ref": "#/$defs/entrypoint" },
+        "blazor": { "$ref": "#/$defs/entrypoint" }
+      }
+    },
+    "package": { "type": "object", "additionalProperties": false, "required": ["bytes", "files"], "properties": { "bytes": { "type": "integer", "minimum": 1 }, "files": { "type": "integer", "minimum": 1 } } }
+  },
+  "$defs": {
+    "bytes": { "type": "object", "additionalProperties": false, "required": ["bytes"], "properties": { "bytes": { "type": "integer", "minimum": 1 } } },
+    "entrypoint": { "type": "object", "additionalProperties": false, "required": ["bytes", "gzipBytes"], "properties": { "bytes": { "type": "integer", "minimum": 1 }, "gzipBytes": { "type": "integer", "minimum": 1 } } }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.dev/schemas/blazor-compatibility-v1.json",
+  "title": "Gardener Blazor compatibility baseline",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "version", "baselineVersion", "policy", "baseline"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "version": { "type": "string" },
+    "baselineVersion": { "type": "string" },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage", "additions", "removals"],
+      "properties": {
+        "stage": { "const": "stable" },
+        "additions": { "const": "allowed" },
+        "removals": { "const": "deprecate-before-removal" }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["targetFramework", "compatibleFrameworks", "behaviorNames", "behaviorContracts", "eventNames", "eventContracts", "guardEvents", "themeCount", "themes", "axisValues", "componentNames", "componentTypes", "frameworkTypes", "services", "componentParameters", "componentHandleMembers", "themeAxes", "staticAssets"],
+      "properties": {
+        "targetFramework": { "const": "net10.0" },
+        "compatibleFrameworks": { "type": "array", "contains": { "const": "net11.0" } },
+        "behaviorNames": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "behaviorContracts": { "type": "array", "items": { "$ref": "blazor-public-api-v1.json#/$defs/behaviorContract" } },
+        "eventNames": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "eventContracts": { "type": "array", "items": { "$ref": "blazor-public-api-v1.json#/$defs/eventContract" } },
+        "guardEvents": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "themeCount": { "const": 42 },
+        "themes": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "axisValues": { "type": "object", "additionalProperties": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" } },
+        "componentNames": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "componentTypes": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "frameworkTypes": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "services": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "componentParameters": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "componentHandleMembers": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "themeAxes": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" },
+        "staticAssets": { "$ref": "blazor-public-api-v1.json#/$defs/uniqueStrings" }
+      }
+    }
+  }
+}

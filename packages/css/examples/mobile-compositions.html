@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Gardener 移动端特有组件</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+    <style>
+      body {
+        margin: 0;
+        background: #f4f6f8;
+      }
+      .example-wrap {
+        padding: 1rem;
+      }
+      .example-phone {
+        max-width: 390px;
+        margin: auto;
+        height: min(780px, calc(100dvh - 2rem));
+      }
+      .example-thumb {
+        width: 3rem;
+        aspect-ratio: 1;
+        border: 1px solid var(--g-color-border);
+        background: var(--g-color-primary-soft);
+      }
+      @media (max-width: 480px) {
+        .example-wrap {
+          padding: 0;
+        }
+        .example-phone {
+          max-width: none;
+          height: 100dvh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="example-wrap">
+      <section
+        class="g-mobile-safe-shell is-contained example-phone"
+        aria-label="移动商城示例"
+      >
+        <header class="g-mobile-app-bar">
+          <div class="g-mobile-app-bar-start">
+            <button
+              class="g-btn g-btn-ghost g-btn-icon"
+              type="button"
+              aria-label="返回"
+            >
+              ←
+            </button>
+          </div>
+          <h1 class="g-mobile-app-bar-title">Gardener Mobile</h1>
+          <div class="g-mobile-app-bar-actions">
+            <button
+              class="g-btn g-btn-ghost g-btn-icon"
+              type="button"
+              data-g-mobile-sheet-open="mobile-actions"
+              aria-label="更多"
+            >
+              •••
+            </button>
+          </div>
+        </header>
+        <div class="g-mobile-safe-content g-p-0">
+          <div class="g-mobile-offline-banner" hidden>
+            当前离线，显示缓存内容
+          </div>
+          <form class="g-mobile-search" role="search" data-g-clear-input>
+            <div class="g-mobile-search-field">
+              <span class="g-mobile-search-icon" aria-hidden="true">⌕</span
+              ><label class="g-sr-only" for="mobile-search-example">搜索</label
+              ><input
+                class="g-input"
+                id="mobile-search-example"
+                type="search"
+                placeholder="搜索商品、服务和内容"
+              /><button
+                class="g-btn g-btn-ghost g-btn-icon"
+                type="button"
+                data-g-clear
+                aria-label="清空"
+              >
+                ×
+              </button>
+            </div>
+            <button class="g-btn g-btn-ghost" type="submit">搜索</button>
+          </form>
+          <div
+            class="g-mobile-swipe-tabs"
+            data-g-tabs
+            role="tablist"
+            aria-label="内容分类"
+          >
+            <button
+              class="g-mobile-swipe-tab"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="tab-recommend"
+              id="tab-recommend-button"
+            >
+              推荐</button
+            ><button
+              class="g-mobile-swipe-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tab-latest"
+              id="tab-latest-button"
+            >
+              最新</button
+            ><button
+              class="g-mobile-swipe-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tab-following"
+              id="tab-following-button"
+            >
+              关注
+            </button>
+          </div>
+          <section
+            id="tab-recommend"
+            role="tabpanel"
+            aria-labelledby="tab-recommend-button"
+          >
+            <div
+              class="g-mobile-card-carousel g-py-4"
+              role="region"
+              aria-label="精选卡片"
+              tabindex="0"
+            >
+              <article class="g-card g-p-4">
+                <strong>跨端模板</strong>
+                <p class="g-text-sm g-text-muted">Web、PWA 与桌面 WebView。</p>
+              </article>
+              <article class="g-card g-p-4">
+                <strong>安全区就绪</strong>
+                <p class="g-text-sm g-text-muted">
+                  刘海屏、圆角屏与 Home Indicator。
+                </p>
+              </article>
+            </div>
+            <div class="g-mobile-feed">
+              <article class="g-mobile-swipe-actions" data-g-swipe-actions>
+                <div class="g-mobile-swipe-actions-track">
+                  <div class="g-mobile-swipe-actions-main">
+                    <span class="example-thumb"></span>
+                    <div class="g-mobile-feed-main g-ml-3">
+                      <strong>可滑动记录</strong>
+                      <p class="g-text-sm g-text-muted g-m-0">
+                        左滑显示常用操作，也可使用按钮。
+                      </p>
+                    </div>
+                    <button
+                      class="g-btn g-btn-ghost g-btn-sm"
+                      type="button"
+                      data-g-swipe-toggle
+                      aria-expanded="false"
+                    >
+                      操作
+                    </button>
+                  </div>
+                  <div class="g-mobile-swipe-actions-buttons">
+                    <button
+                      class="g-mobile-swipe-action"
+                      type="button"
+                      data-g-swipe-close
+                    >
+                      置顶</button
+                    ><button
+                      class="g-mobile-swipe-action is-danger"
+                      type="button"
+                      data-g-swipe-close
+                    >
+                      删除
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="g-mobile-feed-item">
+                <span class="example-thumb"></span>
+                <div class="g-mobile-feed-main">
+                  <strong>移动端内容流</strong>
+                  <p class="g-text-sm g-text-muted g-m-0">
+                    头像、正文与尾部动作都有稳定插槽。
+                  </p>
+                </div>
+                <button
+                  class="g-btn g-btn-ghost g-btn-icon"
+                  type="button"
+                  aria-label="收藏"
+                >
+                  ☆
+                </button>
+              </article>
+            </div>
+            <div class="g-mobile-infinite-load" data-g-infinite-load>
+              <span class="g-spinner" aria-hidden="true"></span
+              ><span>继续加载</span
+              ><button
+                class="g-btn g-btn-outline g-btn-sm"
+                type="button"
+                data-g-infinite-load-more
+              >
+                加载更多</button
+              ><i data-g-infinite-sentinel aria-hidden="true"></i>
+            </div>
+          </section>
+          <section
+            id="tab-latest"
+            role="tabpanel"
+            aria-labelledby="tab-latest-button"
+            hidden
+          >
+            <div class="g-mobile-state">
+              <span class="g-mobile-state-icon" aria-hidden="true">＋</span>
+              <h2>暂无最新内容</h2>
+              <p class="g-text-muted">稍后刷新，或先浏览推荐。</p>
+            </div>
+          </section>
+          <section
+            id="tab-following"
+            role="tabpanel"
+            aria-labelledby="tab-following-button"
+            hidden
+          >
+            <div class="g-mobile-permission-prompt">
+              <span class="g-mobile-permission-icon" aria-hidden="true">◎</span>
+              <h2>开启通知</h2>
+              <p class="g-text-muted">获得关注对象的及时更新。</p>
+              <div class="g-mobile-permission-actions">
+                <button class="g-btn g-btn-primary" type="button">
+                  允许通知</button
+                ><button class="g-btn g-btn-ghost" type="button">
+                  以后再说
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+        <nav class="g-mobile-bottom-navigation" aria-label="一级导航">
+          <a
+            class="g-mobile-bottom-navigation-item is-active"
+            href="#"
+            aria-current="page"
+            ><span aria-hidden="true">⌂</span><span>首页</span></a
+          ><a class="g-mobile-bottom-navigation-item" href="#"
+            ><span aria-hidden="true">▦</span><span>分类</span></a
+          ><button
+            class="g-mobile-bottom-navigation-item"
+            type="button"
+            data-g-mobile-sheet-open="mobile-filter"
+          >
+            <span aria-hidden="true">⌘</span><span>筛选</span></button
+          ><a class="g-mobile-bottom-navigation-item" href="#"
+            ><span aria-hidden="true">○</span><span>我的</span></a
+          >
+        </nav>
+      </section>
+    </main>
+    <aside
+      class="g-mobile-action-sheet"
+      id="mobile-actions"
+      data-g-mobile-sheet
+      hidden
+    >
+      <div class="g-mobile-sheet-panel">
+        <div class="g-mobile-sheet-handle" aria-hidden="true"></div>
+        <header class="g-mobile-sheet-header">
+          <h2>快捷操作</h2>
+          <button
+            class="g-btn g-btn-ghost g-btn-icon"
+            type="button"
+            data-g-close
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </header>
+        <div class="g-mobile-action-list">
+          <button class="g-mobile-action-item" type="button">分享页面</button
+          ><button class="g-mobile-action-item" type="button">添加到收藏</button
+          ><button class="g-mobile-action-item" type="button">反馈问题</button>
+        </div>
+      </div>
+    </aside>
+    <aside
+      class="g-mobile-filter-sheet"
+      id="mobile-filter"
+      data-g-mobile-sheet
+      hidden
+    >
+      <div class="g-mobile-sheet-panel">
+        <div class="g-mobile-sheet-handle" aria-hidden="true"></div>
+        <header class="g-mobile-sheet-header">
+          <h2>筛选</h2>
+          <button
+            class="g-btn g-btn-ghost g-btn-icon"
+            type="button"
+            data-g-close
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </header>
+        <div class="g-mobile-picker" data-g-saved-choice>
+          <h3>内容类型</h3>
+          <div class="g-mobile-picker-grid">
+            <button
+              class="g-mobile-picker-option"
+              type="button"
+              data-g-saved-choice-item
+              data-g-value="all"
+              aria-pressed="true"
+            >
+              全部</button
+            ><button
+              class="g-mobile-picker-option"
+              type="button"
+              data-g-saved-choice-item
+              data-g-value="product"
+              aria-pressed="false"
+            >
+              商品</button
+            ><button
+              class="g-mobile-picker-option"
+              type="button"
+              data-g-saved-choice-item
+              data-g-value="article"
+              aria-pressed="false"
+            >
+              文章
+            </button>
+          </div>
+        </div>
+        <footer class="g-mobile-sheet-footer">
+          <button class="g-btn g-btn-ghost" type="button">重置</button
+          ><button class="g-btn g-btn-primary" type="button" data-g-close>
+            查看结果
+          </button>
+        </footer>
+      </div>
+    </aside>
+    <script type="module" src="../dist/gardener.runtime.js"></script>
+  </body>
+</html>

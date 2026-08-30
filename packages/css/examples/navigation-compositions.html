@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gardener — Traditional Navigation Compositions</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+    <style>
+      body {
+        background: #fff;
+      }
+      .demo-main {
+        width: min(76rem, calc(100% - 2rem));
+        margin: auto;
+        padding: 2rem 0 7rem;
+      }
+      .demo-section {
+        margin-block: 2rem;
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+        gap: 1rem;
+      }
+      .demo-card {
+        padding: 1rem;
+        border: 1px solid var(--g-color-border);
+        border-radius: var(--g-radius-md);
+        background: var(--g-color-surface);
+      }
+      .demo-shell {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        min-height: 18rem;
+        border: 1px solid var(--g-color-border);
+      }
+      .demo-content {
+        padding: 1rem;
+      }
+      .demo-context-target {
+        display: grid;
+        min-height: 9rem;
+        place-items: center;
+        border: 1px dashed var(--g-color-border-strong);
+        background: var(--g-color-surface-subtle);
+      }
+      .demo-spy {
+        display: grid;
+        grid-template-columns: 10rem minmax(0, 1fr);
+        gap: 1rem;
+        max-height: 18rem;
+        overflow: auto;
+      }
+      .demo-spy section {
+        min-height: 12rem;
+        padding: 1rem;
+        border: 1px solid var(--g-color-border);
+      }
+      @media (max-width: 48rem) {
+        .demo-spy {
+          grid-template-columns: 1fr;
+        }
+        .g-scrollspy-nav {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="g-skip-nav" aria-label="跳过导航">
+      <a class="g-skip-nav-link" href="#main">跳到正文</a>
+    </nav>
+    <header class="g-navbar g-nav-container">
+      <div class="g-navbar-start">
+        <a class="g-navbar-brand" href="#">Gardener</a>
+      </div>
+      <nav class="g-primary-nav" aria-label="主导航">
+        <a class="g-primary-nav-link" href="#global" aria-current="page">产品</a
+        ><a class="g-primary-nav-link" href="#hierarchy">解决方案</a
+        ><a class="g-primary-nav-link" href="#mobile">资源</a>
+      </nav>
+      <nav class="g-utility-nav" aria-label="辅助导航">
+        <a class="g-utility-nav-link" href="#identity">支持</a
+        ><a class="g-utility-nav-link" href="#identity">登录</a>
+      </nav>
+      <div class="g-navbar-end">
+        <button
+          class="g-btn g-btn-outline g-btn-icon g-navbar-toggle"
+          type="button"
+          data-g-nav-toggle="demo-drawer"
+          data-g-dismiss-outside="true"
+          aria-label="打开导航"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+    <nav class="g-subnav" aria-label="二级导航">
+      <a class="g-subnav-link" href="#global" aria-current="page">概览</a
+      ><a class="g-subnav-link" href="#selection">选中导航</a
+      ><a class="g-subnav-link" href="#continuation">流程导航</a
+      ><a class="g-subnav-link" href="#mobile">移动端</a>
+    </nav>
+    <aside class="g-drawer-nav" id="demo-drawer" hidden>
+      <header class="g-drawer-nav-header">
+        <strong>菜单</strong
+        ><button
+          class="g-btn g-btn-ghost"
+          type="button"
+          data-g-nav-toggle="demo-drawer"
+        >
+          关闭
+        </button>
+      </header>
+      <div class="g-drawer-nav-body">
+        <nav class="g-nav-group">
+          <a class="g-nav-item" href="#global" aria-current="page">全局导航</a
+          ><a class="g-nav-item" href="#hierarchy">层级导航</a
+          ><a class="g-nav-item" href="#mobile">移动导航</a>
+        </nav>
+      </div>
+      <footer class="g-drawer-nav-footer">Gardener</footer>
+    </aside>
+
+    <main class="demo-main" id="main">
+      <header>
+        <span class="g-badge">Category 07</span>
+        <h1 class="g-mt-3">传统导航组合</h1>
+        <p class="g-text-muted g-mt-2">
+          38 种模式、9 类复用运行时；覆盖 Web、Dashboard、移动端与
+          Tauri/Electron。
+        </p>
+      </header>
+
+      <section class="demo-section" id="global">
+        <h2>Global / Local / Desktop</h2>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <h3>Navbar / Mega Menu</h3>
+            <div class="g-navbar">
+              <div class="g-navbar-start">
+                <strong class="g-navbar-brand">品牌</strong>
+              </div>
+              <div class="g-navbar-center">全局区</div>
+              <div class="g-navbar-end">
+                <button class="g-btn g-btn-sm">发布</button>
+              </div>
+            </div>
+            <div class="g-mega-menu" style="position: static">
+              <section class="g-mega-menu-section">
+                <h4 class="g-mega-menu-title">产品</h4>
+                <div class="g-mega-menu-list">
+                  <a class="g-nav-item" href="#">CMS</a
+                  ><a class="g-nav-item" href="#">Analytics</a>
+                </div>
+              </section>
+              <section class="g-mega-menu-section">
+                <h4 class="g-mega-menu-title">平台</h4>
+                <div class="g-mega-menu-list">
+                  <a class="g-nav-item" href="#">Web</a
+                  ><a class="g-nav-item" href="#">Desktop</a>
+                </div>
+              </section>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Menubar / Activity Bar</h3>
+            <div
+              class="g-menubar"
+              style="height: 2.25rem; border: 1px solid var(--g-color-border)"
+            >
+              <button class="g-menubar-item">文件</button
+              ><button class="g-menubar-item">编辑</button
+              ><button class="g-menubar-item">视图</button>
+            </div>
+            <div class="g-activitybar g-mt-3" style="height: 10rem">
+              <a class="g-activitybar-item" href="#" aria-current="page">EX</a
+              ><a class="g-activitybar-item" href="#">SR</a
+              ><a class="g-activitybar-item" href="#">AI</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section" id="hierarchy">
+        <h2>Sidebar / Rail / Hierarchy</h2>
+        <div class="demo-shell">
+          <nav
+            class="g-nav-rail"
+            data-g-roving-nav
+            data-g-orientation="vertical"
+            aria-label="功能导航"
+          >
+            <a class="g-nav-rail-item" href="#" aria-current="page"
+              ><span class="g-nav-icon">⌂</span><span>首页</span></a
+            ><a class="g-nav-rail-item" href="#"
+              ><span class="g-nav-icon">▤</span><span>内容</span></a
+            ><a class="g-nav-rail-item" href="#"
+              ><span class="g-nav-icon">⚙</span><span>设置</span></a
+            >
+          </nav>
+          <div class="demo-content">
+            <aside class="g-sidebar">
+              <header class="g-sidebar-header"><strong>工作区</strong></header>
+              <nav class="g-sidebar-nav">
+                <a class="g-sidebar-link" href="#" aria-current="page"
+                  >概览 <span class="g-sidebar-badge">8</span></a
+                ><a class="g-sidebar-link" href="#">页面</a>
+              </nav>
+            </aside>
+            <section class="g-collapsible-nav g-mt-3">
+              <header class="g-collapsible-nav-header">
+                <strong>可折叠分组</strong
+                ><button
+                  class="g-btn g-btn-ghost g-btn-sm"
+                  type="button"
+                  data-g-nav-toggle="collapse-body"
+                >
+                  切换
+                </button>
+              </header>
+              <div class="g-collapsible-nav-body" id="collapse-body">
+                <div class="g-nav-group">
+                  <span class="g-nav-group-title">项目</span
+                  ><a class="g-nav-item" href="#"
+                    ><span class="g-nav-icon">◆</span
+                    ><span class="g-nav-label">企业官网</span
+                    ><span class="g-nav-badge">12</span></a
+                  >
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="demo-grid g-mt-4">
+          <article class="demo-card">
+            <h3>Tree Navigation</h3>
+            <ul class="g-tree-nav" data-g-tree>
+              <li role="treeitem" aria-expanded="true">
+                <div class="g-tree-nav-row">
+                  <button class="g-tree-nav-toggle" aria-label="展开">›</button
+                  ><a class="g-nav-item" href="#">内容</a>
+                </div>
+                <ul class="g-tree-nav-group" role="group">
+                  <li class="g-nav-item" role="treeitem" aria-selected="true">
+                    文章
+                  </li>
+                  <li class="g-nav-item" role="treeitem">页面</li>
+                </ul>
+              </li>
+            </ul>
+          </article>
+          <article class="demo-card">
+            <h3>Breadcrumb / Anchor</h3>
+            <ol class="g-breadcrumb">
+              <li class="g-breadcrumb-item"><a href="#">首页</a></li>
+              <li class="g-breadcrumb-item"><a href="#">内容</a></li>
+              <li class="g-breadcrumb-item" aria-current="page">文章</li>
+            </ol>
+            <nav class="g-anchor-nav g-mt-4">
+              <a class="g-anchor-link" href="#global" aria-current="true"
+                >全局</a
+              ><a class="g-anchor-link" href="#selection">选择</a>
+            </nav>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section" id="selection">
+        <h2>Selection Navigation</h2>
+        <div class="g-tabs" data-g-tabs>
+          <div class="g-tab-list" role="tablist">
+            <button
+              class="g-tab"
+              role="tab"
+              aria-controls="tab-overview"
+              aria-selected="true"
+            >
+              概览</button
+            ><button class="g-tab" role="tab" aria-controls="tab-history">
+              历史
+            </button>
+          </div>
+          <div class="g-tab-panel" id="tab-overview" role="tabpanel">
+            水平 Tabs 内容
+          </div>
+          <div class="g-tab-panel" id="tab-history" role="tabpanel" hidden>
+            历史内容
+          </div>
+        </div>
+        <div class="demo-grid g-mt-4">
+          <article class="demo-card">
+            <div
+              class="g-vertical-tabs"
+              data-g-tabs
+            >
+              <div
+                class="g-vertical-tab-list"
+                role="tablist"
+                aria-orientation="vertical"
+              >
+                <button
+                  class="g-vertical-tab"
+                  role="tab"
+                  aria-controls="vtab-general"
+                  aria-selected="true"
+                >
+                  常规</button
+                ><button
+                  class="g-vertical-tab"
+                  role="tab"
+                  aria-controls="vtab-security"
+                >
+                  安全
+                </button>
+              </div>
+              <div
+                class="g-vertical-tab-panel"
+                id="vtab-general"
+                role="tabpanel"
+              >
+                常规设置
+              </div>
+              <div
+                class="g-vertical-tab-panel"
+                id="vtab-security"
+                role="tabpanel"
+                hidden
+              >
+                安全设置
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <div class="g-segmented">
+              <button class="g-segmented-item" aria-pressed="true">列表</button
+              ><button class="g-segmented-item" aria-pressed="false">
+                网格
+              </button>
+            </div>
+            <nav class="g-pill-nav g-mt-4">
+              <a class="g-pill-nav-link" href="#" aria-current="page">全部</a
+              ><a class="g-pill-nav-link" href="#">草稿</a
+              ><a class="g-pill-nav-link" href="#">已发布</a>
+            </nav>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section" id="menus">
+        <h2>Dropdown / Context / Command</h2>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <div class="g-dropdown" data-g-dropdown>
+              <button
+                class="g-btn g-btn-outline"
+                type="button"
+                data-g-dropdown-trigger
+              >
+                操作菜单
+              </button>
+              <ul class="g-menu g-dropdown-menu" data-g-dropdown-menu hidden>
+                <li>
+                  <button class="g-menu-item" role="menuitem">重命名</button>
+                </li>
+                <li>
+                  <button class="g-menu-item" role="menuitem">复制</button>
+                </li>
+              </ul>
+            </div>
+            <div class="g-locale-nav g-dropdown g-mt-3" data-g-dropdown>
+              <button class="g-locale-nav-trigger" data-g-dropdown-trigger>
+                简体中文
+              </button>
+              <ul class="g-menu g-locale-nav-menu" data-g-dropdown-menu hidden>
+                <li>
+                  <button class="g-menu-item" role="menuitem">English</button>
+                </li>
+              </ul>
+            </div>
+            <div class="g-account-nav g-dropdown g-mt-3" data-g-dropdown>
+              <button class="g-account-nav-trigger" data-g-dropdown-trigger>
+                账户
+              </button>
+              <ul class="g-menu g-account-nav-menu" data-g-dropdown-menu hidden>
+                <li>
+                  <button class="g-menu-item" role="menuitem">个人资料</button>
+                </li>
+              </ul>
+            </div>
+          </article>
+          <article class="demo-card" data-g-context-menu>
+            <div class="demo-context-target" data-g-context-target tabindex="0">
+              在此右键或按 Shift+F10
+            </div>
+            <ul class="g-context-menu" data-g-context-menu-panel hidden>
+              <li><button class="g-menu-item" role="menuitem">打开</button></li>
+              <li>
+                <button class="g-menu-item" role="menuitem">新窗口打开</button>
+              </li>
+            </ul>
+          </article>
+          <article class="demo-card">
+            <button
+              class="g-btn g-btn-outline"
+              data-g-command-trigger="demo-command"
+            >
+              打开命令面板
+            </button>
+            <ul class="g-command-nav g-mt-3" data-g-roving-nav>
+              <li>
+                <a class="g-command-nav-item" href="#"
+                  ><span>⌕</span><span>搜索内容</span
+                  ><kbd class="g-command-nav-key">Ctrl F</kbd></a
+                >
+              </li>
+              <li>
+                <a class="g-command-nav-item" href="#"
+                  ><span>＋</span><span>新建页面</span
+                  ><kbd class="g-command-nav-key">N</kbd></a
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+      <div
+        data-g-command-palette
+        id="demo-command"
+        hidden
+        style="
+          position: fixed;
+          inset: 0;
+          z-index: 1000;
+          display: grid;
+          place-items: start center;
+          padding-top: 10vh;
+          background: rgb(15 23 42 / 0.2);
+        "
+      >
+        <div class="g-command-palette">
+          <input
+            class="g-command-input"
+            aria-label="搜索命令"
+            placeholder="输入命令"
+          />
+          <div class="g-command-results">
+            <button class="g-menu-item">新建页面</button
+            ><button class="g-menu-item">打开设置</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="demo-section" id="continuation">
+        <h2>In-page / Continuation / Workflow</h2>
+        <div class="demo-spy" id="demo-spy-root">
+          <nav
+            class="g-scrollspy-nav"
+            data-g-scrollspy
+            data-g-scrollspy-root="demo-spy-root"
+            data-g-scrollspy-offset="24"
+          >
+            <a class="g-scrollspy-link" href="#spy-one">第一节</a
+            ><a class="g-scrollspy-link" href="#spy-two">第二节</a
+            ><a class="g-scrollspy-link" href="#spy-three">第三节</a>
+          </nav>
+          <div>
+            <section id="spy-one"><h3>第一节</h3></section>
+            <section id="spy-two"><h3>第二节</h3></section>
+            <section id="spy-three"><h3>第三节</h3></section>
+          </div>
+        </div>
+        <div class="demo-grid g-mt-4">
+          <article class="demo-card">
+            <nav class="g-pagination">
+              <a class="g-page-link" href="#">‹</a
+              ><a class="g-page-link" href="#">1</a
+              ><a class="g-page-link" href="#" aria-current="page">2</a
+              ><a class="g-page-link" href="#">3</a>
+            </nav>
+            <div class="g-cursor-pagination g-mt-4">
+              <button class="g-btn g-btn-outline">上一批</button
+              ><span class="g-cursor-pagination-info">第 21–40 项</span>
+              <div class="g-cursor-pagination-actions">
+                <button class="g-btn g-btn-outline">下一批</button>
+              </div>
+            </div>
+            <div class="g-load-more-nav">
+              <button class="g-btn g-btn-outline">加载更多</button
+              ><span class="g-load-more-status">已显示 40 / 128</span>
+            </div>
+          </article>
+          <article class="demo-card">
+            <ol class="g-stepper">
+              <li class="g-step is-complete">
+                <span class="g-step-label">账户</span>
+              </li>
+              <li class="g-step is-active">
+                <span class="g-step-label">资料</span>
+              </li>
+              <li class="g-step"><span class="g-step-label">完成</span></li>
+            </ol>
+            <div class="g-wizard-nav g-mt-5">
+              <ol class="g-wizard-nav-steps">
+                <li class="g-wizard-nav-step is-complete">
+                  <span class="g-wizard-nav-label">基础</span>
+                </li>
+                <li class="g-wizard-nav-step is-active">
+                  <span class="g-wizard-nav-label">内容</span>
+                </li>
+              </ol>
+              <div class="g-wizard-nav-content">当前步骤内容</div>
+            </div>
+          </article>
+        </div>
+        <a class="g-back-nav g-mt-4" href="#global">← 返回导航概览</a>
+        <nav class="g-prev-next-nav">
+          <a class="g-prev-next-link" href="#selection"
+            ><span class="g-prev-next-direction">上一篇</span
+            ><strong>选择导航</strong></a
+          ><a class="g-prev-next-link" href="#mobile"
+            ><span class="g-prev-next-direction">下一篇</span
+            ><strong>移动导航</strong></a
+          >
+        </nav>
+        <div class="g-jump-nav" data-g-jump-nav>
+          <label class="g-field"
+            ><span class="g-label">跳转章节</span
+            ><select class="g-select">
+              <option value="#global">全局导航</option>
+              <option value="#mobile">移动导航</option>
+            </select></label
+          ><button class="g-btn g-btn-outline" type="button">选择后跳转</button>
+        </div>
+      </section>
+
+      <section class="demo-section" id="mobile">
+        <h2>Mobile / Quick / Identity</h2>
+        <div class="g-mobile-top-nav">
+          <button class="g-btn g-btn-ghost g-btn-icon">‹</button
+          ><strong class="g-mobile-top-nav-title">移动页面标题</strong
+          ><button class="g-btn g-btn-ghost g-btn-icon">⋯</button>
+        </div>
+        <div class="g-quick-nav g-mt-4">
+          <a class="g-quick-nav-item" href="#">★ 收藏</a
+          ><a class="g-quick-nav-item" href="#">◷ 最近</a
+          ><a class="g-quick-nav-item" href="#">⌁ 常用</a>
+        </div>
+        <p class="g-text-muted g-mt-4">
+          缩小到移动视口可看到固定 Bottom Navigation；Mobile Tab Bar
+          作为同类替代模式。
+        </p>
+        <nav class="g-bottom-nav" aria-label="移动底部导航">
+          <a class="g-bottom-nav-item" href="#global" aria-current="page"
+            ><span>⌂</span><span>首页</span></a
+          ><a class="g-bottom-nav-item" href="#selection"
+            ><span>▤</span><span>内容</span></a
+          ><a class="g-bottom-nav-item" href="#mobile"
+            ><span>☺</span><span>我的</span></a
+          >
+        </nav>
+        <nav
+          class="g-mobile-tab-bar"
+          role="tablist"
+          aria-label="移动标签栏"
+          style="position: static; display: grid; margin-top: 1rem"
+        >
+          <button class="g-mobile-tab-item" role="tab" aria-selected="true">
+            <span>消息</span></button
+          ><button class="g-mobile-tab-item" role="tab" aria-selected="false">
+            <span>联系人</span>
+          </button>
+        </nav>
+      </section>
+    </main>
+    <script type="module" src="../dist/gardener.runtime.js"></script>
+  </body>
+</html>

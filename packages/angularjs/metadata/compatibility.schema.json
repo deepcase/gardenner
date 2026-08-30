@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "version", "baselineVersion", "policy", "baseline"],
+  "properties": {
+    "$schema": { "type": "string" }, "schemaVersion": { "const": 1 }, "version": { "const": "1.0.0" }, "baselineVersion": { "const": "1.0.0" },
+    "policy": { "type": "object", "additionalProperties": false, "required": ["stage", "additions", "removals"], "properties": { "stage": { "const": "stable" }, "additions": { "const": "allowed" }, "removals": { "const": "deprecate-before-removal" } } },
+    "baseline": { "type": "object", "additionalProperties": false, "required": ["angularjs", "packageEntrypoints", "componentNames", "componentExports", "directiveNames", "elementNames", "moduleExports", "typeExports", "behaviors", "services", "directives", "componentAttributes", "componentHandleMembers", "themeAxes"], "properties": {
+      "angularjs": { "const": ">=1.8.2 <1.9.0" }, "packageEntrypoints": { "$ref": "#/$defs/strings" }, "componentNames": { "$ref": "#/$defs/strings" }, "componentExports": { "$ref": "#/$defs/strings" }, "directiveNames": { "$ref": "#/$defs/strings" }, "elementNames": { "$ref": "#/$defs/strings" }, "moduleExports": { "$ref": "#/$defs/strings" }, "typeExports": { "$ref": "#/$defs/strings" }, "behaviors": { "$ref": "#/$defs/strings" }, "services": { "$ref": "#/$defs/strings" }, "directives": { "$ref": "#/$defs/strings" }, "componentAttributes": { "$ref": "#/$defs/strings" }, "componentHandleMembers": { "$ref": "#/$defs/strings" }, "themeAxes": { "$ref": "#/$defs/strings" }
+    } }
+  },
+  "$defs": { "strings": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true } }
+}

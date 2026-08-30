@@ -1,0 +1,27 @@
+{
+  "name": "@gardener/blazor-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Development workspace for the official Gardener.Blazor Razor component package.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "build": "npm run generate && dotnet build Gardener.Blazor.slnx -c Release --nologo",
+    "test:contracts": "dotnet run --project tests/Gardener.Blazor.Tests/Gardener.Blazor.Tests.csproj -c Release --no-build",
+    "test:net11": "node scripts/test-net11.mjs",
+    "test:browser": "node scripts/test-browser.mjs",
+    "check": "node scripts/check.mjs",
+    "budget": "node scripts/budget.mjs",
+    "verify:reproducible": "node scripts/verify-reproducible.mjs",
+    "verify:package": "node scripts/verify-package.mjs",
+    "pack": "dotnet pack src/Gardener.Blazor/Gardener.Blazor.csproj -c Release --no-build -o artifacts",
+    "test": "npm run build && npm run test:contracts && npm run check && npm run test:browser && npm run verify:reproducible && npm run verify:package && npm run budget",
+    "release:verify": "npm test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "ajv": "8.20.0",
+    "@playwright/test": "1.62.1"
+  }
+}

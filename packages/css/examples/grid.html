@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light" data-g-shape="small">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gardener 24 / 12 Grid</title>
+  <link rel="stylesheet" href="../dist/gardener.css">
+  <style>
+    body { background: #fff; }
+    .demo-page { padding-block: 2rem 5rem; }
+    .demo-section { margin-block-start: 2.5rem; }
+    .demo-cell { min-height: 3.5rem; display: grid; place-items: center; padding: .75rem; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-primary-soft); color: var(--g-color-primary-text); font: 600 .75rem/1.4 var(--g-font-mono); text-align: center; }
+    .demo-ruler { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); gap: 2px; margin-block: 1rem .5rem; }
+    .demo-ruler i { min-height: 1.5rem; border: 1px solid var(--g-color-border); background: var(--g-color-surface-subtle); }
+    .demo-cq-small { inline-size: min(100%, 28rem); }
+    .demo-cq-large { inline-size: min(100%, 50rem); }
+  </style>
+</head>
+<body>
+  <main class="g-container demo-page">
+    <header><span class="g-badge">Layout capability 01</span><h1 class="g-text-4xl g-mt-4">24 / 12 完整栅格</h1><p class="g-text-muted g-mt-3">视口响应、偏移、RTL、容器查询与打印的独立验证页。</p></header>
+
+    <section class="demo-section" id="grid-24"><h2>24 栅格</h2><div class="demo-ruler" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="g-grid-24 g-gutter-3"><div class="demo-cell g-col-24 g-md-col-6">6 / 24</div><div class="demo-cell g-col-24 g-md-col-12">12 / 24</div><div class="demo-cell g-col-24 g-md-col-6">6 / 24</div><div class="demo-cell g-col-16 g-offset-4">offset 4 + 16</div></div></section>
+
+    <section class="demo-section" id="grid-12"><h2>12 栅格兼容</h2><div class="g-grid-12 g-gutter-3 g-mt-4"><div class="demo-cell g-col-12 g-md-col-3">3 / 12</div><div class="demo-cell g-col-12 g-md-col-6">6 / 12</div><div class="demo-cell g-col-12 g-md-col-3">3 / 12</div></div></section>
+
+    <section class="demo-section" id="fill-grid"><h2>Auto / Fill</h2><div class="g-grid-24 g-gutter-3 g-mt-4"><div class="demo-cell g-col-6">固定 6</div><div class="demo-cell g-col-fill-from-7">从第 7 线填满剩余 18</div></div></section>
+
+    <section class="demo-section" id="logical-direction"><h2>逻辑方向与 RTL</h2><div class="g-grid-24 g-gutter-3 g-mt-4" id="ltr-grid"><div class="demo-cell g-col-8 g-offset-4">LTR：start offset 4</div></div><div class="g-grid-24 g-gutter-3 g-mt-4" id="rtl-grid" dir="rtl"><div class="demo-cell g-col-8 g-offset-4">RTL：start offset 4</div></div></section>
+
+    <section class="demo-section" id="container-grid"><h2>Container Query</h2><div class="g-grid-container demo-cq-small g-mt-4" id="cq-small"><div class="g-grid-24 g-gutter-2"><div class="demo-cell g-col-24 g-cq-md-col-8">28rem 容器：24 / 24</div></div></div><div class="g-grid-container demo-cq-large g-mt-4" id="cq-large"><div class="g-grid-24 g-gutter-2"><div class="demo-cell g-col-24 g-cq-md-col-8">50rem 容器：8 / 24</div></div></div></section>
+
+    <section class="demo-section" id="print-grid"><h2>打印重排</h2><div class="g-grid-24 g-gutter-3 g-mt-4"><div class="demo-cell g-col-12 g-print-col-8">屏幕 12 / 打印 8</div><div class="demo-cell g-col-12 g-print-col-16">屏幕 12 / 打印 16</div></div></section>
+  </main>
+</body>
+</html>

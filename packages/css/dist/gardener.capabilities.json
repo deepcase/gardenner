@@ -1,0 +1,3784 @@
+{
+  "schemaVersion": 2,
+  "capabilities": [
+    {
+      "id": "layout.grid",
+      "name": "完整栅格系统",
+      "category": "layout",
+      "status": "implemented",
+      "systems": [
+        24,
+        12
+      ],
+      "rootSelectors": [
+        ".g-row",
+        ".g-grid-24",
+        ".g-grid-12"
+      ],
+      "columnRange": [
+        1,
+        24
+      ],
+      "offsetRange": [
+        0,
+        23
+      ],
+      "lineRange": [
+        1,
+        25
+      ],
+      "orderRange": [
+        0,
+        24
+      ],
+      "breakpoints": {
+        "sm": 480,
+        "md": 768,
+        "lg": 1024,
+        "xl": 1280,
+        "2xl": 1536
+      },
+      "containerBreakpoints": {
+        "cq-sm": 480,
+        "cq-md": 768,
+        "cq-lg": 1024
+      },
+      "gutterSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12
+      ],
+      "features": [
+        "responsive-columns",
+        "offsets",
+        "explicit-start-end-lines",
+        "auto-and-full-columns",
+        "deterministic-fill-from-grid-line",
+        "ordering",
+        "horizontal-and-vertical-gutters",
+        "alignment",
+        "nesting",
+        "dense-placement",
+        "container-queries",
+        "subgrid",
+        "rtl-logical-flow",
+        "print-layout",
+        "responsive-visibility"
+      ],
+      "documentation": "website/docs.html#grid-system",
+      "tests": [
+        "class-matrix",
+        "viewport-responsive",
+        "container-responsive",
+        "rtl",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "layout.regions",
+      "name": "传统区域布局系统",
+      "category": "layout",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-region-stack",
+        ".g-region-inline",
+        ".g-region-frame",
+        ".g-holy-grail",
+        ".g-sidebar-shell",
+        ".g-double-sidebar-layout",
+        ".g-master-detail",
+        ".g-list-detail-inspector",
+        ".g-sticky-footer-layout",
+        ".g-fixed-header-layout",
+        ".g-fixed-sidebar-layout",
+        ".g-sticky-aside-layout",
+        ".g-dock-layout",
+        ".g-split-view",
+        ".g-fullscreen-workspace",
+        ".g-mobile-layout"
+      ],
+      "patterns": [
+        {
+          "id": "top-main-bottom",
+          "selector": ".g-region-stack"
+        },
+        {
+          "id": "start-main-end",
+          "selector": ".g-region-inline"
+        },
+        {
+          "id": "five-region",
+          "selector": ".g-region-frame"
+        },
+        {
+          "id": "holy-grail",
+          "selector": ".g-holy-grail"
+        },
+        {
+          "id": "sidebar-shell",
+          "selector": ".g-sidebar-shell"
+        },
+        {
+          "id": "double-sidebar",
+          "selector": ".g-double-sidebar-layout"
+        },
+        {
+          "id": "master-detail",
+          "selector": ".g-master-detail"
+        },
+        {
+          "id": "list-detail-inspector",
+          "selector": ".g-list-detail-inspector"
+        },
+        {
+          "id": "sticky-footer",
+          "selector": ".g-sticky-footer-layout"
+        },
+        {
+          "id": "fixed-header",
+          "selector": ".g-fixed-header-layout"
+        },
+        {
+          "id": "fixed-sidebar",
+          "selector": ".g-fixed-sidebar-layout"
+        },
+        {
+          "id": "sticky-aside",
+          "selector": ".g-sticky-aside-layout"
+        },
+        {
+          "id": "dock",
+          "selector": ".g-dock-layout"
+        },
+        {
+          "id": "split-resizable",
+          "selector": ".g-split-view"
+        },
+        {
+          "id": "fullscreen-workspace",
+          "selector": ".g-fullscreen-workspace"
+        },
+        {
+          "id": "mobile-safe-area",
+          "selector": ".g-mobile-layout"
+        }
+      ],
+      "breakpoints": {
+        "collapse": 768
+      },
+      "containerBreakpoints": {
+        "collapse": 768
+      },
+      "features": [
+        "logical-directions",
+        "rtl",
+        "viewport-responsive",
+        "container-responsive",
+        "safe-area",
+        "sticky-regions",
+        "fixed-regions",
+        "collapsible-docks",
+        "resizable-split-runtime",
+        "contained-preview-mode",
+        "print-flattening",
+        "tauri-electron-workspaces"
+      ],
+      "compatibleShells": [
+        ".g-app-shell",
+        ".g-mobile-shell",
+        ".g-desktop-shell"
+      ],
+      "documentation": "website/docs.html#region-layouts",
+      "tests": [
+        "pattern-matrix",
+        "viewport-responsive",
+        "container-responsive",
+        "rtl",
+        "print",
+        "split-runtime",
+        "documentation"
+      ]
+    },
+    {
+      "id": "layout.primitives",
+      "name": "经典布局原语",
+      "category": "layout",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-stack",
+        ".g-cluster",
+        ".g-center",
+        ".g-sidebar-layout",
+        ".g-switcher",
+        ".g-cover",
+        ".g-reel",
+        ".g-frame",
+        ".g-media-object",
+        ".g-grid-auto-fit",
+        ".g-grid-auto-fill",
+        ".g-bleed",
+        ".g-repel",
+        ".g-imposter",
+        ".g-overlay-layout",
+        ".g-masonry",
+        ".g-bento",
+        ".g-aspect-ratio",
+        ".g-scroll-area",
+        ".g-scroll-snap",
+        ".g-safe-area",
+        ".g-sticky-region"
+      ],
+      "patterns": [
+        {
+          "id": "stack",
+          "selector": ".g-stack",
+          "purpose": "vertical-rhythm"
+        },
+        {
+          "id": "cluster",
+          "selector": ".g-cluster",
+          "purpose": "wrapping-inline-group"
+        },
+        {
+          "id": "center",
+          "selector": ".g-center",
+          "purpose": "readable-centered-measure"
+        },
+        {
+          "id": "sidebar",
+          "selector": ".g-sidebar-layout",
+          "purpose": "intrinsic-sidebar-content"
+        },
+        {
+          "id": "switcher",
+          "selector": ".g-switcher",
+          "purpose": "space-driven-row-to-stack"
+        },
+        {
+          "id": "cover",
+          "selector": ".g-cover",
+          "purpose": "viewport-cover-center"
+        },
+        {
+          "id": "reel",
+          "selector": ".g-reel",
+          "purpose": "horizontal-scroll-sequence"
+        },
+        {
+          "id": "frame",
+          "selector": ".g-frame",
+          "purpose": "cropped-media-frame"
+        },
+        {
+          "id": "media-object",
+          "selector": ".g-media-object",
+          "purpose": "media-body-action"
+        },
+        {
+          "id": "grid-auto-fit",
+          "selector": ".g-grid-auto-fit",
+          "purpose": "collapse-empty-tracks"
+        },
+        {
+          "id": "grid-auto-fill",
+          "selector": ".g-grid-auto-fill",
+          "purpose": "preserve-empty-tracks"
+        },
+        {
+          "id": "bleed",
+          "selector": ".g-bleed",
+          "purpose": "escape-reading-measure"
+        },
+        {
+          "id": "repel",
+          "selector": ".g-repel",
+          "purpose": "opposed-wrapping-content"
+        },
+        {
+          "id": "imposter",
+          "selector": ".g-imposter",
+          "purpose": "centered-overlaid-content"
+        },
+        {
+          "id": "overlay",
+          "selector": ".g-overlay-layout",
+          "purpose": "stacked-content-layers"
+        },
+        {
+          "id": "masonry",
+          "selector": ".g-masonry",
+          "purpose": "variable-height-columns"
+        },
+        {
+          "id": "bento",
+          "selector": ".g-bento",
+          "purpose": "editorial-dashboard-tiles"
+        },
+        {
+          "id": "aspect-ratio",
+          "selector": ".g-aspect-ratio",
+          "purpose": "generic-ratio-box"
+        },
+        {
+          "id": "scroll-area",
+          "selector": ".g-scroll-area",
+          "purpose": "independent-scroll-owner"
+        },
+        {
+          "id": "scroll-snap",
+          "selector": ".g-scroll-snap",
+          "purpose": "snapping-scroll-sequence"
+        },
+        {
+          "id": "safe-area",
+          "selector": ".g-safe-area",
+          "purpose": "device-inset-protection"
+        },
+        {
+          "id": "sticky-region",
+          "selector": ".g-sticky-region",
+          "purpose": "logical-sticky-edge"
+        }
+      ],
+      "legacyAliases": {
+        ".g-grid-auto": ".g-grid-auto-fit",
+        ".g-sidebar-pattern": ".g-sidebar-layout"
+      },
+      "containerBreakpoints": {
+        "collapse": 640
+      },
+      "features": [
+        "intrinsic-responsive",
+        "container-responsive",
+        "logical-directions",
+        "rtl",
+        "safe-area",
+        "reduced-motion",
+        "print-flattening",
+        "overflow-containment"
+      ],
+      "documentation": "website/docs.html#layout-primitives",
+      "tests": [
+        "pattern-matrix",
+        "intrinsic-responsive",
+        "container-responsive",
+        "rtl",
+        "overflow",
+        "reduced-motion",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.page",
+      "name": "页面级公共组件",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-page-header",
+        ".g-section-header",
+        ".g-subheader",
+        ".g-toolbar",
+        ".g-action-bar",
+        ".g-status-bar",
+        ".g-command-bar",
+        ".g-context-bar",
+        ".g-filter-bar",
+        ".g-bulk-action-bar",
+        ".g-footer-bar",
+        ".g-floating-action-bar",
+        ".g-back-to-top",
+        ".g-divider",
+        ".g-sticky-actions",
+        ".g-page-loading",
+        ".g-page-state",
+        ".g-page-empty",
+        ".g-page-error",
+        ".g-page-forbidden",
+        ".g-page-not-found",
+        ".g-page-server-error",
+        ".g-page-offline",
+        ".g-page-maintenance"
+      ],
+      "patterns": [
+        {
+          "id": "page-header",
+          "selector": ".g-page-header"
+        },
+        {
+          "id": "section-header",
+          "selector": ".g-section-header"
+        },
+        {
+          "id": "subheader",
+          "selector": ".g-subheader"
+        },
+        {
+          "id": "toolbar",
+          "selector": ".g-toolbar"
+        },
+        {
+          "id": "action-bar",
+          "selector": ".g-action-bar"
+        },
+        {
+          "id": "status-bar",
+          "selector": ".g-status-bar"
+        },
+        {
+          "id": "command-bar",
+          "selector": ".g-command-bar"
+        },
+        {
+          "id": "context-bar",
+          "selector": ".g-context-bar"
+        },
+        {
+          "id": "filter-bar",
+          "selector": ".g-filter-bar"
+        },
+        {
+          "id": "bulk-action-bar",
+          "selector": ".g-bulk-action-bar"
+        },
+        {
+          "id": "footer-bar",
+          "selector": ".g-footer-bar"
+        },
+        {
+          "id": "floating-action-bar",
+          "selector": ".g-floating-action-bar"
+        },
+        {
+          "id": "back-to-top",
+          "selector": ".g-back-to-top",
+          "behaviors": [
+            "scroll-top"
+          ]
+        },
+        {
+          "id": "divider-with-text",
+          "selector": ".g-divider"
+        },
+        {
+          "id": "sticky-actions",
+          "selector": ".g-sticky-actions"
+        },
+        {
+          "id": "page-loading",
+          "selector": ".g-page-loading"
+        },
+        {
+          "id": "page-empty",
+          "selector": ".g-page-empty"
+        },
+        {
+          "id": "page-error",
+          "selector": ".g-page-error"
+        },
+        {
+          "id": "forbidden-403",
+          "selector": ".g-page-forbidden"
+        },
+        {
+          "id": "not-found-404",
+          "selector": ".g-page-not-found"
+        },
+        {
+          "id": "server-error-500",
+          "selector": ".g-page-server-error"
+        },
+        {
+          "id": "offline",
+          "selector": ".g-page-offline"
+        },
+        {
+          "id": "maintenance",
+          "selector": ".g-page-maintenance"
+        }
+      ],
+      "containerBreakpoints": {
+        "collapse": 640
+      },
+      "features": [
+        "responsive",
+        "container-responsive",
+        "sticky",
+        "fixed",
+        "safe-area",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "accessible-page-states"
+      ],
+      "documentation": "website/docs.html#page-components",
+      "tests": [
+        "component-matrix",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "scroll-top-runtime",
+        "safe-area",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.help",
+      "name": "Tip 与帮助系统",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-tip",
+        ".g-inline-hint",
+        ".g-help-text",
+        ".g-help-trigger",
+        ".g-tooltip",
+        ".g-tooltip-rich",
+        ".g-help-popover",
+        ".g-definition",
+        ".g-callout",
+        ".g-note",
+        ".g-guidance-pair",
+        ".g-key-hint",
+        ".g-shortcut-list",
+        ".g-help-card",
+        ".g-help-panel",
+        ".g-help-center",
+        ".g-help-topics",
+        ".g-faq",
+        ".g-contextual-help",
+        ".g-coach-mark",
+        ".g-tour",
+        ".g-spotlight",
+        ".g-hotspot",
+        ".g-feature-hint",
+        ".g-whats-new",
+        ".g-help-checklist",
+        ".g-troubleshooting",
+        ".g-help-feedback"
+      ],
+      "patterns": [
+        {
+          "id": "tip",
+          "selector": ".g-tip"
+        },
+        {
+          "id": "inline-hint",
+          "selector": ".g-inline-hint"
+        },
+        {
+          "id": "help-text",
+          "selector": ".g-help-text"
+        },
+        {
+          "id": "help-trigger",
+          "selector": ".g-help-trigger"
+        },
+        {
+          "id": "tooltip",
+          "selector": ".g-tooltip",
+          "behaviors": [
+            "tooltip"
+          ]
+        },
+        {
+          "id": "rich-tooltip",
+          "selector": ".g-tooltip-rich",
+          "behaviors": [
+            "tooltip"
+          ]
+        },
+        {
+          "id": "help-popover",
+          "selector": ".g-help-popover",
+          "behaviors": [
+            "popover"
+          ]
+        },
+        {
+          "id": "definition",
+          "selector": ".g-definition"
+        },
+        {
+          "id": "callout",
+          "selector": ".g-callout"
+        },
+        {
+          "id": "note",
+          "selector": ".g-note"
+        },
+        {
+          "id": "do-dont-guidance",
+          "selector": ".g-guidance-pair"
+        },
+        {
+          "id": "keyboard-hint",
+          "selector": ".g-key-hint"
+        },
+        {
+          "id": "shortcut-list",
+          "selector": ".g-shortcut-list"
+        },
+        {
+          "id": "help-card",
+          "selector": ".g-help-card"
+        },
+        {
+          "id": "help-panel",
+          "selector": ".g-help-panel"
+        },
+        {
+          "id": "help-center",
+          "selector": ".g-help-center"
+        },
+        {
+          "id": "help-topics",
+          "selector": ".g-help-topics"
+        },
+        {
+          "id": "faq",
+          "selector": ".g-faq",
+          "behaviors": [
+            "accordion"
+          ]
+        },
+        {
+          "id": "contextual-help",
+          "selector": ".g-contextual-help"
+        },
+        {
+          "id": "coach-mark",
+          "selector": ".g-coach-mark"
+        },
+        {
+          "id": "guided-tour",
+          "selector": ".g-tour",
+          "behaviors": [
+            "tour"
+          ]
+        },
+        {
+          "id": "spotlight",
+          "selector": ".g-spotlight",
+          "behaviors": [
+            "tour"
+          ]
+        },
+        {
+          "id": "hotspot",
+          "selector": ".g-hotspot"
+        },
+        {
+          "id": "new-feature-hint",
+          "selector": ".g-feature-hint"
+        },
+        {
+          "id": "whats-new",
+          "selector": ".g-whats-new"
+        },
+        {
+          "id": "help-checklist",
+          "selector": ".g-help-checklist"
+        },
+        {
+          "id": "troubleshooting",
+          "selector": ".g-troubleshooting"
+        },
+        {
+          "id": "help-feedback",
+          "selector": ".g-help-feedback"
+        }
+      ],
+      "placements": [
+        "top-start",
+        "top-center",
+        "top-end",
+        "bottom-start",
+        "bottom-center",
+        "bottom-end",
+        "start",
+        "end"
+      ],
+      "features": [
+        "semantic-tones",
+        "collision-aware-floating",
+        "keyboard-access",
+        "focus-restoration",
+        "runtime-tour",
+        "spotlight-positioning",
+        "rtl",
+        "responsive",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#help-system",
+      "tests": [
+        "pattern-matrix",
+        "tooltip-runtime",
+        "popover-runtime",
+        "tour-runtime",
+        "collision-flip",
+        "keyboard",
+        "rtl",
+        "responsive",
+        "reduced-motion",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.form-compositions",
+      "name": "表单传统组合",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-form",
+        ".g-form-section",
+        ".g-field",
+        ".g-fieldset",
+        ".g-form-row",
+        ".g-form-grid",
+        ".g-form-horizontal",
+        ".g-form-inline",
+        ".g-form-compact",
+        ".g-input-group",
+        ".g-input-affix",
+        ".g-search-field",
+        ".g-password-field",
+        ".g-clearable-field",
+        ".g-character-field",
+        ".g-validation-state",
+        ".g-validation-summary",
+        ".g-check-group",
+        ".g-radio-group",
+        ".g-switch-row",
+        ".g-choice-group",
+        ".g-name-group",
+        ".g-address-group",
+        ".g-phone-group",
+        ".g-money-group",
+        ".g-date-range-group",
+        ".g-time-range-group",
+        ".g-unit-field",
+        ".g-range-field",
+        ".g-file-field",
+        ".g-repeatable-field",
+        ".g-conditional-field",
+        ".g-form-actions",
+        ".g-autosave-status",
+        ".g-form-progress",
+        ".g-form-review",
+        ".g-consent-group"
+      ],
+      "patterns": [
+        {
+          "id": "form",
+          "selector": ".g-form"
+        },
+        {
+          "id": "form-section",
+          "selector": ".g-form-section"
+        },
+        {
+          "id": "field",
+          "selector": ".g-field"
+        },
+        {
+          "id": "fieldset",
+          "selector": ".g-fieldset"
+        },
+        {
+          "id": "form-row",
+          "selector": ".g-form-row"
+        },
+        {
+          "id": "form-grid",
+          "selector": ".g-form-grid"
+        },
+        {
+          "id": "horizontal-form",
+          "selector": ".g-form-horizontal"
+        },
+        {
+          "id": "inline-form",
+          "selector": ".g-form-inline"
+        },
+        {
+          "id": "compact-form",
+          "selector": ".g-form-compact"
+        },
+        {
+          "id": "input-group",
+          "selector": ".g-input-group"
+        },
+        {
+          "id": "input-affix",
+          "selector": ".g-input-affix"
+        },
+        {
+          "id": "search-field",
+          "selector": ".g-search-field"
+        },
+        {
+          "id": "password-field",
+          "selector": ".g-password-field",
+          "behaviors": [
+            "password-toggle"
+          ]
+        },
+        {
+          "id": "clearable-field",
+          "selector": ".g-clearable-field",
+          "behaviors": [
+            "clear-input"
+          ]
+        },
+        {
+          "id": "character-counter",
+          "selector": ".g-character-field",
+          "behaviors": [
+            "character-count"
+          ]
+        },
+        {
+          "id": "validation-state",
+          "selector": ".g-validation-state"
+        },
+        {
+          "id": "validation-summary",
+          "selector": ".g-validation-summary"
+        },
+        {
+          "id": "checkbox-group",
+          "selector": ".g-check-group"
+        },
+        {
+          "id": "radio-group",
+          "selector": ".g-radio-group"
+        },
+        {
+          "id": "switch-row",
+          "selector": ".g-switch-row"
+        },
+        {
+          "id": "choice-card-group",
+          "selector": ".g-choice-group"
+        },
+        {
+          "id": "name-group",
+          "selector": ".g-name-group"
+        },
+        {
+          "id": "address-group",
+          "selector": ".g-address-group"
+        },
+        {
+          "id": "phone-group",
+          "selector": ".g-phone-group"
+        },
+        {
+          "id": "money-group",
+          "selector": ".g-money-group"
+        },
+        {
+          "id": "date-range-group",
+          "selector": ".g-date-range-group"
+        },
+        {
+          "id": "time-range-group",
+          "selector": ".g-time-range-group"
+        },
+        {
+          "id": "unit-field",
+          "selector": ".g-unit-field"
+        },
+        {
+          "id": "range-field",
+          "selector": ".g-range-field"
+        },
+        {
+          "id": "file-field",
+          "selector": ".g-file-field"
+        },
+        {
+          "id": "repeatable-field",
+          "selector": ".g-repeatable-field",
+          "behaviors": [
+            "repeatable-field"
+          ]
+        },
+        {
+          "id": "conditional-field",
+          "selector": ".g-conditional-field",
+          "behaviors": [
+            "conditional-field"
+          ]
+        },
+        {
+          "id": "form-actions",
+          "selector": ".g-form-actions"
+        },
+        {
+          "id": "autosave-status",
+          "selector": ".g-autosave-status"
+        },
+        {
+          "id": "form-progress",
+          "selector": ".g-form-progress"
+        },
+        {
+          "id": "form-review",
+          "selector": ".g-form-review"
+        },
+        {
+          "id": "consent-group",
+          "selector": ".g-consent-group"
+        }
+      ],
+      "containerBreakpoints": {
+        "collapse": 640
+      },
+      "features": [
+        "stacked",
+        "horizontal",
+        "inline",
+        "compact",
+        "responsive",
+        "container-responsive",
+        "logical-directions",
+        "rtl",
+        "safe-area-actions",
+        "runtime-fields",
+        "validation",
+        "business-field-groups",
+        "reduced-motion",
+        "print"
+      ],
+      "documentation": "website/docs.html#form-compositions",
+      "tests": [
+        "pattern-matrix",
+        "responsive",
+        "container-responsive",
+        "password-runtime",
+        "clear-runtime",
+        "character-runtime",
+        "conditional-runtime",
+        "repeatable-runtime",
+        "validation",
+        "rtl",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.navigation-compositions",
+      "name": "传统导航组合",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-navbar",
+        ".g-primary-nav",
+        ".g-utility-nav",
+        ".g-subnav",
+        ".g-sidebar",
+        ".g-collapsible-nav",
+        ".g-nav-rail",
+        ".g-activitybar",
+        ".g-menubar",
+        ".g-mega-menu",
+        ".g-dropdown",
+        ".g-context-menu",
+        ".g-tree-nav",
+        ".g-breadcrumb",
+        ".g-tabs",
+        ".g-vertical-tabs",
+        ".g-segmented",
+        ".g-pill-nav",
+        ".g-anchor-nav",
+        ".g-scrollspy-nav",
+        ".g-pagination",
+        ".g-cursor-pagination",
+        ".g-load-more-nav",
+        ".g-stepper",
+        ".g-wizard-nav",
+        ".g-back-nav",
+        ".g-prev-next-nav",
+        ".g-skip-nav",
+        ".g-mobile-top-nav",
+        ".g-bottom-nav",
+        ".g-mobile-tab-bar",
+        ".g-drawer-nav",
+        ".g-command-palette",
+        ".g-command-nav",
+        ".g-jump-nav",
+        ".g-quick-nav",
+        ".g-locale-nav",
+        ".g-account-nav"
+      ],
+      "patterns": [
+        {
+          "id": "navbar",
+          "selector": ".g-navbar"
+        },
+        {
+          "id": "primary-navigation",
+          "selector": ".g-primary-nav"
+        },
+        {
+          "id": "utility-navigation",
+          "selector": ".g-utility-nav"
+        },
+        {
+          "id": "sub-navigation",
+          "selector": ".g-subnav"
+        },
+        {
+          "id": "sidebar-navigation",
+          "selector": ".g-sidebar"
+        },
+        {
+          "id": "collapsible-navigation",
+          "selector": ".g-collapsible-nav",
+          "behaviors": [
+            "nav-toggle"
+          ]
+        },
+        {
+          "id": "navigation-rail",
+          "selector": ".g-nav-rail",
+          "behaviors": [
+            "roving-nav"
+          ]
+        },
+        {
+          "id": "activity-bar",
+          "selector": ".g-activitybar"
+        },
+        {
+          "id": "menu-bar",
+          "selector": ".g-menubar"
+        },
+        {
+          "id": "mega-menu",
+          "selector": ".g-mega-menu"
+        },
+        {
+          "id": "dropdown-menu",
+          "selector": ".g-dropdown",
+          "behaviors": [
+            "dropdown"
+          ]
+        },
+        {
+          "id": "context-menu",
+          "selector": ".g-context-menu",
+          "behaviors": [
+            "context-menu"
+          ]
+        },
+        {
+          "id": "tree-navigation",
+          "selector": ".g-tree-nav",
+          "behaviors": [
+            "tree"
+          ]
+        },
+        {
+          "id": "breadcrumb",
+          "selector": ".g-breadcrumb"
+        },
+        {
+          "id": "tabs",
+          "selector": ".g-tabs",
+          "behaviors": [
+            "tabs"
+          ]
+        },
+        {
+          "id": "vertical-tabs",
+          "selector": ".g-vertical-tabs",
+          "behaviors": [
+            "tabs"
+          ]
+        },
+        {
+          "id": "segmented-navigation",
+          "selector": ".g-segmented"
+        },
+        {
+          "id": "pill-navigation",
+          "selector": ".g-pill-nav"
+        },
+        {
+          "id": "anchor-navigation",
+          "selector": ".g-anchor-nav"
+        },
+        {
+          "id": "scrollspy-navigation",
+          "selector": ".g-scrollspy-nav",
+          "behaviors": [
+            "scrollspy"
+          ]
+        },
+        {
+          "id": "pagination",
+          "selector": ".g-pagination"
+        },
+        {
+          "id": "cursor-pagination",
+          "selector": ".g-cursor-pagination"
+        },
+        {
+          "id": "load-more-navigation",
+          "selector": ".g-load-more-nav"
+        },
+        {
+          "id": "stepper",
+          "selector": ".g-stepper"
+        },
+        {
+          "id": "wizard-navigation",
+          "selector": ".g-wizard-nav"
+        },
+        {
+          "id": "back-navigation",
+          "selector": ".g-back-nav"
+        },
+        {
+          "id": "previous-next-navigation",
+          "selector": ".g-prev-next-nav"
+        },
+        {
+          "id": "skip-navigation",
+          "selector": ".g-skip-nav"
+        },
+        {
+          "id": "mobile-top-navigation",
+          "selector": ".g-mobile-top-nav"
+        },
+        {
+          "id": "bottom-navigation",
+          "selector": ".g-bottom-nav"
+        },
+        {
+          "id": "mobile-tab-bar",
+          "selector": ".g-mobile-tab-bar"
+        },
+        {
+          "id": "drawer-navigation",
+          "selector": ".g-drawer-nav",
+          "behaviors": [
+            "nav-toggle"
+          ]
+        },
+        {
+          "id": "command-palette",
+          "selector": ".g-command-palette",
+          "behaviors": [
+            "command-palette"
+          ]
+        },
+        {
+          "id": "command-navigation",
+          "selector": ".g-command-nav"
+        },
+        {
+          "id": "jump-navigation",
+          "selector": ".g-jump-nav",
+          "behaviors": [
+            "jump-nav"
+          ]
+        },
+        {
+          "id": "quick-navigation",
+          "selector": ".g-quick-nav"
+        },
+        {
+          "id": "locale-navigation",
+          "selector": ".g-locale-nav",
+          "behaviors": [
+            "dropdown"
+          ]
+        },
+        {
+          "id": "account-navigation",
+          "selector": ".g-account-nav",
+          "behaviors": [
+            "dropdown"
+          ]
+        }
+      ],
+      "families": [
+        "global",
+        "local",
+        "hierarchical",
+        "selection",
+        "in-page",
+        "continuation",
+        "workflow",
+        "mobile",
+        "desktop",
+        "command",
+        "identity"
+      ],
+      "containerBreakpoints": {
+        "collapse": 640
+      },
+      "features": [
+        "horizontal",
+        "vertical",
+        "hierarchical",
+        "responsive",
+        "container-responsive",
+        "safe-area",
+        "logical-directions",
+        "rtl",
+        "keyboard-roving",
+        "focus-restoration",
+        "context-menu-positioning",
+        "scrollspy",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#navigation-compositions",
+      "tests": [
+        "pattern-matrix",
+        "responsive",
+        "container-responsive",
+        "dropdown-runtime",
+        "tabs-runtime",
+        "tree-runtime",
+        "nav-toggle-runtime",
+        "roving-runtime",
+        "context-menu-runtime",
+        "scrollspy-runtime",
+        "jump-runtime",
+        "keyboard",
+        "rtl",
+        "safe-area",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.data-compositions",
+      "name": "数据展示与操作组合",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-table",
+        ".g-responsive-table",
+        ".g-data-grid",
+        ".g-editable-grid",
+        ".g-tree-table",
+        ".g-grouped-table",
+        ".g-expandable-table",
+        ".g-comparison-table",
+        ".g-pivot",
+        ".g-description-list",
+        ".g-key-value",
+        ".g-record-detail",
+        ".g-list-group",
+        ".g-media-list",
+        ".g-dense-list",
+        ".g-virtual-list",
+        ".g-tree",
+        ".g-timeline",
+        ".g-activity-feed",
+        ".g-audit-log",
+        ".g-kpi",
+        ".g-stat-list",
+        ".g-metric-card",
+        ".g-sparkline",
+        ".g-progress-stats",
+        ".g-chart",
+        ".g-data-legend",
+        ".g-ranking",
+        ".g-status-summary",
+        ".g-calendar",
+        ".g-agenda",
+        ".g-kanban",
+        ".g-gantt",
+        ".g-org-chart",
+        ".g-map-shell",
+        ".g-data-matrix",
+        ".g-heatmap",
+        ".g-data-toolbar",
+        ".g-column-chooser",
+        ".g-saved-views",
+        ".g-export-panel",
+        ".g-data-state",
+        ".g-data-view-switcher",
+        ".g-selection-summary",
+        ".g-table-density",
+        ".g-filter-summary",
+        ".g-sort-builder",
+        ".g-data-inspector"
+      ],
+      "patterns": [
+        {
+          "id": "table",
+          "selector": ".g-table",
+          "behaviors": [
+            "table-sort"
+          ]
+        },
+        {
+          "id": "responsive-table",
+          "selector": ".g-responsive-table"
+        },
+        {
+          "id": "data-grid",
+          "selector": ".g-data-grid",
+          "behaviors": [
+            "data-grid"
+          ]
+        },
+        {
+          "id": "editable-grid",
+          "selector": ".g-editable-grid",
+          "behaviors": [
+            "data-grid"
+          ]
+        },
+        {
+          "id": "tree-table",
+          "selector": ".g-tree-table",
+          "behaviors": [
+            "row-disclosure"
+          ]
+        },
+        {
+          "id": "grouped-table",
+          "selector": ".g-grouped-table"
+        },
+        {
+          "id": "expandable-table",
+          "selector": ".g-expandable-table",
+          "behaviors": [
+            "row-disclosure"
+          ]
+        },
+        {
+          "id": "comparison-table",
+          "selector": ".g-comparison-table"
+        },
+        {
+          "id": "pivot-table",
+          "selector": ".g-pivot"
+        },
+        {
+          "id": "description-list",
+          "selector": ".g-description-list"
+        },
+        {
+          "id": "key-value",
+          "selector": ".g-key-value"
+        },
+        {
+          "id": "record-detail",
+          "selector": ".g-record-detail"
+        },
+        {
+          "id": "list-group",
+          "selector": ".g-list-group"
+        },
+        {
+          "id": "media-list",
+          "selector": ".g-media-list"
+        },
+        {
+          "id": "dense-list",
+          "selector": ".g-dense-list"
+        },
+        {
+          "id": "virtual-list",
+          "selector": ".g-virtual-list"
+        },
+        {
+          "id": "tree",
+          "selector": ".g-tree",
+          "behaviors": [
+            "tree"
+          ]
+        },
+        {
+          "id": "timeline",
+          "selector": ".g-timeline"
+        },
+        {
+          "id": "activity-feed",
+          "selector": ".g-activity-feed"
+        },
+        {
+          "id": "audit-log",
+          "selector": ".g-audit-log"
+        },
+        {
+          "id": "kpi",
+          "selector": ".g-kpi"
+        },
+        {
+          "id": "stat-list",
+          "selector": ".g-stat-list"
+        },
+        {
+          "id": "metric-card",
+          "selector": ".g-metric-card"
+        },
+        {
+          "id": "sparkline",
+          "selector": ".g-sparkline"
+        },
+        {
+          "id": "progress-stats",
+          "selector": ".g-progress-stats"
+        },
+        {
+          "id": "chart",
+          "selector": ".g-chart"
+        },
+        {
+          "id": "data-legend",
+          "selector": ".g-data-legend"
+        },
+        {
+          "id": "ranking",
+          "selector": ".g-ranking"
+        },
+        {
+          "id": "status-summary",
+          "selector": ".g-status-summary"
+        },
+        {
+          "id": "calendar",
+          "selector": ".g-calendar"
+        },
+        {
+          "id": "agenda",
+          "selector": ".g-agenda"
+        },
+        {
+          "id": "kanban",
+          "selector": ".g-kanban"
+        },
+        {
+          "id": "gantt",
+          "selector": ".g-gantt"
+        },
+        {
+          "id": "organization-chart",
+          "selector": ".g-org-chart"
+        },
+        {
+          "id": "map",
+          "selector": ".g-map-shell"
+        },
+        {
+          "id": "data-matrix",
+          "selector": ".g-data-matrix"
+        },
+        {
+          "id": "heatmap",
+          "selector": ".g-heatmap"
+        },
+        {
+          "id": "data-toolbar",
+          "selector": ".g-data-toolbar",
+          "behaviors": [
+            "data-filter"
+          ]
+        },
+        {
+          "id": "column-chooser",
+          "selector": ".g-column-chooser",
+          "behaviors": [
+            "column-toggle"
+          ]
+        },
+        {
+          "id": "saved-views",
+          "selector": ".g-saved-views"
+        },
+        {
+          "id": "export-panel",
+          "selector": ".g-export-panel"
+        },
+        {
+          "id": "data-state",
+          "selector": ".g-data-state"
+        },
+        {
+          "id": "data-view-switcher",
+          "selector": ".g-data-view-switcher",
+          "behaviors": [
+            "data-view"
+          ]
+        },
+        {
+          "id": "selection-summary",
+          "selector": ".g-selection-summary",
+          "behaviors": [
+            "row-select"
+          ]
+        },
+        {
+          "id": "table-density",
+          "selector": ".g-table-density"
+        },
+        {
+          "id": "filter-summary",
+          "selector": ".g-filter-summary"
+        },
+        {
+          "id": "sort-builder",
+          "selector": ".g-sort-builder"
+        },
+        {
+          "id": "data-inspector",
+          "selector": ".g-data-inspector"
+        }
+      ],
+      "families": [
+        "tabular",
+        "record",
+        "list",
+        "hierarchy",
+        "stream",
+        "metric",
+        "visualization",
+        "planning",
+        "spatial",
+        "operation",
+        "state"
+      ],
+      "containerBreakpoints": {
+        "collapse": 640
+      },
+      "features": [
+        "sorting",
+        "selection",
+        "range-selection",
+        "disclosure",
+        "column-visibility",
+        "client-filter",
+        "view-switch",
+        "keyboard-grid",
+        "sticky-columns",
+        "stacked-mobile-table",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#data-compositions",
+      "tests": [
+        "pattern-matrix",
+        "table-sort-runtime",
+        "row-select-runtime",
+        "row-disclosure-runtime",
+        "column-toggle-runtime",
+        "data-filter-runtime",
+        "data-view-runtime",
+        "grid-keyboard",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.selection-compositions",
+      "name": "选择与批量操作组件",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-selection-control",
+        ".g-select-all-control",
+        ".g-invert-selection-control",
+        ".g-range-selection-control",
+        ".g-batch-toolbar",
+        ".g-selection-scope",
+        ".g-transfer",
+        ".g-dual-list",
+        ".g-tree-select",
+        ".g-cascader",
+        ".g-mention-picker",
+        ".g-user-picker",
+        ".g-organization-picker",
+        ".g-resource-picker",
+        ".g-media-picker",
+        ".g-icon-picker",
+        ".g-color-picker",
+        ".g-date-range-picker",
+        ".g-time-range-picker",
+        ".g-saved-filters",
+        ".g-saved-views",
+        ".g-column-chooser",
+        ".g-sort-builder",
+        ".g-group-builder",
+        ".g-entity-picker",
+        ".g-tag-picker",
+        ".g-relation-picker",
+        ".g-bulk-confirmation",
+        ".g-bulk-progress",
+        ".g-picker-panel",
+        ".g-picker-summary",
+        ".g-selection-summary"
+      ],
+      "patterns": [
+        {
+          "id": "selection-control",
+          "selector": ".g-selection-control",
+          "behaviors": [
+            "row-select"
+          ]
+        },
+        {
+          "id": "select-all",
+          "selector": ".g-select-all-control",
+          "behaviors": [
+            "row-select"
+          ]
+        },
+        {
+          "id": "invert-selection",
+          "selector": ".g-invert-selection-control",
+          "behaviors": [
+            "row-select"
+          ]
+        },
+        {
+          "id": "range-selection",
+          "selector": ".g-range-selection-control",
+          "behaviors": [
+            "row-select"
+          ]
+        },
+        {
+          "id": "batch-toolbar",
+          "selector": ".g-batch-toolbar",
+          "behaviors": [
+            "row-select"
+          ]
+        },
+        {
+          "id": "selection-scope",
+          "selector": ".g-selection-scope",
+          "behaviors": [
+            "row-select"
+          ]
+        },
+        {
+          "id": "transfer-list",
+          "selector": ".g-transfer",
+          "behaviors": [
+            "transfer"
+          ]
+        },
+        {
+          "id": "dual-list",
+          "selector": ".g-dual-list",
+          "behaviors": [
+            "transfer"
+          ]
+        },
+        {
+          "id": "tree-select",
+          "selector": ".g-tree-select",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "cascader",
+          "selector": ".g-cascader",
+          "behaviors": [
+            "cascader"
+          ]
+        },
+        {
+          "id": "mention-picker",
+          "selector": ".g-mention-picker",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "user-picker",
+          "selector": ".g-user-picker",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "organization-picker",
+          "selector": ".g-organization-picker",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "resource-picker",
+          "selector": ".g-resource-picker",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "media-picker",
+          "selector": ".g-media-picker",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "icon-picker",
+          "selector": ".g-icon-picker",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "color-picker",
+          "selector": ".g-color-picker",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "date-range-picker",
+          "selector": ".g-date-range-picker"
+        },
+        {
+          "id": "time-range-picker",
+          "selector": ".g-time-range-picker"
+        },
+        {
+          "id": "saved-filters",
+          "selector": ".g-saved-filters",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "saved-views",
+          "selector": ".g-saved-views",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "column-chooser",
+          "selector": ".g-column-chooser",
+          "behaviors": [
+            "column-toggle"
+          ]
+        },
+        {
+          "id": "sort-builder",
+          "selector": ".g-sort-builder",
+          "behaviors": [
+            "builder-list"
+          ]
+        },
+        {
+          "id": "group-builder",
+          "selector": ".g-group-builder",
+          "behaviors": [
+            "builder-list"
+          ]
+        },
+        {
+          "id": "entity-picker",
+          "selector": ".g-entity-picker",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "tag-picker",
+          "selector": ".g-tag-picker",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "relation-picker",
+          "selector": ".g-relation-picker",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "bulk-confirmation",
+          "selector": ".g-bulk-confirmation"
+        },
+        {
+          "id": "bulk-progress",
+          "selector": ".g-bulk-progress"
+        },
+        {
+          "id": "picker-panel",
+          "selector": ".g-picker-panel",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "picker-summary",
+          "selector": ".g-picker-summary",
+          "behaviors": [
+            "picker"
+          ]
+        },
+        {
+          "id": "selection-summary",
+          "selector": ".g-selection-summary",
+          "behaviors": [
+            "row-select"
+          ]
+        }
+      ],
+      "families": [
+        "selection",
+        "batch-operation",
+        "transfer",
+        "hierarchical-picker",
+        "entity-picker",
+        "range-picker",
+        "saved-configuration",
+        "builder"
+      ],
+      "containerBreakpoints": {
+        "collapse": 640
+      },
+      "features": [
+        "select-all",
+        "invert-selection",
+        "range-selection",
+        "selection-count",
+        "batch-actions",
+        "multi-select",
+        "search-filter",
+        "transfer",
+        "hierarchy",
+        "saved-choice",
+        "dynamic-builder",
+        "keyboard",
+        "safe-area",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#selection-compositions",
+      "tests": [
+        "pattern-matrix",
+        "row-select-runtime",
+        "transfer-runtime",
+        "picker-runtime",
+        "cascader-runtime",
+        "saved-choice-runtime",
+        "builder-runtime",
+        "keyboard",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "safe-area",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.content-compositions",
+      "name": "文件和内容系统",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-file-drop",
+        ".g-file-list",
+        ".g-upload-queue",
+        ".g-chunk-upload",
+        ".g-upload-progress",
+        ".g-failed-upload",
+        ".g-file-card",
+        ".g-folder-tree",
+        ".g-file-browser",
+        ".g-file-preview",
+        ".g-media-library",
+        ".g-media-grid",
+        ".g-media-details",
+        ".g-image-crop",
+        ".g-image-annotation",
+        ".g-document-viewer",
+        ".g-pdf-viewer",
+        ".g-video-player",
+        ".g-audio-player",
+        ".g-code-editor",
+        ".g-rich-text-editor",
+        ".g-markdown-editor",
+        ".g-block-editor",
+        ".g-revision-compare",
+        ".g-autosave-indicator",
+        ".g-content-outline",
+        ".g-editor-toolbar",
+        ".g-find-replace",
+        ".g-comment-thread",
+        ".g-version-history",
+        ".g-file-properties",
+        ".g-storage-meter"
+      ],
+      "patterns": [
+        {
+          "id": "file-drop",
+          "selector": ".g-file-drop",
+          "behaviors": [
+            "dropzone"
+          ]
+        },
+        {
+          "id": "file-list",
+          "selector": ".g-file-list"
+        },
+        {
+          "id": "upload-queue",
+          "selector": ".g-upload-queue",
+          "behaviors": [
+            "upload-manager"
+          ]
+        },
+        {
+          "id": "chunk-upload",
+          "selector": ".g-chunk-upload"
+        },
+        {
+          "id": "upload-progress",
+          "selector": ".g-upload-progress",
+          "behaviors": [
+            "upload-manager"
+          ]
+        },
+        {
+          "id": "failed-upload",
+          "selector": ".g-failed-upload",
+          "behaviors": [
+            "upload-manager"
+          ]
+        },
+        {
+          "id": "file-card",
+          "selector": ".g-file-card"
+        },
+        {
+          "id": "folder-tree",
+          "selector": ".g-folder-tree"
+        },
+        {
+          "id": "file-browser",
+          "selector": ".g-file-browser",
+          "behaviors": [
+            "file-browser"
+          ]
+        },
+        {
+          "id": "file-preview",
+          "selector": ".g-file-preview"
+        },
+        {
+          "id": "media-library",
+          "selector": ".g-media-library",
+          "behaviors": [
+            "file-browser"
+          ]
+        },
+        {
+          "id": "media-grid",
+          "selector": ".g-media-grid"
+        },
+        {
+          "id": "media-details",
+          "selector": ".g-media-details"
+        },
+        {
+          "id": "image-crop",
+          "selector": ".g-image-crop"
+        },
+        {
+          "id": "image-annotation",
+          "selector": ".g-image-annotation"
+        },
+        {
+          "id": "document-viewer",
+          "selector": ".g-document-viewer"
+        },
+        {
+          "id": "pdf-viewer",
+          "selector": ".g-pdf-viewer"
+        },
+        {
+          "id": "video-player",
+          "selector": ".g-video-player"
+        },
+        {
+          "id": "audio-player",
+          "selector": ".g-audio-player"
+        },
+        {
+          "id": "code-editor",
+          "selector": ".g-code-editor",
+          "behaviors": [
+            "editor-shell"
+          ]
+        },
+        {
+          "id": "rich-text-editor",
+          "selector": ".g-rich-text-editor",
+          "behaviors": [
+            "editor-shell"
+          ]
+        },
+        {
+          "id": "markdown-editor",
+          "selector": ".g-markdown-editor",
+          "behaviors": [
+            "editor-shell"
+          ]
+        },
+        {
+          "id": "block-editor",
+          "selector": ".g-block-editor",
+          "behaviors": [
+            "editor-shell"
+          ]
+        },
+        {
+          "id": "revision-compare",
+          "selector": ".g-revision-compare",
+          "behaviors": [
+            "revision-compare"
+          ]
+        },
+        {
+          "id": "autosave-indicator",
+          "selector": ".g-autosave-indicator",
+          "behaviors": [
+            "autosave"
+          ]
+        },
+        {
+          "id": "content-outline",
+          "selector": ".g-content-outline"
+        },
+        {
+          "id": "editor-toolbar",
+          "selector": ".g-editor-toolbar",
+          "behaviors": [
+            "editor-shell"
+          ]
+        },
+        {
+          "id": "find-replace",
+          "selector": ".g-find-replace"
+        },
+        {
+          "id": "comment-thread",
+          "selector": ".g-comment-thread"
+        },
+        {
+          "id": "version-history",
+          "selector": ".g-version-history"
+        },
+        {
+          "id": "file-properties",
+          "selector": ".g-file-properties"
+        },
+        {
+          "id": "storage-meter",
+          "selector": ".g-storage-meter"
+        }
+      ],
+      "families": [
+        "upload",
+        "file-management",
+        "media-library",
+        "image-authoring",
+        "document-viewer",
+        "media-player",
+        "content-editor",
+        "revision-and-storage"
+      ],
+      "containerBreakpoints": {
+        "collapse": 704
+      },
+      "features": [
+        "drag-drop",
+        "upload-queue",
+        "chunk-status",
+        "retry-and-pause",
+        "file-search",
+        "grid-list-view",
+        "keyboard-selection",
+        "folder-hierarchy",
+        "preview",
+        "media-details",
+        "crop-shell",
+        "annotation-shell",
+        "document-and-pdf",
+        "audio-and-video",
+        "code-and-rich-text",
+        "markdown-and-blocks",
+        "revision-modes",
+        "autosave-state",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#content-compositions",
+      "tests": [
+        "pattern-matrix",
+        "dropzone-runtime",
+        "upload-manager-runtime",
+        "file-browser-runtime",
+        "editor-shell-runtime",
+        "revision-runtime",
+        "autosave-runtime",
+        "keyboard",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.auth-compositions",
+      "name": "登录与账号体系",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-auth-centered",
+        ".g-auth-split",
+        ".g-sign-in",
+        ".g-registration",
+        ".g-password-recovery",
+        ".g-password-reset",
+        ".g-email-verification",
+        ".g-phone-verification",
+        ".g-mfa-challenge",
+        ".g-otp-input",
+        ".g-passkey",
+        ".g-sso",
+        ".g-qr-login",
+        ".g-magic-link",
+        ".g-invitation",
+        ".g-first-time-setup",
+        ".g-lock-screen",
+        ".g-session-expired",
+        ".g-account-chooser",
+        ".g-tenant-chooser",
+        ".g-identity-switcher",
+        ".g-profile-setup",
+        ".g-account-security",
+        ".g-device-management",
+        ".g-login-activity",
+        ".g-security-alert",
+        ".g-recovery-codes",
+        ".g-trusted-device",
+        ".g-connected-accounts",
+        ".g-password-strength",
+        ".g-auth-consent",
+        ".g-auth-result"
+      ],
+      "patterns": [
+        {
+          "id": "auth-centered",
+          "selector": ".g-auth-centered"
+        },
+        {
+          "id": "auth-split",
+          "selector": ".g-auth-split"
+        },
+        {
+          "id": "sign-in",
+          "selector": ".g-sign-in",
+          "behaviors": [
+            "password-toggle"
+          ]
+        },
+        {
+          "id": "registration",
+          "selector": ".g-registration",
+          "behaviors": [
+            "password-strength"
+          ]
+        },
+        {
+          "id": "password-recovery",
+          "selector": ".g-password-recovery"
+        },
+        {
+          "id": "password-reset",
+          "selector": ".g-password-reset",
+          "behaviors": [
+            "password-strength"
+          ]
+        },
+        {
+          "id": "email-verification",
+          "selector": ".g-email-verification",
+          "behaviors": [
+            "auth-timer"
+          ]
+        },
+        {
+          "id": "phone-verification",
+          "selector": ".g-phone-verification",
+          "behaviors": [
+            "otp-input"
+          ]
+        },
+        {
+          "id": "mfa-challenge",
+          "selector": ".g-mfa-challenge",
+          "behaviors": [
+            "otp-input"
+          ]
+        },
+        {
+          "id": "otp-input",
+          "selector": ".g-otp-input",
+          "behaviors": [
+            "otp-input"
+          ]
+        },
+        {
+          "id": "passkey",
+          "selector": ".g-passkey"
+        },
+        {
+          "id": "sso",
+          "selector": ".g-sso"
+        },
+        {
+          "id": "qr-login",
+          "selector": ".g-qr-login",
+          "behaviors": [
+            "auth-timer"
+          ]
+        },
+        {
+          "id": "magic-link",
+          "selector": ".g-magic-link"
+        },
+        {
+          "id": "invitation",
+          "selector": ".g-invitation"
+        },
+        {
+          "id": "first-time-setup",
+          "selector": ".g-first-time-setup",
+          "behaviors": [
+            "password-strength"
+          ]
+        },
+        {
+          "id": "lock-screen",
+          "selector": ".g-lock-screen",
+          "behaviors": [
+            "password-toggle"
+          ]
+        },
+        {
+          "id": "session-expired",
+          "selector": ".g-session-expired"
+        },
+        {
+          "id": "account-chooser",
+          "selector": ".g-account-chooser",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "tenant-chooser",
+          "selector": ".g-tenant-chooser",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "identity-switcher",
+          "selector": ".g-identity-switcher",
+          "behaviors": [
+            "dropdown"
+          ]
+        },
+        {
+          "id": "profile-setup",
+          "selector": ".g-profile-setup"
+        },
+        {
+          "id": "account-security",
+          "selector": ".g-account-security"
+        },
+        {
+          "id": "device-management",
+          "selector": ".g-device-management",
+          "behaviors": [
+            "dialog"
+          ]
+        },
+        {
+          "id": "login-activity",
+          "selector": ".g-login-activity"
+        },
+        {
+          "id": "security-alert",
+          "selector": ".g-security-alert"
+        },
+        {
+          "id": "recovery-codes",
+          "selector": ".g-recovery-codes",
+          "behaviors": [
+            "copy"
+          ]
+        },
+        {
+          "id": "trusted-device",
+          "selector": ".g-trusted-device"
+        },
+        {
+          "id": "connected-accounts",
+          "selector": ".g-connected-accounts"
+        },
+        {
+          "id": "password-strength",
+          "selector": ".g-password-strength",
+          "behaviors": [
+            "password-strength"
+          ]
+        },
+        {
+          "id": "consent",
+          "selector": ".g-auth-consent"
+        },
+        {
+          "id": "auth-result",
+          "selector": ".g-auth-result"
+        }
+      ],
+      "families": [
+        "shell",
+        "access",
+        "recovery",
+        "verification",
+        "federation",
+        "session",
+        "identity",
+        "security"
+      ],
+      "containerBreakpoints": {
+        "collapse": 704,
+        "compact-card": 384
+      },
+      "features": [
+        "password",
+        "passwordless",
+        "passkey",
+        "sso",
+        "qr-login",
+        "magic-link",
+        "mfa",
+        "otp",
+        "verification",
+        "invitation",
+        "account-and-tenant-choice",
+        "identity-switching",
+        "session-recovery",
+        "device-and-login-audit",
+        "security-alert",
+        "recovery-codes",
+        "oauth-consent",
+        "safe-area",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#auth-compositions",
+      "tests": [
+        "pattern-matrix",
+        "otp-runtime",
+        "password-strength-runtime",
+        "auth-timer-runtime",
+        "saved-choice-runtime",
+        "password-toggle-runtime",
+        "dropdown-runtime",
+        "keyboard",
+        "paste",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "safe-area",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.commerce-compositions",
+      "name": "商业与支付组件",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-commerce-product-card",
+        ".g-commerce-product-list",
+        ".g-commerce-product-detail",
+        ".g-commerce-product-gallery",
+        ".g-sku-selector",
+        ".g-quantity-stepper",
+        ".g-price-display",
+        ".g-commerce-cart-item",
+        ".g-cart",
+        ".g-mini-cart",
+        ".g-cart-summary",
+        ".g-commerce-checkout",
+        ".g-checkout-steps",
+        ".g-address-selector",
+        ".g-address-card",
+        ".g-shipping-method",
+        ".g-pickup-selector",
+        ".g-coupon",
+        ".g-promotion-list",
+        ".g-invoice-information",
+        ".g-payment-method",
+        ".g-payment-sheet",
+        ".g-payment-result",
+        ".g-commerce-order-summary",
+        ".g-commerce-order-timeline",
+        ".g-order-detail",
+        ".g-subscription-plan",
+        ".g-pricing-comparison",
+        ".g-commerce-usage-meter",
+        ".g-billing-history",
+        ".g-refund-status",
+        ".g-tax-summary"
+      ],
+      "patterns": [
+        {
+          "id": "product-card",
+          "selector": ".g-commerce-product-card"
+        },
+        {
+          "id": "product-list",
+          "selector": ".g-commerce-product-list"
+        },
+        {
+          "id": "product-detail",
+          "selector": ".g-commerce-product-detail"
+        },
+        {
+          "id": "product-gallery",
+          "selector": ".g-commerce-product-gallery",
+          "behaviors": [
+            "carousel"
+          ]
+        },
+        {
+          "id": "sku-selector",
+          "selector": ".g-sku-selector",
+          "behaviors": [
+            "sku-selector"
+          ]
+        },
+        {
+          "id": "quantity-stepper",
+          "selector": ".g-quantity-stepper",
+          "behaviors": [
+            "quantity-stepper"
+          ]
+        },
+        {
+          "id": "price-display",
+          "selector": ".g-price-display"
+        },
+        {
+          "id": "cart-item",
+          "selector": ".g-commerce-cart-item"
+        },
+        {
+          "id": "cart",
+          "selector": ".g-cart",
+          "behaviors": [
+            "cart"
+          ]
+        },
+        {
+          "id": "mini-cart",
+          "selector": ".g-mini-cart",
+          "behaviors": [
+            "dropdown"
+          ]
+        },
+        {
+          "id": "cart-summary",
+          "selector": ".g-cart-summary"
+        },
+        {
+          "id": "checkout",
+          "selector": ".g-commerce-checkout"
+        },
+        {
+          "id": "checkout-steps",
+          "selector": ".g-checkout-steps"
+        },
+        {
+          "id": "address-selector",
+          "selector": ".g-address-selector",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "address-card",
+          "selector": ".g-address-card"
+        },
+        {
+          "id": "shipping-method",
+          "selector": ".g-shipping-method",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "pickup-selector",
+          "selector": ".g-pickup-selector",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "coupon",
+          "selector": ".g-coupon",
+          "behaviors": [
+            "coupon"
+          ]
+        },
+        {
+          "id": "promotion-list",
+          "selector": ".g-promotion-list"
+        },
+        {
+          "id": "invoice-information",
+          "selector": ".g-invoice-information"
+        },
+        {
+          "id": "payment-method",
+          "selector": ".g-payment-method",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "payment-sheet",
+          "selector": ".g-payment-sheet"
+        },
+        {
+          "id": "payment-result",
+          "selector": ".g-payment-result"
+        },
+        {
+          "id": "order-summary",
+          "selector": ".g-commerce-order-summary"
+        },
+        {
+          "id": "order-timeline",
+          "selector": ".g-commerce-order-timeline"
+        },
+        {
+          "id": "order-detail",
+          "selector": ".g-order-detail"
+        },
+        {
+          "id": "subscription-plan",
+          "selector": ".g-subscription-plan"
+        },
+        {
+          "id": "pricing-comparison",
+          "selector": ".g-pricing-comparison"
+        },
+        {
+          "id": "usage-meter",
+          "selector": ".g-commerce-usage-meter"
+        },
+        {
+          "id": "billing-history",
+          "selector": ".g-billing-history"
+        },
+        {
+          "id": "refund-status",
+          "selector": ".g-refund-status"
+        },
+        {
+          "id": "tax-summary",
+          "selector": ".g-tax-summary"
+        }
+      ],
+      "families": [
+        "catalog",
+        "selection-and-price",
+        "cart",
+        "checkout",
+        "fulfillment",
+        "payment",
+        "order",
+        "subscription-and-billing"
+      ],
+      "containerBreakpoints": {
+        "collapse": 704,
+        "compact": 480
+      },
+      "features": [
+        "catalog",
+        "sku",
+        "quantity",
+        "price-and-stock",
+        "cart-calculation",
+        "checkout",
+        "address",
+        "shipping-and-pickup",
+        "coupon-and-promotion",
+        "invoice",
+        "payment",
+        "order-tracking",
+        "subscription",
+        "usage-and-billing",
+        "refund",
+        "tax",
+        "keyboard",
+        "safe-area",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#commerce-compositions",
+      "tests": [
+        "pattern-matrix",
+        "quantity-runtime",
+        "sku-runtime",
+        "cart-runtime",
+        "coupon-runtime",
+        "saved-choice-runtime",
+        "carousel-runtime",
+        "dropdown-runtime",
+        "keyboard",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "safe-area",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.mobile-compositions",
+      "name": "移动端特有组件",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-mobile-safe-shell",
+        ".g-mobile-app-bar",
+        ".g-mobile-bottom-navigation",
+        ".g-mobile-bottom-sheet",
+        ".g-mobile-action-sheet",
+        ".g-mobile-pull-refresh",
+        ".g-mobile-infinite-load",
+        ".g-mobile-swipe-actions",
+        ".g-mobile-swipe-tabs",
+        ".g-mobile-category-view",
+        ".g-mobile-filter-sheet",
+        ".g-mobile-purchase-bar",
+        ".g-mobile-search",
+        ".g-mobile-picker",
+        ".g-mobile-wheel-picker",
+        ".g-mobile-fab",
+        ".g-mobile-fullscreen-dialog",
+        ".g-mobile-keyboard-avoidance",
+        ".g-mobile-gesture-hint",
+        ".g-mobile-offline-banner",
+        ".g-mobile-segmented-control",
+        ".g-mobile-feed",
+        ".g-mobile-card-carousel",
+        ".g-mobile-form",
+        ".g-mobile-auth",
+        ".g-mobile-checkout",
+        ".g-mobile-media-viewer",
+        ".g-mobile-keyboard-toolbar",
+        ".g-mobile-selection-mode",
+        ".g-mobile-snackbar",
+        ".g-mobile-permission-prompt",
+        ".g-mobile-state"
+      ],
+      "patterns": [
+        {
+          "id": "safe-area-shell",
+          "selector": ".g-mobile-safe-shell"
+        },
+        {
+          "id": "top-app-bar",
+          "selector": ".g-mobile-app-bar"
+        },
+        {
+          "id": "bottom-navigation",
+          "selector": ".g-mobile-bottom-navigation"
+        },
+        {
+          "id": "bottom-sheet",
+          "selector": ".g-mobile-bottom-sheet",
+          "behaviors": [
+            "mobile-sheet"
+          ]
+        },
+        {
+          "id": "action-sheet",
+          "selector": ".g-mobile-action-sheet",
+          "behaviors": [
+            "mobile-sheet"
+          ]
+        },
+        {
+          "id": "pull-to-refresh",
+          "selector": ".g-mobile-pull-refresh",
+          "behaviors": [
+            "pull-refresh"
+          ]
+        },
+        {
+          "id": "infinite-load",
+          "selector": ".g-mobile-infinite-load",
+          "behaviors": [
+            "infinite-load"
+          ]
+        },
+        {
+          "id": "swipe-actions",
+          "selector": ".g-mobile-swipe-actions",
+          "behaviors": [
+            "swipe-actions"
+          ]
+        },
+        {
+          "id": "swipe-tabs",
+          "selector": ".g-mobile-swipe-tabs",
+          "behaviors": [
+            "tabs"
+          ]
+        },
+        {
+          "id": "mobile-category",
+          "selector": ".g-mobile-category-view"
+        },
+        {
+          "id": "mobile-filter",
+          "selector": ".g-mobile-filter-sheet",
+          "behaviors": [
+            "mobile-sheet"
+          ]
+        },
+        {
+          "id": "sticky-purchase-bar",
+          "selector": ".g-mobile-purchase-bar"
+        },
+        {
+          "id": "mobile-search",
+          "selector": ".g-mobile-search",
+          "behaviors": [
+            "clear-input"
+          ]
+        },
+        {
+          "id": "mobile-picker",
+          "selector": ".g-mobile-picker",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "wheel-picker",
+          "selector": ".g-mobile-wheel-picker",
+          "behaviors": [
+            "wheel-picker"
+          ]
+        },
+        {
+          "id": "floating-action-button",
+          "selector": ".g-mobile-fab"
+        },
+        {
+          "id": "fullscreen-dialog",
+          "selector": ".g-mobile-fullscreen-dialog",
+          "behaviors": [
+            "dialog"
+          ]
+        },
+        {
+          "id": "keyboard-avoidance",
+          "selector": ".g-mobile-keyboard-avoidance"
+        },
+        {
+          "id": "gesture-hint",
+          "selector": ".g-mobile-gesture-hint"
+        },
+        {
+          "id": "offline-banner",
+          "selector": ".g-mobile-offline-banner"
+        },
+        {
+          "id": "segmented-control",
+          "selector": ".g-mobile-segmented-control",
+          "behaviors": [
+            "saved-choice"
+          ]
+        },
+        {
+          "id": "mobile-feed",
+          "selector": ".g-mobile-feed"
+        },
+        {
+          "id": "card-carousel",
+          "selector": ".g-mobile-card-carousel",
+          "behaviors": [
+            "carousel"
+          ]
+        },
+        {
+          "id": "mobile-form",
+          "selector": ".g-mobile-form"
+        },
+        {
+          "id": "mobile-auth",
+          "selector": ".g-mobile-auth",
+          "behaviors": [
+            "password-toggle"
+          ]
+        },
+        {
+          "id": "mobile-checkout",
+          "selector": ".g-mobile-checkout"
+        },
+        {
+          "id": "mobile-media-viewer",
+          "selector": ".g-mobile-media-viewer",
+          "behaviors": [
+            "dialog"
+          ]
+        },
+        {
+          "id": "keyboard-toolbar",
+          "selector": ".g-mobile-keyboard-toolbar"
+        },
+        {
+          "id": "selection-mode",
+          "selector": ".g-mobile-selection-mode",
+          "behaviors": [
+            "row-select"
+          ]
+        },
+        {
+          "id": "mobile-snackbar",
+          "selector": ".g-mobile-snackbar",
+          "behaviors": [
+            "toast"
+          ]
+        },
+        {
+          "id": "permission-prompt",
+          "selector": ".g-mobile-permission-prompt"
+        },
+        {
+          "id": "mobile-state",
+          "selector": ".g-mobile-state"
+        }
+      ],
+      "families": [
+        "shell-and-bars",
+        "navigation",
+        "sheets-and-overlays",
+        "gesture-and-scroll",
+        "discovery-and-selection",
+        "input-and-keyboard",
+        "commerce-and-media",
+        "system-state-and-feedback"
+      ],
+      "containerBreakpoints": {
+        "compact": 352,
+        "collapse": 480
+      },
+      "features": [
+        "safe-area",
+        "dynamic-viewport",
+        "touch-targets",
+        "coarse-pointer",
+        "bottom-navigation",
+        "sheets",
+        "pull-refresh",
+        "infinite-load",
+        "swipe",
+        "scroll-snap",
+        "keyboard-avoidance",
+        "mobile-auth",
+        "mobile-checkout",
+        "media-viewer",
+        "offline-and-permission",
+        "keyboard",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#mobile-compositions",
+      "tests": [
+        "pattern-matrix",
+        "mobile-sheet-runtime",
+        "pull-refresh-runtime",
+        "infinite-load-runtime",
+        "swipe-actions-runtime",
+        "wheel-picker-runtime",
+        "keyboard",
+        "touch",
+        "safe-area",
+        "dynamic-viewport",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.desktop-compositions",
+      "name": "桌面端特有组件",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-native-titlebar",
+        ".g-desktop-window-controls",
+        ".g-desktop-menubar",
+        ".g-desktop-activity-bar",
+        ".g-desktop-dock-panel",
+        ".g-desktop-split-pane",
+        ".g-desktop-inspector-panel",
+        ".g-desktop-status-bar",
+        ".g-desktop-command-palette",
+        ".g-shortcut-recorder",
+        ".g-desktop-context-menu",
+        ".g-desktop-document-tabs",
+        ".g-desktop-drag-region",
+        ".g-window-loading",
+        ".g-update-available",
+        ".g-desktop-permission-request",
+        ".g-native-file-picker",
+        ".g-tray-menu",
+        ".g-multi-window-placeholder",
+        ".g-desktop-workspace",
+        ".g-desktop-window-switcher",
+        ".g-recent-documents",
+        ".g-desktop-toolbar",
+        ".g-desktop-bottom-panel",
+        ".g-background-task-center",
+        ".g-desktop-notification-center",
+        ".g-sync-status",
+        ".g-update-progress",
+        ".g-crash-recovery",
+        ".g-single-instance-notice",
+        ".g-deep-link-handler",
+        ".g-about-dialog"
+      ],
+      "patterns": [
+        {
+          "id": "native-titlebar",
+          "selector": ".g-native-titlebar",
+          "adapters": [
+            "tauri",
+            "electron"
+          ]
+        },
+        {
+          "id": "window-controls",
+          "selector": ".g-desktop-window-controls",
+          "adapters": [
+            "tauri",
+            "electron"
+          ]
+        },
+        {
+          "id": "menu-bar",
+          "selector": ".g-desktop-menubar",
+          "behaviors": [
+            "roving-nav"
+          ]
+        },
+        {
+          "id": "activity-bar",
+          "selector": ".g-desktop-activity-bar",
+          "behaviors": [
+            "roving-nav"
+          ]
+        },
+        {
+          "id": "dock-panel",
+          "selector": ".g-desktop-dock-panel",
+          "behaviors": [
+            "nav-toggle"
+          ]
+        },
+        {
+          "id": "resizable-split-pane",
+          "selector": ".g-desktop-split-pane",
+          "behaviors": [
+            "split-pane"
+          ]
+        },
+        {
+          "id": "inspector",
+          "selector": ".g-desktop-inspector-panel",
+          "behaviors": [
+            "nav-toggle"
+          ]
+        },
+        {
+          "id": "status-bar",
+          "selector": ".g-desktop-status-bar"
+        },
+        {
+          "id": "command-palette",
+          "selector": ".g-desktop-command-palette",
+          "behaviors": [
+            "command-palette"
+          ]
+        },
+        {
+          "id": "shortcut-recorder",
+          "selector": ".g-shortcut-recorder",
+          "behaviors": [
+            "shortcut-recorder"
+          ]
+        },
+        {
+          "id": "context-menu",
+          "selector": ".g-desktop-context-menu",
+          "behaviors": [
+            "context-menu"
+          ]
+        },
+        {
+          "id": "document-tabs",
+          "selector": ".g-desktop-document-tabs",
+          "behaviors": [
+            "desktop-tabs"
+          ]
+        },
+        {
+          "id": "drag-region",
+          "selector": ".g-desktop-drag-region",
+          "adapters": [
+            "tauri",
+            "electron"
+          ]
+        },
+        {
+          "id": "window-loading",
+          "selector": ".g-window-loading"
+        },
+        {
+          "id": "update-available",
+          "selector": ".g-update-available"
+        },
+        {
+          "id": "permission-request",
+          "selector": ".g-desktop-permission-request"
+        },
+        {
+          "id": "native-file-picker",
+          "selector": ".g-native-file-picker",
+          "behaviors": [
+            "native-file-picker"
+          ]
+        },
+        {
+          "id": "tray-menu-shell",
+          "selector": ".g-tray-menu",
+          "behaviors": [
+            "dropdown"
+          ]
+        },
+        {
+          "id": "multi-window-placeholder",
+          "selector": ".g-multi-window-placeholder"
+        },
+        {
+          "id": "desktop-workspace",
+          "selector": ".g-desktop-workspace"
+        },
+        {
+          "id": "window-switcher",
+          "selector": ".g-desktop-window-switcher",
+          "behaviors": [
+            "window-switcher"
+          ]
+        },
+        {
+          "id": "recent-documents",
+          "selector": ".g-recent-documents"
+        },
+        {
+          "id": "desktop-toolbar",
+          "selector": ".g-desktop-toolbar"
+        },
+        {
+          "id": "bottom-panel",
+          "selector": ".g-desktop-bottom-panel",
+          "behaviors": [
+            "nav-toggle"
+          ]
+        },
+        {
+          "id": "background-task-center",
+          "selector": ".g-background-task-center"
+        },
+        {
+          "id": "notification-center",
+          "selector": ".g-desktop-notification-center"
+        },
+        {
+          "id": "sync-status",
+          "selector": ".g-sync-status"
+        },
+        {
+          "id": "update-progress",
+          "selector": ".g-update-progress"
+        },
+        {
+          "id": "crash-recovery",
+          "selector": ".g-crash-recovery"
+        },
+        {
+          "id": "single-instance-notice",
+          "selector": ".g-single-instance-notice"
+        },
+        {
+          "id": "deep-link-handler",
+          "selector": ".g-deep-link-handler"
+        },
+        {
+          "id": "about-dialog",
+          "selector": ".g-about-dialog",
+          "behaviors": [
+            "dialog"
+          ]
+        }
+      ],
+      "families": [
+        "chrome-and-window",
+        "global-navigation",
+        "dock-and-workspace",
+        "commands-and-input",
+        "documents-and-files",
+        "system-integration",
+        "lifecycle-and-update",
+        "recovery-and-state"
+      ],
+      "containerBreakpoints": {
+        "compact": 640,
+        "collapse": 960
+      },
+      "features": [
+        "tauri",
+        "electron",
+        "safe-preload",
+        "window-controls",
+        "app-region",
+        "macos",
+        "windows",
+        "linux",
+        "multi-window",
+        "native-file",
+        "tray",
+        "update",
+        "permission",
+        "recovery",
+        "keyboard",
+        "pointer",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#desktop-compositions",
+      "tests": [
+        "pattern-matrix",
+        "adapter-runtime",
+        "shortcut-recorder-runtime",
+        "desktop-tabs-runtime",
+        "native-file-picker-runtime",
+        "window-switcher-runtime",
+        "split-pane-runtime",
+        "command-palette-runtime",
+        "context-menu-runtime",
+        "keyboard",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.ai-compositions",
+      "name": "AI 产品与智能交互组件",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-ai-shell",
+        ".g-conversation-list",
+        ".g-chat",
+        ".g-message",
+        ".g-composer",
+        ".g-attachment",
+        ".g-prompt-starter",
+        ".g-prompt-library",
+        ".g-ai-command-menu",
+        ".g-model-selector",
+        ".g-thinking",
+        ".g-streaming-response",
+        ".g-tool-call",
+        ".g-approval",
+        ".g-agent-status",
+        ".g-plan",
+        ".g-agent-board",
+        ".g-agent-handoff",
+        ".g-sources",
+        ".g-artifact-layout",
+        ".g-artifact-panel",
+        ".g-file-tree",
+        ".g-version-list",
+        ".g-generation-grid",
+        ".g-generation-placeholder",
+        ".g-ai-context-manager",
+        ".g-ai-usage-panel",
+        ".g-voice-state",
+        ".g-permission-scope",
+        ".g-privacy-notice",
+        ".g-ai-safety-notice",
+        ".g-ai-feedback"
+      ],
+      "patterns": [
+        {
+          "id": "ai-workspace",
+          "selector": ".g-ai-shell"
+        },
+        {
+          "id": "conversation-list",
+          "selector": ".g-conversation-list"
+        },
+        {
+          "id": "chat-thread",
+          "selector": ".g-chat"
+        },
+        {
+          "id": "ai-message",
+          "selector": ".g-message"
+        },
+        {
+          "id": "prompt-composer",
+          "selector": ".g-composer",
+          "behaviors": [
+            "ai-composer"
+          ]
+        },
+        {
+          "id": "attachment",
+          "selector": ".g-attachment"
+        },
+        {
+          "id": "prompt-starter",
+          "selector": ".g-prompt-starter",
+          "behaviors": [
+            "prompt-fill"
+          ]
+        },
+        {
+          "id": "prompt-library",
+          "selector": ".g-prompt-library",
+          "behaviors": [
+            "prompt-fill"
+          ]
+        },
+        {
+          "id": "mention-slash-menu",
+          "selector": ".g-ai-command-menu",
+          "behaviors": [
+            "roving-nav"
+          ]
+        },
+        {
+          "id": "model-selector",
+          "selector": ".g-model-selector",
+          "behaviors": [
+            "dropdown"
+          ]
+        },
+        {
+          "id": "thinking",
+          "selector": ".g-thinking",
+          "behaviors": [
+            "accordion"
+          ]
+        },
+        {
+          "id": "streaming-response",
+          "selector": ".g-streaming-response"
+        },
+        {
+          "id": "tool-call",
+          "selector": ".g-tool-call",
+          "behaviors": [
+            "accordion"
+          ]
+        },
+        {
+          "id": "tool-approval",
+          "selector": ".g-approval",
+          "behaviors": [
+            "ai-approval"
+          ]
+        },
+        {
+          "id": "agent-status",
+          "selector": ".g-agent-status"
+        },
+        {
+          "id": "agent-plan",
+          "selector": ".g-plan"
+        },
+        {
+          "id": "multi-agent-board",
+          "selector": ".g-agent-board"
+        },
+        {
+          "id": "agent-handoff",
+          "selector": ".g-agent-handoff"
+        },
+        {
+          "id": "sources-citations",
+          "selector": ".g-sources"
+        },
+        {
+          "id": "artifact-workspace",
+          "selector": ".g-artifact-layout"
+        },
+        {
+          "id": "artifact-panel",
+          "selector": ".g-artifact-panel",
+          "behaviors": [
+            "tabs"
+          ]
+        },
+        {
+          "id": "ai-file-tree",
+          "selector": ".g-file-tree",
+          "behaviors": [
+            "tree"
+          ]
+        },
+        {
+          "id": "artifact-version-history",
+          "selector": ".g-version-list"
+        },
+        {
+          "id": "generation-gallery",
+          "selector": ".g-generation-grid"
+        },
+        {
+          "id": "generation-placeholder",
+          "selector": ".g-generation-placeholder"
+        },
+        {
+          "id": "context-memory-manager",
+          "selector": ".g-ai-context-manager"
+        },
+        {
+          "id": "cost-rate-limit",
+          "selector": ".g-ai-usage-panel"
+        },
+        {
+          "id": "voice-session",
+          "selector": ".g-voice-state"
+        },
+        {
+          "id": "permission-scope",
+          "selector": ".g-permission-scope"
+        },
+        {
+          "id": "privacy-notice",
+          "selector": ".g-privacy-notice"
+        },
+        {
+          "id": "safety-policy-notice",
+          "selector": ".g-ai-safety-notice"
+        },
+        {
+          "id": "feedback-evaluation",
+          "selector": ".g-ai-feedback",
+          "behaviors": [
+            "ai-feedback"
+          ]
+        }
+      ],
+      "families": [
+        "workspace-and-conversation",
+        "prompt-and-input",
+        "reasoning-and-streaming",
+        "tools-and-approval",
+        "agents-and-orchestration",
+        "sources-and-artifacts",
+        "context-and-cost",
+        "voice-safety-and-feedback"
+      ],
+      "containerBreakpoints": {
+        "compact": 512,
+        "single-column": 704,
+        "artifact-collapse": 960
+      },
+      "features": [
+        "chat",
+        "multimodal",
+        "prompt-library",
+        "model-choice",
+        "reasoning",
+        "streaming",
+        "tool-use",
+        "human-approval",
+        "multi-agent",
+        "handoff",
+        "citations",
+        "artifacts",
+        "file-tree",
+        "versions",
+        "generation",
+        "memory",
+        "token-and-cost",
+        "voice",
+        "permissions",
+        "privacy",
+        "safety",
+        "evaluation",
+        "keyboard",
+        "safe-area",
+        "responsive",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#ai-compositions",
+      "tests": [
+        "pattern-matrix",
+        "ai-composer-runtime",
+        "prompt-fill-runtime",
+        "ai-approval-runtime",
+        "ai-feedback-runtime",
+        "dropdown-runtime",
+        "accordion-runtime",
+        "tree-runtime",
+        "tabs-runtime",
+        "keyboard",
+        "streaming",
+        "container-responsive",
+        "rtl",
+        "safe-area",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "documentation"
+      ]
+    },
+    {
+      "id": "component.solution-compositions",
+      "name": "完整页面与行业解决方案",
+      "category": "component",
+      "status": "implemented",
+      "rootSelectors": [
+        ".g-product-landing",
+        ".g-corporate-home",
+        ".g-personal-home",
+        ".g-portfolio-page",
+        ".g-blog-index",
+        ".g-article-page",
+        ".g-docs-portal",
+        ".g-help-center-page",
+        ".g-search-results-page",
+        ".g-contact-page",
+        ".g-pricing-page",
+        ".g-dashboard-overview",
+        ".g-admin-list-page",
+        ".g-record-detail-page",
+        ".g-settings-center",
+        ".g-user-center",
+        ".g-notification-center-page",
+        ".g-onboarding-flow",
+        ".g-crm-workspace",
+        ".g-project-workspace",
+        ".g-support-center",
+        ".g-approval-center",
+        ".g-knowledge-base",
+        ".g-learning-portal",
+        ".g-event-portal",
+        ".g-booking-portal",
+        ".g-healthcare-portal",
+        ".g-finance-portal",
+        ".g-public-service-portal",
+        ".g-marketplace-page",
+        ".g-community-page",
+        ".g-status-center-page"
+      ],
+      "patterns": [
+        {
+          "id": "product-landing",
+          "selector": ".g-product-landing"
+        },
+        {
+          "id": "corporate-home",
+          "selector": ".g-corporate-home"
+        },
+        {
+          "id": "personal-home",
+          "selector": ".g-personal-home"
+        },
+        {
+          "id": "portfolio-page",
+          "selector": ".g-portfolio-page"
+        },
+        {
+          "id": "blog-index",
+          "selector": ".g-blog-index"
+        },
+        {
+          "id": "article-page",
+          "selector": ".g-article-page"
+        },
+        {
+          "id": "docs-portal",
+          "selector": ".g-docs-portal"
+        },
+        {
+          "id": "help-center-page",
+          "selector": ".g-help-center-page"
+        },
+        {
+          "id": "search-results-page",
+          "selector": ".g-search-results-page"
+        },
+        {
+          "id": "contact-page",
+          "selector": ".g-contact-page"
+        },
+        {
+          "id": "pricing-page",
+          "selector": ".g-pricing-page"
+        },
+        {
+          "id": "dashboard-overview",
+          "selector": ".g-dashboard-overview"
+        },
+        {
+          "id": "admin-list-page",
+          "selector": ".g-admin-list-page"
+        },
+        {
+          "id": "record-detail-page",
+          "selector": ".g-record-detail-page"
+        },
+        {
+          "id": "settings-center",
+          "selector": ".g-settings-center"
+        },
+        {
+          "id": "user-center",
+          "selector": ".g-user-center"
+        },
+        {
+          "id": "notification-center",
+          "selector": ".g-notification-center-page"
+        },
+        {
+          "id": "onboarding-flow",
+          "selector": ".g-onboarding-flow"
+        },
+        {
+          "id": "crm-workspace",
+          "selector": ".g-crm-workspace"
+        },
+        {
+          "id": "project-workspace",
+          "selector": ".g-project-workspace"
+        },
+        {
+          "id": "support-center",
+          "selector": ".g-support-center"
+        },
+        {
+          "id": "approval-center",
+          "selector": ".g-approval-center"
+        },
+        {
+          "id": "knowledge-base",
+          "selector": ".g-knowledge-base"
+        },
+        {
+          "id": "learning-portal",
+          "selector": ".g-learning-portal"
+        },
+        {
+          "id": "event-portal",
+          "selector": ".g-event-portal"
+        },
+        {
+          "id": "booking-portal",
+          "selector": ".g-booking-portal"
+        },
+        {
+          "id": "healthcare-portal",
+          "selector": ".g-healthcare-portal"
+        },
+        {
+          "id": "finance-portal",
+          "selector": ".g-finance-portal"
+        },
+        {
+          "id": "public-service-portal",
+          "selector": ".g-public-service-portal"
+        },
+        {
+          "id": "marketplace-page",
+          "selector": ".g-marketplace-page"
+        },
+        {
+          "id": "community-page",
+          "selector": ".g-community-page"
+        },
+        {
+          "id": "status-center-page",
+          "selector": ".g-status-center-page"
+        }
+      ],
+      "families": [
+        "marketing-and-corporate",
+        "personal-and-editorial",
+        "documentation-and-support",
+        "administration-and-account",
+        "operations-and-workspaces",
+        "education-events-and-booking",
+        "regulated-industry-portals",
+        "marketplace-community-and-status"
+      ],
+      "containerBreakpoints": {
+        "compact": 704,
+        "collapse": 960
+      },
+      "features": [
+        "complete-page-contracts",
+        "personal",
+        "enterprise",
+        "marketing",
+        "content",
+        "documentation",
+        "dashboard",
+        "administration",
+        "crm",
+        "project-management",
+        "support",
+        "approval",
+        "knowledge",
+        "education",
+        "events",
+        "booking",
+        "healthcare",
+        "finance",
+        "public-service",
+        "marketplace",
+        "community",
+        "status",
+        "web",
+        "mobile",
+        "desktop",
+        "tauri",
+        "electron",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print"
+      ],
+      "documentation": "website/docs.html#solution-compositions",
+      "tests": [
+        "pattern-matrix",
+        "recipe-matrix",
+        "desktop",
+        "mobile",
+        "container-responsive",
+        "rtl",
+        "reduced-motion",
+        "forced-colors",
+        "print",
+        "documentation"
+      ]
+    }
+  ],
+  "$schema": "../metadata/capabilities.schema.json"
+}

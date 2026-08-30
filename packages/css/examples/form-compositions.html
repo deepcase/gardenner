@@ -1,0 +1,701 @@
+<!doctype html>
+<html
+  lang="zh-CN"
+  data-g-theme="garden"
+  data-g-mode="light"
+  data-g-shape="small"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gardener 表单传统组合</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+    <style>
+      body {
+        min-height: 100vh;
+        background: #fff;
+      }
+      .demo-shell {
+        width: min(76rem, calc(100% - 2rem));
+        margin-inline: auto;
+        padding-block: 3rem 8rem;
+      }
+      .demo-section {
+        padding-block: 2rem;
+        border-block-end: 1px solid var(--g-color-border);
+      }
+      .demo-section > h2 {
+        margin-block-end: 1rem;
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+        gap: 1.25rem;
+        align-items: start;
+      }
+      .demo-card {
+        padding: 1rem;
+        border: 1px solid var(--g-color-border);
+        border-radius: var(--g-radius-md);
+        background: var(--g-color-surface);
+      }
+      .demo-card > h3 {
+        margin-block-end: 1rem;
+        font-size: 1rem;
+      }
+      .demo-cq-small {
+        width: min(100%, 34rem);
+      }
+      .demo-cq-large {
+        width: min(100%, 52rem);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-shell">
+      <span class="g-badge">Component capability 06</span>
+      <h1 class="g-mt-4">表单传统组合</h1>
+      <p class="g-text-muted g-mt-2">
+        从字段排布到业务组合、动态字段和最终审核的完整表单接口。
+      </p>
+
+      <section class="demo-section" id="form-layouts">
+        <h2>Form / Section / Field / Layout</h2>
+        <form class="g-form is-bordered g-form-container" novalidate>
+          <section class="g-form-section">
+            <header class="g-form-section-header">
+              <div>
+                <h3 class="g-form-section-title">基本信息</h3>
+                <p class="g-form-section-description">
+                  这些内容会显示在企业资料中。
+                </p>
+              </div>
+              <span class="g-autosave-status is-saved">已自动保存</span>
+            </header>
+            <div class="g-form-row">
+              <div class="g-field">
+                <div class="g-field-header">
+                  <label class="g-label" for="company-name">企业名称</label
+                  ><span class="g-field-required">必填</span>
+                </div>
+                <input
+                  class="g-input"
+                  id="company-name"
+                  required
+                  value="Gardener Studio"
+                />
+                <div class="g-field-meta">
+                  <span>营业执照上的正式名称</span><span>15 / 60</span>
+                </div>
+              </div>
+              <div class="g-field">
+                <div class="g-field-header">
+                  <label class="g-label" for="company-alias">显示简称</label
+                  ><span class="g-field-optional">选填</span>
+                </div>
+                <input class="g-input" id="company-alias" value="Gardener" />
+              </div>
+            </div>
+            <fieldset class="g-fieldset">
+              <legend class="g-fieldset-legend">联系人</legend>
+              <p class="g-fieldset-description">仅用于重要服务通知。</p>
+              <div class="g-form-grid is-three">
+                <div class="g-field">
+                  <label class="g-label" for="contact-name">姓名</label
+                  ><input class="g-input" id="contact-name" />
+                </div>
+                <div class="g-field">
+                  <label class="g-label" for="contact-email">邮箱</label
+                  ><input class="g-input" id="contact-email" type="email" />
+                </div>
+                <div class="g-field">
+                  <label class="g-label" for="contact-role">职位</label
+                  ><input class="g-input" id="contact-role" />
+                </div>
+                <div class="g-field g-field-span-full">
+                  <label class="g-label" for="contact-note">备注</label
+                  ><textarea
+                    class="g-textarea"
+                    id="contact-note"
+                    rows="2"
+                  ></textarea>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <div class="g-form-actions is-between">
+            <button class="g-btn g-btn-ghost" type="button">取消</button
+            ><button class="g-btn g-btn-primary" type="submit">保存</button>
+          </div>
+        </form>
+        <div class="demo-grid g-mt-5">
+          <section class="demo-card">
+            <h3>Horizontal</h3>
+            <div class="g-form-horizontal">
+              <label class="g-label" for="horizontal-title">页面标题</label
+              ><input class="g-input" id="horizontal-title" /><label
+                class="g-label"
+                for="horizontal-status"
+                >状态</label
+              ><select class="g-select" id="horizontal-status">
+                <option>草稿</option>
+                <option>发布</option>
+              </select>
+            </div>
+          </section>
+          <section class="demo-card">
+            <h3>Inline</h3>
+            <div class="g-form-inline">
+              <div class="g-field">
+                <label class="g-label" for="inline-keyword">关键词</label
+                ><input class="g-input" id="inline-keyword" />
+              </div>
+              <div class="g-field">
+                <label class="g-label" for="inline-status">状态</label
+                ><select class="g-select" id="inline-status">
+                  <option>全部</option>
+                </select>
+              </div>
+              <div class="g-form-actions">
+                <button class="g-btn g-btn-primary" type="button">查询</button>
+              </div>
+            </div>
+          </section>
+          <section class="demo-card">
+            <h3>Compact</h3>
+            <div class="g-form g-form-compact">
+              <div class="g-field">
+                <label class="g-label" for="compact-path">路径</label
+                ><input class="g-input" id="compact-path" value="/docs" />
+              </div>
+              <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                应用
+              </button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="demo-section" id="container-forms">
+        <h2>Container Query</h2>
+        <div class="g-stack">
+          <div class="g-form-container demo-cq-small demo-card">
+            <h3>34rem 容器</h3>
+            <div class="g-form-grid">
+              <div class="g-field">
+                <label class="g-label" for="cq-small-a">字段 A</label
+                ><input class="g-input" id="cq-small-a" />
+              </div>
+              <div class="g-field">
+                <label class="g-label" for="cq-small-b">字段 B</label
+                ><input class="g-input" id="cq-small-b" />
+              </div>
+            </div>
+          </div>
+          <div class="g-form-container demo-cq-large demo-card">
+            <h3>52rem 容器</h3>
+            <div class="g-form-grid">
+              <div class="g-field">
+                <label class="g-label" for="cq-large-a">字段 A</label
+                ><input class="g-input" id="cq-large-a" />
+              </div>
+              <div class="g-field">
+                <label class="g-label" for="cq-large-b">字段 B</label
+                ><input class="g-input" id="cq-large-b" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section" id="input-compositions">
+        <h2>Input Group / Affix / Search / Password / Clear / Count</h2>
+        <div class="demo-grid">
+          <section class="demo-card">
+            <h3>Input Group</h3>
+            <label class="g-label" for="site-domain">站点地址</label>
+            <div class="g-input-group g-mt-2">
+              <span class="g-input-addon">https://</span
+              ><input class="g-input" id="site-domain" value="example" /><select
+                class="g-select"
+                aria-label="域名后缀"
+              >
+                <option>.com</option>
+                <option>.cn</option>
+              </select>
+            </div>
+          </section>
+          <section class="demo-card">
+            <h3>Affix / Search</h3>
+            <div class="g-input-affix has-start has-end">
+              <span class="g-input-affix-start">¥</span
+              ><input class="g-input" aria-label="预算" value="12,800" /><span
+                class="g-input-affix-end"
+                >CNY</span
+              >
+            </div>
+            <div class="g-search-field g-mt-3">
+              <span class="g-search-field-icon">⌕</span
+              ><label class="g-sr-only" for="form-search">搜索成员</label
+              ><input
+                class="g-input"
+                id="form-search"
+                type="search"
+                placeholder="搜索成员"
+              /><button
+                class="g-search-field-action"
+                type="button"
+                aria-label="提交搜索"
+              >
+                ↵
+              </button>
+            </div>
+          </section>
+          <section class="demo-card">
+            <h3>Password / Clear</h3>
+            <div class="g-password-field" data-g-password-toggle>
+              <label class="g-sr-only" for="account-password">密码</label
+              ><input
+                class="g-input"
+                id="account-password"
+                type="password"
+                value="Gardener2026"
+              /><button
+                class="g-password-field-action"
+                type="button"
+                data-g-password-button
+                data-g-show-label="显示密码"
+                data-g-hide-label="隐藏密码"
+              >
+                <span data-g-password-label>显示密码</span>
+              </button>
+            </div>
+            <div class="g-clearable-field g-mt-3" data-g-clear-input>
+              <label class="g-sr-only" for="clear-project">项目名称</label
+              ><input
+                class="g-input"
+                id="clear-project"
+                value="企业门户"
+              /><button
+                class="g-clearable-field-action"
+                type="button"
+                data-g-clear-button
+              >
+                ×
+              </button>
+            </div>
+          </section>
+          <section class="demo-card">
+            <h3>Character Counter</h3>
+            <div class="g-character-field" data-g-character-count="80">
+              <label class="g-sr-only" for="project-description">项目说明</label
+              ><textarea
+                class="g-textarea"
+                id="project-description"
+                maxlength="80"
+                rows="4"
+              >
+面向企业客户的统一内容门户。</textarea
+              ><output
+                class="g-character-count"
+                data-g-character-output
+              ></output>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="demo-section" id="validation">
+        <h2>Validation / Choices</h2>
+        <div class="demo-grid">
+          <section class="demo-card">
+            <h3>Validation State</h3>
+            <div class="g-validation-state is-success">
+              <label class="g-label" for="valid-slug">页面路径</label
+              ><input
+                class="g-input"
+                id="valid-slug"
+                value="/about"
+                aria-describedby="valid-message"
+              /><span class="g-validation-message" id="valid-message"
+                >该路径可以使用</span
+              >
+            </div>
+            <div class="g-validation-state is-error g-mt-4">
+              <label class="g-label" for="invalid-email">通知邮箱</label
+              ><input
+                class="g-input"
+                id="invalid-email"
+                value="invalid"
+                aria-invalid="true"
+                aria-describedby="email-error"
+              /><span class="g-validation-message" id="email-error"
+                >请输入有效邮箱地址</span
+              >
+            </div>
+          </section>
+          <section class="demo-card">
+            <h3>Validation Summary</h3>
+            <aside class="g-validation-summary" role="alert">
+              <strong class="g-validation-summary-title"
+                >请修正 2 个问题</strong
+              >
+              <ul class="g-validation-summary-list">
+                <li><a href="#invalid-email">通知邮箱格式不正确</a></li>
+                <li><a href="#consent">需要接受服务条款</a></li>
+              </ul>
+            </aside>
+          </section>
+          <section class="demo-card">
+            <h3>Checkbox / Radio</h3>
+            <fieldset class="g-fieldset">
+              <legend class="g-fieldset-legend">通知渠道</legend>
+              <div class="g-check-group is-inline">
+                <label class="g-check"
+                  ><input type="checkbox" checked />邮件</label
+                ><label class="g-check"><input type="checkbox" />短信</label
+                ><label class="g-check"><input type="checkbox" />站内信</label>
+              </div>
+            </fieldset>
+            <fieldset class="g-fieldset g-mt-3">
+              <legend class="g-fieldset-legend">发布范围</legend>
+              <div class="g-radio-group">
+                <label class="g-radio"
+                  ><input type="radio" name="scope" checked />全部访客</label
+                ><label class="g-radio"
+                  ><input type="radio" name="scope" />仅团队</label
+                >
+              </div>
+            </fieldset>
+          </section>
+          <section class="demo-card">
+            <h3>Switch Row</h3>
+            <div class="g-switch-row">
+              <div class="g-switch-row-content">
+                <strong class="g-switch-row-title">自动发布</strong>
+                <p class="g-switch-row-description">合并到主分支后立即发布。</p>
+              </div>
+              <label class="g-switch"
+                ><input type="checkbox" checked aria-label="自动发布" /><span
+                  class="g-switch-track"
+                ></span
+              ></label>
+            </div>
+            <div class="g-switch-row">
+              <div class="g-switch-row-content">
+                <strong class="g-switch-row-title">维护模式</strong>
+              </div>
+              <label class="g-switch"
+                ><input type="checkbox" aria-label="维护模式" /><span
+                  class="g-switch-track"
+                ></span
+              ></label>
+            </div>
+          </section>
+        </div>
+        <fieldset class="g-fieldset g-mt-4">
+          <legend class="g-fieldset-legend">Choice Cards</legend>
+          <div class="g-choice-group">
+            <label class="g-choice-card"
+              ><input type="radio" name="plan" checked /><strong
+                class="g-choice-card-title"
+                >标准版</strong
+              ><span class="g-choice-card-description"
+                >适合个人站点和小团队。</span
+              ></label
+            ><label class="g-choice-card"
+              ><input type="radio" name="plan" /><strong
+                class="g-choice-card-title"
+                >企业版</strong
+              ><span class="g-choice-card-description"
+                >包含审计、SSO 与高级权限。</span
+              ></label
+            >
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="demo-section" id="business-groups">
+        <h2>Business Field Groups</h2>
+        <div class="g-form g-form-container">
+          <div class="g-name-group">
+            <div class="g-field">
+              <label class="g-label" for="family-name">姓</label
+              ><input class="g-input" id="family-name" />
+            </div>
+            <div class="g-field">
+              <label class="g-label" for="given-name">名</label
+              ><input class="g-input" id="given-name" />
+            </div>
+          </div>
+          <div class="g-address-group">
+            <div class="g-field g-address-line">
+              <label class="g-label" for="address-line">详细地址</label
+              ><input class="g-input" id="address-line" />
+            </div>
+            <div class="g-field g-address-city">
+              <label class="g-label" for="address-city">城市</label
+              ><input class="g-input" id="address-city" />
+            </div>
+            <div class="g-field g-address-region">
+              <label class="g-label" for="address-region">省/州</label
+              ><input class="g-input" id="address-region" />
+            </div>
+            <div class="g-field g-address-postal">
+              <label class="g-label" for="address-postal">邮编</label
+              ><input class="g-input" id="address-postal" />
+            </div>
+          </div>
+          <div class="demo-grid">
+            <div class="g-field">
+              <label class="g-label" for="phone-number">联系电话</label>
+              <div class="g-phone-group">
+                <select class="g-select" aria-label="国家或地区代码">
+                  <option>+86</option>
+                  <option>+1</option></select
+                ><input class="g-input" id="phone-number" type="tel" /><input
+                  class="g-input"
+                  aria-label="分机号"
+                  placeholder="分机"
+                />
+              </div>
+            </div>
+            <div class="g-field">
+              <label class="g-label" for="budget-amount">预算</label>
+              <div class="g-money-group">
+                <select class="g-select" aria-label="币种">
+                  <option>CNY</option>
+                  <option>USD</option></select
+                ><input
+                  class="g-input"
+                  id="budget-amount"
+                  inputmode="decimal"
+                  value="12800"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="demo-grid">
+            <div class="g-field">
+              <label class="g-label" for="date-start">活动日期</label>
+              <div class="g-date-range-group">
+                <input class="g-input" id="date-start" type="date" /><span
+                  class="g-range-separator"
+                  >至</span
+                ><input class="g-input" type="date" aria-label="结束日期" />
+              </div>
+            </div>
+            <div class="g-field">
+              <label class="g-label" for="time-start">工作时间</label>
+              <div class="g-time-range-group">
+                <input class="g-input" id="time-start" type="time" /><span
+                  class="g-range-separator"
+                  >至</span
+                ><input class="g-input" type="time" aria-label="结束时间" />
+              </div>
+            </div>
+          </div>
+          <div class="demo-grid">
+            <div class="g-field">
+              <label class="g-label" for="storage-size">存储限制</label>
+              <div class="g-unit-field">
+                <input
+                  class="g-input"
+                  id="storage-size"
+                  type="number"
+                  value="100"
+                /><span class="g-input-addon">GB</span>
+              </div>
+            </div>
+            <div class="g-field">
+              <label class="g-label" for="quality-range">图片质量</label>
+              <div class="g-range-field">
+                <input
+                  class="g-range"
+                  id="quality-range"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="82"
+                /><output class="g-range-field-output">82%</output>
+              </div>
+            </div>
+            <div class="g-file-field">
+              <label class="g-label" for="brand-logo">品牌 Logo</label>
+              <div class="g-file-field-control">
+                <input id="brand-logo" type="file" /><span
+                  class="g-file-field-name"
+                  >尚未选择文件</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="demo-card g-mb-4" dir="rtl">
+        <h3>RTL Money / Unit</h3>
+        <div class="g-form-row">
+          <div class="g-money-group">
+            <select class="g-select" aria-label="العملة">
+              <option>SAR</option></select
+            ><input class="g-input" aria-label="المبلغ" value="12800" />
+          </div>
+          <div class="g-unit-field">
+            <input class="g-input" aria-label="السعة" value="100" /><span
+              class="g-input-addon"
+              >GB</span
+            >
+          </div>
+        </div>
+      </aside>
+      <section class="demo-section" id="dynamic-fields">
+        <h2>Repeatable / Conditional</h2>
+        <div class="demo-grid">
+          <section class="demo-card">
+            <h3>Repeatable Field</h3>
+            <div
+              class="g-repeatable-field"
+              data-g-repeatable-field
+              data-g-min-items="1"
+              data-g-max-items="3"
+            >
+              <div class="g-repeatable-list" data-g-repeatable-list>
+                <div class="g-repeatable-item">
+                  <div class="g-repeatable-content g-field">
+                    <label class="g-label" for="link-0"
+                      >链接 <span data-g-item-number>1</span></label
+                    ><input
+                      class="g-input"
+                      id="link-0"
+                      name="links[0]"
+                      type="url"
+                      value="https://example.com"
+                    />
+                  </div>
+                  <div class="g-repeatable-actions">
+                    <button
+                      class="g-btn g-btn-ghost g-btn-sm"
+                      type="button"
+                      data-g-repeatable-remove
+                    >
+                      删除
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="g-btn g-btn-outline g-btn-sm"
+                type="button"
+                data-g-repeatable-add
+              >
+                添加链接</button
+              ><template data-g-repeatable-template
+                ><div class="g-repeatable-item">
+                  <div class="g-repeatable-content g-field">
+                    <label class="g-label" for="link-__INDEX__"
+                      >链接 <span data-g-item-number></span></label
+                    ><input
+                      class="g-input"
+                      id="link-__INDEX__"
+                      name="links[__INDEX__]"
+                      type="url"
+                    />
+                  </div>
+                  <div class="g-repeatable-actions">
+                    <button
+                      class="g-btn g-btn-ghost g-btn-sm"
+                      type="button"
+                      data-g-repeatable-remove
+                    >
+                      删除
+                    </button>
+                  </div>
+                </div></template
+              >
+            </div>
+          </section>
+          <section class="demo-card">
+            <h3>Conditional Field</h3>
+            <div class="g-field">
+              <label class="g-label" for="delivery-method">交付方式</label
+              ><select class="g-select" id="delivery-method">
+                <option value="pickup">到店自取</option>
+                <option value="shipping">快递配送</option>
+              </select>
+            </div>
+            <div
+              class="g-conditional-field g-mt-3"
+              data-g-conditional-field
+              data-g-controller="#delivery-method"
+              data-g-show-when="shipping"
+            >
+              <div class="g-field">
+                <label class="g-label" for="shipping-address">配送地址</label
+                ><input class="g-input" id="shipping-address" />
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="demo-section" id="workflow">
+        <h2>Progress / Review / Consent / Actions</h2>
+        <div class="demo-grid">
+          <section class="demo-card">
+            <h3>Form Progress</h3>
+            <div class="g-form-progress">
+              <div class="g-form-progress-meta">
+                <span>资料完成度</span><strong>72%</strong>
+              </div>
+              <div class="g-form-progress-track">
+                <div
+                  class="g-form-progress-value"
+                  style="--g-form-progress: 72%"
+                ></div>
+              </div>
+            </div>
+            <p class="g-autosave-status is-saving g-mt-4">正在保存更改…</p>
+          </section>
+          <section class="demo-card">
+            <h3>Review</h3>
+            <dl class="g-form-review">
+              <div class="g-form-review-row">
+                <dt class="g-form-review-label">企业名称</dt>
+                <dd class="g-form-review-value">Gardener Studio</dd>
+                <dd>
+                  <button class="g-btn g-btn-link g-btn-sm" type="button">
+                    编辑
+                  </button>
+                </dd>
+              </div>
+              <div class="g-form-review-row">
+                <dt class="g-form-review-label">发布范围</dt>
+                <dd class="g-form-review-value">全部访客</dd>
+                <dd>
+                  <button class="g-btn g-btn-link g-btn-sm" type="button">
+                    编辑
+                  </button>
+                </dd>
+              </div>
+            </dl>
+          </section>
+        </div>
+        <section class="g-consent-group g-mt-4" id="consent">
+          <strong class="g-consent-group-title">确认与授权</strong>
+          <p class="g-consent-group-description">
+            提交前请确认你有权代表该组织完成配置。
+          </p>
+          <label class="g-check"
+            ><input type="checkbox" />我已阅读并接受服务条款</label
+          >
+        </section>
+        <div class="g-form-actions is-sticky">
+          <button class="g-btn g-btn-outline" type="button">保存草稿</button
+          ><button class="g-btn g-btn-primary" type="button">确认提交</button>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../dist/gardener.runtime.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+name: Bug report
+description: Report a reproducible defect in Gardener.
+title: "[Bug]: "
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve Gardener. Do not disclose security vulnerabilities here; follow SECURITY.md.
+  - type: dropdown
+    id: package
+    attributes:
+      label: Affected package
+      options:
+        - "@gardener/css"
+        - "@gardener/vue"
+        - "@gardener/react"
+        - "@gardener/angularjs"
+        - "Gardener.Blazor"
+        - Website/documentation
+        - Repository tooling
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, operating system, framework/runtime, Node.js or .NET version, and relevant assistive technology.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Provide a repository, sandbox, or the smallest complete source needed to reproduce the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility impact
+      description: Include keyboard, focus, screen reader, forced-colors, reduced-motion, RTL, zoom, or mobile impact when relevant.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission checklist
+      options:
+        - label: I searched existing issues and documentation.
+          required: true
+        - label: This report contains no credentials, private data, or undisclosed vulnerability details.
+          required: true
+

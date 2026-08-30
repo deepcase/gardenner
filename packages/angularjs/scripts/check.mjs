@@ -1,0 +1,46 @@
+import { access, readFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+
+const root = resolve(import.meta.dirname, "..");
+const pkg = JSON.parse(await readFile(resolve(root, "package.json"), "utf8"));
+const api = JSON.parse(await readFile(resolve(root, "metadata/public-api.json"), "utf8"));
+const compatibility = JSON.parse(await readFile(resolve(root, "metadata/compatibility.json"), "utf8"));
+const css = JSON.parse(await readFile(resolve(root, "../css/metadata/components.json"), "utf8"));
+const runtime = JSON.parse(await readFile(resolve(root, "../css/metadata/public-api.json"), "utf8"));
+const builds = JSON.parse(await readFile(resolve(root, "../css/dist/gardener.builds.json"), "utf8"));
+const componentDocs = await readFile(resolve(root, "docs/components.md"), "utf8");
+const apiDocs = await readFile(resolve(root, "docs/API.md"), "utf8");
+const readme = await readFile(resolve(root, "README.md"), "utf8");
+const securityDocs = await readFile(resolve(root, "docs/security.md"), "utf8");
+const catalog = await import(pathToFileURL(resolve(root, "dist/generated/catalog.js")).href);
+const components = await import(pathToFileURL(resolve(root, "dist/generated/components.js")).href);
+const module = await import(pathToFileURL(resolve(root, "dist/index.js")).href);
+const errors = [];
+if (pkg.version !== "1.0.0" || api.version !== pkg.version || api.status !== "stable") errors.push("version/status is not Stable 1.0.0");
+if (catalog.componentCatalog.length !== css.components.length || css.components.length !== 506) errors.push("component catalog is incomplete");
+if (Object.keys(components.gardenerDirectives).length !== 506) errors.push("generated directive registry is incomplete");
+if (api.behaviors !== runtime.javascript.behaviors.length || api.behaviors !== 66) errors.push("runtime behavior coverage is incomplete");
+if (api.angularjs !== pkg.peerDependencies.angular || compatibility.baseline.angularjs !== api.angularjs) errors.push("AngularJS support range differs across package and compatibility contracts");
+if (JSON.stringify(api.packageEntrypoints) !== JSON.stringify(Object.keys(pkg.exports))) errors.push("package exports differ from the public API");
+if (JSON.stringify(compatibility.baseline.packageEntrypoints) !== JSON.stringify(Object.keys(pkg.exports))) errors.push("package exports differ from the compatibility baseline");
+if (JSON.stringify(api.moduleExports) !== JSON.stringify(Object.keys(module).sort())) errors.push("root module exports differ from the public API");
+if (JSON.stringify(compatibility.baseline.moduleExports) !== JSON.stringify(Object.keys(module).sort())) errors.push("root module exports differ from the compatibility baseline");
+if ((componentDocs.match(/^\| `G[^`]+Directive` \|/gmu) ?? []).length !== 506) errors.push("component documentation is incomplete");
+if (JSON.stringify(catalog.componentCatalog.map(({ name }) => name)) !== JSON.stringify(css.components.map(({ name }) => name))) errors.push("AngularJS catalog order differs from CSS metadata");
+for (const field of ["componentExports", "directiveNames", "elementNames"]) if (JSON.stringify(api[field]) !== JSON.stringify(catalog.componentCatalog.map((item) => item[field === "componentExports" ? "exportName" : field === "directiveNames" ? "directiveName" : "elementName"]))) errors.push(`public API differs from generated catalog: ${field}`);
+if (api.moduleExports.length !== 535 || api.typeExports.length !== 24 || api.packageEntrypoints.length !== 29 || api.services.length !== 3 || api.directives.length !== 2 || api.componentAttributes.length !== 8 || api.themeAxes.length !== 10) errors.push("public API inventory counts are incomplete");
+for (const field of ["componentExports", "directiveNames", "elementNames", "moduleExports", "typeExports", "packageEntrypoints", "services", "directives", "componentAttributes", "componentHandleMembers", "themeAxes"]) if (JSON.stringify(compatibility.baseline[field]) !== JSON.stringify(api[field])) errors.push(`compatibility baseline differs from public API: ${field}`);
+for (const marker of [...api.services, ...api.directives, ...api.componentAttributes, ...api.componentHandleMembers, ...api.themeAxes, ...api.typeExports, api.moduleFactory, "AngularJS 1.8", "Tauri", "Electron", "WCAG A/AA"]) if (!apiDocs.includes(marker)) errors.push(`API documentation is missing ${marker}`);
+for (const marker of ["506 个", "66 种", "1.0.0", "AngularJS 1.x", "release:verify"]) if (!readme.includes(marker)) errors.push(`README is missing ${marker}`);
+if (!readme.includes('import "angular/angular.js"') || readme.includes('import angular from "angular"')) errors.push("README does not use the supported AngularJS ESM side-effect import");
+for (const marker of ["AngularJS 1.8.2–1.8.3", "XSS", "SVG", "拒绝服务", "CSP", "Tauri/Electron", "peer dependency", "迁离 AngularJS"]) if (!securityDocs.includes(marker)) errors.push(`security baseline is missing ${marker}`);
+for (const definition of catalog.componentCatalog) {
+  if (!components.gardenerDirectives[definition.directiveName]) errors.push(`missing directive registry entry: ${definition.directiveName}`);
+  if (!(definition.exportName in components)) errors.push(`missing directive export: ${definition.exportName}`);
+  for (const behavior of definition.behaviors) if (!runtime.javascript.behaviors.includes(behavior)) errors.push(`unknown component behavior: ${definition.name}/${behavior}`);
+}
+if (builds.componentPacks.length !== 28) errors.push("CSS component pack source is incomplete");
+for (const pack of builds.componentPacks) await access(resolve(root, "dist/component-css", `${pack.name}.css`)).catch(() => errors.push(`missing component CSS proxy: ${pack.name}`));
+if (errors.length) throw new Error(`Gardener AngularJS check failed:\n- ${errors.join("\n- ")}`);
+console.log(`Checks passed: ${css.components.length} AngularJS directives, ${api.behaviors} behaviors, ${Object.keys(pkg.exports).length} package entrypoints.`);

@@ -1,0 +1,12 @@
+@inherits LayoutComponentBase
+
+<GardenerProvider Theme="garden" Mode="light" Shape="small" Platform="web" Class="demo-provider">
+    <GAppShell Class="demo-shell">
+        <header class="demo-header">
+            <a class="demo-brand" href="/">Gardener.Blazor</a>
+            <nav aria-label="主导航"><a href="/">组件台</a><a href="/catalog">完整目录</a></nav>
+        </header>
+        <main id="main-content" class="demo-main">@Body</main>
+    </GAppShell>
+</GardenerProvider>
+

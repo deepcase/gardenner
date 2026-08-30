@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.style/schema/components.schema.json",
+  "title": "Gardener component catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "components", "requiredStateMatrix", "requiredEnvironmentMatrix", "compositionAliases"],
+  "properties": {
+    "$schema": { "const": "./components.schema.json" },
+    "schemaVersion": { "const": 3 },
+    "components": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/component" } },
+    "requiredStateMatrix": { "$ref": "#/$defs/identifiers" },
+    "requiredEnvironmentMatrix": { "$ref": "#/$defs/identifiers" },
+    "compositionAliases": { "type": "object", "minProperties": 1, "propertyNames": { "$ref": "#/$defs/name" }, "additionalProperties": { "$ref": "#/$defs/name" } }
+  },
+  "$defs": {
+    "name": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$" },
+    "selector": { "type": "string", "pattern": "^(?:\\.g-|\\[data-g-).+" },
+    "classSelector": { "type": "string", "pattern": "^\\.g-[a-z0-9-]+$" },
+    "part": { "type": "string", "pattern": "^g-[a-z0-9]+(?:-[a-z0-9*]+)*$" },
+    "platform": { "enum": ["web", "mobile", "tablet", "desktop", "tauri", "electron", "pwa", "desktop-webview", "print"] },
+    "uniqueNames": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "identifiers": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9*]+)*$" }, "uniqueItems": true },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "roles": { "$ref": "#/$defs/uniqueNames" },
+        "keyboard": { "$ref": "#/$defs/uniqueNames" },
+        "attributes": { "$ref": "#/$defs/uniqueNames" },
+        "focusTrap": { "type": "boolean" }
+      },
+      "minProperties": 1
+    },
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "category", "type", "status", "selector", "platforms"],
+      "properties": {
+        "name": { "$ref": "#/$defs/name" },
+        "category": { "$ref": "#/$defs/name" },
+        "type": { "enum": ["css", "interactive"] },
+        "status": { "enum": ["css-ready", "runtime-ready", "experimental", "planned", "deprecated"] },
+        "selector": { "$ref": "#/$defs/selector" },
+        "cssSelector": { "$ref": "#/$defs/classSelector" },
+        "behaviors": { "type": "array", "items": { "$ref": "#/$defs/name" }, "minItems": 1, "uniqueItems": true },
+        "adapters": { "type": "array", "items": { "enum": ["tauri", "electron"] }, "minItems": 1, "uniqueItems": true },
+        "platforms": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/platform" }, "uniqueItems": true },
+        "parts": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/part" }, "uniqueItems": true },
+        "states": { "$ref": "#/$defs/identifiers" },
+        "variants": { "$ref": "#/$defs/identifiers" },
+        "features": { "$ref": "#/$defs/identifiers" },
+        "accessibility": { "$ref": "#/$defs/accessibility" }
+      },
+      "allOf": [{ "if": { "properties": { "type": { "const": "interactive" } }, "required": ["type"] }, "then": { "anyOf": [{ "properties": { "behaviors": {} }, "required": ["behaviors"] }, { "properties": { "adapters": {} }, "required": ["adapters"] }] } }]
+    }
+  }
+}

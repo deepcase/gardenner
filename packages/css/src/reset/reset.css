@@ -1,0 +1,16 @@
+@layer gardener.reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; tab-size: 4; }
+  body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd { margin: 0; }
+  body { min-height: 100vh; }
+  ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+  img, picture, video, canvas, svg { display: block; max-inline-size: 100%; }
+  img, video { block-size: auto; }
+  input, button, textarea, select { font: inherit; letter-spacing: inherit; }
+  button, select { text-transform: none; }
+  button, [type="button"], [type="reset"], [type="submit"] { appearance: button; }
+  textarea:not([rows]) { min-height: 8em; }
+  table { border-collapse: collapse; border-color: currentColor; text-indent: 0; }
+  :target { scroll-margin-block: 5rem; }
+  [hidden] { display: none !important; }
+}

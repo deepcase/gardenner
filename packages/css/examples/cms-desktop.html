@@ -1,0 +1,122 @@
+<!doctype html>
+<html
+  lang="zh-CN"
+  data-g-theme="violet"
+  data-g-platform="electron"
+  data-g-density="compact"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gardener 桌面 CMS</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+  </head>
+  <body>
+    <main class="g-desktop-shell">
+      <header class="g-titlebar">
+        <div class="g-titlebar-start">
+          <nav class="g-menubar">
+            <button class="g-menubar-item">文件</button
+            ><button class="g-menubar-item">编辑</button>
+          </nav>
+        </div>
+        <div class="g-titlebar-title">Gardener Studio — 企业官网</div>
+        <div class="g-titlebar-end">
+          <div class="g-window-controls">
+            <button
+              class="g-window-button"
+              data-g-window-action="minimize"
+              aria-label="最小化"
+            >
+              −</button
+            ><button
+              class="g-window-button"
+              data-g-window-action="maximize"
+              aria-label="最大化"
+            >
+              □</button
+            ><button
+              class="g-window-button"
+              data-g-window-action="close"
+              aria-label="关闭"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      </header>
+      <nav class="g-activitybar" aria-label="主工具">
+        <button class="g-activitybar-item is-active" aria-label="页面">
+          页</button
+        ><button class="g-activitybar-item" aria-label="媒体">图</button
+        ><button class="g-activitybar-item" aria-label="设置">设</button>
+      </nav>
+      <section class="g-workbench">
+        <aside class="g-workbench-sidebar">
+          <header class="g-cms-panel-header">
+            <strong>页面树</strong
+            ><button class="g-btn g-btn-ghost g-btn-icon" aria-label="添加页面">
+              +
+            </button>
+          </header>
+          <div class="g-p-3">
+            <div class="g-tree-item">首页</div>
+            <div class="g-tree-item">产品</div>
+            <div class="g-tree-item">关于我们</div>
+          </div>
+        </aside>
+        <div class="g-workbench-editor">
+          <nav class="g-editor-tabs">
+            <button class="g-editor-tab is-active">首页</button
+            ><button class="g-editor-tab">全局导航</button>
+          </nav>
+          <div class="g-cms-canvas">
+            <article class="g-cms-device">
+              <section class="g-cms-block is-selected g-p-8">
+                <span class="g-cms-block-handle">Hero · 拖动</span
+                ><span class="g-badge">新版</span>
+                <h1 class="g-mt-4">让内容团队更快发布</h1>
+                <p class="g-text-muted g-mt-3">
+                  这是桌面端、Tauri 与 Electron 共用的可视化 CMS 配方。
+                </p>
+                <button class="g-btn g-btn-primary g-mt-5">开始使用</button>
+              </section>
+            </article>
+          </div>
+          <footer class="g-publish-bar">
+            <span class="g-text-sm g-text-muted">所有更改已保存</span
+            ><button class="g-btn g-btn-primary">发布</button>
+          </footer>
+        </div>
+      </section>
+      <aside class="g-desktop-inspector">
+        <header class="g-cms-panel-header"><strong>属性</strong></header>
+        <div class="g-p-3 g-grid g-gap-3">
+          <label class="g-field"
+            ><span class="g-label">标题</span
+            ><input class="g-input" value="让内容团队更快发布" /></label
+          ><label class="g-field"
+            ><span class="g-label">内边距</span
+            ><select class="g-select">
+              <option>宽松</option>
+              <option>标准</option>
+            </select></label
+          >
+        </div>
+      </aside>
+      <footer class="g-desktop-statusbar">
+        <div class="g-desktop-status-group">
+          <span class="g-desktop-status-item">已连接</span>
+        </div>
+        <div class="g-desktop-status-group">
+          <span class="g-desktop-status-item">zh-CN</span
+          ><span class="g-desktop-status-item">100%</span>
+        </div>
+      </footer>
+    </main>
+    <script type="module">
+      import { bindElectronWindowControls } from "../dist/gardener.electron.js";
+      bindElectronWindowControls();
+    </script>
+  </body>
+</html>

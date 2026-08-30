@@ -1,0 +1,133 @@
+@layer gardener.components {
+  :where(.g-native-titlebar, .g-desktop-window-controls, .g-desktop-menubar, .g-desktop-activity-bar, .g-desktop-dock-panel, .g-desktop-split-pane, .g-desktop-inspector-panel, .g-desktop-status-bar, .g-desktop-command-palette, .g-shortcut-recorder, .g-desktop-context-menu, .g-desktop-document-tabs, .g-desktop-drag-region, .g-window-loading, .g-update-available, .g-desktop-permission-request, .g-native-file-picker, .g-tray-menu, .g-multi-window-placeholder, .g-desktop-workspace, .g-desktop-window-switcher, .g-recent-documents, .g-desktop-toolbar, .g-desktop-bottom-panel, .g-background-task-center, .g-desktop-notification-center, .g-sync-status, .g-update-progress, .g-crash-recovery, .g-single-instance-notice, .g-deep-link-handler, .g-about-dialog) { box-sizing: border-box; }
+
+  .g-desktop-workspace { --g-desktop-titlebar-size: 2.25rem; --g-desktop-status-size: 1.5rem; display: grid; grid-template: "title title title" var(--g-desktop-titlebar-size) "activity main inspector" minmax(0, 1fr) "status status status" var(--g-desktop-status-size) / auto minmax(0, 1fr) auto; inline-size: 100%; block-size: 100dvh; min-inline-size: 20rem; overflow: hidden; background: var(--g-color-canvas); color: var(--g-color-text); user-select: none; container: g-desktop-workspace / inline-size; }
+  .g-desktop-workspace.is-contained { block-size: var(--g-desktop-contained-height, 38rem); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); }
+  .g-desktop-workspace-main { grid-area: main; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; min-inline-size: 0; min-block-size: 0; overflow: hidden; background: var(--g-color-surface); }
+
+  .g-native-titlebar { grid-area: title; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; min-block-size: var(--g-desktop-titlebar-size, 2.25rem); border-block-end: 1px solid var(--g-color-border); background: var(--g-color-surface); -webkit-app-region: drag; app-region: drag; }
+  .g-native-titlebar-start, .g-native-titlebar-end { display: flex; min-inline-size: 0; block-size: 100%; align-items: center; }
+  .g-native-titlebar-end { justify-content: end; }
+  .g-native-titlebar-title { min-inline-size: 0; overflow: hidden; font-size: var(--g-font-size-xs); font-weight: 600; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+  .g-desktop-drag-region { -webkit-app-region: drag; app-region: drag; user-select: none; }
+  :where(.g-desktop-no-drag, .g-native-titlebar button, .g-native-titlebar a, .g-native-titlebar input, .g-desktop-window-controls) { -webkit-app-region: no-drag; app-region: no-drag; }
+
+  .g-desktop-window-controls { display: flex; block-size: 100%; margin-inline-start: auto; }
+  .g-desktop-window-button { display: grid; inline-size: 2.875rem; block-size: 100%; place-items: center; border: 0; border-radius: 0; background: transparent; color: inherit; }
+  .g-desktop-window-button:is(:hover, :focus-visible) { background: var(--g-color-surface-subtle); }
+  .g-desktop-window-button[data-g-window-action="close"]:hover { background: #c42b1c; color: #fff; }
+
+  .g-desktop-menubar, .g-desktop-toolbar { display: flex; min-inline-size: 0; align-items: center; gap: var(--g-space-1); border-block-end: 1px solid var(--g-color-border); background: var(--g-color-surface); }
+  .g-desktop-menubar { block-size: 100%; border: 0; }
+  .g-desktop-menubar-item { display: inline-flex; block-size: 100%; align-items: center; padding-inline: var(--g-space-2); border: 0; border-radius: 0; background: transparent; color: inherit; font-size: var(--g-font-size-xs); }
+  .g-desktop-menubar-item:is(:hover, :focus-visible, [aria-expanded="true"]) { background: var(--g-color-surface-subtle); }
+  .g-desktop-toolbar { min-block-size: 2.5rem; padding: var(--g-space-1) var(--g-space-2); }
+  .g-desktop-toolbar-group { display: flex; align-items: center; gap: var(--g-space-1); }
+  .g-desktop-toolbar-separator { inline-size: 1px; block-size: 1.25rem; margin-inline: var(--g-space-1); background: var(--g-color-border); }
+
+  .g-desktop-activity-bar { grid-area: activity; display: flex; flex-direction: column; align-items: center; gap: var(--g-space-1); inline-size: var(--g-desktop-activity-size, 3rem); overflow: hidden; border-inline-end: 1px solid var(--g-color-border); background: var(--g-color-surface-subtle); }
+  .g-desktop-activity-item { position: relative; display: grid; inline-size: 100%; min-block-size: 3rem; place-items: center; border: 0; border-radius: 0; background: transparent; color: var(--g-color-text-muted); }
+  .g-desktop-activity-item:is(.is-active, [aria-current="page"]) { color: var(--g-color-text); }
+  .g-desktop-activity-item:is(.is-active, [aria-current="page"])::before { content: ""; position: absolute; inset-block: .45rem; inset-inline-start: 0; inline-size: 2px; background: var(--g-color-primary); }
+
+  .g-desktop-dock-panel, .g-desktop-inspector-panel, .g-desktop-bottom-panel { display: grid; grid-template-rows: auto minmax(0, 1fr); min-inline-size: 0; min-block-size: 0; overflow: hidden; border-color: var(--g-color-border); background: var(--g-color-surface); }
+  .g-desktop-dock-panel { inline-size: var(--g-desktop-dock-size, 16rem); border-inline-end: 1px solid var(--g-color-border); }
+  .g-desktop-inspector-panel { grid-area: inspector; inline-size: var(--g-desktop-inspector-size, 18rem); border-inline-start: 1px solid var(--g-color-border); }
+  .g-desktop-bottom-panel { block-size: var(--g-desktop-bottom-panel-size, 12rem); border-block-start: 1px solid var(--g-color-border); }
+  .g-desktop-panel-header { display: flex; min-block-size: 2.25rem; align-items: center; justify-content: space-between; gap: var(--g-space-2); padding-inline: var(--g-space-3); border-block-end: 1px solid var(--g-color-border); background: var(--g-color-surface-subtle); font-size: var(--g-font-size-xs); font-weight: 650; }
+  .g-desktop-panel-body { min-inline-size: 0; min-block-size: 0; overflow: auto; padding: var(--g-desktop-panel-padding, var(--g-space-3)); }
+  :where(.g-desktop-dock-panel, .g-desktop-inspector-panel, .g-desktop-bottom-panel).is-collapsed { display: none; }
+
+  .g-desktop-split-pane { display: flex; min-inline-size: 0; min-block-size: 0; overflow: hidden; }
+  .g-desktop-split-pane[data-g-orientation="vertical"] { flex-direction: column; }
+  .g-desktop-split-pane > .g-split-panel { min-inline-size: 0; min-block-size: 0; overflow: auto; }
+  .g-desktop-split-pane .g-split-handle { position: relative; z-index: 2; flex: 0 0 4px; background: transparent; touch-action: none; }
+  .g-desktop-split-pane .g-split-handle:is(:hover, :focus-visible, .is-dragging) { background: var(--g-color-primary); }
+
+  .g-desktop-status-bar { grid-area: status; display: flex; min-inline-size: 0; align-items: center; justify-content: space-between; gap: var(--g-space-2); padding-inline: var(--g-space-2); overflow: hidden; background: var(--g-color-primary); color: var(--g-color-on-primary); font-size: .6875rem; }
+  .g-desktop-status-group { display: flex; min-inline-size: 0; block-size: 100%; align-items: center; }
+  .g-desktop-status-item { display: flex; block-size: 100%; align-items: center; gap: .3rem; padding-inline: var(--g-space-2); border: 0; border-radius: 0; background: transparent; color: inherit; white-space: nowrap; }
+  .g-desktop-status-item:hover { background: rgb(255 255 255 / .14); }
+
+  .g-desktop-command-palette { position: fixed; z-index: var(--g-z-dialog); inset: 0; display: grid; align-items: start; justify-items: center; padding-block-start: min(18vh, 9rem); background: rgb(15 23 42 / .28); }
+  .g-desktop-command-palette[hidden] { display: none; }
+  .g-desktop-command-panel { inline-size: min(calc(100% - 2rem), 38rem); overflow: hidden; border: 1px solid var(--g-color-border-strong); border-radius: var(--g-radius-md); background: var(--g-color-surface); box-shadow: var(--g-shadow-lg); }
+  .g-desktop-command-input { inline-size: 100%; min-block-size: 3rem; padding-inline: var(--g-space-4); border: 0; border-block-end: 1px solid var(--g-color-border); outline: 0; background: transparent; color: inherit; }
+  .g-desktop-command-results { max-block-size: min(50vh, 24rem); overflow: auto; padding: var(--g-space-1); }
+  .g-desktop-command-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--g-space-3); min-block-size: 2.5rem; padding: var(--g-space-2) var(--g-space-3); border-radius: var(--g-radius-md); }
+  .g-desktop-command-item:is(.is-active, [aria-selected="true"]) { background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
+
+  .g-shortcut-recorder { display: grid; gap: var(--g-space-2); }
+  .g-shortcut-recorder-control { display: flex; min-block-size: 2.5rem; align-items: center; justify-content: space-between; gap: var(--g-space-3); padding: var(--g-space-2) var(--g-space-3); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: inherit; text-align: start; }
+  .g-shortcut-recorder-control.is-recording { border-color: var(--g-color-primary); outline: var(--g-focus-ring-width) solid var(--g-focus-ring); }
+  .g-shortcut-recorder-keys { display: flex; align-items: center; gap: var(--g-space-1); }
+  .g-shortcut-recorder-status { color: var(--g-color-text-muted); font-size: var(--g-font-size-xs); }
+
+  .g-desktop-context-menu, .g-tray-menu { inline-size: min(var(--g-desktop-menu-width, 17rem), calc(100vw - 1rem)); padding: var(--g-space-1); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); box-shadow: var(--g-shadow-md); }
+  .g-desktop-context-menu[hidden], .g-tray-menu[hidden] { display: none; }
+  .g-desktop-menu-item { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr) auto; align-items: center; gap: var(--g-space-2); inline-size: 100%; min-block-size: 2rem; padding: var(--g-space-1) var(--g-space-2); border: 0; border-radius: calc(var(--g-radius-md) - 1px); background: transparent; color: inherit; font-size: var(--g-font-size-sm); text-align: start; }
+  .g-desktop-menu-item:is(:hover, :focus-visible) { background: var(--g-color-surface-subtle); }
+  .g-desktop-menu-item[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+  .g-desktop-menu-separator { block-size: 1px; margin: var(--g-space-1); background: var(--g-color-border); }
+
+  .g-desktop-document-tabs { display: flex; min-inline-size: 0; overflow-x: auto; border-block-end: 1px solid var(--g-color-border); background: var(--g-color-surface-subtle); scrollbar-width: thin; }
+  .g-desktop-document-tab { position: relative; display: flex; flex: 0 0 auto; max-inline-size: 16rem; min-block-size: 2.25rem; align-items: center; gap: var(--g-space-2); padding-inline: var(--g-space-3); border: 0; border-inline-end: 1px solid var(--g-color-border); border-radius: 0; background: transparent; color: var(--g-color-text-muted); }
+  .g-desktop-document-tab:is(.is-active, [aria-selected="true"]) { background: var(--g-color-surface); color: var(--g-color-text); }
+  .g-desktop-document-tab.is-dirty::after { content: ""; inline-size: .45rem; block-size: .45rem; border-radius: var(--g-radius-full); background: currentColor; }
+  .g-desktop-document-tab-close { display: grid; inline-size: 1.25rem; block-size: 1.25rem; place-items: center; border: 0; border-radius: var(--g-radius-sm); background: transparent; color: inherit; }
+  .g-desktop-document-tab-close:hover { background: var(--g-color-surface-subtle); }
+
+  .g-window-loading, .g-multi-window-placeholder, .g-crash-recovery, .g-about-dialog { display: grid; justify-items: center; align-content: center; gap: var(--g-space-3); min-block-size: var(--g-desktop-state-min-height, 18rem); padding: var(--g-space-6); text-align: center; background: var(--g-color-surface); }
+  .g-about-dialog[hidden] { display: none; }
+  .g-window-loading-icon, .g-desktop-state-icon, .g-about-dialog-icon { display: grid; inline-size: 3.5rem; block-size: 3.5rem; place-items: center; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface-subtle); color: var(--g-color-primary-text); }
+  .g-window-loading-progress { inline-size: min(100%, 18rem); }
+  .g-desktop-state-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--g-space-2); }
+
+  .g-update-available, .g-desktop-permission-request, .g-single-instance-notice, .g-deep-link-handler { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: var(--g-space-3); padding: var(--g-space-4); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
+  .g-desktop-notice-icon { display: grid; inline-size: 2.5rem; block-size: 2.5rem; place-items: center; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface-subtle); color: var(--g-color-primary-text); }
+  .g-desktop-notice-main { min-inline-size: 0; }
+  .g-desktop-notice-actions { display: flex; align-items: center; gap: var(--g-space-2); }
+
+  .g-native-file-picker { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--g-space-2); }
+  .g-native-file-picker-value { min-inline-size: 0; min-block-size: 2.5rem; padding: var(--g-space-2) var(--g-space-3); overflow: hidden; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: var(--g-color-text-muted); text-overflow: ellipsis; white-space: nowrap; }
+  .g-native-file-picker input[type="file"] { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); }
+
+  .g-desktop-window-switcher { position: fixed; z-index: var(--g-z-dialog); inset: 0; display: grid; place-items: center; background: rgb(15 23 42 / .24); }
+  .g-desktop-window-switcher[hidden] { display: none; }
+  .g-desktop-window-switcher-panel { inline-size: min(calc(100% - 2rem), 42rem); padding: var(--g-space-3); border: 1px solid var(--g-color-border-strong); border-radius: var(--g-radius-md); background: var(--g-color-surface); box-shadow: var(--g-shadow-lg); }
+  .g-desktop-window-list, .g-recent-documents { display: grid; gap: var(--g-space-1); }
+  .g-desktop-window-item, .g-recent-document { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--g-space-3); min-block-size: 2.75rem; padding: var(--g-space-2) var(--g-space-3); border: 0; border-radius: var(--g-radius-md); background: transparent; color: inherit; text-align: start; }
+  :where(.g-desktop-window-item, .g-recent-document):is(:hover, :focus-visible, [aria-selected="true"]) { background: var(--g-color-surface-subtle); }
+  .g-recent-document-main, .g-desktop-window-main { min-inline-size: 0; }
+  .g-recent-document-path { display: block; overflow: hidden; color: var(--g-color-text-muted); font-size: var(--g-font-size-xs); text-overflow: ellipsis; white-space: nowrap; }
+
+  .g-background-task-center, .g-desktop-notification-center { display: grid; gap: var(--g-space-2); inline-size: min(100%, 24rem); }
+  .g-background-task, .g-desktop-notification { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: var(--g-space-3); padding: var(--g-space-3); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
+  .g-background-task-main, .g-desktop-notification-main { min-inline-size: 0; }
+  .g-background-task-progress { grid-column: 2 / -1; inline-size: 100%; }
+  .g-desktop-notification.is-unread { border-inline-start: 3px solid var(--g-color-primary); }
+
+  .g-sync-status { display: inline-flex; align-items: center; gap: var(--g-space-2); color: var(--g-color-text-muted); font-size: var(--g-font-size-xs); }
+  .g-sync-status-dot { inline-size: .5rem; block-size: .5rem; border-radius: var(--g-radius-full); background: var(--g-color-success); }
+  .g-sync-status.is-syncing .g-sync-status-dot { background: var(--g-color-info); animation: g-desktop-pulse 1.2s ease-in-out infinite; }
+  .g-sync-status.is-error .g-sync-status-dot { background: var(--g-color-danger); }
+  .g-update-progress { display: grid; gap: var(--g-space-3); padding: var(--g-space-4); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
+  .g-update-progress-header { display: flex; justify-content: space-between; gap: var(--g-space-3); }
+  .g-update-progress-track { block-size: .4rem; overflow: hidden; background: var(--g-color-surface-subtle); }
+  .g-update-progress-value { inline-size: var(--g-update-progress, 0%); block-size: 100%; background: var(--g-color-primary); }
+
+  @keyframes g-desktop-pulse { 50% { opacity: .35; } }
+
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-native-titlebar { grid-template-columns: auto minmax(0, 1fr) auto; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-desktop-window-controls { order: -1; flex-direction: row-reverse; gap: .45rem; padding-inline: .75rem; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-desktop-window-button { inline-size: .75rem; block-size: .75rem; border-radius: var(--g-radius-full); font-size: 0; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-desktop-window-button[data-g-window-action="close"] { background: #ff5f57; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-desktop-window-button[data-g-window-action="minimize"] { background: #febc2e; }
+  :is([data-g-os="macos"], [data-g-platform="macos"]) .g-desktop-window-button[data-g-window-action="maximize"] { background: #28c840; }
+
+  @container g-desktop-workspace (max-width: 56rem) { .g-desktop-inspector-panel { display: none; } }
+  @container g-desktop-workspace (max-width: 40rem) { .g-desktop-dock-panel { display: none; } .g-native-titlebar { grid-template-columns: minmax(0, 1fr) auto; } .g-native-titlebar-start { display: none; } .g-native-titlebar-title { padding-inline: var(--g-space-3); text-align: start; } }
+  @media (prefers-reduced-motion: reduce) { .g-sync-status.is-syncing .g-sync-status-dot { animation: none; } }
+  @media (forced-colors: active) { .g-desktop-activity-item[aria-current], .g-desktop-document-tab[aria-selected="true"], .g-desktop-command-item[aria-selected="true"] { outline: 2px solid Highlight; outline-offset: -2px; } .g-update-progress-value, .g-sync-status-dot { background: Highlight; } }
+  @media print { .g-native-titlebar, .g-desktop-window-controls, .g-desktop-menubar, .g-desktop-activity-bar, .g-desktop-status-bar, .g-desktop-toolbar, .g-desktop-bottom-panel, .g-desktop-command-palette, .g-desktop-context-menu, .g-tray-menu, .g-desktop-window-switcher { display: none !important; } .g-desktop-workspace { display: block; block-size: auto; overflow: visible; } .g-desktop-workspace-main, .g-desktop-dock-panel, .g-desktop-inspector-panel { display: block; inline-size: auto; overflow: visible; border: 0; } }
+}

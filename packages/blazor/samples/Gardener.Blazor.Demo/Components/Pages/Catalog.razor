@@ -1,0 +1,26 @@
+@page "/catalog"
+
+<PageTitle>Gardener.Blazor 完整目录</PageTitle>
+<h1>506 个组件</h1>
+<p>本页直接读取生成目录，不维护易遗漏的手写副本。</p>
+<label for="search">筛选组件</label>
+<input id="search" class="g-input" @bind="Query" @bind:event="oninput" />
+<p aria-live="polite">显示 @Filtered.Count 个组件</p>
+<div class="demo-catalog">
+@foreach (var item in Filtered)
+{
+    <article class="g-card demo-catalog-item">
+        <strong>@item.ComponentType</strong>
+        <span>@item.Name · @item.Category · @item.Kind</span>
+        <code>@(item.ClassName ?? item.Selector)</code>
+    </article>
+}
+</div>
+
+@code {
+    private string Query { get; set; } = string.Empty;
+    private IReadOnlyList<Gardener.Blazor.Models.GardenerComponentDefinition> Filtered => GardenerCatalog.Components
+        .Where(item => string.IsNullOrWhiteSpace(Query) || item.Name.Contains(Query, StringComparison.OrdinalIgnoreCase) || item.ComponentType.Contains(Query, StringComparison.OrdinalIgnoreCase) || item.Category.Contains(Query, StringComparison.OrdinalIgnoreCase))
+        .ToArray();
+}
+

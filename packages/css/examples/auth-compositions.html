@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="forest" data-g-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Gardener 登录与账号体系</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+    <style>
+      @layer gardener.overrides {
+        body {
+          background: #fff;
+        }
+        .demo-wrap {
+          width: min(100% - 2rem, 76rem);
+          margin-inline: auto;
+          padding-block: 3rem;
+        }
+        .demo-grid {
+          display: grid;
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(min(100%, 22rem), 1fr)
+          );
+          gap: 1rem;
+        }
+        .demo-wide {
+          grid-column: 1/-1;
+        }
+        .demo-card {
+          padding: 1.25rem;
+          border: 1px solid var(--g-color-border);
+          border-radius: var(--g-radius-md);
+          background: #fff;
+        }
+        .demo-card > h2 {
+          margin-block-end: 1rem;
+          font-size: 1.05rem;
+        }
+        .demo-qr {
+          background: repeating-conic-gradient(#111 0 25%, #fff 0 50%) 50%/1rem
+            1rem;
+          inline-size: 8rem;
+          aspect-ratio: 1;
+        }
+        .demo-shell {
+          min-block-size: 34rem;
+        }
+        .demo-shell.g-auth-centered,
+        .demo-shell.g-auth-split {
+          border: 1px solid var(--g-color-border);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-wrap">
+      <header class="g-stack g-gap-2 g-mb-8">
+        <span class="g-badge">第 11 类 · 32 patterns</span>
+        <h1>登录与账号体系</h1>
+        <p class="g-text-muted">
+          从登录入口到身份、会话、设备和安全审计的完整生命周期。
+        </p>
+      </header>
+
+      <section class="demo-grid" aria-label="认证外壳与入口">
+        <article class="demo-card demo-wide">
+          <h2>01–03 居中 / 分栏 / 登录</h2>
+          <div class="g-auth-split demo-shell">
+            <aside class="g-auth-split-aside">
+              <div class="g-auth-brand-row">
+                <span class="g-auth-brand-mark">G</span
+                ><span>Gardener Cloud</span>
+              </div>
+              <div>
+                <h3>统一管理内容、成员与品牌</h3>
+                <p class="g-auth-description">
+                  适用于 Web、移动后台和桌面 WebView。
+                </p>
+              </div>
+            </aside>
+            <div class="g-auth-split-main">
+              <div class="g-auth-container">
+                <form class="g-auth-panel g-sign-in">
+                  <header class="g-auth-header">
+                    <h2 class="g-auth-title">欢迎回来</h2>
+                    <p class="g-auth-description">登录企业工作区</p>
+                  </header>
+                  <div class="g-auth-provider-list">
+                    <button class="g-auth-provider" type="button">
+                      <span class="g-auth-provider-icon">S</span
+                      ><span>使用企业 SSO</span><span>›</span>
+                    </button>
+                  </div>
+                  <div class="g-auth-divider">或使用邮箱</div>
+                  <div class="g-auth-form">
+                    <label class="g-field"
+                      ><span class="g-label">邮箱</span
+                      ><input
+                        class="g-input"
+                        type="email"
+                        autocomplete="username"
+                        value="admin@example.com"
+                    /></label>
+                    <div class="g-password-field" data-g-password-toggle>
+                      <label class="g-label" for="signin-password">密码</label
+                      ><input
+                        class="g-input"
+                        id="signin-password"
+                        type="password"
+                        autocomplete="current-password"
+                        value="Gardener2026!"
+                      /><button
+                        class="g-password-field-action"
+                        type="button"
+                        data-g-password-button
+                      >
+                        <span data-g-password-label>显示密码</span>
+                      </button>
+                    </div>
+                    <div class="g-sign-in-options">
+                      <label class="g-check"
+                        ><input type="checkbox" /> 保持登录</label
+                      ><a href="#recovery">忘记密码？</a>
+                    </div>
+                    <button
+                      class="g-btn g-btn-primary g-btn-block"
+                      type="submit"
+                    >
+                      登录
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="g-auth-centered g-mt-4" style="min-block-size: 12rem">
+            <div class="g-auth-container">
+              <div class="g-auth-panel">
+                <strong>居中外壳</strong
+                ><span class="g-auth-description"
+                  >单列产品、移动端和弹窗式入口</span
+                >
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <h2>04 注册</h2>
+          <form class="g-registration">
+            <div class="g-auth-header">
+              <h3 class="g-auth-title">创建账号</h3>
+              <p class="g-auth-description">免费开始，随时升级。</p>
+            </div>
+            <label class="g-field"
+              ><span class="g-label">姓名</span
+              ><input class="g-input" autocomplete="name" /></label
+            ><label class="g-field"
+              ><span class="g-label">工作邮箱</span
+              ><input
+                class="g-input"
+                type="email"
+                autocomplete="email" /></label
+            ><label class="g-registration-terms"
+              ><span
+                ><input type="checkbox" /> 同意服务条款与隐私政策</span
+              ></label
+            ><button class="g-btn g-btn-primary" type="submit">注册</button>
+          </form>
+        </article>
+        <article class="demo-card" id="recovery">
+          <h2>05 找回密码</h2>
+          <form class="g-password-recovery">
+            <header class="g-auth-header">
+              <h3 class="g-auth-title">找回账号</h3>
+              <p class="g-auth-description">选择接收恢复链接的方式。</p>
+            </header>
+            <div class="g-password-recovery-methods">
+              <label class="g-auth-method"
+                ><input type="radio" name="recover" checked /><span
+                  >邮箱 · a***@example.com</span
+                ><span>推荐</span></label
+              ><label class="g-auth-method"
+                ><input type="radio" name="recover" /><span
+                  >手机 · 138****6608</span
+                ></label
+              >
+            </div>
+            <button class="g-btn g-btn-primary" type="submit">继续</button>
+          </form>
+        </article>
+        <article class="demo-card">
+          <h2>06 重置密码 / 30 密码强度</h2>
+          <form class="g-password-reset">
+            <label class="g-field"
+              ><span class="g-label">新密码</span
+              ><input
+                class="g-input"
+                id="reset-password"
+                type="password"
+                autocomplete="new-password"
+            /></label>
+            <div
+              class="g-password-strength"
+              data-g-password-strength
+              data-g-password-target="reset-password"
+            >
+              <div class="g-password-strength-header">
+                <span>密码强度</span
+                ><strong data-g-password-strength-label>未设置</strong>
+              </div>
+              <div
+                class="g-password-strength-meter"
+                data-g-password-strength-meter
+              >
+                <i class="g-password-strength-value"></i>
+              </div>
+              <ul class="g-password-rules">
+                <li class="g-password-rule" data-g-password-rule="length">
+                  至少 8 位
+                </li>
+                <li class="g-password-rule" data-g-password-rule="upper">
+                  大写字母
+                </li>
+                <li class="g-password-rule" data-g-password-rule="lower">
+                  小写字母
+                </li>
+                <li class="g-password-rule" data-g-password-rule="number">
+                  数字
+                </li>
+                <li class="g-password-rule" data-g-password-rule="symbol">
+                  符号
+                </li>
+              </ul>
+            </div>
+            <button class="g-btn g-btn-primary" type="submit">
+              保存新密码
+            </button>
+          </form>
+        </article>
+
+        <article class="demo-card">
+          <h2>07 邮箱验证 / 14 Magic Link</h2>
+          <div class="g-email-verification g-auth-status">
+            <span class="g-verification-icon">✉</span>
+            <h3>检查你的邮箱</h3>
+            <p class="g-auth-description">
+              验证邮件已发送至
+              <span class="g-verification-address">admin@example.com</span>
+            </p>
+            <span class="g-auth-timer" data-g-auth-timer data-g-duration="5"
+              ><span data-g-auth-time></span
+              ><button
+                class="g-auth-timer-button"
+                data-g-auth-timer-reset
+                type="button"
+              >
+                重新发送
+              </button></span
+            >
+          </div>
+          <div class="g-magic-link g-auth-status g-mt-5">
+            <strong>Magic Link 登录</strong
+            ><span class="g-auth-description"
+              >链接 10 分钟内有效且仅可使用一次。</span
+            >
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>08 手机验证 / 10 OTP</h2>
+          <div class="g-phone-verification">
+            <p>
+              验证码已发送至
+              <span class="g-verification-address">+86 138****6608</span>
+            </p>
+            <div class="g-otp-input" data-g-otp-input>
+              <input
+                class="g-otp-cell"
+                data-g-otp-cell
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="验证码第 1 位"
+              /><input
+                class="g-otp-cell"
+                data-g-otp-cell
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="验证码第 2 位"
+              /><input
+                class="g-otp-cell"
+                data-g-otp-cell
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="验证码第 3 位"
+              /><input
+                class="g-otp-cell"
+                data-g-otp-cell
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="验证码第 4 位"
+              /><input
+                class="g-otp-cell"
+                data-g-otp-cell
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="验证码第 5 位"
+              /><input
+                class="g-otp-cell"
+                data-g-otp-cell
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="验证码第 6 位"
+              /><input type="hidden" data-g-otp-output />
+            </div>
+            <p class="g-auth-help">支持逐位输入、退格、方向键和整串粘贴。</p>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>09 MFA</h2>
+          <div class="g-mfa-challenge">
+            <div class="g-auth-header">
+              <h3 class="g-auth-title">双重验证</h3>
+              <p class="g-auth-description">使用验证器、安全密钥或恢复码。</p>
+            </div>
+            <div class="g-mfa-methods">
+              <button class="g-auth-provider" type="button">
+                <span class="g-auth-provider-icon">A</span
+                ><span>验证器应用</span><span>当前</span></button
+              ><button class="g-auth-provider" type="button">
+                <span class="g-auth-provider-icon">K</span><span>安全密钥</span
+                ><span>›</span>
+              </button>
+            </div>
+            <label class="g-trusted-device"
+              ><input type="checkbox" /><span
+                >信任此设备 30 天<br /><small class="g-text-muted"
+                  >仅在私人设备上启用</small
+                ></span
+              ></label
+            >
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>11 Passkey</h2>
+          <div class="g-passkey">
+            <div class="g-passkey-graphic" aria-hidden="true">
+              <i class="g-passkey-device"></i><i class="g-passkey-device"></i
+              ><i class="g-passkey-device"></i>
+            </div>
+            <div class="g-auth-header">
+              <h3>使用通行密钥</h3>
+              <p class="g-auth-description">通过指纹、人脸或设备 PIN 登录。</p>
+            </div>
+            <button class="g-btn g-btn-primary" type="button">
+              继续使用 Passkey
+            </button>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>12 SSO</h2>
+          <div class="g-sso">
+            <div class="g-auth-provider-list">
+              <button class="g-auth-provider" type="button">
+                <span class="g-auth-provider-icon">M</span
+                ><span>Microsoft Entra ID</span><span>›</span></button
+              ><button class="g-auth-provider" type="button">
+                <span class="g-auth-provider-icon">G</span
+                ><span>Google Workspace</span><span>›</span></button
+              ><button class="g-auth-provider" type="button">
+                <span class="g-auth-provider-icon">S</span><span>SAML 2.0</span
+                ><span>›</span>
+              </button>
+            </div>
+            <label class="g-field"
+              ><span class="g-label">企业域名</span
+              ><input class="g-input" placeholder="company.com"
+            /></label>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>13 二维码登录</h2>
+          <div class="g-qr-login" data-g-auth-timer data-g-duration="5">
+            <div class="g-qr-login-layout">
+              <div class="g-qr-code">
+                <span class="demo-qr" role="img" aria-label="示例二维码"></span>
+              </div>
+              <div>
+                <h3>手机扫码登录</h3>
+                <ol class="g-auth-description">
+                  <li>打开企业 App</li>
+                  <li>扫描二维码</li>
+                  <li>确认登录</li>
+                </ol>
+                <span class="g-auth-timer"
+                  ><span data-g-auth-time></span
+                  ><button
+                    class="g-auth-timer-button"
+                    data-g-auth-timer-reset
+                    type="button"
+                  >
+                    刷新二维码
+                  </button></span
+                >
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <h2>15 邀请加入</h2>
+          <div class="g-invitation">
+            <header class="g-auth-header">
+              <h3>加入 Acme 工作区</h3>
+              <p class="g-auth-description">Lin 邀请你以编辑者身份协作。</p>
+            </header>
+            <dl class="g-invitation-details">
+              <div class="g-invitation-row">
+                <dt class="g-invitation-label">组织</dt>
+                <dd>Acme Inc.</dd>
+              </div>
+              <div class="g-invitation-row">
+                <dt class="g-invitation-label">角色</dt>
+                <dd>内容编辑者</dd>
+              </div>
+              <div class="g-invitation-row">
+                <dt class="g-invitation-label">有效期</dt>
+                <dd>7 天</dd>
+              </div>
+            </dl>
+            <div class="g-auth-actions">
+              <button class="g-btn g-btn-primary">接受邀请</button
+              ><button class="g-btn g-btn-outline">拒绝</button>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>16 首次设置 / 22 资料完善</h2>
+          <form class="g-first-time-setup">
+            <div class="g-profile-setup">
+              <span class="g-auth-avatar">林</span
+              ><label class="g-field"
+                ><span class="g-label">显示名称</span
+                ><input class="g-input" value="林晓" /></label
+              ><label class="g-field"
+                ><span class="g-label">职位</span
+                ><input class="g-input" value="内容管理员"
+              /></label>
+            </div>
+            <button class="g-btn g-btn-primary" type="submit">完成设置</button>
+          </form>
+        </article>
+        <article class="demo-card">
+          <h2>17 锁屏</h2>
+          <div class="g-lock-screen" style="min-block-size: 26rem">
+            <div class="g-lock-screen-panel">
+              <time class="g-lock-screen-time">09:41</time
+              ><span class="g-auth-avatar">林</span><strong>林晓</strong>
+              <div class="g-password-field" data-g-password-toggle>
+                <label class="g-sr-only" for="unlock-password">解锁密码</label
+                ><input
+                  class="g-input"
+                  id="unlock-password"
+                  type="password"
+                  placeholder="输入密码解锁"
+                /><button
+                  class="g-password-field-action"
+                  data-g-password-button
+                  type="button"
+                >
+                  显示
+                </button>
+              </div>
+              <button class="g-btn g-btn-primary">解锁</button>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>18 会话过期</h2>
+          <div class="g-session-expired" style="min-block-size: 26rem">
+            <div class="g-session-expired-panel">
+              <span class="g-verification-icon">!</span>
+              <h3>会话已过期</h3>
+              <p class="g-auth-description">
+                为保护账号安全，请重新验证身份。未提交的本地更改已保留。
+              </p>
+              <div class="g-auth-notice is-info">
+                <span>i</span><span>重新登录后将返回当前页面。</span>
+              </div>
+              <button class="g-btn g-btn-primary">重新登录</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <h2>19 账号选择</h2>
+          <div class="g-account-chooser" data-g-saved-choice>
+            <header class="g-auth-header"><h3>选择账号</h3></header>
+            <div class="g-auth-choice-list">
+              <button
+                class="g-auth-choice"
+                data-g-saved-choice-item
+                data-g-value="lin"
+                aria-pressed="true"
+              >
+                <span class="g-auth-avatar">林</span
+                ><span
+                  ><b class="g-auth-choice-title">林晓</b
+                  ><small class="g-auth-choice-meta"
+                    >lin@example.com</small
+                  ></span
+                ><span class="g-auth-choice-check">✓</span></button
+              ><button
+                class="g-auth-choice"
+                data-g-saved-choice-item
+                data-g-value="team"
+                aria-pressed="false"
+              >
+                <span class="g-auth-avatar">T</span
+                ><span
+                  ><b class="g-auth-choice-title">Team Account</b
+                  ><small class="g-auth-choice-meta"
+                    >team@example.com</small
+                  ></span
+                ><span>›</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>20 租户选择</h2>
+          <div class="g-tenant-chooser" data-g-saved-choice>
+            <div class="g-auth-choice-list">
+              <button
+                class="g-auth-choice"
+                data-g-saved-choice-item
+                data-g-value="acme"
+                aria-pressed="true"
+              >
+                <span class="g-auth-provider-icon">A</span
+                ><span
+                  ><b class="g-auth-choice-title">Acme 中国</b
+                  ><small class="g-auth-choice-meta"
+                    >管理员 · 128 位成员</small
+                  ></span
+                ><span class="g-badge">当前</span></button
+              ><button
+                class="g-auth-choice"
+                data-g-saved-choice-item
+                data-g-value="studio"
+                aria-pressed="false"
+              >
+                <span class="g-auth-provider-icon">S</span
+                ><span
+                  ><b class="g-auth-choice-title">Studio</b
+                  ><small class="g-auth-choice-meta"
+                    >编辑者 · 12 位成员</small
+                  ></span
+                ><span>›</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>21 身份切换</h2>
+          <div class="g-identity-switcher" data-g-dropdown>
+            <button
+              class="g-auth-user g-identity-switcher-trigger"
+              data-g-dropdown-trigger
+              aria-expanded="false"
+            >
+              <span class="g-auth-avatar">林</span
+              ><span class="g-auth-user-main"
+                ><b class="g-auth-user-name">林晓</b
+                ><small class="g-auth-user-meta">Acme · 管理员</small></span
+              ><span>⌄</span>
+            </button>
+            <div class="g-identity-switcher-menu" data-g-dropdown-menu hidden>
+              <button class="g-auth-choice">
+                <span class="g-auth-provider-icon">A</span
+                ><span>管理员身份</span><span>✓</span></button
+              ><button class="g-auth-choice">
+                <span class="g-auth-provider-icon">V</span
+                ><span>以访客预览</span><span>›</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-card demo-wide">
+          <h2>23 账号安全 / 24 设备 / 25 活动</h2>
+          <div class="g-account-security">
+            <section class="g-security-section">
+              <header class="g-security-section-header">
+                <div>
+                  <h3>登录设备</h3>
+                  <p class="g-auth-description">查看并撤销活跃会话。</p>
+                </div>
+                <button class="g-btn g-btn-outline g-btn-sm">全部登出</button>
+              </header>
+              <div class="g-device-management">
+                <article class="g-device-item">
+                  <span class="g-device-icon">PC</span
+                  ><span class="g-device-main"
+                    ><b>Windows · Chrome</b
+                    ><small class="g-auth-choice-meta">上海 · 刚刚</small></span
+                  ><span class="g-device-current">当前设备</span>
+                </article>
+                <article class="g-device-item">
+                  <span class="g-device-icon">M</span
+                  ><span class="g-device-main"
+                    ><b>iPhone · App</b
+                    ><small class="g-auth-choice-meta"
+                      >杭州 · 2 小时前</small
+                    ></span
+                  ><button class="g-btn g-btn-ghost g-btn-sm">撤销</button>
+                </article>
+              </div>
+            </section>
+            <section class="g-security-section">
+              <header class="g-security-section-header">
+                <h3>最近登录活动</h3>
+              </header>
+              <div class="g-login-activity">
+                <article class="g-login-event">
+                  <span class="g-login-event-icon">✓</span
+                  ><span class="g-login-event-main"
+                    ><b>密码 + MFA 登录成功</b
+                    ><small class="g-auth-choice-meta"
+                      >上海 · 192.0.2.10 · 刚刚</small
+                    ></span
+                  ><span>成功</span>
+                </article>
+                <article class="g-login-event is-risk">
+                  <span class="g-login-event-icon">!</span
+                  ><span class="g-login-event-main"
+                    ><b>陌生位置登录失败</b
+                    ><small class="g-auth-choice-meta"
+                      >未知设备 · 3 次尝试</small
+                    ></span
+                  ><button class="g-btn g-btn-outline g-btn-sm">查看</button>
+                </article>
+              </div>
+            </section>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>26 安全事件提示</h2>
+          <div class="g-security-alert">
+            <span class="g-security-alert-icon">!</span>
+            <div>
+              <h3>检测到新设备</h3>
+              <p class="g-auth-description">Linux · Firefox，从北京发起。</p>
+            </div>
+            <div class="g-security-alert-actions">
+              <button class="g-btn g-btn-primary g-btn-sm">这是我</button
+              ><button class="g-btn g-btn-outline g-btn-sm">保护账号</button>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>27 恢复码</h2>
+          <div class="g-recovery-codes">
+            <p class="g-auth-description">
+              每个恢复码只能使用一次，请离线保存。
+            </p>
+            <div class="g-recovery-code-grid">
+              <code class="g-recovery-code">AB12-CD34</code
+              ><code class="g-recovery-code">EF56-GH78</code
+              ><code class="g-recovery-code">JK90-LM12</code
+              ><code class="g-recovery-code">NP34-QR56</code>
+            </div>
+            <button
+              class="g-btn g-btn-outline"
+              data-g-copy="AB12-CD34 EF56-GH78 JK90-LM12 NP34-QR56"
+            >
+              复制全部
+            </button>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>28 受信任设备</h2>
+          <label class="g-trusted-device"
+            ><input type="checkbox" checked /><span
+              ><b>信任此浏览器</b
+              ><small class="g-auth-choice-meta"
+                >30 天内不再要求 MFA。公共设备请勿选择。</small
+              ></span
+            ></label
+          >
+        </article>
+        <article class="demo-card">
+          <h2>29 已连接账号</h2>
+          <div class="g-connected-accounts">
+            <article class="g-connected-account">
+              <span class="g-connected-account-icon">G</span
+              ><span class="g-connected-account-main"
+                ><b>Google</b
+                ><small class="g-auth-choice-meta">lin@example.com</small></span
+              ><button class="g-btn g-btn-outline g-btn-sm">断开</button>
+            </article>
+            <article class="g-connected-account">
+              <span class="g-connected-account-icon">M</span
+              ><span class="g-connected-account-main"
+                ><b>Microsoft</b
+                ><small class="g-auth-choice-meta">未连接</small></span
+              ><button class="g-btn g-btn-primary g-btn-sm">连接</button>
+            </article>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>31 授权同意</h2>
+          <div class="g-auth-consent">
+            <header class="g-auth-header">
+              <h3>允许 Analytics 访问？</h3>
+              <p class="g-auth-description">该应用希望访问以下内容。</p>
+            </header>
+            <div class="g-auth-consent-scopes">
+              <div class="g-auth-consent-scope">
+                <span>✓</span
+                ><span
+                  ><b>读取基本资料</b
+                  ><small class="g-auth-choice-meta"
+                    >姓名、头像与邮箱</small
+                  ></span
+                >
+              </div>
+              <div class="g-auth-consent-scope">
+                <span>✓</span
+                ><span
+                  ><b>读取报表</b
+                  ><small class="g-auth-choice-meta"
+                    >不包含修改权限</small
+                  ></span
+                >
+              </div>
+            </div>
+            <div class="g-auth-actions">
+              <button class="g-btn g-btn-primary">允许</button
+              ><button class="g-btn g-btn-outline">取消</button>
+            </div>
+          </div>
+        </article>
+        <article class="demo-card">
+          <h2>32 认证结果</h2>
+          <div class="g-auth-result is-success g-auth-status">
+            <span class="g-auth-result-icon">✓</span>
+            <h3>邮箱验证成功</h3>
+            <p class="g-auth-description">账号安全设置已更新。</p>
+            <button class="g-btn g-btn-primary">继续</button>
+          </div>
+          <div class="g-auth-result is-error g-auth-status g-mt-6">
+            <span class="g-auth-result-icon">!</span><strong>链接已失效</strong
+            ><button class="g-btn g-btn-outline">重新发送</button>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="../dist/gardener.runtime.js"></script>
+  </body>
+</html>

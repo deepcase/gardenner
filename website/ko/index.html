@@ -1,0 +1,3404 @@
+<!doctype html>
+<html
+  lang="ko"
+  data-g-theme="garden"
+  data-g-mode="light"
+  data-g-neutral="cool"
+  data-g-shape="small"
+ data-locale="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Gardener는 인간 개발자와 AI 페이지 빌더를 위한 범용 CSS, Vue 3, React, AngularJS 및 Blazor 구성 요소, 페이지 레시피 및 데스크톱 애플리케이션 인프라입니다."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'"
+    />
+    <title>Gardener — 모든 인터페이스에 준비된 CSS 인프라</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="./index.html" />
+    <link rel="alternate" hreflang="zh-CN" href="../zh-CN/index.html" />
+    <link rel="alternate" hreflang="en" href="../en/index.html" />
+    <link rel="alternate" hreflang="ja" href="../ja/index.html" />
+    <link rel="alternate" hreflang="ko" href="../ko/index.html" />
+    <link rel="alternate" hreflang="es" href="../es/index.html" />
+    <link rel="alternate" hreflang="fr" href="../fr/index.html" />
+    <link rel="alternate" hreflang="de" href="../de/index.html" />
+    <link rel="alternate" hreflang="x-default" href="../index.html" />
+    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=afe73d14" />
+    <link rel="stylesheet" href="../assets/site.css" />
+  </head>
+  <body>
+    <a class="g-skip-link" href="#main">주요 내용으로 건너뛰기</a>
+    <header class="site-header">
+      <nav class="site-nav site-container" aria-label="메인 네비게이션">
+        <a class="site-brand" href="./index.html" aria-label="Gardener 홈 페이지"
+          ><span class="site-brand-mark" aria-hidden="true">지</span
+          ><span>Gardener</span></a
+        >
+        <div class="site-nav-links" id="site-menu">
+          <a class="site-nav-link" href="#capabilities">능력</a>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">프레임워크</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#vue">Vue</a>
+              <a class="site-nav-link" href="#react">React</a>
+              <a class="site-nav-link" href="#angular">AngularJS</a>
+              <a class="site-nav-link" href="#blazor">Blazor</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">기본</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#grid">그리드</a>
+              <a class="site-nav-link" href="#page-components">구성요소</a>
+              <a class="site-nav-link" href="#themes">주제</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">사업</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#data-compositions">데이터</a>
+              <a class="site-nav-link" href="#content-compositions">내용</a>
+              <a class="site-nav-link" href="#auth-compositions">계정</a>
+              <a class="site-nav-link" href="#commerce-compositions">사업</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">플랫폼</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#mobile-compositions">이동</a>
+              <a class="site-nav-link" href="#desktop-compositions">데스크탑</a>
+              <a class="site-nav-link" href="#ai-compositions">AI</a>
+              <a class="site-nav-link" href="#solution-compositions">장면</a>
+            </div>
+          </details>
+          <a class="site-nav-link" href="./docs.html">문서</a>
+        </div>
+        <div class="site-nav-actions">
+          <label class="g-sr-only" for="site-language">언어 선택</label>
+          <select class="g-select g-select-sm site-language-select" id="site-language" data-site-language data-i18n-ignore translate="no">
+            <option value="zh-CN" lang="zh-CN" translate="no">简体中文</option>
+            <option value="en" lang="en" translate="no">English</option>
+            <option value="ja" lang="ja" translate="no">日本語</option>
+            <option value="ko" lang="ko" translate="no" selected>한국어</option>
+            <option value="es" lang="es" translate="no">Español</option>
+            <option value="fr" lang="fr" translate="no">Français</option>
+            <option value="de" lang="de" translate="no">Deutsch</option>
+          </select>
+          <a
+            class="g-btn g-btn-primary g-btn-sm site-docs-button"
+            href="./docs.html#quick-start"
+            >시작하기</a
+          >
+          <button
+            class="g-btn g-btn-outline g-btn-icon site-menu-button"
+            type="button"
+            data-site-menu
+            aria-controls="site-menu"
+            aria-expanded="false"
+            aria-label="내비게이션 열기"
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="site-hero">
+        <div class="site-container site-hero-grid">
+          <div>
+            <span class="site-eyebrow">범용 CSS 인프라</span>
+            <h1>모든 인터페이스에<span>기성 답변</span></h1>
+            <p class="site-hero-copy">
+              Gardener는 기본 CSS, 대화형 구성요소, 비즈니스 레시피, 데스크탑 적응 및 기계 판독 가능 매니페스트를 하나의 시스템에 통합합니다. 사람이 직접 개발할 수 있고, AI가 매번 스타일을 재구성할 필요 없이 정확하게 선택해서 사용할 수 있다.
+            </p>
+            <div class="site-hero-actions">
+              <a
+                class="g-btn g-btn-primary g-btn-lg"
+                href="./docs.html#quick-start"
+                >문서 읽기</a
+              >
+              <button
+                class="g-btn g-btn-outline g-btn-lg"
+                type="button"
+                data-g-copy
+                data-g-copy-value="npm install @gardener/css"
+              >
+                설치 명령 복사
+              </button>
+            </div>
+            <ul class="site-proof" aria-label="핵심 기능">
+              <li>런타임 종속성 없음</li>
+              <li>흰색 바탕에 중립 기본값</li>
+              <li>작은 둥근 모서리 시스템</li>
+              <li>웹 및 데스크탑 공유</li>
+            </ul>
+          </div>
+
+          <div class="site-demo" aria-label="Gardener 대시보드 미리보기">
+            <div class="site-window">
+              <div class="site-window-bar">
+                <div class="site-window-dots" aria-hidden="true">
+                  <i class="site-window-dot"></i><i class="site-window-dot"></i
+                  ><i class="site-window-dot"></i>
+                </div>
+                <span class="site-window-path"
+                  >정원사/작업공간/개요</span
+                ><span class="g-badge">라이브</span>
+              </div>
+              <div class="site-window-body">
+                <aside class="site-demo-rail" aria-label="데모 내비게이션">
+                  <button class="site-demo-icon is-active" aria-label="개요">
+                    OV</button
+                  ><button class="site-demo-icon" aria-label="내용">CT</button
+                  ><button class="site-demo-icon" aria-label="AI">AI</button
+                  ><button class="site-demo-icon" aria-label="설정">ST</button>
+                </aside>
+                <div class="site-demo-main">
+                  <div class="site-demo-toolbar">
+                    <div>
+                      <div class="site-demo-line is-long"></div>
+                      <div class="site-demo-line is-short g-mt-2"></div>
+                    </div>
+                    <button class="g-btn g-btn-primary g-btn-sm">
+                      새 페이지
+                    </button>
+                  </div>
+                  <div class="site-demo-cards">
+                    <article class="site-demo-card is-accent">
+                      <span class="site-kicker">게시된 페이지</span>
+                      <div class="site-demo-value">2,480</div>
+                      <span class="g-badge g-badge-success">+12.6%</span>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">부품 채택률</span>
+                      <div class="site-demo-value">94%</div>
+                      <div
+                        class="g-progress g-mt-3"
+                        role="progressbar"
+                        aria-label="부품 채택률"
+                        aria-valuenow="94"
+                      >
+                        <span style="--g-progress: 94%"></span>
+                      </div>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">트렌드 생성</span>
+                      <div class="site-demo-chart" aria-hidden="true">
+                        <i style="height: 35%"></i><i style="height: 52%"></i
+                        ><i style="height: 43%"></i><i style="height: 72%"></i
+                        ><i style="height: 61%"></i><i style="height: 88%"></i
+                        ><i style="height: 100%"></i>
+                      </div>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">AI 작업</span>
+                      <div class="g-agent-status is-working g-mt-4">
+                        <span class="g-spinner"></span
+                        ><span>기업사이트 조립</span>
+                      </div>
+                      <div class="site-demo-line is-long g-mt-5"></div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="프레임 크기">
+        <div class="site-container site-stat-grid">
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="42">42</strong
+            ><span class="site-stat-label">컬러테마</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="506">506</strong
+            ><span class="site-stat-label">컴포넌트 등록</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="11498">11,498</strong
+            ><span class="site-stat-label">도구</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="52">52</strong
+            ><span class="site-stat-label">기계 판독 가능 페이지 레시피</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="capabilities">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">하나의 시스템, 모든 표면</span>
+            <h2 class="site-title">버튼 하나부터 슈퍼CMS까지</h2>
+            <p class="site-lead">
+              기본 원자, 공통 구성 요소, 고밀도 백엔드, 모바일 단말, 콘텐츠 상용화, AI 작업 공간 및 데스크톱 WebView를 다룹니다. 기본은 충분히 억제되어 있고 조합 능력도 충분히 넓습니다.
+            </p>
+          </header>
+          <div class="site-feature-grid">
+            <article class="site-feature">
+              <span class="site-feature-index">01</span>
+              <h3>베이스 레이어 완성</h3>
+              <p>
+                재설정, 토큰, 24/12 그리드, 타이포그래피, 간격, 크기, 논리적 방향, 색상, 테두리, 그림자, 상태 및 5단계 반응형 도구 클래스.
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">02</span>
+              <h3>즉시 배송 가능한 구성품</h3>
+              <p>
+                양식, 탐색, 오버레이, 데이터, 미디어, 비즈니스, 통신, 법률, 작업 흐름 및 대시보드는 모두 안정적인 구조와 상태 규칙을 가지고 있습니다.
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">03</span>
+              <h3>AI 네이티브 상호작용</h3>
+              <p>
+                메시지 흐름, 사고 프로세스, 도구 호출, 승인, 에이전트 상태, 일정, 참조, 아티팩트, 모델 선택 및 다중 모드 생성.
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">04</span>
+              <h3>복잡한 비즈니스 레시피</h3>
+              <p>
+                로그인, 모바일 카테고리, CMS 편집기, 미디어 라이브러리, 받은 편지함, 파일 관리, 양식 작성, 스토어 목록, 청구 및 기업 설정.
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">05</span>
+              <h3>데스크탑 애플리케이션 적응</h3>
+              <p>
+                Tauri와 Electron은 제목 표시줄, 창 컨트롤, 활동 표시줄, 편집 영역, 검사기, 열 및 상태 표시줄을 공유하며 브리지 인터페이스는 안전하게 유지됩니다.
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">06</span>
+              <h3>환경 매트릭스가 완료되었습니다.</h3>
+              <p>
+                밝음, 어두움, 시스템, 고대비, RTL, 움직임 감소, 강제 색상, 인쇄, 모바일, 태블릿 및 데스크탑.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="vue">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">공식 Vue 3 바인딩 · 1.0.0 안정</span>
+            <h2 class="site-title">CSS의 모든 힘이 Vue API가 되었습니다</h2>
+            <p class="site-lead">
+              <code>@gardener/vue</code> 플러그인, 유형 안전 구성 요소, 지시문, 구성 가능, 10축 테마 제공자, v-모델, SSR 및 Tauri/Electron 적응을 제공하는 506개 구성 요소 및 66개 DOM 동작의 완전한 매핑입니다. 각 CSS 구성요소에는 고유한 속성이 있습니다. <code>G*</code> 내보낼 때 AI는 스타일을 다시 조립하지 않고도 구성요소를 직접 선택할 수 있습니다.
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="Vue 프로젝트 측정항목">
+              <span class="g-badge">506개 부품</span>
+              <span class="g-badge">538 런타임 내보내기</span>
+              <span class="g-badge">진입점 29개</span>
+              <span class="g-badge">CSS 팩 28개</span>
+              <span class="g-badge">Vue 3.4 이상</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#vue">Vue 문서 읽기</a>
+              <a class="g-btn g-btn-outline" href="../../packages/vue/README.md">Vue 프로젝트 설명 열기</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>App.vue</span><span>주문형 수입·완전형</span>
+            </div>
+            <pre class="site-code"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { GButton, GCard, GardenerProvider } from &quot;@gardener/vue&quot;;
+import &quot;@gardener/vue/style.css&quot;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
+    &lt;GCard&gt;
+      &lt;GButton variant=&quot;primary&quot;&gt;저장&lt;/GButton&gt;
+    &lt;/GCard&gt;
+  &lt;/GardenerProvider&gt;
+&lt;/template&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="react">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">공식 React 바인딩 · 1.0.0 안정</span>
+            <h2 class="site-title">동일한 CSS 세트에는 완전한 React 구성 요소 모델도 있습니다.</h2>
+            <p class="site-lead">
+              <code>@gardener/react</code> Maps 506 CSS components and 66 DOM behaviors into a type-safe React API, providing precise native element types, ten-axis theme providers, controlled and uncontrolled value bridging, Imperative Handles, 7 Hooks, SSR / Hydration, and isolated Tauri / Electron adaptation entrances. Components, styles, and machine-readable directories maintain a one-to-one correspondence.
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="React 프로젝트 지표">
+              <span class="g-badge">506개 부품</span>
+              <span class="g-badge">538 런타임 내보내기</span>
+              <span class="g-badge">진입점 29개</span>
+              <span class="g-badge">CSS 팩 28개</span>
+              <span class="g-badge">React 18.3–19.x</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#react">React 문서 읽기</a>
+              <a class="g-btn g-btn-outline" href="../../packages/react/README.md">React 프로젝트 설명 열기</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>App.tsx</span><span>주문형 수입·완전형</span>
+            </div>
+            <pre class="site-code"><code>import { GButton, GCard, GardenerProvider } from &quot;@gardener/react&quot;;
+import &quot;@gardener/react/style.css&quot;;
+
+export function App() {
+  return (
+    &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
+      &lt;GCard&gt;
+        &lt;GButton variant=&quot;primary&quot;&gt;저장&lt;/GButton&gt;
+      &lt;/GCard&gt;
+    &lt;/GardenerProvider&gt;
+  );
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="angular">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">공식 AngularJS 바인딩 · 1.0.0 안정</span>
+            <h2 class="site-title">대규모 AngularJS 레거시 시스템이 전체 Gardener API를 계속 사용하도록 허용</h2>
+            <p class="site-lead">
+              <code>@gardener/angularjs</code> 506개의 CSS 구성 요소와 66개의 DOM 동작을 AngularJS 요소/속성 지시어로 매핑하여 모듈 팩토리, 엄격한 구성 요소 하위 설정, 기본 ngModel, 10축 테마, 3개의 주입 가능한 서비스, 동적 수명 주기 및 격리된 Tauri/Electron 항목을 제공합니다. 이는 AngularJS 1.8.x를 유지해야 하는 재고 제품을 대상으로 하며 프레임워크의 EOL 보안 경계를 명시적으로 노출합니다.
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="AngularJS 프로젝트 측정항목">
+              <span class="g-badge">506 지시어</span>
+              <span class="g-badge">535 런타임 내보내기</span>
+              <span class="g-badge">진입점 29개</span>
+              <span class="g-badge">CSS 팩 28개</span>
+              <span class="g-badge">AngularJS 1.8.2–1.8.3</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#angular">AngularJS 문서 읽기</a>
+              <a class="g-btn g-btn-outline" href="../../packages/angularjs/README.md">AngularJS 프로젝트 설명 열기</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>app.js</span><span>모듈공장·ngModel·완전형</span>
+            </div>
+            <pre class="site-code"><code>import &quot;angular/angular.js&quot;;
+import { createGardenerAngularJS } from &quot;@gardener/angularjs&quot;;
+import &quot;@gardener/angularjs/style.css&quot;;
+
+const gardener = createGardenerAngularJS(window.angular, {
+  components: [&quot;button&quot;, &quot;input&quot;, &quot;card&quot;],
+});
+
+window.angular.module(&quot;app&quot;, [gardener]);
+
+// &lt;button g-button gardener-variant=&quot;primary&quot;&gt;저장&lt;/button&gt;
+// &lt;input g-input ng-model=&quot;vm.keyword&quot;&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="blazor">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">공식 Blazor RCL · 1.0.0 안정</span>
+            <h2 class="site-title">동일한 Razor 구성 요소 세트를 사용하여 정적 SSR에서 데스크톱 WebView로</h2>
+            <p class="site-lead">
+              <code>Gardener.Blazor</code> 506개의 CSS/하이브리드 구성 요소, 66개의 DOM 동작 및 75개의 이벤트를 강력한 형식의 Razor API에 매핑합니다. 안정적인 패키지
+              <code>net10.0</code> 는 기준선이며 검증되었습니다. <code>net11.0</code>
+              Blazor Web App, WebAssembly, Hybrid, Tauri 및 Electron 시나리오를 다루고 SSR, 양식, 접근성 및 10축 테마 계약을 보존하는 소비입니다.
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="Blazor 프로젝트 측정항목">
+              <span class="g-badge">506개 부품</span>
+              <span class="g-badge">66가지 행동</span>
+              <span class="g-badge">이벤트 75개</span>
+              <span class="g-badge">정적 자산 43개</span>
+              <span class="g-badge">.NET 10/11</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#blazor">Blazor 문서 읽기</a>
+              <a class="g-btn g-btn-outline" href="../../packages/blazor/README.md">Blazor 프로젝트 설명 열기</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>Dashboard.razor</span><span>RCL · SSR · 강력한 유형의 이벤트</span>
+            </div>
+            <pre class="site-code"><code>@using Gardener.Blazor.Components
+
+&lt;GardenerProvider Theme=&quot;garden&quot; Mode=&quot;light&quot;
+                   Shape=&quot;small&quot; Platform=&quot;desktop&quot;&gt;
+  &lt;GAppShell&gt;
+    &lt;GSidebar&gt;내비게이션&lt;/GSidebar&gt;
+    &lt;GMainRegion&gt;
+      &lt;GButton Variant=&quot;primary&quot; @onclick=&quot;Save&quot;&gt;
+        저장
+      &lt;/GButton&gt;
+    &lt;/GMainRegion&gt;
+  &lt;/GAppShell&gt;
+&lt;/GardenerProvider&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-grid-section" id="grid">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">24/12 반응형 그리드</span>
+            <h2 class="site-title">정확한 열 분할, 더 이상 임시 계산이 아닙니다.</h2>
+            <p class="site-lead">
+              24그리드는 엔터프라이즈 백엔드, CMS 및 복잡한 형태를 다루며, 12그리드는 전통적인 디자인 초안과 호환됩니다. 열 너비, 오프셋, 순서, 눈금선, 간격, 컨테이너 쿼리, RTL 및 인쇄를 위한 안정적인 인터페이스가 있습니다.
+            </p>
+          </header>
+          <div class="site-grid-ruler" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+            ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+            ><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="g-grid-24 g-gutter-3 site-grid-demo">
+            <article class="g-col-24 g-md-col-6">
+              <span>시작</span><strong>6 / 24</strong><small>탐색 및 필터링</small>
+            </article>
+            <article class="g-col-24 g-md-col-12">
+              <span>메인</span><strong>12 / 24</strong
+              ><small>주요 콘텐츠 영역</small>
+            </article>
+            <article class="g-col-24 g-md-col-6">
+              <span>종료</span><strong>6 / 24</strong><small>검사관 및 조치</small>
+            </article>
+            <article class="g-col-16 g-offset-4">
+              <span>오프셋</span><strong>4 + 16 + 4</strong
+              ><small>센터폼 또는 독서공간</small>
+            </article>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>뷰포트 응답 5단계 + 컨테이너 응답 3단계</strong
+              ><span
+                >480 / 768 / 1024 / 1280 / 1536px · CQ 480 / 768 / 1024px</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#grid-system"
+              >전체 래스터 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="regions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">16개 영역 레이아웃 패턴</span>
+            <h2 class="site-title">전통적인 페이지 뼈대에도 안정적인 인터페이스가 있습니다</h2>
+            <p class="site-lead">
+              상단 및 하단 메인 영역부터 왼쪽 및 오른쪽 열부터 Holy Grail, Master/Detail, Dock, 조정 가능한 열 및 전체 화면 작업 공간, 웹, 모바일 터미널 및 Tauri/Electron까지 페이지 수준 레이아웃 CSS를 임시로 작성할 필요 없이 직접 선택할 수 있습니다.
+            </p>
+          </header>
+          <div
+            class="site-region-frame g-region-frame"
+            aria-label="5개 영역 레이아웃 미리보기"
+          >
+            <header class="g-region-top"><b>탑</b><span>툴바</span></header>
+            <aside class="g-region-start">
+              <b>시작</b><span>내비게이션</span>
+            </aside>
+            <main class="g-region-main">
+              <b>메인</b><strong>작업공간</strong>
+              <div class="site-region-cards"><i></i><i></i><i></i></div>
+            </main>
+            <aside class="g-region-end"><b>종료</b><span>검사관</span></aside>
+            <footer class="g-region-bottom">
+              <b>바닥</b><span>상태</span>
+            </footer>
+          </div>
+          <div class="site-region-patterns" aria-label="영역 레이아웃 목록">
+            <span>상단/메인/하단</span><span>시작/메인/종료</span
+            ><span>성배</span><span>마스터/디테일</span
+            ><span>목록/상세/검사자</span><span>고정 헤더</span
+            ><span>고정 사이드바</span><span>끈끈한 옆으로</span
+            ><span>고정 바닥글</span><span>독</span><span>분할보기</span
+            ><span>전체화면</span><span>모바일 안전지역</span
+            ><span>데스크탑 쉘</span><span>컨테이너 쿼리</span
+            ><span>RTL/인쇄</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>완성된 뼈대 16종 + 부위통합파츠</strong
+              ><span
+                >뷰포트 응답성 · 컨테이너 응답성 · 논리적 방향 · 인쇄 병합 · 데스크탑 워크벤치</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#region-layouts"
+              >전체 영역 레이아웃 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="primitives">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">22개의 클래식 레이아웃 프리미티브</span>
+            <h2 class="site-title">공간이 레이아웃을 결정하도록 하고 중단점이 레이아웃을 추측하도록 하지 마십시오.</h2>
+            <p class="site-lead">
+              Stack, Cluster, Sidebar, Switcher, Reel, Media Object, Masonry, Bento 등의 클래식 패턴이 내장된 응답 인터페이스로 구체화되었습니다. AI는 의도와 몇 가지 변수만 선택하면 되며 Flex, Grid, 오버플로 및 안전 영역 규칙을 다시 만들 필요가 없습니다.
+            </p>
+          </header>
+          <div class="site-primitive-showcase">
+            <div class="g-stack site-primitive-stack">
+              <span class="site-primitive-label">스택</span>
+              <article></article>
+              <article></article>
+              <article></article>
+            </div>
+            <div class="g-bento site-primitive-bento">
+              <article class="g-bento-featured">
+                <span>도시락</span><strong>추천</strong>
+              </article>
+              <article class="g-bento-tall"><span>키가 크다</span></article>
+              <article><span>타일</span></article>
+              <article><span>타일</span></article>
+            </div>
+            <div class="g-stack site-primitive-flow">
+              <div class="g-cluster">
+                <span>클러스터</span><span>랩</span><span>태그</span>
+              </div>
+              <div class="g-repel">
+                <strong>리펠</strong
+                ><button class="g-btn g-btn-primary g-btn-sm">액션</button>
+              </div>
+              <div class="g-media-object">
+                <i class="g-media-object-media">엠</i>
+                <div class="g-media-object-body">
+                  <strong>미디어 개체</strong
+                  ><small>미디어·바디·액션</small>
+                </div>
+                <span class="g-media-object-action">→</span>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="클래식 레이아웃 기본 요소 목록">
+            <span>스택</span><span>클러스터</span><span>센터</span
+            ><span>사이드바</span><span>스위처</span><span>표지</span
+            ><span>릴</span><span>프레임</span><span>미디어 개체</span
+            ><span>자동맞춤</span><span>자동 채우기</span><span>블리드</span
+            ><span>리펠</span><span>임포스터</span><span>오버레이</span
+            ><span>벽돌</span><span>도시락</span><span>화면 비율</span
+            ><span>스크롤 영역</span><span>스크롤스냅</span
+            ><span>안전지역</span><span>끈끈한 영역</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>안정적인 프리미티브 22개 + JavaScript 레이아웃 없음</strong
+              ><span
+                >고유 응답 · 컨테이너 쿼리 · RTL · 안전 영역 · 모션 감소 · 인쇄</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#layout-primitives"
+              >전체 기본 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="page-components">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">페이지 수준 패턴 23개</span>
+            <h2 class="site-title">페이지 공개 구조, 전달 상태 직접 입력</h2>
+            <p class="site-lead">
+              페이지 헤더, 도구 모음, 명령 모음, 필터링 및 일괄 작업을 통합하고 로드 중, 비어 있음, 오류, 403, 404, 500, 오프라인 및 유지 관리 상태를 완벽하게 준비합니다. AI가 생성한 페이지는 더 이상 단순한 "일반 데이터"가 아닙니다.
+            </p>
+          </header>
+          <div class="site-page-demo">
+            <header class="g-page-header">
+              <div class="g-page-header-main">
+                <div class="g-page-header-eyebrow">콘텐츠 작업공간</div>
+                <h3 class="g-page-header-title">페이지 관리</h3>
+                <p class="g-page-header-description">
+                  콘텐츠, 상태, 게시 시간을 관리합니다.
+                </p>
+              </div>
+              <div class="g-page-header-meta">
+                <span>최종 업데이트: 방금</span
+                ><span class="g-badge g-badge-success">동기화됨</span>
+              </div>
+              <div class="g-page-header-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">미리보기</button
+                ><button class="g-btn g-btn-primary g-btn-sm">신규</button>
+              </div>
+            </header>
+            <div class="g-toolbar">
+              <div class="g-toolbar-start">
+                <strong class="g-toolbar-title">12페이지</strong>
+              </div>
+              <div class="g-toolbar-center">
+                <span class="g-filter-chip">상태: 전체</span
+                ><span class="g-filter-chip">언어: 중국어</span>
+              </div>
+              <div class="g-toolbar-end">
+                <button class="g-btn g-btn-ghost g-btn-sm">필터</button>
+              </div>
+            </div>
+            <div class="g-context-bar is-info">
+              <span aria-hidden="true">나는</span>
+              <div class="g-context-bar-content">현재 제작 환경 콘텐츠 표시 중</div>
+              <div class="g-context-bar-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">환경 전환</button>
+              </div>
+            </div>
+            <div class="g-bulk-action-bar">
+              <strong class="g-bulk-action-count">3개 항목이 선택됨</strong>
+              <div class="g-bulk-action-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">이동</button
+                ><button class="g-btn g-btn-danger g-btn-sm">삭제</button>
+              </div>
+            </div>
+            <div class="site-page-states">
+              <article class="g-page-empty">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-visual">∅</div>
+                  <strong class="g-page-state-title">비어 있음</strong>
+                  <p class="g-page-state-description">
+                    최초 사용을 위한 명확한 다음 단계도 있습니다.
+                  </p>
+                </div>
+              </article>
+              <article class="g-page-not-found">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-code">404</div>
+                  <strong class="g-page-state-title">찾을 수 없음</strong>
+                  <p class="g-page-state-description">유효하지 않은 링크에 대한 안정적인 대체.</p>
+                </div>
+              </article>
+              <article class="g-page-offline">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-visual">⌁</div>
+                  <strong class="g-page-state-title">오프라인</strong>
+                  <p class="g-page-state-description">
+                    네트워크 연결이 끊어져도 데이터 보안 상태가 계속 알려집니다.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <footer class="g-status-bar">
+              <span class="g-status-bar-section"
+                ><i class="g-status-dot is-online"></i>연결됨</span
+              ><span class="g-status-bar-section is-end"
+                >Gardener 페이지 계약</span
+              >
+            </footer>
+          </div>
+          <div class="site-region-patterns" aria-label="페이지 수준 공통 구성 요소 목록">
+            <span>페이지 헤더</span><span>섹션 헤더</span
+            ><span>하위 헤더</span><span>툴바</span><span>액션바</span
+            ><span>상태 표시줄</span><span>명령 모음</span
+            ><span>컨텍스트 바</span><span>필터바</span
+            ><span>대량 작업 표시줄</span><span>바닥글 표시줄</span
+            ><span>플로팅 액션바</span><span>맨 위로 돌아가기</span
+            ><span>텍스트가 있는 구분선</span><span>고정 작업</span
+            ><span>페이지 로딩 중</span><span>페이지가 비어 있음</span
+            ><span>페이지 오류</span><span>403</span><span>404</span
+            ><span>500</span><span>오프라인</span><span>유지보수</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>23개의 완전한 페이지 상태 및 공통 구조</strong
+              ><span
+                >컨테이너 쿼리 · 고정 · 안전 영역 · RTL · 런타임 · 인쇄</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#page-components"
+              >전체 페이지 구성요소 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="help-system">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">28가지 도움말 및 안내 패턴</span>
+            <h2 class="site-title">TIP에서 완전한 도움말 폐쇄 루프까지</h2>
+            <p class="site-lead">
+              도구 설명, 팝오버, 콜아웃, FAQ, 도움말 센터, 둘러보기, 스포트라이트, 새로운 기능 팁, 문제 해결 및 피드백은 모두 안정적인 인터페이스를 사용합니다. 사용자는 어느 쪽에서든 질문을 만나면 적절하고 일관된 표현을 사용합니다.
+            </p>
+          </header>
+          <div class="site-help-demo">
+            <div class="site-help-main">
+              <p class="g-tip">프로덕션 환경에 게시하기 전에 미리보기 환경을 사용하여 콘텐츠를 확인하세요.</p>
+              <aside class="g-callout is-info">
+                <span class="g-callout-icon">나는</span>
+                <div class="g-callout-content">
+                  <strong class="g-callout-title">현재 페이지에 대한 도움말</strong>
+                  <p>환경 변수는 빌드 시에만 읽혀집니다. 수정 후 재배포해야 합니다.</p>
+                </div>
+              </aside>
+              <aside class="g-feature-hint">
+                <span class="g-feature-hint-badge">신규</span>
+                <div>
+                  <strong class="g-feature-hint-title">크로스엔드 미리보기</strong>
+                  <p class="g-feature-hint-description">
+                    PC, 모바일웹, 데스크톱 WebView를 한번에 확인하세요.
+                  </p>
+                </div>
+                <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  시험판
+                </button>
+              </aside>
+              <ul class="g-shortcut-list">
+                <li class="g-shortcut-item">
+                  <span>도움말 열기</span
+                  ><span class="g-shortcut-keys"
+                    ><kbd class="g-key-hint">?</kbd></span
+                  >
+                </li>
+                <li class="g-shortcut-item">
+                  <span>명령 패널</span
+                  ><span class="g-shortcut-keys"
+                    ><kbd class="g-key-hint">Ctrl</kbd><span>+</span
+                    ><kbd class="g-key-hint">케이</kbd></span
+                  >
+                </li>
+              </ul>
+            </div>
+            <aside class="g-help-panel site-help-panel">
+              <header class="g-help-panel-header">
+                <strong class="g-help-panel-title">도움말 센터</strong
+                ><button
+                  class="g-help-trigger"
+                  type="button"
+                  aria-label="도움말 지침"
+                >
+                  ?
+                </button>
+              </header>
+              <div class="g-help-panel-body">
+                <div class="g-help-search">
+                  <span class="g-help-search-icon" aria-hidden="true">⌕</span
+                  ><label class="g-sr-only" for="site-help-search"
+                    >검색 도움말</label
+                  ><input
+                    class="g-input"
+                    id="site-help-search"
+                    type="search"
+                    placeholder="검색 도움말…"
+                  />
+                </div>
+                <div class="g-help-topics g-mt-4">
+                  <a class="g-help-topic" href="./docs.html#help-system"
+                    ><strong class="g-help-topic-title">빠른 시작</strong
+                    ><span class="g-help-topic-meta">기사 12개</span></a
+                  ><a class="g-help-topic" href="./docs.html#help-system"
+                    ><strong class="g-help-topic-title">릴리스 및 롤백</strong
+                    ><span class="g-help-topic-meta">기사 18개</span></a
+                  >
+                </div>
+                <ul class="g-help-checklist g-mt-5">
+                  <li class="g-help-checklist-item is-complete">
+                    <span class="g-help-checklist-marker">✓</span
+                    ><span>공간 생성</span>
+                  </li>
+                  <li class="g-help-checklist-item">
+                    <span class="g-help-checklist-marker">2</span
+                    ><span>첫 번째 출시 완료</span>
+                  </li>
+                </ul>
+              </div>
+              <footer class="g-help-panel-footer">
+                <a href="./docs.html#help-system">모든 도움말 구성요소 보기</a>
+              </footer>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="팁 및 도움말 시스템 목록">
+            <span>팁</span><span>인라인 힌트</span><span>도움말 텍스트</span
+            ><span>도움말 트리거</span><span>툴팁</span
+            ><span>리치 툴팁</span><span>팝오버 도움말</span
+            ><span>정의</span><span>콜아웃</span><span>참고</span
+            ><span>하다/하지 마세요</span><span>핵심힌트</span
+            ><span>바로가기 목록</span><span>도움말 카드</span
+            ><span>도움말 패널</span><span>도움말 센터</span
+            ><span>도움말 항목</span><span>FAQ</span><span>상황별 도움말</span
+            ><span>마크코치</span><span>가이드 투어</span
+            ><span>스포트라이트</span><span>핫스팟</span><span>기능 힌트</span
+            ><span>새로운 소식</span><span>도움말 체크리스트</span
+            ><span>문제 해결</span><span>도움말 피드백</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>28개의 프롬프트, 안내 및 지원 모드</strong
+              ><span
+                >충돌 인식 · 키보드 · 초점 복원 · RTL · 동작 감소 · 인쇄</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#help-system"
+              >전체 도움말 시스템 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="form-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">37개의 전통양식 구성</span>
+            <h2 class="site-title">양식은 더 이상 여러 개의 입력으로 시작되지 않습니다.</h2>
+            <p class="site-lead">
+              필드, 파티션, 수평 및 인라인 레이아웃, 검색/비밀번호/계산, 그룹 선택, 유효성 검사, 이름/주소/금액, 조건 및 반복 가능 항목, 검토 및 제출 작업이 모두 결합됩니다. AI는 비즈니스 의도만 선택하면 되며 양식 CSS를 반복해서 구성할 필요가 없습니다.
+            </p>
+          </header>
+          <div class="site-form-demo g-form-container">
+            <form class="g-form site-form-main" novalidate>
+              <section class="g-form-section">
+                <header class="g-form-section-header">
+                  <div>
+                    <h3 class="g-form-section-title">기업정보</h3>
+                    <p class="g-form-section-description">
+                      사이트 표시 및 서비스 알림용입니다.
+                    </p>
+                  </div>
+                  <span class="g-autosave-status is-saved">저장됨</span>
+                </header>
+                <div class="g-form-row">
+                  <div class="g-field">
+                    <div class="g-field-header">
+                      <label class="g-label" for="site-company-name"
+                        >회사명</label
+                      ><span class="g-field-required">필수</span>
+                    </div>
+                    <input
+                      class="g-input"
+                      id="site-company-name"
+                      value="Gardener Studio"
+                    />
+                  </div>
+                  <div class="g-field">
+                    <label class="g-label" for="site-company-email"
+                      >연락처 이메일</label
+                    ><input
+                      class="g-input"
+                      id="site-company-email"
+                      type="email"
+                      value="hello@example.com"
+                    />
+                  </div>
+                </div>
+                <div class="g-field">
+                  <label class="g-label" for="site-company-description"
+                    >회사소개</label
+                  >
+                  <div class="g-character-field" data-g-character-count="80">
+                    <textarea
+                      class="g-textarea"
+                      id="site-company-description"
+                      maxlength="80"
+                      rows="3"
+                    >
+다양한 터미널에 일관되고 완전한 페이지 경험을 제공합니다.</textarea
+                    ><output
+                      class="g-character-count"
+                      data-g-character-output
+                    ></output>
+                  </div>
+                </div>
+                <fieldset class="g-fieldset">
+                  <legend class="g-fieldset-legend">출시 계획</legend>
+                  <div class="g-choice-group">
+                    <label class="g-choice-card"
+                      ><input type="radio" name="site-plan" checked /><strong
+                        class="g-choice-card-title"
+                        >표준 릴리스</strong
+                      ><span class="g-choice-card-description"
+                        >실행 전 및 버전 스냅샷을 자동으로 완료합니다.</span
+                      ></label
+                    ><label class="g-choice-card"
+                      ><input type="radio" name="site-plan" /><strong
+                        class="g-choice-card-title"
+                        >단계적 출시</strong
+                      ><span class="g-choice-card-description"
+                        >내부 구성원에게 먼저 공개됩니다.</span
+                      ></label
+                    >
+                  </div>
+                </fieldset>
+              </section>
+              <div class="g-form-actions">
+                <button class="g-btn g-btn-outline" type="button">
+                  초안 저장</button
+                ><button class="g-btn g-btn-primary" type="button">계속</button>
+              </div>
+            </form>
+            <aside class="site-form-side">
+              <div class="g-form-progress">
+                <div class="g-form-progress-meta">
+                  <span>데이터 완성</span><strong>72%</strong>
+                </div>
+                <div class="g-form-progress-track">
+                  <div
+                    class="g-form-progress-value"
+                    style="--g-form-progress: 72%"
+                  ></div>
+                </div>
+              </div>
+              <div class="g-form-review g-mt-5">
+                <div class="g-form-review-row">
+                  <span class="g-form-review-label">이름</span
+                  ><strong class="g-form-review-value">Gardener 스튜디오</strong
+                  ><button class="g-btn g-btn-link g-btn-sm" type="button">
+                    편집
+                  </button>
+                </div>
+                <div class="g-form-review-row">
+                  <span class="g-form-review-label">출시</span
+                  ><strong class="g-form-review-value">표준 릴리스</strong
+                  ><button class="g-btn g-btn-link g-btn-sm" type="button">
+                    편집
+                  </button>
+                </div>
+              </div>
+              <aside class="g-validation-summary g-mt-5">
+                <strong class="g-validation-summary-title">사전 커밋 확인</strong>
+                <ul class="g-validation-summary-list">
+                  <li>회사명이 입력되었습니다.</li>
+                  <li>아직 서비스 약관을 확인해야 합니다.</li>
+                </ul>
+              </aside>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="기존 조합 목록 작성">
+            <span>양식</span><span>양식 섹션</span><span>필드</span
+            ><span>필드셋</span><span>양식 행</span><span>폼 그리드</span
+            ><span>가로형</span><span>인라인 양식</span
+            ><span>콤팩트한 형태</span><span>입력 그룹</span
+            ><span>입력부호</span><span>검색 필드</span
+            ><span>비밀번호 필드</span><span>삭제 가능 필드</span
+            ><span>캐릭터 카운터</span><span>유효성 검사 상태</span
+            ><span>검증 요약</span><span>체크박스 그룹</span
+            ><span>라디오 그룹</span><span>스위치 행</span
+            ><span>초이스카드</span><span>이름 그룹</span
+            ><span>주소 그룹</span><span>전화그룹</span
+            ><span>머니그룹</span><span>날짜 범위</span
+            ><span>시간 범위</span><span>단위 필드</span
+            ><span>범위 필드</span><span>파일 필드</span
+            ><span>반복 가능한 필드</span><span>조건부 필드</span
+            ><span>양식 작업</span><span>자동 저장 상태</span
+            ><span>양식 진행</span><span>양식 검토</span
+            ><span>동의 그룹</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>37개의 전통적인 형태 구조 + 5가지 유형의 대화형 동작</strong
+              ><span
+                >컨테이너 쿼리 · 검증 · 비즈니스 그룹 · RTL · 안전 영역 · 인쇄</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#form-compositions"
+              >전체 양식 조합 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="navigation-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >카테고리 07 · 기존 네비게이션</span
+            >
+            <h2 class="site-title">모든 방향으로 네비게이션이 준비되어 있습니다</h2>
+            <p class="site-lead">
+              기업 사이트 소유자 탐색부터 CMS 트리까지, 모바일 하단 표시줄부터 Electron Activity Bar까지, 마우스 오른쪽 버튼 클릭 메뉴부터 Scrollspy까지 38가지 안정적인 모드를 통해 AI가 의도에 따라 직접 선택할 수 있습니다.
+            </p>
+          </header>
+          <div class="site-navigation-demo g-nav-container">
+            <header class="g-navbar">
+              <div class="g-navbar-start">
+                <strong class="g-navbar-brand">애크미 클라우드</strong>
+              </div>
+              <nav class="g-primary-nav" aria-label="제품 데모 탐색">
+                <a
+                  class="g-primary-nav-link"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  >작업대</a
+                ><a class="g-primary-nav-link" href="#navigation-compositions"
+                  >내용</a
+                ><a class="g-primary-nav-link" href="#navigation-compositions"
+                  >데이터</a
+                >
+              </nav>
+              <nav class="g-utility-nav">
+                <a class="g-utility-nav-link" href="#navigation-compositions"
+                  >도움말</a
+                >
+              </nav>
+              <div class="g-navbar-end">
+                <button
+                  class="g-btn g-btn-outline g-btn-sm g-navbar-toggle"
+                  type="button"
+                  data-g-nav-toggle="site-nav-drawer"
+                >
+                  메뉴
+                </button>
+              </div>
+            </header>
+            <nav class="g-subnav" aria-label="보조 데모 탐색">
+              <a
+                class="g-subnav-link"
+                href="#navigation-compositions"
+                aria-current="page"
+                >개요</a
+              ><a class="g-subnav-link" href="#navigation-compositions">페이지</a
+              ><a class="g-subnav-link" href="#navigation-compositions">회원</a
+              ><a class="g-subnav-link" href="#navigation-compositions">설정</a>
+            </nav>
+            <div class="site-navigation-workspace">
+              <nav
+                class="g-nav-rail"
+                data-g-roving-nav
+                data-g-orientation="vertical"
+                aria-label="작업공간 데모"
+              >
+                <a
+                  class="g-nav-rail-item"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  ><span class="g-nav-icon">⌂</span><span>홈페이지</span></a
+                ><a class="g-nav-rail-item" href="#navigation-compositions"
+                  ><span class="g-nav-icon">▤</span><span>내용</span></a
+                ><a class="g-nav-rail-item" href="#navigation-compositions"
+                  ><span class="g-nav-icon">AI</span><span>생성</span></a
+                >
+              </nav>
+              <div class="site-navigation-canvas">
+                <ol class="g-breadcrumb">
+                  <li class="g-breadcrumb-item">
+                    <a href="#navigation-compositions">작업공간</a>
+                  </li>
+                  <li class="g-breadcrumb-item" aria-current="page">개요</li>
+                </ol>
+                <div class="g-tabs g-mt-5" data-g-tabs>
+                  <div class="g-tab-list" role="tablist">
+                    <button
+                      class="g-tab"
+                      role="tab"
+                      aria-controls="site-nav-overview"
+                      aria-selected="true"
+                    >
+                      개요</button
+                    ><button
+                      class="g-tab"
+                      role="tab"
+                      aria-controls="site-nav-activity"
+                    >
+                      활동
+                    </button>
+                  </div>
+                  <div
+                    class="g-tab-panel"
+                    id="site-nav-overview"
+                    role="tabpanel"
+                  >
+                    <div class="g-quick-nav">
+                      <a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >★ 컬렉션 페이지</a
+                      ><a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >◷ 최근 편집</a
+                      ><a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >+ 신규 콘텐츠</a
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="g-tab-panel"
+                    id="site-nav-activity"
+                    role="tabpanel"
+                    hidden
+                  >
+                    최근 활동이 여기에 표시됩니다.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="g-drawer-nav" id="site-nav-drawer" hidden>
+            <header class="g-drawer-nav-header">
+              <strong>내비게이션</strong
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm"
+                type="button"
+                data-g-nav-toggle="site-nav-drawer"
+              >
+                닫기
+              </button>
+            </header>
+            <div class="g-drawer-nav-body">
+              <nav class="g-nav-group">
+                <a
+                  class="g-nav-item"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  >작업대</a
+                ><a class="g-nav-item" href="#themes">주제</a
+                ><a class="g-nav-item" href="#recipes">레시피</a>
+              </nav>
+            </div>
+          </aside>
+          <div class="site-region-patterns" aria-label="기존 탐색 조합 목록">
+            <span>탐색바</span><span>기본</span><span>유틸리티</span
+            ><span>하위 탐색</span><span>사이드바</span><span>접이식</span
+            ><span>네비게이션 레일</span><span>활동 표시줄</span><span>메뉴바</span
+            ><span>메가메뉴</span><span>드롭다운</span><span>컨텍스트 메뉴</span
+            ><span>트리 탐색</span><span>이동 경로</span><span>탭</span
+            ><span>세로 탭</span><span>분할됨</span
+            ><span>알약 탐색</span><span>앵커</span><span>스크롤스파이</span
+            ><span>페이지 매김</span><span>커서</span><span>더 로드</span
+            ><span>스테퍼</span><span>마법사</span><span>돌아가기</span
+            ><span>이전 / 다음</span><span>탐색 건너뛰기</span
+            ><span>모바일탑</span><span>하단 탐색</span
+            ><span>모바일 탭바</span><span>서랍</span
+            ><span>명령 팔레트</span><span>명령 탐색</span
+            ><span>점프 네비게이션</span><span>빠른 탐색</span><span>로케일</span
+            ><span>계정</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>38가지 기존 탐색 모드 + 9가지 유형의 재사용 가능한 상호작용</strong
+              ><span
+                >글로벌 · 로컬 · 계층 · 워크플로 · 모바일 · 데스크톱 · RTL · 인쇄</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#navigation-compositions"
+              >전체 탐색 조합 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="data-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >카테고리 08 · 데이터 표시 및 조작</span
+            >
+            <h2 class="site-title">데이터는 표시되어야 할 뿐만 아니라 즉시 사용할 수 있어야 합니다.</h2>
+            <p class="site-lead">
+              테이블, 레코드, 목록, 계층 구조, 지표, 계획, 지도 및 작업을 포괄하는 48개 데이터 모드. 정렬, 선택, 확장, 열 관리, 필터링 및 보기 전환을 위한 통합 런타임이 있습니다.
+            </p>
+          </header>
+          <div
+            class="site-data-demo g-data-container"
+            id="site-customer-data"
+            data-g-table-sort
+            data-g-row-select
+            data-g-row-disclosure
+          >
+            <div class="site-data-metrics">
+              <article class="g-metric-card">
+                <div class="g-metric-card-main">
+                  <span class="g-metric-card-label">고객 수익</span
+                  ><strong class="g-metric-card-value">286천엔</strong>
+                </div>
+                <div class="g-metric-card-trend">
+                  <div class="g-sparkline" role="img" aria-label="매출이 오른다">
+                    <i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 30%"
+                    ></i
+                    ><i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 58%"
+                    ></i
+                    ><i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 88%"
+                    ></i>
+                  </div>
+                </div>
+              </article>
+              <div class="g-status-summary">
+                <div class="g-status-summary-item">
+                  <strong class="g-status-summary-value">128</strong
+                  ><span class="g-status-summary-label">활성</span>
+                </div>
+                <div class="g-status-summary-item">
+                  <strong class="g-status-summary-value">6</strong
+                  ><span class="g-status-summary-label">위험</span>
+                </div>
+              </div>
+            </div>
+            <div class="g-data-toolbar">
+              <div class="g-data-toolbar-start">
+                <strong class="g-data-title">고객 데이터</strong
+                ><span class="g-data-toolbar-result">총 3개 품목</span>
+              </div>
+              <div class="g-data-toolbar-end">
+                <div class="g-data-view-switcher">
+                  <button
+                    class="g-data-view-button"
+                    type="button"
+                    aria-pressed="true"
+                  >
+                    테이블</button
+                  ><button
+                    class="g-data-view-button"
+                    type="button"
+                    aria-pressed="false"
+                  >
+                    카드
+                  </button>
+                </div>
+                <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                  내보내기
+                </button>
+              </div>
+            </div>
+            <div class="g-selection-summary" data-g-selection-summary hidden>
+              <span class="g-selection-summary-count"
+                >선택됨 <strong data-g-selection-count>0</strong> 아이템</span
+              >
+              <div class="g-selection-summary-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">일괄 편집</button>
+              </div>
+            </div>
+            <div class="g-responsive-table is-stacked">
+              <table class="g-table g-table-hover g-expandable-table">
+                <thead>
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        data-g-select-all
+                        aria-label="모든 고객 선택"
+                      />
+                    </th>
+                    <th aria-sort="none">
+                      <button
+                        class="g-sort-button"
+                        data-g-sort-key="name"
+                        type="button"
+                      >
+                        고객 <span class="g-table-sort-indicator"></span>
+                      </button>
+                    </th>
+                    <th>상태</th>
+                    <th aria-sort="none">
+                      <button
+                        class="g-sort-button"
+                        data-g-sort-key="revenue"
+                        data-g-sort-type="number"
+                        type="button"
+                      >
+                        소득 <span class="g-table-sort-indicator"></span>
+                      </button>
+                    </th>
+                    <th>작동</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="g-table-row" id="site-data-a">
+                    <td data-g-label="선택">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="a"
+                        aria-label="갤럭시 기술을 선택하세요"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="고객"
+                    >
+                      갤럭시 테크놀로지
+                    </td>
+                    <td data-g-label="상태">
+                      <span class="g-data-status is-success">활성</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="128000"
+                      data-g-label="소득"
+                    >
+                      ¥128,000
+                    </td>
+                    <td data-g-label="작동">
+                      <button
+                        class="g-row-disclosure"
+                        data-g-row-toggle="site-data-detail-a"
+                        aria-expanded="false"
+                        aria-label="세부정보 펼치기"
+                      >
+                        ›
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="g-expandable-table-detail"
+                    id="site-data-detail-a"
+                    data-g-detail-row="site-data-a"
+                    hidden
+                  >
+                    <td colspan="5">
+                      <div class="g-table-detail-content">
+                        Enterprise Edition 고객 · 마지막으로 연락한 날짜: 2일 전
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="g-table-row">
+                    <td data-g-label="선택">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="b"
+                        aria-label="먼 산 디자인 선택"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="고객"
+                    >
+                      위안산 디자인
+                    </td>
+                    <td data-g-label="상태">
+                      <span class="g-data-status is-warning">후속조치 예정</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="86000"
+                      data-g-label="소득"
+                    >
+                      ¥86,000
+                    </td>
+                    <td data-g-label="작동">보기</td>
+                  </tr>
+                  <tr class="g-table-row">
+                    <td data-g-label="선택">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="c"
+                        aria-label="임해교육을 선택하세요"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="고객"
+                    >
+                      임해교육
+                    </td>
+                    <td data-g-label="상태">
+                      <span class="g-data-status is-danger">위험</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="42000"
+                      data-g-label="소득"
+                    >
+                      ¥42,000
+                    </td>
+                    <td data-g-label="작동">보기</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="데이터 표시 및 동작 모드 목록">
+            <span>테이블</span><span>반응 테이블</span><span>데이터 그리드</span
+            ><span>편집 가능한 그리드</span><span>트리 테이블</span
+            ><span>그룹화된 테이블</span><span>확장형 테이블</span
+            ><span>비교</span><span>피벗</span
+            ><span>설명 목록</span><span>키 값</span
+            ><span>기록상세</span><span>목록 그룹</span
+            ><span>미디어 목록</span><span>밀집 목록</span
+            ><span>가상 목록</span><span>나무</span><span>타임라인</span
+            ><span>활동 피드</span><span>감사 로그</span><span>KPI</span
+            ><span>통계 목록</span><span>미터법 카드</span><span>스파크라인</span
+            ><span>진행 상태</span><span>차트</span><span>범례</span
+            ><span>순위</span><span>상태 요약</span><span>달력</span
+            ><span>의제</span><span>칸반</span><span>간트</span
+            ><span>조직도</span><span>지도</span><span>매트릭스</span
+            ><span>히트맵</span><span>데이터 툴바</span
+            ><span>열 선택기</span><span>저장된 보기</span
+            ><span>내보내기 패널</span><span>데이터 상태</span
+            ><span>뷰 전환기</span><span>선택 요약</span
+            ><span>밀도</span><span>필터 요약</span
+            ><span>정렬 빌더</span><span>데이터 검사기</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>48개 데이터 표시 및 작동 모드 + 8가지 재사용 상호작용</strong
+              ><span
+                >테이블 · 레코드 · 미터법 · 계획 · 공간 · 키보드 · RTL · 인쇄</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#data-compositions"
+              >전체 데이터 조합 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="site-section site-section-soft"
+        id="selection-compositions"
+      >
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">32개 선택 및 배치 패턴</span>
+            <h2 class="site-title">항목 1개 선택부터 100,000건 처리까지</h2>
+            <p class="site-lead">
+              모두 선택, 선택 반전, 범위 선택, 일괄 도구 모음, 전송, 트리 및 계단식 선택, 사람/조직/자원/미디어 선택기, 날짜 시간 범위, 구성 저장 및 정렬/그룹 작성기 모두 안정적인 인터페이스를 갖추고 있습니다. AI는 복잡한 백엔드 선택 프로세스를 즉석에서 만들 필요가 없습니다.
+            </p>
+          </header>
+          <div
+            class="site-selection-demo g-selection-container"
+            data-g-row-select
+          >
+            <section class="g-selection-scope">
+              <header class="g-selection-scope-header">
+                <strong class="g-selection-scope-title">사이트 페이지</strong>
+                <div class="g-cluster">
+                  <label class="g-select-all-control"
+                    ><input type="checkbox" data-g-select-all /> 모두 선택</label
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    type="button"
+                    data-g-invert-selection
+                  >
+                    역선택
+                  </button>
+                </div>
+              </header>
+              <div class="g-selection-scope-list">
+                <label class="g-selection-item" data-g-selectable-row
+                  ><input type="checkbox" data-g-select-row value="home" /><span
+                    class="g-selection-item-content"
+                    ><span class="g-selection-item-title">홈페이지</span
+                    ><span class="g-selection-item-description"
+                      >기업역 입구</span
+                    ></span
+                  ><span class="g-selection-item-meta">게시됨</span></label
+                ><label class="g-selection-item" data-g-selectable-row
+                  ><input
+                    type="checkbox"
+                    data-g-select-row
+                    value="product"
+                  /><span class="g-selection-item-content"
+                    ><span class="g-selection-item-title">제품센터</span
+                    ><span class="g-selection-item-description"
+                      >관련 페이지 12개</span
+                    ></span
+                  ><span class="g-selection-item-meta">초안</span></label
+                ><label class="g-selection-item" data-g-selectable-row
+                  ><input
+                    type="checkbox"
+                    data-g-select-row
+                    value="about"
+                  /><span class="g-selection-item-content"
+                    ><span class="g-selection-item-title">회사소개</span
+                    ><span class="g-selection-item-description"
+                      >기업정보</span
+                    ></span
+                  ><span class="g-selection-item-meta">게시됨</span></label
+                >
+              </div>
+            </section>
+            <aside class="site-selection-side">
+              <div class="g-user-picker">
+                <div class="g-picker-control">
+                  <span class="g-picker-value"
+                    ><span class="g-picker-avatar">왕</span
+                    ><span class="g-picker-value-label">왕린</span></span
+                  ><input
+                    class="g-picker-input"
+                    aria-label="담당자 추가"
+                    placeholder="담당자 추가"
+                  />
+                </div>
+              </div>
+              <div class="g-saved-filters g-mt-4" data-g-saved-choice>
+                <button
+                  class="g-saved-filter"
+                  data-g-saved-choice-item
+                  data-g-value="mine"
+                  aria-pressed="true"
+                >
+                  내 할일</button
+                ><button
+                  class="g-saved-filter"
+                  data-g-saved-choice-item
+                  data-g-value="risk"
+                  aria-pressed="false"
+                >
+                  위험항목
+                </button>
+              </div>
+              <div class="g-batch-toolbar g-mt-4" data-g-batch-toolbar hidden>
+                <span class="g-batch-toolbar-summary"
+                  >선택됨 <strong data-g-selection-count>0</strong> 아이템</span
+                >
+                <div class="g-batch-toolbar-actions">
+                  <button class="g-btn g-btn-primary g-btn-sm">출시</button
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    type="button"
+                    data-g-clear-selection
+                  >
+                    취소
+                  </button>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="구성 요소 목록 선택 및 일괄 처리">
+            <span>선택 제어</span><span>모두 선택</span
+            ><span>반전</span><span>범위</span><span>배치 도구 모음</span
+            ><span>선택 범위</span><span>전송</span
+            ><span>듀얼리스트</span><span>트리 선택</span><span>캐스케이더</span
+            ><span>멘션 선택기</span><span>사용자 선택기</span
+            ><span>조직 선택기</span><span>리소스 선택기</span
+            ><span>미디어 선택기</span><span>아이콘 선택기</span
+            ><span>색상 선택기</span><span>날짜 범위</span
+            ><span>시간 범위</span><span>저장된 필터</span
+            ><span>저장된 보기</span><span>열 선택기</span
+            ><span>정렬 빌더</span><span>그룹 빌더</span
+            ><span>엔터티 선택기</span><span>태그 선택기</span
+            ><span>관계 선택기</span><span>대량확인</span
+            ><span>대량 진행</span><span>피커 패널</span
+            ><span>선택기 요약</span><span>선택 요약</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32개 선택이 배치 모드와 상호 작용 + 7개 다중화 범주</strong
+              ><span
+                >다중 선택 · 계층 · 검색 · 안전 영역 · 키보드 · RTL · 인쇄</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#selection-compositions"
+              >전체 선택 구성요소 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="content-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >카테고리 10 · 파일 및 콘텐츠 시스템</span
+            >
+            <h2 class="site-title">파일 업로드부터 전체 콘텐츠 제작 완료까지</h2>
+            <p class="site-lead">
+              업로드 대기열, 파일 탐색, 미디어 라이브러리, 이미지 처리, 문서/PDF/오디오 및 비디오 보기, 코드 및 서식 있는 텍스트 편집, 마크다운, 블록, 개정, 주석 및 자동 저장 등 모두 이미 만들어진 구조를 가지고 있습니다.
+            </p>
+          </header>
+          <div class="site-content-demo g-content-container">
+            <section class="g-upload-queue" data-g-upload-manager>
+              <header class="g-upload-queue-header">
+                <strong>콘텐츠 업로드</strong
+                ><span class="g-upload-summary"
+                  >완료 <b data-g-upload-count="success">0</b> · 가공중
+                  <b data-g-upload-count="active">0</b></span
+                >
+              </header>
+              <div data-g-upload-list>
+                <div
+                  class="g-upload-item"
+                  data-g-upload-item
+                  data-g-status="uploading"
+                  data-g-progress="50"
+                >
+                  <span class="g-file-icon">PDF</span
+                  ><span class="g-file-main"
+                    ><strong class="g-file-name">기업 브랜드 매뉴얼.pdf</strong
+                    ><span class="g-file-meta">4.8MB</span
+                    ><span
+                      class="g-upload-status"
+                      data-g-upload-status
+                    ></span></span
+                  ><span
+                    class="g-upload-progress"
+                    data-g-upload-progress
+                    role="progressbar"
+                    aria-label="브랜드 매뉴얼 업로드 진행"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    ><i class="g-upload-progress-bar"></i></span
+                  ><span class="g-upload-actions"
+                    ><button
+                      class="g-btn g-btn-outline g-btn-sm"
+                      data-g-upload-action="advance"
+                      type="button"
+                    >
+                      전진
+                    </button></span
+                  >
+                </div>
+                <div
+                  class="g-upload-item"
+                  data-g-upload-item
+                  data-g-status="success"
+                  data-g-progress="100"
+                >
+                  <span class="g-file-icon">JPG</span
+                  ><span class="g-file-main"
+                    ><strong class="g-file-name">홈페이지표지.jpg</strong
+                    ><span class="g-file-meta">880KB</span
+                    ><span
+                      class="g-upload-status"
+                      data-g-upload-status
+                    ></span></span
+                  ><span
+                    class="g-upload-progress"
+                    data-g-upload-progress
+                    role="progressbar"
+                    aria-label="홈페이지 표지 업로드 진행"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    ><i class="g-upload-progress-bar"></i></span
+                  ><span></span>
+                </div>
+              </div>
+            </section>
+            <section
+              class="g-file-browser"
+              data-g-file-browser
+              data-g-view="grid"
+            >
+              <header class="g-file-browser-header">
+                <strong>브랜드 정보</strong>
+                <div class="g-cluster">
+                  <label class="g-sr-only" for="home-file-search"
+                    >파일 검색</label
+                  ><input
+                    class="g-input g-input-sm"
+                    id="home-file-search"
+                    data-g-file-search
+                    type="search"
+                    placeholder="검색"
+                  /><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    data-g-file-view="grid"
+                    aria-pressed="true"
+                    type="button"
+                  >
+                    그리드</button
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    data-g-file-view="list"
+                    aria-pressed="false"
+                    type="button"
+                  >
+                    목록
+                  </button>
+                </div>
+              </header>
+              <aside class="g-file-browser-tree">
+                <nav class="g-folder-tree" aria-label="폴더">
+                  <button
+                    class="g-folder-tree-item"
+                    aria-current="page"
+                    type="button"
+                  >
+                    <span>▾</span><span>브랜드</span
+                    ><span class="g-folder-tree-count">3</span></button
+                  ><button
+                    class="g-folder-tree-item"
+                    style="--g-tree-level: 1"
+                    type="button"
+                  >
+                    <span>▸</span><span>이미지</span
+                    ><span class="g-folder-tree-count">2</span>
+                  </button>
+                </nav>
+              </aside>
+              <div class="g-file-browser-main">
+                <div class="g-file-card-grid">
+                  <article
+                    class="g-file-card"
+                    data-g-file-item
+                    data-g-file-name="브랜드 매뉴얼.pdf"
+                    tabindex="0"
+                  >
+                    <div class="g-file-card-preview site-content-thumb">
+                      PDF
+                    </div>
+                    <div class="g-file-card-body">
+                      <strong class="g-file-name">브랜드 매뉴얼.pdf</strong
+                      ><span class="g-file-meta">4.8MB</span>
+                    </div>
+                  </article>
+                  <article
+                    class="g-file-card"
+                    data-g-file-item
+                    data-g-file-name="홈페이지표지.jpg"
+                    tabindex="-1"
+                  >
+                    <div class="g-file-card-preview site-content-thumb">
+                      IMG
+                    </div>
+                    <div class="g-file-card-body">
+                      <strong class="g-file-name">홈페이지표지.jpg</strong
+                      ><span class="g-file-meta">880KB</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <footer class="g-file-browser-status">
+                <span><b data-g-file-count>0</b> 결과</span
+                ><span>선택됨:<b data-g-file-selection>선택되지 않음</b></span>
+              </footer>
+            </section>
+          </div>
+          <div class="site-region-patterns" aria-label="파일 및 콘텐츠 시스템 구성 요소 목록">
+            <span>파일 드롭</span><span>파일 목록</span><span>업로드 대기열</span
+            ><span>청크 업로드</span><span>업로드 진행</span
+            ><span>업로드 실패</span><span>파일카드</span
+            ><span>폴더 트리</span><span>파일 브라우저</span
+            ><span>파일 미리보기</span><span>미디어 라이브러리</span
+            ><span>미디어 그리드</span><span>미디어 세부정보</span
+            ><span>이미지 자르기</span><span>이미지 주석</span
+            ><span>문서뷰어</span><span>PDF 뷰어</span
+            ><span>비디오 플레이어</span><span>오디오 플레이어</span
+            ><span>코드 에디터</span><span>리치 텍스트 편집기</span
+            ><span>마크다운 편집기</span><span>블록 에디터</span
+            ><span>개정판 비교</span><span>자동 저장</span
+            ><span>콘텐츠 개요</span><span>에디터 툴바</span
+            ><span>찾기 및 바꾸기</span><span>코멘트 스레드</span
+            ><span>버전 기록</span><span>파일 속성</span
+            ><span>수납미터</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32개의 파일 및 콘텐츠 모드 + 6가지 유형의 재사용 상호작용</strong
+              ><span
+                >업로드 · 브라우저 · 편집자 · 개정 · 키보드 · RTL · 인쇄</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#content-compositions"
+              >전체 콘텐츠 시스템 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="auth-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">카테고리 11 · ID 수명주기</span>
+            <h2 class="site-title">최초 로그인부터 모든 보안감사까지</h2>
+            <p class="site-lead">
+              로그인, 등록, 인증, MFA, 패스키, SSO, QR 코드, 초대, 계정 및 테넌트 선택, 잠금 화면, 세션 복구, 장치 관리 및 보안 이벤트가 웹 사이트, 모바일 단말기, 대시보드 및 Tauri/Electron에 적합한 안정적인 페이지 구조로 결합되었습니다.
+            </p>
+          </header>
+          <div class="site-auth-demo">
+            <form class="g-auth-panel g-sign-in">
+              <header class="g-auth-header">
+                <div class="g-auth-brand-row">
+                  <span class="g-auth-brand-mark">지</span
+                  ><span>Gardener 클라우드</span>
+                </div>
+                <h3 class="g-auth-title">돌아온 걸 환영해요</h3>
+                <p class="g-auth-description">Acme Enterprise Workspace에 로그인</p>
+              </header>
+              <div class="g-auth-provider-list">
+                <button class="g-auth-provider" type="button">
+                  <span class="g-auth-provider-icon">에스</span
+                  ><span>엔터프라이즈 SSO 사용</span><span>›</span>
+                </button>
+              </div>
+              <div class="g-auth-divider">아니면 이메일을 이용하세요</div>
+              <label class="g-field"
+                ><span class="g-label">이메일</span
+                ><input class="g-input" type="email" value="admin@example.com"
+              /></label>
+              <div class="g-password-field" data-g-password-toggle>
+                <label class="g-label" for="home-auth-password">비밀번호</label
+                ><input
+                  class="g-input"
+                  id="home-auth-password"
+                  type="password"
+                  value="Gardener2026!"
+                /><button
+                  class="g-password-field-action"
+                  data-g-password-button
+                  type="button"
+                >
+                  <span data-g-password-label>비밀번호 표시</span>
+                </button>
+              </div>
+              <button class="g-btn g-btn-primary" type="submit">로그인</button>
+            </form>
+            <div class="site-auth-side">
+              <section class="g-phone-verification">
+                <strong>휴대폰 인증</strong>
+                <p class="g-auth-description">
+                  +86 138****6608로 전송된 인증번호를 입력하세요
+                </p>
+                <div class="g-otp-input" data-g-otp-input>
+                  <input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="인증코드 숫자 1"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="인증코드 숫자 2"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="인증코드 숫자 3"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="인증코드 숫자 4"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="인증코드 숫자 5"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="인증코드 숫자 6"
+                  /><input type="hidden" data-g-otp-output />
+                </div>
+              </section>
+              <div class="g-security-alert">
+                <span class="g-security-alert-icon">!</span>
+                <div>
+                  <strong>새로운 장치가 감지되었습니다.</strong>
+                  <p class="g-auth-description">
+                    리눅스 · Firefox, 베이징에서 시작.
+                  </p>
+                </div>
+                <div class="g-security-alert-actions">
+                  <button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    이게 나야</button
+                  ><button class="g-btn g-btn-outline g-btn-sm" type="button">
+                    계정 보호
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="로그인 및 계정 시스템 구성요소 목록">
+            <span>중앙 인증</span><span>분할 인증</span><span>로그인</span
+            ><span>등록</span><span>비밀번호 복구</span
+            ><span>비밀번호 재설정</span><span>이메일 인증</span
+            ><span>전화인증</span><span>MFA</span><span>OTP</span
+            ><span>패스키</span><span>SSO</span><span>QR 로그인</span
+            ><span>매직링크</span><span>초대장</span
+            ><span>첫 번째 설정</span><span>잠금화면</span
+            ><span>세션이 만료되었습니다.</span><span>계정 선택기</span
+            ><span>테넌트 선택자</span><span>신원 전환기</span
+            ><span>프로필 설정</span><span>계정 보안</span
+            ><span>장치</span><span>로그인 활동</span
+            ><span>보안 경고</span><span>복구 코드</span
+            ><span>신뢰할 수 있는 장치</span><span>연결된 계정</span
+            ><span>비밀번호 강도</span><span>동의</span
+            ><span>인증 결과</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32개의 로그인 및 계정 모드 + 8가지 유형의 재사용 상호작용</strong
+              ><span
+                >비밀번호 · OTP · MFA · 패스키 · SSO · 세션 · ID · 보안</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#auth-compositions"
+              >전체 계정 시스템 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="commerce-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">카테고리 12 · 상업 및 결제</span>
+            <h2 class="site-title">상품을 보시고 거래완료 및 환불까지</h2>
+            <p class="site-lead">
+              제품 카드, 세부정보, SKU, 장바구니, 결제, 주소, 배송, 제안, 송장, 결제, 주문, 구독, 사용, 청구 및 환불이 안정적인 구조로 되었습니다. 전자상거래, 디지털 상품, SaaS, 기업 조달, CMS 상용화 및 데스크톱 클라이언트에 적합합니다.
+            </p>
+          </header>
+          <div class="site-commerce-demo g-commerce-container">
+            <article class="g-commerce-product-card">
+              <div class="g-product-media site-commerce-media">
+                <span class="g-product-card-badge g-badge">엔터프라이즈 에디션</span
+                ><strong>Gardener 스튜디오</strong>
+              </div>
+              <div class="g-product-card-body">
+                <span class="g-product-card-meta">영구 라이센스 · 3개의 단말기 사용 가능</span>
+                <h3 class="g-product-card-title">스튜디오 비즈니스 스위트</h3>
+                <div class="g-price-display">
+                  <strong class="g-price-current">¥699</strong
+                  ><del class="g-price-original">¥899</del
+                  ><span class="g-price-discount">-22%</span>
+                </div>
+                <div class="g-sku-selector" data-g-sku-selector>
+                  <div class="g-sku-group" data-g-sku-group="platform">
+                    <div class="g-sku-group-header">
+                      <strong>플랫폼</strong
+                      ><span
+                        class="g-sku-selection"
+                        data-g-sku-selection
+                      ></span>
+                    </div>
+                    <div class="g-sku-options">
+                      <button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="Windows"
+                      >
+                        윈도우</button
+                      ><button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="macOS"
+                      >
+                        macOS</button
+                      ><button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="Linux"
+                      >
+                        리눅스
+                      </button>
+                    </div>
+                  </div>
+                  <input type="hidden" data-g-sku-output />
+                </div>
+              </div>
+            </article>
+            <div class="site-commerce-side">
+              <div
+                class="g-cart"
+                data-g-cart
+                data-g-currency="CNY"
+                data-g-shipping="1200"
+                data-g-discount="2000"
+              >
+                <article
+                  class="g-commerce-cart-item"
+                  data-g-cart-item
+                  data-g-unit-price="69900"
+                >
+                  <div class="g-cart-item-media site-commerce-media">지</div>
+                  <div class="g-cart-item-main">
+                    <strong>스튜디오 비즈니스 스위트</strong
+                    ><span class="g-cart-item-variant">Windows·엔터프라이즈 라이선스</span>
+                    <div class="g-quantity-stepper" data-g-quantity-stepper>
+                      <button
+                        class="g-quantity-button"
+                        type="button"
+                        data-g-quantity-decrement
+                        aria-label="수량 줄이기"
+                      >
+                        −</button
+                      ><input
+                        class="g-quantity-input"
+                        data-g-quantity-input
+                        type="number"
+                        min="1"
+                        max="9"
+                        value="1"
+                        aria-label="상품수량"
+                      /><button
+                        class="g-quantity-button"
+                        type="button"
+                        data-g-quantity-increment
+                        aria-label="수량 늘리기"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="g-cart-item-side">
+                    <strong data-g-line-total>¥699.00</strong>
+                  </div>
+                </article>
+                <div class="g-cart-empty" data-g-cart-empty hidden>
+                  장바구니가 비어있습니다.
+                </div>
+                <div class="g-cart-summary">
+                  <div class="g-cart-summary-row">
+                    <span>제품</span><span data-g-cart-subtotal></span>
+                  </div>
+                  <div class="g-cart-summary-row">
+                    <span>할인</span><span data-g-cart-discount></span>
+                  </div>
+                  <div class="g-cart-summary-row">
+                    <span>배달</span><span data-g-cart-shipping></span>
+                  </div>
+                  <div class="g-cart-summary-row g-cart-summary-total">
+                    <span>대처</span><span data-g-cart-total></span>
+                  </div>
+                </div>
+              </div>
+              <div class="g-coupon" data-g-coupon data-g-valid-codes="GARDEN20">
+                <div class="g-coupon-row">
+                  <label class="g-sr-only" for="home-coupon">할인코드</label
+                  ><input
+                    class="g-input"
+                    id="home-coupon"
+                    data-g-coupon-input
+                    value="GARDEN20"
+                  /><button
+                    class="g-btn g-btn-primary"
+                    type="button"
+                    data-g-coupon-apply
+                  >
+                    사용
+                  </button>
+                </div>
+                <span class="g-coupon-status" data-g-coupon-status></span>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="상업 및 결제 구성 요소 목록">
+            <span>제품카드</span><span>제품목록</span
+            ><span>상품상세정보</span><span>제품갤러리</span
+            ><span>SKU 선택기</span><span>수량 스테퍼</span
+            ><span>가격 표시</span><span>장바구니 품목</span><span>카트</span
+            ><span>미니카트</span><span>장바구니 요약</span><span>결제</span
+            ><span>결제 단계</span><span>주소 선택기</span
+            ><span>주소카드</span><span>배송 방법</span
+            ><span>픽업 셀렉터</span><span>쿠폰</span
+            ><span>프로모션 목록</span><span>송장정보</span
+            ><span>결제 방법</span><span>결제 명세서</span
+            ><span>결제 결과</span><span>주문 요약</span
+            ><span>주문 타임라인</span><span>주문 세부정보</span
+            ><span>구독 요금제</span><span>가격비교</span
+            ><span>사용량 측정기</span><span>청구 내역</span
+            ><span>환불 상태</span><span>세금 요약</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32가지 비즈니스 및 결제 모델 + 7가지 유형의 재사용 상호작용</strong
+              ><span
+                >카탈로그·장바구니·결제·이행·결제·주문·청구</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#commerce-compositions"
+              >전체 비즈니스 및 결제 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="mobile-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">카테고리 13 · 모바일 전용</span>
+            <h2 class="site-title">더 작은 데스크탑이 아닌, 완전한 모바일 앱 레이어</h2>
+            <p class="site-lead">
+              안전 영역, 동적 뷰포트, 상단 표시줄, 하단 탐색, 하단/작업/필터 시트, 당겨서 새로 고침, 무한 로드, 슬라이딩 작업, 휠 선택, 키보드 회피, 모바일 인증 및 결제, 권한 및 오프라인 상태가 안정적인 계약을 가지며 모바일 웹 페이지, PWA 및 Tauri/Electron 모바일 WebView에 직접 사용할 수 있습니다.
+            </p>
+          </header>
+          <div class="site-mobile-demo">
+            <section
+              class="g-mobile-safe-shell is-contained"
+              aria-label="Gardener 모바일 컴포넌트 미리보기"
+            >
+              <header class="g-mobile-app-bar">
+                <div class="g-mobile-app-bar-start">
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    aria-label="반품"
+                  >
+                    ←
+                  </button>
+                </div>
+                <h3 class="g-mobile-app-bar-title">컨텐츠 센터</h3>
+                <div class="g-mobile-app-bar-actions">
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    data-g-mobile-sheet-open="home-mobile-sheet"
+                    aria-label="필터"
+                  >
+                    ⌘
+                  </button>
+                </div>
+              </header>
+              <div class="g-mobile-safe-content g-p-0">
+                <form class="g-mobile-search" role="search">
+                  <div class="g-mobile-search-field">
+                    <span class="g-mobile-search-icon" aria-hidden="true"
+                      >⌕</span
+                    ><label class="g-sr-only" for="home-mobile-search"
+                      >검색</label
+                    ><input
+                      class="g-input"
+                      id="home-mobile-search"
+                      type="search"
+                      placeholder="콘텐츠 검색"
+                    />
+                  </div>
+                  <button class="g-btn g-btn-ghost" type="submit">검색</button>
+                </form>
+                <div
+                  class="g-mobile-swipe-tabs"
+                  role="tablist"
+                  aria-label="콘텐츠 유형"
+                >
+                  <button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                  >
+                    추천</button
+                  ><button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    최신</button
+                  ><button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    팔로우
+                  </button>
+                </div>
+                <div
+                  class="g-mobile-card-carousel g-py-4"
+                  tabindex="0"
+                  role="region"
+                  aria-label="모바일카드 캐러셀"
+                >
+                  <article class="g-card g-p-4">
+                    <strong>안전지대가 준비되었습니다</strong>
+                    <p class="g-text-sm g-text-muted g-mt-2">
+                      노치 및 홈 표시기 자동 보호.
+                    </p>
+                  </article>
+                  <article class="g-card g-p-4">
+                    <strong>WebView에 적합</strong>
+                    <p class="g-text-sm g-text-muted g-mt-2">
+                      PWA, Tauri 및 Electron 공유 구조.
+                    </p>
+                  </article>
+                </div>
+                <div class="g-mobile-feed">
+                  <article class="g-mobile-feed-item">
+                    <span class="site-mobile-avatar">지</span>
+                    <div class="g-mobile-feed-main">
+                      <strong>모바일 콘텐츠 스트리밍</strong>
+                      <p class="g-text-sm g-text-muted g-m-0">
+                        안정적인 미디어, 본체 및 테일 동작 슬롯.
+                      </p>
+                    </div>
+                    <button
+                      class="g-btn g-btn-ghost g-btn-icon"
+                      type="button"
+                      aria-label="컬렉션"
+                    >
+                      ☆
+                    </button>
+                  </article>
+                </div>
+              </div>
+              <nav
+                class="g-mobile-bottom-navigation"
+                aria-label="모바일 단말기의 1단계 탐색"
+              >
+                <a
+                  class="g-mobile-bottom-navigation-item is-active"
+                  href="#mobile-compositions"
+                  aria-current="page"
+                  ><span aria-hidden="true">⌂</span><span>홈페이지</span></a
+                ><a
+                  class="g-mobile-bottom-navigation-item"
+                  href="#mobile-compositions"
+                  ><span aria-hidden="true">▦</span><span>분류</span></a
+                ><button
+                  class="g-mobile-bottom-navigation-item"
+                  type="button"
+                  data-g-mobile-sheet-open="home-mobile-sheet"
+                >
+                  <span aria-hidden="true">⌘</span><span>필터</span></button
+                ><a
+                  class="g-mobile-bottom-navigation-item"
+                  href="#mobile-compositions"
+                  ><span aria-hidden="true">○</span><span>광산</span></a
+                >
+              </nav>
+            </section>
+            <aside
+              class="g-mobile-filter-sheet"
+              id="home-mobile-sheet"
+              data-g-mobile-sheet
+              hidden
+            >
+              <div class="g-mobile-sheet-panel">
+                <div class="g-mobile-sheet-handle" aria-hidden="true"></div>
+                <header class="g-mobile-sheet-header">
+                  <h3>모바일 필터링</h3>
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    data-g-close
+                    aria-label="닫기"
+                  >
+                    ×
+                  </button>
+                </header>
+                <div class="g-mobile-picker" data-g-saved-choice>
+                  <div class="g-mobile-picker-grid">
+                    <button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="all"
+                      aria-pressed="true"
+                    >
+                      모두</button
+                    ><button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="web"
+                      aria-pressed="false"
+                    >
+                      웹페이지</button
+                    ><button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="app"
+                      aria-pressed="false"
+                    >
+                      신청
+                    </button>
+                  </div>
+                </div>
+                <footer class="g-mobile-sheet-footer">
+                  <button
+                    class="g-btn g-btn-primary g-w-full"
+                    type="button"
+                    data-g-close
+                  >
+                    결과 보기
+                  </button>
+                </footer>
+              </div>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="모바일 전용 컴포넌트 목록">
+            <span>안전지역쉘</span><span>상단 앱바</span
+            ><span>하단 탐색</span><span>바텀시트</span
+            ><span>액션 시트</span><span>당겨서 새로고침</span
+            ><span>무한부하</span><span>스와이프 동작</span
+            ><span>스와이프 탭</span><span>모바일 카테고리</span
+            ><span>모바일 필터</span><span>고정구매바</span
+            ><span>모바일 검색</span><span>모바일 피커</span
+            ><span>휠피커</span><span>플로팅 액션 버튼</span
+            ><span>전체화면 대화상자</span><span>키보드 회피</span
+            ><span>제스처 힌트</span><span>오프라인 배너</span
+            ><span>분할제어</span><span>모바일 피드</span
+            ><span>카드 회전목마</span><span>모바일폼</span
+            ><span>모바일 인증</span><span>모바일 결제</span
+            ><span>미디어뷰어</span><span>키보드 툴바</span
+            ><span>선택 모드</span><span>스낵바</span
+            ><span>권한 프롬프트</span><span>비어 있음/오류 상태</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32개의 모바일 전용 모드 + 14가지 유형의 재사용 상호작용</strong
+              ><span
+                >안전 영역 · 터치 · 시트 · 제스처 · 키보드 · PWA · WebView</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#mobile-compositions"
+              >전체 모바일 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="desktop-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">카테고리 14 · 데스크탑 전용</span>
+            <h2 class="site-title">웹 기술을 완전한 데스크탑 작업 공간으로 전환</h2>
+            <p class="site-lead">
+              기본 제목 표시줄, 창 버튼, 메뉴 및 활동 표시줄은 시작점일 뿐입니다. 문서 레이블, 조정 가능한 열, Dock, 검사기, 명령 패널, 파일 선택, 트레이, 다중 창, 백그라운드 작업, 업데이트, 권한 및 충돌 복구가 모두 안정적으로 결합되었으며 Tauri 및 Electron에서 직접 구현할 수 있습니다.
+            </p>
+          </header>
+          <div class="site-desktop-demo">
+            <section
+              class="g-desktop-workspace is-contained"
+              data-g-platform="electron"
+              aria-label="Gardener 데스크탑 구성요소 미리보기"
+            >
+              <header class="g-native-titlebar g-desktop-drag-region">
+                <div class="g-native-titlebar-start g-desktop-no-drag">
+                  <nav
+                    class="g-desktop-menubar"
+                    data-g-roving-nav
+                    aria-label="애플리케이션 메뉴"
+                  >
+                    <button class="g-desktop-menubar-item" type="button">
+                      파일</button
+                    ><button class="g-desktop-menubar-item" type="button">
+                      편집</button
+                    ><button class="g-desktop-menubar-item" type="button">
+                      보기
+                    </button>
+                  </nav>
+                </div>
+                <strong class="g-native-titlebar-title"
+                  >Gardener Studio — 콘텐츠 공간</strong
+                >
+                <div class="g-native-titlebar-end">
+                  <div class="g-desktop-window-controls">
+                    <button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="최소화"
+                    >
+                      —</button
+                    ><button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="최대화"
+                    >
+                      □</button
+                    ><button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="닫기"
+                    >
+                      ×
+                    </button>
+                  </div>
+                </div>
+              </header>
+              <nav
+                class="g-desktop-activity-bar"
+                data-g-roving-nav
+                aria-label="활동 항목"
+              >
+                <button
+                  class="g-desktop-activity-item is-active"
+                  type="button"
+                  aria-current="page"
+                  aria-label="파일"
+                >
+                  ▤</button
+                ><button
+                  class="g-desktop-activity-item"
+                  type="button"
+                  aria-label="검색"
+                >
+                  ⌕</button
+                ><button
+                  class="g-desktop-activity-item"
+                  type="button"
+                  aria-label="확장"
+                >
+                  ▦
+                </button>
+              </nav>
+              <div class="g-desktop-workspace-main">
+                <div class="g-desktop-toolbar">
+                  <div class="g-desktop-toolbar-group">
+                    <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                      ←</button
+                    ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                      →
+                    </button>
+                  </div>
+                  <span class="g-desktop-toolbar-separator"></span
+                  ><button
+                    class="g-btn g-btn-ghost g-btn-sm"
+                    type="button"
+                    data-g-command-trigger="home-desktop-command"
+                  >
+                    ⌕ 검색 및 명령어</button
+                  ><span class="g-sync-status is-syncing g-ml-auto"
+                    ><i class="g-sync-status-dot"></i>동기화 중</span
+                  >
+                </div>
+                <div class="g-desktop-split-pane" data-g-split-pane>
+                  <aside
+                    class="g-split-panel g-desktop-dock-panel"
+                    data-g-pane="start"
+                  >
+                    <header class="g-desktop-panel-header">리소스 관리자</header>
+                    <div class="g-desktop-panel-body">
+                      <div class="g-recent-documents">
+                        <button class="g-recent-document" type="button">
+                          <span>▤</span
+                          ><span class="g-recent-document-main"
+                            ><strong>홈.json</strong
+                            ><small class="g-recent-document-path"
+                              >콘텐츠/home.json</small
+                            ></span
+                          ></button
+                        ><button class="g-recent-document" type="button">
+                          <span>▤</span
+                          ><span class="g-recent-document-main"
+                            ><strong>theme.css</strong
+                            ><small class="g-recent-document-path"
+                              >스타일/theme.css</small
+                            ></span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </aside>
+                  <button
+                    class="g-split-handle"
+                    type="button"
+                    role="separator"
+                    aria-label="패널 너비 조정"
+                  ></button>
+                  <section class="g-split-panel" data-g-pane="end">
+                    <div class="g-desktop-document-tabs" data-g-desktop-tabs>
+                      <button
+                        class="g-desktop-document-tab is-active is-dirty"
+                        type="button"
+                        data-g-desktop-tab
+                        aria-selected="true"
+                        aria-controls="home-desktop-tab"
+                      >
+                        홈.json
+                      </button>
+                    </div>
+                    <div class="g-p-5" id="home-desktop-tab" role="tabpanel">
+                      <span class="site-eyebrow">데스크톱 CMS</span>
+                      <h3 class="g-mt-2">고밀도 작업 공간을 위해 재조립이 필요하지 않습니다.</h3>
+                      <p class="g-text-sm g-text-muted g-mt-2">
+                        윈도우 크롬, 네비게이션, 편집 영역, 상태 영역, 호스트 브리지는 각각 독립적인 계약을 갖고 있습니다.
+                      </p>
+                      <button
+                        class="g-btn g-btn-primary g-btn-sm g-mt-3"
+                        type="button"
+                        data-g-command-trigger="home-desktop-command"
+                      >
+                        명령 패널 열기
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <aside class="g-desktop-inspector-panel">
+                <header class="g-desktop-panel-header">검사관</header>
+                <div class="g-desktop-panel-body">
+                  <div class="g-field">
+                    <label class="g-label" for="home-desktop-title"
+                      >페이지 제목</label
+                    ><input
+                      class="g-input"
+                      id="home-desktop-title"
+                      value="기업 홈페이지"
+                    />
+                  </div>
+                  <div
+                    class="g-shortcut-recorder g-mt-4"
+                    data-g-shortcut-recorder
+                  >
+                    <button
+                      class="g-shortcut-recorder-control"
+                      type="button"
+                      data-g-shortcut-control
+                      aria-pressed="false"
+                    >
+                      <span data-g-shortcut-display>Ctrl+P</span
+                      ><kbd>녹음</kbd></button
+                    ><input
+                      type="hidden"
+                      data-g-shortcut-output
+                      value="Control+P"
+                    /><small
+                      class="g-shortcut-recorder-status"
+                      data-g-shortcut-status
+                    ></small>
+                  </div>
+                </div>
+              </aside>
+              <footer class="g-desktop-status-bar">
+                <div class="g-desktop-status-group">
+                  <span class="g-desktop-status-item">⑂ 메인</span
+                  ><span class="g-desktop-status-item">✓ 0 오류</span>
+                </div>
+                <div class="g-desktop-status-group">
+                  <span class="g-desktop-status-item">UTF-8</span>
+                </div>
+              </footer>
+            </section>
+          </div>
+          <div class="site-region-patterns" aria-label="데스크탑별 구성 요소 목록">
+            <span>네이티브 제목 표시줄</span><span>창 컨트롤</span
+            ><span>메뉴바</span><span>활동 표시줄</span
+            ><span>도크 패널</span><span>크기 조정 가능한 분할 창</span
+            ><span>검사관</span><span>상태 표시줄</span
+            ><span>명령 팔레트</span><span>단축녹화기</span
+            ><span>컨텍스트 메뉴</span><span>저장되지 않은 탭</span
+            ><span>드래그 영역</span><span>창 로딩</span
+            ><span>업데이트 가능</span><span>권한 요청</span
+            ><span>네이티브 파일 선택기</span><span>트레이 메뉴</span
+            ><span>멀티윈도우</span><span>데스크탑 작업공간</span
+            ><span>윈도우 스위처</span><span>최근 문서</span
+            ><span>데스크톱 도구 모음</span><span>하단 패널</span
+            ><span>백그라운드 작업</span><span>알림 센터</span
+            ><span>동기화 상태</span><span>업데이트 진행</span
+            ><span>충돌 복구</span><span>단일 인스턴스</span
+            ><span>딥링크</span><span>대화상자 정보</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32가지 데스크톱 전용 모드 + 11가지 유형의 재사용 가능한 상호작용</strong
+              ><span
+                >Tauri · Electron · 창 크롬 · 작업 공간 · 네이티브 브리지 · 라이프 사이클</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#desktop-compositions"
+              >전체 데스크탑 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="ai-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">카테고리 15·AI 네이티브</span>
+            <h2 class="site-title">AI 상호작용은 채팅창이 아니다</h2>
+            <p class="site-lead">
+              대화 외에도 작성기 및 스트리밍 답변, 추론 요약, 도구 호출 및 승인, 다중 에이전트 오케스트레이션, 소스 인용, 아티팩트, 상황별 메모리, 토큰/수수료, 음성, 권한, 개인 정보 보호, 보안 검토 및 피드백 평가도 필요합니다. Gardener는 전체 AI 작업 체인을 직접 재사용할 수 있는 32가지 모드로 만듭니다.
+            </p>
+          </header>
+          <div class="site-ai-demo">
+            <section
+              class="g-ai-shell is-contained"
+              aria-label="Gardener AI 컴포넌트 미리보기"
+            >
+              <aside class="g-ai-sidebar">
+                <header class="g-ai-sidebar-header">
+                  <strong>대화</strong
+                  ><button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    ＋
+                  </button>
+                </header>
+                <nav class="g-conversation-list">
+                  <a
+                    class="g-conversation-item"
+                    href="#ai-compositions"
+                    aria-current="page"
+                    ><span>◉</span
+                    ><span class="g-conversation-title">기업 포털 생성</span></a
+                  ><a class="g-conversation-item" href="#ai-compositions"
+                    ><span>○</span
+                    ><span class="g-conversation-title">구성요소 적용범위 확인</span></a
+                  >
+                </nav>
+                <footer class="g-ai-sidebar-footer">
+                  <div class="g-privacy-notice">
+                    <span>⌾</span><span>기업 개인 정보 보호 정책이 활성화되었습니다</span>
+                  </div>
+                </footer>
+              </aside>
+              <section class="g-ai-main">
+                <header class="g-ai-header">
+                  <div class="g-model-selector" data-g-dropdown>
+                    <button
+                      class="g-model-selector-trigger"
+                      type="button"
+                      data-g-dropdown-trigger
+                    >
+                      Gardener 리슨 ▾
+                    </button>
+                    <div
+                      class="g-model-selector-menu"
+                      data-g-dropdown-menu
+                      hidden
+                    >
+                      <button
+                        class="g-model-option"
+                        type="button"
+                        role="menuitem"
+                      >
+                        <span>Gardener 리슨러</span
+                        ><small>복잡한 작업</small></button
+                      ><button
+                        class="g-model-option"
+                        type="button"
+                        role="menuitem"
+                      >
+                        <span>Gardener Fast</span><small>빠른 응답</small>
+                      </button>
+                    </div>
+                  </div>
+                  <span class="g-context-meter"
+                    >컨텍스트 38%
+                    <span class="g-context-meter-bar"
+                      ><i
+                        class="g-context-meter-value"
+                        style="--g-context-value: 38%"
+                      ></i></span
+                  ></span>
+                </header>
+                <div class="g-chat">
+                  <div class="g-chat-list">
+                    <article class="g-message g-message-user">
+                      <div class="g-message-content">
+                        <div class="g-message-body">
+                          Super CMS용 엔터프라이즈 포털 홈 페이지를 생성합니다.
+                        </div>
+                      </div>
+                    </article>
+                    <article class="g-message">
+                      <span class="g-message-avatar">지</span>
+                      <div class="g-message-content">
+                        <div class="g-message-meta">
+                          <strong class="g-message-author"
+                            >Gardener Agent</strong
+                          ><span>작업 중</span>
+                        </div>
+                        <div class="g-message-body">
+                          <p>Enterprise Portal 레시피가 선택되어 구성 요소 및 권한을 확인합니다.</p>
+                        </div>
+                        <section
+                          class="g-tool-call is-running"
+                          data-g-accordion
+                        >
+                          <button
+                            class="g-tool-call-header g-w-full g-border-0"
+                            type="button"
+                            data-g-tool-call-toggle
+                            aria-expanded="true"
+                            aria-controls="home-ai-tool"
+                          >
+                            <strong class="g-tool-call-name"
+                              >검사_구성요소_매니페스트</strong
+                            ><span class="g-tool-call-status">달리기</span>
+                          </button>
+                          <div class="g-tool-call-progress">
+                            <span style="--g-tool-progress: 72%"></span>
+                          </div>
+                          <div class="g-tool-call-body" id="home-ai-tool">
+                            대시보드, CMS, 권한 및 데스크톱 작업 공간이 일치합니다.
+                          </div>
+                        </section>
+                        <section class="g-approval" data-g-ai-approval>
+                          <div class="g-approval-title">페이지 템플릿에 쓰기를 허용하시겠습니까?</div>
+                          <p class="g-approval-description">
+                            현재 프로젝트의 생성된 디렉터리만 수정합니다.
+                          </p>
+                          <div class="g-approval-actions">
+                            <button
+                              class="g-btn g-btn-primary g-btn-sm"
+                              type="button"
+                              data-g-approval-choice="approved"
+                            >
+                              1회 허용</button
+                            ><button
+                              class="g-btn g-btn-outline g-btn-sm"
+                              type="button"
+                              data-g-approval-choice="rejected"
+                            >
+                              거부
+                            </button>
+                          </div>
+                        </section>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="g-composer-wrap">
+                  <form class="g-composer" data-g-ai-composer>
+                    <label class="g-sr-only" for="home-ai-input">메시지 보내기</label
+                    ><textarea
+                      class="g-composer-input"
+                      id="home-ai-input"
+                      data-g-composer-input
+                      placeholder="페이지 요구 사항을 계속 설명합니다."
+                    ></textarea>
+                    <div class="g-composer-toolbar">
+                      <div class="g-composer-tools">
+                        <button
+                          class="g-btn g-btn-ghost g-btn-sm"
+                          type="button"
+                        >
+                          +첨부
+                        </button>
+                      </div>
+                      <div class="g-composer-actions">
+                        <button
+                          class="g-btn g-btn-outline g-btn-sm"
+                          type="button"
+                          data-g-composer-stop
+                          hidden
+                        >
+                          중지</button
+                        ><button
+                          class="g-btn g-btn-primary g-btn-sm"
+                          type="button"
+                          data-g-composer-send
+                        >
+                          보내기
+                        </button>
+                      </div>
+                    </div>
+                    <div class="g-composer-status" data-g-composer-status></div>
+                  </form>
+                </div>
+              </section>
+            </section>
+          </div>
+          <div
+            class="site-region-patterns"
+            aria-label="AI 제품 및 지능형 상호작용 구성요소 목록"
+          >
+            <span>AI 작업공간</span><span>대화 목록</span
+            ><span>채팅 스레드</span><span>AI 메시지</span
+            ><span>프롬프트 작성기</span><span>부착</span
+            ><span>프롬프트 스타터</span><span>프롬프트 라이브러리</span
+            ><span>멘션/슬래시 메뉴</span><span>모델 선택기</span
+            ><span>생각하다</span><span>스트리밍 응답</span
+            ><span>공구 호출</span><span>도구 승인</span
+            ><span>에이전트 상태</span><span>에이전트 계획</span
+            ><span>멀티 에이전트 보드</span><span>에이전트 핸드오프</span
+            ><span>출처/인용</span><span>아티팩트 작업공간</span
+            ><span>아티팩트 패널</span><span>AI 파일 트리</span
+            ><span>버전 기록</span><span>제너레이션 갤러리</span
+            ><span>세대 자리 표시자</span><span>컨텍스트/메모리</span
+            ><span>비용 / 요율 제한</span><span>음성 세션</span
+            ><span>권한 범위</span><span>개인정보 보호정책</span
+            ><span>안전 주의사항</span><span>피드백/평가</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>AI 네이티브 모드 32개 + 런타임 9종</strong
+              ><span
+                >채팅 · 멀티모달 · 도구 · 에이전트 · 아티팩트 · 컨텍스트 · 안전 · 평가</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#ai-compositions"
+              >전체 AI 구성 요소 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="solution-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">카테고리 16 · 완전한 솔루션</span>
+            <h2 class="site-title">컴포넌트 라이브러리에서 직접 생성할 수 있는 전체 페이지로 이동합니다.</h2>
+            <p class="site-lead">
+              카테고리 16은 공개 웹사이트, 개인 콘텐츠, 기업 백엔드, 비즈니스 워크벤치 및 수직 산업 포털을 32개의 전체 페이지 계약으로 통합합니다. AI는 먼저 페이지 유형을 선택한 다음 비즈니스 구성 요소와 콘텐츠를 채웁니다. 더 이상 머리글, 탐색, 기본 영역, 측면 영역 및 모바일 접기 규칙을 일시적으로 만들지 않습니다.
+            </p>
+          </header>
+          <div class="site-solution-demo">
+            <article class="g-dashboard-overview">
+              <header class="g-dashboard-overview-header g-solution-header">
+                <div>
+                  <span class="site-eyebrow">기업개요</span>
+                  <h3 class="g-m-0">슈퍼CMS 운영개요</h3>
+                  <p class="g-text-sm g-text-muted g-mt-2 g-mb-0">
+                    동일한 전체 페이지 계약으로 비즈니스, 개인, 의료, 금융 또는 공공 서비스 주제를 전환할 수 있습니다.
+                  </p>
+                </div>
+                <div class="g-solution-actions">
+                  <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                    내보내기</button
+                  ><button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    새로운 보고서
+                  </button>
+                </div>
+              </header>
+              <div class="g-dashboard-metrics">
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">게시된 사이트</span
+                  ><strong class="g-solution-stat-value">28,640</strong
+                  ><small class="g-text-success">↑ 12.4%</small>
+                </div>
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">페이지 템플릿</span
+                  ><strong class="g-solution-stat-value">486k</strong
+                  ><small class="g-text-muted">전체 페이지 항목 32개</small>
+                </div>
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">검토 대기 중</span
+                  ><strong class="g-solution-stat-value">138</strong
+                  ><small class="g-text-warning">처리 필요</small>
+                </div>
+              </div>
+              <div class="g-dashboard-layout">
+                <section class="g-dashboard-panel">
+                  <div class="g-solution-toolbar">
+                    <strong>템플릿 생성 동향</strong
+                    ><span class="g-badge">지난 30일</span>
+                  </div>
+                  <div class="g-chart" style="min-height: 11rem"></div>
+                </section>
+                <aside class="g-dashboard-panel">
+                  <strong>사업장 입구</strong>
+                  <ul class="g-solution-list g-mt-3">
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">기업 포털</span
+                      ><span>82%</span>
+                    </li>
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">비즈니스 작업대</span
+                      ><span>71%</span>
+                    </li>
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">산업 서비스</span
+                      ><span>63%</span>
+                    </li>
+                  </ul>
+                </aside>
+              </div>
+            </article>
+          </div>
+          <div
+            class="site-region-patterns"
+            aria-label="산업 솔루션 전체 페이지 및 목록"
+          >
+            <span>제품 랜딩</span><span>기업홈</span
+            ><span>개인홈</span><span>포트폴리오</span
+            ><span>블로그 색인</span><span>기사</span><span>문서포털</span
+            ><span>도움말 센터</span><span>검색결과</span
+            ><span>연락처</span><span>가격</span><span>대시보드</span
+            ><span>관리자 목록</span><span>기록상세</span
+            ><span>설정</span><span>사용자 센터</span
+            ><span>알림</span><span>온보딩</span><span>CRM</span
+            ><span>프로젝트 작업공간</span><span>지원센터</span
+            ><span>승인센터</span><span>기술 자료</span
+            ><span>학습포털</span><span>이벤트 포털</span
+            ><span>예약포털</span><span>헬스케어</span
+            ><span>금융</span><span>공공 서비스</span
+            ><span>마켓플레이스</span><span>커뮤니티</span
+            ><span>상태 센터</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32개의 전체 페이지 모드 + 52개의 기계 판독 가능한 레시피</strong
+              ><span
+                >개인 · 기업 · 콘텐츠 · 운영 · 산업 · 크로스 플랫폼</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#solution-compositions"
+              >전체 솔루션 문서 보기</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="themes">
+        <div class="site-container site-theme-layout">
+          <div class="site-theme-panel">
+            <span class="site-eyebrow">42가지 색상 테마</span>
+            <h2 class="site-title">브랜드는 바꾸되 구성품은 바꾸지 마세요</h2>
+            <p class="site-lead">
+              색상 테마는 중성색, 글꼴, 모양, 밀도, 레이어, 애니메이션, 플랫폼 및 운영 체제와 직교적으로 결합됩니다. 여기에는 흰색과 밝은 인터페이스가 항상 유지되며 주요 브랜드 색상만 전환됩니다.
+            </p>
+            <div class="site-theme-preview g-mt-6">
+              <div class="site-theme-meta">
+                <span>현재 주제</span><strong id="theme-name">정원</strong>
+              </div>
+              <div class="site-theme-sample">
+                <span class="g-badge">기본</span>
+                <h3 class="g-mt-4">과하게 장식적이지 않고 깔끔함</h3>
+                <p class="g-text-muted g-mt-2">
+                  버튼, 링크, 포커스 및 선택 상태가 자동으로 테마를 따릅니다.
+                </p>
+                <div class="g-flex g-gap-2 g-mt-5">
+                  <button class="g-btn g-btn-primary">주요작업</button
+                  ><button class="g-btn g-btn-outline">2차 작업</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="site-theme-swatches"
+              id="theme-swatches"
+              aria-label="색상 테마 선택"
+            ></div>
+            <p class="site-kicker g-mt-4">
+              키보드 조작 가능; 각 테마는 50~950개의 전체 색상 그라데이션과 독립적으로 읽을 수 있는 전경 색상을 제공합니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow"
+              >예측 가능한 저작 · Stable 1.0.0</span
+            >
+            <h2 class="site-title">HTML은 인터페이스이다</h2>
+            <p class="site-lead">
+              통일
+              <code class="docs-inline-code">g-</code>
+              접두사, 안정적인 구성 요소 명명 및 선언
+              <code class="docs-inline-code">data-g-*</code> 인간과 AI 모두 빠르게 이해할 수 있는 행동.
+            </p>
+            <ul class="g-list-group g-mt-6" role="list">
+              <li class="g-list-item" role="listitem">
+                <strong>레이어별 가져오기</strong
+                ><span class="g-text-muted"
+                  >핵심/테마/유틸리티/컴포넌트/AI</span
+                >
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>선언적 런타임</strong
+                ><span class="g-text-muted">자동 초기화 및 동적 DOM 관찰</span>
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>기계 판독 가능</strong
+                ><span class="g-text-muted"
+                  >공개 API, 구성 요소, 도구 클래스, 레시피 및 기능 목록</span
+                >
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>엄격한 검증</strong
+                ><span class="g-text-muted"
+                  >폐쇄형 스키마 11세트, 표준 스키마 사용 사례 48개, 빌드별 사용 사례 10개, 런타임 단위 테스트 66개, 실제 브라우저 사용 사례 125개, 구조적 사용 사례 24개</span
+                >
+              </li>
+            </ul>
+            <a class="g-btn g-btn-outline g-mt-5" href="./docs.html#public-api"
+              >공개 API 계약 보기</a
+            >
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>index.html</span
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm"
+                type="button"
+                data-g-copy
+                data-g-copy-value='&lt;link rel="stylesheet" href="gardener.css"&gt;&#10;&lt;main class="g-dashboard"&gt;...&lt;/main&gt;&#10;&lt;script type="module" src="gardener.runtime.js"&gt;&lt;/script&gt;'
+              >
+                복사
+              </button>
+            </div>
+            <pre
+              class="site-code"
+            ><code><span class="token-tag">&lt;html</span> <span class="token-attr">data-g-theme</span>=<span class="token-value">&quot;garden&quot;</span> <span class="token-attr">data-g-mode</span>=<span class="token-value">&quot;light&quot;</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-value">&quot;stylesheet&quot;</span> <span class="token-attr">href</span>=<span class="token-value">&quot;gardener.css&quot;</span><span class="token-tag">&gt;</span>
+
+  <span class="token-tag">&lt;main</span> <span class="token-attr">class</span>=<span class="token-value">&quot;g-dashboard&quot;</span><span class="token-tag">&gt;</span>
+    <span class="token-tag">&lt;article</span> <span class="token-attr">class</span>=<span class="token-value">&quot;g-card g-p-5&quot;</span><span class="token-tag">&gt;</span>...<span class="token-tag">&lt;/article&gt;</span>
+  <span class="token-tag">&lt;/main&gt;</span>
+
+  <span class="token-tag">&lt;script</span> <span class="token-attr">type</span>=<span class="token-value">&quot;module&quot;</span> <span class="token-attr">src</span>=<span class="token-value">&quot;gardener.runtime.js&quot;</span><span class="token-tag">&gt;&lt;/script&gt;</span>
+<span class="token-tag">&lt;/html&gt;</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="build-system" aria-labelledby="build-title">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">출시 준비 완료 · 1.0.0</span>
+            <h2 class="site-title" id="build-title">현재 페이지에 실제로 필요한 플랫폼과 구성요소만 제공</h2>
+            <p class="site-lead">
+              5개의 플랫폼 파일, 28개의 안정적인 구성 요소 패키지 및 506개의 구성 요소 소유권 매핑을 통해 개발자와 AI는 일시적으로 CSS를 분해하지 않고도 공식 제품을 직접 선택할 수 있습니다. 구문 수준 압축, 소스 맵, SHA-256/SRI 무결성, 재현 가능한 빌드, TypeScript 입력, 버전 간 호환성 기준 및 릴리스 패키지 게이팅이 빌드와 함께 제공됩니다.
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">5</span>
+              <h3>플랫폼 파일</h3>
+              <p>웹, 모바일, 데스크톱, Tauri 및 Electron은 해당 최종 기능을 자동으로 유지합니다.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">28</span>
+              <h3>컴포넌트 패키지</h3>
+              <p>레이아웃, 양식, 탐색, 데이터, 콘텐츠, 계정, 커머스, 모바일, 데스크톱 및 AI를 모두 독립적으로 도입할 수 있습니다.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">506</span>
+              <h3>구성요소 소유권</h3>
+              <p>각 공용 구성 요소는 자신이 속한 전체 패키지를 확인하며 명시적인 포함 항목이 나열됩니다.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">42</span>
+              <h3>이중 제품 예산</h3>
+              <p>raw, gzip, Brotli 및 0.9.0 기준 증가의 절대 상한은 제한을 초과하는 경우 릴리스를 차단합니다.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">1,145</span>
+              <h3>호환 가능한 베이스라인</h3>
+              <p>항목, 테마, 런타임, 구성 요소 및 레시피만 추가할 수 있습니다. 삭제하려면 먼저 두 개 이상의 부 버전의 지원 중단 기간을 통과해야 합니다.</p>
+            </article>
+          </div>
+          <div class="docs-code-wrap g-mt-6">
+            <pre class="site-code"><code>npm run build:platform -- --platform mobile --out dist/custom/mobile-app
+npm run build:custom -- --components button,card,dialog --out dist/custom/account-ui
+npm run verify:reproducible
+npm run verify:compatibility
+npm run test:types
+npm run verify:package
+npm run budget</code></pre>
+          </div>
+          <a class="g-btn g-btn-outline g-mt-6" href="./docs.html#targeted-builds">주문형 빌드와 성능 예산 보기</a>
+        </div>
+      </section>
+
+      <section
+        class="site-section site-section-soft"
+        aria-labelledby="quality-title"
+      >
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">릴리스 신뢰도 · 1.0.0</span>
+            <h2 class="site-title" id="quality-title">
+              모든 페이지는 실제 환경을 견뎌야 합니다.
+            </h2>
+            <p class="site-lead">
+              기본적으로 125개의 실제 브라우저 사용 사례와 24개의 HTML 구조 사용 사례를 실행합니다. 전체 구성에는 데스크톱 3개 엔진, Android/iPhone 장치 초상화 및 WCAG 자동 검사가 포함됩니다.
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">웹</span>
+              <h3>데스크탑 멀티브라우저</h3>
+              <p>
+                Chromium 및 WebKit은 기본 액세스 제어를 시작합니다. Firefox는 독립적인 3개 엔진의 완전한 액세스 제어를 제공합니다.
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">MOB</span>
+              <h3>모바일 기기</h3>
+              <p>
+                픽셀 7과 아이폰 13은 21개의 샘플과 홈 2페이지로 완전히 커버되었으며, 320px 좁은 화면, 가로 화면, 리플로우 및 44px 터치 대상을 확인합니다.
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">A11Y</span>
+              <h3>접근성</h3>
+              <p>
+                Axe WCAG 2 A/AA 모든 자동적인 위반은 키보드와 초점 회복, RTL, 감소된 운동, 강제적인 색깔을 포함합니다.
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">DOM</span>
+              <h3>구조적 무결성</h3>
+              <p>
+                모든 21개 예시, 홈 랜딩 페이지 및 문서 확인 구문 분석, ID, ARIA 참조, 제목 및 뷰포트.
+              </p>
+            </article>
+          </div>
+          <a class="g-btn g-btn-outline g-mt-6" href="./docs.html#accessibility"
+              >1.0.0 테스트 매트릭스 보기</a
+          >
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">모든 엔드포인트</span>
+            <h2 class="site-title">모든 단말기에 동일한 언어가 적용됩니다.</h2>
+            <p class="site-lead">
+              페이지 구조, 테마 토큰 및 상호 작용 의미 체계는 일관되며 필요한 밀도, 창 및 안전 영역 적응만 각 끝에 추가됩니다.
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">웹</span>
+              <h3>PC사이트</h3>
+              <p>기업 웹사이트, 포털, 콘텐츠 웹사이트, 전자상거래 및 SaaS.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">MOB</span>
+              <h3>모바일웹/PWA</h3>
+              <p>안전 영역, 터치 밀도, 하단 탐색 및 카테고리 페이지.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">OPS</span>
+              <h3>대시보드</h3>
+              <p>고밀도 데이터, 테이블, 필터 및 다중 열 애플리케이션.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">DSK</span>
+              <h3>Tauri/Electron</h3>
+              <p>데스크탑 제목 표시줄, 창 브리징 및 워크벤치 레이아웃.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">AI</span>
+              <h3>AI 제품</h3>
+              <p>스트리밍 메시지, 도구, 에이전트, 아티팩트 및 빌드 상태.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="recipes">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">재사용 가능한 레시피</span>
+            <h2 class="site-title">빈도가 높은 페이지는 다시 조립할 필요가 없습니다.</h2>
+            <p class="site-lead">
+              복잡하지만 재사용 가능성이 높은 페이지가 레시피로 결합되었습니다. AI는 먼저 레시피를 선택한 다음 구성 요소와 도구 클래스를 사용하여 제한적으로 조정해야 합니다.
+            </p>
+          </header>
+          <div class="site-recipe-grid" id="recipe-preview">
+            <a class="site-recipe" href="./docs.html#recipes"
+              ><strong>기업 로그인</strong><span>SSO · MFA · 패스키</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>모바일 분류</strong><span>터치·안전영역·이중열</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>데스크톱 CMS</strong><span>나무 · 캔버스 · 인스펙터</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>AI 작업공간</strong><span>채팅 · 도구 · 유물</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>분석 배경</strong><span>KPI · 차트 · 데이터 테이블</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>파일 관리자</strong><span>디렉토리 · 그리드 · 업로드 큐</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>상품 및 정산</strong><span>상세정보 · 장바구니 · 주문</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>보고서 및 송장</strong><span>화면·PDF·인쇄</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="ai-ready">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">AI 저작을 위해 구축됨</span>
+            <h2 class="site-title">AI가 선택하게 하고 AI가 추측하게 하지 마세요</h2>
+            <p class="site-lead">
+              공용 API, 구성 요소, 도구 클래스, 레시피 및 산업 기능의 5개 범주 목록은 허용된 이름, 입구, 플랫폼, 상태 및 응답 조건을 구조화된 방식으로 노출합니다. 페이지 생성 프로세스를 제한하고 검증하고 재현할 수 있습니다.
+            </p>
+          </header>
+          <div class="site-ai-flow">
+            <article class="site-ai-step">
+              <b>01/INTENT</b>
+              <h3>페이지 의도 식별</h3>
+              <p>최종 유형, 비즈니스 카테고리, 밀도, 콘텐츠 규모 및 상호 작용 복잡성.</p>
+            </article>
+            <article class="site-ai-step">
+              <b>02/레시피</b>
+              <h3>레시피 선택 우선순위</h3>
+              <p>완성된 구조 52개 중에서 가장 가까운 페이지 뼈대를 선택합니다.</p>
+            </article>
+            <article class="site-ai-step">
+              <b>03/조립</b>
+              <h3>구성요소 및 도구 결합</h3>
+              <p>매니페스트에 실제로 존재하는 공개 API와 클래스 및 동작만 사용하세요.</p>
+            </article>
+            <article class="site-ai-step">
+              <b>04/확인</b>
+              <h3>계약 및 환경 확인</h3>
+              <p>스키마, 키보드, 접근성, RTL, 인쇄 및 응답 엔드포인트 검사를 통과합니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-cta">
+        <div class="site-container site-cta-inner">
+          <div>
+            <h2>완전한 시스템으로 시작하십시오.</h2>
+            <p>다음 페이지를 위해 인프라 재창조를 중단하세요.</p>
+          </div>
+          <div class="g-flex g-flex-wrap g-gap-3">
+            <a class="g-btn g-btn-primary g-btn-lg" href="./docs.html"
+              >전체 문서 열기</a
+            ><a
+              class="g-btn g-btn-outline g-btn-lg"
+              href="../../packages/css/examples/showcase.html"
+              >구성요소 예시 보기</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section
+      class="g-desktop-command-palette"
+      id="home-desktop-command"
+      data-g-command-palette
+      hidden
+      aria-label="데스크탑 명령 패널"
+    >
+      <div class="g-desktop-command-panel">
+        <label class="g-sr-only" for="home-desktop-command-input"
+          >명령어 입력</label
+        ><input
+          class="g-desktop-command-input"
+          id="home-desktop-command-input"
+          data-g-command-input
+          placeholder="명령 또는 파일 이름을 입력하세요."
+        />
+        <div class="g-desktop-command-results" role="listbox">
+          <button
+            class="g-desktop-command-item"
+            type="button"
+            data-g-command-item
+            data-g-value="new"
+          >
+            <span>＋</span><span>새로운 콘텐츠</span><kbd>Ctrl+N</kbd></button
+          ><button
+            class="g-desktop-command-item"
+            type="button"
+            data-g-command-item
+            data-g-value="publish"
+          >
+            <span>↑</span><span>현재 페이지 게시</span><kbd>Ctrl+Shift+P</kbd>
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="site-container">
+        <div class="site-footer-grid">
+          <div>
+            <a class="site-brand" href="./index.html"
+              ><span class="site-brand-mark" aria-hidden="true">지</span
+              ><span>Gardener</span></a
+            >
+            <p class="site-footer-note">
+              인간 개발자와 AI 페이지 빌더를 위한 공통 CSS, 구성 요소 및 페이지 레시피 인프라입니다.
+            </p>
+          </div>
+          <div>
+            <h2>시작</h2>
+            <ul>
+              <li><a href="./docs.html#quick-start">빠른 시작</a></li>
+              <li><a href="./docs.html#installation">설치 및 패키지</a></li>
+              <li><a href="./docs.html#vue">Vue 3</a></li>
+              <li><a href="./docs.html#react">React</a></li>
+              <li><a href="./docs.html#angular">AngularJS</a></li>
+              <li><a href="./docs.html#blazor">Blazor</a></li>
+              <li><a href="./docs.html#customization">맞춤형</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>능력</h2>
+            <ul>
+              <li><a href="./docs.html#themes">테마 시스템</a></li>
+              <li><a href="./docs.html#grid-system">24/12그리드</a></li>
+              <li><a href="./docs.html#region-layouts">영역 레이아웃</a></li>
+              <li><a href="./docs.html#layout-primitives">클래식 레이아웃 프리미티브</a></li>
+              <li><a href="./docs.html#page-components">페이지 구성 요소</a></li>
+              <li><a href="./docs.html#help-system">도움말 시스템</a></li>
+              <li><a href="./docs.html#form-compositions">양식 조합</a></li>
+              <li>
+                <a href="./docs.html#navigation-compositions">네비게이션 조합</a>
+              </li>
+              <li><a href="./docs.html#data-compositions">데이터 조합</a></li>
+              <li>
+                <a href="./docs.html#selection-compositions">선택 및 일괄 처리</a>
+              </li>
+              <li><a href="./docs.html#content-compositions">콘텐츠 시스템</a></li>
+              <li><a href="./docs.html#auth-compositions">계정 시스템</a></li>
+              <li>
+                <a href="./docs.html#commerce-compositions">상거래 및 결제</a>
+              </li>
+              <li><a href="./docs.html#mobile-compositions">모바일 전용</a></li>
+              <li><a href="./docs.html#desktop-compositions">데스크톱 전용</a></li>
+              <li><a href="./docs.html#ai-compositions">AI 지능형 상호작용</a></li>
+              <li>
+                <a href="./docs.html#solution-compositions"
+                  >전체 페이지 및 산업 계획</a
+                >
+              </li>
+              <li><a href="./docs.html#components">부품 카탈로그</a></li>
+              <li><a href="./docs.html#runtime">런타임</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>플랫폼</h2>
+            <ul>
+              <li>
+                <a href="./docs.html#desktop-compositions">Tauri/Electron</a>
+              </li>
+              <li><a href="./docs.html#vue">Vue 구성요소 및 API</a></li>
+              <li><a href="./docs.html#react">React 구성요소 및 API</a></li>
+              <li><a href="./docs.html#angular">AngularJS 지시문 및 API</a></li>
+              <li><a href="./docs.html#blazor">Blazor 구성 요소 및 API</a></li>
+              <li><a href="./docs.html#ai-compositions">AI 제품 구성요소</a></li>
+              <li>
+                <a href="./docs.html#solution-compositions">업종 페이지 솔루션</a>
+              </li>
+              <li><a href="./docs.html#ai-generation">AI 페이지 생성</a></li>
+              <li><a href="./docs.html#accessibility">접근성</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer-bottom">
+          <span>Gardener v1.0.0 · MIT 라이센스</span
+          ><span>화이트 캔버스. 작은 반경. 광범위한 적용 범위.</span>
+        </div>
+      </div>
+    </footer>
+    <div class="g-toast-region" aria-live="polite"></div>
+    <script src="../assets/file-i18n.js"></script>
+    <script type="module" src="../assets/site.js?v=1.0.0"></script>
+  </body>
+</html>

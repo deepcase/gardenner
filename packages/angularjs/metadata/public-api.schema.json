@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "version", "status", "cssVersion", "angularjs", "components", "behaviors", "componentExports", "directiveNames", "elementNames", "moduleExports", "typeExports", "packageEntrypoints", "services", "directives", "componentAttributes", "componentHandleMembers", "themeAxes", "moduleFactory"],
+  "properties": {
+    "$schema": { "type": "string" }, "schemaVersion": { "const": 1 }, "version": { "const": "1.0.0" },
+    "status": { "const": "stable" }, "cssVersion": { "const": "1.0.0" }, "angularjs": { "const": ">=1.8.2 <1.9.0" },
+    "components": { "const": 506 }, "behaviors": { "const": 66 },
+    "componentExports": { "$ref": "#/$defs/uniqueStrings" }, "directiveNames": { "$ref": "#/$defs/uniqueStrings" },
+    "elementNames": { "$ref": "#/$defs/uniqueStrings" }, "moduleExports": { "$ref": "#/$defs/uniqueStrings" },
+    "typeExports": { "$ref": "#/$defs/uniqueStrings" }, "packageEntrypoints": { "$ref": "#/$defs/uniqueStrings" },
+    "services": { "$ref": "#/$defs/uniqueStrings" }, "directives": { "$ref": "#/$defs/uniqueStrings" },
+    "componentAttributes": { "$ref": "#/$defs/uniqueStrings" }, "componentHandleMembers": { "$ref": "#/$defs/uniqueStrings" },
+    "themeAxes": { "$ref": "#/$defs/uniqueStrings" }, "moduleFactory": { "const": "createGardenerAngularJS" }
+  },
+  "$defs": { "uniqueStrings": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true } }
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light" data-g-shape="small">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Gardener 经典布局原语</title>
+  <link rel="stylesheet" href="../dist/gardener.css">
+  <style>
+    body { background: #fff; }
+    .demo-page { padding-block: 2rem 6rem; }
+    .demo-section { margin-block-start: 2.8rem; }
+    .demo-box { padding: 1rem; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
+    .demo-soft { background: var(--g-color-primary-soft); }
+    .demo-label { color: var(--g-color-primary-text); font: 650 .72rem/1.4 var(--g-font-mono); }
+    .demo-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .demo-sidebar { --g-sidebar-pattern-size: 10rem; --g-sidebar-content-min: 18rem; }
+    .demo-cover { --g-cover-min: 16rem; }
+    .demo-reel > * { inline-size: 15rem; }
+    .demo-frame { --g-frame-ratio: 21 / 9; min-height: 8rem; background: linear-gradient(135deg, var(--g-color-primary-soft), var(--g-color-surface-subtle)); }
+    .demo-auto { --g-grid-min: 10rem; }
+    .demo-reading { --g-center-max: 34rem; }
+    .demo-bleed { background: var(--g-color-primary-soft); }
+    .demo-stage { min-height: 16rem; border: 1px solid var(--g-color-border); background: var(--g-color-surface-subtle); }
+    .demo-imposter { inline-size: min(24rem, 80%); padding: 1rem; border: 1px solid var(--g-color-border); background: #fff; }
+    .demo-overlay { min-height: 14rem; }
+    .demo-overlay .g-overlay-base { background: linear-gradient(135deg, #eaf6ee, #f8faf9); }
+    .demo-masonry > * { min-height: var(--demo-h, 5rem); }
+    .demo-bento > * { display: grid; place-items: center; }
+    .demo-aspect { background: var(--g-color-primary-soft); }
+    .demo-aspect > div { display: grid; place-items: center; }
+    .demo-scroll { --g-scroll-area-max: 12rem; }
+    .demo-scroll p { min-height: 5rem; }
+    .demo-snap > * { min-height: 9rem; }
+    .demo-cq-small { inline-size: min(100%, 34rem); }
+    .demo-cq-large { inline-size: min(100%, 50rem); }
+    @media (max-width: 48rem) { .demo-pair { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="g-container demo-page">
+    <header><span class="g-badge">Layout capability 03</span><h1 class="g-text-4xl g-mt-4">经典布局原语</h1><p class="g-text-muted g-mt-3">22 个低输入、确定性、内在响应的稳定布局模式。</p></header>
+
+    <section class="demo-section" id="flow-primitives"><h2>Stack / Cluster / Repel</h2><div class="demo-pair g-mt-4"><div class="g-stack demo-box"><span class="demo-label">Stack</span><div class="demo-box demo-soft">Block 1</div><div class="demo-box">Block 2</div><div class="demo-box">Block 3</div></div><div class="g-stack demo-box"><div class="g-cluster"><span class="g-badge">Cluster</span><span class="g-badge">wrap</span><span class="g-badge">logical</span></div><div class="g-repel demo-box"><strong>Repel title</strong><button class="g-btn g-btn-primary g-btn-sm">Action</button></div></div></div></section>
+
+    <section class="demo-section" id="measure-primitives"><h2>Center / Bleed</h2><article class="g-center demo-reading demo-box g-mt-4"><p>正文保持可读宽度。</p><div class="g-bleed demo-bleed demo-box g-mt-4"><span class="demo-label">Bleed 突破正文宽度</span></div><p class="g-mt-4">之后回到阅读宽度。</p></article></section>
+
+    <section class="demo-section" id="intrinsic-primitives"><h2>Sidebar / Switcher</h2><div class="g-sidebar-layout demo-sidebar demo-box g-mt-4" id="primitive-sidebar"><aside class="demo-box demo-soft">Sidebar</aside><main class="demo-box">Content 自身决定何时换行</main></div><div class="g-switcher demo-box g-mt-4" id="primitive-switcher" style="--g-switcher-threshold:42rem"><div class="demo-box">One</div><div class="demo-box">Two</div><div class="demo-box">Three</div></div></section>
+
+    <section class="demo-section" id="cover-reel"><h2>Cover / Reel</h2><div class="g-cover demo-cover demo-box g-mt-4"><header class="demo-label">Header</header><div class="g-cover-center demo-box demo-soft">始终位于剩余空间中央</div><footer class="demo-label">Footer</footer></div><div class="g-reel demo-reel g-mt-4" tabindex="0" aria-label="横向卡片列表"><article class="demo-box">Reel 1</article><article class="demo-box">Reel 2</article><article class="demo-box">Reel 3</article><article class="demo-box">Reel 4</article><article class="demo-box">Reel 5</article><article class="demo-box">Reel 6</article></div></section>
+
+    <section class="demo-section" id="media-primitives"><h2>Frame / Aspect Ratio / Media Object</h2><div class="demo-pair g-mt-4"><div class="g-frame demo-frame"><span class="demo-label">Frame 21:9 + crop contract</span></div><div class="g-aspect-ratio g-aspect-video demo-aspect demo-box"><div><span class="demo-label">Aspect Ratio 16:9</span></div></div></div><article class="g-media-object demo-box g-mt-4" id="media-object-ltr"><div class="g-media-object-media g-avatar">AI</div><div class="g-media-object-body"><strong>Media Object</strong><p class="g-text-muted g-mt-1">媒体、正文与末端操作使用逻辑方向。</p></div><button class="g-media-object-action g-btn g-btn-outline g-btn-sm">查看</button></article><article class="g-media-object demo-box g-mt-4" id="media-object-rtl" dir="rtl" data-g-collapse="false"><div class="g-media-object-media g-avatar">AI</div><div class="g-media-object-body"><strong>RTL Media Object</strong></div><button class="g-media-object-action g-btn g-btn-outline g-btn-sm">查看</button></article></section>
+
+    <section class="demo-section" id="auto-grids"><h2>Auto Fit / Auto Fill</h2><div class="g-grid-auto-fit demo-auto g-mt-4" id="auto-fit"><div class="demo-box">Fit</div><div class="demo-box">Fit</div><div class="demo-box">Fit</div></div><div class="g-grid-auto-fill demo-auto g-mt-4" id="auto-fill"><div class="demo-box demo-soft">Fill</div><div class="demo-box demo-soft">Fill</div><div class="demo-box demo-soft">Fill</div></div></section>
+
+    <section class="demo-section" id="layer-primitives"><h2>Imposter / Overlay</h2><div class="demo-pair g-mt-4"><div class="g-imposter-container demo-stage"><article class="g-imposter demo-imposter"><span class="demo-label">Imposter</span><p class="g-mt-2">不依赖未知尺寸的精确居中。</p></article></div><div class="g-overlay-layout demo-overlay demo-box"><div class="g-overlay-base"></div><div class="g-overlay-layer"><span class="g-badge">Overlay annotation</span></div></div></div></section>
+
+    <section class="demo-section" id="editorial-primitives"><h2>Masonry / Bento</h2><div class="g-masonry demo-masonry g-mt-4" id="masonry"><article class="demo-box" style="--demo-h:6rem">A</article><article class="demo-box demo-soft" style="--demo-h:10rem">B</article><article class="demo-box" style="--demo-h:8rem">C</article><article class="demo-box demo-soft" style="--demo-h:12rem">D</article><article class="demo-box" style="--demo-h:7rem">E</article><article class="demo-box demo-soft" style="--demo-h:9rem">F</article></div><div class="g-bento demo-bento g-mt-4" id="bento"><article class="g-bento-featured demo-box demo-soft">Featured</article><article class="g-bento-tall demo-box">Tall</article><article class="demo-box">Tile</article><article class="demo-box">Tile</article><article class="g-bento-wide demo-box">Wide</article></div></section>
+
+    <section class="demo-section" id="scroll-primitives"><h2>Scroll Area / Scroll Snap / Sticky Region</h2><div class="g-scroll-area demo-scroll demo-box g-mt-4" tabindex="0" aria-label="独立滚动区域"><header class="g-sticky-region is-surface demo-box"><span class="demo-label">Sticky Region</span></header><p>Scrollable block 1</p><p>Scrollable block 2</p><p>Scrollable block 3</p><p>Scrollable block 4</p></div><div class="g-scroll-snap demo-snap g-mt-4" tabindex="0" aria-label="吸附卡片列表"><article class="g-scroll-snap-item demo-box demo-soft">Snap 1</article><article class="g-scroll-snap-item demo-box">Snap 2</article><article class="g-scroll-snap-item demo-box demo-soft">Snap 3</article></div></section>
+
+    <section class="demo-section" id="safe-container"><h2>Safe Area / Container Query</h2><div class="g-safe-area is-padded demo-box g-mt-4"><span class="demo-label">四边安全区 + 应用间距</span></div><div class="g-layout-container demo-cq-small g-mt-4"><div class="g-bento demo-bento" id="primitive-cq-small"><article class="g-bento-featured demo-box demo-soft">34rem：单列</article><article class="demo-box">Tile</article></div></div><div class="g-layout-container demo-cq-large g-mt-4"><div class="g-bento demo-bento" id="primitive-cq-large"><article class="g-bento-featured demo-box demo-soft">50rem：Bento</article><article class="demo-box">Tile</article></div></div></section>
+  </main>
+</body>
+</html>

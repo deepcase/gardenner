@@ -1,0 +1,3404 @@
+<!doctype html>
+<html
+  lang="en"
+  data-g-theme="garden"
+  data-g-mode="light"
+  data-g-neutral="cool"
+  data-g-shape="small"
+ data-locale="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Gardener is universal CSS, Vue 3, React, AngularJS and Blazor components, page recipes and desktop application infrastructure for human developers and AI page builders."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'"
+    />
+    <title>Gardener — CSS infrastructure ready for all interfaces</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="./index.html" />
+    <link rel="alternate" hreflang="zh-CN" href="../zh-CN/index.html" />
+    <link rel="alternate" hreflang="en" href="../en/index.html" />
+    <link rel="alternate" hreflang="ja" href="../ja/index.html" />
+    <link rel="alternate" hreflang="ko" href="../ko/index.html" />
+    <link rel="alternate" hreflang="es" href="../es/index.html" />
+    <link rel="alternate" hreflang="fr" href="../fr/index.html" />
+    <link rel="alternate" hreflang="de" href="../de/index.html" />
+    <link rel="alternate" hreflang="x-default" href="../index.html" />
+    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=afe73d14" />
+    <link rel="stylesheet" href="../assets/site.css" />
+  </head>
+  <body>
+    <a class="g-skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <nav class="site-nav site-container" aria-label="Main Navigation">
+        <a class="site-brand" href="./index.html" aria-label="Gardener Home Page"
+          ><span class="site-brand-mark" aria-hidden="true">G</span
+          ><span>Gardener</span></a
+        >
+        <div class="site-nav-links" id="site-menu">
+          <a class="site-nav-link" href="#capabilities">Ability</a>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">Frameworks</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#vue">Vue</a>
+              <a class="site-nav-link" href="#react">React</a>
+              <a class="site-nav-link" href="#angular">AngularJS</a>
+              <a class="site-nav-link" href="#blazor">Blazor</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">Basics</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#grid">Grid</a>
+              <a class="site-nav-link" href="#page-components">Component</a>
+              <a class="site-nav-link" href="#themes">Topic</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">Business</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#data-compositions">Data</a>
+              <a class="site-nav-link" href="#content-compositions">Content</a>
+              <a class="site-nav-link" href="#auth-compositions">Account</a>
+              <a class="site-nav-link" href="#commerce-compositions">Business</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">Platform</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="#mobile-compositions">Move</a>
+              <a class="site-nav-link" href="#desktop-compositions">Desktop</a>
+              <a class="site-nav-link" href="#ai-compositions">AI</a>
+              <a class="site-nav-link" href="#solution-compositions">Scene</a>
+            </div>
+          </details>
+          <a class="site-nav-link" href="./docs.html">Documentation</a>
+        </div>
+        <div class="site-nav-actions">
+          <label class="g-sr-only" for="site-language">Select language</label>
+          <select class="g-select g-select-sm site-language-select" id="site-language" data-site-language data-i18n-ignore translate="no">
+            <option value="zh-CN" lang="zh-CN" translate="no">简体中文</option>
+            <option value="en" lang="en" translate="no" selected>English</option>
+            <option value="ja" lang="ja" translate="no">日本語</option>
+            <option value="ko" lang="ko" translate="no">한국어</option>
+            <option value="es" lang="es" translate="no">Español</option>
+            <option value="fr" lang="fr" translate="no">Français</option>
+            <option value="de" lang="de" translate="no">Deutsch</option>
+          </select>
+          <a
+            class="g-btn g-btn-primary g-btn-sm site-docs-button"
+            href="./docs.html#quick-start"
+            >Getting Started</a
+          >
+          <button
+            class="g-btn g-btn-outline g-btn-icon site-menu-button"
+            type="button"
+            data-site-menu
+            aria-controls="site-menu"
+            aria-expanded="false"
+            aria-label="Open navigation"
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="site-hero">
+        <div class="site-container site-hero-grid">
+          <div>
+            <span class="site-eyebrow">Universal CSS Infrastructure</span>
+            <h1>Let every interface have<span>Ready-made answers</span></h1>
+            <p class="site-hero-copy">
+              Gardener brings basic CSS, interactive components, business recipes, desktop adaptation, and machine-readable manifests into one system. People can develop directly, and AI can accurately select and use it without having to reorganize the style every time.
+            </p>
+            <div class="site-hero-actions">
+              <a
+                class="g-btn g-btn-primary g-btn-lg"
+                href="./docs.html#quick-start"
+                >Read documentation</a
+              >
+              <button
+                class="g-btn g-btn-outline g-btn-lg"
+                type="button"
+                data-g-copy
+                data-g-copy-value="npm install @gardener/css"
+              >
+                Copy installation command
+              </button>
+            </div>
+            <ul class="site-proof" aria-label="Core Features">
+              <li>Zero runtime dependencies</li>
+              <li>Neutral default on white background</li>
+              <li>Small rounded corner system</li>
+              <li>Web and Desktop Sharing</li>
+            </ul>
+          </div>
+
+          <div class="site-demo" aria-label="Gardener Dashboard Preview">
+            <div class="site-window">
+              <div class="site-window-bar">
+                <div class="site-window-dots" aria-hidden="true">
+                  <i class="site-window-dot"></i><i class="site-window-dot"></i
+                  ><i class="site-window-dot"></i>
+                </div>
+                <span class="site-window-path"
+                  >gardener/workspace/overview</span
+                ><span class="g-badge">Live</span>
+              </div>
+              <div class="site-window-body">
+                <aside class="site-demo-rail" aria-label="Demonstration Navigation">
+                  <button class="site-demo-icon is-active" aria-label="Overview">
+                    OV</button
+                  ><button class="site-demo-icon" aria-label="Content">CT</button
+                  ><button class="site-demo-icon" aria-label="AI">AI</button
+                  ><button class="site-demo-icon" aria-label="Settings">ST</button>
+                </aside>
+                <div class="site-demo-main">
+                  <div class="site-demo-toolbar">
+                    <div>
+                      <div class="site-demo-line is-long"></div>
+                      <div class="site-demo-line is-short g-mt-2"></div>
+                    </div>
+                    <button class="g-btn g-btn-primary g-btn-sm">
+                      New page
+                    </button>
+                  </div>
+                  <div class="site-demo-cards">
+                    <article class="site-demo-card is-accent">
+                      <span class="site-kicker">Published page</span>
+                      <div class="site-demo-value">2,480</div>
+                      <span class="g-badge g-badge-success">+12.6%</span>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">Component Adoption Rate</span>
+                      <div class="site-demo-value">94%</div>
+                      <div
+                        class="g-progress g-mt-3"
+                        role="progressbar"
+                        aria-label="Component Adoption Rate"
+                        aria-valuenow="94"
+                      >
+                        <span style="--g-progress: 94%"></span>
+                      </div>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">Generate trend</span>
+                      <div class="site-demo-chart" aria-hidden="true">
+                        <i style="height: 35%"></i><i style="height: 52%"></i
+                        ><i style="height: 43%"></i><i style="height: 72%"></i
+                        ><i style="height: 61%"></i><i style="height: 88%"></i
+                        ><i style="height: 100%"></i>
+                      </div>
+                    </article>
+                    <article class="site-demo-card">
+                      <span class="site-kicker">AI tasks</span>
+                      <div class="g-agent-status is-working g-mt-4">
+                        <span class="g-spinner"></span
+                        ><span>Assembling enterprise site</span>
+                      </div>
+                      <div class="site-demo-line is-long g-mt-5"></div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Frame size">
+        <div class="site-container site-stat-grid">
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="42">42</strong
+            ><span class="site-stat-label">Color theme</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="506">506</strong
+            ><span class="site-stat-label">Register component</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="11498">11,498</strong
+            ><span class="site-stat-label">Tools</span>
+          </div>
+          <div class="site-stat">
+            <strong class="site-stat-value" data-count="52">52</strong
+            ><span class="site-stat-label">Machine-readable page recipe</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="capabilities">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">One system, every surface</span>
+            <h2 class="site-title">From one button to super CMS</h2>
+            <p class="site-lead">
+              Covers basic atoms, common components, high-density backend, mobile terminal, content commercialization, AI workspace and desktop WebView. The default is restrained enough and the combination ability is wide enough.
+            </p>
+          </header>
+          <div class="site-feature-grid">
+            <article class="site-feature">
+              <span class="site-feature-index">01</span>
+              <h3>Complete base layer</h3>
+              <p>
+                Reset, Token, 24 / 12 grid, typography, spacing, size, logical direction, color, border, shadow, status and five-level responsive tool class.
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">02</span>
+              <h3>Ready-to-deliver components</h3>
+              <p>
+                Forms, navigation, overlays, data, media, business, communications, legal, workflow, and Dashboard all have stable structures and state conventions.
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">03</span>
+              <h3>AI native interaction</h3>
+              <p>
+                Message flow, thought process, tool invocation, approvals, Agent status, schedules, references, artifacts, model selection, and multimodal generation.
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">04</span>
+              <h3>Complex business recipes</h3>
+              <p>
+                Login, mobile categories, CMS editor, media library, inbox, file management, form building, store listings, billing, and enterprise settings.
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">05</span>
+              <h3>Desktop application adaptation</h3>
+              <p>
+                Tauri and Electron share the title bar, window control, activity bar, editing area, inspector, columns and status bar, and the bridge interface remains safe.
+              </p>
+            </article>
+            <article class="site-feature">
+              <span class="site-feature-index">06</span>
+              <h3>The environment matrix is complete</h3>
+              <p>
+                Light, Dark, System, High Contrast, RTL, Reduced Motion, Forced Colors, Print, Mobile, Tablet and Desktop.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="vue">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">Official Vue 3 bindings · 1.0.0 Stable</span>
+            <h2 class="site-title">The full power of CSS has become the Vue API</h2>
+            <p class="site-lead">
+              <code>@gardener/vue</code> Complete mapping of 506 components and 66 DOM behaviors, providing plug-ins, type-safe components, directives, Composable, ten-axis theme Provider, v-model, SSR and Tauri / Electron adaptation. Each CSS component has its own <code>G*</code> When exporting, AI can directly select components without reassembling styles.
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="Vue project metrics">
+              <span class="g-badge">506 components</span>
+              <span class="g-badge">538 runtime exports</span>
+              <span class="g-badge">29 entry points</span>
+              <span class="g-badge">28 CSS packs</span>
+              <span class="g-badge">Vue 3.4+</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#vue">Read the Vue documentation</a>
+              <a class="g-btn g-btn-outline" href="../../packages/vue/README.md">Open Vue project description</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>App.vue</span><span>Import on demand · Complete type</span>
+            </div>
+            <pre class="site-code"><code>&lt;script setup lang=&quot;ts&quot;&gt;
+import { GButton, GCard, GardenerProvider } from &quot;@gardener/vue&quot;;
+import &quot;@gardener/vue/style.css&quot;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
+    &lt;GCard&gt;
+      &lt;GButton variant=&quot;primary&quot;&gt;Save&lt;/GButton&gt;
+    &lt;/GCard&gt;
+  &lt;/GardenerProvider&gt;
+&lt;/template&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="react">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">Official React bindings · 1.0.0 Stable</span>
+            <h2 class="site-title">The same set of CSS also has a complete React component model</h2>
+            <p class="site-lead">
+              <code>@gardener/react</code> Maps 506 CSS components and 66 DOM behaviors into a type-safe React API, providing precise native element types, ten-axis theme providers, controlled and uncontrolled value bridging, Imperative Handles, 7 Hooks, SSR / Hydration, and isolated Tauri / Electron adaptation entrances. Components, styles, and machine-readable directories maintain a one-to-one correspondence.
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="React project metrics">
+              <span class="g-badge">506 components</span>
+              <span class="g-badge">538 runtime exports</span>
+              <span class="g-badge">29 entry points</span>
+              <span class="g-badge">28 CSS packs</span>
+              <span class="g-badge">React 18.3–19.x</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#react">Read the React documentation</a>
+              <a class="g-btn g-btn-outline" href="../../packages/react/README.md">Open React project description</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>App.tsx</span><span>Import on demand · Complete type</span>
+            </div>
+            <pre class="site-code"><code>import { GButton, GCard, GardenerProvider } from &quot;@gardener/react&quot;;
+import &quot;@gardener/react/style.css&quot;;
+
+export function App() {
+  return (
+    &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
+      &lt;GCard&gt;
+        &lt;GButton variant=&quot;primary&quot;&gt;Save&lt;/GButton&gt;
+      &lt;/GCard&gt;
+    &lt;/GardenerProvider&gt;
+  );
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="angular">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">Official AngularJS bindings · 1.0.0 Stable</span>
+            <h2 class="site-title">Let large AngularJS legacy systems continue to use the full Gardener API</h2>
+            <p class="site-lead">
+              <code>@gardener/angularjs</code> Maps 506 CSS components and 66 DOM behaviors into AngularJS element/attribute directives, providing module factory, strict component subsetting, native ngModel, ten-axis theme, 3 injectable services, dynamic life cycle and isolated Tauri / Electron entry. It targets stock products that must maintain AngularJS 1.8.x and explicitly exposes the framework's EOL security boundaries.
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="AngularJS project metrics">
+              <span class="g-badge">506 directives</span>
+              <span class="g-badge">535 runtime exports</span>
+              <span class="g-badge">29 entry points</span>
+              <span class="g-badge">28 CSS packs</span>
+              <span class="g-badge">AngularJS 1.8.2–1.8.3</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#angular">Read the AngularJS documentation</a>
+              <a class="g-btn g-btn-outline" href="../../packages/angularjs/README.md">Open AngularJS project description</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>app.js</span><span>Module Factory · ngModel · Complete type</span>
+            </div>
+            <pre class="site-code"><code>import &quot;angular/angular.js&quot;;
+import { createGardenerAngularJS } from &quot;@gardener/angularjs&quot;;
+import &quot;@gardener/angularjs/style.css&quot;;
+
+const gardener = createGardenerAngularJS(window.angular, {
+  components: [&quot;button&quot;, &quot;input&quot;, &quot;card&quot;],
+});
+
+window.angular.module(&quot;app&quot;, [gardener]);
+
+// &lt;button g-button gardener-variant=&quot;primary&quot;&gt;Save&lt;/button&gt;
+// &lt;input g-input ng-model=&quot;vm.keyword&quot;&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="blazor">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow">Official Blazor RCL · 1.0.0 Stable</span>
+            <h2 class="site-title">From static SSR to desktop WebView using the same set of Razor components</h2>
+            <p class="site-lead">
+              <code>Gardener.Blazor</code> Map 506 CSS/hybrid components, 66 DOM behaviors, and 75 events to the strongly typed Razor API. Stable package with
+              <code>net10.0</code> is the baseline, verified <code>net11.0</code>
+              Consumption, covering Blazor Web App, WebAssembly, Hybrid, Tauri, and Electron scenarios, and preserving SSR, Forms, Accessibility, and Ten-axis theme contracts.
+            </p>
+            <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="Blazor Project Metrics">
+              <span class="g-badge">506 components</span>
+              <span class="g-badge">66 behaviors</span>
+              <span class="g-badge">75 events</span>
+              <span class="g-badge">43 static assets</span>
+              <span class="g-badge">.NET 10/11</span>
+            </div>
+            <div class="site-hero-actions">
+              <a class="g-btn g-btn-primary" href="./docs.html#blazor">Read the Blazor documentation</a>
+              <a class="g-btn g-btn-outline" href="../../packages/blazor/README.md">Open Blazor project description</a>
+            </div>
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>Dashboard.razor</span><span>RCL · SSR · Strongly typed events</span>
+            </div>
+            <pre class="site-code"><code>@using Gardener.Blazor.Components
+
+&lt;GardenerProvider Theme=&quot;garden&quot; Mode=&quot;light&quot;
+                   Shape=&quot;small&quot; Platform=&quot;desktop&quot;&gt;
+  &lt;GAppShell&gt;
+    &lt;GSidebar&gt;Navigation&lt;/GSidebar&gt;
+    &lt;GMainRegion&gt;
+      &lt;GButton Variant=&quot;primary&quot; @onclick=&quot;Save&quot;&gt;
+        Save
+      &lt;/GButton&gt;
+    &lt;/GMainRegion&gt;
+  &lt;/GAppShell&gt;
+&lt;/GardenerProvider&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-grid-section" id="grid">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">24 / 12 responsive grid</span>
+            <h2 class="site-title">Accurate column division, no longer temporary calculation</h2>
+            <p class="site-lead">
+              24-grid covers enterprise backend, CMS and complex forms, and 12-grid is compatible with traditional design drafts. There are stable interfaces for column width, offset, order, gridlines, spacing, container queries, RTL and printing.
+            </p>
+          </header>
+          <div class="site-grid-ruler" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+            ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+            ><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="g-grid-24 g-gutter-3 site-grid-demo">
+            <article class="g-col-24 g-md-col-6">
+              <span>START</span><strong>6 / 24</strong><small>Navigation and Filtering</small>
+            </article>
+            <article class="g-col-24 g-md-col-12">
+              <span>MAIN</span><strong>12 / 24</strong
+              ><small>Main content area</small>
+            </article>
+            <article class="g-col-24 g-md-col-6">
+              <span>END</span><strong>6 / 24</strong><small>Inspectors and Actions</small>
+            </article>
+            <article class="g-col-16 g-offset-4">
+              <span>OFFSET</span><strong>4 + 16 + 4</strong
+              ><small>Center form or reading area</small>
+            </article>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>Five levels of viewport response + three levels of container response</strong
+              ><span
+                >480 / 768 / 1024 / 1280 / 1536px · CQ 480 / 768 / 1024px</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#grid-system"
+              >View full raster document</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="regions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">16 region layout patterns</span>
+            <h2 class="site-title">Traditional page skeleton, also has stable interface</h2>
+            <p class="site-lead">
+              From the upper and lower main areas, left and right columns to Holy Grail, Master / Detail, Dock, adjustable columns and full-screen workspace, web, mobile terminals and Tauri / Electron can be directly selected without having to temporarily write page-level layout CSS.
+            </p>
+          </header>
+          <div
+            class="site-region-frame g-region-frame"
+            aria-label="Five-area layout preview"
+          >
+            <header class="g-region-top"><b>TOP</b><span>Toolbar</span></header>
+            <aside class="g-region-start">
+              <b>START</b><span>Navigation</span>
+            </aside>
+            <main class="g-region-main">
+              <b>MAIN</b><strong>Workspace</strong>
+              <div class="site-region-cards"><i></i><i></i><i></i></div>
+            </main>
+            <aside class="g-region-end"><b>END</b><span>Inspector</span></aside>
+            <footer class="g-region-bottom">
+              <b>BOTTOM</b><span>Status</span>
+            </footer>
+          </div>
+          <div class="site-region-patterns" aria-label="Area layout list">
+            <span>Top / Main / Bottom</span><span>Start/Main/End</span
+            ><span>Holy Grail</span><span>Master/Detail</span
+            ><span>List/Detail/Inspector</span><span>Fixed Header</span
+            ><span>Fixed Sidebar</span><span>Sticky Aside</span
+            ><span>Sticky Footer</span><span>Dock</span><span>Split View</span
+            ><span>Fullscreen</span><span>Mobile Safe Area</span
+            ><span>Desktop Shell</span><span>Container Query</span
+            ><span>RTL/Print</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>16 types of finished skeleton + unified area parts</strong
+              ><span
+                >Viewport Responsiveness · Container Responsiveness · Logical Direction · Print Flattening · Desktop Workbench</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#region-layouts"
+              >View full zone layout documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="primitives">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">22 classic layout primitives</span>
+            <h2 class="site-title">Let the space determine the layout, do not let breakpoints guess the layout</h2>
+            <p class="site-lead">
+              Classic patterns such as Stack, Cluster, Sidebar, Switcher, Reel, Media Object, Masonry, and Bento have been solidified into intrinsic response interfaces. AI only needs to choose the intent and a few variables, no need to reinvent Flex, Grid, overflow and safe area rules.
+            </p>
+          </header>
+          <div class="site-primitive-showcase">
+            <div class="g-stack site-primitive-stack">
+              <span class="site-primitive-label">STACK</span>
+              <article></article>
+              <article></article>
+              <article></article>
+            </div>
+            <div class="g-bento site-primitive-bento">
+              <article class="g-bento-featured">
+                <span>BENTO</span><strong>Featured</strong>
+              </article>
+              <article class="g-bento-tall"><span>TALL</span></article>
+              <article><span>TILE</span></article>
+              <article><span>TILE</span></article>
+            </div>
+            <div class="g-stack site-primitive-flow">
+              <div class="g-cluster">
+                <span>Cluster</span><span>Wrap</span><span>Tags</span>
+              </div>
+              <div class="g-repel">
+                <strong>Repel</strong
+                ><button class="g-btn g-btn-primary g-btn-sm">Action</button>
+              </div>
+              <div class="g-media-object">
+                <i class="g-media-object-media">M</i>
+                <div class="g-media-object-body">
+                  <strong>Media Object</strong
+                  ><small>Media · Body · Action</small>
+                </div>
+                <span class="g-media-object-action">→</span>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="List of classic layout primitives">
+            <span>Stack</span><span>Cluster</span><span>Center</span
+            ><span>Sidebar</span><span>Switcher</span><span>Cover</span
+            ><span>Reel</span><span>Frame</span><span>Media Object</span
+            ><span>Auto Fit</span><span>Auto Fill</span><span>Bleed</span
+            ><span>Repel</span><span>Imposter</span><span>Overlay</span
+            ><span>Masonry</span><span>Bento</span><span>Aspect Ratio</span
+            ><span>Scroll Area</span><span>Scroll Snap</span
+            ><span>Safe Area</span><span>Sticky Region</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>22 stable primitives + zero JavaScript layout</strong
+              ><span
+                >Intrinsic Response · Container Query · RTL · Safe Area · Reduced Motion · Print</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#layout-primitives"
+              >View complete primitive documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="page-components">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">23 page-level patterns</span>
+            <h2 class="site-title">Page public structure, directly enter the delivery state</h2>
+            <p class="site-lead">
+              Unify the page header, toolbar, command bar, filtering and batch operations, and prepare the Loading, Empty, Error, 403, 404, 500, offline and maintenance status completely. AI-generated pages are no longer just “normal data.”
+            </p>
+          </header>
+          <div class="site-page-demo">
+            <header class="g-page-header">
+              <div class="g-page-header-main">
+                <div class="g-page-header-eyebrow">Content workspace</div>
+                <h3 class="g-page-header-title">Page management</h3>
+                <p class="g-page-header-description">
+                  Manage content, status, and publishing times.
+                </p>
+              </div>
+              <div class="g-page-header-meta">
+                <span>Last updated: Just now</span
+                ><span class="g-badge g-badge-success">Synchronized</span>
+              </div>
+              <div class="g-page-header-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">Preview</button
+                ><button class="g-btn g-btn-primary g-btn-sm">New</button>
+              </div>
+            </header>
+            <div class="g-toolbar">
+              <div class="g-toolbar-start">
+                <strong class="g-toolbar-title">12 pages</strong>
+              </div>
+              <div class="g-toolbar-center">
+                <span class="g-filter-chip">Status: All</span
+                ><span class="g-filter-chip">Language: Chinese</span>
+              </div>
+              <div class="g-toolbar-end">
+                <button class="g-btn g-btn-ghost g-btn-sm">Filter</button>
+              </div>
+            </div>
+            <div class="g-context-bar is-info">
+              <span aria-hidden="true">i</span>
+              <div class="g-context-bar-content">Currently displaying production environment content</div>
+              <div class="g-context-bar-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">Switch environment</button>
+              </div>
+            </div>
+            <div class="g-bulk-action-bar">
+              <strong class="g-bulk-action-count">3 items selected</strong>
+              <div class="g-bulk-action-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">Move</button
+                ><button class="g-btn g-btn-danger g-btn-sm">Delete</button>
+              </div>
+            </div>
+            <div class="site-page-states">
+              <article class="g-page-empty">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-visual">∅</div>
+                  <strong class="g-page-state-title">Empty</strong>
+                  <p class="g-page-state-description">
+                    There are also clear next steps for first use.
+                  </p>
+                </div>
+              </article>
+              <article class="g-page-not-found">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-code">404</div>
+                  <strong class="g-page-state-title">Not found</strong>
+                  <p class="g-page-state-description">Stable fallback for invalid links.</p>
+                </div>
+              </article>
+              <article class="g-page-offline">
+                <div class="g-page-state-content">
+                  <div class="g-page-state-visual">⌁</div>
+                  <strong class="g-page-state-title">Offline</strong>
+                  <p class="g-page-state-description">
+                    The data security status is still informed when the network is disconnected.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <footer class="g-status-bar">
+              <span class="g-status-bar-section"
+                ><i class="g-status-dot is-online"></i>Connected</span
+              ><span class="g-status-bar-section is-end"
+                >Gardener page contract</span
+              >
+            </footer>
+          </div>
+          <div class="site-region-patterns" aria-label="List of page-level common components">
+            <span>Page Header</span><span>Section Header</span
+            ><span>Subheader</span><span>Toolbar</span><span>Action Bar</span
+            ><span>Status Bar</span><span>Command Bar</span
+            ><span>Context Bar</span><span>Filter Bar</span
+            ><span>Bulk Action Bar</span><span>Footer Bar</span
+            ><span>Floating Action Bar</span><span>Back to Top</span
+            ><span>Divider with Text</span><span>Sticky Actions</span
+            ><span>Page Loading</span><span>Page Empty</span
+            ><span>Page Error</span><span>403</span><span>404</span
+            ><span>500</span><span>Offline</span><span>Maintenance</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>23 complete page states and common structures</strong
+              ><span
+                >Container Query · Sticky · Safe Area · RTL · Runtime · Print</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#page-components"
+              >View full page component documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="help-system">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">28 help and guidance patterns</span>
+            <h2 class="site-title">From a TIP to a complete help closed loop</h2>
+            <p class="site-lead">
+              Tooltip, Popover, Callout, FAQ, Help Center, Tour, Spotlight, new feature tips, troubleshooting and feedback all use stable interfaces. When users encounter questions at any end, they have appropriate and consistent expressions.
+            </p>
+          </header>
+          <div class="site-help-demo">
+            <div class="site-help-main">
+              <p class="g-tip">Use the preview environment to confirm content before publishing to the production environment.</p>
+              <aside class="g-callout is-info">
+                <span class="g-callout-icon">i</span>
+                <div class="g-callout-content">
+                  <strong class="g-callout-title">Help for current page</strong>
+                  <p>Environment variables are only read at build time; they need to be redeployed after modification.</p>
+                </div>
+              </aside>
+              <aside class="g-feature-hint">
+                <span class="g-feature-hint-badge">New</span>
+                <div>
+                  <strong class="g-feature-hint-title">Cross-end preview</strong>
+                  <p class="g-feature-hint-description">
+                    Check PC, mobile web and desktop WebView in one go.
+                  </p>
+                </div>
+                <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  Trial
+                </button>
+              </aside>
+              <ul class="g-shortcut-list">
+                <li class="g-shortcut-item">
+                  <span>Open help</span
+                  ><span class="g-shortcut-keys"
+                    ><kbd class="g-key-hint">?</kbd></span
+                  >
+                </li>
+                <li class="g-shortcut-item">
+                  <span>Command Panel</span
+                  ><span class="g-shortcut-keys"
+                    ><kbd class="g-key-hint">Ctrl</kbd><span>+</span
+                    ><kbd class="g-key-hint">K</kbd></span
+                  >
+                </li>
+              </ul>
+            </div>
+            <aside class="g-help-panel site-help-panel">
+              <header class="g-help-panel-header">
+                <strong class="g-help-panel-title">Help Center</strong
+                ><button
+                  class="g-help-trigger"
+                  type="button"
+                  aria-label="Help instructions"
+                >
+                  ?
+                </button>
+              </header>
+              <div class="g-help-panel-body">
+                <div class="g-help-search">
+                  <span class="g-help-search-icon" aria-hidden="true">⌕</span
+                  ><label class="g-sr-only" for="site-help-search"
+                    >Search help</label
+                  ><input
+                    class="g-input"
+                    id="site-help-search"
+                    type="search"
+                    placeholder="Search help…"
+                  />
+                </div>
+                <div class="g-help-topics g-mt-4">
+                  <a class="g-help-topic" href="./docs.html#help-system"
+                    ><strong class="g-help-topic-title">Quick Start</strong
+                    ><span class="g-help-topic-meta">12 articles</span></a
+                  ><a class="g-help-topic" href="./docs.html#help-system"
+                    ><strong class="g-help-topic-title">Release and Rollback</strong
+                    ><span class="g-help-topic-meta">18 articles</span></a
+                  >
+                </div>
+                <ul class="g-help-checklist g-mt-5">
+                  <li class="g-help-checklist-item is-complete">
+                    <span class="g-help-checklist-marker">✓</span
+                    ><span>Create space</span>
+                  </li>
+                  <li class="g-help-checklist-item">
+                    <span class="g-help-checklist-marker">2</span
+                    ><span>Completed first release</span>
+                  </li>
+                </ul>
+              </div>
+              <footer class="g-help-panel-footer">
+                <a href="./docs.html#help-system">View all help components</a>
+              </footer>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="Tip and Help System List">
+            <span>Tip</span><span>Inline Hint</span><span>Help Text</span
+            ><span>Help Trigger</span><span>Tooltip</span
+            ><span>Rich Tooltip</span><span>Help Popover</span
+            ><span>Definition</span><span>Callout</span><span>Note</span
+            ><span>Do / Don't</span><span>Key Hint</span
+            ><span>Shortcut List</span><span>Help Card</span
+            ><span>Help Panel</span><span>Help Center</span
+            ><span>Help Topics</span><span>FAQ</span><span>Contextual Help</span
+            ><span>Coach Mark</span><span>Guided Tour</span
+            ><span>Spotlight</span><span>Hotspot</span><span>Feature Hint</span
+            ><span>What's New</span><span>Help Checklist</span
+            ><span>Troubleshooting</span><span>Help Feedback</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>28 prompts, guidance and support modes</strong
+              ><span
+                >Collision Aware · Keyboard · Focus Restore · RTL · Reduced Motion · Print</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#help-system"
+              >View complete help system documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="form-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">37 traditional form compositions</span>
+            <h2 class="site-title">Forms no longer start with a bunch of Inputs</h2>
+            <p class="site-lead">
+              Fields, Partitions, Horizontal and Inline Layout, Search/Password/Count, Select Groups, Validation, Name/Address/Amount, Conditions and Repeatables, Review and Submit Actions are all combined. AI only needs to select the business intent and does not have to organize the form CSS over and over again.
+            </p>
+          </header>
+          <div class="site-form-demo g-form-container">
+            <form class="g-form site-form-main" novalidate>
+              <section class="g-form-section">
+                <header class="g-form-section-header">
+                  <div>
+                    <h3 class="g-form-section-title">Corporate Information</h3>
+                    <p class="g-form-section-description">
+                      For site display and service notifications.
+                    </p>
+                  </div>
+                  <span class="g-autosave-status is-saved">Saved</span>
+                </header>
+                <div class="g-form-row">
+                  <div class="g-field">
+                    <div class="g-field-header">
+                      <label class="g-label" for="site-company-name"
+                        >Company name</label
+                      ><span class="g-field-required">Required</span>
+                    </div>
+                    <input
+                      class="g-input"
+                      id="site-company-name"
+                      value="Gardener Studio"
+                    />
+                  </div>
+                  <div class="g-field">
+                    <label class="g-label" for="site-company-email"
+                      >Contact email</label
+                    ><input
+                      class="g-input"
+                      id="site-company-email"
+                      type="email"
+                      value="hello@example.com"
+                    />
+                  </div>
+                </div>
+                <div class="g-field">
+                  <label class="g-label" for="site-company-description"
+                    >Company Profile</label
+                  >
+                  <div class="g-character-field" data-g-character-count="80">
+                    <textarea
+                      class="g-textarea"
+                      id="site-company-description"
+                      maxlength="80"
+                      rows="3"
+                    >
+Provide a consistent and complete page experience for different terminals.</textarea
+                    ><output
+                      class="g-character-count"
+                      data-g-character-output
+                    ></output>
+                  </div>
+                </div>
+                <fieldset class="g-fieldset">
+                  <legend class="g-fieldset-legend">Release plan</legend>
+                  <div class="g-choice-group">
+                    <label class="g-choice-card"
+                      ><input type="radio" name="site-plan" checked /><strong
+                        class="g-choice-card-title"
+                        >Standard Release</strong
+                      ><span class="g-choice-card-description"
+                        >Automatically complete preflight and version snapshots.</span
+                      ></label
+                    ><label class="g-choice-card"
+                      ><input type="radio" name="site-plan" /><strong
+                        class="g-choice-card-title"
+                        >Phased release</strong
+                      ><span class="g-choice-card-description"
+                        >Open to internal members first.</span
+                      ></label
+                    >
+                  </div>
+                </fieldset>
+              </section>
+              <div class="g-form-actions">
+                <button class="g-btn g-btn-outline" type="button">
+                  Save draft</button
+                ><button class="g-btn g-btn-primary" type="button">Continue</button>
+              </div>
+            </form>
+            <aside class="site-form-side">
+              <div class="g-form-progress">
+                <div class="g-form-progress-meta">
+                  <span>Data completion</span><strong>72%</strong>
+                </div>
+                <div class="g-form-progress-track">
+                  <div
+                    class="g-form-progress-value"
+                    style="--g-form-progress: 72%"
+                  ></div>
+                </div>
+              </div>
+              <div class="g-form-review g-mt-5">
+                <div class="g-form-review-row">
+                  <span class="g-form-review-label">Name</span
+                  ><strong class="g-form-review-value">Gardener Studio</strong
+                  ><button class="g-btn g-btn-link g-btn-sm" type="button">
+                    Edit
+                  </button>
+                </div>
+                <div class="g-form-review-row">
+                  <span class="g-form-review-label">Release</span
+                  ><strong class="g-form-review-value">Standard Release</strong
+                  ><button class="g-btn g-btn-link g-btn-sm" type="button">
+                    Edit
+                  </button>
+                </div>
+              </div>
+              <aside class="g-validation-summary g-mt-5">
+                <strong class="g-validation-summary-title">Pre-commit check</strong>
+                <ul class="g-validation-summary-list">
+                  <li>Company name has been filled in</li>
+                  <li>Still need to confirm the terms of service</li>
+                </ul>
+              </aside>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="Form traditional combination list">
+            <span>Form</span><span>Form Section</span><span>Field</span
+            ><span>Fieldset</span><span>Form Row</span><span>Form Grid</span
+            ><span>Horizontal Form</span><span>Inline Form</span
+            ><span>Compact Form</span><span>Input Group</span
+            ><span>Input Affix</span><span>Search Field</span
+            ><span>Password Field</span><span>Clearable Field</span
+            ><span>Character Counter</span><span>Validation State</span
+            ><span>Validation Summary</span><span>Checkbox Group</span
+            ><span>Radio Group</span><span>Switch Row</span
+            ><span>Choice Cards</span><span>Name Group</span
+            ><span>Address Group</span><span>Phone Group</span
+            ><span>Money Group</span><span>Date Range</span
+            ><span>Time Range</span><span>Unit Field</span
+            ><span>Range Field</span><span>File Field</span
+            ><span>Repeatable Field</span><span>Conditional Field</span
+            ><span>Form Actions</span><span>Autosave Status</span
+            ><span>Form Progress</span><span>Form Review</span
+            ><span>Consent Group</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>37 traditional form structures + 5 types of interactive behaviors</strong
+              ><span
+                >Container Query · Validation · Business Groups · RTL · Safe Area · Print</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#form-compositions"
+              >View full form combination documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="navigation-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >Category 07 · Traditional navigation</span
+            >
+            <h2 class="site-title">There is ready navigation in every direction</h2>
+            <p class="site-lead">
+              From enterprise site owner navigation to CMS tree, from mobile bottom bar to Electron Activity Bar, from right-click menu to Scrollspy, 38 stable modes allow AI to select directly according to intent.
+            </p>
+          </header>
+          <div class="site-navigation-demo g-nav-container">
+            <header class="g-navbar">
+              <div class="g-navbar-start">
+                <strong class="g-navbar-brand">Acme Cloud</strong>
+              </div>
+              <nav class="g-primary-nav" aria-label="Product Demonstration Navigation">
+                <a
+                  class="g-primary-nav-link"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  >Workbench</a
+                ><a class="g-primary-nav-link" href="#navigation-compositions"
+                  >Content</a
+                ><a class="g-primary-nav-link" href="#navigation-compositions"
+                  >Data</a
+                >
+              </nav>
+              <nav class="g-utility-nav">
+                <a class="g-utility-nav-link" href="#navigation-compositions"
+                  >Help</a
+                >
+              </nav>
+              <div class="g-navbar-end">
+                <button
+                  class="g-btn g-btn-outline g-btn-sm g-navbar-toggle"
+                  type="button"
+                  data-g-nav-toggle="site-nav-drawer"
+                >
+                  Menu
+                </button>
+              </div>
+            </header>
+            <nav class="g-subnav" aria-label="Secondary demo navigation">
+              <a
+                class="g-subnav-link"
+                href="#navigation-compositions"
+                aria-current="page"
+                >Overview</a
+              ><a class="g-subnav-link" href="#navigation-compositions">page</a
+              ><a class="g-subnav-link" href="#navigation-compositions">Member</a
+              ><a class="g-subnav-link" href="#navigation-compositions">Settings</a>
+            </nav>
+            <div class="site-navigation-workspace">
+              <nav
+                class="g-nav-rail"
+                data-g-roving-nav
+                data-g-orientation="vertical"
+                aria-label="Workspace Demo"
+              >
+                <a
+                  class="g-nav-rail-item"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  ><span class="g-nav-icon">⌂</span><span>Home page</span></a
+                ><a class="g-nav-rail-item" href="#navigation-compositions"
+                  ><span class="g-nav-icon">▤</span><span>Content</span></a
+                ><a class="g-nav-rail-item" href="#navigation-compositions"
+                  ><span class="g-nav-icon">AI</span><span>Generate</span></a
+                >
+              </nav>
+              <div class="site-navigation-canvas">
+                <ol class="g-breadcrumb">
+                  <li class="g-breadcrumb-item">
+                    <a href="#navigation-compositions">Workspace</a>
+                  </li>
+                  <li class="g-breadcrumb-item" aria-current="page">Overview</li>
+                </ol>
+                <div class="g-tabs g-mt-5" data-g-tabs>
+                  <div class="g-tab-list" role="tablist">
+                    <button
+                      class="g-tab"
+                      role="tab"
+                      aria-controls="site-nav-overview"
+                      aria-selected="true"
+                    >
+                      Overview</button
+                    ><button
+                      class="g-tab"
+                      role="tab"
+                      aria-controls="site-nav-activity"
+                    >
+                      Activity
+                    </button>
+                  </div>
+                  <div
+                    class="g-tab-panel"
+                    id="site-nav-overview"
+                    role="tabpanel"
+                  >
+                    <div class="g-quick-nav">
+                      <a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >★ Collection page</a
+                      ><a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >◷ Recent edits</a
+                      ><a
+                        class="g-quick-nav-item"
+                        href="#navigation-compositions"
+                        >+ New content</a
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="g-tab-panel"
+                    id="site-nav-activity"
+                    role="tabpanel"
+                    hidden
+                  >
+                    Recent activity will appear here.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="g-drawer-nav" id="site-nav-drawer" hidden>
+            <header class="g-drawer-nav-header">
+              <strong>Navigation</strong
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm"
+                type="button"
+                data-g-nav-toggle="site-nav-drawer"
+              >
+                Close
+              </button>
+            </header>
+            <div class="g-drawer-nav-body">
+              <nav class="g-nav-group">
+                <a
+                  class="g-nav-item"
+                  href="#navigation-compositions"
+                  aria-current="page"
+                  >Workbench</a
+                ><a class="g-nav-item" href="#themes">Topic</a
+                ><a class="g-nav-item" href="#recipes">Recipe</a>
+              </nav>
+            </div>
+          </aside>
+          <div class="site-region-patterns" aria-label="Traditional navigation combination list">
+            <span>Navbar</span><span>Primary</span><span>Utility</span
+            ><span>Subnav</span><span>Sidebar</span><span>Collapsible</span
+            ><span>Nav Rail</span><span>Activity Bar</span><span>Menubar</span
+            ><span>Mega Menu</span><span>Dropdown</span><span>Context Menu</span
+            ><span>Tree Nav</span><span>Breadcrumb</span><span>Tabs</span
+            ><span>Vertical Tabs</span><span>Segmented</span
+            ><span>Pill Nav</span><span>Anchor</span><span>Scrollspy</span
+            ><span>Pagination</span><span>Cursor</span><span>Load More</span
+            ><span>Stepper</span><span>Wizard</span><span>Back</span
+            ><span>Previous / Next</span><span>Skip Nav</span
+            ><span>Mobile Top</span><span>Bottom Nav</span
+            ><span>Mobile Tab Bar</span><span>Drawer</span
+            ><span>Command Palette</span><span>Command Nav</span
+            ><span>Jump Nav</span><span>Quick Nav</span><span>Locale</span
+            ><span>Account</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>38 traditional navigation modes + 9 types of reusable interactions</strong
+              ><span
+                >Global · Local · Hierarchy · Workflow · Mobile · Desktop · RTL · Print</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#navigation-compositions"
+              >View full navigation combination documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="data-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >Category 08 · Data display &amp; operations</span
+            >
+            <h2 class="site-title">Data not only needs to be displayed, but must be immediately available</h2>
+            <p class="site-lead">
+              48 data modes covering tables, records, lists, hierarchies, indicators, plans, maps and operations. There is a unified runtime for sorting, selecting, expanding, column management, filtering, and view switching.
+            </p>
+          </header>
+          <div
+            class="site-data-demo g-data-container"
+            id="site-customer-data"
+            data-g-table-sort
+            data-g-row-select
+            data-g-row-disclosure
+          >
+            <div class="site-data-metrics">
+              <article class="g-metric-card">
+                <div class="g-metric-card-main">
+                  <span class="g-metric-card-label">Customer Revenue</span
+                  ><strong class="g-metric-card-value">¥286K</strong>
+                </div>
+                <div class="g-metric-card-trend">
+                  <div class="g-sparkline" role="img" aria-label="Revenue rises">
+                    <i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 30%"
+                    ></i
+                    ><i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 58%"
+                    ></i
+                    ><i
+                      class="g-sparkline-bar"
+                      style="--g-sparkline-value: 88%"
+                    ></i>
+                  </div>
+                </div>
+              </article>
+              <div class="g-status-summary">
+                <div class="g-status-summary-item">
+                  <strong class="g-status-summary-value">128</strong
+                  ><span class="g-status-summary-label">Active</span>
+                </div>
+                <div class="g-status-summary-item">
+                  <strong class="g-status-summary-value">6</strong
+                  ><span class="g-status-summary-label">Risk</span>
+                </div>
+              </div>
+            </div>
+            <div class="g-data-toolbar">
+              <div class="g-data-toolbar-start">
+                <strong class="g-data-title">Customer Data</strong
+                ><span class="g-data-toolbar-result">3 items in total</span>
+              </div>
+              <div class="g-data-toolbar-end">
+                <div class="g-data-view-switcher">
+                  <button
+                    class="g-data-view-button"
+                    type="button"
+                    aria-pressed="true"
+                  >
+                    Table</button
+                  ><button
+                    class="g-data-view-button"
+                    type="button"
+                    aria-pressed="false"
+                  >
+                    Card
+                  </button>
+                </div>
+                <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                  Export
+                </button>
+              </div>
+            </div>
+            <div class="g-selection-summary" data-g-selection-summary hidden>
+              <span class="g-selection-summary-count"
+                >Selected <strong data-g-selection-count>0</strong> item</span
+              >
+              <div class="g-selection-summary-actions">
+                <button class="g-btn g-btn-outline g-btn-sm">Batch editing</button>
+              </div>
+            </div>
+            <div class="g-responsive-table is-stacked">
+              <table class="g-table g-table-hover g-expandable-table">
+                <thead>
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        data-g-select-all
+                        aria-label="Select all customers"
+                      />
+                    </th>
+                    <th aria-sort="none">
+                      <button
+                        class="g-sort-button"
+                        data-g-sort-key="name"
+                        type="button"
+                      >
+                        Customer <span class="g-table-sort-indicator"></span>
+                      </button>
+                    </th>
+                    <th>Status</th>
+                    <th aria-sort="none">
+                      <button
+                        class="g-sort-button"
+                        data-g-sort-key="revenue"
+                        data-g-sort-type="number"
+                        type="button"
+                      >
+                        Income <span class="g-table-sort-indicator"></span>
+                      </button>
+                    </th>
+                    <th>Operation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="g-table-row" id="site-data-a">
+                    <td data-g-label="Select">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="a"
+                        aria-label="Choose Galaxy Technology"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="Customer"
+                    >
+                      Galaxy Technology
+                    </td>
+                    <td data-g-label="Status">
+                      <span class="g-data-status is-success">Active</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="128000"
+                      data-g-label="Income"
+                    >
+                      ¥128,000
+                    </td>
+                    <td data-g-label="Operation">
+                      <button
+                        class="g-row-disclosure"
+                        data-g-row-toggle="site-data-detail-a"
+                        aria-expanded="false"
+                        aria-label="Expand details"
+                      >
+                        ›
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="g-expandable-table-detail"
+                    id="site-data-detail-a"
+                    data-g-detail-row="site-data-a"
+                    hidden
+                  >
+                    <td colspan="5">
+                      <div class="g-table-detail-content">
+                        Enterprise Edition customers · Last contacted 2 days ago
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="g-table-row">
+                    <td data-g-label="Select">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="b"
+                        aria-label="Select distant mountain design"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="Customer"
+                    >
+                      Yuanshan Design
+                    </td>
+                    <td data-g-label="Status">
+                      <span class="g-data-status is-warning">To be followed up</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="86000"
+                      data-g-label="Income"
+                    >
+                      ¥86,000
+                    </td>
+                    <td data-g-label="Operation">View</td>
+                  </tr>
+                  <tr class="g-table-row">
+                    <td data-g-label="Select">
+                      <input
+                        type="checkbox"
+                        data-g-select-row
+                        value="c"
+                        aria-label="Choose Linhai Education"
+                      />
+                    </td>
+                    <td
+                      class="g-table-cell-primary"
+                      data-g-column="name"
+                      data-g-label="Customer"
+                    >
+                      Linhai Education
+                    </td>
+                    <td data-g-label="Status">
+                      <span class="g-data-status is-danger">Risk</span>
+                    </td>
+                    <td
+                      class="g-data-number"
+                      data-g-column="revenue"
+                      data-g-sort-value="42000"
+                      data-g-label="Income"
+                    >
+                      ¥42,000
+                    </td>
+                    <td data-g-label="Operation">View</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="Data display and operating mode list">
+            <span>Table</span><span>Responsive Table</span><span>Data Grid</span
+            ><span>Editable Grid</span><span>Tree Table</span
+            ><span>Grouped Table</span><span>Expandable Table</span
+            ><span>Comparison</span><span>Pivot</span
+            ><span>Description List</span><span>Key Value</span
+            ><span>Record Detail</span><span>List Group</span
+            ><span>Media List</span><span>Dense List</span
+            ><span>Virtual List</span><span>Tree</span><span>Timeline</span
+            ><span>Activity Feed</span><span>Audit Log</span><span>KPI</span
+            ><span>Stat List</span><span>Metric Card</span><span>Sparkline</span
+            ><span>Progress Stats</span><span>Chart</span><span>Legend</span
+            ><span>Ranking</span><span>Status Summary</span><span>Calendar</span
+            ><span>Agenda</span><span>Kanban</span><span>Gantt</span
+            ><span>Org Chart</span><span>Map</span><span>Matrix</span
+            ><span>Heatmap</span><span>Data Toolbar</span
+            ><span>Column Chooser</span><span>Saved Views</span
+            ><span>Export Panel</span><span>Data State</span
+            ><span>View Switcher</span><span>Selection Summary</span
+            ><span>Density</span><span>Filter Summary</span
+            ><span>Sort Builder</span><span>Data Inspector</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>48 data display and operation modes + 8 types of reuse interactions</strong
+              ><span
+                >Table · Record · Metric · Planning · Spatial · Keyboard · RTL · Print</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#data-compositions"
+              >View full data combination document</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="site-section site-section-soft"
+        id="selection-compositions"
+      >
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">32 selection and batch patterns</span>
+            <h2 class="site-title">From selecting one item to processing 100,000 records</h2>
+            <p class="site-lead">
+              Select all, invert selection, range selection, batch toolbar, Transfer, tree and cascade selection, people/organization/resource/media selector, date time range, save configuration and sort/group builder all have stable interfaces. AI doesn’t have to improvise complex backend selection processes.
+            </p>
+          </header>
+          <div
+            class="site-selection-demo g-selection-container"
+            data-g-row-select
+          >
+            <section class="g-selection-scope">
+              <header class="g-selection-scope-header">
+                <strong class="g-selection-scope-title">Site Page</strong>
+                <div class="g-cluster">
+                  <label class="g-select-all-control"
+                    ><input type="checkbox" data-g-select-all /> Select all</label
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    type="button"
+                    data-g-invert-selection
+                  >
+                    Inverse selection
+                  </button>
+                </div>
+              </header>
+              <div class="g-selection-scope-list">
+                <label class="g-selection-item" data-g-selectable-row
+                  ><input type="checkbox" data-g-select-row value="home" /><span
+                    class="g-selection-item-content"
+                    ><span class="g-selection-item-title">Home page</span
+                    ><span class="g-selection-item-description"
+                      >Enterprise station entrance</span
+                    ></span
+                  ><span class="g-selection-item-meta">Published</span></label
+                ><label class="g-selection-item" data-g-selectable-row
+                  ><input
+                    type="checkbox"
+                    data-g-select-row
+                    value="product"
+                  /><span class="g-selection-item-content"
+                    ><span class="g-selection-item-title">Product Center</span
+                    ><span class="g-selection-item-description"
+                      >12 related pages</span
+                    ></span
+                  ><span class="g-selection-item-meta">Draft</span></label
+                ><label class="g-selection-item" data-g-selectable-row
+                  ><input
+                    type="checkbox"
+                    data-g-select-row
+                    value="about"
+                  /><span class="g-selection-item-content"
+                    ><span class="g-selection-item-title">About us</span
+                    ><span class="g-selection-item-description"
+                      >Corporate Information</span
+                    ></span
+                  ><span class="g-selection-item-meta">Published</span></label
+                >
+              </div>
+            </section>
+            <aside class="site-selection-side">
+              <div class="g-user-picker">
+                <div class="g-picker-control">
+                  <span class="g-picker-value"
+                    ><span class="g-picker-avatar">Wang</span
+                    ><span class="g-picker-value-label">Wang Lin</span></span
+                  ><input
+                    class="g-picker-input"
+                    aria-label="Add person in charge"
+                    placeholder="Add person in charge"
+                  />
+                </div>
+              </div>
+              <div class="g-saved-filters g-mt-4" data-g-saved-choice>
+                <button
+                  class="g-saved-filter"
+                  data-g-saved-choice-item
+                  data-g-value="mine"
+                  aria-pressed="true"
+                >
+                  My to-do</button
+                ><button
+                  class="g-saved-filter"
+                  data-g-saved-choice-item
+                  data-g-value="risk"
+                  aria-pressed="false"
+                >
+                  Risk item
+                </button>
+              </div>
+              <div class="g-batch-toolbar g-mt-4" data-g-batch-toolbar hidden>
+                <span class="g-batch-toolbar-summary"
+                  >Selected <strong data-g-selection-count>0</strong> item</span
+                >
+                <div class="g-batch-toolbar-actions">
+                  <button class="g-btn g-btn-primary g-btn-sm">Release</button
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    type="button"
+                    data-g-clear-selection
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="Selecting and batching component lists">
+            <span>Selection Control</span><span>Select All</span
+            ><span>Invert</span><span>Range</span><span>Batch Toolbar</span
+            ><span>Selection Scope</span><span>Transfer</span
+            ><span>Dual List</span><span>Tree Select</span><span>Cascader</span
+            ><span>Mention Picker</span><span>User Picker</span
+            ><span>Organization Picker</span><span>Resource Picker</span
+            ><span>Media Picker</span><span>Icon Picker</span
+            ><span>Color Picker</span><span>Date Range</span
+            ><span>Time Range</span><span>Saved Filters</span
+            ><span>Saved Views</span><span>Column Chooser</span
+            ><span>Sort Builder</span><span>Group Builder</span
+            ><span>Entity Picker</span><span>Tag Picker</span
+            ><span>Relation Picker</span><span>Bulk Confirmation</span
+            ><span>Bulk Progress</span><span>Picker Panel</span
+            ><span>Picker Summary</span><span>Selection Summary</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 selections interact with batch mode + 7 categories of multiplexing</strong
+              ><span
+                >Multi-select · Hierarchy · Search · Safe Area · Keyboard · RTL · Print</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#selection-compositions"
+              >View full select component documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="content-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow"
+              >Category 10 · File &amp; content system</span
+            >
+            <h2 class="site-title">From uploading a file to completing the entire content production</h2>
+            <p class="site-lead">
+              Upload queue, file browsing, media library, image processing, document/PDF/audio and video viewing, code and rich text editing, Markdown, blocks, revisions, comments and auto-save all have ready-made structures.
+            </p>
+          </header>
+          <div class="site-content-demo g-content-container">
+            <section class="g-upload-queue" data-g-upload-manager>
+              <header class="g-upload-queue-header">
+                <strong>Content upload</strong
+                ><span class="g-upload-summary"
+                  >Complete <b data-g-upload-count="success">0</b> · Processing
+                  <b data-g-upload-count="active">0</b></span
+                >
+              </header>
+              <div data-g-upload-list>
+                <div
+                  class="g-upload-item"
+                  data-g-upload-item
+                  data-g-status="uploading"
+                  data-g-progress="50"
+                >
+                  <span class="g-file-icon">PDF</span
+                  ><span class="g-file-main"
+                    ><strong class="g-file-name">Corporate Brand Manual.pdf</strong
+                    ><span class="g-file-meta">4.8 MB</span
+                    ><span
+                      class="g-upload-status"
+                      data-g-upload-status
+                    ></span></span
+                  ><span
+                    class="g-upload-progress"
+                    data-g-upload-progress
+                    role="progressbar"
+                    aria-label="Brand manual upload progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    ><i class="g-upload-progress-bar"></i></span
+                  ><span class="g-upload-actions"
+                    ><button
+                      class="g-btn g-btn-outline g-btn-sm"
+                      data-g-upload-action="advance"
+                      type="button"
+                    >
+                      Advance
+                    </button></span
+                  >
+                </div>
+                <div
+                  class="g-upload-item"
+                  data-g-upload-item
+                  data-g-status="success"
+                  data-g-progress="100"
+                >
+                  <span class="g-file-icon">JPG</span
+                  ><span class="g-file-main"
+                    ><strong class="g-file-name">Home page cover.jpg</strong
+                    ><span class="g-file-meta">880 KB</span
+                    ><span
+                      class="g-upload-status"
+                      data-g-upload-status
+                    ></span></span
+                  ><span
+                    class="g-upload-progress"
+                    data-g-upload-progress
+                    role="progressbar"
+                    aria-label="Home page cover upload progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    ><i class="g-upload-progress-bar"></i></span
+                  ><span></span>
+                </div>
+              </div>
+            </section>
+            <section
+              class="g-file-browser"
+              data-g-file-browser
+              data-g-view="grid"
+            >
+              <header class="g-file-browser-header">
+                <strong>Brand information</strong>
+                <div class="g-cluster">
+                  <label class="g-sr-only" for="home-file-search"
+                    >Search files</label
+                  ><input
+                    class="g-input g-input-sm"
+                    id="home-file-search"
+                    data-g-file-search
+                    type="search"
+                    placeholder="Search"
+                  /><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    data-g-file-view="grid"
+                    aria-pressed="true"
+                    type="button"
+                  >
+                    Grid</button
+                  ><button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    data-g-file-view="list"
+                    aria-pressed="false"
+                    type="button"
+                  >
+                    List
+                  </button>
+                </div>
+              </header>
+              <aside class="g-file-browser-tree">
+                <nav class="g-folder-tree" aria-label="folder">
+                  <button
+                    class="g-folder-tree-item"
+                    aria-current="page"
+                    type="button"
+                  >
+                    <span>▾</span><span>Brand</span
+                    ><span class="g-folder-tree-count">3</span></button
+                  ><button
+                    class="g-folder-tree-item"
+                    style="--g-tree-level: 1"
+                    type="button"
+                  >
+                    <span>▸</span><span>Image</span
+                    ><span class="g-folder-tree-count">2</span>
+                  </button>
+                </nav>
+              </aside>
+              <div class="g-file-browser-main">
+                <div class="g-file-card-grid">
+                  <article
+                    class="g-file-card"
+                    data-g-file-item
+                    data-g-file-name="Brand Manual.pdf"
+                    tabindex="0"
+                  >
+                    <div class="g-file-card-preview site-content-thumb">
+                      PDF
+                    </div>
+                    <div class="g-file-card-body">
+                      <strong class="g-file-name">Brand Manual.pdf</strong
+                      ><span class="g-file-meta">4.8 MB</span>
+                    </div>
+                  </article>
+                  <article
+                    class="g-file-card"
+                    data-g-file-item
+                    data-g-file-name="Home page cover.jpg"
+                    tabindex="-1"
+                  >
+                    <div class="g-file-card-preview site-content-thumb">
+                      IMG
+                    </div>
+                    <div class="g-file-card-body">
+                      <strong class="g-file-name">Home page cover.jpg</strong
+                      ><span class="g-file-meta">880 KB</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <footer class="g-file-browser-status">
+                <span><b data-g-file-count>0</b> results</span
+                ><span>Selected:<b data-g-file-selection>Not selected</b></span>
+              </footer>
+            </section>
+          </div>
+          <div class="site-region-patterns" aria-label="File and Content System Component List">
+            <span>File Drop</span><span>File List</span><span>Upload Queue</span
+            ><span>Chunk Upload</span><span>Upload Progress</span
+            ><span>Failed Upload</span><span>File Card</span
+            ><span>Folder Tree</span><span>File Browser</span
+            ><span>File Preview</span><span>Media Library</span
+            ><span>Media Grid</span><span>Media Details</span
+            ><span>Image Crop</span><span>Image Annotation</span
+            ><span>Document Viewer</span><span>PDF Viewer</span
+            ><span>Video Player</span><span>Audio Player</span
+            ><span>Code Editor</span><span>Rich Text Editor</span
+            ><span>Markdown Editor</span><span>Block Editor</span
+            ><span>Revision Compare</span><span>Autosave</span
+            ><span>Content Outline</span><span>Editor Toolbar</span
+            ><span>Find &amp; Replace</span><span>Comment Thread</span
+            ><span>Version History</span><span>File Properties</span
+            ><span>Storage Meter</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 file and content modes + 6 types of reuse interactions</strong
+              ><span
+                >Upload · Browser · Editor · Revision · Keyboard · RTL · Print</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#content-compositions"
+              >View full content system documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="auth-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 11 · Identity lifecycle</span>
+            <h2 class="site-title">From the first login to every security audit</h2>
+            <p class="site-lead">
+              Login, registration, verification, MFA, Passkey, SSO, QR code, invitation, account and tenant selection, lock screen, session recovery, device management and security events have been combined into a stable page structure suitable for websites, mobile terminals, Dashboard and Tauri/Electron.
+            </p>
+          </header>
+          <div class="site-auth-demo">
+            <form class="g-auth-panel g-sign-in">
+              <header class="g-auth-header">
+                <div class="g-auth-brand-row">
+                  <span class="g-auth-brand-mark">G</span
+                  ><span>Gardener Cloud</span>
+                </div>
+                <h3 class="g-auth-title">Welcome back</h3>
+                <p class="g-auth-description">Sign in to Acme Enterprise Workspace</p>
+              </header>
+              <div class="g-auth-provider-list">
+                <button class="g-auth-provider" type="button">
+                  <span class="g-auth-provider-icon">S</span
+                  ><span>Using Enterprise SSO</span><span>›</span>
+                </button>
+              </div>
+              <div class="g-auth-divider">Or use email</div>
+              <label class="g-field"
+                ><span class="g-label">Email</span
+                ><input class="g-input" type="email" value="admin@example.com"
+              /></label>
+              <div class="g-password-field" data-g-password-toggle>
+                <label class="g-label" for="home-auth-password">Password</label
+                ><input
+                  class="g-input"
+                  id="home-auth-password"
+                  type="password"
+                  value="Gardener2026!"
+                /><button
+                  class="g-password-field-action"
+                  data-g-password-button
+                  type="button"
+                >
+                  <span data-g-password-label>Show password</span>
+                </button>
+              </div>
+              <button class="g-btn g-btn-primary" type="submit">Login</button>
+            </form>
+            <div class="site-auth-side">
+              <section class="g-phone-verification">
+                <strong>Mobile phone verification</strong>
+                <p class="g-auth-description">
+                  Enter the verification code sent to +86 138****6608
+                </p>
+                <div class="g-otp-input" data-g-otp-input>
+                  <input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Verification code digit 1"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Verification code digit 2"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Verification code digit 3"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Verification code digit 4"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Verification code digit 5"
+                  /><input
+                    class="g-otp-cell"
+                    data-g-otp-cell
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Verification code digit 6"
+                  /><input type="hidden" data-g-otp-output />
+                </div>
+              </section>
+              <div class="g-security-alert">
+                <span class="g-security-alert-icon">!</span>
+                <div>
+                  <strong>New device detected</strong>
+                  <p class="g-auth-description">
+                    Linux · Firefox, launched from Beijing.
+                  </p>
+                </div>
+                <div class="g-security-alert-actions">
+                  <button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    This is me</button
+                  ><button class="g-btn g-btn-outline g-btn-sm" type="button">
+                    Protect account
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="Login and account system component list">
+            <span>Centered Auth</span><span>Split Auth</span><span>Sign In</span
+            ><span>Registration</span><span>Password Recovery</span
+            ><span>Password Reset</span><span>Email Verification</span
+            ><span>Phone Verification</span><span>MFA</span><span>OTP</span
+            ><span>Passkey</span><span>SSO</span><span>QR Login</span
+            ><span>Magic Link</span><span>Invitation</span
+            ><span>First Setup</span><span>Lock Screen</span
+            ><span>Session Expired</span><span>Account Chooser</span
+            ><span>Tenant Chooser</span><span>Identity Switcher</span
+            ><span>Profile Setup</span><span>Account Security</span
+            ><span>Devices</span><span>Login Activity</span
+            ><span>Security Alert</span><span>Recovery Codes</span
+            ><span>Trusted Device</span><span>Connected Accounts</span
+            ><span>Password Strength</span><span>Consent</span
+            ><span>Auth Result</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 login and account modes + 8 types of reuse interactions</strong
+              ><span
+                >Password · OTP · MFA · Passkey · SSO · Session · Identity · Security</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#auth-compositions"
+              >View complete account system documents</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="commerce-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 12 · Commerce &amp; payment</span>
+            <h2 class="site-title">From seeing the product to completing the transaction and refund</h2>
+            <p class="site-lead">
+              Product card, details, SKU, shopping cart, checkout, address, shipping, offer, invoice, payment, order, subscription, usage, billing and refund have become stable structures. Suitable for e-commerce, digital goods, SaaS, enterprise procurement, CMS commercialization and desktop clients.
+            </p>
+          </header>
+          <div class="site-commerce-demo g-commerce-container">
+            <article class="g-commerce-product-card">
+              <div class="g-product-media site-commerce-media">
+                <span class="g-product-card-badge g-badge">Enterprise Edition</span
+                ><strong>Gardener Studio</strong>
+              </div>
+              <div class="g-product-card-body">
+                <span class="g-product-card-meta">Permanent license · Three terminals available</span>
+                <h3 class="g-product-card-title">Studio Business Suite</h3>
+                <div class="g-price-display">
+                  <strong class="g-price-current">¥699</strong
+                  ><del class="g-price-original">¥899</del
+                  ><span class="g-price-discount">-22%</span>
+                </div>
+                <div class="g-sku-selector" data-g-sku-selector>
+                  <div class="g-sku-group" data-g-sku-group="platform">
+                    <div class="g-sku-group-header">
+                      <strong>Platform</strong
+                      ><span
+                        class="g-sku-selection"
+                        data-g-sku-selection
+                      ></span>
+                    </div>
+                    <div class="g-sku-options">
+                      <button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="Windows"
+                      >
+                        Windows</button
+                      ><button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="macOS"
+                      >
+                        macOS</button
+                      ><button
+                        class="g-sku-option"
+                        data-g-sku-option
+                        data-g-value="Linux"
+                      >
+                        Linux
+                      </button>
+                    </div>
+                  </div>
+                  <input type="hidden" data-g-sku-output />
+                </div>
+              </div>
+            </article>
+            <div class="site-commerce-side">
+              <div
+                class="g-cart"
+                data-g-cart
+                data-g-currency="CNY"
+                data-g-shipping="1200"
+                data-g-discount="2000"
+              >
+                <article
+                  class="g-commerce-cart-item"
+                  data-g-cart-item
+                  data-g-unit-price="69900"
+                >
+                  <div class="g-cart-item-media site-commerce-media">G</div>
+                  <div class="g-cart-item-main">
+                    <strong>Studio Business Suite</strong
+                    ><span class="g-cart-item-variant">Windows · Enterprise Licensing</span>
+                    <div class="g-quantity-stepper" data-g-quantity-stepper>
+                      <button
+                        class="g-quantity-button"
+                        type="button"
+                        data-g-quantity-decrement
+                        aria-label="Reduce quantity"
+                      >
+                        −</button
+                      ><input
+                        class="g-quantity-input"
+                        data-g-quantity-input
+                        type="number"
+                        min="1"
+                        max="9"
+                        value="1"
+                        aria-label="Product quantity"
+                      /><button
+                        class="g-quantity-button"
+                        type="button"
+                        data-g-quantity-increment
+                        aria-label="Increase quantity"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="g-cart-item-side">
+                    <strong data-g-line-total>¥699.00</strong>
+                  </div>
+                </article>
+                <div class="g-cart-empty" data-g-cart-empty hidden>
+                  Shopping cart is empty
+                </div>
+                <div class="g-cart-summary">
+                  <div class="g-cart-summary-row">
+                    <span>Product</span><span data-g-cart-subtotal></span>
+                  </div>
+                  <div class="g-cart-summary-row">
+                    <span>Discount</span><span data-g-cart-discount></span>
+                  </div>
+                  <div class="g-cart-summary-row">
+                    <span>Delivery</span><span data-g-cart-shipping></span>
+                  </div>
+                  <div class="g-cart-summary-row g-cart-summary-total">
+                    <span>Cope</span><span data-g-cart-total></span>
+                  </div>
+                </div>
+              </div>
+              <div class="g-coupon" data-g-coupon data-g-valid-codes="GARDEN20">
+                <div class="g-coupon-row">
+                  <label class="g-sr-only" for="home-coupon">Discount code</label
+                  ><input
+                    class="g-input"
+                    id="home-coupon"
+                    data-g-coupon-input
+                    value="GARDEN20"
+                  /><button
+                    class="g-btn g-btn-primary"
+                    type="button"
+                    data-g-coupon-apply
+                  >
+                    Use
+                  </button>
+                </div>
+                <span class="g-coupon-status" data-g-coupon-status></span>
+              </div>
+            </div>
+          </div>
+          <div class="site-region-patterns" aria-label="Commercial and Payment Component List">
+            <span>Product Card</span><span>Product List</span
+            ><span>Product Detail</span><span>Product Gallery</span
+            ><span>SKU Selector</span><span>Quantity Stepper</span
+            ><span>Price Display</span><span>Cart Item</span><span>Cart</span
+            ><span>Mini Cart</span><span>Cart Summary</span><span>Checkout</span
+            ><span>Checkout Steps</span><span>Address Selector</span
+            ><span>Address Card</span><span>Shipping Method</span
+            ><span>Pickup Selector</span><span>Coupon</span
+            ><span>Promotion List</span><span>Invoice Information</span
+            ><span>Payment Method</span><span>Payment Sheet</span
+            ><span>Payment Result</span><span>Order Summary</span
+            ><span>Order Timeline</span><span>Order Detail</span
+            ><span>Subscription Plan</span><span>Pricing Comparison</span
+            ><span>Usage Meter</span><span>Billing History</span
+            ><span>Refund Status</span><span>Tax Summary</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 business and payment models + 7 types of reuse interactions</strong
+              ><span
+                >Catalog · Cart · Checkout · Fulfillment · Payment · Order · Billing</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#commerce-compositions"
+              >View full business and payment documents</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="mobile-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 13 · Mobile specific</span>
+            <h2 class="site-title">Not a smaller desktop, but a full mobile app layer</h2>
+            <p class="site-lead">
+              Safe area, dynamic viewport, top bar, bottom navigation, Bottom/Action/Filter Sheet, pull-to-refresh, infinite loading, sliding operation, wheel selection, keyboard avoidance, mobile authentication and settlement, permissions and offline status have stable contracts and can be used directly for mobile web pages, PWA and Tauri/Electron mobile WebView.
+            </p>
+          </header>
+          <div class="site-mobile-demo">
+            <section
+              class="g-mobile-safe-shell is-contained"
+              aria-label="Gardener mobile component preview"
+            >
+              <header class="g-mobile-app-bar">
+                <div class="g-mobile-app-bar-start">
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    aria-label="Return"
+                  >
+                    ←
+                  </button>
+                </div>
+                <h3 class="g-mobile-app-bar-title">Content Center</h3>
+                <div class="g-mobile-app-bar-actions">
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    data-g-mobile-sheet-open="home-mobile-sheet"
+                    aria-label="Filter"
+                  >
+                    ⌘
+                  </button>
+                </div>
+              </header>
+              <div class="g-mobile-safe-content g-p-0">
+                <form class="g-mobile-search" role="search">
+                  <div class="g-mobile-search-field">
+                    <span class="g-mobile-search-icon" aria-hidden="true"
+                      >⌕</span
+                    ><label class="g-sr-only" for="home-mobile-search"
+                      >Search</label
+                    ><input
+                      class="g-input"
+                      id="home-mobile-search"
+                      type="search"
+                      placeholder="Search content"
+                    />
+                  </div>
+                  <button class="g-btn g-btn-ghost" type="submit">Search</button>
+                </form>
+                <div
+                  class="g-mobile-swipe-tabs"
+                  role="tablist"
+                  aria-label="Content Type"
+                >
+                  <button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                  >
+                    Recommended</button
+                  ><button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    Latest</button
+                  ><button
+                    class="g-mobile-swipe-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    Follow
+                  </button>
+                </div>
+                <div
+                  class="g-mobile-card-carousel g-py-4"
+                  tabindex="0"
+                  role="region"
+                  aria-label="Mobile card carousel"
+                >
+                  <article class="g-card g-p-4">
+                    <strong>Safe zone is ready</strong>
+                    <p class="g-text-sm g-text-muted g-mt-2">
+                      Notch and Home Indicator automatic protection.
+                    </p>
+                  </article>
+                  <article class="g-card g-p-4">
+                    <strong>Suitable for WebView</strong>
+                    <p class="g-text-sm g-text-muted g-mt-2">
+                      PWA, Tauri and Electron share structure.
+                    </p>
+                  </article>
+                </div>
+                <div class="g-mobile-feed">
+                  <article class="g-mobile-feed-item">
+                    <span class="site-mobile-avatar">G</span>
+                    <div class="g-mobile-feed-main">
+                      <strong>Mobile content streaming</strong>
+                      <p class="g-text-sm g-text-muted g-m-0">
+                        Stable media, body and tail action slots.
+                      </p>
+                    </div>
+                    <button
+                      class="g-btn g-btn-ghost g-btn-icon"
+                      type="button"
+                      aria-label="Collection"
+                    >
+                      ☆
+                    </button>
+                  </article>
+                </div>
+              </div>
+              <nav
+                class="g-mobile-bottom-navigation"
+                aria-label="First-level navigation on mobile terminal"
+              >
+                <a
+                  class="g-mobile-bottom-navigation-item is-active"
+                  href="#mobile-compositions"
+                  aria-current="page"
+                  ><span aria-hidden="true">⌂</span><span>Home page</span></a
+                ><a
+                  class="g-mobile-bottom-navigation-item"
+                  href="#mobile-compositions"
+                  ><span aria-hidden="true">▦</span><span>Classification</span></a
+                ><button
+                  class="g-mobile-bottom-navigation-item"
+                  type="button"
+                  data-g-mobile-sheet-open="home-mobile-sheet"
+                >
+                  <span aria-hidden="true">⌘</span><span>Filter</span></button
+                ><a
+                  class="g-mobile-bottom-navigation-item"
+                  href="#mobile-compositions"
+                  ><span aria-hidden="true">○</span><span>Mine</span></a
+                >
+              </nav>
+            </section>
+            <aside
+              class="g-mobile-filter-sheet"
+              id="home-mobile-sheet"
+              data-g-mobile-sheet
+              hidden
+            >
+              <div class="g-mobile-sheet-panel">
+                <div class="g-mobile-sheet-handle" aria-hidden="true"></div>
+                <header class="g-mobile-sheet-header">
+                  <h3>Mobile Filtering</h3>
+                  <button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    type="button"
+                    data-g-close
+                    aria-label="Close"
+                  >
+                    ×
+                  </button>
+                </header>
+                <div class="g-mobile-picker" data-g-saved-choice>
+                  <div class="g-mobile-picker-grid">
+                    <button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="all"
+                      aria-pressed="true"
+                    >
+                      All</button
+                    ><button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="web"
+                      aria-pressed="false"
+                    >
+                      Web page</button
+                    ><button
+                      class="g-mobile-picker-option"
+                      type="button"
+                      data-g-saved-choice-item
+                      data-g-value="app"
+                      aria-pressed="false"
+                    >
+                      Application
+                    </button>
+                  </div>
+                </div>
+                <footer class="g-mobile-sheet-footer">
+                  <button
+                    class="g-btn g-btn-primary g-w-full"
+                    type="button"
+                    data-g-close
+                  >
+                    View results
+                  </button>
+                </footer>
+              </div>
+            </aside>
+          </div>
+          <div class="site-region-patterns" aria-label="Mobile-specific component list">
+            <span>Safe Area Shell</span><span>Top App Bar</span
+            ><span>Bottom Navigation</span><span>Bottom Sheet</span
+            ><span>Action Sheet</span><span>Pull to Refresh</span
+            ><span>Infinite Load</span><span>Swipe Actions</span
+            ><span>Swipe Tabs</span><span>Mobile Category</span
+            ><span>Mobile Filter</span><span>Sticky Purchase Bar</span
+            ><span>Mobile Search</span><span>Mobile Picker</span
+            ><span>Wheel Picker</span><span>Floating Action Button</span
+            ><span>Fullscreen Dialog</span><span>Keyboard Avoidance</span
+            ><span>Gesture Hint</span><span>Offline Banner</span
+            ><span>Segmented Control</span><span>Mobile Feed</span
+            ><span>Card Carousel</span><span>Mobile Form</span
+            ><span>Mobile Auth</span><span>Mobile Checkout</span
+            ><span>Media Viewer</span><span>Keyboard Toolbar</span
+            ><span>Selection Mode</span><span>Snackbar</span
+            ><span>Permission Prompt</span><span>Empty/Error State</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 mobile-specific modes + 14 types of reuse interactions</strong
+              ><span
+                >Safe Area · Touch · Sheets · Gesture · Keyboard · PWA · WebView</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#mobile-compositions"
+              >View complete mobile documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="desktop-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 14 · Desktop specific</span>
+            <h2 class="site-title">Turn web technology into a complete desktop workspace</h2>
+            <p class="site-lead">
+              Native title bars, window buttons, menus, and activity bars are just the starting point; document labels, adjustable columns, Dock, inspector, command panel, file selection, tray, multi-window, background tasks, updates, permissions, and crash recovery have all been stably combined and can be directly implemented in Tauri and Electron.
+            </p>
+          </header>
+          <div class="site-desktop-demo">
+            <section
+              class="g-desktop-workspace is-contained"
+              data-g-platform="electron"
+              aria-label="Gardener desktop component preview"
+            >
+              <header class="g-native-titlebar g-desktop-drag-region">
+                <div class="g-native-titlebar-start g-desktop-no-drag">
+                  <nav
+                    class="g-desktop-menubar"
+                    data-g-roving-nav
+                    aria-label="Application menu"
+                  >
+                    <button class="g-desktop-menubar-item" type="button">
+                      File</button
+                    ><button class="g-desktop-menubar-item" type="button">
+                      Edit</button
+                    ><button class="g-desktop-menubar-item" type="button">
+                      View
+                    </button>
+                  </nav>
+                </div>
+                <strong class="g-native-titlebar-title"
+                  >Gardener Studio — Content Space</strong
+                >
+                <div class="g-native-titlebar-end">
+                  <div class="g-desktop-window-controls">
+                    <button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="Minimize"
+                    >
+                      —</button
+                    ><button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="Maximize"
+                    >
+                      □</button
+                    ><button
+                      class="g-desktop-window-button"
+                      type="button"
+                      aria-label="Close"
+                    >
+                      ×
+                    </button>
+                  </div>
+                </div>
+              </header>
+              <nav
+                class="g-desktop-activity-bar"
+                data-g-roving-nav
+                aria-label="Activity column"
+              >
+                <button
+                  class="g-desktop-activity-item is-active"
+                  type="button"
+                  aria-current="page"
+                  aria-label="File"
+                >
+                  ▤</button
+                ><button
+                  class="g-desktop-activity-item"
+                  type="button"
+                  aria-label="Search"
+                >
+                  ⌕</button
+                ><button
+                  class="g-desktop-activity-item"
+                  type="button"
+                  aria-label="Extension"
+                >
+                  ▦
+                </button>
+              </nav>
+              <div class="g-desktop-workspace-main">
+                <div class="g-desktop-toolbar">
+                  <div class="g-desktop-toolbar-group">
+                    <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                      ←</button
+                    ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                      →
+                    </button>
+                  </div>
+                  <span class="g-desktop-toolbar-separator"></span
+                  ><button
+                    class="g-btn g-btn-ghost g-btn-sm"
+                    type="button"
+                    data-g-command-trigger="home-desktop-command"
+                  >
+                    ⌕ Search and Commands</button
+                  ><span class="g-sync-status is-syncing g-ml-auto"
+                    ><i class="g-sync-status-dot"></i>Synchronizing</span
+                  >
+                </div>
+                <div class="g-desktop-split-pane" data-g-split-pane>
+                  <aside
+                    class="g-split-panel g-desktop-dock-panel"
+                    data-g-pane="start"
+                  >
+                    <header class="g-desktop-panel-header">Resource Manager</header>
+                    <div class="g-desktop-panel-body">
+                      <div class="g-recent-documents">
+                        <button class="g-recent-document" type="button">
+                          <span>▤</span
+                          ><span class="g-recent-document-main"
+                            ><strong>Home.json</strong
+                            ><small class="g-recent-document-path"
+                              >content/home.json</small
+                            ></span
+                          ></button
+                        ><button class="g-recent-document" type="button">
+                          <span>▤</span
+                          ><span class="g-recent-document-main"
+                            ><strong>theme.css</strong
+                            ><small class="g-recent-document-path"
+                              >styles/theme.css</small
+                            ></span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </aside>
+                  <button
+                    class="g-split-handle"
+                    type="button"
+                    role="separator"
+                    aria-label="Adjust panel width"
+                  ></button>
+                  <section class="g-split-panel" data-g-pane="end">
+                    <div class="g-desktop-document-tabs" data-g-desktop-tabs>
+                      <button
+                        class="g-desktop-document-tab is-active is-dirty"
+                        type="button"
+                        data-g-desktop-tab
+                        aria-selected="true"
+                        aria-controls="home-desktop-tab"
+                      >
+                        Home.json
+                      </button>
+                    </div>
+                    <div class="g-p-5" id="home-desktop-tab" role="tabpanel">
+                      <span class="site-eyebrow">Desktop CMS</span>
+                      <h3 class="g-mt-2">No reassembly required for high-density workspaces</h3>
+                      <p class="g-text-sm g-text-muted g-mt-2">
+                        Window Chrome, navigation, editing area, status area, and host bridge each have independent contracts.
+                      </p>
+                      <button
+                        class="g-btn g-btn-primary g-btn-sm g-mt-3"
+                        type="button"
+                        data-g-command-trigger="home-desktop-command"
+                      >
+                        Open command panel
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <aside class="g-desktop-inspector-panel">
+                <header class="g-desktop-panel-header">Inspector</header>
+                <div class="g-desktop-panel-body">
+                  <div class="g-field">
+                    <label class="g-label" for="home-desktop-title"
+                      >Page title</label
+                    ><input
+                      class="g-input"
+                      id="home-desktop-title"
+                      value="Enterprise homepage"
+                    />
+                  </div>
+                  <div
+                    class="g-shortcut-recorder g-mt-4"
+                    data-g-shortcut-recorder
+                  >
+                    <button
+                      class="g-shortcut-recorder-control"
+                      type="button"
+                      data-g-shortcut-control
+                      aria-pressed="false"
+                    >
+                      <span data-g-shortcut-display>Ctrl+P</span
+                      ><kbd>Recording</kbd></button
+                    ><input
+                      type="hidden"
+                      data-g-shortcut-output
+                      value="Control+P"
+                    /><small
+                      class="g-shortcut-recorder-status"
+                      data-g-shortcut-status
+                    ></small>
+                  </div>
+                </div>
+              </aside>
+              <footer class="g-desktop-status-bar">
+                <div class="g-desktop-status-group">
+                  <span class="g-desktop-status-item">⑂ main</span
+                  ><span class="g-desktop-status-item">✓ 0 error</span>
+                </div>
+                <div class="g-desktop-status-group">
+                  <span class="g-desktop-status-item">UTF-8</span>
+                </div>
+              </footer>
+            </section>
+          </div>
+          <div class="site-region-patterns" aria-label="List of desktop-specific components">
+            <span>Native Titlebar</span><span>Window Controls</span
+            ><span>Menu Bar</span><span>Activity Bar</span
+            ><span>Dock Panel</span><span>Resizable Split Pane</span
+            ><span>Inspector</span><span>Status Bar</span
+            ><span>Command Palette</span><span>Shortcut Recorder</span
+            ><span>Context Menu</span><span>Unsaved Tabs</span
+            ><span>Drag Region</span><span>Window Loading</span
+            ><span>Update Available</span><span>Permission Request</span
+            ><span>Native File Picker</span><span>Tray Menu</span
+            ><span>Multi-window</span><span>Desktop Workspace</span
+            ><span>Window Switcher</span><span>Recent Documents</span
+            ><span>Desktop Toolbar</span><span>Bottom Panel</span
+            ><span>Background Tasks</span><span>Notification Center</span
+            ><span>Sync Status</span><span>Update Progress</span
+            ><span>Crash Recovery</span><span>Single Instance</span
+            ><span>Deep Link</span><span>About Dialog</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 desktop-specific modes + 11 types of reusable interactions</strong
+              ><span
+                >Tauri · Electron · Window Chrome · Workspace · Native Bridge · Lifecycle</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#desktop-compositions"
+              >View full desktop documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="ai-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 15 · AI native</span>
+            <h2 class="site-title">AI interaction is not a chat box</h2>
+            <p class="site-lead">
+              In addition to dialogue, Composer and streaming answers, reasoning summarization, tool invocation and approval, multi-agent orchestration, source citation, Artifact, contextual memory, Token/fee, voice, permissions, privacy, security review and feedback evaluation are also required. Gardener makes the entire AI task chain into 32 modes that can be directly reused.
+            </p>
+          </header>
+          <div class="site-ai-demo">
+            <section
+              class="g-ai-shell is-contained"
+              aria-label="Gardener AI component preview"
+            >
+              <aside class="g-ai-sidebar">
+                <header class="g-ai-sidebar-header">
+                  <strong>Dialogue</strong
+                  ><button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    ＋
+                  </button>
+                </header>
+                <nav class="g-conversation-list">
+                  <a
+                    class="g-conversation-item"
+                    href="#ai-compositions"
+                    aria-current="page"
+                    ><span>◉</span
+                    ><span class="g-conversation-title">Generate Enterprise Portal</span></a
+                  ><a class="g-conversation-item" href="#ai-compositions"
+                    ><span>○</span
+                    ><span class="g-conversation-title">Check component coverage</span></a
+                  >
+                </nav>
+                <footer class="g-ai-sidebar-footer">
+                  <div class="g-privacy-notice">
+                    <span>⌾</span><span>Enterprise Privacy Policy is enabled</span>
+                  </div>
+                </footer>
+              </aside>
+              <section class="g-ai-main">
+                <header class="g-ai-header">
+                  <div class="g-model-selector" data-g-dropdown>
+                    <button
+                      class="g-model-selector-trigger"
+                      type="button"
+                      data-g-dropdown-trigger
+                    >
+                      Gardener Reasoner ▾
+                    </button>
+                    <div
+                      class="g-model-selector-menu"
+                      data-g-dropdown-menu
+                      hidden
+                    >
+                      <button
+                        class="g-model-option"
+                        type="button"
+                        role="menuitem"
+                      >
+                        <span>Gardener Reasoner</span
+                        ><small>Complex tasks</small></button
+                      ><button
+                        class="g-model-option"
+                        type="button"
+                        role="menuitem"
+                      >
+                        <span>Gardener Fast</span><small>Quick response</small>
+                      </button>
+                    </div>
+                  </div>
+                  <span class="g-context-meter"
+                    >Context 38%
+                    <span class="g-context-meter-bar"
+                      ><i
+                        class="g-context-meter-value"
+                        style="--g-context-value: 38%"
+                      ></i></span
+                  ></span>
+                </header>
+                <div class="g-chat">
+                  <div class="g-chat-list">
+                    <article class="g-message g-message-user">
+                      <div class="g-message-content">
+                        <div class="g-message-body">
+                          Generate Enterprise Portal Home Page for Super CMS.
+                        </div>
+                      </div>
+                    </article>
+                    <article class="g-message">
+                      <span class="g-message-avatar">G</span>
+                      <div class="g-message-content">
+                        <div class="g-message-meta">
+                          <strong class="g-message-author"
+                            >Gardener Agent</strong
+                          ><span>Working</span>
+                        </div>
+                        <div class="g-message-body">
+                          <p>Enterprise Portal recipe selected, checking components and permissions.</p>
+                        </div>
+                        <section
+                          class="g-tool-call is-running"
+                          data-g-accordion
+                        >
+                          <button
+                            class="g-tool-call-header g-w-full g-border-0"
+                            type="button"
+                            data-g-tool-call-toggle
+                            aria-expanded="true"
+                            aria-controls="home-ai-tool"
+                          >
+                            <strong class="g-tool-call-name"
+                              >inspect_component_manifest</strong
+                            ><span class="g-tool-call-status">Running</span>
+                          </button>
+                          <div class="g-tool-call-progress">
+                            <span style="--g-tool-progress: 72%"></span>
+                          </div>
+                          <div class="g-tool-call-body" id="home-ai-tool">
+                            Matching Dashboard, CMS, permissions and desktop workspaces.
+                          </div>
+                        </section>
+                        <section class="g-approval" data-g-ai-approval>
+                          <div class="g-approval-title">Allow writing to page template?</div>
+                          <p class="g-approval-description">
+                            Modify only the generated directory of the current project.
+                          </p>
+                          <div class="g-approval-actions">
+                            <button
+                              class="g-btn g-btn-primary g-btn-sm"
+                              type="button"
+                              data-g-approval-choice="approved"
+                            >
+                              Allowed once</button
+                            ><button
+                              class="g-btn g-btn-outline g-btn-sm"
+                              type="button"
+                              data-g-approval-choice="rejected"
+                            >
+                              Reject
+                            </button>
+                          </div>
+                        </section>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="g-composer-wrap">
+                  <form class="g-composer" data-g-ai-composer>
+                    <label class="g-sr-only" for="home-ai-input">Send message</label
+                    ><textarea
+                      class="g-composer-input"
+                      id="home-ai-input"
+                      data-g-composer-input
+                      placeholder="Continue describing page requirements"
+                    ></textarea>
+                    <div class="g-composer-toolbar">
+                      <div class="g-composer-tools">
+                        <button
+                          class="g-btn g-btn-ghost g-btn-sm"
+                          type="button"
+                        >
+                          + Attachment
+                        </button>
+                      </div>
+                      <div class="g-composer-actions">
+                        <button
+                          class="g-btn g-btn-outline g-btn-sm"
+                          type="button"
+                          data-g-composer-stop
+                          hidden
+                        >
+                          Stop</button
+                        ><button
+                          class="g-btn g-btn-primary g-btn-sm"
+                          type="button"
+                          data-g-composer-send
+                        >
+                          Send
+                        </button>
+                      </div>
+                    </div>
+                    <div class="g-composer-status" data-g-composer-status></div>
+                  </form>
+                </div>
+              </section>
+            </section>
+          </div>
+          <div
+            class="site-region-patterns"
+            aria-label="List of AI products and intelligent interaction components"
+          >
+            <span>AI Workspace</span><span>Conversation List</span
+            ><span>Chat Thread</span><span>AI Message</span
+            ><span>Prompt Composer</span><span>Attachment</span
+            ><span>Prompt Starter</span><span>Prompt Library</span
+            ><span>Mention / Slash Menu</span><span>Model Selector</span
+            ><span>Thinking</span><span>Streaming Response</span
+            ><span>Tool Call</span><span>Tool Approval</span
+            ><span>Agent Status</span><span>Agent Plan</span
+            ><span>Multi-agent Board</span><span>Agent Handoff</span
+            ><span>Sources / Citations</span><span>Artifact Workspace</span
+            ><span>Artifact Panel</span><span>AI File Tree</span
+            ><span>Version History</span><span>Generation Gallery</span
+            ><span>Generation Placeholder</span><span>Context/Memory</span
+            ><span>Cost / Rate Limit</span><span>Voice Session</span
+            ><span>Permission Scope</span><span>Privacy Notice</span
+            ><span>Safety Notice</span><span>Feedback/Evaluation</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 AI native modes + 9 types of runtime</strong
+              ><span
+                >Chat · Multimodal · Tools · Agents · Artifacts · Context · Safety · Evaluation</span
+              >
+            </div>
+            <a class="g-btn g-btn-outline" href="./docs.html#ai-compositions"
+              >View full AI component documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="solution-compositions">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Category 16 · Complete solutions</span>
+            <h2 class="site-title">From the component library, go to the complete page that can be directly generated</h2>
+            <p class="site-lead">
+              Category 16 solidifies public websites, personal content, enterprise backends, business workbench, and vertical industry portals into 32 full-page contracts. AI first selects the page type and then fills in business components and content. It no longer temporarily invents header, navigation, main area, side area and mobile folding rules.
+            </p>
+          </header>
+          <div class="site-solution-demo">
+            <article class="g-dashboard-overview">
+              <header class="g-dashboard-overview-header g-solution-header">
+                <div>
+                  <span class="site-eyebrow">Enterprise overview</span>
+                  <h3 class="g-m-0">Super CMS Operation Overview</h3>
+                  <p class="g-text-sm g-text-muted g-mt-2 g-mb-0">
+                    The same full-page contract can switch business, personal, medical, financial or public service topics.
+                  </p>
+                </div>
+                <div class="g-solution-actions">
+                  <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                    Export</button
+                  ><button class="g-btn g-btn-primary g-btn-sm" type="button">
+                    New report
+                  </button>
+                </div>
+              </header>
+              <div class="g-dashboard-metrics">
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">Published site</span
+                  ><strong class="g-solution-stat-value">28,640</strong
+                  ><small class="g-text-success">↑ 12.4%</small>
+                </div>
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">Page Template</span
+                  ><strong class="g-solution-stat-value">486k</strong
+                  ><small class="g-text-muted">32 full page entries</small>
+                </div>
+                <div class="g-dashboard-panel g-solution-stat">
+                  <span class="g-solution-stat-label">Pending review</span
+                  ><strong class="g-solution-stat-value">138</strong
+                  ><small class="g-text-warning">Needs processing</small>
+                </div>
+              </div>
+              <div class="g-dashboard-layout">
+                <section class="g-dashboard-panel">
+                  <div class="g-solution-toolbar">
+                    <strong>Template generation trends</strong
+                    ><span class="g-badge">Last 30 days</span>
+                  </div>
+                  <div class="g-chart" style="min-height: 11rem"></div>
+                </section>
+                <aside class="g-dashboard-panel">
+                  <strong>Business entrance</strong>
+                  <ul class="g-solution-list g-mt-3">
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">Enterprise Portal</span
+                      ><span>82%</span>
+                    </li>
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">Business workbench</span
+                      ><span>71%</span>
+                    </li>
+                    <li class="g-solution-item">
+                      <span>●</span
+                      ><span class="g-solution-item-main">Industry Services</span
+                      ><span>63%</span>
+                    </li>
+                  </ul>
+                </aside>
+              </div>
+            </article>
+          </div>
+          <div
+            class="site-region-patterns"
+            aria-label="Full page and list of industry solutions"
+          >
+            <span>Product Landing</span><span>Corporate Home</span
+            ><span>Personal Home</span><span>Portfolio</span
+            ><span>Blog Index</span><span>Article</span><span>Docs Portal</span
+            ><span>Help Center</span><span>Search Results</span
+            ><span>Contact</span><span>Pricing</span><span>Dashboard</span
+            ><span>Admin List</span><span>Record Detail</span
+            ><span>Settings</span><span>User Center</span
+            ><span>Notifications</span><span>Onboarding</span><span>CRM</span
+            ><span>Project Workspace</span><span>Support Center</span
+            ><span>Approval Center</span><span>Knowledge Base</span
+            ><span>Learning Portal</span><span>Event Portal</span
+            ><span>Booking Portal</span><span>Healthcare</span
+            ><span>Finance</span><span>Public Service</span
+            ><span>Marketplace</span><span>Community</span
+            ><span>Status Center</span>
+          </div>
+          <div class="site-grid-actions">
+            <div>
+              <strong>32 full page modes + 52 machine readable recipes</strong
+              ><span
+                >Personal · Enterprise · Content · Operations · Industry · Cross-platform</span
+              >
+            </div>
+            <a
+              class="g-btn g-btn-outline"
+              href="./docs.html#solution-compositions"
+              >View full solution document</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="themes">
+        <div class="site-container site-theme-layout">
+          <div class="site-theme-panel">
+            <span class="site-eyebrow">42 color themes</span>
+            <h2 class="site-title">Change the brand but not the components</h2>
+            <p class="site-lead">
+              Color themes are orthogonally combined with neutrals, fonts, shapes, densities, layers, animations, platforms, and operating systems. The white and light interface is always maintained here, and only the main brand color is switched.
+            </p>
+            <div class="site-theme-preview g-mt-6">
+              <div class="site-theme-meta">
+                <span>Current topic</span><strong id="theme-name">garden</strong>
+              </div>
+              <div class="site-theme-sample">
+                <span class="g-badge">Primary</span>
+                <h3 class="g-mt-4">Clear without being overly decorative</h3>
+                <p class="g-text-muted g-mt-2">
+                  Buttons, links, focus and selected states automatically follow the theme.
+                </p>
+                <div class="g-flex g-gap-2 g-mt-5">
+                  <button class="g-btn g-btn-primary">Main operations</button
+                  ><button class="g-btn g-btn-outline">Secondary Operation</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="site-theme-swatches"
+              id="theme-swatches"
+              aria-label="Color theme selection"
+            ></div>
+            <p class="site-kicker g-mt-4">
+              Keyboard operable; each theme offers full 50–950 color gradations and independently readable foreground colors.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section">
+        <div class="site-container site-code-layout">
+          <div>
+            <span class="site-eyebrow"
+              >Predictable authoring · Stable 1.0.0</span
+            >
+            <h2 class="site-title">HTML is the interface</h2>
+            <p class="site-lead">
+              unified
+              <code class="docs-inline-code">g-</code>
+              Prefixes, stable component naming, and declarative
+              <code class="docs-inline-code">data-g-*</code> Behaviors that both humans and AI can quickly understand.
+            </p>
+            <ul class="g-list-group g-mt-6" role="list">
+              <li class="g-list-item" role="listitem">
+                <strong>Import by layer</strong
+                ><span class="g-text-muted"
+                  >Core/Themes/Utilities/Components/AI</span
+                >
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>Declarative runtime</strong
+                ><span class="g-text-muted">Automatic initialization and dynamic DOM observation</span>
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>Machine readable</strong
+                ><span class="g-text-muted"
+                  >Public API, components, tool classes, recipes and capabilities list</span
+                >
+              </li>
+              <li class="g-list-item" role="listitem">
+                <strong>Strict verification</strong
+                ><span class="g-text-muted"
+                  >Eleven sets of closed schemas, 48 standard schema use cases, 10 build-specific use cases, 66 runtime unit tests, 125 real browser use cases and 24 structural use cases</span
+                >
+              </li>
+            </ul>
+            <a class="g-btn g-btn-outline g-mt-5" href="./docs.html#public-api"
+              >View public API contract</a
+            >
+          </div>
+          <div class="site-code-card">
+            <div class="site-code-head">
+              <span>index.html</span
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm"
+                type="button"
+                data-g-copy
+                data-g-copy-value='&lt;link rel="stylesheet" href="gardener.css"&gt;&#10;&lt;main class="g-dashboard"&gt;...&lt;/main&gt;&#10;&lt;script type="module" src="gardener.runtime.js"&gt;&lt;/script&gt;'
+              >
+                Copy
+              </button>
+            </div>
+            <pre
+              class="site-code"
+            ><code><span class="token-tag">&lt;html</span> <span class="token-attr">data-g-theme</span>=<span class="token-value">&quot;garden&quot;</span> <span class="token-attr">data-g-mode</span>=<span class="token-value">&quot;light&quot;</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-value">&quot;stylesheet&quot;</span> <span class="token-attr">href</span>=<span class="token-value">&quot;gardener.css&quot;</span><span class="token-tag">&gt;</span>
+
+  <span class="token-tag">&lt;main</span> <span class="token-attr">class</span>=<span class="token-value">&quot;g-dashboard&quot;</span><span class="token-tag">&gt;</span>
+    <span class="token-tag">&lt;article</span> <span class="token-attr">class</span>=<span class="token-value">&quot;g-card g-p-5&quot;</span><span class="token-tag">&gt;</span>...<span class="token-tag">&lt;/article&gt;</span>
+  <span class="token-tag">&lt;/main&gt;</span>
+
+  <span class="token-tag">&lt;script</span> <span class="token-attr">type</span>=<span class="token-value">&quot;module&quot;</span> <span class="token-attr">src</span>=<span class="token-value">&quot;gardener.runtime.js&quot;</span><span class="token-tag">&gt;&lt;/script&gt;</span>
+<span class="token-tag">&lt;/html&gt;</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="build-system" aria-labelledby="build-title">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Release-ready delivery · 1.0.0</span>
+            <h2 class="site-title" id="build-title">Only deliver the platforms and components really needed for the current page</h2>
+            <p class="site-lead">
+              5 platform files, 28 stable component packages and 506 component ownership mappings allow developers and AI to directly select official products without temporarily disassembling CSS. Syntax-level compression, Source Map, SHA-256/SRI integrity, reproducible builds, TypeScript typing, cross-version compatibility baselines, and release package gating are delivered with the build.
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">5</span>
+              <h3>Platform File</h3>
+              <p>Web, Mobile, Desktop, Tauri, and Electron automatically retain corresponding end capabilities.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">28</span>
+              <h3>Component package</h3>
+              <p>Layout, forms, navigation, data, content, accounts, commerce, mobile, desktop and AI can all be introduced independently.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">506</span>
+              <h3>Component ownership</h3>
+              <p>Each public component resolves to the complete package it belongs to, with explicit inclusions listed.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">42</span>
+              <h3>Dual Product Budget</h3>
+              <p>The absolute upper limit of raw, gzip, Brotli and the 0.9.0 baseline growth will block release if any exceeds the limit.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">1,145</span>
+              <h3>Compatible Baseline</h3>
+              <p>Entries, themes, runtimes, components and recipes can only be added; deletions must first pass the obsolescence period of at least two minor versions.</p>
+            </article>
+          </div>
+          <div class="docs-code-wrap g-mt-6">
+            <pre class="site-code"><code>npm run build:platform -- --platform mobile --out dist/custom/mobile-app
+npm run build:custom -- --components button,card,dialog --out dist/custom/account-ui
+npm run verify:reproducible
+npm run verify:compatibility
+npm run test:types
+npm run verify:package
+npm run budget</code></pre>
+          </div>
+          <a class="g-btn g-btn-outline g-mt-6" href="./docs.html#targeted-builds">View on-demand builds vs. performance budgets</a>
+        </div>
+      </section>
+
+      <section
+        class="site-section site-section-soft"
+        aria-labelledby="quality-title"
+      >
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Release confidence · 1.0.0</span>
+            <h2 class="site-title" id="quality-title">
+              Every page must withstand the real environment
+            </h2>
+            <p class="site-lead">
+              Executes 125 real browser use cases and 24 HTML structure use cases by default; complete configuration covers desktop three engines, Android/iPhone device portraits and WCAG automatic checks.
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">WEB</span>
+              <h3>Desktop Multi-Browser</h3>
+              <p>
+                Chromium and WebKit enter default access control; Firefox provides independent and three-engine complete access control.
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">MOB</span>
+              <h3>Mobile device</h3>
+              <p>
+                Pixel 7 and iPhone 13 are fully covered with 21 samples and Home two pages, and check 320px narrow screen, landscape screen, reflow and 44px touch target.
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">A11Y</span>
+              <h3>Accessibility</h3>
+              <p>
+                Axe WCAG 2 A/AA All automatic violation zeroes and covers keyboard and focus recovery, RTL, Reduced Motion, Forced Colors.
+              </p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">DOM</span>
+              <h3>Structural Integrity</h3>
+              <p>
+                All 21 examples, Home landing page and document check parsing, ID, ARIA reference, title and viewport.
+              </p>
+            </article>
+          </div>
+          <a class="g-btn g-btn-outline g-mt-6" href="./docs.html#accessibility"
+              >View 1.0.0 test matrix</a
+          >
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">All endpoints</span>
+            <h2 class="site-title">The same language covers all terminals</h2>
+            <p class="site-lead">
+              The page structure, theme token and interaction semantics are consistent, and only necessary density, window and safe zone adaptations are added at each end.
+            </p>
+          </header>
+          <div class="site-platform-grid">
+            <article class="site-platform">
+              <span class="site-platform-abbr">WEB</span>
+              <h3>PC website</h3>
+              <p>Enterprise website, portal, content website, e-commerce and SaaS.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">MOB</span>
+              <h3>Mobile Web/PWA</h3>
+              <p>Safe area, touch density, bottom navigation and category page.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">OPS</span>
+              <h3>Dashboard</h3>
+              <p>High-density data, tables, filters, and multi-column applications.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">DSK</span>
+              <h3>Tauri/Electron</h3>
+              <p>Desktop title bar, window bridging and workbench layout.</p>
+            </article>
+            <article class="site-platform">
+              <span class="site-platform-abbr">AI</span>
+              <h3>AI products</h3>
+              <p>Streaming messages, tools, agents, artifacts, and build states.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section" id="recipes">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Reusable recipes</span>
+            <h2 class="site-title">High-frequency pages do not need to be reassembled</h2>
+            <p class="site-lead">
+              Complex but highly reusable pages have been combined into recipes. AI should choose recipes first and then make limited adjustments using components and tool classes.
+            </p>
+          </header>
+          <div class="site-recipe-grid" id="recipe-preview">
+            <a class="site-recipe" href="./docs.html#recipes"
+              ><strong>Enterprise Login</strong><span>SSO · MFA · Passkey</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>Mobile Classification</strong><span>Touch · Safe Area · Double Column</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>Desktop CMS</strong><span>Tree · Canvas · Inspector</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>AI Workspace</strong><span>Chat · Tools · Artifact</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>Analysis background</strong><span>KPI · Chart · Data table</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>File Manager</strong><span>Directory · Grid · Upload Queue</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>Commodity and Settlement</strong><span>Details · Shopping Cart · Order</span></a
+            ><a class="site-recipe" href="./docs.html#recipes"
+              ><strong>Reports and Invoices</strong><span>Screen · PDF · Print</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section-soft" id="ai-ready">
+        <div class="site-container">
+          <header class="site-section-head">
+            <span class="site-eyebrow">Built for AI authorship</span>
+            <h2 class="site-title">Let AI choose, don’t let AI guess</h2>
+            <p class="site-lead">
+              The five-category list of Public API, components, tool classes, recipes and industry capabilities exposes the allowed names, entrances, platforms, status and response conditions in a structured way. The page generation process can be constrained, verified and reproduced.
+            </p>
+          </header>
+          <div class="site-ai-flow">
+            <article class="site-ai-step">
+              <b>01/INTENT</b>
+              <h3>Identifying page intent</h3>
+              <p>End type, business category, density, content volume and interaction complexity.</p>
+            </article>
+            <article class="site-ai-step">
+              <b>02/RECIPE</b>
+              <h3>Prioritize recipe selection</h3>
+              <p>Select the closest page skeleton from 52 finished structures.</p>
+            </article>
+            <article class="site-ai-step">
+              <b>03/ASSEMBLE</b>
+              <h3>Combining Components and Tools</h3>
+              <p>Only use public APIs and classes and behaviors that actually exist in the manifest.</p>
+            </article>
+            <article class="site-ai-step">
+              <b>04/VALIDATE</b>
+              <h3>Verify contract and environment</h3>
+              <p>Pass Schema, keyboard, accessibility, RTL, print and response endpoint checks.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-cta">
+        <div class="site-container site-cta-inner">
+          <div>
+            <h2>Start with a complete system.</h2>
+            <p>Stop reinventing infrastructure for the next page.</p>
+          </div>
+          <div class="g-flex g-flex-wrap g-gap-3">
+            <a class="g-btn g-btn-primary g-btn-lg" href="./docs.html"
+              >Open full document</a
+            ><a
+              class="g-btn g-btn-outline g-btn-lg"
+              href="../../packages/css/examples/showcase.html"
+              >View component examples</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section
+      class="g-desktop-command-palette"
+      id="home-desktop-command"
+      data-g-command-palette
+      hidden
+      aria-label="Desktop Command Panel"
+    >
+      <div class="g-desktop-command-panel">
+        <label class="g-sr-only" for="home-desktop-command-input"
+          >Enter command</label
+        ><input
+          class="g-desktop-command-input"
+          id="home-desktop-command-input"
+          data-g-command-input
+          placeholder="Enter command or file name"
+        />
+        <div class="g-desktop-command-results" role="listbox">
+          <button
+            class="g-desktop-command-item"
+            type="button"
+            data-g-command-item
+            data-g-value="new"
+          >
+            <span>＋</span><span>New content</span><kbd>Ctrl+N</kbd></button
+          ><button
+            class="g-desktop-command-item"
+            type="button"
+            data-g-command-item
+            data-g-value="publish"
+          >
+            <span>↑</span><span>Publish current page</span><kbd>Ctrl+Shift+P</kbd>
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="site-container">
+        <div class="site-footer-grid">
+          <div>
+            <a class="site-brand" href="./index.html"
+              ><span class="site-brand-mark" aria-hidden="true">G</span
+              ><span>Gardener</span></a
+            >
+            <p class="site-footer-note">
+              Common CSS, component and page recipe infrastructure for human developers and AI page builders.
+            </p>
+          </div>
+          <div>
+            <h2>Start</h2>
+            <ul>
+              <li><a href="./docs.html#quick-start">Quick Start</a></li>
+              <li><a href="./docs.html#installation">Installation and Packages</a></li>
+              <li><a href="./docs.html#vue">Vue 3</a></li>
+              <li><a href="./docs.html#react">React</a></li>
+              <li><a href="./docs.html#angular">AngularJS</a></li>
+              <li><a href="./docs.html#blazor">Blazor</a></li>
+              <li><a href="./docs.html#customization">Customized</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Ability</h2>
+            <ul>
+              <li><a href="./docs.html#themes">Theme system</a></li>
+              <li><a href="./docs.html#grid-system">24 / 12 grid</a></li>
+              <li><a href="./docs.html#region-layouts">Area layout</a></li>
+              <li><a href="./docs.html#layout-primitives">Classic layout primitives</a></li>
+              <li><a href="./docs.html#page-components">Page Components</a></li>
+              <li><a href="./docs.html#help-system">Help system</a></li>
+              <li><a href="./docs.html#form-compositions">Form combination</a></li>
+              <li>
+                <a href="./docs.html#navigation-compositions">Navigation combination</a>
+              </li>
+              <li><a href="./docs.html#data-compositions">Data combination</a></li>
+              <li>
+                <a href="./docs.html#selection-compositions">Select and Batch</a>
+              </li>
+              <li><a href="./docs.html#content-compositions">Content System</a></li>
+              <li><a href="./docs.html#auth-compositions">Account system</a></li>
+              <li>
+                <a href="./docs.html#commerce-compositions">Commerce and Payments</a>
+              </li>
+              <li><a href="./docs.html#mobile-compositions">Mobile-specific</a></li>
+              <li><a href="./docs.html#desktop-compositions">Desktop only</a></li>
+              <li><a href="./docs.html#ai-compositions">AI intelligent interaction</a></li>
+              <li>
+                <a href="./docs.html#solution-compositions"
+                  >Complete page and industry plan</a
+                >
+              </li>
+              <li><a href="./docs.html#components">Component Catalog</a></li>
+              <li><a href="./docs.html#runtime">Runtime</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Platform</h2>
+            <ul>
+              <li>
+                <a href="./docs.html#desktop-compositions">Tauri/Electron</a>
+              </li>
+              <li><a href="./docs.html#vue">Vue components and API</a></li>
+              <li><a href="./docs.html#react">React Components and APIs</a></li>
+              <li><a href="./docs.html#angular">AngularJS Directives and APIs</a></li>
+              <li><a href="./docs.html#blazor">Blazor Components and APIs</a></li>
+              <li><a href="./docs.html#ai-compositions">AI Product Components</a></li>
+              <li>
+                <a href="./docs.html#solution-compositions">Industry page solution</a>
+              </li>
+              <li><a href="./docs.html#ai-generation">AI page generation</a></li>
+              <li><a href="./docs.html#accessibility">Accessibility</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer-bottom">
+          <span>Gardener v1.0.0 · MIT License</span
+          ><span>White canvas. Small radius. Broad coverage.</span>
+        </div>
+      </div>
+    </footer>
+    <div class="g-toast-region" aria-live="polite"></div>
+    <script src="../assets/file-i18n.js"></script>
+    <script type="module" src="../assets/site.js?v=1.0.0"></script>
+  </body>
+</html>

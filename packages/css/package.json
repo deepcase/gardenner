@@ -1,0 +1,168 @@
+{
+  "name": "@gardener/css",
+  "version": "1.0.0",
+  "description": "A comprehensive, framework-agnostic CSS and web component foundation for human and AI-authored interfaces.",
+  "type": "module",
+  "sideEffects": [
+    "*.css",
+    "dist/*.css",
+    "dist/**/*.css",
+    "dist/gardener.runtime.js",
+    "dist/gardener.runtime.min.js"
+  ],
+  "style": "./dist/gardener.css",
+  "types": "./dist/gardener.d.ts",
+  "files": [
+    "dist",
+    "metadata",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/gardener.d.ts",
+      "style": "./dist/gardener.css",
+      "import": "./dist/gardener.runtime.js",
+      "default": "./dist/gardener.runtime.js"
+    },
+    "./min.css": "./dist/gardener.min.css",
+    "./core.css": "./dist/gardener.core.css",
+    "./core.min.css": "./dist/gardener.core.min.css",
+    "./utilities.css": "./dist/gardener.utilities.css",
+    "./utilities.min.css": "./dist/gardener.utilities.min.css",
+    "./components.css": "./dist/gardener.components.css",
+    "./components.min.css": "./dist/gardener.components.min.css",
+    "./ai.css": "./dist/gardener.ai.css",
+    "./ai.min.css": "./dist/gardener.ai.min.css",
+    "./themes.css": "./dist/gardener.themes.css",
+    "./themes.min.css": "./dist/gardener.themes.min.css",
+    "./platform/web.css": "./dist/platforms/gardener.web.min.css",
+    "./platform/mobile.css": "./dist/platforms/gardener.mobile.min.css",
+    "./platform/desktop.css": "./dist/platforms/gardener.desktop.min.css",
+    "./platform/tauri.css": "./dist/platforms/gardener.tauri.min.css",
+    "./platform/electron.css": "./dist/platforms/gardener.electron.min.css",
+    "./component/*": "./dist/components/*.min.css",
+    "./component/*.css": "./dist/components/*.min.css",
+    "./runtime": {
+      "types": "./dist/gardener.d.ts",
+      "import": "./dist/gardener.runtime.js",
+      "default": "./dist/gardener.runtime.js"
+    },
+    "./runtime.js": {
+      "types": "./dist/gardener.d.ts",
+      "import": "./dist/gardener.runtime.js",
+      "default": "./dist/gardener.runtime.js"
+    },
+    "./runtime.min.js": {
+      "types": "./dist/gardener.d.ts",
+      "import": "./dist/gardener.runtime.min.js",
+      "default": "./dist/gardener.runtime.min.js"
+    },
+    "./manifest": "./dist/gardener.manifest.json",
+    "./components-manifest": "./metadata/components.json",
+    "./utilities-manifest": "./dist/gardener.utilities.json",
+    "./recipes": "./dist/gardener.recipes.json",
+    "./capabilities": "./dist/gardener.capabilities.json",
+    "./public-api": "./dist/gardener.public-api.json",
+    "./builds": "./dist/gardener.builds.json",
+    "./performance": "./dist/gardener.performance.json",
+    "./compatibility": "./dist/gardener.compatibility.json",
+    "./schema/components": "./metadata/components.schema.json",
+    "./schema/recipes": "./metadata/recipes.schema.json",
+    "./schema/capabilities": "./metadata/capabilities.schema.json",
+    "./schema/utilities": "./metadata/utilities.schema.json",
+    "./schema/manifest": "./metadata/manifest.schema.json",
+    "./schema/public-api": "./metadata/public-api.schema.json",
+    "./schema/builds": "./metadata/builds.schema.json",
+    "./schema/custom-build": "./metadata/custom-build.schema.json",
+    "./schema/performance-budgets": "./metadata/performance-budgets.schema.json",
+    "./schema/performance-report": "./metadata/performance-report.schema.json",
+    "./schema/compatibility": "./metadata/compatibility.schema.json",
+    "./tauri": {
+      "types": "./dist/gardener.tauri.d.ts",
+      "import": "./dist/gardener.tauri.js",
+      "default": "./dist/gardener.tauri.js"
+    },
+    "./tauri.min.js": {
+      "types": "./dist/gardener.tauri.d.ts",
+      "import": "./dist/gardener.tauri.min.js",
+      "default": "./dist/gardener.tauri.min.js"
+    },
+    "./electron": {
+      "types": "./dist/gardener.electron.d.ts",
+      "import": "./dist/gardener.electron.js",
+      "default": "./dist/gardener.electron.js"
+    },
+    "./electron.min.js": {
+      "types": "./dist/gardener.electron.d.ts",
+      "import": "./dist/gardener.electron.min.js",
+      "default": "./dist/gardener.electron.min.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:custom": "npm run build && node scripts/build-custom.mjs",
+    "build:platform": "npm run build && node scripts/build-custom.mjs",
+    "verify:reproducible": "node scripts/verify-reproducible.mjs",
+    "verify:compatibility": "node scripts/verify-compatibility.mjs",
+    "verify:package": "node scripts/verify-package.mjs && publint",
+    "budget": "node scripts/budget.mjs",
+    "check": "node scripts/check.mjs",
+    "audit": "node scripts/audit.mjs",
+    "contracts": "node scripts/contracts.mjs",
+    "validate": "node scripts/validate.mjs examples/showcase.html examples/auth.html examples/mobile-category.html examples/cms-desktop.html examples/runtime-lab.html examples/grid.html examples/regions.html examples/primitives.html examples/page-components.html examples/help-system.html examples/form-compositions.html examples/navigation-compositions.html examples/data-compositions.html examples/selection-compositions.html examples/content-compositions.html examples/auth-compositions.html examples/commerce-compositions.html examples/mobile-compositions.html examples/desktop-compositions.html examples/ai-compositions.html examples/solution-compositions.html",
+    "test": "npm run build && npm run verify:reproducible && npm run budget && npm run test:schema && npm run contracts && npm run verify:compatibility && npm run test:types && npm run test:build && npm run test:runtime && npm run test:html && npm run check && npm run audit && npm run validate && npm run verify:package && npm run test:e2e",
+    "test:schema": "node --test --test-concurrency=1 tests/schema.test.mjs",
+    "test:runtime": "node --test --test-concurrency=1 tests/runtime.test.mjs",
+    "test:html": "node --test --test-concurrency=1 tests/html.test.mjs",
+    "test:build": "node --test --test-concurrency=1 tests/build.test.mjs",
+    "test:types": "tsc -p tsconfig.types.json",
+    "test:browser": "playwright test --project=desktop-chromium --project=desktop-webkit",
+    "test:browser:firefox": "node scripts/test-firefox.mjs",
+    "test:browser:all": "playwright test --project=desktop-chromium --project=desktop-firefox --project=desktop-webkit",
+    "test:mobile": "playwright test --project=mobile-chromium --project=mobile-webkit",
+    "test:a11y": "playwright test --project=accessibility-chromium",
+    "test:e2e": "npm run test:browser && npm run test:browser:firefox && npm run test:mobile && npm run test:a11y",
+    "release:verify": "npm test",
+    "prepublishOnly": "npm run release:verify",
+    "dev": "node scripts/serve.mjs"
+  },
+  "keywords": [
+    "css",
+    "design-system",
+    "components",
+    "dashboard",
+    "mobile",
+    "ai-ui",
+    "cms",
+    "tauri",
+    "electron"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "browserslist": [
+    "Chrome >= 100",
+    "Edge >= 100",
+    "Firefox >= 100",
+    "Safari >= 15.4",
+    "iOS >= 15.4"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.62.1",
+    "ajv": "8.20.0",
+    "esbuild": "0.28.2",
+    "happy-dom": "20.11.8",
+    "parse5": "8.0.1",
+    "publint": "0.3.24",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,1444 @@
+{
+  "$schema": "./recipes.schema.json",
+  "schemaVersion": 2,
+  "recipes": [
+    {
+      "id": "auth.centered",
+      "name": "居中登录与账号流程",
+      "category": "auth",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-auth-centered",
+      "parts": [
+        "g-auth-container",
+        "g-auth-panel",
+        "g-auth-brand-row",
+        "g-auth-header",
+        "g-auth-form",
+        "g-auth-footer"
+      ],
+      "useFor": [
+        "登录",
+        "注册",
+        "找回与重置密码",
+        "邮箱与手机验证",
+        "MFA",
+        "Passkey",
+        "二维码登录",
+        "邀请",
+        "账号与租户选择",
+        "会话恢复"
+      ],
+      "behaviors": [
+        "password-toggle",
+        "otp-input",
+        "password-strength",
+        "auth-timer",
+        "saved-choice"
+      ]
+    },
+    {
+      "id": "auth.split",
+      "name": "品牌分栏登录与身份入口",
+      "category": "auth",
+      "platforms": [
+        "web",
+        "desktop",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-auth-split",
+      "parts": [
+        "g-auth-split-aside",
+        "g-auth-split-main",
+        "g-auth-container",
+        "g-auth-panel",
+        "g-auth-provider-list"
+      ],
+      "useFor": [
+        "企业登录",
+        "SSO",
+        "租户登录",
+        "身份切换",
+        "产品宣传登录",
+        "桌面客户端登录"
+      ],
+      "behaviors": [
+        "password-toggle",
+        "dropdown",
+        "saved-choice"
+      ]
+    },
+    {
+      "id": "mobile.category",
+      "name": "移动端分类导航",
+      "category": "mobile",
+      "platforms": [
+        "mobile",
+        "pwa",
+        "desktop-webview"
+      ],
+      "root": ".g-mobile-category-view",
+      "parts": [
+        "g-mobile-category-rail",
+        "g-mobile-category-link",
+        "g-mobile-category-content",
+        "g-mobile-category-grid",
+        "g-mobile-category-item"
+      ],
+      "useFor": [
+        "电商分类",
+        "服务分类",
+        "知识库目录",
+        "小程序式目录"
+      ],
+      "behaviors": [
+        "mobile-sheet",
+        "saved-choice"
+      ]
+    },
+    {
+      "id": "cms.builder",
+      "name": "三栏可视化页面构建器",
+      "category": "cms",
+      "platforms": [
+        "web",
+        "desktop",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-cms-shell",
+      "parts": [
+        "g-cms-topbar",
+        "g-cms-tree",
+        "g-cms-main",
+        "g-cms-inspector",
+        "g-cms-canvas",
+        "g-cms-device",
+        "g-publish-bar"
+      ],
+      "useFor": [
+        "页面编辑",
+        "模板设计",
+        "无代码搭建"
+      ]
+    },
+    {
+      "id": "cms.editor",
+      "name": "内容编辑器",
+      "category": "cms",
+      "platforms": [
+        "web",
+        "desktop",
+        "tablet"
+      ],
+      "root": ".g-editor",
+      "parts": [
+        "g-editor-toolbar",
+        "g-editor-content"
+      ],
+      "useFor": [
+        "文章",
+        "商品详情",
+        "帮助中心",
+        "邮件"
+      ]
+    },
+    {
+      "id": "cms.media",
+      "name": "媒体资源库",
+      "category": "cms",
+      "platforms": [
+        "web",
+        "desktop"
+      ],
+      "root": ".g-media-library",
+      "parts": [
+        "g-media-sidebar",
+        "g-media-grid",
+        "g-media-item",
+        "g-media-inspector"
+      ],
+      "useFor": [
+        "图片",
+        "视频",
+        "文档",
+        "素材选择"
+      ]
+    },
+    {
+      "id": "cms.workflow",
+      "name": "内容工作流",
+      "category": "cms",
+      "platforms": [
+        "web",
+        "desktop"
+      ],
+      "root": ".g-workflow",
+      "parts": [
+        "g-workflow-column",
+        "g-revision",
+        "g-approval-route"
+      ],
+      "useFor": [
+        "审核",
+        "版本",
+        "发布",
+        "审批"
+      ]
+    },
+    {
+      "id": "desktop.workbench",
+      "name": "桌面工作台",
+      "category": "desktop",
+      "platforms": [
+        "tauri",
+        "electron",
+        "desktop"
+      ],
+      "root": ".g-desktop-shell",
+      "parts": [
+        "g-titlebar",
+        "g-window-controls",
+        "g-activitybar",
+        "g-workbench",
+        "g-workbench-sidebar",
+        "g-workbench-editor",
+        "g-desktop-inspector",
+        "g-desktop-statusbar"
+      ],
+      "useFor": [
+        "IDE",
+        "AI 工具",
+        "桌面 CMS",
+        "管理客户端"
+      ],
+      "adapters": [
+        "tauri",
+        "electron"
+      ],
+      "behaviors": [
+        "split-pane"
+      ]
+    },
+    {
+      "id": "marketing.home",
+      "name": "营销首页",
+      "category": "marketing",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-hero",
+      "parts": [
+        "g-site-header",
+        "g-hero-copy",
+        "g-logo-cloud",
+        "g-feature-grid",
+        "g-testimonial-grid",
+        "g-pricing-grid",
+        "g-cta",
+        "g-site-footer"
+      ],
+      "useFor": [
+        "SaaS",
+        "企业官网",
+        "产品主页",
+        "个人品牌"
+      ]
+    },
+    {
+      "id": "content.article",
+      "name": "文章与文档",
+      "category": "content",
+      "platforms": [
+        "web",
+        "mobile",
+        "print"
+      ],
+      "root": ".g-article-shell",
+      "parts": [
+        "g-article",
+        "g-article-aside"
+      ],
+      "useFor": [
+        "博客",
+        "新闻",
+        "文档",
+        "法律条款"
+      ]
+    },
+    {
+      "id": "commerce.product",
+      "name": "商品详情与规格选择",
+      "category": "commerce",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-commerce-product-detail",
+      "parts": [
+        "g-commerce-product-gallery",
+        "g-product-gallery-thumbs",
+        "g-product-gallery-stage",
+        "g-product-detail-summary",
+        "g-price-display",
+        "g-stock-status",
+        "g-sku-selector",
+        "g-quantity-stepper"
+      ],
+      "useFor": [
+        "实物商品",
+        "数字商品",
+        "许可证",
+        "订阅",
+        "企业采购"
+      ],
+      "behaviors": [
+        "carousel",
+        "sku-selector",
+        "quantity-stepper"
+      ]
+    },
+    {
+      "id": "commerce.checkout",
+      "name": "购物车、结算与订单",
+      "category": "commerce",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-commerce-checkout",
+      "parts": [
+        "g-cart",
+        "g-commerce-cart-item",
+        "g-cart-summary",
+        "g-checkout-steps",
+        "g-address-selector",
+        "g-shipping-method",
+        "g-coupon",
+        "g-invoice-information",
+        "g-payment-method",
+        "g-commerce-order-summary",
+        "g-commerce-order-timeline"
+      ],
+      "useFor": [
+        "购物车",
+        "收银台",
+        "企业采购",
+        "数字交付",
+        "支付",
+        "订单状态",
+        "退款"
+      ],
+      "behaviors": [
+        "cart",
+        "quantity-stepper",
+        "coupon",
+        "saved-choice"
+      ]
+    },
+    {
+      "id": "enterprise.settings",
+      "name": "企业设置中心",
+      "category": "enterprise",
+      "platforms": [
+        "web",
+        "desktop"
+      ],
+      "root": ".g-settings-shell",
+      "parts": [
+        "g-org-switcher",
+        "g-settings-nav",
+        "g-settings-section",
+        "g-permission-matrix",
+        "g-audit-event",
+        "g-api-key"
+      ],
+      "useFor": [
+        "组织",
+        "权限",
+        "安全",
+        "账单",
+        "审计",
+        "API"
+      ]
+    },
+    {
+      "id": "ai.workspace",
+      "name": "AI 多面板工作区",
+      "category": "ai",
+      "platforms": [
+        "web",
+        "desktop",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-ai-shell",
+      "parts": [
+        "g-chat",
+        "g-message",
+        "g-composer",
+        "g-tool-call",
+        "g-artifact-panel",
+        "g-context-meter"
+      ],
+      "useFor": [
+        "聊天",
+        "智能体",
+        "代码生成",
+        "内容生成"
+      ]
+    },
+    {
+      "id": "dashboard.analytics",
+      "name": "分析仪表盘",
+      "category": "dashboard",
+      "platforms": [
+        "web",
+        "desktop",
+        "tablet"
+      ],
+      "root": ".g-dashboard",
+      "parts": [
+        "g-filter-bar",
+        "g-kpi",
+        "g-chart",
+        "g-data-grid"
+      ],
+      "useFor": [
+        "运营",
+        "财务",
+        "监控",
+        "数据分析"
+      ]
+    },
+    {
+      "id": "application.inbox",
+      "name": "三栏收件箱",
+      "category": "communication",
+      "platforms": [
+        "web",
+        "desktop",
+        "tablet"
+      ],
+      "root": ".g-inbox",
+      "parts": [
+        "g-inbox-folders",
+        "g-inbox-list",
+        "g-inbox-reader",
+        "g-inbox-item"
+      ],
+      "useFor": [
+        "邮件",
+        "工单",
+        "客户消息",
+        "站内信"
+      ]
+    },
+    {
+      "id": "application.file-manager",
+      "name": "文件管理器",
+      "category": "data",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-file-manager",
+      "parts": [
+        "g-file-manager-sidebar",
+        "g-file-manager-main",
+        "g-file-grid",
+        "g-file-card",
+        "g-upload-queue"
+      ],
+      "useFor": [
+        "网盘",
+        "附件",
+        "企业文档",
+        "素材"
+      ]
+    },
+    {
+      "id": "application.form-builder",
+      "name": "表单构建器",
+      "category": "form",
+      "platforms": [
+        "web",
+        "desktop"
+      ],
+      "root": ".g-form-builder",
+      "parts": [
+        "g-form-builder-palette",
+        "g-form-builder-canvas",
+        "g-form-builder-field",
+        "g-form-builder-inspector"
+      ],
+      "useFor": [
+        "问卷",
+        "数据采集",
+        "审批表",
+        "低代码"
+      ]
+    },
+    {
+      "id": "application.calendar",
+      "name": "日历与日程",
+      "category": "data",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-calendar",
+      "parts": [
+        "g-calendar-heading",
+        "g-calendar-event",
+        "g-agenda",
+        "g-agenda-item"
+      ],
+      "useFor": [
+        "日历",
+        "排班",
+        "预约",
+        "项目计划"
+      ]
+    },
+    {
+      "id": "document.report",
+      "name": "报告与发票",
+      "category": "content",
+      "platforms": [
+        "web",
+        "desktop",
+        "print"
+      ],
+      "root": ".g-report",
+      "parts": [
+        "g-report-header",
+        "g-invoice-lines",
+        "g-invoice-total",
+        "g-signature-line"
+      ],
+      "useFor": [
+        "报表",
+        "发票",
+        "报价单",
+        "打印文档"
+      ]
+    },
+    {
+      "id": "solution.product-landing",
+      "name": "产品落地页",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-product-landing",
+      "parts": [
+        "g-solution-container",
+        "g-landing-hero",
+        "g-landing-copy",
+        "g-landing-visual",
+        "g-landing-proof",
+        "g-solution-section"
+      ],
+      "useFor": [
+        "SaaS",
+        "App",
+        "AI 产品",
+        "新品发布",
+        "下载页"
+      ],
+      "behaviors": [
+        "nav-toggle",
+        "accordion",
+        "carousel"
+      ]
+    },
+    {
+      "id": "solution.corporate-home",
+      "name": "企业官网首页",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-corporate-home",
+      "parts": [
+        "g-solution-container",
+        "g-corporate-hero",
+        "g-corporate-trust",
+        "g-solution-grid",
+        "g-solution-section"
+      ],
+      "useFor": [
+        "集团官网",
+        "品牌官网",
+        "企业门户",
+        "机构首页"
+      ],
+      "behaviors": [
+        "nav-toggle",
+        "dropdown",
+        "accordion"
+      ]
+    },
+    {
+      "id": "solution.personal-home",
+      "name": "个人主页",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-personal-home",
+      "parts": [
+        "g-solution-container",
+        "g-personal-intro",
+        "g-personal-links",
+        "g-personal-timeline"
+      ],
+      "useFor": [
+        "个人品牌",
+        "简历",
+        "专家主页",
+        "创作者主页"
+      ]
+    },
+    {
+      "id": "solution.portfolio",
+      "name": "作品集",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-portfolio-page",
+      "parts": [
+        "g-portfolio-hero",
+        "g-portfolio-featured",
+        "g-portfolio-grid",
+        "g-portfolio-project"
+      ],
+      "useFor": [
+        "设计师",
+        "摄影师",
+        "开发者",
+        "工作室",
+        "案例库"
+      ],
+      "behaviors": [
+        "carousel",
+        "tabs"
+      ]
+    },
+    {
+      "id": "solution.blog-index",
+      "name": "博客与资讯首页",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-blog-index",
+      "parts": [
+        "g-blog-index-header",
+        "g-blog-categories",
+        "g-blog-grid-page",
+        "g-blog-entry"
+      ],
+      "useFor": [
+        "博客",
+        "新闻",
+        "杂志",
+        "企业资讯"
+      ],
+      "behaviors": [
+        "data-filter"
+      ]
+    },
+    {
+      "id": "solution.article",
+      "name": "文章阅读页",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile",
+        "print"
+      ],
+      "root": ".g-article-page",
+      "parts": [
+        "g-article-page-layout",
+        "g-article-page-body",
+        "g-article-page-toc",
+        "g-article-page-meta"
+      ],
+      "useFor": [
+        "文章",
+        "新闻详情",
+        "教程",
+        "长文",
+        "法律内容"
+      ],
+      "behaviors": [
+        "scrollspy",
+        "copy"
+      ]
+    },
+    {
+      "id": "solution.docs-portal",
+      "name": "文档门户",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "root": ".g-docs-portal",
+      "parts": [
+        "g-docs-layout",
+        "g-docs-sidebar",
+        "g-docs-main",
+        "g-docs-toc"
+      ],
+      "useFor": [
+        "产品文档",
+        "API 文档",
+        "开发者中心",
+        "内部规范"
+      ],
+      "behaviors": [
+        "tree",
+        "scrollspy",
+        "copy",
+        "nav-toggle"
+      ]
+    },
+    {
+      "id": "solution.help-center",
+      "name": "帮助中心",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "root": ".g-help-center-page",
+      "parts": [
+        "g-help-center-hero",
+        "g-help-center-search",
+        "g-help-center-layout",
+        "g-help-center-main"
+      ],
+      "useFor": [
+        "客户帮助",
+        "FAQ",
+        "自助服务",
+        "产品支持"
+      ],
+      "behaviors": [
+        "accordion",
+        "data-filter"
+      ]
+    },
+    {
+      "id": "solution.search-results",
+      "name": "全站搜索结果",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-search-results-page",
+      "parts": [
+        "g-search-results-layout",
+        "g-search-filters",
+        "g-search-results-list",
+        "g-search-result"
+      ],
+      "useFor": [
+        "站内搜索",
+        "文档搜索",
+        "商品搜索",
+        "资源搜索"
+      ],
+      "behaviors": [
+        "data-filter",
+        "saved-choice"
+      ]
+    },
+    {
+      "id": "solution.contact",
+      "name": "联系与咨询页",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-contact-page",
+      "parts": [
+        "g-contact-layout",
+        "g-contact-details",
+        "g-contact-form"
+      ],
+      "useFor": [
+        "联系我们",
+        "销售咨询",
+        "线索收集",
+        "服务申请"
+      ],
+      "behaviors": [
+        "character-count",
+        "conditional-field"
+      ]
+    },
+    {
+      "id": "solution.pricing",
+      "name": "定价页",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-pricing-page",
+      "parts": [
+        "g-pricing-page-header",
+        "g-pricing-page-grid",
+        "g-pricing-page-card"
+      ],
+      "useFor": [
+        "SaaS 定价",
+        "会员方案",
+        "服务套餐",
+        "产品版本比较"
+      ],
+      "behaviors": [
+        "saved-choice",
+        "accordion"
+      ]
+    },
+    {
+      "id": "solution.dashboard-overview",
+      "name": "综合仪表盘",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "tablet",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-dashboard-overview",
+      "parts": [
+        "g-solution-header",
+        "g-dashboard-metrics",
+        "g-dashboard-layout",
+        "g-dashboard-panel"
+      ],
+      "useFor": [
+        "运营总览",
+        "管理驾驶舱",
+        "个人仪表盘",
+        "实时监控"
+      ],
+      "behaviors": [
+        "data-filter",
+        "data-view",
+        "dropdown"
+      ]
+    },
+    {
+      "id": "solution.admin-list",
+      "name": "后台列表管理页",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "tablet"
+      ],
+      "root": ".g-admin-list-page",
+      "parts": [
+        "g-admin-list-header",
+        "g-admin-list-filters",
+        "g-admin-list-content",
+        "g-solution-toolbar"
+      ],
+      "useFor": [
+        "用户管理",
+        "内容管理",
+        "订单管理",
+        "资源管理"
+      ],
+      "behaviors": [
+        "table-sort",
+        "row-select",
+        "data-filter",
+        "column-toggle"
+      ]
+    },
+    {
+      "id": "solution.record-detail",
+      "name": "记录详情页",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-record-detail-page",
+      "parts": [
+        "g-record-detail-header",
+        "g-record-detail-layout",
+        "g-record-detail-main",
+        "g-record-detail-aside",
+        "g-record-detail-section"
+      ],
+      "useFor": [
+        "客户详情",
+        "订单详情",
+        "内容详情",
+        "资产详情"
+      ],
+      "behaviors": [
+        "tabs",
+        "accordion",
+        "dialog"
+      ]
+    },
+    {
+      "id": "solution.settings-center",
+      "name": "设置中心",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-settings-center",
+      "parts": [
+        "g-settings-center-header",
+        "g-settings-center-layout",
+        "g-settings-center-nav",
+        "g-settings-center-content"
+      ],
+      "useFor": [
+        "产品设置",
+        "组织设置",
+        "桌面应用首选项",
+        "集成配置"
+      ],
+      "behaviors": [
+        "scrollspy",
+        "conditional-field",
+        "autosave"
+      ]
+    },
+    {
+      "id": "solution.user-center",
+      "name": "用户中心",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-user-center",
+      "parts": [
+        "g-user-center-header",
+        "g-user-center-layout",
+        "g-user-center-nav",
+        "g-user-center-content"
+      ],
+      "useFor": [
+        "个人资料",
+        "账号安全",
+        "订单资产",
+        "会员权益"
+      ],
+      "behaviors": [
+        "tabs",
+        "password-strength",
+        "native-file-picker"
+      ]
+    },
+    {
+      "id": "solution.notification-center",
+      "name": "通知中心",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-notification-center-page",
+      "parts": [
+        "g-notification-center-header",
+        "g-notification-groups",
+        "g-notification-group",
+        "g-notification-row"
+      ],
+      "useFor": [
+        "系统通知",
+        "消息中心",
+        "提醒",
+        "更新动态"
+      ],
+      "behaviors": [
+        "data-filter",
+        "row-select"
+      ]
+    },
+    {
+      "id": "solution.onboarding",
+      "name": "首次使用引导",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-onboarding-flow",
+      "parts": [
+        "g-onboarding-aside",
+        "g-onboarding-main",
+        "g-onboarding-step",
+        "g-onboarding-progress"
+      ],
+      "useFor": [
+        "账号初始化",
+        "产品引导",
+        "企业入驻",
+        "数据导入"
+      ],
+      "behaviors": [
+        "conditional-field",
+        "saved-choice",
+        "native-file-picker"
+      ]
+    },
+    {
+      "id": "solution.crm",
+      "name": "CRM 客户工作台",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-crm-workspace",
+      "parts": [
+        "g-crm-header",
+        "g-crm-layout",
+        "g-crm-nav",
+        "g-crm-main",
+        "g-crm-inspector",
+        "g-crm-pipeline"
+      ],
+      "useFor": [
+        "销售管道",
+        "客户关系",
+        "商机",
+        "线索",
+        "跟进任务"
+      ],
+      "behaviors": [
+        "data-filter",
+        "tabs",
+        "split-pane"
+      ]
+    },
+    {
+      "id": "solution.project",
+      "name": "项目协作工作台",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "tauri",
+        "electron"
+      ],
+      "root": ".g-project-workspace",
+      "parts": [
+        "g-project-header",
+        "g-project-layout",
+        "g-project-nav",
+        "g-project-main",
+        "g-project-inspector",
+        "g-project-board"
+      ],
+      "useFor": [
+        "项目管理",
+        "任务看板",
+        "研发协作",
+        "团队计划"
+      ],
+      "behaviors": [
+        "data-view",
+        "split-pane",
+        "picker"
+      ]
+    },
+    {
+      "id": "solution.support",
+      "name": "客服与工单中心",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-support-center",
+      "parts": [
+        "g-support-header",
+        "g-support-layout",
+        "g-support-nav",
+        "g-support-main",
+        "g-support-inspector",
+        "g-support-thread"
+      ],
+      "useFor": [
+        "客服",
+        "工单",
+        "投诉处理",
+        "售后服务"
+      ],
+      "behaviors": [
+        "data-filter",
+        "picker",
+        "autosave"
+      ]
+    },
+    {
+      "id": "solution.approval",
+      "name": "审批中心",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-approval-center",
+      "parts": [
+        "g-approval-header",
+        "g-approval-layout",
+        "g-approval-nav",
+        "g-approval-main",
+        "g-approval-inspector",
+        "g-approval-queue"
+      ],
+      "useFor": [
+        "流程审批",
+        "费用审批",
+        "内容审核",
+        "权限申请"
+      ],
+      "behaviors": [
+        "data-filter",
+        "saved-choice",
+        "dialog"
+      ]
+    },
+    {
+      "id": "solution.knowledge-base",
+      "name": "企业知识库",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-knowledge-base",
+      "parts": [
+        "g-knowledge-hero",
+        "g-knowledge-search",
+        "g-knowledge-layout",
+        "g-knowledge-sidebar",
+        "g-knowledge-main"
+      ],
+      "useFor": [
+        "企业 Wiki",
+        "知识管理",
+        "制度库",
+        "内部帮助"
+      ],
+      "behaviors": [
+        "tree",
+        "data-filter",
+        "scrollspy"
+      ]
+    },
+    {
+      "id": "solution.learning",
+      "name": "学习与培训门户",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-learning-portal",
+      "parts": [
+        "g-learning-layout",
+        "g-learning-sidebar",
+        "g-learning-main",
+        "g-course-grid",
+        "g-course-card"
+      ],
+      "useFor": [
+        "在线课程",
+        "企业培训",
+        "认证学习",
+        "学校门户"
+      ],
+      "behaviors": [
+        "data-filter",
+        "tabs"
+      ]
+    },
+    {
+      "id": "solution.event",
+      "name": "活动门户",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-event-portal",
+      "parts": [
+        "g-event-hero",
+        "g-event-grid",
+        "g-event-card"
+      ],
+      "useFor": [
+        "会议",
+        "展览",
+        "社区活动",
+        "直播活动"
+      ],
+      "behaviors": [
+        "data-filter",
+        "saved-choice"
+      ]
+    },
+    {
+      "id": "solution.booking",
+      "name": "预约与预订门户",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-booking-portal",
+      "parts": [
+        "g-booking-layout",
+        "g-booking-results",
+        "g-booking-summary"
+      ],
+      "useFor": [
+        "医疗预约",
+        "场地预订",
+        "酒店",
+        "服务预约",
+        "排班"
+      ],
+      "behaviors": [
+        "saved-choice",
+        "quantity-stepper"
+      ]
+    },
+    {
+      "id": "solution.healthcare",
+      "name": "医疗健康门户",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-healthcare-portal",
+      "parts": [
+        "g-healthcare-layout",
+        "g-industry-portal-nav",
+        "g-industry-portal-main",
+        "g-healthcare-summary",
+        "g-healthcare-record",
+        "g-industry-alert"
+      ],
+      "useFor": [
+        "患者门户",
+        "诊疗记录",
+        "预约挂号",
+        "健康管理"
+      ],
+      "behaviors": [
+        "tabs",
+        "dialog"
+      ]
+    },
+    {
+      "id": "solution.finance",
+      "name": "金融账户门户",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-finance-portal",
+      "parts": [
+        "g-finance-layout",
+        "g-industry-portal-nav",
+        "g-industry-portal-main",
+        "g-finance-summary",
+        "g-finance-account",
+        "g-industry-alert"
+      ],
+      "useFor": [
+        "账户总览",
+        "银行服务",
+        "财富管理",
+        "企业财务"
+      ],
+      "behaviors": [
+        "tabs",
+        "data-filter",
+        "dialog"
+      ]
+    },
+    {
+      "id": "solution.public-service",
+      "name": "政务与公共服务门户",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "root": ".g-public-service-portal",
+      "parts": [
+        "g-public-service-layout",
+        "g-industry-portal-nav",
+        "g-industry-portal-main",
+        "g-public-service-summary",
+        "g-public-service-item",
+        "g-industry-alert"
+      ],
+      "useFor": [
+        "政务办事",
+        "公共服务",
+        "申请进度",
+        "便民门户"
+      ],
+      "behaviors": [
+        "data-filter",
+        "dialog"
+      ]
+    },
+    {
+      "id": "solution.marketplace",
+      "name": "平台市场",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-marketplace-page",
+      "parts": [
+        "g-marketplace-hero",
+        "g-marketplace-layout",
+        "g-marketplace-filters",
+        "g-marketplace-grid",
+        "g-marketplace-card"
+      ],
+      "useFor": [
+        "应用市场",
+        "服务市场",
+        "人才市场",
+        "插件市场",
+        "商品聚合"
+      ],
+      "behaviors": [
+        "data-filter",
+        "saved-choice"
+      ]
+    },
+    {
+      "id": "solution.community",
+      "name": "社区与论坛",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile"
+      ],
+      "root": ".g-community-page",
+      "parts": [
+        "g-community-hero",
+        "g-community-layout",
+        "g-community-feed",
+        "g-community-sidebar",
+        "g-community-post"
+      ],
+      "useFor": [
+        "社区",
+        "论坛",
+        "兴趣小组",
+        "用户内容"
+      ],
+      "behaviors": [
+        "data-filter",
+        "picker",
+        "dialog"
+      ]
+    },
+    {
+      "id": "solution.status-center",
+      "name": "服务状态中心",
+      "category": "solution",
+      "platforms": [
+        "web",
+        "mobile",
+        "print"
+      ],
+      "root": ".g-status-center-page",
+      "parts": [
+        "g-status-center-header",
+        "g-status-overall",
+        "g-status-services",
+        "g-status-service",
+        "g-status-history",
+        "g-status-incident"
+      ],
+      "useFor": [
+        "系统状态",
+        "故障公告",
+        "维护计划",
+        "SLA 透明度"
+      ],
+      "behaviors": [
+        "accordion"
+      ]
+    }
+  ]
+}

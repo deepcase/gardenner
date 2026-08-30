@@ -1,0 +1,50 @@
+name: Feature request
+description: Propose a reusable Gardener capability or public-contract improvement.
+title: "[Feature]: "
+labels: [enhancement, needs-triage]
+body:
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Primary scope
+      options:
+        - CSS tokens/utilities/layout
+        - Semantic component or composition
+        - Runtime behavior/event
+        - Vue adapter
+        - React adapter
+        - AngularJS adapter
+        - Blazor adapter
+        - Website/documentation
+        - AI-readable metadata/tooling
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Reusable problem
+      description: Explain the recurring user or product problem, not only one application's preferred implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed contract
+      description: Describe names, variants, states, behaviors, events, accessibility, responsive/platform behavior, and likely composition points.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and existing composition limits
+      description: Explain why existing utilities or components are insufficient for this repeatedly used pattern.
+    validations:
+      required: true
+  - type: checkboxes
+    id: coverage
+    attributes:
+      label: Cross-platform considerations
+      options:
+        - label: I considered keyboard, focus, ARIA, RTL, forced-colors, reduced-motion, print, mobile, and container responsiveness.
+        - label: I considered Web, Mobile, Desktop, Tauri, Electron, and framework-adapter implications.
+

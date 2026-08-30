@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gardener — Data Display and Operations</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+    <style>
+      body {
+        background: #fff;
+      }
+      .demo-main {
+        width: min(78rem, calc(100% - 2rem));
+        margin: auto;
+        padding: 2rem 0 6rem;
+      }
+      .demo-section {
+        margin-block: 2.5rem;
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+        gap: 1rem;
+      }
+      .demo-card {
+        min-width: 0;
+        padding: 1rem;
+        border: 1px solid var(--g-color-border);
+        border-radius: var(--g-radius-md);
+        background: var(--g-color-surface);
+      }
+      .demo-chart-area {
+        display: grid;
+        place-items: center;
+        min-height: 10rem;
+        margin-block: 1rem;
+        background: linear-gradient(
+          180deg,
+          transparent 90%,
+          var(--g-color-border) 90%
+        );
+        background-size: 100% 25%;
+      }
+      .demo-shell {
+        min-height: 10rem;
+        display: grid;
+        place-items: center;
+        color: var(--g-color-text-muted);
+        background: var(--g-color-surface-subtle);
+      }
+      .demo-calendar {
+        min-width: 0;
+        grid-template-columns: repeat(7, minmax(2.5rem, 1fr));
+      }
+      .demo-calendar > * {
+        min-height: 3.5rem;
+      }
+      .demo-map {
+        --g-map-height: 12rem;
+      }
+      .demo-virtual {
+        height: 8rem;
+        border: 1px solid var(--g-color-border);
+      }
+      .demo-virtual .g-virtual-list-content {
+        height: 12rem;
+      }
+      .demo-virtual .g-virtual-list-item {
+        position: relative;
+        transform: none;
+        padding: 0.5rem;
+        border-bottom: 1px solid var(--g-color-border);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-main" id="main">
+      <header>
+        <span class="g-badge">Category 08</span>
+        <h1 class="g-mt-3">数据展示与操作组合</h1>
+        <p class="g-text-muted g-mt-2">
+          48 种数据模式、8 类复用运行时；覆盖 Dashboard、超级
+          CMS、移动端和桌面工作台。
+        </p>
+      </header>
+
+      <section class="demo-section g-data-container" id="interactive-table">
+        <h2>Interactive Table Operations</h2>
+        <div data-g-data-filter data-g-filter-target="customer-data">
+          <div class="g-data-toolbar">
+            <div class="g-data-toolbar-start">
+              <label class="g-field"
+                ><span class="g-sr-only">筛选客户</span
+                ><input
+                  class="g-input"
+                  data-g-filter-input
+                  type="search"
+                  placeholder="搜索客户、状态或收入" /></label
+              ><span class="g-data-toolbar-result"
+                >显示 <strong data-g-filter-count>3</strong> 项</span
+              >
+            </div>
+            <div class="g-data-toolbar-end">
+              <div class="g-saved-views">
+                <button
+                  class="g-saved-view is-active"
+                  type="button"
+                  aria-pressed="true"
+                >
+                  全部客户</button
+                ><button
+                  class="g-saved-view"
+                  type="button"
+                  aria-pressed="false"
+                >
+                  重点跟进
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          id="customer-data"
+          data-g-table-sort
+          data-g-row-select
+          data-g-row-disclosure
+          data-g-column-toggle
+        >
+          <div
+            class="g-selection-summary g-mt-3"
+            data-g-selection-summary
+            hidden
+          >
+            <span class="g-selection-summary-count"
+              >已选择 <strong data-g-selection-count>0</strong> 项</span
+            >
+            <div class="g-selection-summary-actions">
+              <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                导出</button
+              ><button class="g-btn g-btn-danger g-btn-sm" type="button">
+                归档
+              </button>
+            </div>
+          </div>
+          <div class="g-data-actions g-mt-3">
+            <details class="g-dropdown">
+              <summary class="g-btn g-btn-outline g-btn-sm">列</summary>
+              <div class="g-menu g-column-chooser">
+                <label class="g-column-chooser-item"
+                  ><input
+                    type="checkbox"
+                    data-g-toggle-column="status"
+                    checked
+                  />状态</label
+                ><label class="g-column-chooser-item"
+                  ><input
+                    type="checkbox"
+                    data-g-toggle-column="revenue"
+                    checked
+                  />收入</label
+                ><label class="g-column-chooser-item"
+                  ><input
+                    type="checkbox"
+                    data-g-toggle-column="owner"
+                    checked
+                  />负责人</label
+                >
+              </div>
+            </details>
+            <div class="g-table-density">
+              <button
+                class="g-table-density-button"
+                type="button"
+                aria-pressed="true"
+              >
+                标准</button
+              ><button
+                class="g-table-density-button"
+                type="button"
+                aria-pressed="false"
+              >
+                紧凑
+              </button>
+            </div>
+          </div>
+          <div
+            class="g-responsive-table is-stacked g-mt-3"
+            role="region"
+            aria-label="客户收入与跟进状态"
+            tabindex="0"
+          >
+            <table class="g-table g-table-hover g-expandable-table">
+              <caption class="g-table-caption">
+                客户收入与跟进状态
+              </caption>
+              <thead>
+                <tr>
+                  <th class="g-table-checkbox">
+                    <input
+                      type="checkbox"
+                      data-g-select-all
+                      aria-label="选择全部客户"
+                    />
+                  </th>
+                  <th aria-sort="none">
+                    <button
+                      class="g-sort-button"
+                      type="button"
+                      data-g-sort-key="name"
+                    >
+                      客户 <span class="g-table-sort-indicator"></span>
+                    </button>
+                  </th>
+                  <th data-g-column="status">状态</th>
+                  <th data-g-column="revenue" aria-sort="none">
+                    <button
+                      class="g-sort-button"
+                      type="button"
+                      data-g-sort-key="revenue"
+                      data-g-sort-type="number"
+                    >
+                      收入 <span class="g-table-sort-indicator"></span>
+                    </button>
+                  </th>
+                  <th data-g-column="owner">负责人</th>
+                  <th class="g-table-cell-actions">详情</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="g-table-row"
+                  id="customer-a"
+                  data-g-filter-item
+                  data-g-filter-text="星河科技 活跃 王林"
+                >
+                  <td class="g-table-checkbox" data-g-label="选择">
+                    <input
+                      type="checkbox"
+                      data-g-select-row
+                      value="customer-a"
+                      aria-label="选择星河科技"
+                    />
+                  </td>
+                  <td
+                    class="g-table-cell-primary"
+                    data-g-column="name"
+                    data-g-label="客户"
+                    data-g-sort-value="星河科技"
+                  >
+                    星河科技
+                  </td>
+                  <td data-g-column="status" data-g-label="状态">
+                    <span class="g-data-status is-success">活跃</span>
+                  </td>
+                  <td
+                    class="g-data-number"
+                    data-g-column="revenue"
+                    data-g-label="收入"
+                    data-g-sort-value="128000"
+                  >
+                    ¥128,000
+                  </td>
+                  <td data-g-column="owner" data-g-label="负责人">王林</td>
+                  <td class="g-table-cell-actions" data-g-label="详情">
+                    <button
+                      class="g-row-disclosure"
+                      type="button"
+                      data-g-row-toggle="detail-a"
+                      aria-expanded="false"
+                      aria-label="展开星河科技详情"
+                    >
+                      ›
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="g-expandable-table-detail"
+                  id="detail-a"
+                  data-g-detail-row="customer-a"
+                  hidden
+                >
+                  <td colspan="6">
+                    <div class="g-table-detail-content">
+                      <div class="g-key-value">
+                        <div class="g-key-value-row">
+                          <span class="g-key-value-key">最近联系</span
+                          ><span class="g-key-value-value"
+                            >2026-08-24 · 产品演示</span
+                          >
+                        </div>
+                        <div class="g-key-value-row">
+                          <span class="g-key-value-key">下一步</span
+                          ><span class="g-key-value-value">发送企业报价</span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="g-table-row"
+                  id="customer-b"
+                  data-g-filter-item
+                  data-g-filter-text="远山设计 待跟进 李薇"
+                >
+                  <td data-g-label="选择">
+                    <input
+                      type="checkbox"
+                      data-g-select-row
+                      value="customer-b"
+                      aria-label="选择远山设计"
+                    />
+                  </td>
+                  <td
+                    class="g-table-cell-primary"
+                    data-g-column="name"
+                    data-g-label="客户"
+                    data-g-sort-value="远山设计"
+                  >
+                    远山设计
+                  </td>
+                  <td data-g-column="status" data-g-label="状态">
+                    <span class="g-data-status is-warning">待跟进</span>
+                  </td>
+                  <td
+                    class="g-data-number"
+                    data-g-column="revenue"
+                    data-g-label="收入"
+                    data-g-sort-value="86000"
+                  >
+                    ¥86,000
+                  </td>
+                  <td data-g-column="owner" data-g-label="负责人">李薇</td>
+                  <td data-g-label="详情">
+                    <button
+                      class="g-row-disclosure"
+                      type="button"
+                      data-g-row-toggle="detail-b"
+                      aria-expanded="false"
+                      aria-label="展开远山设计详情"
+                    >
+                      ›
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="g-expandable-table-detail"
+                  id="detail-b"
+                  data-g-detail-row="customer-b"
+                  hidden
+                >
+                  <td colspan="6">
+                    <div class="g-table-detail-content">
+                      等待确认新一轮需求。
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="g-table-row"
+                  id="customer-c"
+                  data-g-filter-item
+                  data-g-filter-text="林海教育 风险 赵清"
+                >
+                  <td data-g-label="选择">
+                    <input
+                      type="checkbox"
+                      data-g-select-row
+                      value="customer-c"
+                      aria-label="选择林海教育"
+                    />
+                  </td>
+                  <td
+                    class="g-table-cell-primary"
+                    data-g-column="name"
+                    data-g-label="客户"
+                    data-g-sort-value="林海教育"
+                  >
+                    林海教育
+                  </td>
+                  <td data-g-column="status" data-g-label="状态">
+                    <span class="g-data-status is-danger">风险</span>
+                  </td>
+                  <td
+                    class="g-data-number"
+                    data-g-column="revenue"
+                    data-g-label="收入"
+                    data-g-sort-value="42000"
+                  >
+                    ¥42,000
+                  </td>
+                  <td data-g-column="owner" data-g-label="负责人">赵清</td>
+                  <td data-g-label="详情">
+                    <button
+                      class="g-row-disclosure"
+                      type="button"
+                      data-g-row-toggle="detail-c"
+                      aria-expanded="false"
+                      aria-label="展开林海教育详情"
+                    >
+                      ›
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="g-expandable-table-detail"
+                  id="detail-c"
+                  data-g-detail-row="customer-c"
+                  hidden
+                >
+                  <td colspan="6">
+                    <div class="g-table-detail-content">续约时间已临近。</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="g-data-state g-mt-3" data-g-filter-empty hidden>
+            <span class="g-data-state-visual">⌕</span
+            ><strong class="g-data-state-title">没有匹配数据</strong
+            ><span>调整关键词后重试。</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Grid / Hierarchy / Table Variants</h2>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <h3>Editable Data Grid</h3>
+            <div
+              class="g-editable-grid"
+              data-g-data-grid
+              role="grid"
+              style="--g-editable-columns: repeat(3, minmax(7rem, 1fr))"
+            >
+              <div class="g-editable-grid-row" role="row">
+                <div class="g-editable-grid-cell" role="columnheader">字段</div>
+                <div class="g-editable-grid-cell" role="columnheader">类型</div>
+                <div class="g-editable-grid-cell" role="columnheader">值</div>
+              </div>
+              <div class="g-editable-grid-row" role="row">
+                <div class="g-editable-grid-cell" role="gridcell">标题</div>
+                <div class="g-editable-grid-cell" role="gridcell">文本</div>
+                <div
+                  class="g-editable-grid-cell"
+                  role="gridcell"
+                  contenteditable="true"
+                >
+                  Gardener
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card" data-g-row-disclosure>
+            <h3>Tree Table</h3>
+            <div
+              class="g-responsive-table"
+              role="region"
+              aria-label="树形数据表"
+              tabindex="0"
+            >
+              <table class="g-table g-tree-table">
+                <tbody>
+                  <tr
+                    class="g-tree-table-row"
+                    id="tree-root"
+                    style="--g-tree-level: 0"
+                  >
+                    <td>
+                      <button
+                        class="g-tree-table-toggle"
+                        data-g-row-toggle="tree-root"
+                        aria-expanded="true"
+                        aria-label="折叠内容"
+                      >
+                        ›</button
+                      >内容
+                    </td>
+                    <td>12</td>
+                  </tr>
+                  <tr
+                    class="g-tree-table-row"
+                    data-g-parent="tree-root"
+                    style="--g-tree-level: 1"
+                  >
+                    <td>文章</td>
+                    <td>8</td>
+                  </tr>
+                  <tr
+                    class="g-tree-table-row"
+                    data-g-parent="tree-root"
+                    style="--g-tree-level: 1"
+                  >
+                    <td>页面</td>
+                    <td>4</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Grouped / Comparison / Pivot</h3>
+            <div
+              class="g-responsive-table"
+              role="region"
+              aria-label="分组数据表"
+              tabindex="0"
+            >
+              <table class="g-table g-grouped-table">
+                <tbody>
+                  <tr class="g-table-group-row" data-g-group-row>
+                    <td colspan="2">
+                      <span class="g-table-group-title"
+                        >华东区 <strong>2 项</strong></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>上海</td>
+                    <td>128</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="g-responsive-table g-mt-3"
+              role="region"
+              aria-label="版本比较表"
+              tabindex="0"
+            >
+              <table class="g-comparison-table">
+                <tr>
+                  <th>功能</th>
+                  <th class="is-highlighted">企业版</th>
+                  <th>标准版</th>
+                </tr>
+                <tr>
+                  <td>审计</td>
+                  <td class="is-highlighted">✓</td>
+                  <td>—</td>
+                </tr>
+              </table>
+            </div>
+            <div
+              class="g-pivot g-mt-3"
+              role="region"
+              aria-label="透视数据表"
+              tabindex="0"
+            >
+              <table>
+                <tr>
+                  <th>区域</th>
+                  <th>Q1</th>
+                  <th>Q2</th>
+                </tr>
+                <tr>
+                  <td>华东</td>
+                  <td>128</td>
+                  <td>146</td>
+                </tr>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Records / Lists / Streams</h2>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <div class="g-record-detail">
+              <header class="g-record-detail-header">
+                <div class="g-record-detail-main">
+                  <span class="g-data-meta">客户 #C-2048</span>
+                  <h3 class="g-record-detail-title">星河科技</h3>
+                </div>
+                <button class="g-btn g-btn-outline g-btn-sm">编辑</button>
+              </header>
+              <div class="g-record-detail-sections">
+                <section class="g-record-detail-section">
+                  <h4 class="g-record-detail-section-title">基本信息</h4>
+                  <dl class="g-description-list">
+                    <dt>行业</dt>
+                    <dd>软件</dd>
+                    <dt>规模</dt>
+                    <dd>500 人</dd>
+                  </dl>
+                </section>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Key Value / Lists</h3>
+            <div class="g-key-value">
+              <div class="g-key-value-row">
+                <span class="g-key-value-key">Region</span
+                ><span class="g-key-value-value">Asia / Shanghai</span
+                ><button class="g-btn g-btn-link g-btn-sm g-key-value-action">
+                  复制
+                </button>
+              </div>
+            </div>
+            <ul class="g-list-group g-mt-3">
+              <li class="g-list-item">
+                <div class="g-list-item-content">
+                  <strong class="g-list-item-title">普通列表</strong
+                  ><span class="g-list-item-meta">基础信息结构</span>
+                </div>
+              </li>
+            </ul>
+            <ul class="g-media-list g-mt-3">
+              <li class="g-media-list-item">
+                <span class="g-avatar">G</span>
+                <div class="g-media-list-content">
+                  <strong>媒体列表</strong>
+                  <div class="g-data-meta">带头像和尾部动作</div>
+                </div>
+                <button class="g-btn g-btn-ghost g-btn-sm">查看</button>
+              </li>
+            </ul>
+            <ul class="g-dense-list g-mt-3">
+              <li class="g-dense-list-item">
+                <span>高密度项目</span><span>12 KB</span>
+              </li>
+            </ul>
+          </article>
+          <article class="demo-card">
+            <h3>Tree / Timeline / Activity / Audit</h3>
+            <ul class="g-tree" data-g-tree>
+              <li role="treeitem" aria-expanded="true">
+                <span class="g-tree-item">内容目录</span>
+                <ul role="group">
+                  <li class="g-tree-item" role="treeitem">文章</li>
+                </ul>
+              </li>
+            </ul>
+            <ol class="g-timeline g-mt-4">
+              <li class="g-timeline-item">
+                <span class="g-timeline-marker"></span><strong>发布完成</strong>
+                <div class="g-timeline-time">10:32</div>
+              </li>
+            </ol>
+            <div class="g-activity-feed g-mt-4">
+              <div class="g-activity-item">
+                <span>●</span><span>李薇更新了客户资料</span><time>刚刚</time>
+              </div>
+            </div>
+            <div class="g-audit-log g-mt-4">
+              <div class="g-audit-log-date">2026-08-26</div>
+              <div class="g-audit-event">
+                <span>✓</span><span>admin 修改了角色权限</span
+                ><time>09:18</time>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Virtual List</h3>
+            <div class="g-virtual-list demo-virtual">
+              <div class="g-virtual-list-content">
+                <div class="g-virtual-list-item">虚拟项目 1</div>
+                <div class="g-virtual-list-item">虚拟项目 2</div>
+                <div class="g-virtual-list-item">虚拟项目 3</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Metrics / Visualization</h2>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <div class="g-stat-list">
+              <div class="g-stat">
+                <div class="g-stat-value">2,480</div>
+                <div class="g-stat-label">已发布</div>
+              </div>
+              <div class="g-stat">
+                <div class="g-stat-value">94%</div>
+                <div class="g-stat-label">成功率</div>
+              </div>
+            </div>
+            <div class="g-metric-card g-mt-3">
+              <div class="g-metric-card-main">
+                <span class="g-metric-card-label">月收入</span>
+                <div class="g-metric-card-value">¥286K</div>
+              </div>
+              <div class="g-metric-card-trend">
+                <div class="g-sparkline" role="img" aria-label="收入上升趋势">
+                  <i
+                    class="g-sparkline-bar"
+                    style="--g-sparkline-value: 30%"
+                  ></i
+                  ><i
+                    class="g-sparkline-bar"
+                    style="--g-sparkline-value: 55%"
+                  ></i
+                  ><i
+                    class="g-sparkline-bar"
+                    style="--g-sparkline-value: 82%"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <article class="g-kpi g-mt-3">
+              <div class="g-kpi-label">转化率</div>
+              <div class="g-kpi-value">18.6%</div>
+              <div class="g-kpi-change is-up">↑ 2.4%</div>
+            </article>
+          </article>
+          <article class="demo-card">
+            <h3>Progress / Status</h3>
+            <div class="g-progress-stats">
+              <div class="g-progress-stat">
+                <span class="g-progress-stat-label">已发布</span>
+                <div class="g-progress-stat-track">
+                  <div
+                    class="g-progress-stat-value"
+                    style="--g-progress-value: 82%"
+                  ></div>
+                </div>
+                <span class="g-progress-stat-number">82%</span>
+              </div>
+              <div class="g-progress-stat">
+                <span class="g-progress-stat-label">已审核</span>
+                <div class="g-progress-stat-track">
+                  <div
+                    class="g-progress-stat-value"
+                    style="--g-progress-value: 64%"
+                  ></div>
+                </div>
+                <span class="g-progress-stat-number">64%</span>
+              </div>
+            </div>
+            <div class="g-status-summary g-mt-4">
+              <div class="g-status-summary-item">
+                <strong class="g-status-summary-value">128</strong
+                ><span class="g-status-summary-label">正常</span>
+              </div>
+              <div class="g-status-summary-item">
+                <strong class="g-status-summary-value">6</strong
+                ><span class="g-status-summary-label">风险</span>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <div class="g-chart">
+              <h3>Chart / Legend</h3>
+              <div class="demo-chart-area">图表绘制区</div>
+              <ul class="g-data-legend">
+                <li class="g-data-legend-item">
+                  <i class="g-data-legend-swatch"></i>发布
+                </li>
+                <li class="g-data-legend-item">
+                  <i
+                    class="g-data-legend-swatch"
+                    style="--g-legend-color: var(--g-color-warning)"
+                  ></i
+                  >草稿
+                </li>
+              </ul>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Ranking / Heatmap</h3>
+            <ol class="g-ranking">
+              <li class="g-ranking-item">
+                <span>企业模板</span
+                ><strong class="g-ranking-value">8,420</strong>
+              </li>
+              <li class="g-ranking-item">
+                <span>博客模板</span
+                ><strong class="g-ranking-value">6,180</strong>
+              </li>
+              <li class="g-ranking-item">
+                <span>商城模板</span
+                ><strong class="g-ranking-value">5,260</strong>
+              </li>
+            </ol>
+            <div
+              class="g-heatmap g-mt-4"
+              style="--g-heatmap-columns: 8"
+              role="img"
+              aria-label="八周活跃度"
+            >
+              <i class="g-heatmap-cell" style="--g-heatmap-value: 15%"></i
+              ><i class="g-heatmap-cell" style="--g-heatmap-value: 35%"></i
+              ><i class="g-heatmap-cell" style="--g-heatmap-value: 55%"></i
+              ><i class="g-heatmap-cell" style="--g-heatmap-value: 75%"></i
+              ><i class="g-heatmap-cell" style="--g-heatmap-value: 95%"></i
+              ><i class="g-heatmap-cell" style="--g-heatmap-value: 45%"></i
+              ><i class="g-heatmap-cell" style="--g-heatmap-value: 65%"></i
+              ><i class="g-heatmap-cell" style="--g-heatmap-value: 25%"></i>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Data Matrix</h3>
+            <div
+              class="g-data-matrix"
+              role="region"
+              aria-label="端能力数据矩阵"
+              tabindex="0"
+            >
+              <div class="g-data-matrix-grid" style="--g-matrix-columns: 3">
+                <span class="g-data-matrix-cell is-row-header">能力</span
+                ><span class="g-data-matrix-cell is-column-header">Web</span
+                ><span class="g-data-matrix-cell is-column-header">Mobile</span
+                ><span class="g-data-matrix-cell is-column-header">Desktop</span
+                ><span class="g-data-matrix-cell is-row-header">表格</span
+                ><span class="g-data-matrix-cell">✓</span
+                ><span class="g-data-matrix-cell">✓</span
+                ><span class="g-data-matrix-cell">✓</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Planning / Spatial / Operations</h2>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <h3>Calendar / Agenda</h3>
+            <div class="g-calendar demo-calendar">
+              <div class="g-calendar-heading">一</div>
+              <div class="g-calendar-heading">二</div>
+              <div class="g-calendar-heading">三</div>
+              <div class="g-calendar-heading">四</div>
+              <div class="g-calendar-heading">五</div>
+              <div class="g-calendar-heading">六</div>
+              <div class="g-calendar-heading">日</div>
+              <div>
+                24
+                <div class="g-calendar-event">发布</div>
+              </div>
+              <div>25</div>
+              <div>26</div>
+              <div>27</div>
+              <div>28</div>
+              <div>29</div>
+              <div>30</div>
+            </div>
+            <div class="g-agenda g-mt-3">
+              <div class="g-agenda-item">
+                <time>10:00</time><span>●</span><strong>版本评审</strong
+                ><button class="g-btn g-btn-link g-btn-sm">详情</button>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Kanban / Gantt</h3>
+            <div class="g-kanban">
+              <section class="g-kanban-column">
+                <header class="g-kanban-header">进行中 <span>2</span></header>
+                <article class="g-kanban-card">组件审计</article>
+              </section>
+            </div>
+            <div
+              class="g-responsive-table g-mt-3"
+              role="region"
+              aria-label="甘特图时间轴"
+              tabindex="0"
+            >
+              <div class="g-gantt">
+                <div class="g-gantt-row">
+                  <div class="g-gantt-label">文档</div>
+                  <div class="g-gantt-track">
+                    <i
+                      class="g-gantt-bar"
+                      style="--g-gantt-start: 10%; --g-gantt-width: 55%"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Org / Map</h3>
+            <div
+              class="g-responsive-table"
+              role="region"
+              aria-label="组织结构图"
+              tabindex="0"
+            >
+              <div class="g-org-chart">
+                <div class="g-org-node">
+                  <strong>产品部</strong>
+                  <div class="g-data-meta">24 人</div>
+                </div>
+              </div>
+            </div>
+            <div class="g-map-shell demo-map g-mt-3">
+              <div class="g-map-tools">
+                <button class="g-btn g-btn-outline g-btn-icon">＋</button>
+              </div>
+              <aside class="g-map-panel">
+                <div class="g-data-meta">上海 · 128 客户</div>
+              </aside>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Views / Export / Filter / Sort</h3>
+            <div data-g-data-view data-g-current-view="table">
+              <div class="g-data-view-switcher">
+                <button
+                  class="g-data-view-button"
+                  type="button"
+                  data-g-view="table"
+                  aria-pressed="true"
+                >
+                  表</button
+                ><button
+                  class="g-data-view-button"
+                  type="button"
+                  data-g-view="card"
+                  aria-pressed="false"
+                >
+                  卡
+                </button>
+              </div>
+              <div class="demo-shell g-mt-3" data-g-view-panel="table">
+                表格视图
+              </div>
+              <div class="demo-shell g-mt-3" data-g-view-panel="card" hidden>
+                卡片视图
+              </div>
+            </div>
+            <div class="g-filter-summary g-mt-3">
+              <span class="g-filter-summary-label">筛选：</span
+              ><span class="g-filter-summary-chip">状态 = 活跃</span
+              ><button class="g-btn g-btn-link g-btn-sm g-filter-summary-clear">
+                清除
+              </button>
+            </div>
+            <div class="g-sort-builder g-mt-3">
+              <div class="g-sort-rule">
+                <span class="g-sort-rule-handle">⠿</span
+                ><select class="g-select" aria-label="排序字段">
+                  <option>收入</option></select
+                ><select class="g-select" aria-label="排序方向">
+                  <option>降序</option></select
+                ><button
+                  class="g-btn g-btn-ghost g-btn-icon"
+                  aria-label="删除排序"
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+            <section class="g-export-panel g-mt-3">
+              <header class="g-export-panel-header">
+                <strong>导出数据</strong><span class="g-data-meta">128 行</span>
+              </header>
+              <div class="g-export-options">
+                <label class="g-export-option"
+                  ><input type="radio" name="format" checked />CSV</label
+                ><label class="g-export-option"
+                  ><input type="radio" name="format" />XLSX</label
+                >
+              </div>
+            </section>
+          </article>
+          <article class="demo-card">
+            <h3>Inspector / State</h3>
+            <aside class="g-data-inspector">
+              <header class="g-data-inspector-header">
+                <strong>记录检查器</strong
+                ><button class="g-btn g-btn-ghost g-btn-icon" aria-label="关闭">
+                  ×
+                </button>
+              </header>
+              <div class="g-data-inspector-body">
+                <div class="g-data-state">
+                  <span class="g-data-state-visual">＋</span
+                  ><strong class="g-data-state-title">选择一条记录</strong
+                  ><span>属性和值将在这里显示。</span>
+                  <div class="g-data-state-actions">
+                    <button class="g-btn g-btn-outline g-btn-sm">
+                      新建记录
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <footer class="g-data-inspector-footer">
+                <span class="g-data-meta">未选择</span>
+              </footer>
+            </aside>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../dist/gardener.runtime.js"></script>
+  </body>
+</html>

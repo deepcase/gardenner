@@ -1,0 +1,142 @@
+@layer gardener.components {
+  /* 01 Stack: vertical rhythm, with an optional split point. */
+  .g-stack { display: flex; min-inline-size: 0; flex-direction: column; gap: var(--g-stack-gap, var(--g-space-4)); }
+  .g-stack.is-split > :where(.g-stack-split, :last-child) { margin-block-start: auto; }
+
+  /* 02 Cluster: wrapping inline groups such as tags and actions. */
+  .g-cluster { display: flex; min-inline-size: 0; flex-wrap: wrap; align-items: var(--g-cluster-align, center); justify-content: var(--g-cluster-justify, flex-start); gap: var(--g-cluster-gap, var(--g-space-3)); }
+
+  /* 03 Center: readable measure plus optional intrinsic centering. */
+  .g-center { box-sizing: content-box; max-inline-size: var(--g-center-max, var(--g-content-max)); margin-inline: auto; padding-inline: var(--g-center-gutter, var(--g-space-page-x)); }
+  .g-center.is-intrinsic { display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+  /* 04 Sidebar: start/end side content without viewport breakpoints. */
+  :is(.g-sidebar-layout, .g-sidebar-pattern) { display: flex; min-inline-size: 0; flex-wrap: wrap; gap: var(--g-sidebar-gap, var(--g-space-6)); align-items: var(--g-sidebar-align, stretch); }
+  :is(.g-sidebar-layout, .g-sidebar-pattern) > :first-child { flex: 1 1 var(--g-sidebar-pattern-size, var(--g-sidebar-width)); }
+  :is(.g-sidebar-layout, .g-sidebar-pattern) > :last-child { min-inline-size: min(100%, var(--g-sidebar-content-min, 32rem)); flex: 999 1 0; }
+  :is(.g-sidebar-layout, .g-sidebar-pattern).is-end > :first-child { min-inline-size: min(100%, var(--g-sidebar-content-min, 32rem)); flex: 999 1 0; }
+  :is(.g-sidebar-layout, .g-sidebar-pattern).is-end > :last-child { min-inline-size: 0; flex: 1 1 var(--g-sidebar-pattern-size, var(--g-sidebar-width)); }
+
+  /* 05 Switcher: horizontal until the available space becomes too small. */
+  .g-switcher { display: flex; min-inline-size: 0; flex-wrap: wrap; gap: var(--g-switcher-gap, var(--g-space-4)); }
+  .g-switcher > * { min-inline-size: 0; flex-grow: 1; flex-basis: calc((var(--g-switcher-threshold, 48rem) - 100%) * 999); }
+
+  /* 06 Cover: a centered hero or state between optional header/footer. */
+  .g-cover { display: flex; min-block-size: var(--g-cover-min, 100dvh); flex-direction: column; padding: var(--g-cover-padding, var(--g-space-page-x)); }
+  .g-cover > :where(.g-cover-center, :nth-child(2)) { margin-block: auto; }
+
+  /* 07 Reel: a keyboard-scrollable horizontal sequence. */
+  .g-reel { display: flex; max-inline-size: 100%; gap: var(--g-reel-gap, var(--g-space-4)); padding-block-end: var(--g-reel-scrollbar-space, var(--g-space-2)); overflow-x: auto; overflow-y: hidden; overscroll-behavior-inline: contain; scrollbar-gutter: stable; }
+  .g-reel > * { flex: 0 0 var(--g-reel-item-size, auto); }
+  .g-reel > img { block-size: 100%; flex-basis: auto; inline-size: auto; }
+
+  /* 08 Frame: media cropping with a stable aspect ratio. */
+  .g-frame { display: grid; place-items: center; overflow: hidden; aspect-ratio: var(--g-frame-ratio, 16 / 9); }
+  .g-frame > :is(img, picture, video, iframe, canvas, svg) { inline-size: 100%; block-size: 100%; }
+  .g-frame > :is(img, video, canvas, svg) { object-fit: var(--g-frame-fit, cover); object-position: var(--g-frame-position, center); }
+
+  /* 09 Media Object: image/avatar plus body and optional trailing action. */
+  .g-media-object { display: grid; min-inline-size: 0; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "media body action"; gap: var(--g-media-object-gap, var(--g-space-4)); align-items: var(--g-media-object-align, start); }
+  .g-media-object-media { grid-area: media; }
+  .g-media-object-body { grid-area: body; min-inline-size: 0; }
+  .g-media-object-action { grid-area: action; }
+  .g-media-object.is-end { grid-template-areas: "action body media"; grid-template-columns: auto minmax(0, 1fr) auto; }
+  .g-media-object.is-stacked { grid-template: "media" auto "body" auto "action" auto / minmax(0, 1fr); }
+
+  /* 10/11 Auto Fit and Auto Fill grids. .g-grid-auto remains the fit alias. */
+  :is(.g-grid-auto, .g-grid-auto-fit) { display: grid; min-inline-size: 0; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--g-grid-min, 16rem)), 1fr)); gap: var(--g-grid-gap, var(--g-space-4)); }
+  .g-grid-auto-fill { display: grid; min-inline-size: 0; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--g-grid-min, 16rem)), 1fr)); gap: var(--g-grid-gap, var(--g-space-4)); }
+
+  /* 12 Bleed: escape a centered reading measure. */
+  .g-bleed { inline-size: min(var(--g-bleed-max, 100vw), calc(100% + 2 * var(--g-bleed-size, var(--g-space-page-x)))); max-inline-size: var(--g-bleed-max, 100vw); margin-inline: max(calc(-1 * var(--g-bleed-size, var(--g-space-page-x))), calc((100% - var(--g-bleed-max, 100vw)) / 2)); }
+  .g-bleed.is-full { inline-size: 100vw; max-inline-size: none; margin-inline: calc(50% - 50vw); }
+
+  /* 13 Repel: title/action or metadata pairs that wrap safely. */
+  .g-repel { display: flex; min-inline-size: 0; flex-wrap: wrap; align-items: var(--g-repel-align, center); justify-content: space-between; gap: var(--g-repel-gap, var(--g-space-3)); }
+
+  /* 14 Imposter: centered dialog-like content, absolute or fixed. */
+  .g-imposter { position: absolute; inset-block-start: 50%; inset-inline-start: 50%; max-inline-size: min(calc(100% - 2 * var(--g-imposter-margin, var(--g-space-4))), var(--g-imposter-max, 40rem)); max-block-size: calc(100% - 2 * var(--g-imposter-margin, var(--g-space-4))); transform: translate(-50%, -50%); overflow: auto; }
+  [dir="rtl"] .g-imposter { transform: translate(50%, -50%); }
+  .g-imposter.is-fixed { position: fixed; max-inline-size: min(calc(100vw - 2 * var(--g-imposter-margin, var(--g-space-4))), var(--g-imposter-max, 40rem)); max-block-size: calc(100dvh - 2 * var(--g-imposter-margin, var(--g-space-4))); }
+  .g-imposter-container { position: relative; isolation: isolate; }
+
+  /* 15 Overlay: base content plus named layers. */
+  .g-overlay-layout { display: grid; min-inline-size: 0; min-block-size: 0; }
+  .g-overlay-layout > * { grid-area: 1 / 1; min-inline-size: 0; min-block-size: 0; }
+  .g-overlay-base { z-index: 0; }
+  .g-overlay-layer { z-index: 1; align-self: var(--g-overlay-align, end); justify-self: var(--g-overlay-justify, stretch); margin: var(--g-overlay-margin, var(--g-space-4)); pointer-events: none; }
+  .g-overlay-layer > * { pointer-events: auto; }
+
+  /* 16 Masonry: broad column fallback. */
+  .g-masonry { columns: var(--g-masonry-columns, 3) var(--g-masonry-min, 16rem); column-gap: var(--g-masonry-gap, var(--g-space-4)); }
+  .g-masonry > * { break-inside: avoid; margin-block: 0 var(--g-masonry-gap, var(--g-space-4)); }
+
+  /* 17 Bento: twelve-track editorial/dashboard tiles. */
+  .g-bento { display: grid; min-inline-size: 0; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-flow: dense; grid-auto-rows: minmax(var(--g-bento-row-min, 8rem), auto); gap: var(--g-bento-gap, var(--g-space-4)); }
+  .g-bento > * { grid-column: span var(--g-bento-span, 4); }
+  .g-bento-wide { grid-column: span 8; }
+  .g-bento-full { grid-column: 1 / -1; }
+  .g-bento-tall { grid-row: span 2; }
+  .g-bento-featured { grid-column: span 8; grid-row: span 2; }
+
+  /* 18 Aspect Ratio: non-cropping generic ratio box. */
+  .g-aspect-ratio { position: relative; inline-size: 100%; aspect-ratio: var(--g-aspect-ratio, 16 / 9); }
+  .g-aspect-ratio > :only-child { inline-size: 100%; block-size: 100%; }
+  .g-aspect-square { --g-aspect-ratio: 1; }
+  .g-aspect-portrait { --g-aspect-ratio: 3 / 4; }
+  .g-aspect-landscape { --g-aspect-ratio: 4 / 3; }
+  .g-aspect-video { --g-aspect-ratio: 16 / 9; }
+  .g-aspect-cinema { --g-aspect-ratio: 21 / 9; }
+
+  /* 19 Scroll Area: controlled independent scrolling. */
+  .g-scroll-area { min-inline-size: 0; min-block-size: 0; max-block-size: var(--g-scroll-area-max, none); overflow: auto; overscroll-behavior: var(--g-scroll-overscroll, contain); scrollbar-gutter: stable; }
+  .g-scroll-area.is-block { overflow-x: hidden; overflow-y: auto; }
+  .g-scroll-area.is-inline { overflow-x: auto; overflow-y: hidden; }
+
+  /* 20 Scroll Snap: inline by default, block with .is-block. */
+  .g-scroll-snap { display: flex; max-inline-size: 100%; gap: var(--g-scroll-snap-gap, var(--g-space-4)); overflow-x: auto; overscroll-behavior-inline: contain; scroll-padding-inline: var(--g-scroll-snap-padding, var(--g-space-4)); scroll-snap-type: inline var(--g-scroll-snap-strictness, mandatory); }
+  .g-scroll-snap > * { flex: 0 0 var(--g-scroll-snap-item-size, min(85%, 28rem)); scroll-snap-align: var(--g-scroll-snap-align, start); scroll-snap-stop: normal; }
+  .g-scroll-snap-item { min-inline-size: 0; }
+  .g-scroll-snap.is-block { display: block; max-block-size: var(--g-scroll-snap-block-size, 30rem); overflow-x: hidden; overflow-y: auto; scroll-snap-type: block var(--g-scroll-snap-strictness, mandatory); }
+  .g-scroll-snap.is-block > * { min-block-size: var(--g-scroll-snap-item-block-size, 80%); }
+
+  /* 21 Safe Area: all four device insets plus an application gutter. */
+  .g-safe-area { padding-block-start: max(var(--g-safe-area-top, 0px), env(safe-area-inset-top)); padding-inline-end: max(var(--g-safe-area-end, 0px), env(safe-area-inset-right)); padding-block-end: max(var(--g-safe-area-bottom, 0px), env(safe-area-inset-bottom)); padding-inline-start: max(var(--g-safe-area-start, 0px), env(safe-area-inset-left)); }
+  .g-safe-area.is-padded { padding-block-start: max(var(--g-safe-area-padding, var(--g-space-4)), env(safe-area-inset-top)); padding-inline-end: max(var(--g-safe-area-padding, var(--g-space-4)), env(safe-area-inset-right)); padding-block-end: max(var(--g-safe-area-padding, var(--g-space-4)), env(safe-area-inset-bottom)); padding-inline-start: max(var(--g-safe-area-padding, var(--g-space-4)), env(safe-area-inset-left)); }
+
+  /* 22 Sticky Region: logical top/bottom attachment inside a scroll owner. */
+  .g-sticky-region { position: sticky; z-index: var(--g-sticky-region-z, var(--g-z-sticky)); inset-block-start: var(--g-sticky-region-offset, 0); }
+  .g-sticky-region.is-bottom { inset-block: auto var(--g-sticky-region-offset, 0); }
+  .g-sticky-region.is-surface { background: var(--g-color-surface); }
+
+  .g-layout-container { container-name: g-layout; container-type: inline-size; }
+
+  @container g-layout (max-width: 39.999rem) {
+    .g-media-object:not([data-g-collapse="false"]) { grid-template: "media" auto "body" auto "action" auto / minmax(0, 1fr); }
+    .g-bento > * { grid-column: 1 / -1; }
+    .g-bento-tall, .g-bento-featured { grid-row: auto; }
+    .g-masonry { columns: 1; }
+  }
+
+  @media (max-width: 39.999rem) {
+    .g-media-object:not([data-g-collapse="false"]) { grid-template: "media" auto "body" auto "action" auto / minmax(0, 1fr); }
+    .g-bento > * { grid-column: 1 / -1; }
+    .g-bento-tall, .g-bento-featured { grid-row: auto; }
+    .g-masonry { columns: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :is(.g-reel, .g-scroll-area, .g-scroll-snap) { scroll-behavior: auto; }
+  }
+
+  @media print {
+    :is(.g-reel, .g-scroll-area, .g-scroll-snap) { display: block; max-block-size: none; overflow: visible; }
+    :is(.g-reel, .g-scroll-snap) > * { break-inside: avoid; margin-block-end: var(--g-space-4); }
+    .g-masonry { columns: 1; }
+    .g-imposter, .g-imposter.is-fixed { position: static; max-inline-size: none; max-block-size: none; transform: none; overflow: visible; }
+    .g-overlay-layout { display: block; }
+    .g-overlay-layout > * { margin-block-end: var(--g-space-4); }
+    .g-overlay-layer { margin: 0; }
+    .g-sticky-region, .g-sticky-region.is-bottom { position: static; }
+  }
+}

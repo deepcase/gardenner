@@ -1,0 +1,519 @@
+<!doctype html>
+<html
+  lang="zh-CN"
+  data-g-theme="garden"
+  data-g-mode="light"
+  data-g-shape="small"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gardener Tip 与帮助系统</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+    <style>
+      body {
+        min-height: 100vh;
+        background: #fff;
+      }
+      .demo-shell {
+        width: min(74rem, calc(100% - 2rem));
+        margin-inline: auto;
+        padding-block: 3rem 8rem;
+      }
+      .demo-section {
+        padding-block: 2rem;
+        border-block-end: 1px solid var(--g-color-border);
+      }
+      .demo-section > h2 {
+        margin-block-end: 1rem;
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+        gap: 1rem;
+      }
+      .demo-floating-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        padding: 3rem 1rem;
+        border: 1px solid var(--g-color-border);
+        background: var(--g-color-surface-subtle);
+      }
+      .demo-panel {
+        min-height: 22rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+        border: 1px solid var(--g-color-border);
+      }
+      .demo-panel-main {
+        padding: 1.5rem;
+      }
+      .demo-discovery {
+        position: relative;
+        min-height: 20rem;
+        padding: 2rem;
+        overflow: hidden;
+        border: 1px solid var(--g-color-border);
+        background: var(--g-color-surface-subtle);
+      }
+      .demo-discovery-targets {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .demo-coach {
+        position: absolute;
+        inset: 6rem auto auto 2rem;
+      }
+      .demo-spotlight {
+        position: absolute;
+        z-index: 1;
+        inset: 2.5rem 2rem auto auto;
+        inline-size: 8rem;
+        block-size: 3.25rem;
+        box-shadow: 0 0 0 9999px rgb(15 23 42 / 0.08);
+      }
+      .demo-hotspot {
+        position: absolute;
+        inset: auto 3rem 3rem auto;
+      }
+      @media (max-width: 44rem) {
+        .demo-panel {
+          grid-template-columns: 1fr;
+        }
+        .demo-coach {
+          position: static;
+          margin-block-start: 4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-shell">
+      <span class="g-badge">Component capability 05</span>
+      <h1 class="g-mt-4">Tip 与帮助系统</h1>
+      <p class="g-text-muted g-mt-2">
+        从一行提示到可执行 Tour、帮助中心与问题闭环的完整能力。
+      </p>
+
+      <section class="demo-section" id="compact-help">
+        <h2>Tip / Hint / Help Text</h2>
+        <div class="demo-grid">
+          <p class="g-tip">快捷提示用于低打扰、高相关的信息。</p>
+          <p class="g-tip is-warning">修改 DNS 后可能需要等待缓存刷新。</p>
+          <p class="g-inline-hint">这里的设置只影响当前空间。</p>
+        </div>
+        <label class="g-label g-mt-4" for="site-name">站点名称</label
+        ><input class="g-input" id="site-name" value="Gardener" /><small
+          class="g-help-text"
+          >建议使用 2–30 个字符，稍后仍可修改。</small
+        >
+      </section>
+
+      <section class="demo-section" id="floating-help">
+        <h2>Tooltip / Rich Tooltip / Popover / Definition</h2>
+        <div class="demo-floating-row">
+          <span data-g-tooltip data-g-placement="top-center"
+            ><button
+              class="g-help-trigger"
+              type="button"
+              data-g-tooltip-trigger
+              aria-label="了解发布状态"
+            >
+              ?</button
+            ><span class="g-tooltip" data-g-tooltip-content hidden
+              >发布后访客即可看到更改</span
+            ></span
+          >
+          <span data-g-tooltip data-g-placement="bottom-start"
+            ><button
+              class="g-btn g-btn-outline"
+              type="button"
+              data-g-tooltip-trigger
+            >
+              富提示</button
+            ><span class="g-tooltip-rich" data-g-tooltip-content hidden
+              ><strong class="g-tooltip-title">版本快照</strong
+              ><span class="g-tooltip-description"
+                >保存内容、资源引用和主题配置，可随时恢复。</span
+              ></span
+            ></span
+          >
+          <span data-g-popover data-g-placement="bottom-end"
+            ><button
+              class="g-btn g-btn-outline"
+              type="button"
+              data-g-popover-trigger
+            >
+              为什么需要验证？
+            </button>
+            <section class="g-help-popover" data-g-popover-content hidden>
+              <header class="g-help-popover-header">
+                <strong class="g-help-popover-title">域名所有权</strong>
+              </header>
+              <div class="g-help-popover-body">
+                验证可防止他人错误绑定你的域名，不会读取 DNS 之外的数据。
+              </div>
+              <footer class="g-help-popover-actions">
+                <a class="g-btn g-btn-link g-btn-sm" href="#help-center"
+                  >查看指南</a
+                >
+              </footer>
+            </section></span
+          >
+          <span
+            >使用
+            <span class="g-definition" tabindex="0">增量发布</span>
+            只部署已变化的资源。</span
+          >
+        </div>
+      </section>
+
+      <section class="demo-section" id="guidance">
+        <h2>Callout / Note / Do &amp; Don't / Shortcuts</h2>
+        <div class="demo-grid">
+          <aside class="g-callout is-info">
+            <span class="g-callout-icon">i</span>
+            <div class="g-callout-content">
+              <strong class="g-callout-title">部署提示</strong>
+              <p>生产环境建议启用版本锁定。</p>
+            </div>
+          </aside>
+          <aside class="g-callout is-danger">
+            <span class="g-callout-icon">!</span>
+            <div class="g-callout-content">
+              <strong class="g-callout-title">不可撤销</strong>
+              <p>删除空间会同时移除未导出的草稿。</p>
+            </div>
+          </aside>
+          <aside class="g-note">
+            <span class="g-note-label">NOTE</span>
+            <div class="g-note-content">
+              <strong class="g-note-title">兼容说明</strong>
+              <p>旧链接会自动重定向 30 天。</p>
+            </div>
+          </aside>
+        </div>
+        <div class="g-guidance-pair g-mt-4">
+          <article class="g-guidance-do">
+            <span class="g-guidance-label">Do</span>
+            <p class="g-mt-2">用明确、可执行的句子说明恢复方法。</p>
+          </article>
+          <article class="g-guidance-dont">
+            <span class="g-guidance-label">Don't</span>
+            <p class="g-mt-2">只显示“发生未知错误”而不给下一步。</p>
+          </article>
+        </div>
+        <ul class="g-shortcut-list g-mt-4">
+          <li class="g-shortcut-item">
+            <span>打开命令面板</span
+            ><span class="g-shortcut-keys"
+              ><kbd class="g-key-hint">Ctrl</kbd><span>+</span
+              ><kbd class="g-key-hint">K</kbd></span
+            >
+          </li>
+          <li class="g-shortcut-item">
+            <span>关闭浮层</span
+            ><span class="g-shortcut-keys"
+              ><kbd class="g-key-hint">Esc</kbd></span
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section class="demo-section" id="help-center">
+        <h2>Help Center / Topics / Cards</h2>
+        <section class="g-help-center">
+          <header class="g-help-center-header">
+            <h3 class="g-help-center-title">有什么可以帮你？</h3>
+            <p class="g-help-center-description">
+              搜索产品文档、操作指南和常见问题。
+            </p>
+          </header>
+          <div class="g-help-search">
+            <span class="g-help-search-icon" aria-hidden="true">⌕</span
+            ><label class="g-sr-only" for="help-search">搜索帮助</label
+            ><input
+              class="g-input"
+              id="help-search"
+              type="search"
+              placeholder="搜索：发布、成员、域名…"
+            />
+          </div>
+          <nav class="g-help-topics" aria-label="帮助主题">
+            <a class="g-help-topic" href="#faq"
+              ><strong class="g-help-topic-title">开始使用</strong
+              ><span class="g-help-topic-meta">12 篇指南</span></a
+            ><a class="g-help-topic" href="#faq"
+              ><strong class="g-help-topic-title">内容与发布</strong
+              ><span class="g-help-topic-meta">28 篇指南</span></a
+            ><a class="g-help-topic" href="#faq"
+              ><strong class="g-help-topic-title">账号与权限</strong
+              ><span class="g-help-topic-meta">16 篇指南</span></a
+            >
+          </nav>
+        </section>
+        <div class="demo-grid g-mt-4">
+          <article class="g-help-card">
+            <span class="g-help-card-icon">01</span
+            ><strong class="g-help-card-title">五分钟快速开始</strong>
+            <p class="g-help-card-description">从创建空间到第一次发布。</p>
+            <div class="g-help-card-actions">
+              <a class="g-btn g-btn-outline g-btn-sm" href="#faq">阅读</a>
+            </div>
+          </article>
+          <article class="g-contextual-help">
+            <span aria-hidden="true">💡</span>
+            <div class="g-contextual-help-content">
+              <strong>当前页面帮助</strong><br />了解环境变量和发布分支。
+            </div>
+            <a class="g-btn g-btn-link g-btn-sm" href="#faq">查看</a>
+          </article>
+        </div>
+      </section>
+
+      <aside class="g-contextual-help g-mb-4" dir="rtl">
+        <span aria-hidden="true">؟</span>
+        <div class="g-contextual-help-content">
+          <strong>مساعدة حسب السياق</strong><br />تتبع المحاذاة اتجاه القراءة
+          تلقائيًا.
+        </div>
+        <button class="g-btn g-btn-outline g-btn-sm" type="button">
+          عرض الدليل
+        </button>
+      </aside>
+      <section class="demo-section" id="panel">
+        <h2>Help Panel / FAQ</h2>
+        <div class="demo-panel">
+          <div class="demo-panel-main">
+            <h3>部署设置</h3>
+            <p class="g-text-muted g-mt-2">
+              主工作区保留上下文，帮助面板可独立滚动。
+            </p>
+          </div>
+          <aside class="g-help-panel">
+            <header class="g-help-panel-header">
+              <strong class="g-help-panel-title">页面帮助</strong
+              ><button
+                class="g-btn g-btn-ghost g-btn-icon g-btn-sm"
+                type="button"
+                aria-label="关闭帮助"
+              >
+                ×
+              </button>
+            </header>
+            <div class="g-help-panel-body">
+              <div class="g-faq" id="faq" data-g-accordion>
+                <section class="g-faq-item">
+                  <button
+                    class="g-faq-question"
+                    type="button"
+                    aria-expanded="true"
+                    aria-controls="faq-a1"
+                  >
+                    如何回滚？
+                  </button>
+                  <div class="g-faq-answer" id="faq-a1">
+                    在版本记录中选择快照，然后点击恢复。
+                  </div>
+                </section>
+                <section class="g-faq-item">
+                  <button
+                    class="g-faq-question"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="faq-a2"
+                  >
+                    会影响线上访问吗？
+                  </button>
+                  <div class="g-faq-answer" id="faq-a2" hidden>
+                    回滚使用原子切换，不会产生中间状态。
+                  </div>
+                </section>
+              </div>
+            </div>
+            <footer class="g-help-panel-footer">
+              <a href="#feedback">仍然需要帮助？</a>
+            </footer>
+          </aside>
+        </div>
+      </section>
+
+      <section class="demo-section" id="discovery">
+        <h2>Coach Mark / Tour / Spotlight / Hotspot</h2>
+        <div class="demo-discovery">
+          <div class="demo-discovery-targets">
+            <button class="g-btn g-btn-primary" id="tour-publish" type="button">
+              发布</button
+            ><button
+              class="g-btn g-btn-outline"
+              id="tour-preview"
+              type="button"
+            >
+              设备预览
+            </button>
+          </div>
+          <article class="g-coach-mark demo-coach">
+            <strong class="g-coach-mark-title">先预览，再发布</strong>
+            <p class="g-coach-mark-description">
+              切换桌面、平板和手机宽度检查内容。
+            </p>
+            <div class="g-coach-mark-actions">
+              <button class="g-btn g-btn-primary g-btn-sm" type="button">
+                知道了
+              </button>
+            </div>
+          </article>
+          <span class="g-spotlight demo-spotlight" aria-hidden="true"></span
+          ><span class="g-hotspot demo-hotspot"
+            ><span class="g-hotspot-label">这里有新功能</span></span
+          >
+        </div>
+        <button
+          class="g-btn g-btn-outline g-mt-4"
+          type="button"
+          data-g-tour-open="product-tour"
+        >
+          启动两步引导
+        </button>
+        <div
+          class="g-tour"
+          id="product-tour"
+          data-g-tour
+          data-g-placement="bottom-center"
+          hidden
+        >
+          <header class="g-tour-header">
+            <span class="g-tour-progress" data-g-tour-progress>1 / 2</span
+            ><button
+              class="g-btn g-btn-ghost g-btn-icon g-btn-sm"
+              type="button"
+              data-g-tour-close
+              aria-label="关闭引导"
+            >
+              ×
+            </button>
+          </header>
+          <section class="g-tour-step" data-g-target="#tour-publish">
+            <h3 class="g-tour-title">一键发布</h3>
+            <p class="g-tour-description">
+              通过预检后，将当前版本发布到生产环境。
+            </p>
+          </section>
+          <section
+            class="g-tour-step"
+            data-g-target="#tour-preview"
+            data-g-placement="bottom-end"
+            hidden
+          >
+            <h3 class="g-tour-title">跨端预览</h3>
+            <p class="g-tour-description">
+              发布前检查 PC、移动端和桌面 WebView。
+            </p>
+          </section>
+          <footer class="g-tour-actions">
+            <button
+              class="g-btn g-btn-ghost g-btn-sm"
+              type="button"
+              data-g-tour-skip
+            >
+              跳过</button
+            ><button
+              class="g-btn g-btn-outline g-btn-sm"
+              type="button"
+              data-g-tour-prev
+            >
+              上一步</button
+            ><button
+              class="g-btn g-btn-primary g-btn-sm"
+              type="button"
+              data-g-tour-next
+              data-g-next-label="下一步"
+              data-g-finish-label="完成"
+            >
+              下一步
+            </button>
+          </footer>
+        </div>
+      </section>
+
+      <section class="demo-section" id="ongoing-help">
+        <h2>Feature Hint / What's New / Checklist</h2>
+        <aside class="g-feature-hint">
+          <span class="g-feature-hint-badge">New</span>
+          <div>
+            <strong class="g-feature-hint-title">批量生成移动页面</strong>
+            <p class="g-feature-hint-description">
+              复用现有数据结构，一次生成多个分类页。
+            </p>
+          </div>
+          <button class="g-btn g-btn-ghost g-btn-sm" type="button">试用</button>
+        </aside>
+        <div class="demo-grid g-mt-4">
+          <div class="g-whats-new">
+            <article class="g-whats-new-item">
+              <span class="g-whats-new-marker">05</span>
+              <div>
+                <strong class="g-whats-new-title">帮助系统上线</strong>
+                <p class="g-whats-new-description">
+                  新增 28 种提示、引导和支持组件。
+                </p>
+              </div>
+            </article>
+          </div>
+          <ul class="g-help-checklist">
+            <li class="g-help-checklist-item is-complete">
+              <span class="g-help-checklist-marker">✓</span
+              ><span>创建第一个空间</span>
+            </li>
+            <li class="g-help-checklist-item">
+              <span class="g-help-checklist-marker">2</span
+              ><span>邀请团队成员</span>
+            </li>
+            <li class="g-help-checklist-item">
+              <span class="g-help-checklist-marker">3</span
+              ><span>发布第一个页面</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="demo-section" id="feedback">
+        <h2>Troubleshooting / Feedback</h2>
+        <ol class="g-troubleshooting">
+          <li class="g-troubleshooting-step">
+            <span class="g-troubleshooting-number">1</span>
+            <div>
+              <strong class="g-troubleshooting-title">检查连接</strong>
+              <p class="g-troubleshooting-description">
+                确认当前设备可以访问网络。
+              </p>
+            </div>
+          </li>
+          <li class="g-troubleshooting-step">
+            <span class="g-troubleshooting-number">2</span>
+            <div>
+              <strong class="g-troubleshooting-title">重新同步</strong>
+              <p class="g-troubleshooting-description">
+                在状态栏选择“立即重试”。
+              </p>
+            </div>
+          </li>
+        </ol>
+        <div class="g-help-feedback">
+          <span>这篇内容有帮助吗？</span>
+          <div class="g-help-feedback-actions">
+            <button class="g-btn g-btn-outline g-btn-sm" type="button">
+              有帮助</button
+            ><button class="g-btn g-btn-outline g-btn-sm" type="button">
+              没有
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../dist/gardener.runtime.js"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.dev/schema/react/public-api-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "version", "status", "cssVersion", "react", "components", "behaviors", "componentExports", "moduleExports", "typeExports", "packageEntrypoints", "hooks", "componentProps", "componentHandleMembers", "themeAxes", "provider"],
+  "properties": {
+    "$schema": { "const": "./public-api.schema.json" },
+    "schemaVersion": { "const": 1 },
+    "version": { "const": "1.0.0" },
+    "status": { "const": "stable" },
+    "cssVersion": { "const": "1.0.0" },
+    "react": { "type": "string", "minLength": 1 },
+    "components": { "const": 506 },
+    "behaviors": { "const": 66 },
+    "componentExports": { "type": "array", "minItems": 506, "maxItems": 506, "uniqueItems": true, "items": { "type": "string", "pattern": "^G[A-Z][A-Za-z0-9]*$" } },
+    "moduleExports": { "type": "array", "minItems": 538, "maxItems": 538, "uniqueItems": true, "items": { "type": "string" } },
+    "typeExports": { "type": "array", "minItems": 22, "maxItems": 22, "uniqueItems": true, "items": { "type": "string" } },
+    "packageEntrypoints": { "type": "array", "minItems": 29, "maxItems": 29, "uniqueItems": true, "items": { "type": "string", "pattern": "^\\." } },
+    "hooks": { "type": "array", "minItems": 7, "maxItems": 7, "uniqueItems": true, "items": { "type": "string", "pattern": "^use[A-Z]" } },
+    "componentProps": { "type": "array", "minItems": 10, "maxItems": 10, "uniqueItems": true, "items": { "type": "string" } },
+    "componentHandleMembers": { "type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true, "items": { "type": "string" } },
+    "themeAxes": { "type": "array", "minItems": 10, "maxItems": 10, "uniqueItems": true, "items": { "type": "string" } },
+    "provider": { "const": "GardenerProvider" }
+  }
+}

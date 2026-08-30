@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Gardener AI 产品与智能交互组件</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+  </head>
+  <body>
+    <main class="g-container g-py-8">
+      <header class="g-page-header">
+        <div class="g-page-header-main">
+          <span class="g-badge">第 15 类</span>
+          <h1 class="g-page-header-title">AI 产品与智能交互组件</h1>
+          <p class="g-text-muted">
+            32
+            种对话、推理、工具、Agent、Artifact、上下文、成本、安全与评估模式。
+          </p>
+        </div>
+      </header>
+
+      <section
+        class="g-ai-shell is-contained g-mt-6"
+        aria-label="AI 工作区示例"
+      >
+        <aside class="g-ai-sidebar">
+          <header class="g-ai-sidebar-header">
+            <strong>对话</strong
+            ><button class="g-btn g-btn-primary g-btn-sm" type="button">
+              新建
+            </button>
+          </header>
+          <nav class="g-conversation-list" aria-label="最近对话">
+            <a class="g-conversation-item" href="#ai-system" aria-current="page"
+              ><span>◉</span
+              ><span class="g-conversation-title">企业知识库规划</span></a
+            ><a class="g-conversation-item" href="#ai-system"
+              ><span>○</span
+              ><span class="g-conversation-title">CMS 页面生成</span></a
+            >
+          </nav>
+          <footer class="g-ai-sidebar-footer">
+            <div class="g-privacy-notice">
+              <span>⌾</span><span>对话依据企业数据策略存储。</span>
+            </div>
+          </footer>
+        </aside>
+        <section class="g-ai-main">
+          <header class="g-ai-header">
+            <div class="g-model-selector" data-g-dropdown>
+              <button
+                class="g-model-selector-trigger"
+                type="button"
+                data-g-dropdown-trigger
+              >
+                Gardener Reasoner ▾
+              </button>
+              <div class="g-model-selector-menu" data-g-dropdown-menu hidden>
+                <button class="g-model-option" type="button" role="menuitem">
+                  <span>Gardener Reasoner</span><small>复杂任务</small></button
+                ><button class="g-model-option" type="button" role="menuitem">
+                  <span>Gardener Fast</span><small>低延迟</small>
+                </button>
+              </div>
+            </div>
+            <div class="g-context-meter">
+              <span>上下文 38%</span
+              ><span class="g-context-meter-bar"
+                ><i
+                  class="g-context-meter-value"
+                  style="--g-context-value: 38%"
+                ></i
+              ></span>
+            </div>
+          </header>
+          <div class="g-chat">
+            <div class="g-chat-list">
+              <article class="g-message g-message-user">
+                <div class="g-message-content">
+                  <div class="g-message-body">
+                    为超级 CMS 规划一套可复用的企业门户。
+                  </div>
+                </div>
+              </article>
+              <article class="g-message">
+                <span class="g-message-avatar">G</span>
+                <div class="g-message-content">
+                  <div class="g-message-meta">
+                    <strong class="g-message-author">Gardener Agent</strong
+                    ><span>正在工作</span>
+                  </div>
+                  <div class="g-message-body">
+                    <p>我会先检查页面配方和现有组件，再组织工作区。</p>
+                    <section class="g-thinking" data-g-accordion>
+                      <button
+                        class="g-thinking-trigger"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="example-thinking"
+                      >
+                        查看推理摘要
+                      </button>
+                      <div
+                        class="g-thinking-content"
+                        id="example-thinking"
+                        hidden
+                      >
+                        目标包含多租户、内容流程、媒体资源和桌面客户端，需要优先复用
+                        CMS 与桌面工作区配方。
+                      </div>
+                    </section>
+                    <section class="g-streaming-response">
+                      <header class="g-streaming-response-header">
+                        <span>实时生成</span><span>186 tokens</span>
+                      </header>
+                      <div class="g-streaming-response-body g-stream-cursor">
+                        正在整理信息架构、权限边界与页面模板
+                      </div>
+                      <div class="g-streaming-response-actions">
+                        <button
+                          class="g-btn g-btn-outline g-btn-sm"
+                          type="button"
+                        >
+                          停止
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+                  <section class="g-tool-call is-running" data-g-accordion>
+                    <button
+                      class="g-tool-call-header g-w-full g-border-0"
+                      type="button"
+                      data-g-tool-call-toggle
+                      aria-expanded="true"
+                      aria-controls="example-tool"
+                    >
+                      <strong class="g-tool-call-name"
+                        >search_component_manifest</strong
+                      ><span class="g-tool-call-status">运行中</span>
+                    </button>
+                    <div class="g-tool-call-progress">
+                      <span style="--g-tool-progress: 68%"></span>
+                    </div>
+                    <div class="g-tool-call-body" id="example-tool">
+                      查询 dashboard、tenant、workflow、media-library。
+                    </div>
+                  </section>
+                  <section class="g-approval" data-g-ai-approval>
+                    <div class="g-approval-title">需要批准文件写入</div>
+                    <p class="g-approval-description">
+                      Agent 将在当前项目创建页面模板，不访问项目外文件。
+                    </p>
+                    <div class="g-approval-scope">
+                      <span>范围：D:\develop\Gardener\generated</span
+                      ><span>操作：create / update</span>
+                    </div>
+                    <div class="g-approval-actions">
+                      <button
+                        class="g-btn g-btn-primary"
+                        type="button"
+                        data-g-approval-choice="approved"
+                      >
+                        允许一次</button
+                      ><button
+                        class="g-btn g-btn-outline"
+                        type="button"
+                        data-g-approval-choice="rejected"
+                      >
+                        拒绝
+                      </button>
+                    </div>
+                  </section>
+                  <div class="g-message-actions">
+                    <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                      复制</button
+                    ><span class="g-message-branch">1 / 1</span>
+                  </div>
+                </div>
+              </article>
+              <section class="g-sources">
+                <strong>来源</strong>
+                <ol class="g-source-list">
+                  <li>
+                    <a class="g-source" href="#ai-system"
+                      ><span>1</span><span>Gardener 组件 Manifest</span
+                      ><span>JSON</span></a
+                    >
+                  </li>
+                </ol>
+              </section>
+            </div>
+          </div>
+          <div class="g-composer-wrap">
+            <form class="g-composer" data-g-ai-composer>
+              <div class="g-attachment-list">
+                <div class="g-attachment">
+                  <span class="g-attachment-preview"></span
+                  ><span
+                    ><strong class="g-attachment-name">requirements.pdf</strong
+                    ><small class="g-attachment-meta g-block"
+                      >1.8 MB</small
+                    ></span
+                  ><button
+                    class="g-btn g-btn-ghost g-btn-sm"
+                    type="button"
+                    data-g-attachment-remove
+                    aria-label="移除附件"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+              <label class="g-sr-only" for="example-composer-input"
+                >发送消息</label
+              ><textarea
+                class="g-composer-input"
+                id="example-composer-input"
+                data-g-composer-input
+                placeholder="给 Gardener Agent 发送消息"
+              ></textarea>
+              <div class="g-composer-toolbar">
+                <div class="g-composer-tools">
+                  <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                    ＋ 文件
+                  </button>
+                </div>
+                <div class="g-composer-actions">
+                  <button
+                    class="g-btn g-btn-outline g-btn-sm"
+                    type="button"
+                    data-g-composer-stop
+                    hidden
+                  >
+                    停止</button
+                  ><button
+                    class="g-btn g-btn-primary g-btn-sm"
+                    type="button"
+                    data-g-composer-send
+                  >
+                    发送
+                  </button>
+                </div>
+              </div>
+              <div class="g-composer-status" data-g-composer-status></div>
+            </form>
+          </div>
+        </section>
+      </section>
+
+      <section class="g-section g-mt-10" id="ai-system">
+        <header class="g-section-header">
+          <div class="g-section-header-main">
+            <h2>提示、命令与编排</h2>
+            <p class="g-text-muted">从首次提问到多 Agent 分工均有成品结构。</p>
+          </div>
+        </header>
+        <div class="g-grid g-grid-cols-1 g-lg-grid-cols-2 g-gap-4">
+          <div>
+            <section
+              class="g-prompt-starter"
+              data-g-prompt-fill
+              data-g-prompt-target="example-composer-input"
+            >
+              <header class="g-prompt-starter-header">
+                <h3>从一个任务开始</h3>
+                <p class="g-text-sm g-text-muted g-m-0">
+                  选择后会填入上方 Composer。
+                </p>
+              </header>
+              <div class="g-prompt-suggestions">
+                <button
+                  class="g-prompt-suggestion"
+                  type="button"
+                  data-g-prompt-value="创建一个企业仪表盘"
+                >
+                  <strong>企业仪表盘</strong
+                  ><small>KPI、图表与数据表</small></button
+                ><button
+                  class="g-prompt-suggestion"
+                  type="button"
+                  data-g-prompt-value="规划多租户 CMS"
+                >
+                  <strong>多租户 CMS</strong><small>内容、权限与工作流</small>
+                </button>
+              </div>
+            </section>
+            <div
+              class="g-prompt-library g-mt-4"
+              data-g-prompt-fill
+              data-g-prompt-target="example-composer-input"
+            >
+              <button
+                class="g-prompt-card"
+                type="button"
+                data-g-prompt-value="审查这个页面的无障碍问题"
+              >
+                <strong>无障碍审查</strong>
+                <p class="g-text-sm g-text-muted g-m-0">
+                  键盘、名称、对比度与状态。
+                </p>
+              </button>
+            </div>
+          </div>
+          <div>
+            <div
+              class="g-ai-command-menu"
+              data-g-roving-nav
+              data-g-orientation="vertical"
+              role="menu"
+              aria-label="Slash 命令"
+            >
+              <div class="g-ai-command-group">
+                <div class="g-ai-command-label">命令</div>
+                <button class="g-ai-command-item" type="button" role="menuitem">
+                  <span class="g-slash-command">/search</span
+                  ><span>搜索知识库</span><kbd>Enter</kbd></button
+                ><button
+                  class="g-ai-command-item"
+                  type="button"
+                  role="menuitem"
+                >
+                  <span class="g-mention">@designer</span
+                  ><span>提及设计 Agent</span><kbd>Enter</kbd>
+                </button>
+              </div>
+            </div>
+            <div class="g-agent-board g-mt-4">
+              <article class="g-agent-card">
+                <header class="g-agent-card-header">
+                  <span class="g-message-avatar">R</span>
+                  <div class="g-agent-card-main">
+                    <strong>Researcher</strong
+                    ><small class="g-block g-text-muted">Working</small>
+                  </div>
+                </header>
+                <p class="g-agent-card-task">整理企业门户常见模块。</p>
+                <div class="g-agent-status">
+                  <span class="g-spinner"></span>
+                  <div class="g-agent-status-main">
+                    <strong class="g-agent-status-title">正在检索</strong
+                    ><small class="g-agent-status-detail g-block"
+                      >8 / 12 来源</small
+                    >
+                  </div>
+                </div>
+              </article>
+              <article class="g-agent-card">
+                <header class="g-agent-card-header">
+                  <span class="g-message-avatar">D</span>
+                  <div class="g-agent-card-main">
+                    <strong>Designer</strong
+                    ><small class="g-block g-text-muted">Waiting</small>
+                  </div>
+                </header>
+                <section class="g-plan">
+                  <header class="g-plan-header">
+                    <strong>执行计划</strong><span>2 / 3</span>
+                  </header>
+                  <ol class="g-plan-list">
+                    <li class="g-plan-item is-complete">
+                      <span>✓</span><span>建立结构</span>
+                    </li>
+                    <li class="g-plan-item is-active">
+                      <span>2</span><span>生成组件</span>
+                    </li>
+                    <li class="g-plan-item">
+                      <span>3</span><span>视觉检查</span>
+                    </li>
+                  </ol>
+                </section>
+              </article>
+            </div>
+            <div class="g-agent-handoff g-mt-4">
+              <span>⇄</span>
+              <div class="g-agent-handoff-main">
+                <strong>Researcher → Designer</strong
+                ><small class="g-block">已附带需求摘要与8个来源</small>
+              </div>
+              <div class="g-agent-handoff-actions">
+                <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                  查看
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="g-section g-mt-8">
+        <header class="g-section-header">
+          <div class="g-section-header-main"><h2>Artifact 与生成结果</h2></div>
+        </header>
+        <div class="g-artifact-layout g-border g-rounded-sm">
+          <div class="g-p-4">
+            <div class="g-file-tree" data-g-tree aria-label="Artifact 文件">
+              <div
+                class="g-file-tree-item"
+                role="treeitem"
+                aria-expanded="true"
+              >
+                ⌄ src
+                <div role="group">
+                  <div
+                    class="g-file-tree-item"
+                    role="treeitem"
+                    aria-selected="true"
+                  >
+                    index.html
+                  </div>
+                  <div class="g-file-tree-item" role="treeitem">theme.css</div>
+                </div>
+              </div>
+            </div>
+            <div class="g-version-list g-mt-4">
+              <article class="g-version">
+                <span>●</span>
+                <div>
+                  <strong>v3 当前版本</strong
+                  ><small class="g-block g-text-muted">Agent · 刚刚</small>
+                </div>
+                <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  比较
+                </button>
+              </article>
+            </div>
+          </div>
+          <aside class="g-artifact-panel" data-g-tabs>
+            <header class="g-artifact-toolbar">
+              <div class="g-artifact-tabs" role="tablist">
+                <button
+                  class="g-artifact-tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="artifact-preview"
+                >
+                  预览</button
+                ><button
+                  class="g-artifact-tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="artifact-code"
+                >
+                  代码
+                </button>
+              </div>
+              <span class="g-artifact-status">✓ 已同步</span>
+            </header>
+            <div class="g-artifact-content">
+              <div id="artifact-preview" role="tabpanel" class="g-p-5">
+                <h3>企业门户预览</h3>
+                <p>Artifact 内容区。</p>
+              </div>
+              <div id="artifact-code" role="tabpanel" class="g-p-5" hidden>
+                <code>&lt;main class="g-app-shell"&gt;</code>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="g-generation-grid g-mt-4">
+          <article class="g-generation-card is-generating">
+            <div class="g-generation-placeholder">
+              <span class="g-spinner"></span><strong>正在生成首页变体</strong>
+            </div>
+          </article>
+          <article class="g-generation-card">
+            <div class="g-p-5">
+              <strong>企业蓝变体</strong>
+              <p class="g-text-sm g-text-muted">
+                生成完成，可进入 Artifact 编辑。
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="g-section g-mt-8">
+        <header class="g-section-header">
+          <div class="g-section-header-main">
+            <h2>上下文、成本、权限与安全</h2>
+          </div>
+        </header>
+        <div class="g-grid g-grid-cols-1 g-lg-grid-cols-2 g-gap-4">
+          <article class="g-ai-context-manager">
+            <header class="g-ai-context-header">
+              <strong>上下文与记忆</strong
+              ><span class="g-context-meter">38%</span>
+            </header>
+            <div class="g-ai-memory-list">
+              <div class="g-ai-memory-item">
+                <span>◇</span>
+                <div class="g-ai-memory-main">
+                  <strong>品牌偏好</strong
+                  ><small class="g-block g-text-muted"
+                    >白色背景、小圆角、低阴影</small
+                  >
+                </div>
+                <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  移除
+                </button>
+              </div>
+            </div>
+            <div class="g-ai-context-sources">
+              <span class="g-badge">当前页面</span
+              ><span class="g-badge">组件清单</span>
+            </div>
+          </article>
+          <article class="g-ai-usage-panel">
+            <header class="g-ai-usage-header">
+              <strong>本次用量</strong><span class="g-cost">¥0.18</span>
+            </header>
+            <div class="g-ai-usage-grid">
+              <div class="g-ai-usage-metric">
+                <strong>18.4K</strong><span>输入 Token</span>
+              </div>
+              <div class="g-ai-usage-metric">
+                <strong>2.1K</strong><span>输出 Token</span>
+              </div>
+              <div class="g-ai-usage-metric">
+                <strong>42s</strong><span>运行时间</span>
+              </div>
+            </div>
+            <div class="g-ai-limit-status">本日额度剩余 72%</div>
+            <div class="g-limit">速率：18 / 60 RPM</div>
+          </article>
+          <article class="g-permission-scope">
+            <header class="g-permission-scope-header">
+              <strong>Agent 权限范围</strong
+              ><span class="g-badge">本次会话</span>
+            </header>
+            <ul class="g-permission-scope-list">
+              <li>✓ 读取当前项目</li>
+              <li>✓ 修改 generated 目录</li>
+              <li>× 访问项目外文件</li>
+            </ul>
+          </article>
+          <div>
+            <div class="g-ai-safety-notice">
+              <span class="g-ai-safety-icon">!</span>
+              <div class="g-ai-safety-main">
+                <strong>需要人工复核</strong>
+                <p class="g-text-sm g-m-0">
+                  生成内容涉及对外发布，提交前请检查事实和权限。
+                </p>
+                <div class="g-ai-safety-actions">
+                  <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                    查看规则
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="g-privacy-notice g-mt-3">
+              <span>⌾</span
+              ><span>附件只用于当前会话，不用于公共模型训练。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="g-section g-mt-8">
+        <div class="g-grid g-grid-cols-1 g-lg-grid-cols-2 g-gap-4">
+          <div class="g-voice-state is-listening" aria-label="正在聆听">
+            <i class="g-voice-bar" style="--g-voice-level: 24%"></i
+            ><i class="g-voice-bar" style="--g-voice-level: 68%"></i
+            ><i class="g-voice-bar" style="--g-voice-level: 42%"></i
+            ><i class="g-voice-bar" style="--g-voice-level: 82%"></i
+            ><span class="g-voice-state-label">正在聆听 · 00:08</span>
+          </div>
+          <form class="g-ai-feedback" data-g-ai-feedback>
+            <strong class="g-ai-feedback-question">这次回答是否有帮助？</strong>
+            <div class="g-ai-feedback-options">
+              <button
+                class="g-ai-feedback-option"
+                type="button"
+                data-g-feedback-value="helpful"
+                aria-pressed="false"
+              >
+                有帮助</button
+              ><button
+                class="g-ai-feedback-option"
+                type="button"
+                data-g-feedback-value="incorrect"
+                aria-pressed="false"
+              >
+                有错误</button
+              ><button
+                class="g-ai-feedback-option"
+                type="button"
+                data-g-feedback-value="unsafe"
+                aria-pressed="false"
+              >
+                不安全
+              </button>
+            </div>
+            <div class="g-ai-feedback-detail" data-g-feedback-detail hidden>
+              <label class="g-label" for="ai-feedback-comment">补充说明</label
+              ><textarea
+                class="g-textarea"
+                id="ai-feedback-comment"
+                data-g-feedback-comment
+              ></textarea
+              ><button
+                class="g-btn g-btn-primary g-btn-sm g-mt-2"
+                type="button"
+                data-g-feedback-submit
+              >
+                提交反馈
+              </button>
+            </div>
+            <input type="hidden" data-g-feedback-output />
+          </form>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../dist/gardener.runtime.js"></script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light" data-g-shape="small">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gardener 传统区域布局</title>
+  <link rel="stylesheet" href="../dist/gardener.css">
+  <style>
+    body { background: #fff; }
+    .demo-page { padding-block: 2rem 5rem; }
+    .demo-section { margin-block-start: 2.5rem; }
+    .demo-layout { --g-region-min-block-size: 18rem; overflow: hidden; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); }
+    .demo-layout > *, .demo-panel { padding: .8rem; border: 1px solid var(--g-color-border); background: var(--g-color-surface); }
+    .demo-layout :is(.g-region-main, .g-detail, .g-dock-main, .g-workspace-main, .g-mobile-layout-content) { background: var(--g-color-primary-soft); }
+    .demo-label { color: var(--g-color-primary-text); font: 650 .72rem/1.35 var(--g-font-mono); }
+    .demo-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .demo-pair .g-region-inline { --g-region-start-size: 7rem; --g-region-end-size: 7rem; }
+    .demo-cq-small { inline-size: min(100%, 40rem); }
+    .demo-cq-large { inline-size: min(100%, 60rem); }
+    .demo-scroll { min-block-size: 12rem; }
+    .demo-split { block-size: 14rem; border: 1px solid var(--g-color-border); }
+    .demo-split > .g-split-panel { padding: 1rem; }
+    @media (max-width: 48rem) { .demo-pair { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="g-container demo-page">
+    <header><span class="g-badge">Layout capability 02</span><h1 class="g-text-4xl g-mt-4">传统区域布局系统</h1><p class="g-text-muted g-mt-3">Web、移动端、Dashboard、Tauri 与 Electron 可直接复用的区域壳。</p></header>
+
+    <section class="demo-section" id="five-region"><h2>五区域 / Holy Grail</h2><div class="g-region-frame demo-layout g-mt-4" id="region-frame"><header class="g-region-top demo-label">Top</header><aside class="g-region-start demo-label">Start</aside><main class="g-region-main demo-label">Main</main><aside class="g-region-end demo-label">End</aside><footer class="g-region-bottom demo-label">Bottom</footer></div></section>
+
+    <section class="demo-section" id="logical-regions"><h2>逻辑方向与 RTL</h2><div class="demo-pair g-mt-4"><div class="g-region-inline demo-layout" id="region-ltr"><aside class="g-region-start demo-label">LTR start</aside><main class="g-region-main demo-label">Main</main><aside class="g-region-end demo-label">end</aside></div><div class="g-region-inline demo-layout" id="region-rtl" dir="rtl"><aside class="g-region-start demo-label">RTL start</aside><main class="g-region-main demo-label">Main</main><aside class="g-region-end demo-label">end</aside></div></div></section>
+
+    <section class="demo-section" id="content-layouts"><h2>Master / Detail 与检查器</h2><div class="g-master-detail demo-layout g-mt-4" id="master-detail"><aside class="g-master demo-label">Master</aside><main class="g-detail demo-label">Detail</main></div><div class="g-list-detail-inspector demo-layout g-mt-4" id="list-detail-inspector"><aside class="g-region-list demo-label">List</aside><main class="g-detail demo-label">Detail</main><aside class="g-region-inspector demo-label">Inspector</aside></div></section>
+
+    <section class="demo-section" id="fixed-layouts"><h2>固定与粘性区域</h2><div class="demo-pair g-mt-4"><div class="g-fixed-header-layout is-contained demo-layout"><header class="g-fixed-header-bar demo-panel demo-label">Fixed header</header><main class="g-fixed-header-main demo-panel">Scrollable content</main></div><div class="g-fixed-sidebar-layout is-contained demo-layout"><aside class="g-fixed-sidebar demo-label">Fixed sidebar</aside><main class="g-fixed-sidebar-main demo-panel">Main content</main></div></div><div class="g-sticky-aside-layout demo-layout g-mt-4"><main class="demo-panel demo-scroll">Long content</main><aside class="g-sticky-aside demo-panel demo-label">Sticky aside</aside></div><div class="g-sticky-footer-layout demo-layout g-mt-4"><header class="g-region-top demo-label">Header</header><main class="g-region-main demo-label">Short content</main><footer class="g-region-bottom demo-label">Sticky footer structure</footer></div></section>
+
+    <section class="demo-section" id="dock-layout"><h2>Dock 桌面工作台</h2><div class="g-dock-layout is-contained demo-layout g-mt-4" id="dock"><header class="g-dock-top demo-label">Toolbar</header><aside class="g-dock-start demo-label">Explorer</aside><main class="g-dock-main demo-label">Workspace</main><aside class="g-dock-end demo-label">Inspector</aside><footer class="g-dock-bottom demo-label">Status</footer></div></section>
+
+    <section class="demo-section" id="split-layout"><h2>可调 Split View</h2><div class="g-split-view demo-split g-mt-4" data-g-split-pane data-g-min="120"><section class="g-split-panel g-split-view-primary"><span class="demo-label">Primary</span></section><div class="g-split-handle" role="separator" aria-label="调整两侧面板宽度"></div><section class="g-split-panel g-split-view-secondary"><span class="demo-label">Secondary</span></section></div></section>
+
+    <section class="demo-section" id="container-regions"><h2>Container Query</h2><div class="g-region-container demo-cq-small g-mt-4"><div class="g-region-frame demo-layout" id="cq-small"><header class="g-region-top demo-label">Top</header><aside class="g-region-start demo-label">Start</aside><main class="g-region-main demo-label">40rem：自动纵向</main><aside class="g-region-end demo-label">End</aside><footer class="g-region-bottom demo-label">Bottom</footer></div></div><div class="g-region-container demo-cq-large g-mt-4"><div class="g-region-frame demo-layout" id="cq-large"><header class="g-region-top demo-label">Top</header><aside class="g-region-start demo-label">Start</aside><main class="g-region-main demo-label">60rem：五区域</main><aside class="g-region-end demo-label">End</aside><footer class="g-region-bottom demo-label">Bottom</footer></div></div></section>
+
+    <section class="demo-section" id="device-layouts"><h2>移动端与全屏工作区</h2><div class="demo-pair g-mt-4"><div class="g-mobile-layout demo-layout"><header class="g-mobile-layout-header demo-panel demo-label">Mobile header</header><main class="g-mobile-layout-content demo-label">Content</main><nav class="g-mobile-layout-bottom demo-panel demo-label" aria-label="移动端主导航">Bottom navigation</nav></div><div class="g-fullscreen-workspace is-contained demo-layout"><header class="g-workspace-toolbar demo-panel demo-label">Workspace toolbar</header><main class="g-workspace-main demo-label">Canvas</main><footer class="g-workspace-status demo-panel demo-label">Status</footer></div></div></section>
+  </main>
+  <script type="module" src="../dist/gardener.runtime.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.style/schema/public-api.schema.json",
+  "title": "Gardener public API contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "contractVersion", "status", "naming", "css", "javascript", "metadata", "build", "compatibility"],
+  "properties": {
+    "$schema": { "enum": ["./public-api.schema.json", "../metadata/public-api.schema.json"] },
+    "schemaVersion": { "const": 1 },
+    "contractVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "status": { "enum": ["preview", "stable", "deprecated"] },
+    "naming": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cssClassPrefix", "cssCustomPropertyPrefix", "dataAttributePrefix", "eventPrefix", "componentNames", "behaviorNames", "recipeIds"],
+      "properties": {
+        "cssClassPrefix": { "const": "g-" },
+        "cssCustomPropertyPrefix": { "const": "--g-" },
+        "dataAttributePrefix": { "const": "data-g-" },
+        "eventPrefix": { "const": "gardener:" },
+        "componentNames": { "const": "kebab-case" },
+        "behaviorNames": { "const": "kebab-case" },
+        "recipeIds": { "const": "dot-separated-kebab-case" }
+      }
+    },
+    "css": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["layers", "entrypoints", "themeAttributes"],
+      "properties": {
+        "layers": { "$ref": "#/$defs/uniqueStrings" },
+        "entrypoints": { "$ref": "#/$defs/uniqueStrings" },
+        "themeAttributes": { "type": "array", "items": { "type": "string", "pattern": "^data-g-[a-z0-9-]+$" }, "uniqueItems": true }
+      }
+    },
+    "javascript": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["moduleExports", "moduleContracts", "gardenerProperties", "behaviorAttributePattern", "behaviors", "behaviorContracts", "events", "eventContracts", "guardEvents", "dataAttributes", "adapters"],
+      "properties": {
+        "moduleExports": { "$ref": "#/$defs/uniqueIdentifiers" },
+        "moduleContracts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "kind", "parameters", "returns", "signature"],
+            "properties": {
+              "name": { "$ref": "#/$defs/jsIdentifier" },
+              "kind": { "enum": ["object", "function"] },
+              "parameters": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+              "returns": { "type": "string", "minLength": 1 },
+              "signature": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "gardenerProperties": { "$ref": "#/$defs/uniqueIdentifiers" },
+        "behaviorAttributePattern": { "const": "data-g-{behavior}" },
+        "behaviors": { "type": "array", "items": { "$ref": "#/$defs/name" }, "minItems": 1, "uniqueItems": true },
+        "behaviorContracts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "attribute", "instanceMembers"],
+            "properties": {
+              "name": { "$ref": "#/$defs/name" },
+              "attribute": { "$ref": "#/$defs/dataAttribute" },
+              "instanceMembers": { "$ref": "#/$defs/uniqueIdentifiers" }
+            }
+          }
+        },
+        "events": { "type": "array", "items": { "$ref": "#/$defs/name" }, "minItems": 1, "uniqueItems": true },
+        "eventContracts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "detailKeys", "guard", "bubbles", "cancelable"],
+            "properties": {
+              "name": { "$ref": "#/$defs/name" },
+              "detailKeys": { "type": "array", "items": { "type": "string", "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$" }, "uniqueItems": true },
+              "guard": { "type": "boolean" },
+              "bubbles": { "const": true },
+              "cancelable": { "const": true }
+            }
+          }
+        },
+        "guardEvents": { "type": "array", "items": { "$ref": "#/$defs/name" }, "minItems": 1, "uniqueItems": true },
+        "dataAttributes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["behaviors", "selectors", "configuration", "managedState"],
+          "properties": {
+            "behaviors": { "type": "array", "items": { "$ref": "#/$defs/dataAttribute" }, "minItems": 1, "uniqueItems": true },
+            "selectors": { "type": "array", "items": { "$ref": "#/$defs/dataAttribute" }, "minItems": 1, "uniqueItems": true },
+            "configuration": { "type": "array", "items": { "$ref": "#/$defs/dataAttribute" }, "uniqueItems": true },
+            "managedState": { "type": "array", "items": { "$ref": "#/$defs/dataAttribute" }, "uniqueItems": true }
+          }
+        },
+        "adapters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "entrypoint", "export", "actions", "instanceMembers"],
+            "properties": {
+              "name": { "enum": ["tauri", "electron"] },
+              "entrypoint": { "type": "string" },
+              "export": { "$ref": "#/$defs/jsIdentifier" },
+              "actions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/name" }, "uniqueItems": true },
+              "instanceMembers": { "$ref": "#/$defs/uniqueIdentifiers" }
+            }
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entrypoints", "schemaEntrypoints"],
+      "properties": { "entrypoints": { "$ref": "#/$defs/uniqueStrings" }, "schemaEntrypoints": { "$ref": "#/$defs/uniqueStrings" } }
+    },
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entrypoints", "scripts", "platformProfiles", "componentPackPattern", "minifier", "compressionMetrics"],
+      "properties": {
+        "entrypoints": { "$ref": "#/$defs/uniqueStrings" },
+        "scripts": { "$ref": "#/$defs/uniqueStrings" },
+        "platformProfiles": { "type": "array", "minItems": 5, "uniqueItems": true, "items": { "enum": ["web", "mobile", "desktop", "tauri", "electron"] } },
+        "componentPackPattern": { "const": "./component/*" },
+        "minifier": { "const": "esbuild" },
+        "compressionMetrics": { "type": "array", "minItems": 3, "uniqueItems": true, "items": { "enum": ["raw", "gzip", "brotli"] } }
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["baselineEntrypoint", "schemaEntrypoint", "minimumDeprecationMinorReleases", "deprecatedFields", "removalPolicy"],
+      "properties": {
+        "baselineEntrypoint": { "const": "./compatibility" },
+        "schemaEntrypoint": { "const": "./schema/compatibility" },
+        "minimumDeprecationMinorReleases": { "type": "integer", "minimum": 2 },
+        "deprecatedFields": { "type": "object", "additionalProperties": { "type": "string", "minLength": 1 } },
+        "removalPolicy": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "$defs": {
+    "name": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$" },
+    "jsIdentifier": { "type": "string", "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$" },
+    "dataAttribute": { "type": "string", "pattern": "^data-g-[a-z][a-z0-9]*(?:-[a-z0-9]+)*$" },
+    "uniqueStrings": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "uniqueIdentifiers": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/jsIdentifier" }, "uniqueItems": true }
+  }
+}

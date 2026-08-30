@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="garden" data-g-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gardener — Selection and Batch Operations</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+    <style>
+      body {
+        background: #fff;
+      }
+      .demo-shell {
+        width: min(1180px, calc(100% - 2rem));
+        margin: auto;
+        padding-block: 2rem 5rem;
+      }
+      .demo-section {
+        margin-block-start: 2rem;
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+        gap: 1rem;
+      }
+      .demo-card {
+        min-width: 0;
+        padding: 1rem;
+        border: 1px solid var(--g-color-border);
+        border-radius: var(--g-radius-md);
+        background: var(--g-color-surface);
+      }
+      .demo-card > h3 {
+        margin-block-end: 0.75rem;
+      }
+      .demo-icon {
+        font-size: 1.2rem;
+      }
+      .demo-media {
+        background: linear-gradient(
+          135deg,
+          var(--g-color-primary-soft),
+          var(--g-color-surface-subtle)
+        );
+      }
+      .demo-progress {
+        height: 0.4rem;
+        overflow: hidden;
+        border-radius: var(--g-radius-sm);
+        background: var(--g-color-surface-subtle);
+      }
+      .demo-progress > i {
+        display: block;
+        width: 62%;
+        height: 100%;
+        background: var(--g-color-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-shell">
+      <header>
+        <span class="g-badge">Category 09</span>
+        <h1 class="g-text-4xl g-mt-4">选择与批量操作组件</h1>
+        <p class="g-text-muted g-mt-3">
+          32 种模式、7 类复用运行时；覆盖超级 CMS、Dashboard、移动端与
+          Tauri/Electron 工作台。
+        </p>
+      </header>
+
+      <section class="demo-section g-selection-container" data-g-row-select>
+        <h2>Selection / Range / Batch Toolbar</h2>
+        <div class="g-selection-scope g-mt-4">
+          <header class="g-selection-scope-header">
+            <strong class="g-selection-scope-title">内容页面</strong>
+            <div class="g-cluster">
+              <label class="g-select-all-control"
+                ><input type="checkbox" data-g-select-all /> 全选</label
+              ><button
+                class="g-btn g-btn-outline g-btn-sm g-invert-selection-control"
+                type="button"
+                data-g-invert-selection
+              >
+                反选</button
+              ><button
+                class="g-btn g-btn-ghost g-btn-sm g-range-selection-control"
+                type="button"
+                data-g-clear-selection
+              >
+                清除
+              </button>
+            </div>
+          </header>
+          <div class="g-selection-control">
+            <span>可选择当前范围</span
+            ><span class="g-selection-control-meta"
+              ><strong data-g-selection-count>0</strong> /
+              <span data-g-selection-total>3</span></span
+            >
+          </div>
+          <div class="g-selection-scope-list">
+            <label class="g-selection-item" data-g-selectable-row
+              ><input type="checkbox" data-g-select-row value="home" /><span
+                class="g-selection-item-content"
+                ><span class="g-selection-item-title">首页</span
+                ><span class="g-selection-item-description"
+                  >企业站点入口</span
+                ></span
+              ><span class="g-selection-item-meta">已发布</span></label
+            >
+            <label class="g-selection-item" data-g-selectable-row
+              ><input type="checkbox" data-g-select-row value="about" /><span
+                class="g-selection-item-content"
+                ><span class="g-selection-item-title">关于我们</span
+                ><span class="g-selection-item-description"
+                  >企业信息与团队</span
+                ></span
+              ><span class="g-selection-item-meta">草稿</span></label
+            >
+            <label class="g-selection-item" data-g-selectable-row
+              ><input type="checkbox" data-g-select-row value="contact" /><span
+                class="g-selection-item-content"
+                ><span class="g-selection-item-title">联系我们</span
+                ><span class="g-selection-item-description"
+                  >表单与地址</span
+                ></span
+              ><span class="g-selection-item-meta">已发布</span></label
+            >
+          </div>
+        </div>
+        <div class="g-selection-summary g-mt-3" data-g-selection-summary hidden>
+          <span class="g-selection-summary-count"
+            >已选择 <strong data-g-selection-count>0</strong> 项</span
+          >
+          <div class="g-selection-summary-actions">
+            <button class="g-btn g-btn-outline g-btn-sm">复制</button>
+          </div>
+        </div>
+        <div class="g-batch-toolbar g-mt-3" data-g-batch-toolbar hidden>
+          <span class="g-batch-toolbar-summary"
+            >已选择 <strong data-g-selection-count>0</strong> 项</span
+          >
+          <div class="g-batch-toolbar-actions">
+            <button class="g-btn g-btn-outline g-btn-sm">移动</button
+            ><button class="g-btn g-btn-outline g-btn-sm">发布</button
+            ><button class="g-btn g-btn-danger g-btn-sm">删除</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Transfer / Dual List</h2>
+        <div class="g-transfer g-mt-4" data-g-transfer>
+          <section class="g-transfer-pane">
+            <header class="g-transfer-header">
+              <strong class="g-transfer-title">可用成员</strong
+              ><span class="g-transfer-count"
+                ><span data-g-transfer-count="source">0</span> 人</span
+              >
+            </header>
+            <div class="g-transfer-search">
+              <label class="g-sr-only" for="transfer-source-search"
+                >搜索可用成员</label
+              ><input
+                class="g-input g-input-sm"
+                id="transfer-source-search"
+                data-g-transfer-search="source"
+                type="search"
+                placeholder="搜索成员"
+              />
+            </div>
+            <div
+              class="g-transfer-list"
+              data-g-transfer-source
+              role="group"
+              aria-label="可用成员"
+            >
+              <label
+                class="g-transfer-option"
+                data-g-transfer-option
+                data-g-value="wang"
+                data-g-filter-text="王林 设计"
+                ><input type="checkbox" />王林 · 设计</label
+              ><label
+                class="g-transfer-option"
+                data-g-transfer-option
+                data-g-value="li"
+                data-g-filter-text="李薇 内容"
+                ><input type="checkbox" />李薇 · 内容</label
+              ><label
+                class="g-transfer-option"
+                data-g-transfer-option
+                data-g-value="zhao"
+                data-g-filter-text="赵清 开发"
+                ><input type="checkbox" />赵清 · 开发</label
+              >
+              <p class="g-transfer-empty" data-g-transfer-empty hidden>
+                暂无可用成员
+              </p>
+            </div>
+            <footer class="g-transfer-footer">Ctrl + → 快速加入</footer>
+          </section>
+          <div class="g-transfer-actions">
+            <button
+              class="g-btn g-btn-outline g-btn-icon"
+              type="button"
+              data-g-transfer-move="selected-to-target"
+              aria-label="加入选中成员"
+            >
+              →</button
+            ><button
+              class="g-btn g-btn-outline g-btn-icon"
+              type="button"
+              data-g-transfer-move="all-to-target"
+              aria-label="加入全部成员"
+            >
+              ≫</button
+            ><button
+              class="g-btn g-btn-outline g-btn-icon"
+              type="button"
+              data-g-transfer-move="selected-to-source"
+              aria-label="移除选中成员"
+            >
+              ←</button
+            ><button
+              class="g-btn g-btn-outline g-btn-icon"
+              type="button"
+              data-g-transfer-move="all-to-source"
+              aria-label="移除全部成员"
+            >
+              ≪
+            </button>
+          </div>
+          <section class="g-transfer-pane">
+            <header class="g-transfer-header">
+              <strong class="g-transfer-title">项目成员</strong
+              ><span class="g-transfer-count"
+                ><span data-g-transfer-count="target">0</span> 人</span
+              >
+            </header>
+            <div class="g-transfer-search">
+              <label class="g-sr-only" for="transfer-target-search"
+                >搜索项目成员</label
+              ><input
+                class="g-input g-input-sm"
+                id="transfer-target-search"
+                data-g-transfer-search="target"
+                type="search"
+                placeholder="搜索已选"
+              />
+            </div>
+            <div
+              class="g-transfer-list"
+              data-g-transfer-target
+              role="group"
+              aria-label="项目成员"
+            >
+              <p class="g-transfer-empty" data-g-transfer-empty>尚未选择成员</p>
+            </div>
+            <footer class="g-transfer-footer">Ctrl + ← 快速移除</footer>
+          </section>
+        </div>
+        <div class="g-dual-list g-mt-4" aria-label="双列表静态布局">
+          <div class="g-dual-list-pane">
+            <strong class="g-p-3">来源列表</strong>
+            <div class="g-dual-list-list g-p-3">可用于权限、标签与资源分配</div>
+          </div>
+          <div class="g-transfer-actions">⇄</div>
+          <div class="g-dual-list-pane">
+            <strong class="g-p-3">目标列表</strong>
+            <div class="g-dual-list-list g-p-3">移动端自动纵向排列</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Entity / User / Mention Pickers</h2>
+        <div class="demo-grid g-mt-4">
+          <article class="demo-card">
+            <h3>通用实体选择器</h3>
+            <div
+              class="g-picker g-entity-picker"
+              data-g-picker
+              data-g-picker-multiple
+            >
+              <div class="g-picker-control">
+                <div data-g-picker-values></div>
+                <label class="g-sr-only" for="entity-search">搜索实体</label
+                ><input
+                  class="g-picker-input"
+                  id="entity-search"
+                  data-g-picker-trigger
+                  data-g-picker-input
+                  role="combobox"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  placeholder="选择记录"
+                /><input data-g-picker-output type="hidden" name="entities" />
+              </div>
+              <div class="g-picker-panel" data-g-picker-panel hidden>
+                <header class="g-picker-header">
+                  <strong class="g-picker-title">选择客户</strong
+                  ><span><b data-g-picker-count>0</b> 已选</span>
+                </header>
+                <div
+                  class="g-picker-results"
+                  role="listbox"
+                  aria-multiselectable="true"
+                >
+                  <button
+                    class="g-picker-option"
+                    data-g-picker-option
+                    data-g-value="acme"
+                    data-g-label="星河科技"
+                    type="button"
+                  >
+                    <span class="g-picker-avatar">星</span
+                    ><span class="g-picker-option-main"
+                      ><span class="g-picker-option-title">星河科技</span
+                      ><span class="g-picker-option-description"
+                        >企业客户 · 北京</span
+                      ></span
+                    ><span class="g-picker-option-check">✓</span></button
+                  ><button
+                    class="g-picker-option"
+                    data-g-picker-option
+                    data-g-value="mountain"
+                    data-g-label="远山设计"
+                    type="button"
+                  >
+                    <span class="g-picker-avatar">远</span
+                    ><span class="g-picker-option-main"
+                      ><span class="g-picker-option-title">远山设计</span
+                      ><span class="g-picker-option-description"
+                        >合作伙伴 · 上海</span
+                      ></span
+                    ><span class="g-picker-option-check">✓</span>
+                  </button>
+                </div>
+                <p class="g-picker-empty" data-g-picker-empty hidden>
+                  没有匹配项
+                </p>
+                <footer class="g-picker-footer">
+                  <span>支持键盘与多选</span
+                  ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                    管理实体
+                  </button>
+                </footer>
+              </div>
+              <div class="g-picker-summary">
+                <span>已选实体</span>
+                <div class="g-picker-summary-values">
+                  <span class="g-picker-chip">跨业务复用</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>User / Mention</h3>
+            <div class="g-user-picker">
+              <div class="g-picker-control">
+                <span class="g-picker-value"
+                  ><span class="g-picker-avatar">王</span
+                  ><span class="g-picker-value-label">王林</span></span
+                ><input
+                  class="g-picker-input"
+                  aria-label="搜索用户"
+                  placeholder="添加用户"
+                />
+              </div>
+            </div>
+            <div class="g-mention-picker g-mt-4">
+              <div class="g-picker-results">
+                <button class="g-picker-option" type="button">
+                  <span class="g-picker-avatar">李</span
+                  ><span class="g-picker-option-main"
+                    ><span class="g-picker-option-title">@李薇</span
+                    ><span class="g-picker-option-description"
+                      >内容团队</span
+                    ></span
+                  ><kbd>Enter</kbd>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Tag / Relation</h3>
+            <div class="g-tag-picker">
+              <div class="g-picker-control">
+                <span class="g-picker-chip">企业</span
+                ><span class="g-picker-chip">重点</span
+                ><input
+                  class="g-picker-input"
+                  aria-label="添加标签"
+                  placeholder="添加标签"
+                />
+              </div>
+            </div>
+            <div class="g-relation-picker g-mt-4">
+              <div class="g-picker-results">
+                <button
+                  class="g-picker-option"
+                  style="--g-picker-level: 1"
+                  type="button"
+                >
+                  <span>↳</span
+                  ><span class="g-picker-option-main"
+                    ><span class="g-picker-option-title">关联：产品中心</span
+                    ><span class="g-picker-option-description"
+                      >父页面 / 子页面关系</span
+                    ></span
+                  ><span>＋</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Hierarchy / Resource / Media</h2>
+        <div class="demo-grid g-mt-4">
+          <article class="demo-card">
+            <h3>Tree Select / Organization</h3>
+            <div class="g-tree-select">
+              <div class="g-picker-control">
+                <span class="g-picker-value">内容 / 文章</span
+                ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  更改
+                </button>
+              </div>
+            </div>
+            <div class="g-organization-picker g-mt-3">
+              <div class="g-picker-results">
+                <button
+                  class="g-picker-option"
+                  style="--g-picker-level: 0"
+                  type="button"
+                >
+                  <span>⌄</span><span class="g-picker-option-title">总部</span
+                  ><span>12</span></button
+                ><button
+                  class="g-picker-option"
+                  style="--g-picker-level: 1"
+                  type="button"
+                >
+                  <span>·</span
+                  ><span class="g-picker-option-title">内容中心</span
+                  ><span>5</span>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Cascader</h3>
+            <div class="g-cascader" data-g-cascader>
+              <div class="g-cascader-path" data-g-cascade-path>请选择地区</div>
+              <input data-g-cascade-output type="hidden" name="region" />
+              <div class="g-cascader-columns">
+                <div class="g-cascader-column" data-g-cascade-column>
+                  <button
+                    class="g-cascader-option"
+                    data-g-cascade-option
+                    data-g-value="cn"
+                    data-g-label="中国"
+                    data-g-cascade-next="cascade-province"
+                    type="button"
+                  >
+                    中国 <span>›</span></button
+                  ><button
+                    class="g-cascader-option"
+                    data-g-cascade-option
+                    data-g-value="global"
+                    type="button"
+                  >
+                    海外
+                  </button>
+                </div>
+                <div
+                  class="g-cascader-column"
+                  id="cascade-province"
+                  data-g-cascade-column
+                  hidden
+                >
+                  <button
+                    class="g-cascader-option"
+                    data-g-cascade-option
+                    data-g-value="bj"
+                    data-g-label="北京"
+                    type="button"
+                  >
+                    北京</button
+                  ><button
+                    class="g-cascader-option"
+                    data-g-cascade-option
+                    data-g-value="sh"
+                    data-g-label="上海"
+                    type="button"
+                  >
+                    上海
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Resource / Media</h3>
+            <div class="g-resource-picker">
+              <div class="g-picker-results">
+                <button class="g-picker-option" type="button">
+                  <span>▤</span
+                  ><span class="g-picker-option-main"
+                    ><span class="g-picker-option-title">品牌规范.pdf</span
+                    ><span class="g-picker-option-description"
+                      >2.4 MB · 文档</span
+                    ></span
+                  ><span>＋</span>
+                </button>
+              </div>
+            </div>
+            <div class="g-media-picker g-mt-3">
+              <div class="g-picker-results">
+                <button class="g-picker-option" type="button">
+                  <span class="g-media-picker-thumb demo-media">IMG</span
+                  ><span class="g-picker-option-title">hero.jpg</span></button
+                ><button class="g-picker-option" type="button">
+                  <span class="g-media-picker-thumb demo-media">VID</span
+                  ><span class="g-picker-option-title">intro.mp4</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Icon / Color / Range</h2>
+        <div class="demo-grid g-mt-4">
+          <article class="demo-card">
+            <h3>Icon Picker</h3>
+            <div class="g-icon-picker" data-g-saved-choice>
+              <label class="g-sr-only" for="icon-search">搜索图标</label
+              ><input
+                class="g-input"
+                id="icon-search"
+                type="search"
+                placeholder="搜索图标"
+              />
+              <div class="g-icon-picker-grid">
+                <button
+                  class="g-icon-picker-item"
+                  data-g-saved-choice-item
+                  data-g-value="home"
+                  aria-pressed="true"
+                  aria-label="主页图标"
+                >
+                  <span class="demo-icon">⌂</span></button
+                ><button
+                  class="g-icon-picker-item"
+                  data-g-saved-choice-item
+                  data-g-value="star"
+                  aria-pressed="false"
+                  aria-label="收藏图标"
+                >
+                  <span class="demo-icon">★</span></button
+                ><button
+                  class="g-icon-picker-item"
+                  data-g-saved-choice-item
+                  data-g-value="file"
+                  aria-pressed="false"
+                  aria-label="文件图标"
+                >
+                  <span class="demo-icon">▤</span>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Color Picker</h3>
+            <div class="g-color-picker" data-g-saved-choice>
+              <div class="g-color-picker-current">
+                <span
+                  class="g-color-picker-preview"
+                  style="--g-picker-color: #2563eb"
+                ></span
+                ><label class="g-field"
+                  ><span class="g-label">颜色值</span
+                  ><input class="g-input" value="#2563EB"
+                /></label>
+              </div>
+              <div class="g-color-picker-swatches">
+                <button
+                  class="g-color-swatch"
+                  style="--g-swatch: #2563eb"
+                  data-g-saved-choice-item
+                  data-g-value="#2563eb"
+                  aria-pressed="true"
+                  aria-label="蓝色"
+                ></button
+                ><button
+                  class="g-color-swatch"
+                  style="--g-swatch: #16a34a"
+                  data-g-saved-choice-item
+                  data-g-value="#16a34a"
+                  aria-pressed="false"
+                  aria-label="绿色"
+                ></button
+                ><button
+                  class="g-color-swatch"
+                  style="--g-swatch: #dc2626"
+                  data-g-saved-choice-item
+                  data-g-value="#dc2626"
+                  aria-pressed="false"
+                  aria-label="红色"
+                ></button>
+              </div>
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Date / Time Range</h3>
+            <div class="g-date-range-picker">
+              <div class="g-range-picker-presets">
+                <button class="g-btn g-btn-outline g-btn-sm">今天</button
+                ><button class="g-btn g-btn-outline g-btn-sm">最近 7 天</button>
+              </div>
+              <div class="g-range-picker-fields">
+                <label class="g-field"
+                  ><span class="g-label">开始日期</span
+                  ><input class="g-input" type="date" /></label
+                ><span class="g-range-separator">至</span
+                ><label class="g-field"
+                  ><span class="g-label">结束日期</span
+                  ><input class="g-input" type="date"
+                /></label>
+              </div>
+              <div
+                class="g-range-picker-calendar"
+                role="region"
+                aria-label="日期范围日历"
+                tabindex="0"
+              >
+                <div class="g-calendar g-p-3">双月日历区域</div>
+                <div class="g-calendar g-p-3">范围预览区域</div>
+              </div>
+              <div class="g-range-picker-actions">
+                <button class="g-btn g-btn-primary g-btn-sm">应用</button>
+              </div>
+            </div>
+            <div class="g-time-range-picker g-mt-3">
+              <div class="g-range-picker-fields">
+                <label class="g-field"
+                  ><span class="g-label">开始时间</span
+                  ><input class="g-input" type="time" /></label
+                ><span class="g-range-separator">至</span
+                ><label class="g-field"
+                  ><span class="g-label">结束时间</span
+                  ><input class="g-input" type="time"
+                /></label>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Saved Configuration / Builders</h2>
+        <div class="demo-grid g-mt-4">
+          <article class="demo-card">
+            <h3>Saved Filters / Views</h3>
+            <div class="g-saved-filters" data-g-saved-choice>
+              <button
+                class="g-saved-filter"
+                data-g-saved-choice-item
+                data-g-value="mine"
+                aria-pressed="true"
+              >
+                我的待办 <span class="g-saved-choice-meta">12</span></button
+              ><button
+                class="g-saved-filter"
+                data-g-saved-choice-item
+                data-g-value="risk"
+                aria-pressed="false"
+              >
+                风险项 <span class="g-saved-choice-meta">3</span>
+              </button>
+            </div>
+            <div class="g-saved-views g-mt-3" data-g-saved-choice>
+              <button
+                class="g-saved-view"
+                data-g-saved-choice-item
+                data-g-value="table"
+                aria-pressed="true"
+              >
+                表格视图</button
+              ><button
+                class="g-saved-view"
+                data-g-saved-choice-item
+                data-g-value="board"
+                aria-pressed="false"
+              >
+                看板视图
+              </button>
+            </div>
+            <div class="g-column-chooser g-mt-3">
+              <div class="g-column-chooser-actions">
+                <button class="g-btn g-btn-ghost g-btn-sm">全选</button
+                ><button class="g-btn g-btn-ghost g-btn-sm">重置</button>
+              </div>
+              <label class="g-column-chooser-item"
+                ><input type="checkbox" checked /> 标题</label
+              ><label class="g-column-chooser-item"
+                ><input type="checkbox" checked /> 状态</label
+              >
+            </div>
+          </article>
+          <article class="demo-card">
+            <h3>Sort Builder</h3>
+            <div
+              class="g-sort-builder g-builder"
+              data-g-builder-list
+              data-g-builder-template="sort-rule-template"
+            >
+              <header class="g-builder-header">
+                <strong>排序规则</strong
+                ><button
+                  class="g-btn g-btn-outline g-btn-sm"
+                  data-g-builder-add
+                  type="button"
+                >
+                  添加
+                </button>
+              </header>
+              <div class="g-builder-list" data-g-builder-items>
+                <div class="g-sort-rule g-builder-rule" data-g-builder-item>
+                  <span class="g-sort-rule-handle g-builder-handle">⋮⋮</span
+                  ><select class="g-select" aria-label="排序字段">
+                    <option>更新时间</option>
+                    <option>标题</option></select
+                  ><select class="g-select" aria-label="排序方向">
+                    <option>降序</option>
+                    <option>升序</option></select
+                  ><button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    data-g-builder-remove
+                    type="button"
+                    aria-label="删除排序规则"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+            </div>
+            <template id="sort-rule-template"
+              ><div class="g-sort-rule g-builder-rule" data-g-builder-item>
+                <span class="g-sort-rule-handle g-builder-handle">⋮⋮</span
+                ><select class="g-select" aria-label="排序字段">
+                  <option>标题</option>
+                  <option>创建时间</option></select
+                ><select class="g-select" aria-label="排序方向">
+                  <option>升序</option>
+                  <option>降序</option></select
+                ><button
+                  class="g-btn g-btn-ghost g-btn-icon"
+                  data-g-builder-remove
+                  type="button"
+                  aria-label="删除排序规则"
+                >
+                  ×
+                </button>
+              </div></template
+            >
+          </article>
+          <article class="demo-card">
+            <h3>Group Builder</h3>
+            <div
+              class="g-group-builder g-builder"
+              data-g-builder-list
+              data-g-builder-template="group-rule-template"
+            >
+              <header class="g-builder-header">
+                <strong>分组规则</strong
+                ><button
+                  class="g-btn g-btn-outline g-btn-sm"
+                  data-g-builder-add
+                  type="button"
+                >
+                  添加
+                </button>
+              </header>
+              <div class="g-builder-list" data-g-builder-items>
+                <div class="g-group-rule g-builder-rule" data-g-builder-item>
+                  <span class="g-group-rule-handle g-builder-handle">⋮⋮</span
+                  ><select class="g-select" aria-label="分组字段">
+                    <option>状态</option></select
+                  ><select class="g-select" aria-label="空值处理">
+                    <option>空值单独分组</option></select
+                  ><button
+                    class="g-btn g-btn-ghost g-btn-icon"
+                    data-g-builder-remove
+                    type="button"
+                    aria-label="删除分组规则"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+            </div>
+            <template id="group-rule-template"
+              ><div class="g-group-rule g-builder-rule" data-g-builder-item>
+                <span class="g-group-rule-handle g-builder-handle">⋮⋮</span
+                ><select class="g-select" aria-label="分组字段">
+                  <option>负责人</option>
+                  <option>状态</option></select
+                ><select class="g-select" aria-label="空值处理">
+                  <option>空值单独分组</option></select
+                ><button
+                  class="g-btn g-btn-ghost g-btn-icon"
+                  data-g-builder-remove
+                  type="button"
+                  aria-label="删除分组规则"
+                >
+                  ×
+                </button>
+              </div></template
+            >
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Bulk Confirmation / Progress</h2>
+        <div class="demo-grid g-mt-4">
+          <article class="g-bulk-confirmation">
+            <strong class="g-bulk-confirmation-title"
+              >确认批量发布 128 个页面？</strong
+            >
+            <p class="g-bulk-confirmation-summary">
+              将更新生产环境，并保留每个页面的当前版本。
+            </p>
+            <label class="g-check"
+              ><input type="checkbox" /> 我已确认影响范围</label
+            >
+            <div class="g-bulk-confirmation-actions">
+              <button class="g-btn g-btn-outline">取消</button
+              ><button class="g-btn g-btn-primary">开始发布</button>
+            </div>
+          </article>
+          <article class="g-bulk-progress">
+            <header class="g-bulk-progress-header">
+              <strong>正在处理 80 / 128</strong
+              ><button class="g-btn g-btn-outline g-btn-sm">后台运行</button>
+            </header>
+            <div class="demo-progress"><i></i></div>
+            <div class="g-bulk-progress-list">
+              <div class="g-bulk-progress-item">
+                <span>首页</span><span class="g-text-success">完成</span>
+              </div>
+              <div class="g-bulk-progress-item">
+                <span>产品中心</span><span>处理中</span>
+              </div>
+              <div class="g-bulk-progress-item">
+                <span>旧活动页</span><span class="g-text-danger">失败</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script
+      type="module"
+      src="../dist/gardener.runtime.js?v=category-9"
+    ></script>
+  </body>
+</html>

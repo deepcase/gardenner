@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="zh-CN" data-g-theme="ocean" data-g-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gardener 桌面端特有组件</title>
+    <link rel="stylesheet" href="../dist/gardener.css" />
+  </head>
+  <body>
+    <main class="g-container g-py-8">
+      <header class="g-page-header">
+        <div class="g-page-header-main">
+          <span class="g-badge">第 14 类</span>
+          <h1 class="g-page-header-title">桌面端特有组件</h1>
+          <p class="g-text-muted">
+            面向 Tauri、Electron 与桌面 WebView 的 32
+            种窗口、工作区、文件、系统状态和生命周期模式。
+          </p>
+        </div>
+        <div class="g-page-header-actions">
+          <button
+            class="g-btn g-btn-outline"
+            type="button"
+            data-g-dialog-open="desktop-about"
+          >
+            关于</button
+          ><button
+            class="g-btn g-btn-outline"
+            type="button"
+            data-g-command-trigger="desktop-command"
+          >
+            命令面板 <kbd>Ctrl K</kbd>
+          </button>
+        </div>
+      </header>
+
+      <section
+        class="g-desktop-workspace is-contained g-mt-6"
+        data-g-platform="electron"
+        aria-label="Gardener 桌面工作区示例"
+      >
+        <header class="g-native-titlebar g-desktop-drag-region">
+          <div class="g-native-titlebar-start g-desktop-no-drag">
+            <nav
+              class="g-desktop-menubar"
+              data-g-roving-nav
+              aria-label="应用菜单"
+            >
+              <button class="g-desktop-menubar-item" type="button">文件</button
+              ><button class="g-desktop-menubar-item" type="button">编辑</button
+              ><button class="g-desktop-menubar-item" type="button">
+                视图
+              </button>
+            </nav>
+          </div>
+          <strong class="g-native-titlebar-title"
+            >Gardener Studio — 企业内容空间</strong
+          >
+          <div class="g-native-titlebar-end">
+            <div class="g-desktop-window-controls" aria-label="窗口控制">
+              <button
+                class="g-desktop-window-button"
+                type="button"
+                data-g-window-action="minimize"
+                aria-label="最小化"
+              >
+                —</button
+              ><button
+                class="g-desktop-window-button"
+                type="button"
+                data-g-window-action="maximize"
+                aria-label="最大化"
+              >
+                □</button
+              ><button
+                class="g-desktop-window-button"
+                type="button"
+                data-g-window-action="close"
+                aria-label="关闭"
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <nav
+          class="g-desktop-activity-bar"
+          data-g-roving-nav
+          aria-label="工作区活动栏"
+        >
+          <button
+            class="g-desktop-activity-item is-active"
+            type="button"
+            aria-current="page"
+            aria-label="文件"
+          >
+            ▤</button
+          ><button
+            class="g-desktop-activity-item"
+            type="button"
+            aria-label="搜索"
+          >
+            ⌕</button
+          ><button
+            class="g-desktop-activity-item"
+            type="button"
+            aria-label="来源控制"
+          >
+            ⑂</button
+          ><button
+            class="g-desktop-activity-item"
+            type="button"
+            aria-label="扩展"
+          >
+            ▦
+          </button>
+        </nav>
+
+        <div class="g-desktop-workspace-main">
+          <div class="g-desktop-toolbar">
+            <div class="g-desktop-toolbar-group">
+              <button class="g-btn g-btn-ghost g-btn-sm" type="button">←</button
+              ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                →
+              </button>
+            </div>
+            <span class="g-desktop-toolbar-separator"></span>
+            <div class="g-desktop-toolbar-group">
+              <button
+                class="g-btn g-btn-ghost g-btn-sm"
+                type="button"
+                data-g-command-trigger="desktop-command"
+              >
+                ⌕ 搜索与命令
+              </button>
+            </div>
+            <div class="g-ml-auto">
+              <span class="g-sync-status is-syncing"
+                ><i class="g-sync-status-dot"></i>正在同步</span
+              >
+            </div>
+          </div>
+          <div
+            class="g-desktop-split-pane"
+            data-g-split-pane
+            data-g-min="160"
+            data-g-max="420"
+          >
+            <aside
+              class="g-split-panel g-desktop-dock-panel"
+              data-g-pane="start"
+            >
+              <header class="g-desktop-panel-header">
+                <span>资源管理器</span
+                ><button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  ＋
+                </button>
+              </header>
+              <div class="g-desktop-panel-body">
+                <nav class="g-tree">
+                  <a class="g-tree-item" href="#desktop-states">⌄ 内容</a
+                  ><a class="g-tree-item g-pl-6" href="#desktop-states"
+                    >首页.json</a
+                  ><a class="g-tree-item g-pl-6" href="#desktop-states"
+                    >产品.json</a
+                  ><a class="g-tree-item" href="#desktop-states">› 资源</a>
+                </nav>
+              </div>
+            </aside>
+            <button
+              class="g-split-handle"
+              type="button"
+              role="separator"
+              aria-label="调整资源面板宽度"
+              aria-orientation="vertical"
+            ></button>
+            <section class="g-split-panel" data-g-pane="end">
+              <div
+                class="g-desktop-document-tabs"
+                data-g-desktop-tabs
+                role="tablist"
+                aria-label="已打开文档"
+              >
+                <button
+                  class="g-desktop-document-tab is-active is-dirty"
+                  type="button"
+                  data-g-desktop-tab
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="desktop-tab-home"
+                >
+                  首页.json
+                  <span
+                    class="g-desktop-document-tab-close"
+                    data-g-desktop-tab-close
+                    aria-label="关闭首页"
+                    >×</span
+                  ></button
+                ><button
+                  class="g-desktop-document-tab"
+                  type="button"
+                  data-g-desktop-tab
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="desktop-tab-theme"
+                >
+                  主题.css
+                  <span
+                    class="g-desktop-document-tab-close"
+                    data-g-desktop-tab-close
+                    aria-label="关闭主题"
+                    >×</span
+                  >
+                </button>
+              </div>
+              <div id="desktop-tab-home" role="tabpanel" class="g-p-5">
+                <div class="g-alert g-alert-info">
+                  <strong>可编辑工作区</strong
+                  ><span
+                    >文档标签支持箭头、Ctrl/⌘+Tab、Ctrl/⌘+W 和中键关闭。</span
+                  >
+                </div>
+                <div class="g-code-block g-mt-4">
+                  <pre><code>{
+  "title": "企业内容空间",
+  "status": "draft",
+  "theme": "ocean"
+}</code></pre>
+                </div>
+              </div>
+              <div id="desktop-tab-theme" role="tabpanel" class="g-p-5" hidden>
+                <p>主题文件内容区。</p>
+              </div>
+            </section>
+          </div>
+          <section class="g-desktop-bottom-panel">
+            <header class="g-desktop-panel-header">
+              <span>后台任务</span><span class="g-badge">1</span>
+            </header>
+            <div class="g-desktop-panel-body">
+              <div class="g-background-task-center">
+                <article class="g-background-task">
+                  <span>⇅</span>
+                  <div class="g-background-task-main">
+                    <strong>同步媒体资源</strong>
+                    <p class="g-text-xs g-text-muted g-m-0">68 / 100</p>
+                  </div>
+                  <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                    取消
+                  </button>
+                  <div class="g-progress g-background-task-progress">
+                    <span style="--g-progress: 68%"></span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="g-desktop-inspector-panel">
+          <header class="g-desktop-panel-header">
+            <span>检查器</span
+            ><button class="g-btn g-btn-ghost g-btn-sm" type="button">×</button>
+          </header>
+          <div class="g-desktop-panel-body">
+            <div class="g-field">
+              <label class="g-label" for="desktop-title">页面标题</label
+              ><input class="g-input" id="desktop-title" value="企业内容空间" />
+            </div>
+            <div class="g-shortcut-recorder g-mt-4" data-g-shortcut-recorder>
+              <label class="g-label">发布快捷键</label
+              ><button
+                class="g-shortcut-recorder-control"
+                type="button"
+                data-g-shortcut-control
+                aria-pressed="false"
+              >
+                <span data-g-shortcut-display>Ctrl+Shift+P</span
+                ><span class="g-shortcut-recorder-keys"
+                  ><kbd>录制</kbd></span
+                ></button
+              ><input
+                type="hidden"
+                data-g-shortcut-output
+                value="Control+Shift+P"
+              /><small
+                class="g-shortcut-recorder-status"
+                data-g-shortcut-status
+              ></small>
+            </div>
+          </div>
+        </aside>
+        <footer class="g-desktop-status-bar">
+          <div class="g-desktop-status-group">
+            <button class="g-desktop-status-item" type="button">⑂ main</button
+            ><button class="g-desktop-status-item" type="button">
+              ✓ 0 错误
+            </button>
+          </div>
+          <div class="g-desktop-status-group">
+            <button class="g-desktop-status-item" type="button">UTF-8</button
+            ><button class="g-desktop-status-item" type="button">
+              Ln 12, Col 8
+            </button>
+          </div>
+        </footer>
+      </section>
+
+      <section class="g-section g-mt-10" id="desktop-states">
+        <header class="g-section-header">
+          <div class="g-section-header-main">
+            <h2>文件、系统与生命周期</h2>
+            <p class="g-text-muted">
+              宿主负责真实系统调用，Gardener 负责布局、状态、事件与无障碍契约。
+            </p>
+          </div>
+        </header>
+        <div class="g-grid g-grid-cols-1 g-lg-grid-cols-2 g-gap-4">
+          <article class="g-update-available">
+            <span class="g-desktop-notice-icon">↑</span>
+            <div class="g-desktop-notice-main">
+              <strong>发现 Gardener Studio 2.4</strong>
+              <p class="g-text-sm g-text-muted g-m-0">
+                已下载，可在合适时间重启更新。
+              </p>
+            </div>
+            <div class="g-desktop-notice-actions">
+              <button class="g-btn g-btn-primary g-btn-sm" type="button">
+                重启更新
+              </button>
+            </div>
+          </article>
+          <article class="g-desktop-permission-request">
+            <span class="g-desktop-notice-icon">◉</span>
+            <div class="g-desktop-notice-main">
+              <strong>访问通知权限</strong>
+              <p class="g-text-sm g-text-muted g-m-0">
+                用于显示发布完成和同步错误。
+              </p>
+            </div>
+            <div class="g-desktop-notice-actions">
+              <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                允许
+              </button>
+            </div>
+          </article>
+          <div class="g-native-file-picker" data-g-native-file-picker>
+            <div class="g-native-file-picker-value" data-g-native-file-value>
+              未选择文件
+            </div>
+            <button
+              class="g-btn g-btn-outline"
+              type="button"
+              data-g-native-file-trigger
+            >
+              选择本地文件</button
+            ><input type="file" multiple aria-label="选择本地文件" />
+          </div>
+          <article class="g-update-progress">
+            <div class="g-update-progress-header">
+              <strong>下载更新</strong><span>64%</span>
+            </div>
+            <div class="g-update-progress-track">
+              <div
+                class="g-update-progress-value"
+                style="--g-update-progress: 64%"
+              ></div>
+            </div>
+          </article>
+          <article class="g-single-instance-notice">
+            <span class="g-desktop-notice-icon">□</span>
+            <div class="g-desktop-notice-main">
+              <strong>应用已在另一个窗口运行</strong>
+              <p class="g-text-sm g-text-muted g-m-0">
+                可以切换到现有窗口继续。
+              </p>
+            </div>
+            <div class="g-desktop-notice-actions">
+              <button class="g-btn g-btn-outline g-btn-sm" type="button">
+                切换
+              </button>
+            </div>
+          </article>
+          <article class="g-deep-link-handler">
+            <span class="g-desktop-notice-icon">↗</span>
+            <div class="g-desktop-notice-main">
+              <strong>打开 gardener://workspace/42</strong>
+              <p class="g-text-sm g-text-muted g-m-0">来源：浏览器</p>
+            </div>
+            <div class="g-desktop-notice-actions">
+              <button class="g-btn g-btn-primary g-btn-sm" type="button">
+                打开
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="g-section g-mt-8">
+        <div class="g-grid g-grid-cols-1 g-lg-grid-cols-3 g-gap-4">
+          <article>
+            <h3>最近文档</h3>
+            <div class="g-recent-documents">
+              <button class="g-recent-document" type="button">
+                <span>▤</span
+                ><span class="g-recent-document-main"
+                  ><strong>年度报告</strong
+                  ><span class="g-recent-document-path"
+                    >D:\内容\年度报告.gdn</span
+                  ></span
+                ><span>2 分钟前</span>
+              </button>
+            </div>
+          </article>
+          <article>
+            <h3>通知中心</h3>
+            <div class="g-desktop-notification-center">
+              <div class="g-desktop-notification is-unread">
+                <span>✓</span>
+                <div class="g-desktop-notification-main">
+                  <strong>发布完成</strong>
+                  <p class="g-text-sm g-text-muted g-m-0">
+                    首页已发布到生产环境。
+                  </p>
+                </div>
+                <button class="g-btn g-btn-ghost g-btn-sm" type="button">
+                  ×
+                </button>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h3>托盘与右键菜单</h3>
+            <div data-g-dropdown>
+              <button
+                class="g-btn g-btn-outline g-btn-sm"
+                type="button"
+                data-g-dropdown-trigger
+              >
+                打开托盘菜单
+              </button>
+              <div class="g-tray-menu g-mt-2" data-g-dropdown-menu hidden>
+                <button
+                  class="g-desktop-menu-item"
+                  type="button"
+                  role="menuitem"
+                >
+                  <span>●</span><span>打开 Gardener</span><kbd>Ctrl+O</kbd>
+                </button>
+                <div class="g-desktop-menu-separator"></div>
+                <button
+                  class="g-desktop-menu-item"
+                  type="button"
+                  role="menuitem"
+                >
+                  <span>×</span><span>退出</span>
+                </button>
+              </div>
+            </div>
+            <div class="g-mt-3" data-g-context-menu>
+              <button
+                class="g-btn g-btn-outline g-btn-sm"
+                type="button"
+                data-g-context-target
+              >
+                右键或 Shift+F10
+              </button>
+              <div
+                class="g-desktop-context-menu"
+                data-g-context-menu-panel
+                hidden
+              >
+                <button
+                  class="g-desktop-menu-item"
+                  type="button"
+                  role="menuitem"
+                >
+                  <span>▣</span><span>复制</span><kbd>Ctrl+C</kbd>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="g-section g-mt-8">
+        <div class="g-grid g-grid-cols-1 g-lg-grid-cols-3 g-gap-4">
+          <article class="g-window-loading">
+            <span class="g-window-loading-icon">G</span
+            ><strong>正在打开工作区</strong>
+            <div class="g-progress g-window-loading-progress">
+              <span style="--g-progress: 42%"></span>
+            </div>
+          </article>
+          <article class="g-multi-window-placeholder">
+            <span class="g-desktop-state-icon">▦</span
+            ><strong>没有打开的辅助窗口</strong>
+            <div class="g-desktop-state-actions">
+              <button class="g-btn g-btn-outline" type="button">
+                新建窗口
+              </button>
+            </div>
+          </article>
+          <article class="g-crash-recovery">
+            <span class="g-desktop-state-icon">!</span
+            ><strong>上次会话意外退出</strong>
+            <p class="g-text-sm g-text-muted">已保存 3 个可恢复文档。</p>
+            <div class="g-desktop-state-actions">
+              <button class="g-btn g-btn-primary" type="button">恢复会话</button
+              ><button class="g-btn g-btn-outline" type="button">
+                安全启动
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <section
+      class="g-desktop-command-palette"
+      id="desktop-command"
+      data-g-command-palette
+      hidden
+      aria-label="命令面板"
+    >
+      <div class="g-desktop-command-panel">
+        <label class="g-sr-only" for="desktop-command-input">输入命令</label
+        ><input
+          class="g-desktop-command-input"
+          id="desktop-command-input"
+          data-g-command-input
+          placeholder="输入命令或文件名"
+        />
+        <div class="g-desktop-command-results" role="listbox">
+          <button
+            class="g-desktop-command-item"
+            type="button"
+            data-g-command-item
+            data-g-value="new-file"
+          >
+            <span>＋</span><span>新建文件</span><kbd>Ctrl+N</kbd></button
+          ><button
+            class="g-desktop-command-item"
+            type="button"
+            data-g-command-item
+            data-g-value="settings"
+          >
+            <span>⚙</span><span>打开设置</span><kbd>Ctrl+,</kbd>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      class="g-desktop-window-switcher"
+      data-g-window-switcher
+      hidden
+      aria-label="窗口切换器"
+    >
+      <div class="g-desktop-window-switcher-panel">
+        <strong>切换窗口</strong>
+        <div class="g-desktop-window-list g-mt-3">
+          <button
+            class="g-desktop-window-item"
+            type="button"
+            data-g-window-item
+            data-g-value="workspace"
+            aria-selected="true"
+          >
+            <span>▦</span
+            ><span class="g-desktop-window-main"
+              ><strong>内容工作区</strong
+              ><small class="g-block g-text-muted">Gardener Studio</small></span
+            ><kbd>1</kbd></button
+          ><button
+            class="g-desktop-window-item"
+            type="button"
+            data-g-window-item
+            data-g-value="preview"
+          >
+            <span>□</span
+            ><span class="g-desktop-window-main"
+              ><strong>页面预览</strong
+              ><small class="g-block g-text-muted">localhost:4173</small></span
+            ><kbd>2</kbd>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      class="g-about-dialog"
+      id="desktop-about"
+      data-g-dialog
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-label="关于 Gardener"
+    >
+      <span class="g-about-dialog-icon">G</span>
+      <h2>Gardener Studio</h2>
+      <p>Version 1.0.0</p>
+      <button class="g-btn g-btn-primary" type="button" data-g-close>
+        关闭
+      </button>
+    </section>
+    <script type="module" src="../dist/gardener.runtime.js"></script>
+  </body>
+</html>

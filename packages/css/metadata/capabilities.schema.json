@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.style/schema/capabilities.schema.json",
+  "title": "Gardener capability matrix",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "capabilities"],
+  "properties": {
+    "$schema": { "enum": ["./capabilities.schema.json", "../metadata/capabilities.schema.json"] },
+    "schemaVersion": { "const": 2 },
+    "capabilities": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/capability" } }
+  },
+  "$defs": {
+    "name": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$" },
+    "selector": { "type": "string", "pattern": "^\\.g-[a-z0-9-]+$" },
+    "uniqueStrings": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "identifiers": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }, "uniqueItems": true },
+    "numberMap": { "type": "object", "propertyNames": { "pattern": "^[a-z0-9-]+$" }, "additionalProperties": { "type": "number", "minimum": 0 } },
+    "range": { "type": "array", "prefixItems": [{ "type": "integer" }, { "type": "integer" }], "items": false, "minItems": 2, "maxItems": 2 },
+    "pattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "selector"],
+      "properties": {
+        "id": { "$ref": "#/$defs/name" },
+        "selector": { "$ref": "#/$defs/selector" },
+        "purpose": { "type": "string", "minLength": 1 },
+        "behaviors": { "type": "array", "items": { "$ref": "#/$defs/name" }, "minItems": 1, "uniqueItems": true },
+        "adapters": { "type": "array", "items": { "enum": ["tauri", "electron"] }, "minItems": 1, "uniqueItems": true }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "category", "status", "rootSelectors", "features", "documentation", "tests"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z][a-z0-9-]*)+$" },
+        "name": { "type": "string", "minLength": 1 },
+        "category": { "$ref": "#/$defs/name" },
+        "status": { "enum": ["implemented", "experimental", "planned", "deprecated"] },
+        "systems": { "type": "array", "items": { "type": "integer", "minimum": 1 }, "uniqueItems": true },
+        "rootSelectors": { "type": "array", "items": { "$ref": "#/$defs/selector" }, "minItems": 1, "uniqueItems": true },
+        "columnRange": { "$ref": "#/$defs/range" },
+        "offsetRange": { "$ref": "#/$defs/range" },
+        "lineRange": { "$ref": "#/$defs/range" },
+        "orderRange": { "$ref": "#/$defs/range" },
+        "breakpoints": { "$ref": "#/$defs/numberMap" },
+        "containerBreakpoints": { "$ref": "#/$defs/numberMap" },
+        "gutterSteps": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "uniqueItems": true },
+        "features": { "$ref": "#/$defs/identifiers" },
+        "documentation": { "type": "string", "pattern": "^website/docs\\.html#[a-z0-9-]+$" },
+        "tests": { "$ref": "#/$defs/identifiers" },
+        "patterns": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/pattern" } },
+        "compatibleShells": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/selector" }, "uniqueItems": true },
+        "legacyAliases": { "type": "object", "propertyNames": { "pattern": "^\\.g-[a-z0-9-]+$" }, "additionalProperties": { "$ref": "#/$defs/selector" } },
+        "placements": { "$ref": "#/$defs/identifiers" },
+        "families": { "$ref": "#/$defs/identifiers" }
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gardener.style/schema/performance-budgets.schema.json",
+  "title": "Gardener performance budgets",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "version", "compression", "packageMeasurement", "baseline", "artifacts", "ratios", "package"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "compression": { "$ref": "builds.schema.json#/$defs/compression" },
+    "packageMeasurement": { "$ref": "#/$defs/packageMeasurement" },
+    "baseline": { "$ref": "#/$defs/baseline" },
+    "artifacts": { "type": "object", "minProperties": 1, "additionalProperties": { "$ref": "#/$defs/limits" } },
+    "ratios": { "type": "object", "minProperties": 1, "additionalProperties": { "$ref": "#/$defs/ratio" } },
+    "package": { "$ref": "#/$defs/packageLimits" }
+  },
+  "$defs": {
+    "packageMeasurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packedQuantum", "unpackedQuantum"],
+      "properties": {
+        "packedQuantum": { "type": "integer", "minimum": 1 },
+        "unpackedQuantum": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "artifactAliases", "artifacts", "package", "maxGrowthPercent"],
+      "properties": {
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "artifactAliases": {
+          "type": "object",
+          "additionalProperties": { "type": "string", "minLength": 1 }
+        },
+        "artifacts": { "type": "object", "minProperties": 1, "additionalProperties": { "$ref": "builds.schema.json#/$defs/metrics" } },
+        "package": { "$ref": "#/$defs/packageLimits" },
+        "maxGrowthPercent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["artifacts", "package"],
+          "properties": {
+            "artifacts": { "$ref": "#/$defs/artifactGrowthLimits" },
+            "package": { "$ref": "#/$defs/packageGrowthLimits" }
+          }
+        }
+      }
+    },
+    "artifactGrowthLimits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw", "gzip", "brotli"],
+      "properties": {
+        "raw": { "$ref": "#/$defs/percent" },
+        "gzip": { "$ref": "#/$defs/percent" },
+        "brotli": { "$ref": "#/$defs/percent" }
+      }
+    },
+    "packageGrowthLimits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packed", "unpacked", "files"],
+      "properties": {
+        "packed": { "$ref": "#/$defs/percent" },
+        "unpacked": { "$ref": "#/$defs/percent" },
+        "files": { "$ref": "#/$defs/percent" }
+      }
+    },
+    "percent": { "type": "number", "minimum": 0, "maximum": 100 },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw", "gzip", "brotli"],
+      "properties": {
+        "raw": { "type": "integer", "minimum": 1 },
+        "gzip": { "type": "integer", "minimum": 1 },
+        "brotli": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "ratio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "max"],
+      "properties": {
+        "source": { "type": "string", "minLength": 1 },
+        "max": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+      }
+    },
+    "packageLimits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packed", "unpacked", "files"],
+      "properties": {
+        "packed": { "type": "integer", "minimum": 1 },
+        "unpacked": { "type": "integer", "minimum": 1 },
+        "files": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}
