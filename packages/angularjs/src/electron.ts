@@ -1,7 +1,7 @@
-import { bindElectronWindowControls, type GardenerElectronBinding, type GardenerElectronBridge } from "@gardenerim/css/electron";
+import { bindElectronWindowControls, type GardenerimElectronBinding, type GardenerimElectronBridge } from "@gardenerim/css/electron";
 
-export const createElectronWindowService = (root?: Document | Element, bridge?: GardenerElectronBridge | null): GardenerElectronBinding =>
+export const createElectronWindowService = (root?: Document | Element, bridge?: GardenerimElectronBridge | null): GardenerimElectronBinding =>
   bindElectronWindowControls(root, bridge);
 
 export { bindElectronWindowControls };
-export type { GardenerElectronBinding, GardenerElectronBridge };
+export type { GardenerimElectronBinding, GardenerimElectronBridge };

@@ -1,6 +1,6 @@
 # Repository architecture
 
-Gardener separates the canonical interface contract from framework rendering. `packages/css` owns tokens, themes, utilities, semantic class contracts, runtime behaviors, events, recipes, compatibility inventories, and JSON Schemas. Every adapter consumes that package's machine-readable component metadata and generates framework-native surfaces without redefining component semantics.
+Gardenerim separates the canonical interface contract from framework rendering. `packages/css` owns tokens, themes, utilities, semantic class contracts, runtime behaviors, events, recipes, compatibility inventories, and JSON Schemas. Every adapter consumes that package's machine-readable component metadata and generates framework-native surfaces without redefining component semantics.
 
 ```text
 packages/css metadata + runtime
@@ -18,7 +18,7 @@ packages/css metadata + runtime
 2. Public runtime behavior, event, entry point, theme, recipe, and platform contracts are listed in the corresponding metadata and closed Schema.
 3. Framework adapters generate their complete catalogs from CSS metadata and add only framework-specific lifecycle and typing contracts.
 4. The website reads package metadata and generated catalogs. It must not maintain a smaller hand-written inventory.
-5. Compatibility manifests permit additive 1.x changes and reject unplanned deletion or renaming of stable contracts.
+5. Compatibility manifests record the 2.0 contract after the requested Gardenerim export rename. Additive changes within 2.x remain compatible; further public API removal requires another major version. The frozen published 1.0 snapshot verifies the rename mapping, not false backward compatibility.
 
 ## Package boundaries
 
@@ -33,4 +33,3 @@ The CSS package provides explicit Web, Mobile, Desktop, Tauri, and Electron buil
 ## Quality model
 
 Release verification is layered: schema and contract validation, generation reproducibility, types, unit/DOM lifecycle tests, HTML checks, multi-engine browser tests, mobile viewports, accessibility audits, package-consumer tests, tree-shaking checks, and performance budgets. Repository checks additionally protect layout, governance files, and cross-project paths.
-

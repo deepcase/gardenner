@@ -1,4 +1,6 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { componentContracts } from "../../../scripts/component-contracts.mjs";
+import { mkdir, readFile } from "node:fs/promises";
+import { writeFile } from "../../../scripts/fs-retry.mjs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
@@ -44,54 +46,56 @@ for (const key of ["name", "exportName", "directiveName", "elementName"]) {
   if (new Set(definitions.map((item) => item[key])).size !== definitions.length) throw new Error(`Duplicate AngularJS component ${key}`);
 }
 if (definitions.length !== 506) throw new Error(`Expected 506 CSS components, received ${definitions.length}`);
-if (publicApi.javascript.behaviors.length !== 66) throw new Error("Expected 66 Gardener behaviors");
+if (publicApi.javascript.behaviors.length !== 66) throw new Error("Expected 66 Gardenerim behaviors");
 
 const frameworkExports = [
-  "GARDENER_ANGULARJS_MODULE", "Gardener", "GardenerRuntimeFactory", "GardenerThemeFactory", "GardenerToastFactory",
+  "GARDENERIM_ANGULARJS_MODULE", "Gardenerim", "GardenerimRuntimeFactory", "GardenerimThemeFactory", "GardenerimToastFactory",
   "behaviorAttributes", "bindElectronWindowControls", "bindTauriWindowControls", "componentByDirectiveName", "componentByExportName",
-  "componentByName", "componentCatalog", "configAttributes", "createElectronWindowService", "createGardenerAngularJS",
-  "createGardenerComponent", "createTauriWindowService", "destroy", "emit", "gardenerBehaviorDirective", "gardenerDirectives",
-  "gardenerProviderDirective", "getInstance", "init", "observe", "register", "themeAttributes", "themeAxes", "toast",
+  "componentByName", "componentCatalog", "configAttributes", "createElectronWindowService", "createGardenerimAngularJS",
+  "createGardenerimComponent", "createTauriWindowService", "destroy", "emit", "gardenerimBehaviorDirective", "gardenerimDirectives",
+  "gardenerimProviderDirective", "getInstance", "init", "observe", "register", "themeAttributes", "themeAxes", "toast",
 ];
 const typeExports = [
-  "GardenerAngularJSComponentExportName", "GardenerAngularJSComponentName", "GardenerAngularJSDirectiveFactory", "GardenerAngularJSDirectiveName", "GardenerAngularJSModule",
-  "GardenerAngularJSOptions", "GardenerAngularJSStatic", "GardenerBehaviorInstance", "GardenerBehaviorName", "GardenerComponentDefinition",
-  "GardenerComponentHandle", "GardenerComponentKind", "GardenerConfigValue", "GardenerElectronBinding", "GardenerElectronBridge",
-  "GardenerEventName", "GardenerPlatform", "GardenerRuntimeService", "GardenerTauriBinding", "GardenerTauriBridge", "GardenerThemeAxis",
-  "GardenerThemeService", "GardenerThemeState", "GardenerValueChangeLocals",
+  "GardenerimAngularJSComponentExportName", "GardenerimAngularJSComponentName", "GardenerimAngularJSDirectiveFactory", "GardenerimAngularJSDirectiveName", "GardenerimAngularJSModule",
+  "GardenerimAngularJSOptions", "GardenerimAngularJSStatic", "GardenerimBehaviorInstance", "GardenerimBehaviorName", "GardenerimComponentDefinition",
+  "GardenerimComponentHandle", "GardenerimComponentKind", "GardenerimConfigValue", "GardenerimElectronBinding", "GardenerimElectronBridge",
+  "GardenerimEventName", "GardenerimPlatform", "GardenerimRuntimeService", "GardenerimTauriBinding", "GardenerimTauriBridge", "GardenerimThemeAxis",
+  "GardenerimThemeService", "GardenerimThemeState", "GardenerimValueChangeLocals",
 ];
 const componentAttributes = ["gardenerVariant", "gardenerState", "gardenerConfig", "gardenerInitialize", "ngModel", "gardenerValueEvent", "gardenerValueKey", "gardenerOnValueChange"];
 const componentHandleMembers = ["element", "getInstance", "refresh", "destroy"];
 const themeAxes = ["theme", "mode", "neutral", "typography", "shape", "density", "elevation", "motion", "platform", "os"];
-const services = ["GardenerRuntime", "GardenerTheme", "GardenerToast"];
-const directives = ["gGardener", "gardenerProvider"];
+const services = ["GardenerimRuntime", "GardenerimTheme", "GardenerimToast"];
+const directives = ["gGardenerim", "gardenerProvider"];
 const packageEntrypoints = Object.keys(pkg.exports);
 const moduleExports = [...definitions.map(({ exportName }) => exportName), ...frameworkExports].sort();
 
-await writeFile(resolve(generated, "catalog.ts"), `/** Generated from @gardenerim/css 1.0.0 metadata. */\nimport type { GardenerComponentDefinition } from "../types.js";\n\nexport const componentCatalog: readonly GardenerComponentDefinition[] = ${JSON.stringify(definitions, null, 2)};\nexport const componentByName = new Map(componentCatalog.map((component) => [component.name, component] as const));\nexport const componentByExportName = new Map(componentCatalog.map((component) => [component.exportName, component] as const));\nexport const componentByDirectiveName = new Map(componentCatalog.map((component) => [component.directiveName, component] as const));\n`);
-const exports = definitions.map((definition) => `export const ${definition.exportName} = /* @__PURE__ */ createGardenerComponent(${JSON.stringify(definition)} as GardenerComponentDefinition);`).join("\n");
+await writeFile(resolve(generated, "catalog.ts"), `/** Generated from @gardenerim/css 2.0.0 metadata. */\nimport type { GardenerimComponentDefinition } from "../types.js";\n\nexport const componentCatalog: readonly GardenerimComponentDefinition[] = ${JSON.stringify(definitions, null, 2)};\nexport const componentByName = new Map(componentCatalog.map((component) => [component.name, component] as const));\nexport const componentByExportName = new Map(componentCatalog.map((component) => [component.exportName, component] as const));\nexport const componentByDirectiveName = new Map(componentCatalog.map((component) => [component.directiveName, component] as const));\n`);
+const exports = definitions.map((definition) => `export const ${definition.exportName} = /* @__PURE__ */ createGardenerimComponent(${JSON.stringify(definition)} as GardenerimComponentDefinition);`).join("\n");
 const registry = definitions.map(({ directiveName, exportName }) => `  ${directiveName}: ${exportName},`).join("\n");
 const componentUnion = definitions.map(({ name }) => JSON.stringify(name)).join(" | ");
 const componentExportUnion = definitions.map(({ exportName }) => JSON.stringify(exportName)).join(" | ");
 const directiveUnion = definitions.map(({ directiveName }) => JSON.stringify(directiveName)).join(" | ");
-await writeFile(resolve(generated, "components.ts"), `/** Generated AngularJS bindings for all Gardener components. */\nimport { createGardenerComponent } from "../directives.js";\nimport type { GardenerAngularJSDirectiveFactory, GardenerComponentDefinition } from "../types.js";\n\n${exports}\n\nexport type GardenerAngularJSComponentName = ${componentUnion};\nexport type GardenerAngularJSComponentExportName = ${componentExportUnion};\nexport type GardenerAngularJSDirectiveName = ${directiveUnion};\nexport const gardenerDirectives: Readonly<Record<GardenerAngularJSDirectiveName, GardenerAngularJSDirectiveFactory>> = {\n${registry}\n};\n`);
+await writeFile(resolve(generated, "components.ts"), `/** Generated AngularJS bindings for all Gardenerim components. */\nimport { createGardenerimComponent } from "../directives.js";\nimport type { GardenerimAngularJSDirectiveFactory, GardenerimComponentDefinition } from "../types.js";\n\n${exports}\n\nexport type GardenerimAngularJSComponentName = ${componentUnion};\nexport type GardenerimAngularJSComponentExportName = ${componentExportUnion};\nexport type GardenerimAngularJSDirectiveName = ${directiveUnion};\nexport const gardenerimDirectives: Readonly<Record<GardenerimAngularJSDirectiveName, GardenerimAngularJSDirectiveFactory>> = {\n${registry}\n};\n`);
 
 await mkdir(resolve(root, "metadata"), { recursive: true });
 const metadata = {
-  $schema: "./public-api.schema.json", schemaVersion: 1, version: "1.0.0", status: "stable", cssVersion: "1.0.0",
+  $schema: "./public-api.schema.json", schemaVersion: 1, version: "2.0.0", status: "stable", cssVersion: "2.0.0",
   angularjs: ">=1.8.2 <1.9.0", components: definitions.length, behaviors: publicApi.javascript.behaviors.length,
   componentExports: definitions.map(({ exportName }) => exportName), directiveNames: definitions.map(({ directiveName }) => directiveName),
   elementNames: definitions.map(({ elementName }) => elementName), moduleExports, typeExports, packageEntrypoints, services, directives,
-  componentAttributes, componentHandleMembers, themeAxes, moduleFactory: "createGardenerAngularJS",
+  componentAttributes, componentHandleMembers, themeAxes, moduleFactory: "createGardenerimAngularJS",
 };
 await writeFile(resolve(root, "metadata", "public-api.json"), `${JSON.stringify(metadata, null, 2)}\n`);
 await writeFile(resolve(root, "metadata", "compatibility.json"), `${JSON.stringify({
-  $schema: "./compatibility.schema.json", schemaVersion: 1, version: "1.0.0", baselineVersion: "1.0.0",
+  $schema: "./compatibility.schema.json", schemaVersion: 1, version: "2.0.0", baselineVersion: "2.0.0",
   policy: { stage: "stable", additions: "allowed", removals: "deprecate-before-removal" },
   baseline: { angularjs: metadata.angularjs, packageEntrypoints, componentNames: definitions.map(({ name }) => name), componentExports: metadata.componentExports, directiveNames: metadata.directiveNames, elementNames: metadata.elementNames, moduleExports, typeExports, behaviors: publicApi.javascript.behaviors, services, directives, componentAttributes, componentHandleMembers, themeAxes },
 }, null, 2)}\n`);
 
 await mkdir(resolve(root, "docs"), { recursive: true });
 const table = definitions.map((item) => `| \`${item.exportName}\` | \`${item.elementName}\` / \`${item.directiveName}\` | \`${item.name}\` | ${item.category} | ${item.type} | \`${item.className || item.selector}\` | ${item.behaviors.join(", ") || "—"} |`).join("\n");
-await writeFile(resolve(root, "docs", "components.md"), `# Gardener AngularJS 组件完整目录\n\n本目录由 \`@gardenerim/css@1.0.0\` 元数据自动生成，共 ${definitions.length} 个 AngularJS 组件指令，无省略。每项同时支持元素与属性形式，并支持 \`${componentAttributes.join("\`、\`")}\`。\n\n| ESM 导出 | 元素 / 指令名 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |\n| --- | --- | --- | --- | --- | --- | --- |\n${table}\n`);
+await writeFile(resolve(root, "docs", "components.md"), `# Gardenerim AngularJS 组件完整目录\n\n本目录由 \`@gardenerim/css@2.0.0\` 元数据自动生成，共 ${definitions.length} 个 AngularJS 组件指令，无省略。每项同时支持元素与属性形式，并支持 \`${componentAttributes.join("\`、\`")}\`。\n\n| ESM 导出 | 元素 / 指令名 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |\n| --- | --- | --- | --- | --- | --- | --- |\n${table}\n`);
 console.log(`Generated ${definitions.length} AngularJS directives and ${publicApi.javascript.behaviors.length} behavior bindings.`);
+
+await writeFile(resolve(generated, "contracts.ts"), componentContracts(source.components));

@@ -7,7 +7,7 @@
 | 1.x | Security fixes and compatibility maintenance |
 | 0.x | Unsupported |
 
-The AngularJS adapter receives Gardener-side security fixes, but AngularJS itself is end-of-life. Teams using it must assess framework-level risk and maintain a migration plan.
+The AngularJS adapter receives Gardenerim-side security fixes, but AngularJS itself is end-of-life. Teams using it must assess framework-level risk and maintain a migration plan.
 
 ## Reporting a vulnerability
 
@@ -19,5 +19,5 @@ Good-faith research that avoids privacy violations, data destruction, service di
 
 ## Security boundaries
 
-Gardener renders and coordinates user-interface behavior. It does not replace server-side authentication, authorization, validation, sanitization, rate limiting, audit logging, or content security policy. Tauri/Electron bridges must expose narrowly scoped commands and must never pass raw Node.js or native objects into untrusted page code.
+Gardenerim renders and coordinates user-interface behavior. It does not replace server-side authentication, authorization, validation, sanitization, rate limiting, audit logging, or content security policy. Tauri/Electron bridges must expose narrowly scoped commands and must never pass raw Node.js or native objects into untrusted page code.
 

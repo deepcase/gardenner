@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://gardener.dev/schemas/blazor-components-v1.json",
-  "title": "Gardener Blazor component catalog",
+  "title": "Gardenerim Blazor component catalog",
   "type": "object",
   "additionalProperties": false,
   "required": ["schemaVersion", "version", "count", "components"],
   "properties": {
     "$schema": { "type": "string" },
     "schemaVersion": { "const": 1 },
-    "version": { "const": "1.0.0" },
+    "version": { "const": "2.0.0" },
     "count": { "const": 506 },
     "components": { "type": "array", "minItems": 506, "maxItems": 506, "items": { "$ref": "#/$defs/component" } }
   },

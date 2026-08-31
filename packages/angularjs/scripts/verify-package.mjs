@@ -24,9 +24,9 @@ const cssTargets = ["@gardenerim/angularjs/component-css/forms", "@gardenerim/an
 for (const target of cssTargets) await access(target);
 if (new Set(cssTargets).size !== 1) throw new Error("component CSS aliases do not resolve to the same artifact");
 const modules = Object.fromEntries(await Promise.all(["@gardenerim/angularjs", "@gardenerim/angularjs/components", "@gardenerim/angularjs/directives", "@gardenerim/angularjs/services", "@gardenerim/angularjs/module", "@gardenerim/angularjs/adapters", "@gardenerim/angularjs/tauri", "@gardenerim/angularjs/electron", "@gardenerim/angularjs/catalog"].map(async (specifier) => [specifier, await import(specifier)])));
-if (Object.keys(modules["@gardenerim/angularjs/components"].gardenerDirectives).length !== 506) throw new Error("installed components entrypoint is incomplete");
+if (Object.keys(modules["@gardenerim/angularjs/components"].gardenerimDirectives).length !== 506) throw new Error("installed components entrypoint is incomplete");
 if (modules["@gardenerim/angularjs/catalog"].componentCatalog.length !== 506) throw new Error("installed catalog entrypoint is incomplete");
-if (!("createGardenerAngularJS" in modules["@gardenerim/angularjs/module"]) || !("GardenerThemeFactory" in modules["@gardenerim/angularjs/services"])) throw new Error("installed module/service entrypoints are incomplete");
+if (!("createGardenerimAngularJS" in modules["@gardenerim/angularjs/module"]) || !("GardenerimThemeFactory" in modules["@gardenerim/angularjs/services"])) throw new Error("installed module/service entrypoints are incomplete");
 if (!("bindTauriWindowControls" in modules["@gardenerim/angularjs/tauri"]) || "bindElectronWindowControls" in modules["@gardenerim/angularjs/tauri"]) throw new Error("Tauri entrypoint is not isolated");
 if (!("bindElectronWindowControls" in modules["@gardenerim/angularjs/electron"]) || "bindTauriWindowControls" in modules["@gardenerim/angularjs/electron"]) throw new Error("Electron entrypoint is not isolated");
 console.log(`Package verification passed: ${info.entryCount} files, ${info.size} B packed, ${info.unpackedSize} B unpacked.`);

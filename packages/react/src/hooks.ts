@@ -1,31 +1,31 @@
 import { useCallback, useEffect, useRef, useState, type Dispatch, type RefObject, type SetStateAction } from "react";
-import { Gardener, destroy, getInstance, init, toast } from "@gardenerim/css/runtime";
+import { Gardenerim, destroy, getInstance, init, toast } from "@gardenerim/css/runtime";
 import { themeAttributes, themeAxes } from "./provider.js";
-import type { GardenerBehaviorInstance, GardenerBehaviorName, GardenerComponentHandle, GardenerElementTarget, GardenerEventHandler, GardenerThemeState } from "./types.js";
+import type { GardenerimBehaviorInstance, GardenerimBehaviorName, GardenerimComponentHandle, GardenerimElementTarget, GardenerimEventHandler, GardenerimThemeState } from "./types.js";
 
-export const resolveGardenerTarget = (target?: GardenerElementTarget): Element | Document | null => {
+export const resolveGardenerimTarget = (target?: GardenerimElementTarget): Element | Document | null => {
   const value = target && typeof target === "object" && "current" in target ? target.current : target;
-  const exposed = value && typeof value === "object" && "element" in value ? (value as GardenerComponentHandle).element : value;
+  const exposed = value && typeof value === "object" && "element" in value ? (value as GardenerimComponentHandle).element : value;
   if (typeof Element !== "undefined" && exposed instanceof Element) return exposed;
   if (typeof Document !== "undefined" && exposed instanceof Document) return exposed;
   return null;
 };
 
-export const useGardener = (target?: GardenerElementTarget) => {
+export const useGardenerim = (target?: GardenerimElementTarget) => {
   const refresh = useCallback(() => {
-    const root = resolveGardenerTarget(target) ?? (target === undefined && typeof document !== "undefined" ? document : null);
+    const root = resolveGardenerimTarget(target) ?? (target === undefined && typeof document !== "undefined" ? document : null);
     if (root) init(root);
-    return Gardener;
+    return Gardenerim;
   }, [target]);
-  useEffect(() => { refresh(); return () => { const root = resolveGardenerTarget(target); if (root) destroy(root); }; }, [refresh, target]);
-  return { Gardener, refresh, destroy: () => { const root = resolveGardenerTarget(target); if (root) destroy(root); } } as const;
+  useEffect(() => { refresh(); return () => { const root = resolveGardenerimTarget(target); if (root) destroy(root); }; }, [refresh, target]);
+  return { Gardenerim, refresh, destroy: () => { const root = resolveGardenerimTarget(target); if (root) destroy(root); } } as const;
 };
 
-export const useGardenerBehavior = <T extends GardenerBehaviorInstance = GardenerBehaviorInstance>(target: RefObject<Element | GardenerComponentHandle | null>, behavior: GardenerBehaviorName | string) => {
+export const useGardenerimBehavior = <T extends GardenerimBehaviorInstance = GardenerimBehaviorInstance>(target: RefObject<Element | GardenerimComponentHandle | null>, behavior: GardenerimBehaviorName | string) => {
   const [instance, setInstance] = useState<T | null>(null);
   const current = useRef<Element | null>(null);
   const refresh = useCallback(() => {
-    const resolved = resolveGardenerTarget(target);
+    const resolved = resolveGardenerimTarget(target);
     const element = typeof Element !== "undefined" && resolved instanceof Element ? resolved : null;
     if (current.current && current.current !== element) destroy(current.current);
     current.current = element;
@@ -39,7 +39,7 @@ export const useGardenerBehavior = <T extends GardenerBehaviorInstance = Gardene
   return { instance, refresh } as const;
 };
 
-export const useGardenerEvent = <T = Record<string, unknown>>(target: RefObject<EventTarget | GardenerComponentHandle | null>, name: string, handler: GardenerEventHandler<T>) => {
+export const useGardenerimEvent = <T = Record<string, unknown>>(target: RefObject<EventTarget | GardenerimComponentHandle | null>, name: string, handler: GardenerimEventHandler<T>) => {
   const eventName = name.startsWith("gardener:") ? name : `gardener:${name}`;
   useEffect(() => {
     const value = target.current;
@@ -49,16 +49,16 @@ export const useGardenerEvent = <T = Record<string, unknown>>(target: RefObject<
   }, [eventName, handler, target]);
 };
 
-export const useGardenerTheme = (initial: GardenerThemeState = {}, target?: RefObject<Element | GardenerComponentHandle | null>): {
-  state: GardenerThemeState;
-  setState: Dispatch<SetStateAction<GardenerThemeState>>;
+export const useGardenerimTheme = (initial: GardenerimThemeState = {}, target?: RefObject<Element | GardenerimComponentHandle | null>): {
+  state: GardenerimThemeState;
+  setState: Dispatch<SetStateAction<GardenerimThemeState>>;
   apply: () => void;
 } => {
-  const [state, setState] = useState<GardenerThemeState>(initial);
+  const [state, setState] = useState<GardenerimThemeState>(initial);
   const original = useRef(new Map<string, string | null>());
   const current = useRef<Element | null>(null);
   const apply = useCallback(() => {
-    const resolved = target ? resolveGardenerTarget(target) : typeof document === "undefined" ? null : document.documentElement;
+    const resolved = target ? resolveGardenerimTarget(target) : typeof document === "undefined" ? null : document.documentElement;
     const element = typeof Element !== "undefined" && resolved instanceof Element ? resolved : null;
     if (!element) return;
     if (current.current !== element) {
@@ -82,4 +82,4 @@ export const useGardenerTheme = (initial: GardenerThemeState = {}, target?: RefO
   return { state, setState, apply };
 };
 
-export const useGardenerToast = () => ({ show: toast });
+export const useGardenerimToast = () => ({ show: toast });

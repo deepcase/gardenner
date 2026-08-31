@@ -53,7 +53,7 @@ function list(name) {
 }
 
 if (parsedFlags.has("--help")) {
-  console.log(`Gardener custom build
+  console.log(`Gardenerim custom build
 
 Usage:
   node scripts/build-custom.mjs --platform <web|mobile|desktop|tauri|electron> [--out path]
@@ -107,7 +107,7 @@ const files = [
   ...resolvedPacks.flatMap((pack) => componentPacks[pack]),
   ...(includeUtilities ? ["generated/utilities.css"] : []),
 ];
-const banner = `/* Gardener v${pkg.version} | MIT License | gardener.css */\n`;
+const banner = `/* Gardenerim v${pkg.version} | MIT License | gardener.css */\n`;
 const css = await composeCss(sourceRoot, files, banner);
 const minified = await minifyCss(css, basename(cssPath), pkg.version);
 await mkdir(dirname(outputBase), { recursive: true });
@@ -149,4 +149,4 @@ const customManifest = {
   },
 };
 await writeFile(manifestPath, `${JSON.stringify(customManifest, null, 2)}\n`);
-console.log(`Gardener custom build: ${resolvedPacks.length} pack(s), ${includedComponents.length} component(s), ${customManifest.metrics.minCss.raw} minified bytes -> ${minCssPath}`);
+console.log(`Gardenerim custom build: ${resolvedPacks.length} pack(s), ${includedComponents.length} component(s), ${customManifest.metrics.minCss.raw} minified bytes -> ${minCssPath}`);

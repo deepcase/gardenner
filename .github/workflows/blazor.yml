@@ -1,4 +1,4 @@
-name: Gardener.Blazor 1.0
+name: Gardenerim.Blazor 1.0
 
 on:
   push:
@@ -35,10 +35,10 @@ jobs:
         working-directory: packages/blazor
       - uses: actions/upload-artifact@v4
         with:
-          name: gardener-blazor-1.0.0
+          name: gardener-blazor-2.0.0
           path: |
-            packages/blazor/artifacts/Gardener.Blazor.1.0.0.nupkg
-            packages/blazor/artifacts/Gardener.Blazor.1.0.0.snupkg
+            packages/blazor/artifacts/Gardenerim.Blazor.2.0.0.nupkg
+            packages/blazor/artifacts/Gardenerim.Blazor.2.0.0.snupkg
             packages/blazor/artifacts/gardener-blazor.performance.json
 
   net11-consumer:
@@ -50,7 +50,7 @@ jobs:
         with:
           dotnet-version: 11.0.x
           dotnet-quality: preview
-      - run: dotnet pack src/Gardener.Blazor/Gardener.Blazor.csproj -c Release -o artifacts
+      - run: dotnet pack src/Gardenerim.Blazor/Gardenerim.Blazor.csproj -c Release -o artifacts
         working-directory: packages/blazor
       - run: npm run test:net11
         working-directory: packages/blazor

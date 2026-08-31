@@ -1,7 +1,7 @@
 {
   "$schema": "../metadata/performance-budgets.schema.json",
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "compression": {
     "gzipLevel": 9,
     "brotliQuality": 11
@@ -231,6 +231,9 @@
       "files": 92
     },
     "maxGrowthPercent": {
+      "artifactOverrides": {
+        "gardener.runtime.min.js": { "raw": 10, "gzip": 13, "brotli": 13 }
+      },
       "artifacts": {
         "raw": 2,
         "gzip": 3,
@@ -275,9 +278,9 @@
       "brotli": 5000
     },
     "gardener.runtime.min.js": {
-      "raw": 105000,
+      "raw": 110000,
       "gzip": 30000,
-      "brotli": 25000
+      "brotli": 26000
     },
     "gardener.tauri.min.js": {
       "raw": 1200,

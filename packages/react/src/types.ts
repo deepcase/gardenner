@@ -1,20 +1,20 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
-import type { GardenerBehaviorInstance as RuntimeBehaviorInstance, GardenerBehaviorName as RuntimeBehaviorName, GardenerEventName as RuntimeEventName } from "@gardenerim/css/runtime";
+import type { GardenerimBehaviorInstance as RuntimeBehaviorInstance, GardenerimBehaviorName as RuntimeBehaviorName, GardenerimEventName as RuntimeEventName } from "@gardenerim/css/runtime";
 
-export type GardenerAs = ElementType;
-export type GardenerBehaviorName = RuntimeBehaviorName;
-export type GardenerEventName = RuntimeEventName;
-export type GardenerBehaviorInstance = RuntimeBehaviorInstance;
-export type GardenerPlatform = "web" | "mobile" | "desktop" | "tauri" | "electron";
-export type GardenerComponentKind = "css" | "hybrid" | string;
-export type GardenerConfigValue = string | number | boolean | null | undefined;
-export type GardenerValueChange = (value: unknown, event: Event) => void;
+export type GardenerimAs = ElementType;
+export type GardenerimBehaviorName = RuntimeBehaviorName;
+export type GardenerimEventName = RuntimeEventName;
+export type GardenerimBehaviorInstance = RuntimeBehaviorInstance;
+export type GardenerimPlatform = "web" | "mobile" | "desktop" | "tauri" | "electron";
+export type GardenerimComponentKind = "css" | "hybrid" | string;
+export type GardenerimConfigValue = string | number | boolean | null | undefined;
+export type GardenerimValueChange = (value: unknown, event: Event) => void;
 
-export interface GardenerComponentDefinition {
+export interface GardenerimComponentDefinition {
   readonly name: string;
   readonly exportName: string;
   readonly category: string;
-  readonly type: GardenerComponentKind;
+  readonly type: GardenerimComponentKind;
   readonly selector: string;
   readonly cssSelector?: string;
   readonly className?: string;
@@ -26,34 +26,34 @@ export interface GardenerComponentDefinition {
   readonly platforms: readonly string[];
 }
 
-export interface GardenerComponentHandle {
+export interface GardenerimComponentHandle {
   readonly element: Element | null;
-  getInstance(behavior?: string): GardenerBehaviorInstance | Record<string, GardenerBehaviorInstance> | null;
+  getInstance(behavior?: string): GardenerimBehaviorInstance | Record<string, GardenerimBehaviorInstance> | null;
   refresh(): void;
 }
 
-export interface GardenerOwnProps {
-  as?: GardenerAs;
+export interface GardenerimOwnProps {
+  as?: GardenerimAs;
   variant?: string | readonly string[];
   state?: string | readonly string[];
-  config?: Readonly<Record<string, GardenerConfigValue>>;
+  config?: Readonly<Record<string, GardenerimConfigValue>>;
   initialize?: boolean;
   value?: unknown;
   defaultValue?: unknown;
   valueEvent?: string;
   valueKey?: string;
-  onValueChange?: GardenerValueChange;
+  onValueChange?: GardenerimValueChange;
   children?: ReactNode;
 }
 
-export type GardenerComponentProps<E extends ElementType = "div"> = GardenerOwnProps &
-  Omit<ComponentPropsWithoutRef<E>, keyof GardenerOwnProps | "className"> & { className?: string };
+export type GardenerimComponentProps<E extends ElementType = "div"> = GardenerimOwnProps &
+  Omit<ComponentPropsWithoutRef<E>, keyof GardenerimOwnProps | "className"> & { className?: string };
 
-export type GardenerGeneratedComponent<TDefault extends ElementType = ElementType> = <E extends ElementType = TDefault>(
-  props: GardenerComponentProps<E> & { ref?: React.Ref<GardenerComponentHandle> },
+export type GardenerimGeneratedComponent<TDefault extends ElementType = ElementType> = <E extends ElementType = TDefault>(
+  props: GardenerimComponentProps<E> & { ref?: React.Ref<GardenerimComponentHandle> },
 ) => React.ReactElement | null;
 
-export interface GardenerThemeState {
+export interface GardenerimThemeState {
   theme?: string;
   mode?: string;
   neutral?: string;
@@ -66,6 +66,6 @@ export interface GardenerThemeState {
   os?: string;
 }
 
-export type GardenerTargetValue = Element | Document | GardenerComponentHandle;
-export type GardenerElementTarget = GardenerTargetValue | React.RefObject<GardenerTargetValue | null> | null | undefined;
-export type GardenerEventHandler<T = Record<string, unknown>> = (event: CustomEvent<T>) => void;
+export type GardenerimTargetValue = Element | Document | GardenerimComponentHandle;
+export type GardenerimElementTarget = GardenerimTargetValue | React.RefObject<GardenerimTargetValue | null> | null | undefined;
+export type GardenerimEventHandler<T = Record<string, unknown>> = (event: CustomEvent<T>) => void;

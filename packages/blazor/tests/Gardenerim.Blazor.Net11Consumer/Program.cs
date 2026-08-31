@@ -1,0 +1,20 @@
+using Gardenerim.Blazor.Components;
+using Gardenerim.Blazor.Generated;
+using Gardenerim.Blazor.Models;
+using Gardenerim.Blazor.Services;
+using Microsoft.Extensions.DependencyInjection;
+
+var services = new ServiceCollection().AddGardenerimBlazor();
+if (!services.Any(descriptor => descriptor.ServiceType == typeof(GardenerimRuntime))) return 1;
+_ = new GButton();
+_ = new GardenerimField<string>();
+if (GardenerimCatalog.Components.Count != 506) return 1;
+if (GardenerimRuntimeCatalog.Behaviors.Count != 66) return 1;
+if (GardenerimRuntimeCatalog.Events.Count != 75) return 1;
+if (GardenerimEvents.Guards.Count != 7) return 1;
+if (!GardenerimRuntimeCatalog.Events.Any(item => item.Name == GardenerimEvents.Selectionchange)) return 1;
+_ = new GardenerimEventArgs(new Dictionary<string, object?> { ["value"] = "verified" }, "selectionchange", false);
+var packageVersion = typeof(GButton).Assembly.GetName().Version?.ToString();
+if (packageVersion != "2.0.0.0") return 1;
+Console.WriteLine("Gardenerim.Blazor 2.0.0 net11.0 NuGet consumer passed: 506 components, 66 behaviors, 75 events.");
+return 0;

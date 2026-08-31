@@ -11,7 +11,7 @@ for (const [name, value] of Object.entries({
 await import(`${packageName}/angular.js`);
 const angular = window.angular;
 const library = await import("../dist/index.js");
-const moduleName = library.createGardenerAngularJS(angular, { moduleName: `gardener.version.${angular.version.full}`, components: ["button", "input"] });
+const moduleName = library.createGardenerimAngularJS(angular, { moduleName: `gardener.version.${angular.version.full}`, components: ["button", "input"] });
 const injector = angular.injector(["ng", moduleName]);
 const scope = injector.get("$rootScope").$new();
 scope.model = { value: "ready" };

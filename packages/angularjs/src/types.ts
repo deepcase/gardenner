@@ -1,34 +1,34 @@
 import type angular from "angular";
 import type {
-  GardenerBehaviorInstance as RuntimeBehaviorInstance,
-  GardenerBehaviorName as RuntimeBehaviorName,
-  GardenerEventName as RuntimeEventName,
+  GardenerimBehaviorInstance as RuntimeBehaviorInstance,
+  GardenerimBehaviorName as RuntimeBehaviorName,
+  GardenerimEventName as RuntimeEventName,
 } from "@gardenerim/css/runtime";
 import type {
-  GardenerAngularJSComponentExportName,
-  GardenerAngularJSComponentName,
-  GardenerAngularJSDirectiveName,
+  GardenerimAngularJSComponentExportName,
+  GardenerimAngularJSComponentName,
+  GardenerimAngularJSDirectiveName,
 } from "./generated/components.js";
 
-export type GardenerAngularJSStatic = angular.IAngularStatic;
-export type GardenerAngularJSModule = angular.IModule;
-export type GardenerAngularJSDirectiveFactory = angular.IDirectiveFactory<angular.IScope, angular.IAugmentedJQuery, angular.IAttributes, angular.INgModelController>;
-export type GardenerBehaviorName = RuntimeBehaviorName;
-export type GardenerEventName = RuntimeEventName;
-export type GardenerBehaviorInstance = RuntimeBehaviorInstance;
-export type GardenerPlatform = "web" | "mobile" | "desktop" | "tauri" | "electron";
-export type GardenerComponentKind = "css" | "hybrid" | string;
-export type GardenerConfigValue = string | number | boolean | null | undefined;
-export type GardenerThemeState = Partial<Record<GardenerThemeAxis, string>>;
-export type GardenerThemeAxis = "theme" | "mode" | "neutral" | "typography" | "shape" | "density" | "elevation" | "motion" | "platform" | "os";
+export type GardenerimAngularJSStatic = angular.IAngularStatic;
+export type GardenerimAngularJSModule = angular.IModule;
+export type GardenerimAngularJSDirectiveFactory = angular.IDirectiveFactory<angular.IScope, angular.IAugmentedJQuery, angular.IAttributes, angular.INgModelController>;
+export type GardenerimBehaviorName = RuntimeBehaviorName;
+export type GardenerimEventName = RuntimeEventName;
+export type GardenerimBehaviorInstance = RuntimeBehaviorInstance;
+export type GardenerimPlatform = "web" | "mobile" | "desktop" | "tauri" | "electron";
+export type GardenerimComponentKind = "css" | "hybrid" | string;
+export type GardenerimConfigValue = string | number | boolean | null | undefined;
+export type GardenerimThemeState = Partial<Record<GardenerimThemeAxis, string>>;
+export type GardenerimThemeAxis = "theme" | "mode" | "neutral" | "typography" | "shape" | "density" | "elevation" | "motion" | "platform" | "os";
 
-export interface GardenerComponentDefinition {
+export interface GardenerimComponentDefinition {
   readonly name: string;
   readonly exportName: string;
   readonly directiveName: string;
   readonly elementName: string;
   readonly category: string;
-  readonly type: GardenerComponentKind;
+  readonly type: GardenerimComponentKind;
   readonly selector: string;
   readonly cssSelector?: string;
   readonly className?: string;
@@ -40,37 +40,37 @@ export interface GardenerComponentDefinition {
   readonly platforms: readonly string[];
 }
 
-export interface GardenerComponentHandle {
+export interface GardenerimComponentHandle {
   readonly element: Element;
-  getInstance(behavior?: string): GardenerBehaviorInstance | Record<string, GardenerBehaviorInstance> | null;
+  getInstance(behavior?: string): GardenerimBehaviorInstance | Record<string, GardenerimBehaviorInstance> | null;
   refresh(): void;
   destroy(): void;
 }
 
-export interface GardenerAngularJSOptions {
+export interface GardenerimAngularJSOptions {
   moduleName?: string;
   dependencies?: readonly string[];
-  components?: readonly (GardenerAngularJSComponentName | GardenerAngularJSComponentExportName | GardenerAngularJSDirectiveName)[];
+  components?: readonly (GardenerimAngularJSComponentName | GardenerimAngularJSComponentExportName | GardenerimAngularJSDirectiveName)[];
   initialize?: boolean;
   registerProvider?: boolean;
   registerBehaviorDirective?: boolean;
 }
 
-export interface GardenerThemeService {
-  readonly axes: readonly GardenerThemeAxis[];
-  attributes(state?: GardenerThemeState): Record<string, string>;
-  apply(target: Element, state?: GardenerThemeState): void;
-  read(target: Element): GardenerThemeState;
+export interface GardenerimThemeService {
+  readonly axes: readonly GardenerimThemeAxis[];
+  attributes(state?: GardenerimThemeState): Record<string, string>;
+  apply(target: Element, state?: GardenerimThemeState): void;
+  read(target: Element): GardenerimThemeState;
   clear(target: Element): void;
 }
 
-export interface GardenerRuntimeService {
+export interface GardenerimRuntimeService {
   readonly version: string;
   init(root?: Document | DocumentFragment | Element): unknown;
   destroy(root?: Document | DocumentFragment | Element): void;
-  getInstance(element: Element, behavior?: string): GardenerBehaviorInstance | Record<string, GardenerBehaviorInstance> | null;
+  getInstance(element: Element, behavior?: string): GardenerimBehaviorInstance | Record<string, GardenerimBehaviorInstance> | null;
   emit(element: EventTarget, name: string, detail?: Record<string, unknown>): boolean;
   observe(): void;
 }
 
-export type GardenerValueChangeLocals = { $value: unknown; $event: Event };
+export type GardenerimValueChangeLocals = { $value: unknown; $event: Event };

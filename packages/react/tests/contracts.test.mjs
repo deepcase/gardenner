@@ -9,9 +9,9 @@ const css = JSON.parse(await readFile(new URL("../../css/metadata/components.jso
 const { createElement } = await import("react");
 const { renderToStaticMarkup } = await import("react-dom/server");
 
-test("all 506 Gardener CSS components have unique React exports", () => {
+test("all 506 Gardenerim CSS components have unique React exports", () => {
   assert.equal(catalog.componentCatalog.length, 506);
-  assert.equal(Object.keys(components.gardenerComponents).length, 506);
+  assert.equal(Object.keys(components.gardenerimComponents).length, 506);
   assert.equal(new Set(catalog.componentCatalog.map(({ name }) => name)).size, 506);
   assert.equal(new Set(catalog.componentCatalog.map(({ exportName }) => exportName)).size, 506);
   assert.deepEqual(catalog.componentCatalog.map(({ name }) => name), css.components.map(({ name }) => name));
@@ -43,7 +43,7 @@ test("behavior-only selectors retain required visual root classes", () => {
 
 test("all 506 generated components render valid SSR roots", () => {
   for (const definition of catalog.componentCatalog) {
-    const Component = components.gardenerComponents[definition.exportName];
+    const Component = components.gardenerimComponents[definition.exportName];
     const html = renderToStaticMarkup(createElement(Component));
     assert.match(html, /^<[^>]+/u, definition.exportName);
     if (definition.className) assert.match(html, new RegExp(`class="[^"]*${definition.className}`, "u"), definition.exportName);

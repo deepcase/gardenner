@@ -15,10 +15,57 @@ Object.defineProperty(globalThis, "MutationObserver", { configurable: true, writ
 mountBehaviorFixtures();
 
 test("runtime catalog exposes the complete current package contract", () => {
-  assert.equal(runtime.Gardener.version, pkg.version);
+  assert.equal(runtime.Gardenerim.version, pkg.version);
   assert.equal(publicApi.contractVersion, pkg.version);
   assert.equal(publicApi.javascript.behaviorContracts.length, 66);
-  assert.deepEqual([...runtime.Gardener.behaviors], publicApi.javascript.behaviors);
+  assert.deepEqual([...runtime.Gardenerim.behaviors], publicApi.javascript.behaviors);
+});
+
+test("managed DataGrid filters, sorts, pages, selects and edits without mutating source rows", () => {
+  const root = document.createElement("div"); root.setAttribute("data-g-data-grid", ""); document.body.append(root);
+  runtime.init(root); const grid = runtime.getInstance(root, "data-grid");
+  const rows = Array.from({ length: 35 }, (_, i) => ({ id: i, name: `客户 ${i}`, amount: i }));
+  const changes = [];
+  grid.setOptions({ columns: [{ field: "name", title: "姓名" }, { field: "amount", type: "number", editable: true }], rows, pageSize: 10, selectable: true, onChange: change => changes.push(change) });
+  assert.equal(root.querySelectorAll("tbody tr").length, 10);
+  grid.setSort("amount", "desc"); assert.match(root.querySelector("tbody").textContent, /客户 34/u);
+  grid.setPage(2); assert.equal(grid.getState().page, 2);
+  grid.select(34); grid.setPage(3); assert.deepEqual(grid.getState().selectedKeys, [34]);
+  grid.setFilter("客户 3"); assert.equal(grid.getState().page, 1); assert.equal(grid.getState().total, 6);
+  assert.equal(changes.at(-1).total, 6);
+  const checkbox = root.querySelector('input[type="checkbox"]'); checkbox.focus();
+  checkbox.checked = true; checkbox.dispatchEvent(new browserWindow.Event("change", { bubbles: true }));
+  assert.equal(document.activeElement?.getAttribute("aria-label"), checkbox.getAttribute("aria-label"));
+  grid.updateCell(34, "amount", 100); assert.equal(rows[34].amount, 34); assert.equal(changes.at(-1).reason, "edit");
+  assert.throws(() => grid.updateCell(34, "__proto__", {}), /not editable/u);
+  assert.throws(() => grid.setRows([{ id: 1 }, { id: 1 }]), /unique/u);
+  runtime.destroy(root); root.remove();
+});
+
+test("managed DataGrid virtual mode bounds rendered rows and restores original markup on dispose", () => {
+  const root = document.createElement("div"); root.setAttribute("data-g-data-grid", "");
+  const original = document.createElement("p"); original.textContent = "original"; root.append(original); document.body.append(root);
+  runtime.init(root); const grid = runtime.getInstance(root, "data-grid");
+  grid.setOptions({ columns: [{ field: "name" }], rows: Array.from({ length: 10000 }, (_, id) => ({ id, name: `<script>${id}</script>` })), pageSize: 10000, virtual: true, rowHeight: 40, height: 320 });
+  assert.ok(root.querySelectorAll("tbody tr").length < 25); assert.equal(root.querySelectorAll("script").length, 0);
+  const viewport = root.querySelector("[data-g-grid-viewport]"); viewport.scrollTop = 20000;
+  viewport.dispatchEvent(new browserWindow.Event("scroll"));
+  assert.ok(root.querySelectorAll("tbody tr").length < 25); assert.match(root.querySelector("tbody").textContent, /497/u);
+  runtime.destroy(root); assert.equal(root.firstChild, original); root.remove();
+});
+
+test("managed DataGrid ignores stale server responses and aborts pending work on disposal", async () => {
+  const root = document.createElement("div"); root.setAttribute("data-g-data-grid", ""); document.body.append(root); runtime.init(root);
+  const grid = runtime.getInstance(root, "data-grid"), requests = [];
+  grid.setOptions({ columns: [{ field: "name" }], mode: "server", pageSize: 10, total: 100,
+    load: query => new Promise(resolve => requests.push({ query, resolve })),
+  });
+  const next = grid.setPage(2); assert.equal(requests[0].query.signal.aborted, true); assert.equal(requests[1].query.page, 2);
+  requests[1].resolve({ rows: [{ id: 20, name: "new" }], total: 100 }); await next;
+  requests[0].resolve({ rows: [{ id: 1, name: "stale" }], total: 100 }); await Promise.resolve();
+  assert.match(root.textContent, /new/u); assert.doesNotMatch(root.textContent, /stale/u);
+  grid.setFilter("pending"); runtime.destroy(root); assert.equal(requests[2].query.signal.aborted, true);
+  requests[2].resolve({ rows: [], total: 0 }); await Promise.resolve(); root.remove();
 });
 
 for (const contract of publicApi.javascript.behaviorContracts) {
@@ -99,7 +146,7 @@ test("DOM lifecycle: scoped destroy leaves sibling instances intact", async () =
 test("DOM lifecycle: one element can own multiple behavior instances", async () => {
   const element = document.createElement("button");
   element.dataset.gCopy = "";
-  element.dataset.gCopyValue = "Gardener";
+  element.dataset.gCopyValue = "Gardenerim";
   element.dataset.gScrollTop = "";
   document.body.append(element);
   await settleMutations();

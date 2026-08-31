@@ -110,7 +110,7 @@ if (/\.g-btn\s*\{/.test(bundles.utilities)) errors.push("Utilities bundle leaks 
 if (!bundles.ai.includes(".g-chat") || bundles.ai.includes(".g-cms-shell")) errors.push("AI bundle boundary is incorrect");
 if (!bundles.components.includes(".g-grid-24") || !bundles.components.includes(".g-print-col-24")) errors.push("Components bundle is missing the complete grid system");
 
-if (buildCatalog.version !== pkg.version || buildCatalog.platforms.length !== 5 || buildCatalog.componentPacks.length !== 28) errors.push("1.0.0 targeted build catalog is incomplete");
+if (buildCatalog.version !== pkg.version || buildCatalog.platforms.length !== 5 || buildCatalog.componentPacks.length !== 28) errors.push("2.0.0 targeted build catalog is incomplete");
 if (Object.keys(buildCatalog.componentOwnership).length !== componentMetadata.components.length) errors.push("Every component must resolve to an owning build pack");
 if (Object.keys(buildCatalog.componentSignatures || {}).length !== componentMetadata.components.length) errors.push("Every component must expose selector signatures for auditable pack ownership");
 if (performanceReport.version !== pkg.version || performanceReport.status !== "passed" || !performanceReport.regressions?.pass) errors.push("Published performance report is missing or failed");

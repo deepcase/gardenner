@@ -1,4 +1,4 @@
-# Gardener React API
+# Gardenerim React API
 
 ## 安装
 
@@ -16,23 +16,23 @@ React 版本范围为 `>=18.3.0 <20.0.0`。加载 `@gardenerim/react/style.css` 
 - `variant`：字符串或数组，转换为组件变体类。
 - `state`：字符串或数组，转换为 `is-*` 状态类。
 - `config`：转换为 `data-g-*` 运行时配置。
-- `initialize`：是否初始化 Gardener DOM 行为，默认 `true`。
+- `initialize`：是否初始化 Gardenerim DOM 行为，默认 `true`。
 - `value` / `defaultValue`：受控值和初始非受控值。
 - `valueEvent` / `valueKey`：从 `gardener:*` 自定义事件载荷同步值。
-- `onValueChange(value, event)`：统一接收原生表单与 Gardener 行为值变更。
+- `onValueChange(value, event)`：统一接收原生表单与 Gardenerim 行为值变更。
 - 所有原生 attributes、events 与 `children` 均透传。
 
 组件 Ref 公开 `element`、`getInstance()` 和 `refresh()`：
 
 ```tsx
-const dialog = createRef<GardenerComponentHandle>();
-<GDialog ref={dialog}><GardenerPart name="dialog">...</GardenerPart></GDialog>;
+const dialog = createRef<GardenerimComponentHandle>();
+<GDialog ref={dialog}><GardenerimPart name="dialog">...</GardenerimPart></GDialog>;
 dialog.current?.getInstance("dialog");
 ```
 
 ## Provider 与主题
 
-`GardenerProvider` 支持 `theme`、`mode`、`neutral`、`typography`、`shape`、`density`、`elevation`、`motion`、`platform` 和 `os` 十条主题轴，并提供 `GardenerThemeContext` 与 `useGardenerThemeContext`。
+`GardenerimProvider` 支持 `theme`、`mode`、`neutral`、`typography`、`shape`、`density`、`elevation`、`motion`、`platform` 和 `os` 十条主题轴，并提供 `GardenerimThemeContext` 与 `useGardenerimThemeContext`。
 
 ## 受控值
 
@@ -43,11 +43,11 @@ dialog.current?.getInstance("dialog");
 
 ## 7 个 Hooks
 
-- `useGardener`
-- `useGardenerBehavior`
-- `useGardenerEvent`
-- `useGardenerTheme`
-- `useGardenerToast`
+- `useGardenerim`
+- `useGardenerimBehavior`
+- `useGardenerimEvent`
+- `useGardenerimTheme`
+- `useGardenerimToast`
 - `useTauriWindowControls`
 - `useElectronWindowControls`
 
@@ -55,7 +55,7 @@ dialog.current?.getInstance("dialog");
 
 ```tsx
 import { GButton, GCard, GDialog } from "@gardenerim/react/components";
-import { useGardenerBehavior } from "@gardenerim/react/hooks";
+import { useGardenerimBehavior } from "@gardenerim/react/hooks";
 import "@gardenerim/react/component-css/forms.css";
 ```
 

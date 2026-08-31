@@ -1,7 +1,7 @@
-import Gardener from "../../packages/css/dist/gardener.runtime.js";
+import Gardenerim from "../../packages/css/dist/gardener.runtime.js";
 import { formatNumber, initI18n, translate, translateTemplate } from "./i18n.js";
 
-if (!window.GardenerFileI18nActive && (await initI18n()) === null) {
+if (!window.GardenerimFileI18nActive && (await initI18n()) === null) {
   // Keep the source page dormant while location.replace() loads its
   // locale-specific SEO page. Continuing would start requests that WebKit
   // reports as access-control failures when the navigation cancels them.
@@ -55,7 +55,7 @@ const blazorCatalogUrl = new URL(
   import.meta.url,
 );
 const root = document.documentElement;
-window.Gardener = Gardener;
+window.Gardenerim = Gardenerim;
 
 const escapeHtml = (value = "") =>
   String(value).replace(
@@ -414,7 +414,7 @@ function setupAngularCatalog(api, catalog) {
 function setupBlazorCatalog(api, catalog) {
   setupFrameworkCatalog(api, catalog, "Blazor", {
     id: "blazor",
-    packageName: "Gardener.Blazor",
+    packageName: "Gardenerim.Blazor",
     componentName: (component) => component.componentType,
     usage: (component) => `<${component.componentType}>…</${component.componentType}>`,
   });

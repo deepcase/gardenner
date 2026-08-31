@@ -1,32 +1,32 @@
 import { createApp, h, ref } from "vue";
-import GardenerVue, {
+import GardenerimVue, {
   GButton,
   GDialog,
-  GardenerComponent,
-  GardenerProvider,
+  GardenerimComponent,
+  GardenerimProvider,
   componentByName,
-  useGardener,
-  useGardenerBehavior,
-  useGardenerEvent,
-  useGardenerTheme,
-  useGardenerToast,
-  vGardener,
-  type GardenerBehaviorName,
-  type GardenerBehaviorInstance,
-  type GardenerComponentDefinition,
+  useGardenerim,
+  useGardenerimBehavior,
+  useGardenerimEvent,
+  useGardenerimTheme,
+  useGardenerimToast,
+  vGardenerim,
+  type GardenerimBehaviorName,
+  type GardenerimBehaviorInstance,
+  type GardenerimComponentDefinition,
 } from "../../src/index.js";
 
-const app = createApp({ render: () => h(GardenerProvider, { theme: "garden", mode: "light" }, () => h(GButton, { variant: "primary" }, () => "Save")) });
-app.use(GardenerVue).directive("gardener-again", vGardener);
+const app = createApp({ render: () => h(GardenerimProvider, { theme: "garden", mode: "light" }, () => h(GButton, { variant: "primary" }, () => "Save")) });
+app.use(GardenerimVue).directive("gardener-again", vGardenerim);
 const element = ref<Element | null>(null);
-const behavior: GardenerBehaviorName = "dialog";
-interface DialogBehavior extends GardenerBehaviorInstance { open(): void; close(): void }
-useGardener(element);
-useGardenerBehavior<DialogBehavior>(element, behavior).instance.value?.open();
-useGardenerEvent(element, "open", (event) => event.detail);
-useGardenerTheme({ theme: "ocean", mode: "system" }, element);
-useGardenerToast().show({ message: "Saved", tone: "success" });
-const definition: GardenerComponentDefinition = componentByName.get("dialog")!;
-h(GardenerComponent, { definition });
+const behavior: GardenerimBehaviorName = "dialog";
+interface DialogBehavior extends GardenerimBehaviorInstance { open(): void; close(): void }
+useGardenerim(element);
+useGardenerimBehavior<DialogBehavior>(element, behavior).instance.value?.open();
+useGardenerimEvent(element, "open", (event) => event.detail);
+useGardenerimTheme({ theme: "ocean", mode: "system" }, element);
+useGardenerimToast().show({ message: "Saved", tone: "success" });
+const definition: GardenerimComponentDefinition = componentByName.get("dialog")!;
+h(GardenerimComponent, { definition });
 h(GDialog, { config: { startOpen: true } });
 h(GButton, { modelValue: "save", modelEvent: "change", modelKey: "value", "onUpdate:modelValue": (value: unknown) => value });

@@ -1,0 +1,11 @@
+@using Gardenerim.Blazor.Components
+@using Gardenerim.Blazor.Generated
+
+<GardenerimProvider Theme="@GardenerimThemePresets.Garden" Mode="light" Shape="small">
+    <GButton Variant="primary" EventNames="Events" OnEvent="OnEvent">Package probe</GButton>
+</GardenerimProvider>
+
+@code {
+    private static readonly string[] Events = [GardenerimEvents.Open];
+    private static void OnEvent(Gardenerim.Blazor.Models.GardenerimEventArgs args) { }
+}

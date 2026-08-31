@@ -1,4 +1,4 @@
-/** Gardener color themes. Mode (light/dark) is intentionally independent. */
+/** Gardenerim color themes. Mode (light/dark) is intentionally independent. */
 export const themes = [
   ["garden", 154, 68, 40],
   ["slate", 215, 25, 45],

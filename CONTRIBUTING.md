@@ -1,6 +1,6 @@
-# Contributing to Gardener
+# Contributing to Gardenerim
 
-Thank you for helping improve Gardener. Contributions should preserve its central promise: a stable, complete, accessible interface system that works for both human-authored and AI-authored products.
+Thank you for helping improve Gardenerim. Contributions should preserve its central promise: a stable, complete, accessible interface system that works for both human-authored and AI-authored products.
 
 ## Before opening a change
 
@@ -11,7 +11,7 @@ Thank you for helping improve Gardener. Contributions should preserve its centra
 
 ## Local setup
 
-Use Node.js 18.18 or newer. CI uses Node.js 24. Blazor work also requires the .NET 10 SDK; .NET 11 compatibility is checked separately.
+Use Node.js 20.19+ or 22.12+ for repository development; Node.js 24 LTS matches CI. Published package consumption supports Node.js 18.18+, but the development toolchain does not. Blazor work also requires the .NET 10 SDK; .NET 11 compatibility is checked separately.
 
 ```sh
 npm run bootstrap
@@ -64,4 +64,3 @@ Components must not appear only in a showcase. If a contract is public, it must 
 Use clear imperative commit subjects such as `Add command palette focus restoration`. A pull request should explain the user problem, affected packages, public API impact, tests performed, screenshots for visible changes, and migration notes where relevant.
 
 By contributing, you agree that your contribution is licensed under the repository's [MIT License](LICENSE) and that you will follow the [Code of Conduct](CODE_OF_CONDUCT.md).
-

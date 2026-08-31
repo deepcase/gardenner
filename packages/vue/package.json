@@ -1,7 +1,7 @@
 {
   "name": "@gardenerim/vue",
-  "version": "1.0.0",
-  "description": "Official Vue 3 bindings for the Gardener CSS framework and runtime.",
+  "version": "2.0.0",
+  "description": "Official Vue 3 bindings for the Gardenerim CSS framework and runtime.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/deecase/gardener.git",
@@ -99,7 +99,12 @@
     "./schema/public-api": "./metadata/public-api.schema.json",
     "./schema/compatibility": "./metadata/compatibility.schema.json",
     "./schema/performance": "./metadata/performance.schema.json",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./contracts": {
+      "types": "./dist/generated/contracts.d.ts",
+      "import": "./dist/generated/contracts.js",
+      "default": "./dist/generated/contracts.js"
+    }
   },
   "scripts": {
     "clean": "node scripts/clean.mjs",
@@ -124,7 +129,7 @@
     "dev": "vite"
   },
   "peerDependencies": {
-    "@gardenerim/css": ">=1.0.0 <2.0.0",
+    "@gardenerim/css": ">=2.0.0 <3.0.0",
     "vue": ">=3.4.0 <4.0.0"
   },
   "devDependencies": {

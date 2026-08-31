@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { GAlert, GButton, GCard, GInput, GardenerProvider, componentCatalog } from "@gardenerim/react";
+import { GAlert, GButton, GCard, GInput, GardenerimProvider, componentCatalog } from "@gardenerim/react";
 
 export function App() {
-  const [name, setName] = useState("Gardener");
+  const [name, setName] = useState("Gardenerim");
   const [valueEvents, setValueEvents] = useState(0);
   return (
-    <GardenerProvider theme="garden" mode="light" shape="subtle" density="comfortable">
+    <GardenerimProvider theme="garden" mode="light" shape="subtle" density="comfortable">
       <main className="g-container g-py-8" style={{ maxWidth: "54rem" }}>
         <header className="g-mb-6">
-          <span className="g-badge">React 1.0.0 Stable</span>
-          <h1 className="g-mt-3">Gardener React</h1>
+          <span className="g-badge">React 2.0.0 Stable</span>
+          <h1 className="g-mt-3">Gardenerim React</h1>
           <p>506 个组件、66 种行为、Web / Mobile / Desktop / Tauri / Electron。</p>
         </header>
         <GAlert state="success">官方 React 适配层已加载。</GAlert>
@@ -24,6 +24,6 @@ export function App() {
         </GCard>
         <p className="g-mt-5" data-testid="catalog-count">{componentCatalog.length} components</p>
       </main>
-    </GardenerProvider>
+    </GardenerimProvider>
   );
 }

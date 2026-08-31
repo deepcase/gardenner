@@ -34,8 +34,8 @@ const cssCatalog = JSON.parse(await readFile(resolve(root, "..", "css", "metadat
 const buildCatalog = JSON.parse(await readFile(resolve(root, "..", "css", "dist", "gardener.builds.json"), "utf8"));
 await mkdir(resolve(dist, "component-css"), { recursive: true });
 for (const pack of buildCatalog.componentPacks) await writeFile(resolve(dist, "component-css", `${pack.name}.css`), `@import \"@gardenerim/css/component/${pack.name}.css\";\n`);
-await writeFile(resolve(dist, "catalog.json"), `${JSON.stringify({ schemaVersion: 1, version: "1.0.0", components: cssCatalog.components }, null, 2)}\n`);
+await writeFile(resolve(dist, "catalog.json"), `${JSON.stringify({ schemaVersion: 1, version: "2.0.0", components: cssCatalog.components }, null, 2)}\n`);
 const bundle = await readFile(resolve(dist, "gardener-vue.min.js"));
 const metrics = { raw: bundle.length, gzip: gzipSync(bundle, { level: 9 }).length, brotli: brotliCompressSync(bundle).length };
-await writeFile(resolve(dist, "gardener-vue.performance.json"), `${JSON.stringify({ $schema: "../metadata/performance.schema.json", schemaVersion: 1, version: "1.0.0", status: "passed", artifact: "gardener-vue.min.js", metrics }, null, 2)}\n`);
+await writeFile(resolve(dist, "gardener-vue.performance.json"), `${JSON.stringify({ $schema: "../metadata/performance.schema.json", schemaVersion: 1, version: "2.0.0", status: "passed", artifact: "gardener-vue.min.js", metrics }, null, 2)}\n`);
 console.log(`Vue bundle built: ${metrics.raw} raw / ${metrics.gzip} gzip / ${metrics.brotli} brotli bytes.`);

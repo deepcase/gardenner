@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Gardener Runtime Lab</title>
+    <title>Gardenerim Runtime Lab</title>
     <link rel="stylesheet" href="../dist/gardener.css" />
   </head>
   <body>
@@ -106,9 +106,9 @@
                 <div
                   class="g-combobox-option"
                   role="option"
-                  data-g-value="Gardener"
+                  data-g-value="Gardenerim"
                 >
-                  Gardener
+                  Gardenerim
                 </div>
                 <div
                   class="g-combobox-option"
@@ -230,7 +230,7 @@
             ><button
               class="g-btn g-btn-outline"
               data-g-copy
-              data-g-copy-value="Gardener copied"
+              data-g-copy-value="Gardenerim copied"
             >
               复制</button
             ><button
@@ -291,8 +291,8 @@
       </section>
     </div>
     <script type="module">
-      import Gardener from "../dist/gardener.runtime.js";
-      window.labGardener = Gardener;
+      import Gardenerim from "../dist/gardener.runtime.js";
+      window.labGardenerim = Gardenerim;
       document
         .querySelector("#lab-rtl")
         .addEventListener(
@@ -311,7 +311,7 @@
       document
         .querySelector("#lab-toast")
         .addEventListener("click", () =>
-          Gardener.toast({
+          Gardenerim.toast({
             title: "完成",
             message: "Toast 已动态初始化",
             tone: "success",

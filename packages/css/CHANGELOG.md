@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.0] - Unreleased
+
+- Breaking: use Gardenerim-branded public exports only; remove Gardener aliases and update migration examples.
+- Fix Vue radio, multiple-select, checkbox-array and IME model semantics, and React multiple-select values.
+- Add opt-in DataGrid data mode with paging, filtering, sorting, selection, editing, fixed-height virtualization and cancellable server loading.
+- Add generated strict component/DataGrid type contracts, executable Blazor examples and lightweight CSS guidance.
+- Expand regression and package checks; keep existing published 1.0.0 artifacts unchanged.
+
 ## 1.0.0 - 2026-08-28
 
 - 发布首个 Stable 公共契约：Web、Mobile、Desktop、Tauri、Electron 五个平台、28 个组件包、506 个组件与 42 个主题全部保持正式公共入口。
@@ -24,7 +32,7 @@
 - 将 Tauri、Electron 从 Desktop CSS 导出别名提升为独立、可审计的轻量平台入口；五个平台均有正式 CSS 产物，同时通过继承 Desktop 避免重复打包，正式预算与完整性覆盖由 40 项增至 42 项。
 - 性能基线支持显式产物别名：0.8.0 新增的 Tauri/Electron CSS 入口分别映射到其在 0.7.0 实际使用的 Desktop 基线，性能报告记录具体基线产物；npm 文件数绝对预算同步调整为 92，仍满足相对 10% 上限。
 - 发布包消费测试会安装真实 tgz，并使用 esbuild 分别打包 Web、Mobile、Desktop、Tauri、Electron 与独立账号组件入口，验证嵌套导入展开及平台边界；修正文档中遗漏的正式平台入口 `.css` 扩展名。
-- 新增从 `0.7.0` 固化的跨版本兼容基线，覆盖包入口、CSS 层、主题属性、模块导出、Gardener 成员、66 种行为、75 种事件、运行时属性、适配器、506 个组件、52 个配方与 42 个主题；`verify:compatibility` 阻断未声明删除，并要求至少两个次版本的废弃期。
+- 新增从 `0.7.0` 固化的跨版本兼容基线，覆盖包入口、CSS 层、主题属性、模块导出、Gardenerim 成员、66 种行为、75 种事件、运行时属性、适配器、506 个组件、52 个配方与 42 个主题；`verify:compatibility` 阻断未声明删除，并要求至少两个次版本的废弃期。
 - 构建根据 Public API 自动生成 Runtime、Tauri 和 Electron TypeScript 声明；行为名与事件名使用完整字面量联合类型，`test:types` 在严格模式下编译真实消费者夹具。
 - npm 包补齐 `style`、`types`、条件导出、Node/浏览器支持矩阵、公开发布和 Provenance 配置；新增 canonical Runtime、Compatibility、Compatibility Schema 与 `package.json` 导出。
 - 修复 Runtime 自动初始化未列入 `sideEffects` 的发布风险，防止打包器在仅依赖自动初始化时错误移除运行时。
@@ -112,7 +120,7 @@
 
 ## 0.1.0 - 2026-08-25
 
-- 建立 Gardener 单项目构建结构。
+- 建立 Gardenerim 单项目构建结构。
 - 加入 42 套独立颜色主题和四种显示模式。
 - 建立中性、小圆角、低阴影的默认视觉语言。
 - 加入生成式响应式工具类。

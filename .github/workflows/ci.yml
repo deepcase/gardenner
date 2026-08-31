@@ -1,4 +1,4 @@
-name: Gardener CI
+name: Gardenerim CI
 
 on:
   push:
@@ -78,3 +78,17 @@ jobs:
           node-version: 24
       - run: npm run check:website
 
+  exports:
+    name: Gardenerim public export names
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm --prefix packages/css ci && npm run build:css
+      - run: npm --prefix packages/vue ci && npm run build:vue
+      - run: npm --prefix packages/react ci && npm run build:react
+      - run: npm --prefix packages/angularjs ci && npm run build:angularjs
+      - run: npm run verify:exports

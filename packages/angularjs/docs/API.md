@@ -1,15 +1,15 @@
-# Gardener AngularJS 1.0.0 API
+# Gardenerim AngularJS 2.0.0 API
 
-> AngularJS 1.x 已结束官方支持。本适配层用于经过验证的 AngularJS 1.8.2–1.8.3 遗留系统，并将 `angular` 保持为外部 peer dependency。应用仍需自行执行 CSP、依赖审计、输入净化与迁移计划；Gardener 不会掩盖或改写 AngularJS 自身的安全边界。完整要求见 [安全基线](./security.md)。
+> AngularJS 1.x 已结束官方支持。本适配层用于经过验证的 AngularJS 1.8.2–1.8.3 遗留系统，并将 `angular` 保持为外部 peer dependency。应用仍需自行执行 CSP、依赖审计、输入净化与迁移计划；Gardenerim 不会掩盖或改写 AngularJS 自身的安全边界。完整要求见 [安全基线](./security.md)。
 
 ## 模块安装
 
-`createGardenerAngularJS(angular, options)` 注册并返回 AngularJS 模块名，默认是 `gardener`。包本身不读取 `window.angular`，因此 ESM 导入不会隐式修改全局 AngularJS 注册表。
+`createGardenerimAngularJS(angular, options)` 注册并返回 AngularJS 模块名，默认是 `gardener`。包本身不读取 `window.angular`，因此 ESM 导入不会隐式修改全局 AngularJS 注册表。
 
 AngularJS npm 包不是原生 ESM；在 Vite 等 ESM 构建中应先执行 `import "angular/angular.js"`，再把 `window.angular` 传给模块工厂。不要依赖不稳定的 `import angular from "angular"` 默认导入。
 
 ```ts
-const moduleName = createGardenerAngularJS(angular, {
+const moduleName = createGardenerimAngularJS(angular, {
   moduleName: "gardener",
   dependencies: [],
   components: ["button", "input", "GDialogDirective", "gCard"],
@@ -43,7 +43,7 @@ const moduleName = createGardenerAngularJS(angular, {
 | `gardener-variant` | 空格或逗号分隔的组件变体 |
 | `gardener-state` | 转换为一个或多个 `is-*` 状态类 |
 | `gardener-config` | AngularJS 表达式对象，映射为 `data-g-*` 配置 |
-| `gardener-initialize` | 是否初始化 Gardener DOM 行为 |
+| `gardener-initialize` | 是否初始化 Gardenerim DOM 行为 |
 | `ng-model` | 原生表单或自定义事件的双向值 |
 | `gardener-value-event` | 自定义 `gardener:*` 值事件 |
 | `gardener-value-key` | 从 `CustomEvent.detail` 中取值的键 |
@@ -53,7 +53,7 @@ const moduleName = createGardenerAngularJS(angular, {
 
 ## 通用指令
 
-- `gGardener`（模板写作 `g-gardener="dialog"`）：为任意节点声明一个 Gardener 行为并接入 AngularJS 销毁周期。
+- `gGardenerim`（模板写作 `g-gardenerim="dialog"`）：为任意节点声明一个 Gardenerim 行为并接入 AngularJS 销毁周期。
 - `gardenerProvider`（模板写作 `<gardener-provider>` / `gardener-provider`）：应用十轴主题并初始化其子树。
 
 主题属性是 `gardener-theme`、`gardener-mode`、`gardener-neutral`、`gardener-typography`、`gardener-shape`、`gardener-density`、`gardener-elevation`、`gardener-motion`、`gardener-platform`、`gardener-os`。默认文档示例使用 Light 与小圆角。
@@ -62,9 +62,9 @@ AngularJS 归一化后的公共属性名为 `gardenerVariant`、`gardenerState`�
 
 ## 服务
 
-- `GardenerRuntime`：`init`、`destroy`、`getInstance`、`emit`、`observe`。
-- `GardenerTheme`：`attributes`、`apply`、`read`、`clear`。
-- `GardenerToast`：`show(options)`。
+- `GardenerimRuntime`：`init`、`destroy`、`getInstance`、`emit`、`observe`。
+- `GardenerimTheme`：`attributes`、`apply`、`read`、`clear`。
+- `GardenerimToast`：`show(options)`。
 
 ## Tauri 与 Electron
 
@@ -75,7 +75,7 @@ import { createTauriWindowService } from "@gardenerim/angularjs/tauri";
 import { createElectronWindowService } from "@gardenerim/angularjs/electron";
 ```
 
-两个服务均返回带 `available` 与 `destroy()` 的绑定对象，并复用 Gardener CSS 的安全桥接契约。
+两个服务均返回带 `available` 与 `destroy()` 的绑定对象，并复用 Gardenerim CSS 的安全桥接契约。
 
 ## 样式与包入口
 
@@ -85,7 +85,7 @@ import { createElectronWindowService } from "@gardenerim/angularjs/electron";
 
 ## TypeScript 类型
 
-24 个公共类型完整导出：`GardenerAngularJSComponentExportName`、`GardenerAngularJSComponentName`、`GardenerAngularJSDirectiveFactory`、`GardenerAngularJSDirectiveName`、`GardenerAngularJSModule`、`GardenerAngularJSOptions`、`GardenerAngularJSStatic`、`GardenerBehaviorInstance`、`GardenerBehaviorName`、`GardenerComponentDefinition`、`GardenerComponentHandle`、`GardenerComponentKind`、`GardenerConfigValue`、`GardenerElectronBinding`、`GardenerElectronBridge`、`GardenerEventName`、`GardenerPlatform`、`GardenerRuntimeService`、`GardenerTauriBinding`、`GardenerTauriBridge`、`GardenerThemeAxis`、`GardenerThemeService`、`GardenerThemeState`、`GardenerValueChangeLocals`。
+24 个公共类型完整导出：`GardenerimAngularJSComponentExportName`、`GardenerimAngularJSComponentName`、`GardenerimAngularJSDirectiveFactory`、`GardenerimAngularJSDirectiveName`、`GardenerimAngularJSModule`、`GardenerimAngularJSOptions`、`GardenerimAngularJSStatic`、`GardenerimBehaviorInstance`、`GardenerimBehaviorName`、`GardenerimComponentDefinition`、`GardenerimComponentHandle`、`GardenerimComponentKind`、`GardenerimConfigValue`、`GardenerimElectronBinding`、`GardenerimElectronBridge`、`GardenerimEventName`、`GardenerimPlatform`、`GardenerimRuntimeService`、`GardenerimTauriBinding`、`GardenerimTauriBridge`、`GardenerimThemeAxis`、`GardenerimThemeService`、`GardenerimThemeState`、`GardenerimValueChangeLocals`。
 
 ## 生命周期与兼容性
 

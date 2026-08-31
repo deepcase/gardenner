@@ -1,4 +1,4 @@
-# Gardener 事件完整目录
+# Gardenerim 事件完整目录
 
 共 75 个 `gardener:*` 自定义事件，无省略。使用 `EventNames` 订阅、`OnEvent` 接收安全序列化 detail；守卫事件需要在 `PreventDefaultEvents` 中声明，以便浏览器同步执行 `preventDefault()`。
 
@@ -21,7 +21,7 @@
 | `cartchange` | `subtotal`, `discount`, `shipping`, `tax`, `total`, `count`, `reason` | 否 | 是 | 是 |
 | `cartremove` | `item` | 否 | 是 | 是 |
 | `cascadechange` | `value`, `path`, `reason` | 否 | 是 | 是 |
-| `change` | `tab`, `trigger`, `expanded`, `visible`, `value`, `option`, `index`, `step`, `source`, `item`, `link`, `section`, `target` | 否 | 是 | 是 |
+| `change` | `tab`, `trigger`, `expanded`, `visible`, `value`, `option`, `index`, `step`, `source`, `item`, `reason`, `page`, `pageSize`, `total`, `sort`, `filter`, `selectedKeys`, `loading`, `error`, `key`, `field`, `previous`, `row`, `link`, `section`, `target` | 否 | 是 | 是 |
 | `clear` | `input` | 否 | 是 | 是 |
 | `close` | `reason`, `index`, `trigger` | 否 | 是 | 是 |
 | `collapse` | `item` | 否 | 是 | 是 |

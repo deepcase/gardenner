@@ -1,4 +1,4 @@
-name: Publish Gardener packages
+name: Publish Gardenerim packages
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
       version:
         description: Version to publish
         required: true
-        default: 1.0.0
+        default: 2.0.0
         type: string
       confirm:
         description: Type PUBLISH to authorize the registry upload
@@ -40,8 +40,8 @@ jobs:
           if(process.env.RELEASE_CONFIRM!=='PUBLISH')throw new Error('Confirmation must equal PUBLISH');
           if(process.env.GITHUB_REF!=='refs/tags/v'+process.env.RELEASE_VERSION)throw new Error('Run this workflow from tag v'+process.env.RELEASE_VERSION);
           for(const [path,name] of [['packages/css/package.json','@gardenerim/css'],['packages/vue/package.json','@gardenerim/vue'],['packages/react/package.json','@gardenerim/react'],['packages/angularjs/package.json','@gardenerim/angularjs']]){const p=JSON.parse(fs.readFileSync(path));if(p.name!==name||p.version!==process.env.RELEASE_VERSION)throw new Error(path+' does not match the requested release');}
-          const project=fs.readFileSync('packages/blazor/src/Gardener.Blazor/Gardener.Blazor.csproj','utf8');
-          if(!project.includes('<PackageId>Gardener.Blazor</PackageId>')||!project.includes('<Version>'+process.env.RELEASE_VERSION+'</Version>'))throw new Error('Gardener.Blazor does not match the requested release');"
+          const project=fs.readFileSync('packages/blazor/src/Gardenerim.Blazor/Gardenerim.Blazor.csproj','utf8');
+          if(!project.includes('<PackageId>Gardenerim.Blazor</PackageId>')||!project.includes('<Version>'+process.env.RELEASE_VERSION+'</Version>'))throw new Error('Gardenerim.Blazor does not match the requested release');"
 
   npm-css:
     name: Publish @gardenerim/css
@@ -103,7 +103,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   nuget:
-    name: Publish Gardener.Blazor
+    name: Publish Gardenerim.Blazor
     needs: guard
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -133,9 +133,9 @@ jobs:
         uses: NuGet/login@v1
         with:
           user: gardenerim
-      - name: Publish Gardener.Blazor
+      - name: Publish Gardenerim.Blazor
         working-directory: packages/blazor
         run: >-
-          dotnet nuget push artifacts/Gardener.Blazor.${{ inputs.version }}.nupkg
+          dotnet nuget push artifacts/Gardenerim.Blazor.${{ inputs.version }}.nupkg
           --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}"
           --source https://api.nuget.org/v3/index.json

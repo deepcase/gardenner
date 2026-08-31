@@ -1,11 +1,11 @@
 import type angular from "angular";
 import { destroy, getInstance, init } from "@gardenerim/css/runtime";
 import type {
-  GardenerAngularJSDirectiveFactory,
-  GardenerComponentDefinition,
-  GardenerComponentHandle,
-  GardenerConfigValue,
-  GardenerThemeAxis,
+  GardenerimAngularJSDirectiveFactory,
+  GardenerimComponentDefinition,
+  GardenerimComponentHandle,
+  GardenerimConfigValue,
+  GardenerimThemeAxis,
 } from "./types.js";
 
 const splitList = (value?: string): string[] => (value ?? "").split(/[\s,]+/u).map((item) => item.trim()).filter(Boolean);
@@ -15,7 +15,7 @@ const eventName = (value?: string): string => {
   return name.startsWith("gardener:") ? name : `gardener:${name}`;
 };
 
-export const configAttributes = (config?: Readonly<Record<string, GardenerConfigValue>>): Record<string, string> => {
+export const configAttributes = (config?: Readonly<Record<string, GardenerimConfigValue>>): Record<string, string> => {
   const attributes: Record<string, string> = {};
   for (const [name, value] of Object.entries(config ?? {})) {
     if (value === false || value == null) continue;
@@ -36,7 +36,7 @@ const replaceClasses = (element: Element, previous: string[], next: string[]): s
 const applyConfig = (element: Element, previous: string[], config: unknown): string[] => {
   previous.forEach((name) => element.removeAttribute(name));
   if (!config || typeof config !== "object" || Array.isArray(config)) return [];
-  const attributes = configAttributes(config as Record<string, GardenerConfigValue>);
+  const attributes = configAttributes(config as Record<string, GardenerimConfigValue>);
   for (const [name, value] of Object.entries(attributes)) element.setAttribute(name, value);
   return Object.keys(attributes);
 };
@@ -49,11 +49,11 @@ const nativeValue = (element: Element): unknown => {
   return undefined;
 };
 
-export const createGardenerComponent = (
-  definition: GardenerComponentDefinition,
+export const createGardenerimComponent = (
+  definition: GardenerimComponentDefinition,
   initializeByDefault = true,
-): GardenerAngularJSDirectiveFactory => {
-  const factory: GardenerAngularJSDirectiveFactory = () => ({
+): GardenerimAngularJSDirectiveFactory => {
+  const factory: GardenerimAngularJSDirectiveFactory = () => ({
     restrict: "EA",
     require: "?ngModel",
     link(scope: angular.IScope, jqElement: angular.IAugmentedJQuery, attrs: angular.IAttributes, ngModel?: angular.INgModelController | null) {
@@ -84,7 +84,7 @@ export const createGardenerComponent = (
         applyBehaviorState();
         if (shouldInitialize) init(element);
       };
-      const handle: GardenerComponentHandle = {
+      const handle: GardenerimComponentHandle = {
         element,
         getInstance: (behavior?: string) => behavior ? getInstance(element, behavior) : getInstance(element),
         refresh,
@@ -146,13 +146,13 @@ export const createGardenerComponent = (
   return factory;
 };
 
-export const gardenerBehaviorDirective: GardenerAngularJSDirectiveFactory = () => ({
+export const gardenerimBehaviorDirective: GardenerimAngularJSDirectiveFactory = () => ({
   restrict: "A",
   link(scope, jqElement, attrs) {
     const element = jqElement[0];
     if (!(element instanceof Element)) return;
     let currentAttribute: string | null = null;
-    attrs.$observe("gGardener", (value) => {
+    attrs.$observe("gGardenerim", (value) => {
       if (currentAttribute) element.removeAttribute(currentAttribute);
       destroy(element);
       const behavior = typeof value === "string" ? value : attrs.gardenerBehavior;
@@ -163,11 +163,11 @@ export const gardenerBehaviorDirective: GardenerAngularJSDirectiveFactory = () =
     scope.$on("$destroy", () => destroy(element));
   },
 });
-gardenerBehaviorDirective.$inject = [];
+gardenerimBehaviorDirective.$inject = [];
 
-export const themeAxes: readonly GardenerThemeAxis[] = ["theme", "mode", "neutral", "typography", "shape", "density", "elevation", "motion", "platform", "os"];
+export const themeAxes: readonly GardenerimThemeAxis[] = ["theme", "mode", "neutral", "typography", "shape", "density", "elevation", "motion", "platform", "os"];
 
-export const gardenerProviderDirective: GardenerAngularJSDirectiveFactory = () => ({
+export const gardenerimProviderDirective: GardenerimAngularJSDirectiveFactory = () => ({
   restrict: "EA",
   link(scope, jqElement, attrs) {
     const element = jqElement[0];
@@ -183,4 +183,4 @@ export const gardenerProviderDirective: GardenerAngularJSDirectiveFactory = () =
     scope.$on("$destroy", () => destroy(element));
   },
 });
-gardenerProviderDirective.$inject = [];
+gardenerimProviderDirective.$inject = [];

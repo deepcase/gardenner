@@ -39,5 +39,5 @@ for (const input of process.argv.slice(2)) {
   }
 }
 
-if (errors.length) throw new Error(`Gardener validation failed:\n- ${errors.join("\n- ")}`);
+if (errors.length) throw new Error(`Gardenerim validation failed:\n- ${errors.join("\n- ")}`);
 console.log(`Validation passed: ${recipes.recipes.length} recipes${process.argv.length > 2 ? ` and ${process.argv.length - 2} HTML file(s)` : ""}.`);

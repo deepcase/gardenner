@@ -1,5 +1,5 @@
-import Gardener, {
-  Gardener as namedGardener,
+import Gardenerim, {
+  Gardenerim as namedGardenerim,
   destroy,
   emit,
   getInstance,
@@ -7,21 +7,21 @@ import Gardener, {
   observe,
   register,
   toast,
-  type GardenerBehaviorFactory,
-  type GardenerBehaviorName,
-  type GardenerEventName,
+  type GardenerimBehaviorFactory,
+  type GardenerimBehaviorName,
+  type GardenerimEventName,
 } from "@gardenerim/css";
-import { bindTauriWindowControls, type GardenerTauriBridge } from "@gardenerim/css/tauri";
-import { bindElectronWindowControls, type GardenerElectronBridge } from "@gardenerim/css/electron";
+import { bindTauriWindowControls, type GardenerimTauriBridge } from "@gardenerim/css/tauri";
+import { bindElectronWindowControls, type GardenerimElectronBridge } from "@gardenerim/css/electron";
 import runtime, { init as initRuntime } from "@gardenerim/css/runtime";
 import runtimeJs from "@gardenerim/css/runtime.js";
 import runtimeMin from "@gardenerim/css/runtime.min.js";
 import { bindTauriWindowControls as bindTauriMin } from "@gardenerim/css/tauri.min.js";
 import { bindElectronWindowControls as bindElectronMin } from "@gardenerim/css/electron.min.js";
 
-const behavior: GardenerBehaviorName = "dialog";
-const event: GardenerEventName = "open";
-const factory: GardenerBehaviorFactory = (element) => ({ element, destroy() {} });
+const behavior: GardenerimBehaviorName = "dialog";
+const event: GardenerimEventName = "open";
+const factory: GardenerimBehaviorFactory = (element) => ({ element, destroy() {} });
 register("consumer-test", factory);
 init(document);
 destroy(document);
@@ -29,11 +29,11 @@ observe();
 emit(document, event, { behavior });
 toast({ title: "Saved", tone: "success", timeout: 1000 });
 getInstance("[data-g-dialog]", "dialog")?.destroy?.();
-Gardener.init();
-namedGardener.destroy();
+Gardenerim.init();
+namedGardenerim.destroy();
 
-const tauriBridge: GardenerTauriBridge = { minimize() {} };
-const electronBridge: GardenerElectronBridge = { windowAction() {} };
+const tauriBridge: GardenerimTauriBridge = { minimize() {} };
+const electronBridge: GardenerimElectronBridge = { windowAction() {} };
 bindTauriWindowControls(document, tauriBridge).destroy();
 bindElectronWindowControls(document, electronBridge).destroy();
 initRuntime();

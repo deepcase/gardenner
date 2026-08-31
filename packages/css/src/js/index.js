@@ -1,4 +1,4 @@
-/** Gardener runtime v1.0.0 — framework-agnostic, accessible component behavior. */
+/** Gardenerim runtime v2.0.0 — framework-agnostic, accessible component behavior. */
 
 const instanceStores = new WeakMap();
 const registry = new Map();
@@ -825,10 +825,171 @@ function createTree(element) {
 }
 
 function createDataGrid(element) {
+  // Markup-only mode remains compatible. Data ownership starts only when the
+  // consumer explicitly calls setOptions({ columns, rows/load }).
+  let options = {}, rows = [], columns = [], selected = new Set(), page = 1;
+  let pageSize = 20, sort = null, filter = "", total = 0, loading = false, error = "";
+  let viewport, table, body, footer, managed = false, disposed = false, request = 0, abort;
+  let originalChildren = null, scrollHandler = null;
+  const focusIds = new WeakMap();
+  const identify = (node, id) => { focusIds.set(node, JSON.stringify(id)); return node; };
+  const make = (tag, text) => { const node = document.createElement(tag); if (text != null) node.textContent = String(text); return node; };
+  const keyOf = (row) => row[options.rowKey || "id"];
+  const safeField = (field) => typeof field === "string" && !["__proto__", "prototype", "constructor"].includes(field);
+  const announce = (reason, extra = {}) => {
+    const detail = { reason, ...getState(), ...extra };
+    emit(element, "change", { reason: detail.reason, page: detail.page, pageSize: detail.pageSize, total: detail.total, sort: detail.sort, filter: detail.filter, selectedKeys: detail.selectedKeys, loading: detail.loading, error: detail.error, key: detail.key, field: detail.field, value: detail.value, previous: detail.previous, row: detail.row });
+    options.onChange?.(detail);
+  };
+  const filteredRows = () => {
+    if (options.mode === "server") return rows;
+    const query = filter.trim().toLocaleLowerCase();
+    const result = query ? rows.filter(row => columns.some(column => String(row[column.field] ?? "").toLocaleLowerCase().includes(query))) : [...rows];
+    if (sort) {
+      const column = columns.find(column => column.field === sort.field);
+      const compare = new Intl.Collator(options.locale, { numeric: true, sensitivity: "base" });
+      result.sort((a, b) => {
+        const left = a[sort.field], right = b[sort.field];
+        const value = column?.type === "number" ? numeric(left, 0) - numeric(right, 0) : compare.compare(String(left ?? ""), String(right ?? ""));
+        return sort.direction === "desc" ? -value : value;
+      });
+    }
+    return result;
+  };
+  function getState() {
+    return { page, pageSize, total, sort: sort ? { ...sort } : null, filter, selectedKeys: [...selected], loading, error };
+  }
+  function refresh() {
+    if (!managed || disposed) return;
+    const focused = document.activeElement, focusId = focusIds.get(focused);
+    const selection = focused?.selectionStart == null ? null : [focused.selectionStart, focused.selectionEnd];
+    const filtered = filteredRows();
+    total = options.mode === "server" ? total : filtered.length;
+    if (options.mode !== "server") page = Math.max(1, Math.min(page, Math.max(1, Math.ceil(total / pageSize))));
+    const pageRows = options.mode === "server" ? filtered : filtered.slice((page - 1) * pageSize, page * pageSize);
+    const rowHeight = Math.max(24, numeric(options.rowHeight, 40));
+    const height = Math.max(rowHeight, numeric(options.height, 400));
+    const virtual = options.virtual === true;
+    const start = virtual ? Math.min(Math.max(0, pageRows.length - 1), Math.max(0, Math.floor(viewport.scrollTop / rowHeight) - 3)) : 0;
+    const end = virtual ? Math.min(pageRows.length, start + Math.ceil(height / rowHeight) + 6) : pageRows.length;
+    const head = make("thead"), header = make("tr"); header.setAttribute("role", "row");
+    if (options.selectable) { const th = make("th", options.labels?.select || "选择"); th.setAttribute("scope", "col"); header.append(th); }
+    for (const column of columns) {
+      const th = make("th"); th.setAttribute("role", "columnheader"); th.setAttribute("scope", "col");
+      th.setAttribute("aria-sort", sort?.field === column.field ? sort.direction === "asc" ? "ascending" : "descending" : "none");
+      if (column.sortable !== false) {
+        const button = make("button", column.title || column.field); button.type = "button"; button.className = "g-btn g-btn-ghost";
+        identify(button, ["sort", column.field]);
+        button.addEventListener("click", () => setSort(column.field, sort?.field === column.field && sort.direction === "asc" ? "desc" : "asc")); th.append(button);
+      } else th.textContent = column.title || column.field;
+      header.append(th);
+    }
+    head.append(header); table.tHead?.remove(); table.prepend(head);
+    body.replaceChildren();
+    const span = columns.length + (options.selectable ? 1 : 0);
+    const spacer = size => { if (size <= 0) return; const tr = make("tr"), td = make("td"); tr.setAttribute("aria-hidden", "true"); td.colSpan = span; td.style.cssText = `height:${size}px;padding:0;border:0`; tr.append(td); body.append(tr); };
+    spacer(start * rowHeight);
+    for (let index = start; index < end; index++) {
+      const row = pageRows[index], key = keyOf(row), tr = make("tr");
+      tr.setAttribute("role", "row"); tr.setAttribute("aria-rowindex", String((page - 1) * pageSize + index + 2));
+      if (virtual) tr.style.height = `${rowHeight}px`;
+      if (options.selectable) {
+        tr.setAttribute("aria-selected", String(selected.has(key)));
+        const td = make("td"), checkbox = make("input"); checkbox.type = "checkbox"; checkbox.checked = selected.has(key);
+        td.setAttribute("role", "gridcell"); identify(checkbox, ["select", key]);
+        checkbox.setAttribute("aria-label", `${options.labels?.select || "选择"} ${key}`);
+        checkbox.addEventListener("change", () => select(key, checkbox.checked)); td.append(checkbox); tr.append(td);
+      }
+      for (const column of columns) {
+        const td = make("td"); td.setAttribute("role", "gridcell"); td.tabIndex = -1;
+        if (column.editable) {
+          const input = make("input"); input.type = column.type === "number" ? "number" : "text";
+          identify(input, ["edit", key, column.field]);
+          input.className = "g-input"; input.value = String(row[column.field] ?? "");
+          input.setAttribute("aria-label", `${column.title || column.field} ${key}`);
+          input.addEventListener("change", () => updateCell(key, column.field, column.type === "number" ? Number(input.value) : input.value)); td.append(input);
+        } else td.textContent = String(column.format ? column.format(row[column.field], row) : row[column.field] ?? "");
+        if (virtual) { td.style.height = `${rowHeight}px`; td.style.paddingBlock = "0"; td.style.whiteSpace = "nowrap"; td.style.overflow = "hidden"; }
+        tr.append(td);
+      }
+      body.append(tr);
+    }
+    spacer((pageRows.length - end) * rowHeight);
+    if (!pageRows.length) { const tr = make("tr"), td = make("td", error || (loading ? options.labels?.loading || "加载中…" : options.labels?.empty || "暂无数据")); td.colSpan = span; tr.append(td); body.append(tr); }
+    table.setAttribute("aria-rowcount", String(total + 1)); table.setAttribute("aria-colcount", String(span));
+    element.setAttribute("aria-busy", String(loading)); element.classList.toggle("is-loading", loading); element.classList.toggle("is-error", !!error); element.classList.toggle("is-empty", total === 0 && !loading);
+    viewport.style.maxHeight = `${height}px`; viewport.style.overflow = "auto";
+    footer.replaceChildren();
+    const previous = make("button", options.labels?.previous || "上一页"), next = make("button", options.labels?.next || "下一页");
+    identify(previous, ["page", "previous"]); identify(next, ["page", "next"]);
+    previous.type = next.type = "button"; previous.className = next.className = "g-btn";
+    previous.disabled = page <= 1 || loading; next.disabled = page * pageSize >= total || loading;
+    previous.addEventListener("click", () => setPage(page - 1)); next.addEventListener("click", () => setPage(page + 1));
+    footer.append(previous, make("span", ` ${page} / ${Math.max(1, Math.ceil(total / pageSize))} · ${total} `), next);
+    const first = cells()[0]; if (first) first.tabIndex = 0;
+    if (focusId) {
+      const replacement = [...element.querySelectorAll("input,button")].find(node => focusIds.get(node) === focusId);
+      if (replacement && !replacement.disabled) { replacement.focus({ preventScroll: true }); if (selection && replacement.setSelectionRange) replacement.setSelectionRange(...selection); }
+    }
+  }
+  function setRows(next, count) {
+    if (!Array.isArray(next)) throw new TypeError("DataGrid rows must be an array");
+    const keys = new Set();
+    for (const row of next) { const key = row && keyOf(row); if (!["string", "number"].includes(typeof key) || keys.has(key)) throw new TypeError("DataGrid requires unique string/number row keys"); keys.add(key); }
+    rows = next.map(row => ({ ...row })); total = options.mode === "server" ? Math.max(0, numeric(count, rows.length)) : rows.length;
+    refresh(); return getState();
+  }
+  async function load() {
+    if (disposed || options.mode !== "server" || typeof options.load !== "function") { refresh(); return getState(); }
+    abort?.abort(); abort = new AbortController(); const id = ++request;
+    loading = true; error = ""; refresh();
+    try {
+      const result = await options.load({ page, pageSize, sort: sort ? { ...sort } : null, filter, signal: abort.signal });
+      if (disposed || id !== request) return getState();
+      loading = false; setRows(result.rows, result.total); announce("load");
+    } catch (exception) {
+      if (!disposed && id === request && !abort.signal.aborted) { loading = false; error = String(exception?.message || exception); refresh(); announce("error"); }
+    }
+    return getState();
+  }
+  function queryChanged(reason) { if (viewport) viewport.scrollTop = 0; refresh(); announce(reason); return options.mode === "server" ? load() : getState(); }
+  function setPage(value, size = pageSize) { page = Math.max(1, Math.floor(numeric(value, 1))); pageSize = Math.max(1, Math.floor(numeric(size, 20))); return queryChanged("page"); }
+  function setSort(field, direction = "asc") { if (field != null && !columns.some(column => column.field === field)) throw new TypeError("Unknown DataGrid column"); sort = field == null ? null : { field, direction: direction === "desc" ? "desc" : "asc" }; page = 1; return queryChanged("sort"); }
+  function setFilter(value) { filter = String(value ?? ""); page = 1; return queryChanged("filter"); }
+  function select(key, checked = true) { if (checked) selected.add(key); else selected.delete(key); refresh(); announce("selection"); return [...selected]; }
+  function updateCell(key, field, value) {
+    const column = columns.find(column => column.field === field), index = rows.findIndex(row => keyOf(row) === key);
+    if (index < 0 || !column?.editable || !safeField(field) || field === (options.rowKey || "id")) throw new TypeError("DataGrid cell is not editable");
+    if (column.type === "number" && !Number.isFinite(Number(value))) throw new TypeError("DataGrid number must be finite");
+    if (column.type === "number") value = Number(value);
+    const previous = rows[index][field]; rows[index] = { ...rows[index], [field]: value }; refresh();
+    announce("edit", { key, field, value, previous, row: { ...rows[index] } }); return { ...rows[index] };
+  }
+  function setOptions(next) {
+    if (disposed) throw new Error("DataGrid has been destroyed");
+    if (!next || !Array.isArray(next.columns) || !next.columns.length || next.columns.some(column => !safeField(column.field))) throw new TypeError("DataGrid requires safe columns");
+    if (new Set(next.columns.map(column => column.field)).size !== next.columns.length) throw new TypeError("DataGrid column fields must be unique");
+    abort?.abort(); request++; loading = false; error = "";
+    options = { ...next }; columns = next.columns.map(column => ({ ...column }));
+    page = Math.max(1, Math.floor(numeric(next.page, 1))); pageSize = Math.max(1, Math.floor(numeric(next.pageSize, 20)));
+    selected = new Set(next.selectedKeys || []); sort = next.sort || null; filter = String(next.filter || "");
+    if (!managed) {
+      originalChildren = [...element.childNodes]; element.replaceChildren();
+      viewport = make("div"); viewport.setAttribute("data-g-grid-viewport", ""); table = make("table"); table.className = "g-table"; table.setAttribute("role", "grid");
+      element.setAttribute("role", "region");
+      table.setAttribute("aria-label", element.getAttribute("aria-label") || "数据网格");
+      if (element.hasAttribute("aria-labelledby")) table.setAttribute("aria-labelledby", element.getAttribute("aria-labelledby"));
+      body = make("tbody"); table.append(body); viewport.append(table); footer = make("div"); footer.className = "g-pagination";
+      element.append(viewport, footer); managed = true;
+      scrollHandler = () => { if (options.virtual) refresh(); }; viewport.addEventListener("scroll", scrollHandler);
+    }
+    setRows(next.rows || [], next.total); if (options.mode === "server" && options.load) void load(); return getState();
+  }
   const cells = () => [...element.querySelectorAll("[role='gridcell'], [role='columnheader'], [role='rowheader']")].filter((cell) => cell.getClientRects().length > 0);
   element.setAttribute("role", "grid");
   function focusCell(cell) { cells().forEach((item) => { item.tabIndex = item === cell ? 0 : -1; }); cell?.focus(); }
   function keydown(event) {
+    if (event.target.matches("input,textarea,select,button")) return;
     const cell = event.target.closest("[role='gridcell'], [role='columnheader'], [role='rowheader']");
     if (!cell) return;
     const row = cell.closest("[role='row']");
@@ -848,7 +1009,11 @@ function createDataGrid(element) {
   const first = cells()[0];
   cells().forEach((cell) => { cell.tabIndex = cell === first ? 0 : -1; });
   element.addEventListener("keydown", keydown);
-  return { focus: focusCell, destroy: () => element.removeEventListener("keydown", keydown) };
+  return { focus: focusCell, destroy: () => {
+    disposed = true; request++; abort?.abort(); element.removeEventListener("keydown", keydown);
+    if (scrollHandler) viewport.removeEventListener("scroll", scrollHandler);
+    if (originalChildren) { element.replaceChildren(...originalChildren); element.setAttribute("role", "grid"); }
+  }, refresh, setOptions, setRows, setPage, setSort, setFilter, select, getState, updateCell, load };
 }
 
 function createTableSort(element) {
@@ -1905,7 +2070,7 @@ function createCoupon(element) {
 }
 
 function register(name, factory) {
-  if (!name || typeof factory !== "function") throw new TypeError("Gardener.register requires a name and factory function.");
+  if (!name || typeof factory !== "function") throw new TypeError("Gardenerim.register requires a name and factory function.");
   registry.set(name, factory);
 }
 
@@ -2098,7 +2263,7 @@ function init(root = document) {
     if (root instanceof Element && root.matches(selector)) initElement(root, name);
     root.querySelectorAll?.(selector).forEach((element) => initElement(element, name));
   }
-  return Gardener;
+  return Gardenerim;
 }
 
 function getInstance(elementOrSelector, name) {
@@ -2211,7 +2376,7 @@ function observe() {
   observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
 }
 
-const Gardener = Object.freeze({ version: "1.0.0", get behaviors() { return Object.freeze([...registry.keys()]); }, init, destroy, register, getInstance, emit, toast, observe });
+const Gardenerim = Object.freeze({ version: "2.0.0", get behaviors() { return Object.freeze([...registry.keys()]); }, init, destroy, register, getInstance, emit, toast, observe });
 
 if (typeof document !== "undefined") {
   document.addEventListener("click", delegateClick);
@@ -2220,5 +2385,6 @@ if (typeof document !== "undefined") {
   else queueMicrotask(start);
 }
 
-export { Gardener, init, destroy, register, getInstance, emit, toast, observe };
-export default Gardener;
+
+export { Gardenerim, init, destroy, register, getInstance, emit, toast, observe };
+export default Gardenerim;

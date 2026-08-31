@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://gardener.style/schema/performance-budgets.schema.json",
-  "title": "Gardener performance budgets",
+  "title": "Gardenerim performance budgets",
   "type": "object",
   "additionalProperties": false,
   "required": ["$schema", "schemaVersion", "version", "compression", "packageMeasurement", "baseline", "artifacts", "ratios", "package"],
@@ -44,6 +44,7 @@
           "required": ["artifacts", "package"],
           "properties": {
             "artifacts": { "$ref": "#/$defs/artifactGrowthLimits" },
+            "artifactOverrides": { "type": "object", "additionalProperties": { "$ref": "#/$defs/artifactGrowthLimits" } },
             "package": { "$ref": "#/$defs/packageGrowthLimits" }
           }
         }

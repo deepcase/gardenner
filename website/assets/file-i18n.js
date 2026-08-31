@@ -6,7 +6,7 @@
   )
     return;
 
-  window.GardenerFileI18nActive = true;
+  window.GardenerimFileI18nActive = true;
 
   const localeDefinitions = Object.freeze({
     "zh-CN": { htmlLang: "zh-CN", numberLocale: "zh-CN" },
@@ -113,7 +113,7 @@
 
   async function loadMessages(locale) {
     if (locale === sourceLocale) return {};
-    const dictionaries = (window.GardenerFileI18nDictionaries ||= {});
+    const dictionaries = (window.GardenerimFileI18nDictionaries ||= {});
     if (dictionaries[locale]) return dictionaries[locale];
     await new Promise((resolve, reject) => {
       const script = document.createElement("script");

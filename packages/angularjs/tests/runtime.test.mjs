@@ -14,7 +14,7 @@ const library = await import("../dist/index.js");
 
 const makeHarness = (markup, selected = undefined) => {
   const suffix = Math.random().toString(36).slice(2);
-  const moduleName = library.createGardenerAngularJS(angular, { moduleName: `gardener.test.${suffix}`, components: selected });
+  const moduleName = library.createGardenerimAngularJS(angular, { moduleName: `gardener.test.${suffix}`, components: selected });
   const injector = angular.injector(["ng", moduleName]);
   const scope = injector.get("$rootScope").$new();
   const element = injector.get("$compile")(markup)(scope);
@@ -26,11 +26,11 @@ const makeHarness = (markup, selected = undefined) => {
 test("module installation is idempotent and supports selected components", () => {
   const name = `gardener.selected.${Date.now()}`;
   const options = { moduleName: name, components: ["button", "GInputDirective", "gCard"] };
-  const first = library.createGardenerAngularJS(angular, options);
-  const second = library.createGardenerAngularJS(angular, { ...options, components: ["card", "GButtonDirective", "gInput"] });
+  const first = library.createGardenerimAngularJS(angular, options);
+  const second = library.createGardenerimAngularJS(angular, { ...options, components: ["card", "GButtonDirective", "gInput"] });
   assert.equal(first, second);
-  assert.throws(() => library.createGardenerAngularJS(angular, { moduleName: name }), /different options/u);
-  assert.throws(() => library.createGardenerAngularJS(angular, { moduleName: `${name}.typo`, components: ["not-a-component"] }), /Unknown Gardener AngularJS component/u);
+  assert.throws(() => library.createGardenerimAngularJS(angular, { moduleName: name }), /different options/u);
+  assert.throws(() => library.createGardenerimAngularJS(angular, { moduleName: `${name}.typo`, components: ["not-a-component"] }), /Unknown Gardenerim AngularJS component/u);
   const queue = angular.module(name)._invokeQueue.filter((entry) => entry[1] === "directive").map((entry) => entry[2][0]);
   assert.ok(queue.includes("gButton"));
   assert.ok(queue.includes("gInput"));
@@ -40,12 +40,12 @@ test("module installation is idempotent and supports selected components", () =>
 
 test("default module registers every generated directive exactly once", () => {
   const name = `gardener.complete.${Date.now()}`;
-  library.createGardenerAngularJS(angular, { moduleName: name });
+  library.createGardenerimAngularJS(angular, { moduleName: name });
   const queue = angular.module(name)._invokeQueue.filter((entry) => entry[1] === "directive").map((entry) => entry[2][0]);
   assert.equal(queue.length, 508);
   assert.equal(new Set(queue).size, 508);
   for (const definition of library.componentCatalog) assert.ok(queue.includes(definition.directiveName), definition.directiveName);
-  assert.ok(queue.includes("gGardener"));
+  assert.ok(queue.includes("gGardenerim"));
   assert.ok(queue.includes("gardenerProvider"));
 });
 
@@ -94,7 +94,7 @@ test("ngModel and native value callback stay synchronized once per edit", () => 
   harness.destroy();
 });
 
-test("custom Gardener value events update ngModel using valueKey", () => {
+test("custom Gardenerim value events update ngModel using valueKey", () => {
   const harness = makeHarness('<div g-tree-select ng-model="selected" gardener-value-event="gardener:change" gardener-value-key="nodeId"></div>', ["tree-select"]);
   harness.element[0].dispatchEvent(new window.CustomEvent("gardener:change", { detail: { nodeId: "node-42" }, bubbles: true }));
   harness.scope.$digest();
@@ -151,7 +151,7 @@ test("initialize and generic behavior attributes respond to scope changes", asyn
   assert.equal(library.getInstance(lifecycle.element[0], "copy"), null);
   lifecycle.destroy();
 
-  const behavior = makeHarness('<button g-gardener="{{ behavior }}"></button>', []);
+  const behavior = makeHarness('<button g-gardenerim="{{ behavior }}"></button>', []);
   behavior.scope.behavior = "copy";
   behavior.scope.$digest();
   assert.equal(behavior.element[0].hasAttribute("data-g-copy"), true);
@@ -174,10 +174,10 @@ test("provider directive applies all supplied theme axes", () => {
 
 test("runtime, theme, and toast services are injectable", () => {
   const harness = makeHarness("<div></div>", []);
-  const runtime = harness.injector.get("GardenerRuntime");
-  const theme = harness.injector.get("GardenerTheme");
-  const toast = harness.injector.get("GardenerToast");
-  assert.equal(runtime.version, "1.0.0");
+  const runtime = harness.injector.get("GardenerimRuntime");
+  const theme = harness.injector.get("GardenerimTheme");
+  const toast = harness.injector.get("GardenerimToast");
+  assert.equal(runtime.version, "2.0.0");
   const target = document.createElement("div");
   theme.apply(target, { theme: "blue", mode: "light" });
   assert.deepEqual(theme.read(target), { theme: "blue", mode: "light" });

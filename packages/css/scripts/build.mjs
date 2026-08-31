@@ -1,4 +1,5 @@
-import { mkdir, readFile, writeFile, copyFile, rm } from "node:fs/promises";
+import { mkdir, readFile, rm } from "node:fs/promises";
+import { writeFile, copyFile } from "../../../scripts/fs-retry.mjs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { themes, defaultTheme } from "../config/themes.mjs";
@@ -27,7 +28,7 @@ const generatedRoot = join(sourceRoot, "generated");
 const distRoot = join(projectRoot, "dist");
 const { version } = JSON.parse(await readFile(join(projectRoot, "package.json"), "utf8"));
 
-const banner = `/* Gardener v${version} | MIT License | gardener.css */\n`;
+const banner = `/* Gardenerim v${version} | MIT License | gardener.css */\n`;
 
 function shadeLightness(_base, shade) {
   return { 50: 97, 100: 93, 200: 84, 300: 72, 400: 60, 500: 50, 600: 41, 700: 33, 800: 25, 900: 18, 950: 11 }[shade];
@@ -532,7 +533,7 @@ const componentOwnership = Object.fromEntries(metadata.components.map((component
 const manifest = {
   $schema: "../metadata/manifest.schema.json",
   schemaVersion: 3,
-  name: "Gardener",
+  name: "Gardenerim",
   version,
   classPrefix: "g-",
   defaultTheme,
@@ -648,4 +649,4 @@ const buildsManifest = {
 };
 await writeFile(join(distRoot, "gardener.builds.json"), `${JSON.stringify(buildsManifest, null, 2)}\n`);
 
-console.log(`Gardener built: ${themes.length} themes, ${manifest.components.length} components, ${Object.keys(componentPacks).length} component packs, ${Object.keys(platformProfiles).length} platform profiles.`);
+console.log(`Gardenerim built: ${themes.length} themes, ${manifest.components.length} components, ${Object.keys(componentPacks).length} component packs, ${Object.keys(platformProfiles).length} platform profiles.`);

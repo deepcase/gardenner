@@ -1,7 +1,7 @@
-/** Generated from @gardenerim/css 1.0.0 metadata. */
-import type { GardenerComponentDefinition } from "../types.js";
+/** Generated from @gardenerim/css 2.0.0 metadata. */
+import type { GardenerimComponentDefinition } from "../types.js";
 
-export const componentCatalog: readonly GardenerComponentDefinition[] = [
+export const componentCatalog: readonly GardenerimComponentDefinition[] = [
   {
     "name": "button",
     "exportName": "GButton",

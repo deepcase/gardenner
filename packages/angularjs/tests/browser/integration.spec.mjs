@@ -5,7 +5,7 @@ test("AngularJS example loads all contracts without console or layout failures",
   page.on("console", (message) => { if (message.type() === "error") errors.push(message.text()); });
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/examples/");
-  await expect(page.getByRole("heading", { name: "Gardener AngularJS" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Gardenerim AngularJS" })).toBeVisible();
   await expect.poll(() => page.evaluate(() => window.__GARDENER_ANGULARJS_EXAMPLE__?.ready)).toBe(true);
   expect(await page.evaluate(() => window.__GARDENER_ANGULARJS_EXAMPLE__.components)).toBe(506);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
@@ -22,7 +22,7 @@ test("ngModel, generated button directive, and AngularJS expressions remain oper
   expect(await page.evaluate(() => window.__GARDENER_ANGULARJS_EXAMPLE__.clicks)).toBe(1);
 });
 
-test("one native edit produces one Gardener value callback", async ({ page }) => {
+test("one native edit produces one Gardenerim value callback", async ({ page }) => {
   await page.goto("/examples/");
   await page.getByLabel("关键词").fill("single-event");
   expect(await page.evaluate(() => window.__GARDENER_ANGULARJS_EXAMPLE__.valueEvents)).toBe(1);

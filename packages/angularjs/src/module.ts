@@ -1,12 +1,12 @@
 import type angular from "angular";
-import { createGardenerComponent, gardenerBehaviorDirective, gardenerProviderDirective } from "./directives.js";
+import { createGardenerimComponent, gardenerimBehaviorDirective, gardenerimProviderDirective } from "./directives.js";
 import { componentCatalog } from "./generated/catalog.js";
-import { GardenerRuntimeFactory, GardenerThemeFactory, GardenerToastFactory } from "./services.js";
-import type { GardenerAngularJSOptions, GardenerAngularJSStatic } from "./types.js";
+import { GardenerimRuntimeFactory, GardenerimThemeFactory, GardenerimToastFactory } from "./services.js";
+import type { GardenerimAngularJSOptions, GardenerimAngularJSStatic } from "./types.js";
 
-export const GARDENER_ANGULARJS_MODULE = "gardener";
+export const GARDENERIM_ANGULARJS_MODULE = "gardener";
 type InstalledModule = { module: angular.IModule; signature: string };
-const installed = new WeakMap<GardenerAngularJSStatic, Map<string, InstalledModule>>();
+const installed = new WeakMap<GardenerimAngularJSStatic, Map<string, InstalledModule>>();
 
 const componentAliases = new Map(componentCatalog.flatMap((definition) => [
   [definition.name, definition.name],
@@ -14,18 +14,18 @@ const componentAliases = new Map(componentCatalog.flatMap((definition) => [
   [definition.directiveName, definition.name],
 ] as const));
 
-const selectedComponentNames = (components: GardenerAngularJSOptions["components"]): readonly string[] | null => {
+const selectedComponentNames = (components: GardenerimAngularJSOptions["components"]): readonly string[] | null => {
   if (!components) return null;
   const selected = new Set<string>();
   for (const component of components) {
     const name = componentAliases.get(component);
-    if (!name) throw new Error(`Unknown Gardener AngularJS component: ${component}`);
+    if (!name) throw new Error(`Unknown Gardenerim AngularJS component: ${component}`);
     selected.add(name);
   }
   return [...selected].sort();
 };
 
-const optionSignature = (options: GardenerAngularJSOptions, components: readonly string[] | null): string => JSON.stringify({
+const optionSignature = (options: GardenerimAngularJSOptions, components: readonly string[] | null): string => JSON.stringify({
   dependencies: [...(options.dependencies ?? [])],
   components,
   initialize: options.initialize !== false,
@@ -33,32 +33,32 @@ const optionSignature = (options: GardenerAngularJSOptions, components: readonly
   registerBehaviorDirective: options.registerBehaviorDirective !== false,
 });
 
-export const createGardenerAngularJS = (
-  angularInstance: GardenerAngularJSStatic,
-  options: GardenerAngularJSOptions = {},
+export const createGardenerimAngularJS = (
+  angularInstance: GardenerimAngularJSStatic,
+  options: GardenerimAngularJSOptions = {},
 ): string => {
-  const moduleName = options.moduleName || GARDENER_ANGULARJS_MODULE;
+  const moduleName = options.moduleName || GARDENERIM_ANGULARJS_MODULE;
   const modules = installed.get(angularInstance) ?? new Map<string, InstalledModule>();
   installed.set(angularInstance, modules);
   const selectedNames = selectedComponentNames(options.components);
   const signature = optionSignature(options, selectedNames);
   const existing = modules.get(moduleName);
   if (existing) {
-    if (existing.signature !== signature) throw new Error(`Gardener AngularJS module ${moduleName} is already installed with different options`);
+    if (existing.signature !== signature) throw new Error(`Gardenerim AngularJS module ${moduleName} is already installed with different options`);
     return moduleName;
   }
 
   const module = angularInstance.module(moduleName, [...(options.dependencies ?? [])]);
-  module.factory("GardenerRuntime", GardenerRuntimeFactory);
-  module.factory("GardenerTheme", GardenerThemeFactory);
-  module.factory("GardenerToast", GardenerToastFactory);
-  if (options.registerBehaviorDirective !== false) module.directive("gGardener", gardenerBehaviorDirective);
-  if (options.registerProvider !== false) module.directive("gardenerProvider", gardenerProviderDirective);
+  module.factory("GardenerimRuntime", GardenerimRuntimeFactory);
+  module.factory("GardenerimTheme", GardenerimThemeFactory);
+  module.factory("GardenerimToast", GardenerimToastFactory);
+  if (options.registerBehaviorDirective !== false) { module.directive("gGardenerim", gardenerimBehaviorDirective); }
+  if (options.registerProvider !== false) module.directive("gardenerProvider", gardenerimProviderDirective);
 
   const selected = selectedNames ? new Set(selectedNames) : null;
   for (const definition of componentCatalog) {
     if (selected && !selected.has(definition.name)) continue;
-    module.directive(definition.directiveName, createGardenerComponent(definition, options.initialize !== false));
+    module.directive(definition.directiveName, createGardenerimComponent(definition, options.initialize !== false));
   }
   modules.set(moduleName, { module, signature });
   return moduleName;

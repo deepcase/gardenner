@@ -23,9 +23,9 @@ const modules = Object.fromEntries(await Promise.all([
   "@gardenerim/react", "@gardenerim/react/components", "@gardenerim/react/component", "@gardenerim/react/hooks", "@gardenerim/react/provider",
   "@gardenerim/react/adapters", "@gardenerim/react/tauri", "@gardenerim/react/electron", "@gardenerim/react/catalog",
 ].map(async (specifier) => [specifier, await import(specifier)])));
-if (Object.keys(modules["@gardenerim/react/components"].gardenerComponents).length !== 506) throw new Error("installed components entrypoint is incomplete");
+if (Object.keys(modules["@gardenerim/react/components"].gardenerimComponents).length !== 506) throw new Error("installed components entrypoint is incomplete");
 if (modules["@gardenerim/react/catalog"].componentCatalog.length !== 506) throw new Error("installed catalog entrypoint is incomplete");
-if (!("useGardener" in modules["@gardenerim/react/hooks"]) || !("GardenerProvider" in modules["@gardenerim/react/provider"])) throw new Error("installed hook/provider entrypoints are incomplete");
+if (!("useGardenerim" in modules["@gardenerim/react/hooks"]) || !("GardenerimProvider" in modules["@gardenerim/react/provider"])) throw new Error("installed hook/provider entrypoints are incomplete");
 if (!("bindTauriWindowControls" in modules["@gardenerim/react/tauri"]) || "bindElectronWindowControls" in modules["@gardenerim/react/tauri"]) throw new Error("Tauri entrypoint is not isolated");
 if (!("bindElectronWindowControls" in modules["@gardenerim/react/electron"]) || "bindTauriWindowControls" in modules["@gardenerim/react/electron"]) throw new Error("Electron entrypoint is not isolated");
 console.log(`Package verification passed: ${info.entryCount} files, ${info.size} B packed, ${info.unpackedSize} B unpacked.`);

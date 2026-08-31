@@ -1,21 +1,21 @@
 name: Bug report
-description: Report a reproducible defect in Gardener.
+description: Report a reproducible defect in Gardenerim.
 title: "[Bug]: "
 labels: [bug, needs-triage]
 body:
   - type: markdown
     attributes:
-      value: Thanks for helping improve Gardener. Do not disclose security vulnerabilities here; follow SECURITY.md.
+      value: Thanks for helping improve Gardenerim. Do not disclose security vulnerabilities here; follow SECURITY.md.
   - type: dropdown
     id: package
     attributes:
       label: Affected package
       options:
-        - "@gardener/css"
-        - "@gardener/vue"
-        - "@gardener/react"
-        - "@gardener/angularjs"
-        - "Gardener.Blazor"
+        - "@gardenerim/css"
+        - "@gardenerim/vue"
+        - "@gardenerim/react"
+        - "@gardenerim/angularjs"
+        - "Gardenerim.Blazor"
         - Website/documentation
         - Repository tooling
     validations:
@@ -24,7 +24,7 @@ body:
     id: version
     attributes:
       label: Version
-      placeholder: 1.0.0
+      placeholder: 2.0.0
     validations:
       required: true
   - type: textarea
@@ -67,4 +67,3 @@ body:
           required: true
         - label: This report contains no credentials, private data, or undisclosed vulnerability details.
           required: true
-

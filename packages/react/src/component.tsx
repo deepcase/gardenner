@@ -1,11 +1,11 @@
 import { createElement, forwardRef, useEffect, useImperativeHandle, useMemo, useRef, type ElementType } from "react";
 import { destroy, getInstance, init } from "@gardenerim/css/runtime";
-import type { GardenerComponentDefinition, GardenerComponentHandle, GardenerComponentProps, GardenerConfigValue, GardenerGeneratedComponent } from "./types.js";
+import type { GardenerimComponentDefinition, GardenerimComponentHandle, GardenerimComponentProps, GardenerimConfigValue, GardenerimGeneratedComponent } from "./types.js";
 
 const list = (value: string | readonly string[] | undefined): string[] => value == null ? [] : Array.isArray(value) ? [...value] : [value as string];
 const kebab = (value: string): string => value.replace(/^data-g-/, "").replace(/([a-z0-9])([A-Z])/g, "$1-$2").replace(/[\s_]+/g, "-").toLowerCase();
 
-export const configAttributes = (config: Readonly<Record<string, GardenerConfigValue>> | undefined): Record<string, string> => {
+export const configAttributes = (config: Readonly<Record<string, GardenerimConfigValue>> | undefined): Record<string, string> => {
   const attributes: Record<string, string> = {};
   for (const [name, value] of Object.entries(config ?? {})) {
     if (value === false || value == null) continue;
@@ -19,8 +19,8 @@ export const behaviorAttributes = (behaviors: readonly string[]): Record<string,
 
 const classes = (...values: unknown[]): string => values.flat(Infinity).filter(Boolean).join(" ");
 
-export const createGardenerComponent = (definition: GardenerComponentDefinition): GardenerGeneratedComponent => {
-  const Component = forwardRef<GardenerComponentHandle, GardenerComponentProps>(function GardenerGeneratedComponent(props, forwardedRef) {
+export const createGardenerimComponent = (definition: GardenerimComponentDefinition): GardenerimGeneratedComponent => {
+  const Component = forwardRef<GardenerimComponentHandle, GardenerimComponentProps>(function GardenerimGeneratedComponent(props, forwardedRef) {
     const {
       as,
       variant,
@@ -78,7 +78,9 @@ export const createGardenerComponent = (definition: GardenerComponentDefinition)
       if (handledNativeEvents.current.has(nativeEvent)) return;
       handledNativeEvents.current.add(nativeEvent);
       const target = (event as { target?: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement }).target;
-      const next = target instanceof HTMLInputElement && target.type === "checkbox" ? target.checked : target?.value;
+      const next = target instanceof HTMLInputElement && target.type === "checkbox" ? target.checked
+        : target instanceof HTMLSelectElement && target.multiple ? Array.from(target.selectedOptions, (option) => option.value)
+        : target?.value;
       onValueChange?.(next, nativeEvent);
     };
     const attributes: Record<string, unknown> = {
@@ -104,24 +106,24 @@ export const createGardenerComponent = (definition: GardenerComponentDefinition)
     return createElement(As, attributes, tag === "input" ? undefined : children);
   });
   Component.displayName = definition.exportName;
-  return Component as GardenerGeneratedComponent;
+  return Component as GardenerimGeneratedComponent;
 };
 
-export interface GardenerComponentDynamicProps extends GardenerComponentProps {
-  definition: GardenerComponentDefinition;
+export interface GardenerimComponentDynamicProps extends GardenerimComponentProps {
+  definition: GardenerimComponentDefinition;
 }
 
-export const GardenerComponent = forwardRef<GardenerComponentHandle, GardenerComponentDynamicProps>(function GardenerComponent({ definition, ...props }, ref) {
-  const Implementation = useMemo(() => createGardenerComponent(definition), [definition]);
+export const GardenerimComponent = forwardRef<GardenerimComponentHandle, GardenerimComponentDynamicProps>(function GardenerimComponent({ definition, ...props }, ref) {
+  const Implementation = useMemo(() => createGardenerimComponent(definition), [definition]);
   return createElement(Implementation, { ...props, ref });
 });
 
-export interface GardenerPartProps extends Omit<React.HTMLAttributes<HTMLElement>, "children"> {
+export interface GardenerimPartProps extends Omit<React.HTMLAttributes<HTMLElement>, "children"> {
   name: string;
   as?: ElementType;
   children?: React.ReactNode;
 }
 
-export const GardenerPart = forwardRef<HTMLElement, GardenerPartProps>(function GardenerPart({ name, as: As = "div", className, ...props }, ref) {
+export const GardenerimPart = forwardRef<HTMLElement, GardenerimPartProps>(function GardenerimPart({ name, as: As = "div", className, ...props }, ref) {
   return createElement(As, { ...props, ref, className: classes(name.startsWith("g-") ? name : `g-${name}`, className) });
 });

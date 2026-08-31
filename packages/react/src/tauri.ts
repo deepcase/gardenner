@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
-import { bindTauriWindowControls, type GardenerTauriBinding, type GardenerTauriBridge } from "@gardenerim/css/tauri";
-import { adapterRootValue, type GardenerAdapterTarget } from "./adapter-target.js";
+import { bindTauriWindowControls, type GardenerimTauriBinding, type GardenerimTauriBridge } from "@gardenerim/css/tauri";
+import { adapterRootValue, type GardenerimAdapterTarget } from "./adapter-target.js";
 
-export const useTauriWindowControls = (root?: RefObject<GardenerAdapterTarget>, bridge?: GardenerTauriBridge | null) => {
+export const useTauriWindowControls = (root?: RefObject<GardenerimAdapterTarget>, bridge?: GardenerimTauriBridge | null) => {
   const rootRef = useRef(root);
   const bridgeRef = useRef(bridge);
-  const [binding, setBinding] = useState<GardenerTauriBinding | null>(null);
-  const bindingRef = useRef<GardenerTauriBinding | null>(null);
+  const [binding, setBinding] = useState<GardenerimTauriBinding | null>(null);
+  const bindingRef = useRef<GardenerimTauriBinding | null>(null);
 
   rootRef.current = root;
   bridgeRef.current = bridge;
@@ -24,4 +24,4 @@ export const useTauriWindowControls = (root?: RefObject<GardenerAdapterTarget>, 
 };
 
 export { bindTauriWindowControls };
-export type { GardenerTauriBinding, GardenerTauriBridge };
+export type { GardenerimTauriBinding, GardenerimTauriBridge };

@@ -6,7 +6,7 @@ test("React example loads all contracts without console or layout failures", asy
   page.on("pageerror", (error) => failures.push(error.message));
   const response = await page.goto("/", { waitUntil: "networkidle" });
   expect(response?.ok()).toBe(true);
-  await expect(page.getByRole("heading", { name: "Gardener React" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Gardenerim React" })).toBeVisible();
   await expect(page.getByTestId("catalog-count")).toHaveText("506 components");
   const state = await page.evaluate(() => ({
     mode: document.querySelector("[data-g-mode]")?.getAttribute("data-g-mode"),

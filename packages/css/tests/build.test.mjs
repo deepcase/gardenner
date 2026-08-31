@@ -12,11 +12,11 @@ import { contentIntegrity } from "../scripts/lib/build-tools.mjs";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const readJson = async (file) => JSON.parse(await readFile(resolve(root, file), "utf8"));
 
-test("1.0.0 build catalog covers every platform, pack, component, and integrity record", async () => {
+test("2.0.0 build catalog covers every platform, pack, component, and integrity record", async () => {
   const catalog = await readJson("dist/gardener.builds.json");
   const components = await readJson("metadata/components.json");
   const pkg = await readJson("package.json");
-  assert.equal(catalog.version, "1.0.0");
+  assert.equal(catalog.version, "2.0.0");
   assert.deepEqual(catalog.platforms.map(({ name }) => name), ["web", "mobile", "desktop", "tauri", "electron"]);
   assert.equal(catalog.componentPacks.length, 28);
   assert.equal(Object.keys(catalog.componentOwnership).length, components.components.length);
@@ -57,14 +57,14 @@ test("formal CSS and JavaScript minification emits smaller parseable artifacts a
     const minifiedBytes = (await readFile(resolve(root, minified))).byteLength;
     assert.ok(minifiedBytes < sourceBytes, `${minified} must be smaller than ${source}`);
     if (minified.endsWith(".css")) {
-      assert.match(await readFile(resolve(root, minified), "utf8"), /^\/\*! Gardener \| MIT License \| gardener\.css \*\//u);
+      assert.match(await readFile(resolve(root, minified), "utf8"), /^\/\*! Gardenerim \| MIT License \*\//u);
     }
     const map = JSON.parse(await readFile(resolve(root, `${minified}.map`), "utf8"));
     assert.equal(map.version, 3);
     assert.ok(map.sources.length > 0);
   }
-  const runtime = await import(`${pathToFileURL(resolve(root, "dist/gardener.runtime.min.js"))}?test=1.0.0`);
-  assert.equal(runtime.Gardener.version, "1.0.0");
+  const runtime = await import(`${pathToFileURL(resolve(root, "dist/gardener.runtime.min.js"))}?test=2.0.0`);
+  assert.equal(runtime.Gardenerim.version, "2.0.0");
   assert.equal(Object.keys(runtime).length, 9);
 });
 
@@ -107,6 +107,7 @@ test("every component pack artifact exists and stays within its recorded budget 
 });
 
 test("custom component and platform builds resolve ownership, adapters, and schema", async () => {
+  const pkg = await readJson("package.json");
   const temporary = await mkdtemp(join(tmpdir(), "gardener-build-"));
   try {
     const output = join(temporary, "account-ui");
@@ -167,7 +168,7 @@ test("custom component and platform builds resolve ownership, adapters, and sche
       assert.ok(platformCss.includes(expectation.include), `${platform} custom build must include its platform styles`);
       for (const selector of expectation.exclude) assert.equal(platformCss.includes(selector), false, `${platform} custom build leaks ${selector}`);
       assert.equal(JSON.parse(await readFile(`${platformOutput}.min.css.map`, "utf8")).version, 3);
-      for (const adapter of expectation.adapters) assert.match(await readFile(join(temporary, adapter), "utf8"), /Gardener v1\.0\.0/);
+      for (const adapter of expectation.adapters) assert.ok((await readFile(join(temporary, adapter), "utf8")).includes(`Gardenerim v${pkg.version}`));
       for (const [file, integrity] of Object.entries(platformManifest.outputIntegrity)) {
         assert.deepEqual(integrity, contentIntegrity(await readFile(resolve(temporary, file))), `${platform}/${file} integrity must match its bytes`);
       }
@@ -197,7 +198,7 @@ test("custom builds reject unknown components without emitting output", () => {
 test("published raw, gzip, brotli, ratio, and package budgets all pass", async () => {
   const report = await readJson("dist/gardener.performance.json");
   const budget = await readJson("config/performance-budgets.json");
-  assert.equal(report.version, "1.0.0");
+  assert.equal(report.version, "2.0.0");
   assert.equal(report.status, "passed");
   assert.equal(Object.keys(report.artifacts).length, 42);
   assert.deepEqual(report.compression, { gzipLevel: 9, brotliQuality: 11 });
@@ -233,7 +234,7 @@ test("release metadata, declarations, support policy, and compatibility baseline
   const publicApi = await readJson("metadata/public-api.json");
   const compatibility = await readJson("dist/gardener.compatibility.json");
   const runtimeTypes = await readFile(resolve(root, "dist/gardener.d.ts"), "utf8");
-  assert.equal(pkg.version, "1.0.0");
+  assert.equal(pkg.version, "2.0.0");
   assert.equal(publicApi.status, "stable");
   const declaredEntrypoints = new Set([
     ...publicApi.css.entrypoints,
@@ -251,14 +252,14 @@ test("release metadata, declarations, support policy, and compatibility baseline
   assert.equal(pkg.engines.node, ">=18.18");
   assert.equal(pkg.publishConfig.provenance, true);
   assert.ok(pkg.sideEffects.includes("dist/gardener.runtime.js"));
-  assert.equal(compatibility.version, "1.0.0");
+  assert.equal(compatibility.version, "2.0.0");
   assert.equal(compatibility.baselineVersion, "0.9.0");
   assert.equal(compatibility.policy.stage, "stable");
   assert.equal(Object.values(compatibility.baseline).reduce((sum, values) => sum + values.length, 0), 1145);
   assert.deepEqual(compatibility.baseline.packageEntrypoints, Object.keys(pkg.exports));
   assert.ok(compatibility.baseline.componentNames.length >= 506);
-  assert.match(runtimeTypes, /export type GardenerBehaviorName/);
-  assert.match(runtimeTypes, /readonly version: "1\.0\.0"/);
+  assert.match(runtimeTypes, /export type GardenerimBehaviorName/);
+  assert.ok(runtimeTypes.includes(`readonly version: "${pkg.version}"`));
   assert.ok((await readFile(resolve(root, "dist/gardener.tauri.d.ts"), "utf8")).includes("bindTauriWindowControls"));
   assert.ok((await readFile(resolve(root, "dist/gardener.electron.d.ts"), "utf8")).includes("bindElectronWindowControls"));
 });
@@ -322,7 +323,7 @@ test("the packed npm artifact installs and resolves every targeted public entryp
       "@gardenerim/css/tauri.min.js",
       "@gardenerim/css/electron.min.js",
     ];
-    await writeFile(resolve(temporary, "smoke.mjs"), `const runtime = await import("@gardenerim/css");\nif (runtime.Gardener.version !== "1.0.0") throw new Error("runtime version mismatch");\nfor (const specifier of ${JSON.stringify(specifiers)}) import.meta.resolve(specifier);\nconsole.log("resolved ${specifiers.length} entrypoints");\n`);
+    await writeFile(resolve(temporary, "smoke.mjs"), `const runtime = await import("@gardenerim/css");\nif (runtime.Gardenerim.version !== "2.0.0") throw new Error("runtime version mismatch");\nfor (const specifier of ${JSON.stringify(specifiers)}) import.meta.resolve(specifier);\nconsole.log("resolved ${specifiers.length} entrypoints");\n`);
     const smoke = spawnSync(process.execPath, ["smoke.mjs"], { cwd: temporary, encoding: "utf8", windowsHide: true });
     assert.equal(smoke.status, 0, smoke.stderr);
     assert.match(smoke.stdout, new RegExp(`resolved ${specifiers.length} entrypoints`));

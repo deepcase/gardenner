@@ -1,10 +1,10 @@
-# Gardener CSS
+# Gardenerim CSS
 
-Gardener 是一套面向人类开发者与 AI 页面生成器的通用 CSS 和 Web 组件基础设施。核心代码框架无关，覆盖 PC、移动网页、Dashboard、超级 CMS、营销与电商站、AI 产品以及 Tauri/Electron 桌面应用。
+Gardenerim 是一套面向人类开发者与 AI 页面生成器的通用 CSS 和 Web 组件基础设施。核心代码框架无关，覆盖 PC、移动网页、Dashboard、超级 CMS、营销与电商站、AI 产品以及 Tauri/Electron 桌面应用。
 
 ## 当前版本
 
-- 当前包版本：`1.0.0`；公共契约状态为 Stable，1.x 中的删除必须先废弃、提供迁移说明，并延后到新的主版本
+- 当前包版本：`2.0.0`；公共契约状态为 Stable，1.x 中的删除必须先废弃、提供迁移说明，并延后到新的主版本
 - 42 套主色主题，并与中性色、字体、形状、密度、层次、动效、平台七类主题轴正交组合
 - Light、Dark、System、High Contrast 模式
 - 480、768、1024、1280、1536 五档响应式断点
@@ -113,13 +113,13 @@ ai, ai-extended, ai-compositions
 
 `npm run build` 使用 esbuild 对 CSS 与 ESM 运行时进行语法级压缩，目标为 Chrome 100+、Firefox 100+、Safari 15.4+；主产物保留 MIT 法律声明。主压缩入口与每次自定义构建生成外部 Source Map，平台包和组件包保持可独立解析的稳定发布入口。正式入口包括 `min.css`、`core.min.css`、`themes.min.css`、`utilities.min.css`、`components.min.css`、`ai.min.css` 与 `runtime.min.js`。
 
-`npm run budget` 对全部 42 个正式压缩产物执行 raw、gzip、Brotli 绝对预算，范围包括 7 个主入口、2 个桌面适配器、5 个平台 CSS 和 28 个组件包；同时对完整 CSS/运行时检查压缩比例，并通过 `npm pack --dry-run` 阻断发布包 packed、unpacked 和文件数回归。1.0.0 以封版的 0.9.0 实测结果为紧邻基线，对每个产物和 npm 包执行相对增长预算；五个平台产物都拥有自己的直接历史基线，不需要继承别名。包体使用 4 KiB packed、64 KiB unpacked 的确定性保守上界消除性能报告自包含产生的压缩循环；文件数仍受 10% 相对上限和 92 文件绝对上限共同约束。压缩参数固定为 gzip level 9、Brotli quality 11，并同时记录在配置、构建清单和性能报告中。压缩 CSS 使用不随版本变化的稳定 MIT banner，避免纯版本文本扰动 Brotli 基线；未压缩 CSS 与 Runtime 仍提供精确版本信息。
+`npm run budget` 对全部 42 个正式压缩产物执行 raw、gzip、Brotli 绝对预算，范围包括 7 个主入口、2 个桌面适配器、5 个平台 CSS 和 28 个组件包；同时对完整 CSS/运行时检查压缩比例，并通过 `npm pack --dry-run` 阻断发布包 packed、unpacked 和文件数回归。2.0.0 以封版的 0.9.0 实测结果为紧邻基线，对每个产物和 npm 包执行相对增长预算；五个平台产物都拥有自己的直接历史基线，不需要继承别名。包体使用 4 KiB packed、64 KiB unpacked 的确定性保守上界消除性能报告自包含产生的压缩循环；文件数仍受 10% 相对上限和 92 文件绝对上限共同约束。压缩参数固定为 gzip level 9、Brotli quality 11，并同时记录在配置、构建清单和性能报告中。压缩 CSS 使用不随版本变化的稳定 MIT banner，避免纯版本文本扰动 Brotli 基线；未压缩 CSS 与 Runtime 仍提供精确版本信息。
 
 `gardener.builds.json` 为 42 个正式产物登记 SHA-256 和 SRI；`npm run contracts` 会重新读取产物逐项复算。`npm run verify:reproducible` 连续重建并比较全部正式生成文件，发现任意 CSS、JavaScript、Source Map、元数据或构建清单发生非确定性变化即失败。自定义构建清单同样包含 CSS、压缩 CSS、Source Map 与适配器的完整性摘要。
 
 ## 发布与跨版本兼容
 
-`metadata/compatibility.json` 固化 `0.9.0` 的 1,145 项公共契约，包括全部 47 个包入口、CSS 层、主题属性、模块导出、Gardener 成员、66 种行为、75 种事件、运行时数据属性、桌面适配器、506 个组件、52 个配方、42 个主题和显示模式。`npm run verify:compatibility` 允许后续 1.x 新增能力，但会阻断任何未经过废弃流程的删除；在 1.0.0 稳定切点还会反向检查现有入口是否漏记。废弃入口至少保留两个次版本，并只能在新的主版本移除，现有兼容别名继续保留到 `2.0.0`。
+`metadata/compatibility.json` 固化 `0.9.0` 的 1,145 项公共契约，包括全部 47 个包入口、CSS 层、主题属性、模块导出、Gardenerim 成员、66 种行为、75 种事件、运行时数据属性、桌面适配器、506 个组件、52 个配方、42 个主题和显示模式。`npm run verify:compatibility` 允许后续 1.x 新增能力，但会阻断任何未经过废弃流程的删除；在 2.0.0 稳定切点还会反向检查现有入口是否漏记。废弃入口至少保留两个次版本，并只能在新的主版本移除，现有兼容别名继续保留到 `2.0.0`。
 
 构建会从 Public API 自动生成 `gardener.d.ts`、`gardener.tauri.d.ts` 和 `gardener.electron.d.ts`，其中行为名与事件名都是完整字面量联合类型。`npm run test:types` 使用 TypeScript 严格模式编译真实消费者夹具，覆盖默认/命名导出、Runtime API、Toast、行为工厂以及两种桌面桥接。
 
@@ -473,9 +473,9 @@ Tooltip、Popover 与 Tour 共用无依赖运行时。浮层支持八类逻辑�
 ```
 
 ```js
-import Gardener from "./gardener.runtime.js";
+import Gardenerim from "./gardener.runtime.js";
 
-const dialog = Gardener.getInstance("#confirm-dialog");
+const dialog = Gardenerim.getInstance("#confirm-dialog");
 dialog.open();
 ```
 
@@ -527,7 +527,7 @@ gardener:dismiss
 
 ## 多浏览器、移动端与无障碍测试
 
-0.5.0 建立四层浏览器发布门禁；1.0.0 的构建、兼容与发布专项保持 10 个顶层用例，并扩展五个平台的真实消费断言：
+0.5.0 建立四层浏览器发布门禁；2.0.0 的构建、兼容与发布专项保持 10 个顶层用例，并扩展五个平台的真实消费断言：
 
 - `npm run test:html`：24 个 parse5 结构测试，检查 21 个示例和 Home 两个页面的解析错误、重复 ID、ARIA 引用、语言、标题、Viewport 与清单完整性。
 - `npm run test:browser`：Chromium 与 WebKit 默认执行 48 个桌面用例，逐页检查 21 个示例和 Home 两个页面的控制台、请求失败、样式加载、横向溢出，并验证 Dialog 键盘和焦点生命周期。
@@ -588,4 +588,4 @@ gardener:dismiss
 
 ## 目录边界
 
-Gardener 的核心框架位于 `packages/css/`，Vue、React、AngularJS 与 Blazor 适配器位于相邻的 `packages/` 子目录；根目录的 `website/` 是官网与完整文档站，不参与 npm 核心包的发布内容。
+Gardenerim 的核心框架位于 `packages/css/`，Vue、React、AngularJS 与 Blazor 适配器位于相邻的 `packages/` 子目录；根目录的 `website/` 是官网与完整文档站，不参与 npm 核心包的发布内容。

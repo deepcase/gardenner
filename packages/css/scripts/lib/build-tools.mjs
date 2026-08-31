@@ -35,12 +35,12 @@ export async function composeCss(sourceRoot, files, banner) {
   return `${banner}${parts.join("\n")}`;
 }
 
-function withoutGardenerBanner(source) {
-  return source.replace(/^\/\* Gardener v[^\n]+\*\/\s*/u, "");
+function withoutGardenerimBanner(source) {
+  return source.replace(/^\/\* Gardenerim v[^\n]+\*\/\s*/u, "");
 }
 
 export async function minifyCss(source, sourcefile, _version) {
-  const result = await transform(withoutGardenerBanner(source), {
+  const result = await transform(withoutGardenerimBanner(source), {
     loader: "css",
     minify: true,
     legalComments: "inline",
@@ -50,7 +50,7 @@ export async function minifyCss(source, sourcefile, _version) {
     target: browserTargets,
     // Keep compressed CSS byte-stable across releases when only package metadata changes.
     // The uncompressed entrypoints and runtime still expose the exact package version.
-    banner: "/*! Gardener | MIT License | gardener.css */",
+    banner: "/*! Gardenerim | MIT License */",
   });
   return { code: result.code, map: result.map };
 }
@@ -65,7 +65,7 @@ export async function minifyJavaScript(source, sourcefile, version) {
     sourcefile,
     sourcesContent: true,
     target: "es2020",
-    banner: `/*! Gardener v${version} | MIT License | gardener.css */`,
+    banner: `/*! Gardenerim v${version} | MIT License | gardener.css */`,
   });
   return { code: result.code, map: result.map };
 }

@@ -1,6 +1,6 @@
 import "angular/angular.js";
 import type angular from "angular";
-import { componentCatalog, createGardenerAngularJS } from "@gardenerim/angularjs";
+import { componentCatalog, createGardenerimAngularJS } from "@gardenerim/angularjs";
 import "@gardenerim/angularjs/style.css";
 
 declare global {
@@ -11,11 +11,11 @@ declare global {
 }
 
 const ng = window.angular;
-const moduleName = createGardenerAngularJS(ng);
+const moduleName = createGardenerimAngularJS(ng);
 const status = window.__GARDENER_ANGULARJS_EXAMPLE__ = { ready: false, components: componentCatalog.length, clicks: 0, valueEvents: 0, selectEvents: 0, angularVersion: ng.version.full };
 
 class AppController {
-  keyword = "Gardener";
+  keyword = "Gardenerim";
   channels = ["email"];
   clicks = 0;
   increment(): void { this.clicks += 1; status.clicks = this.clicks; }

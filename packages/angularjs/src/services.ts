@@ -1,13 +1,13 @@
-import { Gardener, destroy, emit, getInstance, init, observe, toast } from "@gardenerim/css/runtime";
+import { Gardenerim, destroy, emit, getInstance, init, observe, toast } from "@gardenerim/css/runtime";
 import { themeAxes } from "./directives.js";
-import type { GardenerRuntimeService, GardenerThemeService, GardenerThemeState } from "./types.js";
+import type { GardenerimRuntimeService, GardenerimThemeService, GardenerimThemeState } from "./types.js";
 
-export const themeAttributes = (state: GardenerThemeState = {}): Record<string, string> => Object.fromEntries(
+export const themeAttributes = (state: GardenerimThemeState = {}): Record<string, string> => Object.fromEntries(
   themeAxes.flatMap((axis) => state[axis] == null || state[axis] === "" ? [] : [[`data-g-${axis}`, String(state[axis])]]),
 );
 
-export const GardenerRuntimeFactory = (): GardenerRuntimeService => ({
-  version: Gardener.version,
+export const GardenerimRuntimeFactory = (): GardenerimRuntimeService => ({
+  version: Gardenerim.version,
   init,
   destroy,
   getInstance: (element, behavior) => behavior ? getInstance(element, behavior) : getInstance(element),
@@ -15,7 +15,7 @@ export const GardenerRuntimeFactory = (): GardenerRuntimeService => ({
   observe,
 });
 
-export const GardenerThemeFactory = (): GardenerThemeService => {
+export const GardenerimThemeFactory = (): GardenerimThemeService => {
   const clear = (target: Element): void => themeAxes.forEach((axis) => target.removeAttribute(`data-g-${axis}`));
   return {
     axes: themeAxes,
@@ -27,9 +27,9 @@ export const GardenerThemeFactory = (): GardenerThemeService => {
     read: (target) => Object.fromEntries(themeAxes.flatMap((axis) => {
       const value = target.getAttribute(`data-g-${axis}`);
       return value == null ? [] : [[axis, value]];
-    })) as GardenerThemeState,
+    })) as GardenerimThemeState,
     clear,
   };
 };
 
-export const GardenerToastFactory = () => ({ show: toast });
+export const GardenerimToastFactory = () => ({ show: toast });

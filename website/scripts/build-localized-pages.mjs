@@ -1,4 +1,5 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
+import { writeFile } from "../../scripts/fs-retry.mjs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 

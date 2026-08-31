@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
-import { bindElectronWindowControls, type GardenerElectronBinding, type GardenerElectronBridge } from "@gardenerim/css/electron";
-import { adapterRootValue, type GardenerAdapterTarget } from "./adapter-target.js";
+import { bindElectronWindowControls, type GardenerimElectronBinding, type GardenerimElectronBridge } from "@gardenerim/css/electron";
+import { adapterRootValue, type GardenerimAdapterTarget } from "./adapter-target.js";
 
-export const useElectronWindowControls = (root?: RefObject<GardenerAdapterTarget>, bridge?: GardenerElectronBridge | null) => {
+export const useElectronWindowControls = (root?: RefObject<GardenerimAdapterTarget>, bridge?: GardenerimElectronBridge | null) => {
   const rootRef = useRef(root);
   const bridgeRef = useRef(bridge);
-  const [binding, setBinding] = useState<GardenerElectronBinding | null>(null);
-  const bindingRef = useRef<GardenerElectronBinding | null>(null);
+  const [binding, setBinding] = useState<GardenerimElectronBinding | null>(null);
+  const bindingRef = useRef<GardenerimElectronBinding | null>(null);
 
   rootRef.current = root;
   bridgeRef.current = bridge;
@@ -24,4 +24,4 @@ export const useElectronWindowControls = (root?: RefObject<GardenerAdapterTarget
 };
 
 export { bindElectronWindowControls };
-export type { GardenerElectronBinding, GardenerElectronBridge };
+export type { GardenerimElectronBinding, GardenerimElectronBridge };

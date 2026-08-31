@@ -1,0 +1,54 @@
+@page "/"
+
+<PageTitle>Gardenerim.Blazor 2.0.0</PageTitle>
+<h1>完整、稳定、直接可用的 Blazor 组件层</h1>
+<p>506 个组件、66 个行为、十轴主题，以及 Web、移动、桌面、Tauri、Electron 构建入口。</p>
+
+<section class="demo-grid" aria-labelledby="component-title">
+    <h2 id="component-title">常用组件</h2>
+    <GCard Class="demo-card">
+        <h3>操作与输入</h3>
+        <GInput aria-label="项目名称" placeholder="项目名称" @bind-Value="ProjectName" />
+        <GButton Variant="primary" @onclick="Increment">已操作 @Count 次</GButton>
+    </GCard>
+    <GCard Class="demo-card">
+        <h3>复杂数据与命令</h3>
+        <GDataGrid @ref="grid" aria-label="示例数据网格" />
+        <GCommandPalette><span>⌘K 打开命令</span></GCommandPalette>
+    </GCard>
+    <GCard Class="demo-card">
+        <h3>AI 与跨端</h3>
+        <GAiWorkspace><GChat><p>流式消息、工具状态与人工确认区域。</p></GChat></GAiWorkspace>
+        <GMobileCategory><span>移动分类入口</span></GMobileCategory>
+    </GCard>
+    <GCard Class="demo-card" data-testid="runtime-event-target"
+           Value="RuntimeValue" ValueChanged="HandleRuntimeValue" ValueEvent="selectionchange" ValueKey="value"
+           EventNames="ObservedEvents" PreventDefaultEvents="PreventedEvents" OnEvent="HandleRuntimeEvent">
+        <h3>运行时事件桥</h3>
+        <output id="runtime-value">@RuntimeValue</output>
+        <output id="runtime-event">@RuntimeEvent</output>
+    </GCard>
+</section>
+
+@code {
+    private object? ProjectName { get; set; } = "超级 CMS";
+    private int Count { get; set; }
+    private object? RuntimeValue { get; set; } = "initial";
+    private string RuntimeEvent { get; set; } = "none";
+    private static readonly string[] ObservedEvents = [GardenerimEvents.Selectionchange, GardenerimEvents.Beforeopen];
+    private static readonly string[] PreventedEvents = [GardenerimEvents.Beforeopen];
+    private GDataGrid? grid;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender || grid is null) return;
+        await grid.RefreshAsync();
+        await grid.InvokeBehaviorAsync<object>("data-grid", "setOptions", [new {
+            columns = new[] { new { field = "name", title = "客户", editable = true } },
+            rows = Enumerable.Range(1, 1000).Select(id => new { id, name = $"客户 {id}" }).ToArray(),
+            rowKey = "id", pageSize = 1000, selectable = true, @virtual = true, rowHeight = 40, height = 320
+        }]);
+    }
+    private void Increment() => Count++;
+    private void HandleRuntimeValue(object? value) => RuntimeValue = value;
+    private void HandleRuntimeEvent(Gardenerim.Blazor.Models.GardenerimEventArgs args) => RuntimeEvent = $"{args.EventName}:{args.DefaultPrevented}";
+}

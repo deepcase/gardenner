@@ -15,14 +15,14 @@
     />
     <meta
       name="description"
-      content="Gardener vollständige Dokumentation: CSS, Vue 3, React, AngularJS, Blazor, Theme, Token, Tool-Klasse, 506 Komponenten, Laufzeit, vollständige Seite, AI-Seitengenerierung und Desktop-Anpassung."
+      content="Gardenerim vollständige Dokumentation: CSS, Vue 3, React, AngularJS, Blazor, Theme, Token, Tool-Klasse, 506 Komponenten, Laufzeit, vollständige Seite, AI-Seitengenerierung und Desktop-Anpassung."
     />
     <meta name="theme-color" content="#ffffff" />
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'"
     />
-    <title>Gardener Dokumentation</title>
+    <title>Gardenerim Dokumentation</title>
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="./docs.html" />
     <link rel="alternate" hreflang="zh-CN" href="../zh-CN/docs.html" />
@@ -42,9 +42,9 @@
       <nav class="site-nav site-container" aria-label="Dokument Hauptnavigation">
         <a class="site-brand" href="./index.html"
           ><span class="site-brand-mark" aria-hidden="true">G</span
-          ><span>Gardener</span></a
+          ><span>Gardenerim</span></a
         >
-        <span class="g-badge">Docs 1.0.0</span>
+        <span class="g-badge">Docs 2.0.0</span>
         <div class="site-nav-links" id="site-menu">
           <a class="site-nav-link" href="./index.html">Homepage</a>
           <details class="site-nav-dropdown">
@@ -312,10 +312,10 @@
       <main class="docs-main" id="docs-main">
         <article>
           <header class="docs-hero">
-            <span class="site-eyebrow">Gardener Dokumentation</span>
+            <span class="site-eyebrow">Gardenerim Dokumentation</span>
             <h1>Vollständiges System, klar vereinbart</h1>
             <p>
-              Von der ersten Zeile von CSS bis hin zu Hunderttausenden von AI-generierten Vorlagen finden Sie hier eine Beschreibung der stabilen Benutzeroberfläche, der Auswahlreihenfolge, der Umgebungsmatrix und der Liefergrenzen von Gardener.
+              Von der ersten Zeile von CSS bis hin zu Hunderttausenden von AI-generierten Vorlagen finden Sie hier eine Beschreibung der stabilen Benutzeroberfläche, der Auswahlreihenfolge, der Umgebungsmatrix und der Liefergrenzen von Gardenerim.
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-6">
               <span class="g-badge">42 Themen</span
@@ -329,7 +329,7 @@
           <section class="docs-section" id="quick-start">
             <h2>Schnellstart</h2>
             <p>
-              Gardener kann nur CSS verwenden oder eine Null-Abhängigkeits-Laufzeit für interaktives Verhalten laden. Das vollständige Paket enthält standardmäßig alle Themes, Komponenten und Werkzeugklassen.
+              Gardenerim kann nur CSS verwenden oder eine Null-Abhängigkeits-Laufzeit für interaktives Verhalten laden. Das vollständige Paket enthält standardmäßig alle Themes, Komponenten und Werkzeugklassen.
             </p>
             <div class="docs-code-wrap">
               <button
@@ -496,17 +496,17 @@ import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
           </section>
 
           <section class="docs-section" id="vue">
-            <h2>Projekt Gardener Vue 3</h2>
+            <h2>Projekt Gardenerim Vue 3</h2>
             <p>
-              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> ist die offizielle Vue 3-Adaptionsschicht von Gardener CSS 1.0.0, die aktuelle Version ist
-              <strong>1.0.0 Stabil</strong>, unterstützt Vue
+              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> ist die offizielle Vue 3-Adaptionsschicht von Gardenerim CSS 2.0.0, die aktuelle Version ist
+              <strong>2.0.0 Stabil</strong>, unterstützt Vue
               <code>&gt;=3.4.0 &lt;4.0.0</code> mit Node.js
               <code>&gt;=18.18</code>. Es ordnet alle 506 CSS-Komponenten und 66 DOM-Verhaltensweisen Element für Element zu und bietet gleichzeitig 538 Root-Laufzeitexporte, 21 TypeScript-Typexporte, 29 Paketeinstiegspunkte und 28 Komponenten-CSS-Paket-Proxys.
             </p>
             <div class="docs-api-stats" aria-label="Vue project public API scale">
               <div><strong>506</strong><span>Named G* component</span></div>
               <div><strong>538</strong><span>Root Runtime Export</span></div>
-              <div><strong>29</strong><span>Öffentlicher Paketeintrag</span></div>
+              <div><strong>30</strong><span>Öffentlicher Paketeintrag</span></div>
               <div><strong>28</strong><span>Component CSS-Paket</span></div>
             </div>
 
@@ -516,28 +516,28 @@ import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createApp } from &quot;vue&quot;;
-import GardenerVue from &quot;@gardenerim/vue&quot;;
+import GardenerimVue from &quot;@gardenerim/vue&quot;;
 import &quot;@gardenerim/vue/style.css&quot;;
 import App from &quot;./App.vue&quot;;
 
-createApp(App).use(GardenerVue).mount(&quot;#app&quot;);</code></pre>
+createApp(App).use(GardenerimVue).mount(&quot;#app&quot;);</code></pre>
             </div>
             <p>
               Vollständige Abdeckung der Plug-in-Optionen <code>prefix</code>、<code>components</code>、<code>directive</code>
               und <code>initialize</code>. Präfix anpassen, nur einige Komponenten registrieren, schließen
-              <code>v-gardener</code> oder eine verzögerte Laufzeitinitialisierung sollte übergeben werden
-              <code>createGardenerVue(options)</code> Plug-in erstellen.
+              <code>v-gardenerim</code> oder eine verzögerte Laufzeitinitialisierung sollte übergeben werden
+              <code>createGardenerimVue(options)</code> Plug-in erstellen.
             </p>
 
             <h3>On-Demand Komponenten und Themes Provider</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;script setup lang=&quot;ts&quot;&gt;
-import { GButton, GCard, GDialog, GardenerProvider } from &quot;@gardenerim/vue&quot;;
+import { GButton, GCard, GDialog, GardenerimProvider } from &quot;@gardenerim/vue&quot;;
 import &quot;@gardenerim/vue/platform/web.css&quot;;
 &lt;/script&gt;
 
 &lt;template&gt;
-  &lt;GardenerProvider
+  &lt;GardenerimProvider
     theme=&quot;garden&quot;
     mode=&quot;light&quot;
     neutral=&quot;cool&quot;
@@ -550,11 +550,11 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
     os=&quot;auto&quot;
   &gt;
     &lt;GCard&gt;&lt;GButton variant=&quot;primary&quot;&gt;Speichern&lt;/GButton&gt;&lt;/GCard&gt;
-  &lt;/GardenerProvider&gt;
+  &lt;/GardenerimProvider&gt;
 &lt;/template&gt;</code></pre>
             </div>
             <p>
-              <code>GardenerProvider</code> Die zehn thematischen Achsen sind
+              <code>GardenerimProvider</code> Die zehn thematischen Achsen sind
               <code>theme</code>、<code>mode</code>、<code>neutral</code>、<code>typography</code>、<code>shape</code>、<code>density</code>、<code>elevation</code>、<code>motion</code>、<code>platform</code>
               und <code>os</code>. Startseite und Muster bleiben standardmäßig weiß mit hellen und kleinen abgerundeten Ecken; Der Dunkelmodus ist standardmäßig nicht aktiviert.
             </p>
@@ -564,12 +564,12 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <table class="docs-table">
                 <thead><tr><th>Eigenschaften</th><th>Zweck</th><th>Abkommen</th></tr></thead>
                 <tbody>
-                  <tr><td><code>as</code></td><td>Wurzelelement oder Vue-Komponente ändern</td><td>Gardener Klasse, Eigenschaften und Slots bewahren</td></tr>
+                  <tr><td><code>as</code></td><td>Wurzelelement oder Vue-Komponente ändern</td><td>Gardenerim Klasse, Eigenschaften und Slots bewahren</td></tr>
                   <tr><td><code>variant</code></td><td>Variante anwenden</td><td>Akzeptiert einen String oder ein Array von Strings</td></tr>
                   <tr><td><code>state</code></td><td>Status der Anwendungskomponente</td><td>Konvertieren in <code>is-*</code> Statusklasse</td></tr>
                   <tr><td><code>config</code></td><td>Laufzeitkonfiguration deklarieren</td><td>In entsprechendes konvertieren <code>data-g-*</code> Eigenschaften</td></tr>
                   <tr><td><code>initialize</code></td><td>Initialisierung des Kontroll-DOM-Verhaltens</td><td>Ausfall <code>true</code></td></tr>
-                  <tr><td><code>modelValue</code></td><td>Vue bidirektionaler Bindungswert</td><td>Sowohl native Form als auch benutzerdefinierte Gardener-Events werden unterstützt</td></tr>
+                  <tr><td><code>modelValue</code></td><td>Vue bidirektionaler Bindungswert</td><td>Sowohl native Form als auch benutzerdefinierte Gardenerim-Events werden unterstützt</td></tr>
                   <tr><td><code>modelEvent</code></td><td>Geben Sie benutzerdefinierte Synchronisationsereignisse an</td><td>Verwendung <code>gardener:*</code> Ereignisname</td></tr>
                   <tr><td><code>modelKey</code></td><td>Erhalten Sie Wert aus der Ereignisnutzlast</td><td>Lesen <code>CustomEvent.detail</code> Feld angeben</td></tr>
                 </tbody>
@@ -579,7 +579,7 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               Alle nativen Attribute, DOM-Ereignisse und Slots werden durchgereicht. Komponentenvorlage Verweis auf einheitliche Offenlegung
               <code>element</code>、<code>getInstance()</code> und
               <code>refresh()</code>. Wird in Verbundstrukturen wie Dialogfeldern und Schubladen verwendet
-              <code>GardenerPart</code> Erstellen Sie standardmäßige Interna, um zu vermeiden, dass CSS- und Verhaltensauswahlverträge beschädigt werden.
+              <code>GardenerimPart</code> Erstellen Sie standardmäßige Interna, um zu vermeiden, dass CSS- und Verhaltensauswahlverträge beschädigt werden.
             </p>
 
             <h3>v-Modell, benutzerdefinierte Ereignisse und Anweisungen</h3>
@@ -592,24 +592,24 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
   model-key=&quot;value&quot;
 /&gt;
 
-&lt;div v-gardener=&quot;{
+&lt;div v-gardenerim=&quot;{
   behavior: 'dialog',
   config: { startOpen: true }
 }&quot; /&gt;</code></pre>
             </div>
             <p>
-              <code>vGardener</code>(Vorlagenname <code>v-gardener</code>) Mounten, aktualisieren und zerstören Sie bestimmte Verhaltensweisen zusammen mit dem Vue-Lebenszyklus. Standards für die Verwendung nativer Eingaben
+              <code>vGardenerim</code>(Vorlagenname <code>v-gardenerim</code>) Mounten, aktualisieren und zerstören Sie bestimmte Verhaltensweisen zusammen mit dem Vue-Lebenszyklus. Standards für die Verwendung nativer Eingaben
               <code>update:modelValue</code>;Komplexe Komponenten übergeben
-              <code>modelEvent</code> und <code>modelKey</code> Benutzerdefinierte Bridge Gardener-Ereignisse für dasselbe Protokoll.
+              <code>modelEvent</code> und <code>modelKey</code> Benutzerdefinierte Bridge Gardenerim-Ereignisse für dasselbe Protokoll.
             </p>
 
             <h3>Alle 7 Composable</h3>
             <div class="docs-runtime-grid">
-              <div class="docs-runtime-item"><code>useGardener</code><small>Zugriff auf Laufzeit, Initialisierung und Zerstörungsfähigkeiten</small></div>
-              <div class="docs-runtime-item"><code>useGardenerBehavior</code><small>Bindeverhalten und Zugriffsinstanzen</small></div>
-              <div class="docs-runtime-item"><code>useGardenerEvent</code><small>Typsicheres Hören für Gärtner:* Veranstaltungen</small></div>
-              <div class="docs-runtime-item"><code>useGardenerTheme</code><small>Lesen und aktualisieren Sie den Zehn-Achsen-Themastatus</small></div>
-              <div class="docs-runtime-item"><code>useGardenerToast</code><small>Erstellen und Verwalten von Toasts</small></div>
+              <div class="docs-runtime-item"><code>useGardenerim</code><small>Zugriff auf Laufzeit, Initialisierung und Zerstörungsfähigkeiten</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimBehavior</code><small>Bindeverhalten und Zugriffsinstanzen</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimEvent</code><small>Typsicheres Hören für Gärtner:* Veranstaltungen</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimTheme</code><small>Lesen und aktualisieren Sie den Zehn-Achsen-Themastatus</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimToast</code><small>Erstellen und Verwalten von Toasts</small></div>
               <div class="docs-runtime-item"><code>useTauriWindowControls</code><small>Bind Tauri Fenstertaste und Zerstörungszyklus</small></div>
               <div class="docs-runtime-item"><code>useElectronWindowControls</code><small>Binding Electron Security Bridge und Zerstörungszyklus</small></div>
             </div>
@@ -619,7 +619,7 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <table class="docs-table">
                 <thead><tr><th>Eintritt</th><th>Inhalt</th><th>Anwendbare Szenarien</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardenerim/vue/style.css</code></td><td>Komplette Gardener Stil</td><td>Out of the Box und Prototyp</td></tr>
+                  <tr><td><code>@gardenerim/vue/style.css</code></td><td>Komplette Gardenerim Stil</td><td>Out of the Box und Prototyp</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>Eintrag im Schichtstil</td><td>Custom Build</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>Allgemeine Webfähigkeiten</td><td>PC, responsive Website, Dashboard</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>Universal + mobile Kombination</td><td>Mobile Webseite, PWA, WebView</td></tr>
@@ -637,15 +637,15 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
 
             <h3>Alle 29 öffentlichen Paketeinträge</h3>
             <p>
-              JavaScript:<code>.</code>、<code>./components</code>、<code>./component</code>、<code>./composables</code>、<code>./directives</code>、<code>./plugin</code>、<code>./adapters</code>、<code>./tauri</code>、<code>./electron</code>、<code>./catalog</code>、<code>./catalog.json</code>、<code>./bundle.min.js</code>. Stil:<code>./style.css</code>、<code>./core.css</code>、<code>./themes.css</code>、<code>./utilities.css</code>、<code>./components.css</code>、<code>./ai.css</code>、<code>./platform/web.css</code>、<code>./platform/mobile.css</code>、<code>./platform/desktop.css</code>、<code>./platform/tauri.css</code>、<code>./platform/electron.css</code> und <code>./component-css/*</code>. Vertrags- und Paketinformationen:<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
+              JavaScript:<code>.</code>、<code>./components</code>、<code>./component</code>、<code>./composables</code>、<code>./directives</code>、<code>./plugin</code>、<code>./adapters</code>、<code>./tauri</code>、<code>./electron</code>、<code>./catalog</code>、<code>./catalog.json</code>、<code>./bundle.min.js</code>. Stil:<code>./style.css</code>、<code>./core.css</code>、<code>./themes.css</code>、<code>./utilities.css</code>、<code>./components.css</code>、<code>./ai.css</code>、<code>./platform/web.css</code>、<code>./platform/mobile.css</code>、<code>./platform/desktop.css</code>、<code>./platform/tauri.css</code>、<code>./platform/electron.css</code> und <code>./component-css/*</code>. Vertrags- und Paketinformationen:<code>./contracts</code>、<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
             </p>
 
             <h3>Exporte von Nichtkomponenten-Laufzeit und TypeScript-Typen</h3>
             <p>
-              32 Nicht-Komponenten-Laufzeiten exportiert als:<code>Gardener</code>、<code>GardenerComponent</code>、<code>GardenerPart</code>、<code>GardenerProvider</code>、<code>GardenerVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerComponent</code>、<code>createGardenerVue</code>、<code>default</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>toast</code>, 7 Composable und <code>vGardener</code>。
+              32 Nicht-Komponenten-Laufzeiten exportiert als:<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerimComponent</code>、<code>createGardenerimVue</code>、<code>default</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>toast</code>, 7 Composable und <code>vGardenerim</code>。
             </p>
             <p>
-              21 Typen exportiert als:<code>GardenerAs</code>、<code>GardenerBehaviorInstance</code>、<code>GardenerBehaviorName</code>、<code>GardenerComponentDefinition</code>、<code>GardenerComponentKind</code>、<code>GardenerComponentPublicInstance</code>、<code>GardenerConfigValue</code>、<code>GardenerDirectiveOptions</code>、<code>GardenerDirectiveValue</code>、<code>GardenerElectronBinding</code>、<code>GardenerElectronBridge</code>、<code>GardenerElementTarget</code>、<code>GardenerEventHandler</code>、<code>GardenerEventName</code>、<code>GardenerPlatform</code>、<code>GardenerTargetValue</code>、<code>GardenerTauriBinding</code>、<code>GardenerTauriBridge</code>、<code>GardenerThemeState</code>、<code>GardenerVueComponentName</code>、<code>GardenerVueOptions</code>。
+              21 Typen exportiert als:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentPublicInstance</code>、<code>GardenerimConfigValue</code>、<code>GardenerimDirectiveOptions</code>、<code>GardenerimDirectiveValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimVueComponentName</code>、<code>GardenerimVueOptions</code>。
             </p>
 
             <h3>Öffentliches Schema, Metadaten und Publishing Access</h3>
@@ -684,17 +684,17 @@ npm run release:verify
           </section>
 
           <section class="docs-section" id="react">
-            <h2>Gardener React Projekt</h2>
+            <h2>Gardenerim React Projekt</h2>
             <p>
-              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> ist die offizielle React-Adaptionsschicht von Gardener CSS 1.0.0, die aktuelle Version ist
-              <strong>1.0.0 Stabil</strong>, unterstützt React
+              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> ist die offizielle React-Adaptionsschicht von Gardenerim CSS 2.0.0, die aktuelle Version ist
+              <strong>2.0.0 Stabil</strong>, unterstützt React
               <code>&gt;=18.3.0 &lt;20.0.0</code> mit Node.js
               <code>&gt;=18.18</code>. Es ordnet alle 506 CSS-Komponenten und 66 DOM-Verhaltensweisen Element für Element zu und bietet gleichzeitig 538 Root-Laufzeitexporte, 22 TypeScript-Typexporte, 29 öffentliche Paketeinstiegspunkte und 28 Komponenten-CSS-Paket-Proxys.
             </p>
             <div class="docs-api-stats" aria-label="React Projekt öffentliche API-Skala">
               <div><strong>506</strong><span>Named G* component</span></div>
               <div><strong>538</strong><span>Root Runtime Export</span></div>
-              <div><strong>29</strong><span>Öffentlicher Paketeintrag</span></div>
+              <div><strong>30</strong><span>Öffentlicher Paketeintrag</span></div>
               <div><strong>28</strong><span>Component CSS-Paket</span></div>
             </div>
 
@@ -704,13 +704,13 @@ npm run release:verify
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createRoot } from &quot;react-dom/client&quot;;
-import { GButton, GCard, GardenerProvider } from &quot;@gardenerim/react&quot;;
+import { GButton, GCard, GardenerimProvider } from &quot;@gardenerim/react&quot;;
 import &quot;@gardenerim/react/style.css&quot;;
 
 createRoot(document.getElementById(&quot;root&quot;)!).render(
-  &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
+  &lt;GardenerimProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
     &lt;GCard&gt;&lt;GButton variant=&quot;primary&quot;&gt;Speichern&lt;/GButton&gt;&lt;/GCard&gt;
-  &lt;/GardenerProvider&gt;,
+  &lt;/GardenerimProvider&gt;,
 );</code></pre>
             </div>
             <p>
@@ -723,7 +723,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 
             <h3>Themenanbieter und zehn Themenachsen</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>&lt;GardenerProvider
+              <pre class="site-code"><code>&lt;GardenerimProvider
   theme=&quot;garden&quot;
   mode=&quot;light&quot;
   neutral=&quot;cool&quot;
@@ -738,14 +738,14 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
   aria-label=&quot;Themenbereich der Anwendung&quot;
 &gt;
   &lt;App /&gt;
-&lt;/GardenerProvider&gt;</code></pre>
+&lt;/GardenerimProvider&gt;</code></pre>
             </div>
             <p>
-              <code>GardenerProvider</code> Die zehn thematischen Achsen sind
+              <code>GardenerimProvider</code> Die zehn thematischen Achsen sind
               <code>theme</code>、<code>mode</code>、<code>neutral</code>、<code>typography</code>、<code>shape</code>、<code>density</code>、<code>elevation</code>、<code>motion</code>、<code>platform</code>
               und <code>os</code>. Außerdem werden Klassenname, Stil, ID, ARIA und andere native Attribute transparent übertragen.
-              <code>useGardenerTheme</code> für Alphabetisierungsthemen,
-              <code>useGardenerThemeContext</code> zum direkten Lesen des Kontexts. Die Standardeinstellung ist immer noch weißes Licht mit kleinen abgerundeten Ecken, und das dunkle Design wird nicht automatisch aktiviert.
+              <code>useGardenerimTheme</code> für Alphabetisierungsthemen,
+              <code>useGardenerimThemeContext</code> zum direkten Lesen des Kontexts. Die Standardeinstellung ist immer noch weißes Licht mit kleinen abgerundeten Ecken, und das dunkle Design wird nicht automatisch aktiviert.
             </p>
 
             <h3>10 gemeinsame Eigenschaften für alle Komponenten</h3>
@@ -753,12 +753,12 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
               <table class="docs-table">
                 <thead><tr><th>Eigenschaften</th><th>Zweck</th><th>Abkommen</th></tr></thead>
                 <tbody>
-                  <tr><td><code>as</code></td><td>Wurzelelement oder React-Komponente ändern</td><td>Keep Gardener Klasse, Eigenschaften, Kinder und Ref</td></tr>
+                  <tr><td><code>as</code></td><td>Wurzelelement oder React-Komponente ändern</td><td>Keep Gardenerim Klasse, Eigenschaften, Kinder und Ref</td></tr>
                   <tr><td><code>variant</code></td><td>Variante anwenden</td><td>String- oder Read-Only-Array von Strings</td></tr>
                   <tr><td><code>state</code></td><td>Status der Anwendungskomponente</td><td>Konvertieren in <code>is-*</code> Statusklasse</td></tr>
                   <tr><td><code>config</code></td><td>Konfiguration des Deklarationsverhaltens</td><td>In entsprechendes konvertieren <code>data-g-*</code> Eigenschaften</td></tr>
                   <tr><td><code>initialize</code></td><td>Initialisierung des Kontroll-DOM-Verhaltens</td><td>Ausfall <code>true</code></td></tr>
-                  <tr><td><code>value</code></td><td>Kontrollierter Wert</td><td>Unterstützen Sie native Formulare und benutzerdefinierte Gardener-Events</td></tr>
+                  <tr><td><code>value</code></td><td>Kontrollierter Wert</td><td>Unterstützen Sie native Formulare und benutzerdefinierte Gardenerim-Events</td></tr>
                   <tr><td><code>defaultValue</code></td><td>Unkontrollierter Anfangswert</td><td>Checkbox boolean zugeordnet zu <code>defaultChecked</code></td></tr>
                   <tr><td><code>valueEvent</code></td><td>Geben Sie das Synchronisationsereignis für Werte an</td><td>Verfügbar <code>gardener:*</code> Ereignisname</td></tr>
                   <tr><td><code>valueKey</code></td><td>Erhalten Sie Wert aus der Ereignisnutzlast</td><td>Lesen <code>CustomEvent.detail</code> Feld angeben</td></tr>
@@ -768,7 +768,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
             </div>
             <p>
               Native Attribute, Ereignisse, Kinder und <code>className</code> Alle werden transparent übertragen. Komponentenreferenz vereinheitlicht öffentlich <code>element</code>、<code>getInstance()</code> und
-              <code>refresh()</code>; Verbundstrukturen sind verfügbar <code>GardenerPart</code>
+              <code>refresh()</code>; Verbundstrukturen sind verfügbar <code>GardenerimPart</code>
               Erstellen Sie interne Komponenten. Kontrollkästchen boolean <code>value</code> Verwendung
               <code>checked</code>, radio behält den String-Wert bei, um eine konsistente Semantik der React-Formulare sicherzustellen.
             </p>
@@ -787,16 +787,16 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 /&gt;</code></pre>
             </div>
             <p>
-              <code>useGardenerBehavior</code> Binden Sie 66 Verhaltensweisen an ein Element, ein Dokument oder eine Komponente. Behandeln und zerstören Sie sie beim Entladen;<code>initialize</code> Die automatische Komponenteninitialisierung kann deaktiviert werden, um eine einheitliche Übernahme durch die Laufzeit auf Seitenebene zu ermöglichen. Das Verhalten der expliziten Übergabe eines Datenattributs hat Vorrang vor der Generierung eines Standardwerts.
+              <code>useGardenerimBehavior</code> Binden Sie 66 Verhaltensweisen an ein Element, ein Dokument oder eine Komponente. Behandeln und zerstören Sie sie beim Entladen;<code>initialize</code> Die automatische Komponenteninitialisierung kann deaktiviert werden, um eine einheitliche Übernahme durch die Laufzeit auf Seitenebene zu ermöglichen. Das Verhalten der expliziten Übergabe eines Datenattributs hat Vorrang vor der Generierung eines Standardwerts.
             </p>
 
             <h3>Alle 7 Haken</h3>
             <div class="docs-runtime-grid">
-              <div class="docs-runtime-item"><code>useGardener</code><small>Zugriff auf Laufzeit, Initialisierung, Beobachtung und Zerstörung</small></div>
-              <div class="docs-runtime-item"><code>useGardenerBehavior</code><small>Bindeverhalten und Zugriffsinstanzen</small></div>
-              <div class="docs-runtime-item"><code>useGardenerEvent</code><small>Typsicheres Hören für Gärtner:* Veranstaltungen</small></div>
-              <div class="docs-runtime-item"><code>useGardenerTheme</code><small>Lesen und aktualisieren Sie den Zehn-Achsen-Themastatus</small></div>
-              <div class="docs-runtime-item"><code>useGardenerToast</code><small>Erstellen und Verwalten von Toasts</small></div>
+              <div class="docs-runtime-item"><code>useGardenerim</code><small>Zugriff auf Laufzeit, Initialisierung, Beobachtung und Zerstörung</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimBehavior</code><small>Bindeverhalten und Zugriffsinstanzen</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimEvent</code><small>Typsicheres Hören für Gärtner:* Veranstaltungen</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimTheme</code><small>Lesen und aktualisieren Sie den Zehn-Achsen-Themastatus</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimToast</code><small>Erstellen und Verwalten von Toasts</small></div>
               <div class="docs-runtime-item"><code>useTauriWindowControls</code><small>Bind Tauri Fenstertaste und Zerstörungszyklus</small></div>
               <div class="docs-runtime-item"><code>useElectronWindowControls</code><small>Binding Electron Security Bridge und Zerstörungszyklus</small></div>
             </div>
@@ -806,7 +806,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
               <table class="docs-table">
                 <thead><tr><th>Eintritt</th><th>Inhalt</th><th>Anwendbare Szenarien</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardenerim/react/style.css</code></td><td>Komplette Gardener Stil</td><td>Out of the Box und Prototyp</td></tr>
+                  <tr><td><code>@gardenerim/react/style.css</code></td><td>Komplette Gardenerim Stil</td><td>Out of the Box und Prototyp</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>Eintrag im Schichtstil</td><td>Custom Build</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>Allgemeine Webfähigkeiten</td><td>PC, responsive Website, Dashboard</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>Universal + mobile Kombination</td><td>Mobile Webseite, PWA, WebView</td></tr>
@@ -837,15 +837,15 @@ function WindowChrome() {
 
             <h3>Alle 29 öffentlichen Paketeinträge</h3>
             <p>
-              JavaScript:<code>.</code>、<code>./components</code>、<code>./component</code>、<code>./hooks</code>、<code>./provider</code>、<code>./adapters</code>、<code>./tauri</code>、<code>./electron</code>、<code>./catalog</code>、<code>./catalog.json</code>、<code>./bundle.min.js</code>. Stil:<code>./style.css</code>、<code>./core.css</code>、<code>./themes.css</code>、<code>./utilities.css</code>、<code>./components.css</code>、<code>./ai.css</code>、<code>./platform/web.css</code>、<code>./platform/mobile.css</code>、<code>./platform/desktop.css</code>、<code>./platform/tauri.css</code>、<code>./platform/electron.css</code>、<code>./component-css/*.css</code> und <code>./component-css/*</code>. Vertrags- und Paketinformationen:<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
+              JavaScript:<code>.</code>、<code>./components</code>、<code>./component</code>、<code>./hooks</code>、<code>./provider</code>、<code>./adapters</code>、<code>./tauri</code>、<code>./electron</code>、<code>./catalog</code>、<code>./catalog.json</code>、<code>./bundle.min.js</code>. Stil:<code>./style.css</code>、<code>./core.css</code>、<code>./themes.css</code>、<code>./utilities.css</code>、<code>./components.css</code>、<code>./ai.css</code>、<code>./platform/web.css</code>、<code>./platform/mobile.css</code>、<code>./platform/desktop.css</code>、<code>./platform/tauri.css</code>、<code>./platform/electron.css</code>、<code>./component-css/*.css</code> und <code>./component-css/*</code>. Vertrags- und Paketinformationen:<code>./contracts</code>、<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
             </p>
 
             <h3>Exporte von Nichtkomponenten-Laufzeit und TypeScript-Typen</h3>
             <p>
-              32 Nicht-Komponenten-Laufzeiten exportiert als:<code>Gardener</code>、<code>GardenerComponent</code>、<code>GardenerPart</code>、<code>GardenerProvider</code>、<code>GardenerThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerComponent</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>resolveGardenerTarget</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardener</code>、<code>useGardenerBehavior</code>、<code>useGardenerEvent</code>、<code>useGardenerTheme</code>、<code>useGardenerThemeContext</code>、<code>useGardenerToast</code>、<code>useTauriWindowControls</code>。
+              32 Nicht-Komponenten-Laufzeiten exportiert als:<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerimComponent</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>resolveGardenerimTarget</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimTheme</code>、<code>useGardenerimThemeContext</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>。
             </p>
             <p>
-              22 Typen exportiert als:<code>GardenerAs</code>、<code>GardenerBehaviorInstance</code>、<code>GardenerBehaviorName</code>、<code>GardenerComponentDefinition</code>、<code>GardenerComponentHandle</code>、<code>GardenerComponentKind</code>、<code>GardenerComponentProps</code>、<code>GardenerConfigValue</code>、<code>GardenerElectronBinding</code>、<code>GardenerElectronBridge</code>、<code>GardenerElementTarget</code>、<code>GardenerEventHandler</code>、<code>GardenerEventName</code>、<code>GardenerGeneratedComponent</code>、<code>GardenerOwnProps</code>、<code>GardenerPlatform</code>、<code>GardenerReactComponentName</code>、<code>GardenerTargetValue</code>、<code>GardenerTauriBinding</code>、<code>GardenerTauriBridge</code>、<code>GardenerThemeState</code>、<code>GardenerValueChange</code>。
+              22 Typen exportiert als:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentProps</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimGeneratedComponent</code>、<code>GardenerimOwnProps</code>、<code>GardenerimPlatform</code>、<code>GardenerimReactComponentName</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChange</code>。
             </p>
 
             <h3>Public Schema, Performance und Release Access</h3>
@@ -884,23 +884,23 @@ npm run release:verify
           </section>
 
           <section class="docs-section" id="angular">
-            <h2>Gardener AngularJS Projekt</h2>
+            <h2>Gardenerim AngularJS Projekt</h2>
             <p>
               <a href="../../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
-              ist die offizielle AngularJS 1.x Legacy-Systemanpassungsschicht für Gardener CSS 1.0.0, die aktuelle Version ist
-              <strong>1.0.0 Stabil</strong>. Es validiert AngularJS
+              ist die offizielle AngularJS 1.x Legacy-Systemanpassungsschicht für Gardenerim CSS 2.0.0, die aktuelle Version ist
+              <strong>2.0.0 Stabil</strong>. Es validiert AngularJS
               <code>&gt;=1.8.2 &lt;1.9.0</code> mit Node.js
               <code>&gt;=18.18</code>, Element-für-Element-Zuordnung aller 506 CSS-Komponenten und 66 DOM-Verhaltensweisen und bietet 535 Root-Laufzeitexporte, 24 TypeScript-Typexporte, 29 öffentliche Paketeinstiegspunkte und 28 Komponenten-CSS-Paket-Proxys.
             </p>
             <div class="docs-warning docs-callout">
               <strong>Legacy-Systemgrenzen:</strong>AngularJS hat den offiziellen Support eingestellt und es sind keine Sicherheitshinweise für das Framework selbst bekannt, die keine Upstream-Korrekturen enthalten. Diese Anpassungsschicht wird
-              <code>angular</code> Behalten Sie es als externe Peer-Abhängigkeit bei, die es nicht in das Gardener-Produkt überträgt und Risiken auf Framework-Ebene nicht abdeckt. Neue Projekte haben Vorrang, Vue-, React- oder Framework-unabhängige Eingänge zu wählen; Bestehende Projekte müssen außerdem Eingabebereinigung, CSP, Ressourcen-Whitelisting, Desktop-Bridge-Mindestautorisierung und Migrationsplan implementieren. Die vollständigen Anforderungen finden Sie unter
+              <code>angular</code> Behalten Sie es als externe Peer-Abhängigkeit bei, die es nicht in das Gardenerim-Produkt überträgt und Risiken auf Framework-Ebene nicht abdeckt. Neue Projekte haben Vorrang, Vue-, React- oder Framework-unabhängige Eingänge zu wählen; Bestehende Projekte müssen außerdem Eingabebereinigung, CSP, Ressourcen-Whitelisting, Desktop-Bridge-Mindestautorisierung und Migrationsplan implementieren. Die vollständigen Anforderungen finden Sie unter
               <a href="../../packages/angularjs/docs/security.md">AngularJS Security Baseline</a>。
             </div>
             <div class="docs-api-stats" aria-label="AngularJS Projekt öffentliche API-Skala">
               <div><strong>506</strong><span>Komponentenanweisungen erzeugen</span></div>
               <div><strong>535</strong><span>Root Runtime Export</span></div>
-              <div><strong>29</strong><span>Öffentlicher Paketeintrag</span></div>
+              <div><strong>30</strong><span>Öffentlicher Paketeintrag</span></div>
               <div><strong>28</strong><span>Component CSS-Paket</span></div>
             </div>
 
@@ -910,20 +910,20 @@ npm run release:verify
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import &quot;angular/angular.js&quot;;
-import { createGardenerAngularJS } from &quot;@gardenerim/angularjs&quot;;
+import { createGardenerimAngularJS } from &quot;@gardenerim/angularjs&quot;;
 import &quot;@gardenerim/angularjs/style.css&quot;;
 
-const gardenerModule = createGardenerAngularJS(window.angular);
+const gardenerModule = createGardenerimAngularJS(window.angular);
 window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
             </div>
             <p>
               AngularJS npm-Pakete sind keine nativen ESM und sollten daher in Build-Tools wie Vite verwendet werden
               <code>import &quot;angular/angular.js&quot;</code> Importieren Sie die Nebenwirkungen von
-              <code>window.angular</code> Explizite Übergabe <code>createGardenerAngularJS</code>;Verlassen Sie sich nicht auf instabil
-              <code>import angular from &quot;angular&quot;</code> Standardmäßig importiert. Das Gardener-Paket selbst liest kein globales AngularJS und der Root-Eintrag ist sicher für die SSR-Toolchain-Analyse.
+              <code>window.angular</code> Explizite Übergabe <code>createGardenerimAngularJS</code>;Verlassen Sie sich nicht auf instabil
+              <code>import angular from &quot;angular&quot;</code> Standardmäßig importiert. Das Gardenerim-Paket selbst liest kein globales AngularJS und der Root-Eintrag ist sicher für die SSR-Toolchain-Analyse.
             </p>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>const moduleName = createGardenerAngularJS(window.angular, {
+              <pre class="site-code"><code>const moduleName = createGardenerimAngularJS(window.angular, {
   moduleName: &quot;gardener&quot;,
   dependencies: [],
   components: [&quot;button&quot;, &quot;gInput&quot;, &quot;GCardDirective&quot;],
@@ -973,7 +973,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               <code>$destroy</code> entfernt das Ereignis und zerstört die Verhaltensinstanz.
             </p>
 
-            <h3>ngModel, native Formen und Gardener Events</h3>
+            <h3>ngModel, native Formen und Gardenerim Events</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;input g-input
   ng-model=&quot;vm.keyword&quot;
@@ -991,17 +991,17 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
             </div>
             <p>
               Die Modellsemantik von nativer Eingabe, Textbereich und Auswahl wird weiterhin von AngularJS selbst verwaltet und wird nicht von der Anpassungsschicht abgedeckt.
-              <code>ngModel.$render</code> oder wiederholter Anruf <code>$setViewValue</code>; Das Kontrollkästchen enthält boolesche Werte, das Optionsfeld enthält Optionswerte und mehrere ausgewählte Arrays. Die komplexe Gardener-Komponente aktualisiert das Modell über benutzerdefinierte Ereignisse und Verwendungen
+              <code>ngModel.$render</code> oder wiederholter Anruf <code>$setViewValue</code>; Das Kontrollkästchen enthält boolesche Werte, das Optionsfeld enthält Optionswerte und mehrere ausgewählte Arrays. Die komplexe Gardenerim-Komponente aktualisiert das Modell über benutzerdefinierte Ereignisse und Verwendungen
               <code>gardenerOnValueChange</code> Erhalten Sie konsistente Rückrufwerte.
             </p>
 
             <h3>Gemeinsame Befehle, Dienste und Zehn-Achsen-Themen</h3>
             <div class="docs-runtime-grid">
-              <div class="docs-runtime-item"><code>gGardener</code><small>Vorlage schreiben g-Gärtner, dynamisch erklären, schalten und zerstören willkürliche Verhaltensweisen</small></div>
+              <div class="docs-runtime-item"><code>gGardenerim</code><small>Vorlage schreiben g-Gärtner, dynamisch erklären, schalten und zerstören willkürliche Verhaltensweisen</small></div>
               <div class="docs-runtime-item"><code>gardenerProvider</code><small>Element oder Attributform bietet ein Zehn-Achsen-Thema und initialisiert den Teilbaum</small></div>
-              <div class="docs-runtime-item"><code>GardenerRuntime</code><small>init · destroy · getInstance · emit · observed</small></div>
-              <div class="docs-runtime-item"><code>GardenerTheme</code><small>Attribute · anwenden · lesen · klar</small></div>
-              <div class="docs-runtime-item"><code>GardenerToast</code><small>Show(Optionen)</small></div>
+              <div class="docs-runtime-item"><code>GardenerimRuntime</code><small>init · destroy · getInstance · emit · observed</small></div>
+              <div class="docs-runtime-item"><code>GardenerimTheme</code><small>Attribute · anwenden · lesen · klar</small></div>
+              <div class="docs-runtime-item"><code>GardenerimToast</code><small>Show(Optionen)</small></div>
             </div>
             <p>
               Vollständige Abdeckung der Themenachse <code>theme</code>、<code>mode</code>、<code>neutral</code>、<code>typography</code>、<code>shape</code>、<code>density</code>、<code>elevation</code>、<code>motion</code>、<code>platform</code> und
@@ -1014,7 +1014,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               <table class="docs-table">
                 <thead><tr><th>Eintritt</th><th>Inhalt</th><th>Anwendbare Szenarien</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardenerim/angularjs/style.css</code></td><td>Komplette Gardener Stil</td><td>Out-of-the-Box und progressive Integration in Legacy-Systeme</td></tr>
+                  <tr><td><code>@gardenerim/angularjs/style.css</code></td><td>Komplette Gardenerim Stil</td><td>Out-of-the-Box und progressive Integration in Legacy-Systeme</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>Eintrag im Schichtstil</td><td>Custom Build</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>Allgemeine Webfähigkeiten</td><td>PC-Website und Dashboard</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>Mobile Komponenten und sichere Zonen</td><td>Mobile Webseite, PWA, WebView</td></tr>
@@ -1036,15 +1036,15 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
 
             <h3>Alle 29 öffentlichen Paketeinträge</h3>
             <p>
-              JavaScript:<code>.</code>、<code>./components</code>、<code>./directives</code>、<code>./services</code>、<code>./module</code>、<code>./adapters</code>、<code>./tauri</code>、<code>./electron</code>、<code>./catalog</code>、<code>./catalog.json</code>、<code>./bundle.min.js</code>. Stil:<code>./style.css</code>、<code>./core.css</code>、<code>./themes.css</code>、<code>./utilities.css</code>、<code>./components.css</code>、<code>./ai.css</code>、<code>./platform/web.css</code>、<code>./platform/mobile.css</code>、<code>./platform/desktop.css</code>、<code>./platform/tauri.css</code>、<code>./platform/electron.css</code>、<code>./component-css/*.css</code> und <code>./component-css/*</code>. Vertrags- und Paketinformationen:<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
+              JavaScript:<code>.</code>、<code>./components</code>、<code>./directives</code>、<code>./services</code>、<code>./module</code>、<code>./adapters</code>、<code>./tauri</code>、<code>./electron</code>、<code>./catalog</code>、<code>./catalog.json</code>、<code>./bundle.min.js</code>. Stil:<code>./style.css</code>、<code>./core.css</code>、<code>./themes.css</code>、<code>./utilities.css</code>、<code>./components.css</code>、<code>./ai.css</code>、<code>./platform/web.css</code>、<code>./platform/mobile.css</code>、<code>./platform/desktop.css</code>、<code>./platform/tauri.css</code>、<code>./platform/electron.css</code>、<code>./component-css/*.css</code> und <code>./component-css/*</code>. Vertrags- und Paketinformationen:<code>./contracts</code>、<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
             </p>
 
             <h3>Exporte von Nichtkomponenten-Laufzeit und TypeScript-Typen</h3>
             <p>
-              29 Nicht-Komponenten-Laufzeiten exportiert als:<code>GARDENER_ANGULARJS_MODULE</code>、<code>Gardener</code>、<code>GardenerRuntimeFactory</code>、<code>GardenerThemeFactory</code>、<code>GardenerToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createElectronWindowService</code>、<code>createGardenerAngularJS</code>、<code>createGardenerComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerBehaviorDirective</code>、<code>gardenerDirectives</code>、<code>gardenerProviderDirective</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
+              29 Nicht-Komponenten-Laufzeiten exportiert als:<code>GARDENERIM_ANGULARJS_MODULE</code>、<code>Gardenerim</code>、<code>GardenerimRuntimeFactory</code>、<code>GardenerimThemeFactory</code>、<code>GardenerimToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createElectronWindowService</code>、<code>createGardenerimAngularJS</code>、<code>createGardenerimComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimBehaviorDirective</code>、<code>gardenerimDirectives</code>、<code>gardenerimProviderDirective</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
             </p>
             <p>
-              24 Typen exportiert als:<code>GardenerAngularJSComponentExportName</code>、<code>GardenerAngularJSComponentName</code>、<code>GardenerAngularJSDirectiveFactory</code>、<code>GardenerAngularJSDirectiveName</code>、<code>GardenerAngularJSModule</code>、<code>GardenerAngularJSOptions</code>、<code>GardenerAngularJSStatic</code>、<code>GardenerBehaviorInstance</code>、<code>GardenerBehaviorName</code>、<code>GardenerComponentDefinition</code>、<code>GardenerComponentHandle</code>、<code>GardenerComponentKind</code>、<code>GardenerConfigValue</code>、<code>GardenerElectronBinding</code>、<code>GardenerElectronBridge</code>、<code>GardenerEventName</code>、<code>GardenerPlatform</code>、<code>GardenerRuntimeService</code>、<code>GardenerTauriBinding</code>、<code>GardenerTauriBridge</code>、<code>GardenerThemeAxis</code>、<code>GardenerThemeService</code>、<code>GardenerThemeState</code>、<code>GardenerValueChangeLocals</code>。
+              24 Typen exportiert als:<code>GardenerimAngularJSComponentExportName</code>、<code>GardenerimAngularJSComponentName</code>、<code>GardenerimAngularJSDirectiveFactory</code>、<code>GardenerimAngularJSDirectiveName</code>、<code>GardenerimAngularJSModule</code>、<code>GardenerimAngularJSOptions</code>、<code>GardenerimAngularJSStatic</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimRuntimeService</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeAxis</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChangeLocals</code>。
             </p>
 
             <h3>Public Schema, Kompatibilität, Performance und Release Access</h3>
@@ -1053,7 +1053,7 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               <a href="../../packages/angularjs/dist/gardener-angularjs.performance.json">Leistung</a>
               Beide werden von JSON Schema validiert, wobei unbekannte Felder deaktiviert sind; AngularJS-Unterstützungsbereiche werden auch auf die maschinenlesbare Kompatibilitätsbasis geschrieben.<a href="../../packages/angularjs/dist/catalog.json">Komponentenkatalog JSON</a>
               Direkt lesbar durch KI, Codegeneratoren und Dokumentationstools. Die tatsächliche Größe des vollständig komprimierten Pakets beträgt 404.094 B raw, 59.499 B gzip, 29.785 B Brotli; Single
-              <code>GButtonDirective</code> beträgt 4.515 B. Der deterministische Build deckte 83 Dateien ab, die NPM-Paketprüfung 95 Dateien, 325.747 B gepackt, 2.938.245 B entpackt, Gardeners eigenes Produktionslast-Audit ergab 0 Schwachstellen.
+              <code>GButtonDirective</code> beträgt 4.515 B. Der deterministische Build deckte 83 Dateien ab, die NPM-Paketprüfung 95 Dateien, 325.747 B gepackt, 2.938.245 B entpackt, Gardenerims eigenes Produktionslast-Audit ergab 0 Schwachstellen.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
@@ -1087,11 +1087,11 @@ npm run release:verify
           </section>
 
           <section class="docs-section" id="blazor">
-            <h2>Projekt Gardener Blazor</h2>
+            <h2>Projekt Gardenerim Blazor</h2>
             <p>
-              <a href="../../packages/blazor/README.md"><code>Gardener.Blazor</code></a>
-              ist die offizielle Razor Class Library für Gardener CSS 1.0.0, die aktuelle Version ist
-              <strong>1.0.0 Stabil</strong>. Vermögenswerte stabilisieren <code>net10.0</code>
+              <a href="../../packages/blazor/README.md"><code>Gardenerim.Blazor</code></a>
+              ist die offizielle Razor Class Library für Gardenerim CSS 2.0.0, die aktuelle Version ist
+              <strong>2.0.0 Stabil</strong>. Vermögenswerte stabilisieren <code>net10.0</code>
               Kompiliert und überprüft mit einem unabhängigen NuGet-Konsumenten <code>net11.0</code>;Gilt für Blazor Web App Static SSR, Interactive Server, Interactive WebAssembly, Auto, Standalone WebAssembly, Hybrid und Desktop WebView.
             </p>
             <div class="docs-api-stats" aria-label="Blazor Project Public API Scale">
@@ -1104,26 +1104,26 @@ npm run release:verify
 
             <h3>Installation, Registrierung und statische Ressourcen</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardener.Blazor&quot; Version=&quot;1.0.0&quot; /&gt;</code></pre>
-              <pre class="site-code"><code>builder.Services.AddGardenerBlazor();
+              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.0.0&quot; /&gt;</code></pre>
+              <pre class="site-code"><code>builder.Services.AddGardenerimBlazor();
 
 var app = builder.Build();
 app.MapStaticAssets();</code></pre>
               <pre class="site-code"><code>&lt;link rel=&quot;stylesheet&quot;
-      href=&quot;_content/Gardener.Blazor/gardener.min.css&quot; /&gt;</code></pre>
+      href=&quot;_content/Gardenerim.Blazor/gardener.min.css&quot; /&gt;</code></pre>
             </div>
             <p>
               Komponenten werden bei Bedarf beim ersten interaktiven Rendern geladen
-              <code>_content/Gardener.Blazor/gardener.blazor.js</code>, keine handschriftlichen Skript-Tags erforderlich. Neben der gesamten Stilpalette bieten wir auch
+              <code>_content/Gardenerim.Blazor/gardener.blazor.js</code>, keine handschriftlichen Skript-Tags erforderlich. Neben der gesamten Stilpalette bieten wir auch
               <code>platforms/gardener.web.min.css</code>、<code>platforms/gardener.mobile.min.css</code>、<code>platforms/gardener.desktop.min.css</code>、<code>platforms/gardener.tauri.min.css</code>、<code>platforms/gardener.electron.min.css</code>
               und 28 <code>components/*.min.css</code> Komponentendomäneneintrag, alle offiziellen komprimierten Dateien verfügen über eine externe Quellkarte.
             </p>
 
             <h3>Komponenten, Anbieter und SSRs</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>@using Gardener.Blazor.Components
+              <pre class="site-code"><code>@using Gardenerim.Blazor.Components
 
-&lt;GardenerProvider Theme=&quot;garden&quot; Mode=&quot;light&quot; Shape=&quot;small&quot;
+&lt;GardenerimProvider Theme=&quot;garden&quot; Mode=&quot;light&quot; Shape=&quot;small&quot;
                    Density=&quot;comfortable&quot; Platform=&quot;web&quot;&gt;
   &lt;GAppShell&gt;
     &lt;GSidebar&gt;Navigation&lt;/GSidebar&gt;
@@ -1133,12 +1133,12 @@ app.MapStaticAssets();</code></pre>
       &lt;/GCard&gt;
     &lt;/GMainRegion&gt;
   &lt;/GAppShell&gt;
-&lt;/GardenerProvider&gt;</code></pre>
+&lt;/GardenerimProvider&gt;</code></pre>
             </div>
             <p>
               Jede CSS-Komponente verfügt über eine entsprechende <code>G*</code> Geben Sie standardmäßige semantische Tags, Selektoren, Zustände, Widgets, Verhaltensweisen, Plattform- und Barrierefreiheitsmetadaten ein und behalten Sie diese bei. Die statische SSR-Phase gibt direkt vollständiges HTML aus und stellt das DOM-Verhalten erst bereit, nachdem eine interaktive Verbindung hergestellt wurde. Änderungen an Parametersignaturen aktualisieren den Mount und der Listener wird abgemeldet, wenn die Komponente freigegeben wird.
-              <code>GardenerComponent</code> Kann dynamisch nach Metadatennamen rendern,<code>GardenerBehavior</code>
-              Verhaltensweisen können an jeden Inhalt angehängt werden,<code>GardenerPart</code> Wird zur Ausgabe vereinbarter Komponentenklassen verwendet.
+              <code>GardenerimComponent</code> Kann dynamisch nach Metadatennamen rendern,<code>GardenerimBehavior</code>
+              Verhaltensweisen können an jeden Inhalt angehängt werden,<code>GardenerimPart</code> Wird zur Ausgabe vereinbarter Komponentenklassen verwendet.
             </p>
 
             <h3>Gemeinsame Parameter, Refnums und Formulare</h3>
@@ -1147,7 +1147,7 @@ app.MapStaticAssets();</code></pre>
             </p>
             <p>
               Die Komponentenreferenz stellt 6 Instanzmitglieder bereit:<code>Element</code>、<code>RefreshAsync</code>、<code>DestroyAsync</code>、<code>FocusAsync</code>、<code>GetBehaviorMembersAsync</code>、<code>InvokeBehaviorAsync</code>。
-              <code>GardenerField&lt;TValue&gt;</code> Vererbung <code>InputBase&lt;TValue&gt;</code>, Unterstützung
+              <code>GardenerimField&lt;TValue&gt;</code> Vererbung <code>InputBase&lt;TValue&gt;</code>, Unterstützung
               <code>EditForm</code>、<code>EditContext</code>, DataAnnotations, Validierungsstatus, Eingabe, Auswahl und Textbereich.
             </p>
 
@@ -1163,28 +1163,28 @@ app.MapStaticAssets();</code></pre>
 
 @code {
   private object? selection;
-  private readonly string[] events = [GardenerEvents.Selectionchange,
-                                      GardenerEvents.Beforeopen];
-  private readonly string[] guards = [GardenerEvents.Beforeopen];
-  private Task HandleEvent(GardenerEventArgs args) =&gt; Task.CompletedTask;
+  private readonly string[] events = [GardenerimEvents.Selectionchange,
+                                      GardenerimEvents.Beforeopen];
+  private readonly string[] guards = [GardenerimEvents.Beforeopen];
+  private Task HandleEvent(GardenerimEventArgs args) =&gt; Task.CompletedTask;
 }</code></pre>
             </div>
             <p>
               <code>Value/ValueChanged</code> Native Eingaben/Änderungen verarbeiten,<code>ValueEvent</code> und
               <code>ValueKey</code> Umgang mit komplexen benutzerdefinierten Ereignissen. Werte werden in .NET-Strings, Boolesche Werte, Zahlen, Arrays oder Wörterbücher konvertiert; DOM, File, BigInt, Funktionen und Zirkelverweise werden sicher serialisiert.
-              <code>GardenerEvents.All</code> Alle 75 Ereignisse aufdecken,<code>GardenerEvents.Guards</code>
+              <code>GardenerimEvents.All</code> Alle 75 Ereignisse aufdecken,<code>GardenerimEvents.Guards</code>
               Offengelegt vor Approval, BeforeClose, BeforeFilePicker, BeforeOpen, BeforePromptStop, BeforePromptSubmit, BeforeTabClose. 7 Schutzereignisse, die vor asynchronen JS/.NET-Grenzen synchron blockiert werden müssen. Verhaltensmitglieder und Veranstaltungsdetailverträge sind erhältlich unter
-              <code>GardenerRuntimeCatalog</code> Abfrage.
+              <code>GardenerimRuntimeCatalog</code> Abfrage.
             </p>
 
             <h3>Themes, Services und Desktop Bridges</h3>
             <p>
-              <code>GardenerProvider</code> Unterstützt Thema, Modus, Neutral, Typografie, Form, Dichte, Höhe, Bewegung, Plattform und ein zehnachsiges verschachteltes Thema;<code>GardenerThemePresets.All</code> Enthält 42 Farbthemen, mit dem standardmäßigen weißen Hintergrund Hell und den kleinen abgerundeten Ecken klein. Die 5 Umfangsdienste sind <code>GardenerRuntime</code>、<code>GardenerThemeService</code>、<code>GardenerToastService</code>、<code>GardenerTauriService</code>、<code>GardenerElectronService</code>. Desktop Bridge ruft nur Whitelist-Objekte auf, die explizit von der Host-Preloading-Schicht bereitgestellt werden, und öffnet nicht die globalen Funktionen von Node.
+              <code>GardenerimProvider</code> Unterstützt Thema, Modus, Neutral, Typografie, Form, Dichte, Höhe, Bewegung, Plattform und ein zehnachsiges verschachteltes Thema;<code>GardenerimThemePresets.All</code> Enthält 42 Farbthemen, mit dem standardmäßigen weißen Hintergrund Hell und den kleinen abgerundeten Ecken klein. Die 5 Umfangsdienste sind <code>GardenerimRuntime</code>、<code>GardenerimThemeService</code>、<code>GardenerimToastService</code>、<code>GardenerimTauriService</code>、<code>GardenerimElectronService</code>. Desktop Bridge ruft nur Whitelist-Objekte auf, die explizit von der Host-Preloading-Schicht bereitgestellt werden, und öffnet nicht die globalen Funktionen von Node.
             </p>
 
             <h3>Vollständige öffentliche Typen und maschinenlesbare Verträge</h3>
             <p>
-              Die 28 Rahmentypen sind:<code>GardenerAccessibilityDefinition</code>、<code>GardenerAssets</code>、<code>GardenerBehavior</code>、<code>GardenerBehaviorDefinition</code>、<code>GardenerBehaviors</code>、<code>GardenerComponent</code>、<code>GardenerComponentBase</code>、<code>GardenerConstants</code>、<code>GardenerElectronService</code>、<code>GardenerEventArgs</code>、<code>GardenerEventDefinition</code>、<code>GardenerEvents</code>、<code>GardenerField&lt;TValue&gt;</code>、<code>GardenerJsModule</code>、<code>GardenerOptions</code>、<code>GardenerPart</code>、<code>GardenerPlatform</code>、<code>GardenerProvider</code>、<code>GardenerRuntime</code>、<code>GardenerServiceCollectionExtensions</code>、<code>GardenerThemePresets</code>、<code>GardenerRuntimeCatalog</code>、<code>GardenerTauriService</code>、<code>GardenerThemeService</code>、<code>GardenerThemeState</code>、<code>GardenerToastService</code>、<code>GardenerValueChangedEventArgs</code>、<code>GardenerComponentDefinition</code>。
+              Die 28 Rahmentypen sind:<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
             </p>
             <p>
               <a href="../../packages/blazor/metadata/public-api.json">Blazor Public API</a>、<a href="../../packages/blazor/metadata/components.json">Komponenten-Metadaten</a>、<a href="../../packages/blazor/metadata/compatibility.json">Vereinbarkeit</a>、<a href="../../packages/blazor/artifacts/gardener-blazor.performance.json">Leistung</a>
@@ -1193,7 +1193,7 @@ app.MapStaticAssets();</code></pre>
               <a href="../../packages/blazor/docs/release.md">Freigabezugriffskontrolle</a>。
             </p>
 
-            <h3>1.0.0 Releasequalität</h3>
+            <h3>2.0.0 Releasequalität</h3>
             <p>
               Release-Build mit 0 Warnungen, 0 Fehlern; 506 Komponenten haben alle den echten statischen SSR bestanden. Die Browser-Matrix umfasst Chromium, Firefox, WebKit, Desktop- und mobile Ansichtsfenster, Tastatur und Axe WCAG A/AA; CI schreibt Firefox vor. NuGet verwendet einen isolierten Cache, um Verbraucheranwendungen tatsächlich zu veröffentlichen und statische Web Assets-Endpunktmanifeste zu validieren. Es gibt auch einen eigenständigen .NET 11 Preview-Paketkonsumenten. Die gemessene Assembly ist 343.552 B, 43 statische Ressourcen insgesamt 7.608.327 B, CSS gzip 139.269 B, Laufzeit-gzip 25.989 B, Blazor Bridge gzip 2.054 B, nupkg etwa 1,22 MiB, unterhalb der harten Grenze von 6.000.000 B; alles unterhalb des harten Budgets und DLL/XML reproduzierbar.
             </p>
@@ -1697,7 +1697,7 @@ npm run test:net11</code></pre>
           <section class="docs-section" id="grid-system">
             <h2>24 / 12 Complete Grid System</h2>
             <p>
-              Gardener verwendet 24 Raster als wichtigstes kompatibles Protokoll für Enterprise-Backend, CMS und feine Formulare
+              Gardenerim verwendet 24 Raster als wichtigstes kompatibles Protokoll für Enterprise-Backend, CMS und feine Formulare
               <code class="docs-inline-code">.g-grid-12</code> Bietet traditionelles 12-Raster. Beide verwenden natives CSS-Raster, logische Richtung und einheitliche Haltepunkte und verlassen sich nicht auf negative Ränder.
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-4">
@@ -2478,7 +2478,7 @@ npm run test:net11</code></pre>
               ><span class="g-badge">Druck</span>
             </div>
             <div class="docs-callout">
-              <strong>Statusanforderungen:</strong>Die Seite kann nicht nur den normalen Datenzustand implementieren. Zumindest Laden, Leeren und Fehler sollten klar sein; für das Routing und vollständige Anwendungen sollten auch 403, 404, 500, Offline und Wartung vorbereitet werden. Gardener bietet die gleichen Inhalte, Visuals, Details, Aktionen und Hilfe-Widgets für diese Zustände.
+              <strong>Statusanforderungen:</strong>Die Seite kann nicht nur den normalen Datenzustand implementieren. Zumindest Laden, Leeren und Fehler sollten klar sein; für das Routing und vollständige Anwendungen sollten auch 403, 404, 500, Offline und Wartung vorbereitet werden. Gardenerim bietet die gleichen Inhalte, Visuals, Details, Aktionen und Hilfe-Widgets für diese Zustände.
             </div>
             <h3>Echtzeit-Seitenkopf und öffentliche Spalte</h3>
             <div class="docs-page-demo">
@@ -3056,7 +3056,7 @@ npm run test:net11</code></pre>
                     <input
                       class="g-input"
                       id="docs-form-name"
-                      value="Gardener Docs"
+                      value="Gardenerim Docs"
                     />
                     <div class="g-field-meta">
                       <span>Im Browsertitel anzeigen</span><span>13 / 60</span>
@@ -3416,7 +3416,7 @@ npm run test:net11</code></pre>
             <div class="g-nav-container">
               <header class="g-navbar">
                 <div class="g-navbar-start">
-                  <strong class="g-navbar-brand">Gardener CMS</strong>
+                  <strong class="g-navbar-brand">Gardenerim CMS</strong>
                 </div>
                 <nav class="g-primary-nav" aria-label="Document Navigation Beispiel">
                   <a
@@ -5215,7 +5215,7 @@ npm run test:net11</code></pre>
                 >
                   <div class="g-cart-item-media site-commerce-media">G</div>
                   <div class="g-cart-item-main">
-                    <strong>Gardener Studio</strong
+                    <strong>Gardenerim Studio</strong
                     ><span class="g-cart-item-variant">Unternehmenslizenzierung · Windows</span>
                     <div class="g-quantity-stepper" data-g-quantity-stepper>
                       <button
@@ -6291,7 +6291,7 @@ npm run test:net11</code></pre>
                 Gesten erhöhen nur die Effizienz: Pull Refresh hat einen Refresh-Tastenpfad, Infinite Load hat "mehr laden", Swipe Actions hat Toggle und Wheel Picker hat Tastaturunterstützung.
               </li>
               <li>
-                Native Berechtigungsanforderungen, Netzwerkstatus, Datenladen, Zahlung, Authentifizierung und Medienskalierung werden vom Unternehmen oder dem Host implementiert; Gardener bietet stabile Vision, Status, Ereignisse und zugängliche Schnittstellen, ohne Ergebnisse zu fälschen.
+                Native Berechtigungsanforderungen, Netzwerkstatus, Datenladen, Zahlung, Authentifizierung und Medienskalierung werden vom Unternehmen oder dem Host implementiert; Gardenerim bietet stabile Vision, Status, Ereignisse und zugängliche Schnittstellen, ohne Ergebnisse zu fälschen.
               </li>
               <li>
                 Unten Blatt ist für kurze Aufgaben geeignet, Aktionsblatt ist für Aktionslisten geeignet und Filterblatt ist für Filter geeignet; verwenden Sie Fullscreen-Dialog für komplexe Bearbeitung und verwenden Sie dennoch dedizierten Dialog für destruktive Bestätigung.
@@ -6348,7 +6348,7 @@ npm run test:net11</code></pre>
                     </nav>
                   </div>
                   <strong class="g-native-titlebar-title"
-                    >Gardener Studio — Document Space</strong
+                    >Gardenerim Studio — Document Space</strong
                   >
                   <div class="g-native-titlebar-end">
                     <div class="g-desktop-window-controls">
@@ -7027,7 +7027,7 @@ npm run test:net11</code></pre>
             </p>
             <div class="docs-callout">
               <strong>Unterschiede zum AI Page Generation Protocol:</strong>Dieser Abschnitt ist für die AI-Produkt-UI für Endbenutzer; der folgende Text
-              <a href="#ai-generation">AI Page Generation Protocol</a> ist eine Einschränkung für die Verwendung von Gardener auf Generatoren. Ersteres stellt Schnittstellenkomponenten bereit, und letzteres gibt die Reihenfolge an, in der Fähigkeiten, Rezepte, Komponenten und Werkzeugklassen ausgewählt werden.
+              <a href="#ai-generation">AI Page Generation Protocol</a> ist eine Einschränkung für die Verwendung von Gardenerim auf Generatoren. Ersteres stellt Schnittstellenkomponenten bereit, und letzteres gibt die Reihenfolge an, in der Fähigkeiten, Rezepte, Komponenten und Werkzeugklassen ausgewählt werden.
             </div>
             <h3>Real-time AI Workspace</h3>
             <div class="docs-ai-demo">
@@ -7068,7 +7068,7 @@ npm run test:net11</code></pre>
                         type="button"
                         data-g-dropdown-trigger
                       >
-                        Gardener Reasoner ▾
+                        Gardenerim Reasoner ▾
                       </button>
                       <div
                         class="g-model-selector-menu"
@@ -7080,14 +7080,14 @@ npm run test:net11</code></pre>
                           type="button"
                           role="menuitem"
                         >
-                          <span>Gardener Reasoner</span
+                          <span>Gardenerim Reasoner</span
                           ><small>Komplexe Aufgaben</small></button
                         ><button
                           class="g-model-option"
                           type="button"
                           role="menuitem"
                         >
-                          <span>Gardener Fast</span><small>Schnelle Antwort</small>
+                          <span>Gardenerim Fast</span><small>Schnelle Antwort</small>
                         </button>
                       </div>
                     </div>
@@ -7114,7 +7114,7 @@ npm run test:net11</code></pre>
                         <div class="g-message-content">
                           <div class="g-message-meta">
                             <strong class="g-message-author"
-                              >Gardener Agent</strong
+                              >Gardenerim Agent</strong
                             ><span>Arbeiten</span>
                           </div>
                           <div class="g-message-body">
@@ -7646,7 +7646,7 @@ npm run test:net11</code></pre>
           <section class="docs-section" id="solution-compositions">
             <h2>Komplette Seiten- und Branchenlösungen</h2>
             <p>
-              Kategorie 16 ist die höchste Zusammensetzungsebene von Gardener: Die ersten 15 Kategorien bieten Layout, Komponenten, Geschäftsketten und endspezifische Interaktionen, und diese Kategorie verfestigt sie in 32 direkt wählbaren ganzseitigen Verträgen. Es umfasst Einzelpersonen und Unternehmen, öffentliche Websites und Backends, allgemeine Unternehmen und vertikale Branchen und eignet sich auch für Browser, mobile Webseiten, PWA, Tauri und Electron WebView. AI sollte hier zuerst die Seitenwurzelklasse und das entsprechende Rezept auswählen und dann die Komponenten füllen, anstatt die gesamte Seite CSS von Grund auf neu zu organisieren.
+              Kategorie 16 ist die höchste Zusammensetzungsebene von Gardenerim: Die ersten 15 Kategorien bieten Layout, Komponenten, Geschäftsketten und endspezifische Interaktionen, und diese Kategorie verfestigt sie in 32 direkt wählbaren ganzseitigen Verträgen. Es umfasst Einzelpersonen und Unternehmen, öffentliche Websites und Backends, allgemeine Unternehmen und vertikale Branchen und eignet sich auch für Browser, mobile Webseiten, PWA, Tauri und Electron WebView. AI sollte hier zuerst die Seitenwurzelklasse und das entsprechende Rezept auswählen und dann die Komponenten füllen, anstatt die gesamte Seite CSS von Grund auf neu zu organisieren.
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-4">
               <span class="g-badge">32 vollständige Seiten</span
@@ -8157,7 +8157,7 @@ npm run test:net11</code></pre>
             </div>
             <h3>Alle Laufzeitdatenattribute</h3>
             <p>
-              Die 309 Eigenschaften, die dem Autor zur Verfügung stehen, sind in 66 Verhaltenseinträge im Verhaltensvertrag oben, 166 Struktur/Aktionsselektoren und 77 zusätzliche Konfigurationseigenschaften unterteilt; es gibt auch 27 Zustandseigenschaften, die von der Laufzeit beibehalten werden. Statuseigenschaften können gleichzeitig als erste Konfiguration gelesen werden, aber die ersten drei dem Autor zur Verfügung stehenden Sätze schließen sich gegenseitig aus und werden nicht doppelt gezählt.
+              Die 310 Eigenschaften, die dem Autor zur Verfügung stehen, sind in 66 Verhaltenseinträge im Verhaltensvertrag oben, 167 Struktur/Aktionsselektoren und 77 zusätzliche Konfigurationseigenschaften unterteilt; es gibt auch 27 Zustandseigenschaften, die von der Laufzeit beibehalten werden. Statuseigenschaften können gleichzeitig als erste Konfiguration gelesen werden, aber die ersten drei dem Autor zur Verfügung stehenden Sätze schließen sich gegenseitig aus und werden nicht doppelt gezählt.
             </p>
             <h4>Struktur- und Aktionsauswahl</h4>
             <div class="docs-runtime-grid" id="public-selector-attribute-grid">
@@ -8183,7 +8183,7 @@ npm run test:net11</code></pre>
               Das Spezifikationsfeld für das Manifest ist <code>behaviors</code>. altes Feld
               <code>runtimeBehaviors</code> Durchgehend
               <code>0.x</code> Versionszeile als schreibgeschützter kompatibler Alias reserviert; alt
-              <code>metadata/schema.json</code> Zeigen Sie weiterhin auf das neue Komponentenschema. 1.0.0 stuft den öffentlichen Auftrag auf Stable um und verwendet eine maschinenlesbare Kompatibilitätsbasislinie, um alle öffentlichen Einträge, Ebenen, Themen, Laufzeiten, Komponenten und Rezepte von 0.9.0 zu speichern; 1.x muss Änderungsaufzeichnungen und Migrationsanweisungen bereitstellen, bevor kompatible Einträge gelöscht werden, und muss den Verfallszeitraum von mindestens zwei Nebenversionen durchlaufen. Eine tatsächliche Entfernung kann nur in einer neuen Hauptversion erfolgen.
+              <code>metadata/schema.json</code> Zeigen Sie weiterhin auf das neue Komponentenschema. 2.0.0 stuft den öffentlichen Auftrag auf Stable um und verwendet eine maschinenlesbare Kompatibilitätsbasislinie, um alle öffentlichen Einträge, Ebenen, Themen, Laufzeiten, Komponenten und Rezepte von 0.9.0 zu speichern; 1.x muss Änderungsaufzeichnungen und Migrationsanweisungen bereitstellen, bevor kompatible Einträge gelöscht werden, und muss den Verfallszeitraum von mindestens zwei Nebenversionen durchlaufen. Eine tatsächliche Entfernung kann nur in einer neuen Hauptversion erfolgen.
             </p>
           </section>
 
@@ -8250,13 +8250,13 @@ npm run test:net11</code></pre>
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>import Gardener from &quot;@gardenerim/css&quot;;
+              ><code>import Gardenerim from &quot;@gardenerim/css&quot;;
 
-Gardener.init(document);
-const dialog = Gardener.getInstance(&quot;#confirm&quot;, &quot;dialog&quot;);
+Gardenerim.init(document);
+const dialog = Gardenerim.getInstance(&quot;#confirm&quot;, &quot;dialog&quot;);
 dialog.open();
 
-Gardener.toast({
+Gardenerim.toast({
   title: &quot;Erfolgreich gespeichert&quot;,
   message: &quot;Seite wurde veröffentlicht&quot;,
   tone: &quot;success&quot;
@@ -8289,7 +8289,7 @@ Gardener.toast({
                   </tr>
                   <tr>
                     <td><code>emit(element, name, detail)</code></td>
-                    <td>Versenden eines stornierbaren Gardener-Events.</td>
+                    <td>Versenden eines stornierbaren Gardenerim-Events.</td>
                   </tr>
                   <tr>
                     <td><code>toast(options)</code></td>
@@ -8345,7 +8345,7 @@ Gardener.toast({
           <section class="docs-section" id="ai-generation">
             <h2>AI Page Generation Protocol</h2>
             <p>
-              Gardener bietet fünf Ebenen von Wahrheitsquellen für KI: Die öffentliche API-Liste beantwortet "welche stabilen Namen und Einträge dürfen verwendet werden", die Fähigkeitsliste beantwortet "ob die regulären Fähigkeiten der Branche implementiert sind", die Komponentenliste beantwortet "was gibt es", die Tool-Klassenliste beantwortet "was ist der genaue Klassenname" und die Rezeptliste beantwortet "wie man eine komplexe Seite startet".
+              Gardenerim bietet fünf Ebenen von Wahrheitsquellen für KI: Die öffentliche API-Liste beantwortet "welche stabilen Namen und Einträge dürfen verwendet werden", die Fähigkeitsliste beantwortet "ob die regulären Fähigkeiten der Branche implementiert sind", die Komponentenliste beantwortet "was gibt es", die Tool-Klassenliste beantwortet "was ist der genaue Klassenname" und die Rezeptliste beantwortet "wie man eine komplexe Seite startet".
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>{
@@ -8429,7 +8429,7 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
           <section class="docs-section" id="targeted-builds">
             <h2>On-Demand Builds, Typen, Cross-Version-Kompatibilität und Release-Zugriff</h2>
             <p>
-              <code>1.0.0</code> Roll fünf Plattformen, 28 Komponentenpakete, formale Komprimierung und Performance-Budgets auf die gemessene Baseline der vorherigen Version und aktualisieren Sie den öffentlichen Vertrag auf Stable, weiterhin Typen, Cross-Version-Kompatibilität und echten npm Release-Paketzugang beibehalten.<a
+              <code>2.0.0</code> Roll fünf Plattformen, 28 Komponentenpakete, formale Komprimierung und Performance-Budgets auf die gemessene Baseline der vorherigen Version und aktualisieren Sie den öffentlichen Vertrag auf Stable, weiterhin Typen, Cross-Version-Kompatibilität und echten npm Release-Paketzugang beibehalten.<a
                 href="../../packages/css/dist/gardener.builds.json"
                 ><code>gardener.builds.json</code></a
               >Registriert alle 5 Plattformprofile, 28 Komponentenpakete, 506 Komponentenzuordnungen zu einem oder mehreren echten Besitzpaketen, Selektorsignaturen, Browserziele, Builderparameter und SHA-256/SRI für alle 42 Produktionsartefakte;<a
@@ -8442,7 +8442,7 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
               Builds werden automatisch von der öffentlichen API generiert <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> und <code>gardener.electron.d.ts</code>. 66 Verhaltensweisen und 75 Ereignisse bilden einen vollständigen wörtlichen Vereinigungstyp;<code>npm run test:types</code> Kompilieren Sie echte Verbraucher im strikten TypeScript-Modus, der Standard- und benannte Exporte, Verhaltensfabriken, Toasts, Instanzabfragen und zwei Arten von Desktop-Brücken abdeckt.
             </p>
             <p>
-              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> 1.145 von 0.9.0 übernommene Verträge wurden verfestigt, einschließlich aller 47 Paketeinträge, CSS-Ebenen, Themen, Laufzeiten, Dateneigenschaften, Adapter, 506 Komponenten und 52 Rezepte.<code>npm run verify:compatibility</code> Nachfolgende 1.x-Hinzufügungen zulassen und Löschungen ohne Migrationspfade verbieten; Beim stabilen Grenzwert 1.0.0 werden vorhandene Einträge auch umgekehrt überprüft, um festzustellen, ob sie fehlen. Veraltete Einträge bleiben in mindestens zwei Nebenversionen bestehen und können nur in einer neuen Hauptversion entfernt werden. Seine geschlossene Struktur besteht aus <a href="../../packages/css/metadata/compatibility.schema.json">Kompatibilitätsschema</a> Einschränkungen.
+              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> 1.145 von 0.9.0 übernommene Verträge wurden verfestigt, einschließlich aller 47 Paketeinträge, CSS-Ebenen, Themen, Laufzeiten, Dateneigenschaften, Adapter, 506 Komponenten und 52 Rezepte.<code>npm run verify:compatibility</code> Nachfolgende 1.x-Hinzufügungen zulassen und Löschungen ohne Migrationspfade verbieten; Beim stabilen Grenzwert 2.0.0 werden vorhandene Einträge auch umgekehrt überprüft, um festzustellen, ob sie fehlen. Veraltete Einträge bleiben in mindestens zwei Nebenversionen bestehen und können nur in einer neuen Hauptversion entfernt werden. Seine geschlossene Struktur besteht aus <a href="../../packages/css/metadata/compatibility.schema.json">Kompatibilitätsschema</a> Einschränkungen.
             </p>
             <p>
               Das Paket unterstützt explizit Node.js &gt;=18.18, Chrome/Edge/Firefox 100+, Safari/iOS 15.4+ und ESM; Hauptportal und Desktop-Adapter stellen Bedingungen bereit <code>types</code> Exportieren. Die automatische Laufzeitinitialisierung ist als gekennzeichnet <code>sideEffects</code>, um ein versehentliches Löschen durch den Packager zu verhindern.<code>npm run verify:package</code> Überprüft die Whitelist des echten NPM-Pakets, jedes Exportziel, jede Typdatei, Entwicklungsverzeichnislecks und Publint;<code>prepublishOnly</code> Durchsetzung abgeschlossen <code>release:verify</code>und aktivieren Sie öffentliche Pakete und npm Provenance.
@@ -8494,7 +8494,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
             </p>
             <h3>Formale Komprimierung und Performance Budgetierung</h3>
             <p>
-              Formales CSS und JavaScript verwenden esbuild für die Komprimierung auf Syntaxebene, ohne regelmäßige Ersetzungen zu verwenden; Der Hauptkomprimierungseintrag und jeder benutzerdefinierte Build generieren eine nachvollziehbare externe Quellzuordnung. Komprimiertes CSS verwendet ein stabiles MIT-Banner, das sich mit den Versionen nicht ändert, um zu vermeiden, dass reiner Versionstext die Brotli-Grundlinie stört. Unkomprimiertes CSS und Laufzeit liefern immer noch genaue Versionen.<code>npm run budget</code> Berechnen Sie mit gzip Level 9 und Brotli-Qualität 11 gleichzeitig Raw, gzip und Brotli für alle 42 offiziellen Komprimierungsprodukte und überprüfen Sie das Komprimierungsverhältnis von vollständigem CSS, Runtime und <code>npm pack --dry-run</code> Anzahl der gepackten, entpackten und zurückgegebenen Dateien. 1.0.0 verwendet die tatsächlichen Messergebnisse der versiegelten Version 0.9.0 als unmittelbare Basislinie und begrenzt das Rohwachstum jedes Produkts auf nicht mehr als 2 %, gzip/Brotli auf nicht mehr als 3 %, gepacktes NPM-Paket auf nicht mehr als 3 %, entpacktes auf nicht mehr als 2 % und die Anzahl der Dateien auf nicht mehr als 10 %; Die fünf Plattformprodukte verfügen alle über direkte historische Basislinien. Die Messungen des Einschlussvolumens werden auf 4 KiB gepackt und 64 KiB ungepackt aufgerundet und bilden eine deterministische Obergrenze, die das tatsächliche Einschlussvolumen nicht unterschätzt und nicht durch den in sich geschlossenen Verdichtungszyklus des Leistungsberichts beeinflusst wird. Wenn entweder die absolute Obergrenze oder die relative Obergrenze fehlschlägt, wird die Freigabe blockiert.
+              Formales CSS und JavaScript verwenden esbuild für die Komprimierung auf Syntaxebene, ohne regelmäßige Ersetzungen zu verwenden; Der Hauptkomprimierungseintrag und jeder benutzerdefinierte Build generieren eine nachvollziehbare externe Quellzuordnung. Komprimiertes CSS verwendet ein stabiles MIT-Banner, das sich mit den Versionen nicht ändert, um zu vermeiden, dass reiner Versionstext die Brotli-Grundlinie stört. Unkomprimiertes CSS und Laufzeit liefern immer noch genaue Versionen.<code>npm run budget</code> Berechnen Sie mit gzip Level 9 und Brotli-Qualität 11 gleichzeitig Raw, gzip und Brotli für alle 42 offiziellen Komprimierungsprodukte und überprüfen Sie das Komprimierungsverhältnis von vollständigem CSS, Runtime und <code>npm pack --dry-run</code> Anzahl der gepackten, entpackten und zurückgegebenen Dateien. 2.0.0 verwendet die tatsächlichen Messergebnisse der versiegelten Version 0.9.0 als unmittelbare Basislinie und begrenzt das Rohwachstum jedes Produkts auf nicht mehr als 2 %, gzip/Brotli auf nicht mehr als 3 %, gepacktes NPM-Paket auf nicht mehr als 3 %, entpacktes auf nicht mehr als 2 % und die Anzahl der Dateien auf nicht mehr als 10 %; Die fünf Plattformprodukte verfügen alle über direkte historische Basislinien. Die Messungen des Einschlussvolumens werden auf 4 KiB gepackt und 64 KiB ungepackt aufgerundet und bilden eine deterministische Obergrenze, die das tatsächliche Einschlussvolumen nicht unterschätzt und nicht durch den in sich geschlossenen Verdichtungszyklus des Leistungsberichts beeinflusst wird. Wenn entweder die absolute Obergrenze oder die relative Obergrenze fehlschlägt, wird die Freigabe blockiert.
             </p>
             <div class="docs-table-wrap">
               <table class="docs-table">
@@ -8587,12 +8587,12 @@ npm run test:build  # 10 Anwendungsfälle für Build, Kompatibilität, Typ, Rele
               </li>
               <li>Mobile Touch-Ziele verwenden eine Touch-Dichte von mindestens etwa 44px.</li>
             </ul>
-            <h3>1.0.0 Automatisierte Testmatrix</h3>
+            <h3>2.0.0 Automatisierte Testmatrix</h3>
             <div
               class="g-table-wrap"
               tabindex="0"
               role="region"
-              aria-label="1.0.0 Automatisierte Testmatrix"
+              aria-label="2.0.0 Automatisierte Testmatrix"
             >
               <table class="g-table">
                 <thead>
@@ -8666,7 +8666,7 @@ npm run test:e2e              # Standardmäßig 125 echte Browser-Anwendungsfäl
 npm run test:types            # TypeScript Strenge Verbraucherzugriffskontrolle
 npm run verify:compatibility  # 1,145 Artikel 0.9.0 Kompatible Baseline
 npm run verify:package        # npm Dateien, Exporte und Publint
-npm test                      # 281 Standard-Automatisierungsanwendungsfälle und alle statischen, Vertrags-, Typ-, kompatiblen, Release-, reproduzierbaren und Budget-Gates</code></pre>
+npm test                      # 311 Standard-Automatisierungsanwendungsfälle und alle statischen, Vertrags-, Typ-, kompatiblen, Release-, reproduzierbaren und Budget-Gates</code></pre>
             </div>
             <div class="docs-callout">
               Axe Gate blockiert alle Verstöße, die durch die ausgewählten WCAG A/AA-Regeln erkannt werden, übergibt sie ohne Herabstufung durch Auswirkungen und gibt die Regel, den Knotenwähler, HTML und die Zusammenfassung zur Behebung aus. Die Automatisierung kann das Testen von menschlichen Bildschirmlesern nicht ersetzen; Produktionsprodukte sollten weiterhin NVDA/JAWS/VoiceOver für unternehmenskritische Walkthroughs verwenden.
@@ -8806,12 +8806,12 @@ node website/scripts/check-coverage.mjs  # Überprüfung auf Null-Auslassungen i
     <footer class="site-footer">
       <div class="site-container">
         <div class="site-footer-bottom">
-          <span>Gardener v1.0.0 · MIT Lizenz</span
+          <span>Gardenerim v2.0.0 · MIT Lizenz</span
           ><a href="./index.html">Zurück zur Homepage</a>
         </div>
       </div>
     </footer>
     <script src="../assets/file-i18n.js"></script>
-    <script type="module" src="../assets/site.js?v=1.0.0"></script>
+    <script type="module" src="../assets/site.js?v=2.0.0"></script>
   </body>
 </html>

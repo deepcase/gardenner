@@ -1,4 +1,4 @@
-/** Bind Gardener title-bar controls to Tauri v2 without making Tauri a dependency. */
+/** Bind Gardenerim title-bar controls to Tauri v2 without making Tauri a dependency. */
 export function bindTauriWindowControls(root = document, injectedWindow = null) {
   const tauriWindow = injectedWindow
     ?? globalThis.__TAURI__?.window?.getCurrentWindow?.()

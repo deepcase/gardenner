@@ -1,4 +1,4 @@
-# Gardener Vue API
+# Gardenerim Vue API
 
 ## 安装
 
@@ -8,10 +8,10 @@ npm install @gardenerim/vue @gardenerim/css vue
 
 ```ts
 import { createApp } from "vue";
-import GardenerVue from "@gardenerim/vue";
+import GardenerimVue from "@gardenerim/vue";
 import "@gardenerim/vue/style.css";
 
-createApp(App).use(GardenerVue).mount("#app");
+createApp(App).use(GardenerimVue).mount("#app");
 ```
 
 ## 组件公共属性
@@ -22,32 +22,32 @@ createApp(App).use(GardenerVue).mount("#app");
 - `variant`：字符串或数组，转换为组件变体类。
 - `state`：字符串或数组，转换为 `is-*` 状态类。
 - `config`：转换为 `data-g-*` 运行时配置。
-- `initialize`：是否初始化 Gardener DOM 行为，默认 `true`。
+- `initialize`：是否初始化 Gardenerim DOM 行为，默认 `true`。
 - `modelValue`：支持原生表单 `v-model`；复杂行为可配合 `modelEvent` 和 `modelKey` 从 `gardener:*` 事件同步值。
 - 所有原生 attributes、事件和 slots 均透传。
 
-对话框、抽屉等带内层面板的组合组件保留 Gardener 的标准 DOM 结构，例如 `GDialog` 作为 `.g-dialog-backdrop` 行为根，插槽内使用 `<GardenerPart name="dialog" aria-labelledby="title-id">` 创建并命名面板。
+对话框、抽屉等带内层面板的组合组件保留 Gardenerim 的标准 DOM 结构，例如 `GDialog` 作为 `.g-dialog-backdrop` 行为根，插槽内使用 `<GardenerimPart name="dialog" aria-labelledby="title-id">` 创建并命名面板。
 
-组件模板 Ref 公开 `element`、`getInstance()` 和 `refresh()`；`useGardenerBehavior`、`useGardenerEvent`、`useGardenerTheme` 及桌面适配 Composable 均同时接受组件 Ref 与原生 DOM Ref。
+组件模板 Ref 公开 `element`、`getInstance()` 和 `refresh()`；`useGardenerimBehavior`、`useGardenerimEvent`、`useGardenerimTheme` 及桌面适配 Composable 均同时接受组件 Ref 与原生 DOM Ref。
 
 ## Provider
 
-`GardenerProvider` 支持 `theme`、`mode`、`neutral`、`typography`、`shape`、`density`、`elevation`、`motion`、`platform` 和 `os` 十条主题轴。
+`GardenerimProvider` 支持 `theme`、`mode`、`neutral`、`typography`、`shape`、`density`、`elevation`、`motion`、`platform` 和 `os` 十条主题轴。
 
 ## Composable
 
-- `useGardener`
-- `useGardenerBehavior`
-- `useGardenerEvent`
-- `useGardenerTheme`
-- `useGardenerToast`
+- `useGardenerim`
+- `useGardenerimBehavior`
+- `useGardenerimEvent`
+- `useGardenerimTheme`
+- `useGardenerimToast`
 - `useTauriWindowControls`
 - `useElectronWindowControls`
 
 ## 指令
 
 ```vue
-<div v-gardener="{ behavior: 'dialog', config: { startOpen: true } }" />
+<div v-gardenerim="{ behavior: 'dialog', config: { startOpen: true } }" />
 ```
 
 ## Tauri 与 Electron
@@ -58,7 +58,7 @@ createApp(App).use(GardenerVue).mount("#app");
 
 ```ts
 import { GButton, GCard, GDialog } from "@gardenerim/vue/components";
-import { useGardenerBehavior } from "@gardenerim/vue/composables";
+import { useGardenerimBehavior } from "@gardenerim/vue/composables";
 ```
 
 28 个组件样式包也可通过 `@gardenerim/vue/component-css/*` 引入，例如 `@gardenerim/vue/component-css/forms`。

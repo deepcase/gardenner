@@ -15,14 +15,14 @@
     />
     <meta
       name="description"
-      content="Gardener 完整文档：CSS、Vue 3、React、AngularJS、Blazor、主题、Token、工具类、506 个组件、运行时、完整页面、AI 页面生成及桌面端适配。"
+      content="Gardenerim 完整文档：CSS、Vue 3、React、AngularJS、Blazor、主题、Token、工具类、506 个组件、运行时、完整页面、AI 页面生成及桌面端适配。"
     />
     <meta name="theme-color" content="#ffffff" />
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'"
     />
-    <title>Gardener 文档</title>
+    <title>Gardenerim 文档</title>
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="./docs.html" />
     <link rel="alternate" hreflang="zh-CN" href="../zh-CN/docs.html" />
@@ -42,9 +42,9 @@
       <nav class="site-nav site-container" aria-label="文档主导航">
         <a class="site-brand" href="./index.html"
           ><span class="site-brand-mark" aria-hidden="true">G</span
-          ><span>Gardener</span></a
+          ><span>Gardenerim</span></a
         >
-        <span class="g-badge">Docs 1.0.0</span>
+        <span class="g-badge">Docs 2.0.0</span>
         <div class="site-nav-links" id="site-menu">
           <a class="site-nav-link" href="./index.html">首页</a>
           <details class="site-nav-dropdown">
@@ -312,10 +312,10 @@
       <main class="docs-main" id="docs-main">
         <article>
           <header class="docs-hero">
-            <span class="site-eyebrow">Gardener Documentation</span>
+            <span class="site-eyebrow">Gardenerim Documentation</span>
             <h1>完整系统，明确约定</h1>
             <p>
-              从第一行 CSS 到几十万套 AI 生成模板，这里描述 Gardener
+              从第一行 CSS 到几十万套 AI 生成模板，这里描述 Gardenerim
               的稳定接口、选择顺序、环境矩阵和交付边界。
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-6">
@@ -330,7 +330,7 @@
           <section class="docs-section" id="quick-start">
             <h2>快速开始</h2>
             <p>
-              Gardener 可以只使用
+              Gardenerim 可以只使用
               CSS，也可以加载零依赖运行时获得交互行为。完整包默认包含所有主题、组件和工具类。
             </p>
             <div class="docs-code-wrap">
@@ -499,20 +499,20 @@ import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
           </section>
 
           <section class="docs-section" id="vue">
-            <h2>Gardener Vue 3 项目</h2>
+            <h2>Gardenerim Vue 3 项目</h2>
             <p>
               <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> 是
-              Gardener CSS 1.0.0 的官方 Vue 3 适配层，当前版本为
-              <strong>1.0.0 Stable</strong>，支持 Vue
+              Gardenerim CSS 2.0.0 的官方 Vue 3 适配层，当前版本为
+              <strong>2.0.0 Stable</strong>，支持 Vue
               <code>&gt;=3.4.0 &lt;4.0.0</code> 与 Node.js
               <code>&gt;=18.18</code>。它逐项映射全部 506 个 CSS
               组件和 66 种 DOM 行为，同时提供 538 个根运行时导出、21 个
-              TypeScript 类型导出、29 个包入口与 28 个组件 CSS 包代理。
+              TypeScript 类型导出、30 个包入口与 28 个组件 CSS 包代理。
             </p>
             <div class="docs-api-stats" aria-label="Vue 项目公共 API 规模">
               <div><strong>506</strong><span>具名 G* 组件</span></div>
               <div><strong>538</strong><span>根运行时导出</span></div>
-              <div><strong>29</strong><span>公共包入口</span></div>
+              <div><strong>30</strong><span>公共包入口</span></div>
               <div><strong>28</strong><span>组件 CSS 包</span></div>
             </div>
 
@@ -522,28 +522,28 @@ import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createApp } from &quot;vue&quot;;
-import GardenerVue from &quot;@gardenerim/vue&quot;;
+import GardenerimVue from &quot;@gardenerim/vue&quot;;
 import &quot;@gardenerim/vue/style.css&quot;;
 import App from &quot;./App.vue&quot;;
 
-createApp(App).use(GardenerVue).mount(&quot;#app&quot;);</code></pre>
+createApp(App).use(GardenerimVue).mount(&quot;#app&quot;);</code></pre>
             </div>
             <p>
               插件选项完整覆盖 <code>prefix</code>、<code>components</code>、<code>directive</code>
               和 <code>initialize</code>。需要自定义前缀、只注册部分组件、关闭
-              <code>v-gardener</code> 或延迟运行时初始化时，应通过
-              <code>createGardenerVue(options)</code> 创建插件。
+              <code>v-gardenerim</code> 或延迟运行时初始化时，应通过
+              <code>createGardenerimVue(options)</code> 创建插件。
             </p>
 
             <h3>按需组件与主题 Provider</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;script setup lang=&quot;ts&quot;&gt;
-import { GButton, GCard, GDialog, GardenerProvider } from &quot;@gardenerim/vue&quot;;
+import { GButton, GCard, GDialog, GardenerimProvider } from &quot;@gardenerim/vue&quot;;
 import &quot;@gardenerim/vue/platform/web.css&quot;;
 &lt;/script&gt;
 
 &lt;template&gt;
-  &lt;GardenerProvider
+  &lt;GardenerimProvider
     theme=&quot;garden&quot;
     mode=&quot;light&quot;
     neutral=&quot;cool&quot;
@@ -556,11 +556,11 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
     os=&quot;auto&quot;
   &gt;
     &lt;GCard&gt;&lt;GButton variant=&quot;primary&quot;&gt;保存&lt;/GButton&gt;&lt;/GCard&gt;
-  &lt;/GardenerProvider&gt;
+  &lt;/GardenerimProvider&gt;
 &lt;/template&gt;</code></pre>
             </div>
             <p>
-              <code>GardenerProvider</code> 的十条主题轴是
+              <code>GardenerimProvider</code> 的十条主题轴是
               <code>theme</code>、<code>mode</code>、<code>neutral</code>、<code>typography</code>、<code>shape</code>、<code>density</code>、<code>elevation</code>、<code>motion</code>、<code>platform</code>
               与 <code>os</code>。Home 与示例默认保持白色 Light 和小圆角；深色模式不会被默认启用。
             </p>
@@ -570,12 +570,12 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <table class="docs-table">
                 <thead><tr><th>属性</th><th>用途</th><th>约定</th></tr></thead>
                 <tbody>
-                  <tr><td><code>as</code></td><td>修改根元素或 Vue 组件</td><td>保留 Gardener 类、属性与插槽</td></tr>
+                  <tr><td><code>as</code></td><td>修改根元素或 Vue 组件</td><td>保留 Gardenerim 类、属性与插槽</td></tr>
                   <tr><td><code>variant</code></td><td>应用变体</td><td>接受字符串或字符串数组</td></tr>
                   <tr><td><code>state</code></td><td>应用组件状态</td><td>转换为 <code>is-*</code> 状态类</td></tr>
                   <tr><td><code>config</code></td><td>声明运行时配置</td><td>转换为对应 <code>data-g-*</code> 属性</td></tr>
                   <tr><td><code>initialize</code></td><td>控制 DOM 行为初始化</td><td>默认 <code>true</code></td></tr>
-                  <tr><td><code>modelValue</code></td><td>Vue 双向绑定值</td><td>原生表单和自定义 Gardener 事件均支持</td></tr>
+                  <tr><td><code>modelValue</code></td><td>Vue 双向绑定值</td><td>原生表单和自定义 Gardenerim 事件均支持</td></tr>
                   <tr><td><code>modelEvent</code></td><td>指定自定义同步事件</td><td>使用 <code>gardener:*</code> 事件名</td></tr>
                   <tr><td><code>modelKey</code></td><td>从事件载荷取值</td><td>读取 <code>CustomEvent.detail</code> 指定字段</td></tr>
                 </tbody>
@@ -585,7 +585,7 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               所有原生 attributes、DOM 事件和 slots 均透传。组件模板 Ref 统一公开
               <code>element</code>、<code>getInstance()</code> 与
               <code>refresh()</code>。对话框、抽屉等复合结构使用
-              <code>GardenerPart</code> 创建标准内部部件，避免破坏 CSS 和行为选择器契约。
+              <code>GardenerimPart</code> 创建标准内部部件，避免破坏 CSS 和行为选择器契约。
             </p>
 
             <h3>v-model、自定义事件与指令</h3>
@@ -598,25 +598,25 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
   model-key=&quot;value&quot;
 /&gt;
 
-&lt;div v-gardener=&quot;{
+&lt;div v-gardenerim=&quot;{
   behavior: 'dialog',
   config: { startOpen: true }
 }&quot; /&gt;</code></pre>
             </div>
             <p>
-              <code>vGardener</code>（模板名 <code>v-gardener</code>）随 Vue
+              <code>vGardenerim</code>（模板名 <code>v-gardenerim</code>）随 Vue
               生命周期挂载、刷新并销毁指定行为。原生输入使用标准
               <code>update:modelValue</code>；复杂组件通过
-              <code>modelEvent</code> 和 <code>modelKey</code> 将 Gardener 自定义事件桥接为相同协议。
+              <code>modelEvent</code> 和 <code>modelKey</code> 将 Gardenerim 自定义事件桥接为相同协议。
             </p>
 
             <h3>全部 7 个 Composable</h3>
             <div class="docs-runtime-grid">
-              <div class="docs-runtime-item"><code>useGardener</code><small>访问运行时、初始化与销毁能力</small></div>
-              <div class="docs-runtime-item"><code>useGardenerBehavior</code><small>绑定行为并访问实例</small></div>
-              <div class="docs-runtime-item"><code>useGardenerEvent</code><small>类型安全监听 gardener:* 事件</small></div>
-              <div class="docs-runtime-item"><code>useGardenerTheme</code><small>读取和更新十轴主题状态</small></div>
-              <div class="docs-runtime-item"><code>useGardenerToast</code><small>创建并管理 Toast</small></div>
+              <div class="docs-runtime-item"><code>useGardenerim</code><small>访问运行时、初始化与销毁能力</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimBehavior</code><small>绑定行为并访问实例</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimEvent</code><small>类型安全监听 gardener:* 事件</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimTheme</code><small>读取和更新十轴主题状态</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimToast</code><small>创建并管理 Toast</small></div>
               <div class="docs-runtime-item"><code>useTauriWindowControls</code><small>绑定 Tauri 窗口按钮与销毁周期</small></div>
               <div class="docs-runtime-item"><code>useElectronWindowControls</code><small>绑定 Electron 安全桥与销毁周期</small></div>
             </div>
@@ -626,7 +626,7 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <table class="docs-table">
                 <thead><tr><th>入口</th><th>内容</th><th>适用场景</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardenerim/vue/style.css</code></td><td>完整 Gardener 样式</td><td>开箱即用与原型</td></tr>
+                  <tr><td><code>@gardenerim/vue/style.css</code></td><td>完整 Gardenerim 样式</td><td>开箱即用与原型</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>分层样式入口</td><td>定制构建</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>通用 Web 能力</td><td>PC、响应式网站、Dashboard</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>通用 + 移动端组合</td><td>移动网页、PWA、WebView</td></tr>
@@ -643,19 +643,19 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               导入不访问浏览器全局对象，行为只在组件挂载后初始化，因此可用于服务端渲染与 Hydration。
             </div>
 
-            <h3>全部 29 个公共包入口</h3>
+            <h3>全部 30 个公共包入口</h3>
             <p>
               JavaScript：<code>.</code>、<code>./components</code>、<code>./component</code>、<code>./composables</code>、<code>./directives</code>、<code>./plugin</code>、<code>./adapters</code>、<code>./tauri</code>、<code>./electron</code>、<code>./catalog</code>、<code>./catalog.json</code>、<code>./bundle.min.js</code>。
               样式：<code>./style.css</code>、<code>./core.css</code>、<code>./themes.css</code>、<code>./utilities.css</code>、<code>./components.css</code>、<code>./ai.css</code>、<code>./platform/web.css</code>、<code>./platform/mobile.css</code>、<code>./platform/desktop.css</code>、<code>./platform/tauri.css</code>、<code>./platform/electron.css</code> 与 <code>./component-css/*</code>。
-              契约与包信息：<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
+              契约与包信息：<code>./contracts</code>、<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
             </p>
 
             <h3>非组件运行时导出与 TypeScript 类型</h3>
             <p>
-              32 个非组件运行时导出为：<code>Gardener</code>、<code>GardenerComponent</code>、<code>GardenerPart</code>、<code>GardenerProvider</code>、<code>GardenerVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerComponent</code>、<code>createGardenerVue</code>、<code>default</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>toast</code>、7 个 Composable 与 <code>vGardener</code>。
+              32 个非组件运行时导出为：<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerimComponent</code>、<code>createGardenerimVue</code>、<code>default</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>toast</code>、7 个 Composable 与 <code>vGardenerim</code>。
             </p>
             <p>
-              21 个类型导出为：<code>GardenerAs</code>、<code>GardenerBehaviorInstance</code>、<code>GardenerBehaviorName</code>、<code>GardenerComponentDefinition</code>、<code>GardenerComponentKind</code>、<code>GardenerComponentPublicInstance</code>、<code>GardenerConfigValue</code>、<code>GardenerDirectiveOptions</code>、<code>GardenerDirectiveValue</code>、<code>GardenerElectronBinding</code>、<code>GardenerElectronBridge</code>、<code>GardenerElementTarget</code>、<code>GardenerEventHandler</code>、<code>GardenerEventName</code>、<code>GardenerPlatform</code>、<code>GardenerTargetValue</code>、<code>GardenerTauriBinding</code>、<code>GardenerTauriBridge</code>、<code>GardenerThemeState</code>、<code>GardenerVueComponentName</code>、<code>GardenerVueOptions</code>。
+              21 个类型导出为：<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentPublicInstance</code>、<code>GardenerimConfigValue</code>、<code>GardenerimDirectiveOptions</code>、<code>GardenerimDirectiveValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimVueComponentName</code>、<code>GardenerimVueOptions</code>。
             </p>
 
             <h3>公共 Schema、元数据与发布门禁</h3>
@@ -663,9 +663,9 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <a href="../../packages/vue/metadata/public-api.json">Public API</a>、<a href="../../packages/vue/metadata/compatibility.json">Compatibility</a>
               和 <a href="../../packages/vue/dist/gardener-vue.performance.json">Performance</a>
               均有关闭未知字段的 JSON Schema；<a href="../../packages/vue/dist/catalog.json">组件目录 JSON</a>
-              可直接供 AI、代码生成器和文档工具读取。全量压缩包预算为 328,236 B raw、51,605 B gzip、26,932 B Brotli；单个
-              <code>GButton</code> 的真实摇树结果为 3,720 B。确定性构建覆盖 87
-              个文件，npm 包核对 98 个文件、284,318 B packed、3,730,411 B unpacked。
+              可直接供 AI、代码生成器和文档工具读取。全量压缩包预算为 328,470 B raw、51,729 B gzip、27,031 B Brotli；单个
+              <code>GButton</code> 的真实摇树结果为 3,894 B。确定性构建覆盖 87
+              个文件，npm 包核对 102 个文件、294,191 B packed、3,851,916 B unpacked。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd vue
@@ -696,20 +696,20 @@ npm run release:verify
           </section>
 
           <section class="docs-section" id="react">
-            <h2>Gardener React 项目</h2>
+            <h2>Gardenerim React 项目</h2>
             <p>
               <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> 是
-              Gardener CSS 1.0.0 的官方 React 适配层，当前版本为
-              <strong>1.0.0 Stable</strong>，支持 React
+              Gardenerim CSS 2.0.0 的官方 React 适配层，当前版本为
+              <strong>2.0.0 Stable</strong>，支持 React
               <code>&gt;=18.3.0 &lt;20.0.0</code> 与 Node.js
               <code>&gt;=18.18</code>。它逐项映射全部 506 个 CSS
               组件和 66 种 DOM 行为，同时提供 538 个根运行时导出、22 个 TypeScript 类型导出、
-              29 个公共包入口与 28 个组件 CSS 包代理。
+              30 个公共包入口与 28 个组件 CSS 包代理。
             </p>
             <div class="docs-api-stats" aria-label="React 项目公共 API 规模">
               <div><strong>506</strong><span>具名 G* 组件</span></div>
               <div><strong>538</strong><span>根运行时导出</span></div>
-              <div><strong>29</strong><span>公共包入口</span></div>
+              <div><strong>30</strong><span>公共包入口</span></div>
               <div><strong>28</strong><span>组件 CSS 包</span></div>
             </div>
 
@@ -719,13 +719,13 @@ npm run release:verify
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import { createRoot } from &quot;react-dom/client&quot;;
-import { GButton, GCard, GardenerProvider } from &quot;@gardenerim/react&quot;;
+import { GButton, GCard, GardenerimProvider } from &quot;@gardenerim/react&quot;;
 import &quot;@gardenerim/react/style.css&quot;;
 
 createRoot(document.getElementById(&quot;root&quot;)!).render(
-  &lt;GardenerProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
+  &lt;GardenerimProvider theme=&quot;garden&quot; mode=&quot;light&quot; shape=&quot;subtle&quot;&gt;
     &lt;GCard&gt;&lt;GButton variant=&quot;primary&quot;&gt;保存&lt;/GButton&gt;&lt;/GCard&gt;
-  &lt;/GardenerProvider&gt;,
+  &lt;/GardenerimProvider&gt;,
 );</code></pre>
             </div>
             <p>
@@ -739,7 +739,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 
             <h3>主题 Provider 与十条主题轴</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>&lt;GardenerProvider
+              <pre class="site-code"><code>&lt;GardenerimProvider
   theme=&quot;garden&quot;
   mode=&quot;light&quot;
   neutral=&quot;cool&quot;
@@ -754,14 +754,14 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
   aria-label=&quot;应用主题范围&quot;
 &gt;
   &lt;App /&gt;
-&lt;/GardenerProvider&gt;</code></pre>
+&lt;/GardenerimProvider&gt;</code></pre>
             </div>
             <p>
-              <code>GardenerProvider</code> 的十条主题轴是
+              <code>GardenerimProvider</code> 的十条主题轴是
               <code>theme</code>、<code>mode</code>、<code>neutral</code>、<code>typography</code>、<code>shape</code>、<code>density</code>、<code>elevation</code>、<code>motion</code>、<code>platform</code>
               与 <code>os</code>。它还会透传 className、style、ID、ARIA 与其他原生属性；
-              <code>useGardenerTheme</code> 用于读写主题，
-              <code>useGardenerThemeContext</code> 用于直接读取上下文。默认仍是白色 Light 与小圆角，不会自动启用深色主题。
+              <code>useGardenerimTheme</code> 用于读写主题，
+              <code>useGardenerimThemeContext</code> 用于直接读取上下文。默认仍是白色 Light 与小圆角，不会自动启用深色主题。
             </p>
 
             <h3>全部组件的 10 个公共属性</h3>
@@ -769,12 +769,12 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
               <table class="docs-table">
                 <thead><tr><th>属性</th><th>用途</th><th>约定</th></tr></thead>
                 <tbody>
-                  <tr><td><code>as</code></td><td>修改根元素或 React 组件</td><td>保留 Gardener 类、属性、children 与 Ref</td></tr>
+                  <tr><td><code>as</code></td><td>修改根元素或 React 组件</td><td>保留 Gardenerim 类、属性、children 与 Ref</td></tr>
                   <tr><td><code>variant</code></td><td>应用变体</td><td>字符串或只读字符串数组</td></tr>
                   <tr><td><code>state</code></td><td>应用组件状态</td><td>转换为 <code>is-*</code> 状态类</td></tr>
                   <tr><td><code>config</code></td><td>声明行为配置</td><td>转换为对应 <code>data-g-*</code> 属性</td></tr>
                   <tr><td><code>initialize</code></td><td>控制 DOM 行为初始化</td><td>默认 <code>true</code></td></tr>
-                  <tr><td><code>value</code></td><td>受控值</td><td>支持原生表单与自定义 Gardener 事件</td></tr>
+                  <tr><td><code>value</code></td><td>受控值</td><td>支持原生表单与自定义 Gardenerim 事件</td></tr>
                   <tr><td><code>defaultValue</code></td><td>非受控初始值</td><td>checkbox 布尔值映射为 <code>defaultChecked</code></td></tr>
                   <tr><td><code>valueEvent</code></td><td>指定值同步事件</td><td>可使用 <code>gardener:*</code> 事件名</td></tr>
                   <tr><td><code>valueKey</code></td><td>从事件载荷取值</td><td>读取 <code>CustomEvent.detail</code> 指定字段</td></tr>
@@ -785,7 +785,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
             <p>
               原生 attributes、事件、children 与 <code>className</code> 均透传。组件 Ref
               统一公开 <code>element</code>、<code>getInstance()</code> 与
-              <code>refresh()</code>；复合结构可用 <code>GardenerPart</code>
+              <code>refresh()</code>；复合结构可用 <code>GardenerimPart</code>
               创建内部部件。checkbox 的布尔 <code>value</code> 使用
               <code>checked</code>，radio 保留字符串 value，确保 React 表单语义一致。
             </p>
@@ -804,18 +804,18 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 /&gt;</code></pre>
             </div>
             <p>
-              <code>useGardenerBehavior</code> 将 66 种行为绑定到元素、Document 或组件
+              <code>useGardenerimBehavior</code> 将 66 种行为绑定到元素、Document 或组件
               Handle，并在卸载时销毁；<code>initialize</code> 可关闭组件自动初始化，
               方便由页面级运行时统一接管。显式传入的行为 data attribute 优先于生成默认值。
             </p>
 
             <h3>全部 7 个 Hooks</h3>
             <div class="docs-runtime-grid">
-              <div class="docs-runtime-item"><code>useGardener</code><small>访问运行时、初始化、观察与销毁能力</small></div>
-              <div class="docs-runtime-item"><code>useGardenerBehavior</code><small>绑定行为并访问实例</small></div>
-              <div class="docs-runtime-item"><code>useGardenerEvent</code><small>类型安全监听 gardener:* 事件</small></div>
-              <div class="docs-runtime-item"><code>useGardenerTheme</code><small>读取和更新十轴主题状态</small></div>
-              <div class="docs-runtime-item"><code>useGardenerToast</code><small>创建并管理 Toast</small></div>
+              <div class="docs-runtime-item"><code>useGardenerim</code><small>访问运行时、初始化、观察与销毁能力</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimBehavior</code><small>绑定行为并访问实例</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimEvent</code><small>类型安全监听 gardener:* 事件</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimTheme</code><small>读取和更新十轴主题状态</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimToast</code><small>创建并管理 Toast</small></div>
               <div class="docs-runtime-item"><code>useTauriWindowControls</code><small>绑定 Tauri 窗口按钮与销毁周期</small></div>
               <div class="docs-runtime-item"><code>useElectronWindowControls</code><small>绑定 Electron 安全桥与销毁周期</small></div>
             </div>
@@ -825,7 +825,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
               <table class="docs-table">
                 <thead><tr><th>入口</th><th>内容</th><th>适用场景</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardenerim/react/style.css</code></td><td>完整 Gardener 样式</td><td>开箱即用与原型</td></tr>
+                  <tr><td><code>@gardenerim/react/style.css</code></td><td>完整 Gardenerim 样式</td><td>开箱即用与原型</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>分层样式入口</td><td>定制构建</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>通用 Web 能力</td><td>PC、响应式网站、Dashboard</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>通用 + 移动端组合</td><td>移动网页、PWA、WebView</td></tr>
@@ -856,19 +856,19 @@ function WindowChrome() {
 }</code></pre>
             </div>
 
-            <h3>全部 29 个公共包入口</h3>
+            <h3>全部 30 个公共包入口</h3>
             <p>
               JavaScript：<code>.</code>、<code>./components</code>、<code>./component</code>、<code>./hooks</code>、<code>./provider</code>、<code>./adapters</code>、<code>./tauri</code>、<code>./electron</code>、<code>./catalog</code>、<code>./catalog.json</code>、<code>./bundle.min.js</code>。
               样式：<code>./style.css</code>、<code>./core.css</code>、<code>./themes.css</code>、<code>./utilities.css</code>、<code>./components.css</code>、<code>./ai.css</code>、<code>./platform/web.css</code>、<code>./platform/mobile.css</code>、<code>./platform/desktop.css</code>、<code>./platform/tauri.css</code>、<code>./platform/electron.css</code>、<code>./component-css/*.css</code> 与 <code>./component-css/*</code>。
-              契约与包信息：<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
+              契约与包信息：<code>./contracts</code>、<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
             </p>
 
             <h3>非组件运行时导出与 TypeScript 类型</h3>
             <p>
-              32 个非组件运行时导出为：<code>Gardener</code>、<code>GardenerComponent</code>、<code>GardenerPart</code>、<code>GardenerProvider</code>、<code>GardenerThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerComponent</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>resolveGardenerTarget</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardener</code>、<code>useGardenerBehavior</code>、<code>useGardenerEvent</code>、<code>useGardenerTheme</code>、<code>useGardenerThemeContext</code>、<code>useGardenerToast</code>、<code>useTauriWindowControls</code>。
+              32 个非组件运行时导出为：<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerimComponent</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>resolveGardenerimTarget</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimTheme</code>、<code>useGardenerimThemeContext</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>。
             </p>
             <p>
-              22 个类型导出为：<code>GardenerAs</code>、<code>GardenerBehaviorInstance</code>、<code>GardenerBehaviorName</code>、<code>GardenerComponentDefinition</code>、<code>GardenerComponentHandle</code>、<code>GardenerComponentKind</code>、<code>GardenerComponentProps</code>、<code>GardenerConfigValue</code>、<code>GardenerElectronBinding</code>、<code>GardenerElectronBridge</code>、<code>GardenerElementTarget</code>、<code>GardenerEventHandler</code>、<code>GardenerEventName</code>、<code>GardenerGeneratedComponent</code>、<code>GardenerOwnProps</code>、<code>GardenerPlatform</code>、<code>GardenerReactComponentName</code>、<code>GardenerTargetValue</code>、<code>GardenerTauriBinding</code>、<code>GardenerTauriBridge</code>、<code>GardenerThemeState</code>、<code>GardenerValueChange</code>。
+              22 个类型导出为：<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentProps</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimGeneratedComponent</code>、<code>GardenerimOwnProps</code>、<code>GardenerimPlatform</code>、<code>GardenerimReactComponentName</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChange</code>。
             </p>
 
             <h3>公共 Schema、性能与发布门禁</h3>
@@ -876,9 +876,9 @@ function WindowChrome() {
               <a href="../../packages/react/metadata/public-api.json">Public API</a>、<a href="../../packages/react/metadata/compatibility.json">Compatibility</a>
               和 <a href="../../packages/react/dist/gardener-react.performance.json">Performance</a>
               均由关闭未知字段的 JSON Schema 验证；<a href="../../packages/react/dist/catalog.json">组件目录 JSON</a>
-              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 326,076 B raw、50,128 B gzip、26,375 B Brotli；单个
-              <code>GButton</code> 的真实摇树结果为 2,601 B。确定性构建覆盖 87
-              个文件，npm 包核对 98 个文件、262,883 B packed、2,439,243 B unpacked，生产依赖安全审计为 0 个漏洞。
+              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 326,194 B raw、50,172 B gzip、26,465 B Brotli；单个
+              <code>GButton</code> 的真实摇树结果为 2,685 B。确定性构建覆盖 87
+              个文件，npm 包核对 102 个文件、272,260 B packed、2,559,274 B unpacked，生产依赖安全审计为 0 个漏洞。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd react
@@ -909,24 +909,24 @@ npm run release:verify
           </section>
 
           <section class="docs-section" id="angular">
-            <h2>Gardener AngularJS 项目</h2>
+            <h2>Gardenerim AngularJS 项目</h2>
             <p>
               <a href="../../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
-              是 Gardener CSS 1.0.0 的官方 AngularJS 1.x 遗留系统适配层，当前版本为
-              <strong>1.0.0 Stable</strong>。它验证 AngularJS
+              是 Gardenerim CSS 2.0.0 的官方 AngularJS 1.x 遗留系统适配层，当前版本为
+              <strong>2.0.0 Stable</strong>。它验证 AngularJS
               <code>&gt;=1.8.2 &lt;1.9.0</code> 与 Node.js
               <code>&gt;=18.18</code>，逐项映射全部 506 个 CSS 组件和 66 种 DOM
-              行为，并提供 535 个根运行时导出、24 个 TypeScript 类型导出、29 个公共包入口和 28 个组件 CSS 包代理。
+              行为，并提供 535 个根运行时导出、24 个 TypeScript 类型导出、30 个公共包入口和 28 个组件 CSS 包代理。
             </p>
             <div class="docs-warning docs-callout">
               <strong>遗留系统边界：</strong>AngularJS 已结束官方支持，框架本体存在没有上游修复版本的已知安全公告。本适配层将
-              <code>angular</code> 保持为外部 peer dependency，不会把它打进 Gardener 产物，也不会掩盖框架级风险。新项目优先选择 Vue、React 或框架无关入口；存量项目必须同时执行输入净化、CSP、资源白名单、桌面桥最小授权和迁移计划。完整要求见
+              <code>angular</code> 保持为外部 peer dependency，不会把它打进 Gardenerim 产物，也不会掩盖框架级风险。新项目优先选择 Vue、React 或框架无关入口；存量项目必须同时执行输入净化、CSP、资源白名单、桌面桥最小授权和迁移计划。完整要求见
               <a href="../../packages/angularjs/docs/security.md">AngularJS 安全基线</a>。
             </div>
             <div class="docs-api-stats" aria-label="AngularJS 项目公共 API 规模">
               <div><strong>506</strong><span>生成组件指令</span></div>
               <div><strong>535</strong><span>根运行时导出</span></div>
-              <div><strong>29</strong><span>公共包入口</span></div>
+              <div><strong>30</strong><span>公共包入口</span></div>
               <div><strong>28</strong><span>组件 CSS 包</span></div>
             </div>
 
@@ -936,20 +936,20 @@ npm run release:verify
             </div>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>import &quot;angular/angular.js&quot;;
-import { createGardenerAngularJS } from &quot;@gardenerim/angularjs&quot;;
+import { createGardenerimAngularJS } from &quot;@gardenerim/angularjs&quot;;
 import &quot;@gardenerim/angularjs/style.css&quot;;
 
-const gardenerModule = createGardenerAngularJS(window.angular);
+const gardenerModule = createGardenerimAngularJS(window.angular);
 window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
             </div>
             <p>
               AngularJS npm 包不是原生 ESM，因此 Vite 等构建工具中应使用
               <code>import &quot;angular/angular.js&quot;</code> 的副作用导入，再把
-              <code>window.angular</code> 显式交给 <code>createGardenerAngularJS</code>；不要依赖不稳定的
-              <code>import angular from &quot;angular&quot;</code> 默认导入。Gardener 包本身不会读取全局 AngularJS，根入口可安全用于 SSR 工具链分析。
+              <code>window.angular</code> 显式交给 <code>createGardenerimAngularJS</code>；不要依赖不稳定的
+              <code>import angular from &quot;angular&quot;</code> 默认导入。Gardenerim 包本身不会读取全局 AngularJS，根入口可安全用于 SSR 工具链分析。
             </p>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>const moduleName = createGardenerAngularJS(window.angular, {
+              <pre class="site-code"><code>const moduleName = createGardenerimAngularJS(window.angular, {
   moduleName: &quot;gardener&quot;,
   dependencies: [],
   components: [&quot;button&quot;, &quot;gInput&quot;, &quot;GCardDirective&quot;],
@@ -999,7 +999,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               <code>$destroy</code> 时会移除事件并销毁行为实例。
             </p>
 
-            <h3>ngModel、原生表单与 Gardener 事件</h3>
+            <h3>ngModel、原生表单与 Gardenerim 事件</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;input g-input
   ng-model=&quot;vm.keyword&quot;
@@ -1017,17 +1017,17 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
             </div>
             <p>
               原生 input、textarea 和 select 的模型语义仍由 AngularJS 自己管理，适配层不会覆盖
-              <code>ngModel.$render</code> 或重复调用 <code>$setViewValue</code>；checkbox 保持布尔值、radio 保持选项值、multiple select 保持数组。复杂 Gardener 组件通过自定义事件更新模型，并用
+              <code>ngModel.$render</code> 或重复调用 <code>$setViewValue</code>；checkbox 保持布尔值、radio 保持选项值、multiple select 保持数组。复杂 Gardenerim 组件通过自定义事件更新模型，并用
               <code>gardenerOnValueChange</code> 接收一致的回调值。
             </p>
 
             <h3>通用指令、服务与十轴主题</h3>
             <div class="docs-runtime-grid">
-              <div class="docs-runtime-item"><code>gGardener</code><small>模板写作 g-gardener，动态声明、切换并销毁任意行为</small></div>
+              <div class="docs-runtime-item"><code>gGardenerim</code><small>模板写作 g-gardenerim，动态声明、切换并销毁任意行为</small></div>
               <div class="docs-runtime-item"><code>gardenerProvider</code><small>元素或属性形式提供十轴主题并初始化子树</small></div>
-              <div class="docs-runtime-item"><code>GardenerRuntime</code><small>init · destroy · getInstance · emit · observe</small></div>
-              <div class="docs-runtime-item"><code>GardenerTheme</code><small>attributes · apply · read · clear</small></div>
-              <div class="docs-runtime-item"><code>GardenerToast</code><small>show(options)</small></div>
+              <div class="docs-runtime-item"><code>GardenerimRuntime</code><small>init · destroy · getInstance · emit · observe</small></div>
+              <div class="docs-runtime-item"><code>GardenerimTheme</code><small>attributes · apply · read · clear</small></div>
+              <div class="docs-runtime-item"><code>GardenerimToast</code><small>show(options)</small></div>
             </div>
             <p>
               主题轴完整覆盖 <code>theme</code>、<code>mode</code>、<code>neutral</code>、<code>typography</code>、<code>shape</code>、<code>density</code>、<code>elevation</code>、<code>motion</code>、<code>platform</code> 与
@@ -1040,7 +1040,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
               <table class="docs-table">
                 <thead><tr><th>入口</th><th>内容</th><th>适用场景</th></tr></thead>
                 <tbody>
-                  <tr><td><code>@gardenerim/angularjs/style.css</code></td><td>完整 Gardener 样式</td><td>开箱即用与遗留系统渐进接入</td></tr>
+                  <tr><td><code>@gardenerim/angularjs/style.css</code></td><td>完整 Gardenerim 样式</td><td>开箱即用与遗留系统渐进接入</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>分层样式入口</td><td>定制构建</td></tr>
                   <tr><td><code>platform/web.css</code></td><td>通用 Web 能力</td><td>PC 网站与 Dashboard</td></tr>
                   <tr><td><code>platform/mobile.css</code></td><td>移动端组件和安全区</td><td>移动网页、PWA、WebView</td></tr>
@@ -1060,19 +1060,19 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               <code>destroy()</code> 的绑定对象；渲染层只应接收经过白名单限制的最小桥接能力。
             </p>
 
-            <h3>全部 29 个公共包入口</h3>
+            <h3>全部 30 个公共包入口</h3>
             <p>
               JavaScript：<code>.</code>、<code>./components</code>、<code>./directives</code>、<code>./services</code>、<code>./module</code>、<code>./adapters</code>、<code>./tauri</code>、<code>./electron</code>、<code>./catalog</code>、<code>./catalog.json</code>、<code>./bundle.min.js</code>。
               样式：<code>./style.css</code>、<code>./core.css</code>、<code>./themes.css</code>、<code>./utilities.css</code>、<code>./components.css</code>、<code>./ai.css</code>、<code>./platform/web.css</code>、<code>./platform/mobile.css</code>、<code>./platform/desktop.css</code>、<code>./platform/tauri.css</code>、<code>./platform/electron.css</code>、<code>./component-css/*.css</code> 与 <code>./component-css/*</code>。
-              契约与包信息：<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
+              契约与包信息：<code>./contracts</code>、<code>./performance</code>、<code>./schema/public-api</code>、<code>./schema/compatibility</code>、<code>./schema/performance</code>、<code>./package.json</code>。
             </p>
 
             <h3>非组件运行时导出与 TypeScript 类型</h3>
             <p>
-              29 个非组件运行时导出为：<code>GARDENER_ANGULARJS_MODULE</code>、<code>Gardener</code>、<code>GardenerRuntimeFactory</code>、<code>GardenerThemeFactory</code>、<code>GardenerToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createElectronWindowService</code>、<code>createGardenerAngularJS</code>、<code>createGardenerComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerBehaviorDirective</code>、<code>gardenerDirectives</code>、<code>gardenerProviderDirective</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
+              29 个非组件运行时导出为：<code>GARDENERIM_ANGULARJS_MODULE</code>、<code>Gardenerim</code>、<code>GardenerimRuntimeFactory</code>、<code>GardenerimThemeFactory</code>、<code>GardenerimToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createElectronWindowService</code>、<code>createGardenerimAngularJS</code>、<code>createGardenerimComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimBehaviorDirective</code>、<code>gardenerimDirectives</code>、<code>gardenerimProviderDirective</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
             </p>
             <p>
-              24 个类型导出为：<code>GardenerAngularJSComponentExportName</code>、<code>GardenerAngularJSComponentName</code>、<code>GardenerAngularJSDirectiveFactory</code>、<code>GardenerAngularJSDirectiveName</code>、<code>GardenerAngularJSModule</code>、<code>GardenerAngularJSOptions</code>、<code>GardenerAngularJSStatic</code>、<code>GardenerBehaviorInstance</code>、<code>GardenerBehaviorName</code>、<code>GardenerComponentDefinition</code>、<code>GardenerComponentHandle</code>、<code>GardenerComponentKind</code>、<code>GardenerConfigValue</code>、<code>GardenerElectronBinding</code>、<code>GardenerElectronBridge</code>、<code>GardenerEventName</code>、<code>GardenerPlatform</code>、<code>GardenerRuntimeService</code>、<code>GardenerTauriBinding</code>、<code>GardenerTauriBridge</code>、<code>GardenerThemeAxis</code>、<code>GardenerThemeService</code>、<code>GardenerThemeState</code>、<code>GardenerValueChangeLocals</code>。
+              24 个类型导出为：<code>GardenerimAngularJSComponentExportName</code>、<code>GardenerimAngularJSComponentName</code>、<code>GardenerimAngularJSDirectiveFactory</code>、<code>GardenerimAngularJSDirectiveName</code>、<code>GardenerimAngularJSModule</code>、<code>GardenerimAngularJSOptions</code>、<code>GardenerimAngularJSStatic</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimRuntimeService</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeAxis</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChangeLocals</code>。
             </p>
 
             <h3>公共 Schema、兼容性、性能与发布门禁</h3>
@@ -1080,8 +1080,8 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               <a href="../../packages/angularjs/metadata/public-api.json">Public API</a>、<a href="../../packages/angularjs/metadata/compatibility.json">Compatibility</a> 和
               <a href="../../packages/angularjs/dist/gardener-angularjs.performance.json">Performance</a>
               都由关闭未知字段的 JSON Schema 验证；AngularJS 支持范围也写入机器可读兼容基线。<a href="../../packages/angularjs/dist/catalog.json">组件目录 JSON</a>
-              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 404,104 B raw、59,503 B gzip、29,798 B Brotli；单个
-              <code>GButtonDirective</code> 的真实摇树结果为 4,517 B。确定性构建覆盖 83 个文件，npm 包核对 95 个文件、325,915 B packed、2,938,691 B unpacked，Gardener 自有生产负载审计为 0 个漏洞。
+              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 404,142 B raw、59,508 B gzip、29,747 B Brotli；单个
+              <code>GButtonDirective</code> 的真实摇树结果为 4,519 B。确定性构建覆盖 87 个文件，npm 包核对 95 个文件、334,625 B packed、3,057,003 B unpacked，Gardenerim 自有生产负载审计为 0 个漏洞。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
@@ -1115,11 +1115,11 @@ npm run release:verify
           </section>
 
           <section class="docs-section" id="blazor">
-            <h2>Gardener Blazor 项目</h2>
+            <h2>Gardenerim Blazor 项目</h2>
             <p>
-              <a href="../../packages/blazor/README.md"><code>Gardener.Blazor</code></a>
-              是 Gardener CSS 1.0.0 的官方 Razor Class Library，当前版本为
-              <strong>1.0.0 Stable</strong>。稳定资产以 <code>net10.0</code>
+              <a href="../../packages/blazor/README.md"><code>Gardenerim.Blazor</code></a>
+              是 Gardenerim CSS 2.0.0 的官方 Razor Class Library，当前版本为
+              <strong>2.0.0 Stable</strong>。稳定资产以 <code>net10.0</code>
               编译，并通过独立 NuGet 消费者验证 <code>net11.0</code>；适用于 Blazor Web App
               静态 SSR、Interactive Server、Interactive WebAssembly、Auto、独立 WebAssembly、Hybrid
               以及桌面 WebView。
@@ -1134,26 +1134,26 @@ npm run release:verify
 
             <h3>安装、注册与静态资源</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardener.Blazor&quot; Version=&quot;1.0.0&quot; /&gt;</code></pre>
-              <pre class="site-code"><code>builder.Services.AddGardenerBlazor();
+              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.0.0&quot; /&gt;</code></pre>
+              <pre class="site-code"><code>builder.Services.AddGardenerimBlazor();
 
 var app = builder.Build();
 app.MapStaticAssets();</code></pre>
               <pre class="site-code"><code>&lt;link rel=&quot;stylesheet&quot;
-      href=&quot;_content/Gardener.Blazor/gardener.min.css&quot; /&gt;</code></pre>
+      href=&quot;_content/Gardenerim.Blazor/gardener.min.css&quot; /&gt;</code></pre>
             </div>
             <p>
               组件首次交互渲染时按需加载
-              <code>_content/Gardener.Blazor/gardener.blazor.js</code>，无需手写脚本标签。全量样式之外还提供
+              <code>_content/Gardenerim.Blazor/gardener.blazor.js</code>，无需手写脚本标签。全量样式之外还提供
               <code>platforms/gardener.web.min.css</code>、<code>platforms/gardener.mobile.min.css</code>、<code>platforms/gardener.desktop.min.css</code>、<code>platforms/gardener.tauri.min.css</code>、<code>platforms/gardener.electron.min.css</code>
               和 28 个 <code>components/*.min.css</code> 组件域入口，全部正式压缩文件均携带外部 Source Map。
             </p>
 
             <h3>组件、Provider 与 SSR</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>@using Gardener.Blazor.Components
+              <pre class="site-code"><code>@using Gardenerim.Blazor.Components
 
-&lt;GardenerProvider Theme=&quot;garden&quot; Mode=&quot;light&quot; Shape=&quot;small&quot;
+&lt;GardenerimProvider Theme=&quot;garden&quot; Mode=&quot;light&quot; Shape=&quot;small&quot;
                    Density=&quot;comfortable&quot; Platform=&quot;web&quot;&gt;
   &lt;GAppShell&gt;
     &lt;GSidebar&gt;导航&lt;/GSidebar&gt;
@@ -1163,13 +1163,13 @@ app.MapStaticAssets();</code></pre>
       &lt;/GCard&gt;
     &lt;/GMainRegion&gt;
   &lt;/GAppShell&gt;
-&lt;/GardenerProvider&gt;</code></pre>
+&lt;/GardenerimProvider&gt;</code></pre>
             </div>
             <p>
               每个 CSS 组件都有对应的 <code>G*</code> 类型，并保留默认语义标签、选择器、状态、部件、行为、平台与无障碍元数据。静态 SSR
               阶段直接输出完整 HTML，建立交互连接后才挂载 DOM 行为；参数签名改变会刷新挂载，组件释放时会注销监听器。
-              <code>GardenerComponent</code> 可按元数据名称动态渲染，<code>GardenerBehavior</code>
-              可把行为附着到任意内容，<code>GardenerPart</code> 用于输出约定部件类。
+              <code>GardenerimComponent</code> 可按元数据名称动态渲染，<code>GardenerimBehavior</code>
+              可把行为附着到任意内容，<code>GardenerimPart</code> 用于输出约定部件类。
             </p>
 
             <h3>共同参数、引用句柄与表单</h3>
@@ -1178,7 +1178,7 @@ app.MapStaticAssets();</code></pre>
             </p>
             <p>
               组件引用提供 6 个实例成员：<code>Element</code>、<code>RefreshAsync</code>、<code>DestroyAsync</code>、<code>FocusAsync</code>、<code>GetBehaviorMembersAsync</code>、<code>InvokeBehaviorAsync</code>。
-              <code>GardenerField&lt;TValue&gt;</code> 继承 <code>InputBase&lt;TValue&gt;</code>，支持
+              <code>GardenerimField&lt;TValue&gt;</code> 继承 <code>InputBase&lt;TValue&gt;</code>，支持
               <code>EditForm</code>、<code>EditContext</code>、DataAnnotations、验证状态、input、select 与 textarea。
             </p>
 
@@ -1194,44 +1194,44 @@ app.MapStaticAssets();</code></pre>
 
 @code {
   private object? selection;
-  private readonly string[] events = [GardenerEvents.Selectionchange,
-                                      GardenerEvents.Beforeopen];
-  private readonly string[] guards = [GardenerEvents.Beforeopen];
-  private Task HandleEvent(GardenerEventArgs args) =&gt; Task.CompletedTask;
+  private readonly string[] events = [GardenerimEvents.Selectionchange,
+                                      GardenerimEvents.Beforeopen];
+  private readonly string[] guards = [GardenerimEvents.Beforeopen];
+  private Task HandleEvent(GardenerimEventArgs args) =&gt; Task.CompletedTask;
 }</code></pre>
             </div>
             <p>
               <code>Value/ValueChanged</code> 处理原生 input/change，<code>ValueEvent</code> 与
               <code>ValueKey</code> 处理复杂 CustomEvent。值会转换为 .NET 字符串、布尔、数字、数组或字典；DOM、File、BigInt、函数和循环引用会安全序列化。
-              <code>GardenerEvents.All</code> 暴露全部 75 个事件，<code>GardenerEvents.Guards</code>
+              <code>GardenerimEvents.All</code> 暴露全部 75 个事件，<code>GardenerimEvents.Guards</code>
               暴露 beforeapproval、beforeclose、beforefilepicker、beforeopen、beforepromptstop、beforepromptsubmit、beforetabclose
               7 个必须在 JS/.NET 异步边界前同步阻止的守卫事件。行为成员与事件 detail 契约可从
-              <code>GardenerRuntimeCatalog</code> 查询。
+              <code>GardenerimRuntimeCatalog</code> 查询。
             </p>
 
             <h3>主题、服务与桌面桥</h3>
             <p>
-              <code>GardenerProvider</code> 支持 Theme、Mode、Neutral、Typography、Shape、Density、Elevation、Motion、Platform、Os
-              十轴嵌套主题；<code>GardenerThemePresets.All</code> 收录完整 42 个颜色主题，默认保持白底 Light 与小圆角 small。
-              5 个作用域服务为 <code>GardenerRuntime</code>、<code>GardenerThemeService</code>、<code>GardenerToastService</code>、<code>GardenerTauriService</code>、<code>GardenerElectronService</code>。
+              <code>GardenerimProvider</code> 支持 Theme、Mode、Neutral、Typography、Shape、Density、Elevation、Motion、Platform、Os
+              十轴嵌套主题；<code>GardenerimThemePresets.All</code> 收录完整 42 个颜色主题，默认保持白底 Light 与小圆角 small。
+              5 个作用域服务为 <code>GardenerimRuntime</code>、<code>GardenerimThemeService</code>、<code>GardenerimToastService</code>、<code>GardenerimTauriService</code>、<code>GardenerimElectronService</code>。
               桌面桥只调用宿主预加载层明确暴露的白名单对象，不开放 Node 全局能力。
             </p>
 
             <h3>完整公共类型与机器可读契约</h3>
             <p>
-              28 个框架类型为：<code>GardenerAccessibilityDefinition</code>、<code>GardenerAssets</code>、<code>GardenerBehavior</code>、<code>GardenerBehaviorDefinition</code>、<code>GardenerBehaviors</code>、<code>GardenerComponent</code>、<code>GardenerComponentBase</code>、<code>GardenerConstants</code>、<code>GardenerElectronService</code>、<code>GardenerEventArgs</code>、<code>GardenerEventDefinition</code>、<code>GardenerEvents</code>、<code>GardenerField&lt;TValue&gt;</code>、<code>GardenerJsModule</code>、<code>GardenerOptions</code>、<code>GardenerPart</code>、<code>GardenerPlatform</code>、<code>GardenerProvider</code>、<code>GardenerRuntime</code>、<code>GardenerServiceCollectionExtensions</code>、<code>GardenerThemePresets</code>、<code>GardenerRuntimeCatalog</code>、<code>GardenerTauriService</code>、<code>GardenerThemeService</code>、<code>GardenerThemeState</code>、<code>GardenerToastService</code>、<code>GardenerValueChangedEventArgs</code>、<code>GardenerComponentDefinition</code>。
+              28 个框架类型为：<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
             </p>
             <p>
               <a href="../../packages/blazor/metadata/public-api.json">Blazor Public API</a>、<a href="../../packages/blazor/metadata/components.json">组件元数据</a>、<a href="../../packages/blazor/metadata/compatibility.json">Compatibility</a>、<a href="../../packages/blazor/artifacts/gardener-blazor.performance.json">Performance</a>
               均有闭合 JSON Schema。可读文档还包括
-              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">66 个行为</a>、<a href="../../packages/blazor/docs/events.md">75 个事件</a>、<a href="../../packages/blazor/docs/assets.md">43 个静态资源</a>、<a href="../../packages/blazor/docs/runtime.md">运行时</a>、<a href="../../packages/blazor/docs/accessibility.md">无障碍与 SSR</a> 和
+              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">66 个行为</a>、<a href="../../packages/blazor/docs/events.md">75 个事件</a>、<a href="../../packages/blazor/docs/assets.md">44 个静态资源</a>、<a href="../../packages/blazor/docs/runtime.md">运行时</a>、<a href="../../packages/blazor/docs/accessibility.md">无障碍与 SSR</a> 和
               <a href="../../packages/blazor/docs/release.md">发布门禁</a>。
             </p>
 
-            <h3>1.0.0 发布质量</h3>
+            <h3>2.0.0 发布质量</h3>
             <p>
               Release 构建为 0 警告、0 错误；506 个组件全部经过真实静态 SSR。浏览器矩阵覆盖 Chromium、Firefox、WebKit、桌面与移动视口、键盘和 Axe WCAG A/AA；CI 强制 Firefox。
-              NuGet 使用隔离缓存真实发布消费应用，并验证静态 Web Assets endpoint manifest；另有独立 .NET 11 Preview 包消费者。程序集实测 343,552 B，43 个静态资源共 7,608,327 B，CSS gzip 139,269 B，runtime gzip 25,989 B，Blazor bridge gzip 2,054 B，nupkg 约 1.22 MiB、低于 6,000,000 B 硬上限；全部低于硬预算且 DLL/XML 可复现。
+              NuGet 使用隔离缓存真实发布消费应用，并验证静态 Web Assets endpoint manifest；另有独立 .NET 11 Preview 包消费者。程序集实测 344,576 B，44 个静态资源共 7,701,545 B，CSS gzip 139,263 B，runtime gzip 29,289 B，Blazor bridge gzip 2,055 B，nupkg 约 1.22 MiB、低于 6,000,000 B 硬上限；全部低于硬预算且 DLL/XML 可复现。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd blazor
@@ -1741,7 +1741,7 @@ npm run test:net11</code></pre>
           <section class="docs-section" id="grid-system">
             <h2>24 / 12 完整栅格系统</h2>
             <p>
-              Gardener 以 24 栅格作为企业后台、CMS
+              Gardenerim 以 24 栅格作为企业后台、CMS
               和精细表单的主兼容协议，同时通过
               <code class="docs-inline-code">.g-grid-12</code> 提供传统 12
               栅格。两者都使用原生 CSS Grid、逻辑方向和统一断点，不依赖负边距。
@@ -2553,7 +2553,7 @@ npm run test:net11</code></pre>
             <div class="docs-callout">
               <strong>状态要求：</strong>页面不能只实现正常数据态。至少要明确
               Loading、Empty、Error；面向路由和完整应用时还应准备
-              403、404、500、Offline 和 Maintenance。Gardener
+              403、404、500、Offline 和 Maintenance。Gardenerim
               为这些状态提供相同的内容、视觉、详情、操作和帮助部件。
             </div>
             <h3>实时页头与公共栏</h3>
@@ -3159,7 +3159,7 @@ npm run test:net11</code></pre>
                     <input
                       class="g-input"
                       id="docs-form-name"
-                      value="Gardener Docs"
+                      value="Gardenerim Docs"
                     />
                     <div class="g-field-meta">
                       <span>显示在浏览器标题中</span><span>13 / 60</span>
@@ -3535,7 +3535,7 @@ npm run test:net11</code></pre>
             <div class="g-nav-container">
               <header class="g-navbar">
                 <div class="g-navbar-start">
-                  <strong class="g-navbar-brand">Gardener CMS</strong>
+                  <strong class="g-navbar-brand">Gardenerim CMS</strong>
                 </div>
                 <nav class="g-primary-nav" aria-label="文档导航示例">
                   <a
@@ -5385,7 +5385,7 @@ npm run test:net11</code></pre>
                 >
                   <div class="g-cart-item-media site-commerce-media">G</div>
                   <div class="g-cart-item-main">
-                    <strong>Gardener Studio</strong
+                    <strong>Gardenerim Studio</strong
                     ><span class="g-cart-item-variant">企业授权 · Windows</span>
                     <div class="g-quantity-stepper" data-g-quantity-stepper>
                       <button
@@ -6489,7 +6489,7 @@ npm run test:net11</code></pre>
                 有“加载更多”，Swipe Actions 有 Toggle，Wheel Picker 支持键盘。
               </li>
               <li>
-                原生权限请求、网络状态、数据加载、支付、认证和媒体缩放由业务或宿主实现；Gardener
+                原生权限请求、网络状态、数据加载、支付、认证和媒体缩放由业务或宿主实现；Gardenerim
                 提供稳定视觉、状态、事件与无障碍接口，不伪造结果。
               </li>
               <li>
@@ -6556,7 +6556,7 @@ npm run test:net11</code></pre>
                     </nav>
                   </div>
                   <strong class="g-native-titlebar-title"
-                    >Gardener Studio — 文档空间</strong
+                    >Gardenerim Studio — 文档空间</strong
                   >
                   <div class="g-native-titlebar-end">
                     <div class="g-desktop-window-controls">
@@ -7253,7 +7253,7 @@ npm run test:net11</code></pre>
               <strong>与 AI 页面生成协议的区别：</strong>本节是给最终用户使用的
               AI 产品 UI；后文
               <a href="#ai-generation">AI 页面生成协议</a> 是给生成器使用
-              Gardener
+              Gardenerim
               的约束。前者提供界面组件，后者规定选能力、配方、组件和工具类的顺序。
             </div>
             <h3>实时 AI 工作区</h3>
@@ -7295,7 +7295,7 @@ npm run test:net11</code></pre>
                         type="button"
                         data-g-dropdown-trigger
                       >
-                        Gardener Reasoner ▾
+                        Gardenerim Reasoner ▾
                       </button>
                       <div
                         class="g-model-selector-menu"
@@ -7307,14 +7307,14 @@ npm run test:net11</code></pre>
                           type="button"
                           role="menuitem"
                         >
-                          <span>Gardener Reasoner</span
+                          <span>Gardenerim Reasoner</span
                           ><small>复杂任务</small></button
                         ><button
                           class="g-model-option"
                           type="button"
                           role="menuitem"
                         >
-                          <span>Gardener Fast</span><small>快速响应</small>
+                          <span>Gardenerim Fast</span><small>快速响应</small>
                         </button>
                       </div>
                     </div>
@@ -7341,7 +7341,7 @@ npm run test:net11</code></pre>
                         <div class="g-message-content">
                           <div class="g-message-meta">
                             <strong class="g-message-author"
-                              >Gardener Agent</strong
+                              >Gardenerim Agent</strong
                             ><span>正在工作</span>
                           </div>
                           <div class="g-message-body">
@@ -7888,7 +7888,7 @@ npm run test:net11</code></pre>
           <section class="docs-section" id="solution-compositions">
             <h2>完整页面与行业解决方案</h2>
             <p>
-              第 16 类是 Gardener 的最高组合层：前 15
+              第 16 类是 Gardenerim 的最高组合层：前 15
               类提供布局、部件、业务链和端特有交互，本类把它们固化为 32
               种可直接选择的整页契约。它覆盖个人与企业、公共网站与后台、通用业务与垂直行业，也适用于浏览器、移动网页、PWA、Tauri
               和 Electron WebView。AI 应先选择这里的页面根类和对应
@@ -8423,7 +8423,7 @@ npm run test:net11</code></pre>
             </div>
             <h3>全部运行时数据属性</h3>
             <p>
-              作者可使用的 309 个属性被划分为上方行为契约中的 66 个行为入口、166
+              作者可使用的 310 个属性被划分为上方行为契约中的 66 个行为入口、167
               个结构/动作选择器和 77 个附加配置属性；另有 27
               个由运行时维护的状态属性。状态属性可能同时作为初始配置读取，但作者可用的前三组彼此互斥，不会重复计数。
             </p>
@@ -8452,7 +8452,7 @@ npm run test:net11</code></pre>
               <code>runtimeBehaviors</code> 在整个
               <code>0.x</code> 版本线作为只读兼容别名保留；旧
               <code>metadata/schema.json</code> 继续指向新的 Components
-              Schema。1.0.0 将公共契约提升为 Stable，并用机器可读 Compatibility 基线保存 0.9.0 的全部公共入口、层、主题、运行时、组件和配方；1.x 删除任何兼容入口前必须提供变更记录与迁移说明，并至少经过两个次版本的废弃期，实际移除只能发生在新的主版本。
+              Schema。2.0.0 将公共契约提升为 Stable，并用机器可读 Compatibility 基线保存 0.9.0 的全部公共入口、层、主题、运行时、组件和配方；1.x 删除任何兼容入口前必须提供变更记录与迁移说明，并至少经过两个次版本的废弃期，实际移除只能发生在新的主版本。
             </p>
           </section>
 
@@ -8521,13 +8521,13 @@ npm run test:net11</code></pre>
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>import Gardener from &quot;@gardenerim/css&quot;;
+              ><code>import Gardenerim from &quot;@gardenerim/css&quot;;
 
-Gardener.init(document);
-const dialog = Gardener.getInstance(&quot;#confirm&quot;, &quot;dialog&quot;);
+Gardenerim.init(document);
+const dialog = Gardenerim.getInstance(&quot;#confirm&quot;, &quot;dialog&quot;);
 dialog.open();
 
-Gardener.toast({
+Gardenerim.toast({
   title: &quot;保存成功&quot;,
   message: &quot;页面已经发布&quot;,
   tone: &quot;success&quot;
@@ -8560,7 +8560,7 @@ Gardener.toast({
                   </tr>
                   <tr>
                     <td><code>emit(element, name, detail)</code></td>
-                    <td>派发可取消的 Gardener 事件。</td>
+                    <td>派发可取消的 Gardenerim 事件。</td>
                   </tr>
                   <tr>
                     <td><code>toast(options)</code></td>
@@ -8622,7 +8622,7 @@ Gardener.toast({
           <section class="docs-section" id="ai-generation">
             <h2>AI 页面生成协议</h2>
             <p>
-              Gardener 为 AI 提供五层事实来源：公共 API
+              Gardenerim 为 AI 提供五层事实来源：公共 API
               清单回答“允许使用什么稳定名称与入口”，能力清单回答“行业常规能力是否实现”，组件清单回答“有什么”，工具类清单回答“精确类名是什么”，配方清单回答“复杂页面怎样开始”。
             </p>
             <div class="docs-code-wrap">
@@ -8708,7 +8708,7 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
           <section class="docs-section" id="targeted-builds">
             <h2>按需构建、类型、跨版本兼容与发布门禁</h2>
             <p>
-              <code>1.0.0</code> 将五个平台、28 个组件包、正式压缩与性能预算滚动到上一版本实测基线，并把公共契约提升为 Stable，继续保留类型、跨版本兼容和真实 npm 发布包门禁。<a
+              <code>2.0.0</code> 将五个平台、28 个组件包、正式压缩与性能预算滚动到上一版本实测基线，并把公共契约提升为 Stable，继续保留类型、跨版本兼容和真实 npm 发布包门禁。<a
                 href="../../packages/css/dist/gardener.builds.json"
                 ><code>gardener.builds.json</code></a
               >登记全部 5 个平台档案、28 个组件包、506 个组件到一个或多个真实所属包的映射、选择器签名、浏览器目标、构建器参数，以及全部 42 个正式产物的 SHA-256/SRI；<a
@@ -8721,7 +8721,7 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
               构建会从 Public API 自动生成 <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> 与 <code>gardener.electron.d.ts</code>。66 种行为和 75 种事件形成完整字面量联合类型；<code>npm run test:types</code> 使用 TypeScript 严格模式编译真实消费者，覆盖默认及命名导出、行为工厂、Toast、实例查询和两类桌面桥接。
             </p>
             <p>
-              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> 固化从 0.9.0 继承的 1,145 项契约，包括全部 47 个包入口、CSS 层、主题、运行时、数据属性、适配器、506 个组件和 52 个配方。<code>npm run verify:compatibility</code> 允许后续 1.x 新增，禁止无迁移路径的删除；在 1.0.0 稳定切点还会反向检查已有入口是否漏记。废弃入口至少保留两个次版本，并只能在新的主版本移除。其闭合结构由 <a href="../../packages/css/metadata/compatibility.schema.json">Compatibility Schema</a> 约束。
+              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> 固化从 0.9.0 继承的 1,145 项契约，包括全部 47 个包入口、CSS 层、主题、运行时、数据属性、适配器、506 个组件和 52 个配方。<code>npm run verify:compatibility</code> 允许后续 1.x 新增，禁止无迁移路径的删除；在 2.0.0 稳定切点还会反向检查已有入口是否漏记。废弃入口至少保留两个次版本，并只能在新的主版本移除。其闭合结构由 <a href="../../packages/css/metadata/compatibility.schema.json">Compatibility Schema</a> 约束。
             </p>
             <p>
               包明确支持 Node.js &gt;=18.18、Chrome/Edge/Firefox 100+、Safari/iOS 15.4+ 和 ESM；主入口及桌面适配器提供条件 <code>types</code> 导出。Runtime 自动初始化被标记为 <code>sideEffects</code>，避免打包器误删。<code>npm run verify:package</code> 会核对真实 npm 包白名单、每个导出目标、类型文件、开发目录泄漏与 Publint；<code>prepublishOnly</code> 强制执行完整 <code>release:verify</code>，并启用公开包和 npm Provenance。
@@ -8773,7 +8773,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
             </p>
             <h3>正式压缩与性能预算</h3>
             <p>
-              正式 CSS 与 JavaScript 使用 esbuild 做语法级压缩，不使用正则替换；主压缩入口和每次自定义构建生成可追溯的外部 Source Map。压缩 CSS 使用不随版本变化的稳定 MIT banner，避免纯版本文本扰动 Brotli 基线，未压缩 CSS 与 Runtime 仍提供精确版本。<code>npm run budget</code> 使用 gzip level 9 与 Brotli quality 11，对全部 42 个正式压缩产物同时计算 raw、gzip 和 Brotli，并检查全量 CSS、Runtime 的压缩比例，以及 <code>npm pack --dry-run</code> 返回的 packed、unpacked 和文件数。1.0.0 以封版的 0.9.0 实测结果为紧邻基线，限制每个产物 raw 增长不超过 2%、gzip/Brotli 不超过 3%，npm 包 packed 不超过 3%、unpacked 不超过 2%、文件数不超过 10%；五个平台产物均拥有直接历史基线。包体测量向上取整到 4 KiB packed 与 64 KiB unpacked，形成不低估真实包体且不受性能报告自包含压缩循环影响的确定性上界。绝对上限或相对上限任一失败都会阻断发布。
+              正式 CSS 与 JavaScript 使用 esbuild 做语法级压缩，不使用正则替换；主压缩入口和每次自定义构建生成可追溯的外部 Source Map。压缩 CSS 使用不随版本变化的稳定 MIT banner，避免纯版本文本扰动 Brotli 基线，未压缩 CSS 与 Runtime 仍提供精确版本。<code>npm run budget</code> 使用 gzip level 9 与 Brotli quality 11，对全部 42 个正式压缩产物同时计算 raw、gzip 和 Brotli，并检查全量 CSS、Runtime 的压缩比例，以及 <code>npm pack --dry-run</code> 返回的 packed、unpacked 和文件数。2.0.0 以封版的 0.9.0 实测结果为紧邻基线，限制每个产物 raw 增长不超过 2%、gzip/Brotli 不超过 3%，npm 包 packed 不超过 3%、unpacked 不超过 2%、文件数不超过 10%；五个平台产物均拥有直接历史基线。包体测量向上取整到 4 KiB packed 与 64 KiB unpacked，形成不低估真实包体且不受性能报告自包含压缩循环影响的确定性上界。绝对上限或相对上限任一失败都会阻断发布。
             </p>
             <div class="docs-table-wrap">
               <table class="docs-table">
@@ -8872,12 +8872,12 @@ npm run test:build  # 10 个构建、兼容、类型、发布与失败路径用�
               </li>
               <li>移动端触控目标使用 touch 密度或不小于约 44px。</li>
             </ul>
-            <h3>1.0.0 自动化测试矩阵</h3>
+            <h3>2.0.0 自动化测试矩阵</h3>
             <div
               class="g-table-wrap"
               tabindex="0"
               role="region"
-              aria-label="1.0.0 自动化测试矩阵"
+              aria-label="2.0.0 自动化测试矩阵"
             >
               <table class="g-table">
                 <thead>
@@ -8953,11 +8953,11 @@ npm run test:browser:firefox  # Firefox 独立门禁，24 个桌面用例
 npm run test:browser:all      # Chromium + Firefox + WebKit，72 个桌面用例
 npm run test:mobile           # Pixel 7 + iPhone 13，52 个移动用例
 npm run test:a11y             # Axe、键盘与环境矩阵，25 个用例
-npm run test:e2e              # 默认 125 个真实浏览器用例
+npm run test:e2e              # 默认 152 个真实浏览器用例
 npm run test:types            # TypeScript 严格消费者门禁
 npm run verify:compatibility  # 1,145 项 0.9.0 兼容基线
 npm run verify:package        # npm 文件、导出与 Publint
-npm test                      # 281 个默认自动化用例及全部静态、契约、类型、兼容、发布、可复现与预算门禁</code></pre>
+npm test                      # 311 个默认自动化用例及全部静态、契约、类型、兼容、发布、可复现与预算门禁</code></pre>
             </div>
             <div class="docs-callout">
               Axe 门禁阻断所选 WCAG A/AA 规则检测到的全部违规，不按 impact
@@ -9101,12 +9101,12 @@ node website/scripts/check-coverage.mjs  # 文档零遗漏校验</code></pre>
     <footer class="site-footer">
       <div class="site-container">
         <div class="site-footer-bottom">
-          <span>Gardener v1.0.0 · MIT License</span
+          <span>Gardenerim v2.0.0 · MIT License</span
           ><a href="./index.html">返回首页</a>
         </div>
       </div>
     </footer>
     <script src="../assets/file-i18n.js"></script>
-    <script type="module" src="../assets/site.js?v=1.0.0"></script>
+    <script type="module" src="../assets/site.js?v=2.0.0"></script>
   </body>
 </html>

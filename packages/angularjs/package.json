@@ -1,7 +1,7 @@
 {
   "name": "@gardenerim/angularjs",
-  "version": "1.0.0",
-  "description": "Official AngularJS 1.x bindings for the Gardener CSS framework and runtime.",
+  "version": "2.0.0",
+  "description": "Official AngularJS 1.x bindings for the Gardenerim CSS framework and runtime.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/deecase/gardener.git",
@@ -15,18 +15,63 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist", "metadata", "docs", "README.md", "CHANGELOG.md", "LICENSE"],
-  "sideEffects": ["**/*.css"],
+  "files": [
+    "dist",
+    "metadata",
+    "docs",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js", "default": "./dist/index.js" },
-    "./components": { "types": "./dist/generated/components.d.ts", "import": "./dist/generated/components.js", "default": "./dist/generated/components.js" },
-    "./directives": { "types": "./dist/directives.d.ts", "import": "./dist/directives.js", "default": "./dist/directives.js" },
-    "./services": { "types": "./dist/services.d.ts", "import": "./dist/services.js", "default": "./dist/services.js" },
-    "./module": { "types": "./dist/module.d.ts", "import": "./dist/module.js", "default": "./dist/module.js" },
-    "./adapters": { "types": "./dist/adapters.d.ts", "import": "./dist/adapters.js", "default": "./dist/adapters.js" },
-    "./tauri": { "types": "./dist/tauri.d.ts", "import": "./dist/tauri.js", "default": "./dist/tauri.js" },
-    "./electron": { "types": "./dist/electron.d.ts", "import": "./dist/electron.js", "default": "./dist/electron.js" },
-    "./catalog": { "types": "./dist/generated/catalog.d.ts", "import": "./dist/generated/catalog.js", "default": "./dist/generated/catalog.js" },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/generated/components.d.ts",
+      "import": "./dist/generated/components.js",
+      "default": "./dist/generated/components.js"
+    },
+    "./directives": {
+      "types": "./dist/directives.d.ts",
+      "import": "./dist/directives.js",
+      "default": "./dist/directives.js"
+    },
+    "./services": {
+      "types": "./dist/services.d.ts",
+      "import": "./dist/services.js",
+      "default": "./dist/services.js"
+    },
+    "./module": {
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.js",
+      "default": "./dist/module.js"
+    },
+    "./adapters": {
+      "types": "./dist/adapters.d.ts",
+      "import": "./dist/adapters.js",
+      "default": "./dist/adapters.js"
+    },
+    "./tauri": {
+      "types": "./dist/tauri.d.ts",
+      "import": "./dist/tauri.js",
+      "default": "./dist/tauri.js"
+    },
+    "./electron": {
+      "types": "./dist/electron.d.ts",
+      "import": "./dist/electron.js",
+      "default": "./dist/electron.js"
+    },
+    "./catalog": {
+      "types": "./dist/generated/catalog.d.ts",
+      "import": "./dist/generated/catalog.js",
+      "default": "./dist/generated/catalog.js"
+    },
     "./catalog.json": "./dist/catalog.json",
     "./style.css": "./dist/style.css",
     "./core.css": "./dist/core.css",
@@ -41,12 +86,21 @@
     "./platform/electron.css": "./dist/platform/electron.css",
     "./component-css/*.css": "./dist/component-css/*.css",
     "./component-css/*": "./dist/component-css/*.css",
-    "./bundle.min.js": { "types": "./dist/index.d.ts", "import": "./dist/gardener-angularjs.min.js", "default": "./dist/gardener-angularjs.min.js" },
+    "./bundle.min.js": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/gardener-angularjs.min.js",
+      "default": "./dist/gardener-angularjs.min.js"
+    },
     "./performance": "./dist/gardener-angularjs.performance.json",
     "./schema/public-api": "./metadata/public-api.schema.json",
     "./schema/compatibility": "./metadata/compatibility.schema.json",
     "./schema/performance": "./metadata/performance.schema.json",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./contracts": {
+      "types": "./dist/generated/contracts.d.ts",
+      "import": "./dist/generated/contracts.js",
+      "default": "./dist/generated/contracts.js"
+    }
   },
   "scripts": {
     "clean": "node scripts/clean.mjs",
@@ -71,7 +125,7 @@
     "dev": "vite"
   },
   "peerDependencies": {
-    "@gardenerim/css": ">=1.0.0 <2.0.0",
+    "@gardenerim/css": ">=2.0.0 <3.0.0",
     "angular": ">=1.8.2 <1.9.0"
   },
   "devDependencies": {
@@ -89,8 +143,25 @@
     "typescript": "7.0.2",
     "vite": "8.2.2"
   },
-  "keywords": ["angularjs", "angularjs-1.x", "gardener", "css-framework", "component-library", "design-system", "dashboard", "mobile", "ai-ui", "tauri", "electron"],
+  "keywords": [
+    "angularjs",
+    "angularjs-1.x",
+    "gardener",
+    "css-framework",
+    "component-library",
+    "design-system",
+    "dashboard",
+    "mobile",
+    "ai-ui",
+    "tauri",
+    "electron"
+  ],
   "license": "MIT",
-  "engines": { "node": ">=18.18" },
-  "publishConfig": { "access": "public", "provenance": true }
+  "engines": {
+    "node": ">=18.18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
 }

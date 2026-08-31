@@ -11,7 +11,7 @@ HOME = Path(__file__).resolve().parent.parent
 I18N = HOME / "assets" / "i18n"
 LOCALES = ["ja", "ko", "es", "fr", "de"]
 TERMS = sorted([
-    "Gardener", "AngularJS", "TypeScript", "JavaScript", "WebAssembly",
+    "Gardenerim", "AngularJS", "TypeScript", "JavaScript", "WebAssembly",
     "Chromium", "Electron", "WebView", "Firefox", "WebKit", "Blazor",
     "Tauri", "React", "NuGet", "GitHub", "Node.js", "WCAG", "HTML",
     "CSS", "SSR", "API", "DOM", "Vue", "Axe",

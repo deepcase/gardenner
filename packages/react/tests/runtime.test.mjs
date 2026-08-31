@@ -44,7 +44,7 @@ test("explicit behavior attributes win over generated defaults", async () => {
   await mounted.unmount();
 });
 
-test("controlled native inputs and Gardener events call onValueChange", async () => {
+test("controlled native inputs and Gardenerim events call onValueChange", async () => {
   const nativeValues = [];
   const runtimeValues = [];
   const mounted = await mount(React.createElement("div", null,
@@ -75,8 +75,8 @@ test("the package entrypoint renders safely during SSR", () => {
   assert.match(html, />SSR</u);
 });
 
-test("GardenerProvider applies supplied theme axes", async () => {
-  const mounted = await mount(React.createElement(library.GardenerProvider, { theme: "garden", mode: "light", density: "compact", shape: "subtle", id: "provider", "aria-label": "Application", style: { minHeight: "10px" } }, "Content"));
+test("GardenerimProvider applies supplied theme axes", async () => {
+  const mounted = await mount(React.createElement(library.GardenerimProvider, { theme: "garden", mode: "light", density: "compact", shape: "subtle", id: "provider", "aria-label": "Application", style: { minHeight: "10px" } }, "Content"));
   const provider = mounted.host.firstElementChild;
   assert.equal(provider.dataset.gTheme, "garden");
   assert.equal(provider.dataset.gMode, "light");
@@ -116,6 +116,15 @@ test("server markup hydrates without recoverable errors", async () => {
   assert.equal(host.querySelector("button")?.textContent, "Hydrate");
   await React.act(async () => root.unmount());
   host.remove();
+});
+
+test("multiple selects report every selected option as an array", async () => {
+  const values = [];
+  const mounted = await mount(React.createElement(library.GSelect, { multiple: true, defaultValue: ["a"], initialize: false, onValueChange: value => values.push(value) },
+    React.createElement("option", { value: "a" }, "A"), React.createElement("option", { value: "b" }, "B")));
+  const select = mounted.host.querySelector("select"); select.options[1].selected = true;
+  await React.act(async () => select.dispatchEvent(new window.Event("change", { bubbles: true })));
+  assert.deepEqual(values, [["a", "b"]]); await mounted.unmount();
 });
 
 test("Tauri and Electron hooks bind isolated desktop bridges", async () => {

@@ -1,15 +1,15 @@
 import { defineComponent, h, onBeforeUnmount, onMounted, ref, watch, type Component, type PropType } from "vue";
 import { destroy, init } from "@gardenerim/css/runtime";
-import type { GardenerThemeState } from "./types.js";
+import type { GardenerimThemeState } from "./types.js";
 
-const axes: readonly (keyof GardenerThemeState)[] = ["theme", "mode", "neutral", "typography", "shape", "density", "elevation", "motion", "platform", "os"];
+const axes: readonly (keyof GardenerimThemeState)[] = ["theme", "mode", "neutral", "typography", "shape", "density", "elevation", "motion", "platform", "os"];
 
-export const themeAttributes = (state: GardenerThemeState): Record<string, string> => Object.fromEntries(
+export const themeAttributes = (state: GardenerimThemeState): Record<string, string> => Object.fromEntries(
   axes.flatMap((axis) => state[axis] == null || state[axis] === "" ? [] : [[`data-g-${axis}`, String(state[axis])]]),
 );
 
-export const GardenerProvider = defineComponent({
-  name: "GardenerProvider",
+export const GardenerimProvider = defineComponent({
+  name: "GardenerimProvider",
   inheritAttrs: false,
   props: {
     as: { type: [String, Object, Function] as PropType<string | Component>, default: "div" },
@@ -33,7 +33,7 @@ export const GardenerProvider = defineComponent({
     watch(() => props.initialize, (enabled) => { if (enabled) refresh(); else if (element.value) destroy(element.value); });
     return () => h(props.as as string | Component, {
       ...attrs,
-      ...themeAttributes(Object.fromEntries(axes.map((axis) => [axis, props[axis]])) as GardenerThemeState),
+      ...themeAttributes(Object.fromEntries(axes.map((axis) => [axis, props[axis]])) as GardenerimThemeState),
       ref: element,
     }, slots);
   },

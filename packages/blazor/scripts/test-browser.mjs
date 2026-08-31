@@ -28,7 +28,7 @@ if (process.platform === "win32" && !process.env.PLAYWRIGHT_BROWSERS_PATH && pro
     localFirefoxExecutable = resolve(isolated, "firefox", "firefox.exe");
   } else temporaryBrowserCache = null;
 }
-const server = spawn("dotnet", ["run", "--project", "samples/Gardener.Blazor.Demo/Gardener.Blazor.Demo.csproj", "-c", "Release", "--no-build", "--no-launch-profile"], {
+const server = spawn("dotnet", ["run", "--project", "samples/Gardenerim.Blazor.Demo/Gardenerim.Blazor.Demo.csproj", "-c", "Release", "--no-build", "--no-launch-profile"], {
   cwd: root,
   env: { ...process.env, ASPNETCORE_URLS: url, ASPNETCORE_ENVIRONMENT: "Development" },
   stdio: ["ignore", "pipe", "pipe"]
@@ -78,6 +78,11 @@ try {
       page.on("pageerror", (error) => errors.push(error.message));
       await page.goto(url, { waitUntil: "networkidle" });
       await page.getByRole("heading", { level: 1 }).waitFor();
+      const grid = page.getByRole("grid", { name: "示例数据网格" });
+      await grid.getByRole("textbox", { name: "客户 1", exact: true }).waitFor();
+      if (await grid.locator("tbody tr").count() >= 25) throw new Error(`${engine}: DataGrid virtualization did not bound DOM rows.`);
+      await grid.getByRole("checkbox", { name: "选择 1", exact: true }).check();
+      if (!await grid.getByRole("checkbox", { name: "选择 1", exact: true }).isChecked()) throw new Error(`${engine}: DataGrid selection failed.`);
       if (await page.locator("html").getAttribute("data-g-mode") === "dark") throw new Error(`${engine}: demo must default to light mode.`);
       if (await page.locator("[data-g-shape=small]").count() < 1) throw new Error(`${engine}: small-radius provider missing.`);
       await page.getByRole("button", { name: /已操作/u }).click();

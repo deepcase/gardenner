@@ -14,10 +14,10 @@ const cssApi = JSON.parse(await readFile(resolve(root, "../css/metadata/public-a
 test("all 506 CSS components have unique AngularJS directive contracts", () => {
   assert.equal(componentCatalog.length, 506);
   for (const key of ["name", "exportName", "directiveName", "elementName"]) assert.equal(new Set(componentCatalog.map((item) => item[key])).size, 506, key);
-  assert.equal(Object.keys(components.gardenerDirectives).length, 506);
+  assert.equal(Object.keys(components.gardenerimDirectives).length, 506);
   for (const definition of componentCatalog) {
     assert.equal(typeof components[definition.exportName], "function", definition.exportName);
-    assert.equal(components.gardenerDirectives[definition.directiveName], components[definition.exportName]);
+    assert.equal(components.gardenerimDirectives[definition.directiveName], components[definition.exportName]);
     const directive = components[definition.exportName]();
     assert.equal(directive.restrict, "EA");
     assert.equal(directive.require, "?ngModel");
@@ -40,7 +40,7 @@ test("stable metadata records every root runtime and TypeScript contract", () =>
 });
 
 test("package root is SSR-safe and does not require global AngularJS", () => {
-  const result = spawnSync(process.execPath, ["--input-type=module", "--eval", `import(${JSON.stringify(new URL("../dist/index.js", import.meta.url).href)}).then((m)=>console.log(m.GARDENER_ANGULARJS_MODULE))`], { encoding: "utf8", windowsHide: true });
+  const result = spawnSync(process.execPath, ["--input-type=module", "--eval", `import(${JSON.stringify(new URL("../dist/index.js", import.meta.url).href)}).then((m)=>console.log(m.GARDENERIM_ANGULARJS_MODULE))`], { encoding: "utf8", windowsHide: true });
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, /gardener/u);
 });

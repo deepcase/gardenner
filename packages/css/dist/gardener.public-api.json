@@ -1,7 +1,7 @@
 {
   "$schema": "../metadata/public-api.schema.json",
   "schemaVersion": 1,
-  "contractVersion": "1.0.0",
+  "contractVersion": "2.0.0",
   "status": "stable",
   "naming": {
     "cssClassPrefix": "g-",
@@ -58,7 +58,7 @@
   "javascript": {
     "moduleExports": [
       "default",
-      "Gardener",
+      "Gardenerim",
       "init",
       "destroy",
       "register",
@@ -72,15 +72,15 @@
         "name": "default",
         "kind": "object",
         "parameters": [],
-        "returns": "Readonly<GardenerAPI>",
-        "signature": "default: Readonly<GardenerAPI>"
+        "returns": "Readonly<GardenerimAPI>",
+        "signature": "default: Readonly<GardenerimAPI>"
       },
       {
-        "name": "Gardener",
+        "name": "Gardenerim",
         "kind": "object",
         "parameters": [],
-        "returns": "Readonly<GardenerAPI>",
-        "signature": "Gardener: Readonly<GardenerAPI>"
+        "returns": "Readonly<GardenerimAPI>",
+        "signature": "Gardenerim: Readonly<GardenerimAPI>"
       },
       {
         "name": "init",
@@ -88,8 +88,8 @@
         "parameters": [
           "root = document"
         ],
-        "returns": "Gardener",
-        "signature": "init(root = document) => Gardener"
+        "returns": "Gardenerim",
+        "signature": "init(root = document) => Gardenerim"
       },
       {
         "name": "destroy",
@@ -603,7 +603,17 @@
         "attribute": "data-g-data-grid",
         "instanceMembers": [
           "focus",
-          "destroy"
+          "destroy",
+          "refresh",
+          "setOptions",
+          "setRows",
+          "setPage",
+          "setSort",
+          "setFilter",
+          "select",
+          "getState",
+          "updateCell",
+          "load"
         ]
       },
       {
@@ -1118,6 +1128,19 @@
           "step",
           "source",
           "item",
+          "reason",
+          "page",
+          "pageSize",
+          "total",
+          "sort",
+          "filter",
+          "selectedKeys",
+          "loading",
+          "error",
+          "key",
+          "field",
+          "previous",
+          "row",
           "link",
           "section",
           "target"
@@ -1859,6 +1882,7 @@
         "data-g-filter-input",
         "data-g-filter-item",
         "data-g-filter-previous-hidden",
+        "data-g-grid-viewport",
         "data-g-group-row",
         "data-g-infinite-load-more",
         "data-g-infinite-sentinel",

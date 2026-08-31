@@ -52,7 +52,7 @@ for (const [directory, expectedName] of packages) {
   try {
     const manifest = JSON.parse(await readFile(resolve(root, directory, "package.json"), "utf8"));
     if (manifest.name !== expectedName) errors.push(`${directory}/package.json has package name ${manifest.name}`);
-    if (manifest.version !== "1.0.0") errors.push(`${expectedName} is not at version 1.0.0`);
+    if (manifest.version !== "2.0.0") errors.push(`${expectedName} is not at version 2.0.0`);
     if (manifest.license !== "MIT") errors.push(`${expectedName} does not declare the repository MIT license`);
     await access(resolve(root, directory, "LICENSE")).catch(() => errors.push(`${expectedName} is missing a package-local LICENSE`));
   } catch (error) {

@@ -7,9 +7,9 @@ const components = await import("../dist/generated/components.js");
 const api = JSON.parse(await readFile(new URL("../metadata/public-api.json", import.meta.url), "utf8"));
 const css = JSON.parse(await readFile(new URL("../../css/metadata/components.json", import.meta.url), "utf8"));
 
-test("all 506 Gardener CSS components have unique Vue exports", () => {
+test("all 506 Gardenerim CSS components have unique Vue exports", () => {
   assert.equal(catalog.componentCatalog.length, 506);
-  assert.equal(Object.keys(components.gardenerComponents).length, 506);
+  assert.equal(Object.keys(components.gardenerimComponents).length, 506);
   assert.equal(new Set(catalog.componentCatalog.map(({ name }) => name)).size, 506);
   assert.equal(new Set(catalog.componentCatalog.map(({ exportName }) => exportName)).size, 506);
   assert.deepEqual(catalog.componentCatalog.map(({ name }) => name), css.components.map(({ name }) => name));

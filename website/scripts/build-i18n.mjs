@@ -1,4 +1,5 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, mkdir } from "node:fs/promises";
+import { writeFile } from "../../scripts/fs-retry.mjs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -32,12 +33,12 @@ const seededTranslations = {
     "Blazor 项目": "Blazor プロジェクト",
     "Chromium + Axe": "Chromium + Axe",
     "DOM": "DOM",
-    "Gardener": "Gardener",
-    "Gardener Agent": "Gardener Agent",
-    "Gardener AngularJS 项目": "Gardener AngularJS プロジェクト",
-    "Gardener Blazor 项目": "Gardener Blazor プロジェクト",
-    "Gardener Fast": "Gardener Fast",
-    "Gardener React 项目": "Gardener React プロジェクト",
+    "Gardenerim": "Gardenerim",
+    "Gardenerim Agent": "Gardenerim Agent",
+    "Gardenerim AngularJS 项目": "Gardenerim AngularJS プロジェクト",
+    "Gardenerim Blazor 项目": "Gardenerim Blazor プロジェクト",
+    "Gardenerim Fast": "Gardenerim Fast",
+    "Gardenerim React 项目": "Gardenerim React プロジェクト",
     "gardener / workspace / overview": "gardener / workspace / overview",
     "React": "React",
     "Tauri / Electron": "Tauri / Electron",
@@ -50,7 +51,7 @@ const seededTranslations = {
     "Vue": "Vue",
     "当前门禁包含 17 项运行时/契约测试、3 项 Schema 测试、20 项五引擎与移动端浏览器集成测试，以及 1 项 Axe WCAG A/AA 自动审计。完整": "現在のゲートには、17 件のランタイム／契約テスト、3 件の Schema テスト、5 エンジンとモバイルブラウザを対象とした 20 件の統合テスト、および Axe による WCAG A/AA 自動監査 1 件が含まれます。",
     "Axe 门禁阻断所选 WCAG A/AA 规则检测到的全部违规，不按 impact 降级放行，并输出规则、节点选择器、HTML 与修复摘要。自动化不能代替人工屏幕阅读器测试；正式产品仍应使用 NVDA / JAWS / VoiceOver 完成关键任务走查。": "Axe ゲートは、対象の WCAG A/AA ルールで検出されたすべての違反を impact に関係なくブロックし、ルール、ノードセレクター、HTML、修正概要を出力します。自動化は人によるスクリーンリーダーテストの代わりにはならないため、正式製品では NVDA / JAWS / VoiceOver を使って重要な操作を確認する必要があります。",
-    "Release 构建为 0 警告、0 错误；506 个组件全部经过真实静态 SSR。浏览器矩阵覆盖 Chromium、Firefox、WebKit、桌面与移动视口、键盘和 Axe WCAG A/AA；CI 强制 Firefox。 NuGet 使用隔离缓存真实发布消费应用，并验证静态 Web Assets endpoint manifest；另有独立 .NET 11 Preview 包消费者。程序集实测 343,552 B，43 个静态资源共 7,608,327 B，CSS gzip 139,269 B，runtime gzip 25,989 B，Blazor bridge gzip 2,054 B，nupkg 约 1.22 MiB、低于 6,000,000 B 硬上限；全部低于硬预算且 DLL/XML 可复现。": "リリースビルドは警告 0 件、エラー 0 件で、506 個のコンポーネントすべてが実際の静的 SSR テストに合格しています。ブラウザマトリクスは Chromium、Firefox、WebKit、デスクトップ／モバイルのビューポート、キーボード操作、Axe による WCAG A/AA 監査を対象とし、CI では Firefox を必須としています。NuGet では分離キャッシュを使ってコンシューマーアプリを実際に publish し、Static Web Assets の endpoint manifest を検証します。さらに、独立した .NET 11 Preview パッケージコンシューマーも用意しています。実測値は、アセンブリ 343,552 B、静的アセット 43 ファイルで合計 7,608,327 B、CSS gzip 139,269 B、runtime gzip 25,989 B、Blazor bridge gzip 2,054 B です。nupkg は約 1.22 MiB で、6,000,000 B の厳格な上限を下回っています。DLL/XML の再現性も確認済みです。",
+    "Release 构建为 0 警告、0 错误；506 个组件全部经过真实静态 SSR。浏览器矩阵覆盖 Chromium、Firefox、WebKit、桌面与移动视口、键盘和 Axe WCAG A/AA；CI 强制 Firefox。 NuGet 使用隔离缓存真实发布消费应用，并验证静态 Web Assets endpoint manifest；另有独立 .NET 11 Preview 包消费者。程序集实测 344,576 B，44 个静态资源共 7,701,545 B，CSS gzip 139,263 B，runtime gzip 29,289 B，Blazor bridge gzip 2,055 B，nupkg 约 1.22 MiB、低于 6,000,000 B 硬上限；全部低于硬预算且 DLL/XML 可复现。": "リリースビルドは警告 0 件、エラー 0 件で、506 個のコンポーネントすべてが実際の静的 SSR テストに合格しています。ブラウザマトリクスは Chromium、Firefox、WebKit、デスクトップ／モバイルのビューポート、キーボード操作、Axe による WCAG A/AA 監査を対象とし、CI では Firefox を必須としています。NuGet では分離キャッシュを使ってコンシューマーアプリを実際に publish し、Static Web Assets の endpoint manifest を検証します。さらに、独立した .NET 11 Preview パッケージコンシューマーも用意しています。実測値は、アセンブリ 344,576 B、静的アセット 43 ファイルで合計 7,701,545 B、CSS gzip 139,263 B、runtime gzip 29,289 B、Blazor bridge gzip 2,055 B です。nupkg は約 1.22 MiB で、6,000,000 B の厳格な上限を下回っています。DLL/XML の再現性も確認済みです。",
   },
   ko: { "使用 {theme} 主题": "{theme} 테마 사용" },
   es: { "使用 {theme} 主题": "Usar el tema {theme}" },
@@ -148,7 +149,7 @@ async function translateBatch(entries, locale) {
 
 const untranslatedJapaneseChinese = /[这们为还没让该对从业务页组载软发现录览类择标签须复圆础层统钮宽边网档]/;
 const unacceptableJapanese = /(?:Ax WCAG|ハードバジェット|真の静的 SSR|ビルドを解放|CIはFirefoxを操作)/;
-const protectedJapaneseLiterals = ["Gardener", "gardener", "Vue", "React", "Blazor", "AngularJS", "Tauri", "Electron", "Axe", "WCAG", "Chromium", "Firefox", "WebKit", "NuGet"];
+const protectedJapaneseLiterals = ["Gardenerim", "gardener", "Vue", "React", "Blazor", "AngularJS", "Tauri", "Electron", "Axe", "WCAG", "Chromium", "Firefox", "WebKit", "NuGet"];
 const losesProtectedJapaneseLiteral = (value, source, locale) =>
   locale === "ja" && protectedJapaneseLiterals.some((literal) =>
     source.split(literal).length > String(value).split(literal).length,
@@ -177,7 +178,7 @@ for (const locale of locales) {
     if (placeholders.some((placeholder) => !dictionary[source]?.includes(placeholder))) delete dictionary[source];
   }
   const missing = messages.filter((source) => !dictionary[source]);
-  if (missing.length && !translateMissing) throw new Error(`${locale}: ${missing.length} messages missing; run with --translate`);
+  if (missing.length && !translateMissing) throw new Error(`${locale}: ${missing.length} messages missing: ${missing.join(" | ")}; add translations or run with --translate`);
   if (translateMissing) {
     let batch = [];
     let size = 0;
@@ -207,7 +208,7 @@ for (const locale of locales) {
     throw new Error(`${locale}: ${invalid.length} corrupted translations (${invalid.slice(0, 5).join(" | ")})`);
   const ordered = Object.fromEntries(messages.map((source) => [source, dictionary[source]]));
   const jsonSource = `${JSON.stringify(ordered, null, 2)}\n`;
-  const scriptSource = `window.GardenerFileI18nDictionaries = window.GardenerFileI18nDictionaries || Object.create(null);\nwindow.GardenerFileI18nDictionaries[${JSON.stringify(locale)}] = Object.freeze(${JSON.stringify(ordered, null, 2)});\n`;
+  const scriptSource = `window.GardenerimFileI18nDictionaries = window.GardenerimFileI18nDictionaries || Object.create(null);\nwindow.GardenerimFileI18nDictionaries[${JSON.stringify(locale)}] = Object.freeze(${JSON.stringify(ordered, null, 2)});\n`;
   const scriptPath = resolve(output, `${locale}.js`);
   if (translateMissing || repairOnly) {
     await writeFile(path, jsonSource);

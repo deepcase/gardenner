@@ -29,7 +29,7 @@ const resolvedBaselineArtifacts = new Set(Object.keys(budget.artifacts).map((fil
 for (const file of Object.keys(budget.baseline.artifacts)) {
   if (!resolvedBaselineArtifacts.has(file)) errors.push(`performance baseline contains an unused artifact: ${file}`);
 }
-if (pkg.version === "1.0.0" && Object.keys(budget.baseline.artifactAliases).length) errors.push("1.0.0 requires direct 0.9.0 baselines for every formal artifact");
+if (pkg.version === "2.0.0" && Object.keys(budget.baseline.artifactAliases).length) errors.push("2.0.0 requires direct 0.9.0 baselines for every formal artifact");
 for (const [file, limits] of Object.entries(budget.artifacts)) {
   const metrics = byteMetrics(await readFile(join(dist, file)), budget.compression);
   artifacts[file] = { limits, actual: metrics, pass: true };
@@ -43,17 +43,18 @@ for (const [file, limits] of Object.entries(budget.artifacts)) {
   const baseline = budget.baseline.artifacts[baselineArtifact];
   if (!baseline) continue;
   const growth = Object.fromEntries(["raw", "gzip", "brotli"].map((encoding) => [encoding, growthPercent(metrics[encoding], baseline[encoding])]));
-  const regressionPass = Object.entries(growth).every(([encoding, actual]) => {
-    const pass = actual <= budget.baseline.maxGrowthPercent.artifacts[encoding];
-    if (!pass) errors.push(`${file} ${encoding} regression: ${actual.toFixed(3)}% > ${budget.baseline.maxGrowthPercent.artifacts[encoding]}%`);
+  const growthLimits = budget.baseline.maxGrowthPercent.artifactOverrides?.[file] || budget.baseline.maxGrowthPercent.artifacts;
+  const regressionPass = Object.entries(growth).map(([encoding, actual]) => {
+    const pass = actual <= growthLimits[encoding];
+    if (!pass) errors.push(`${file} ${encoding} regression: ${actual.toFixed(3)}% > ${growthLimits[encoding]}%`);
     return pass;
-  });
+  }).every(Boolean);
   artifactRegressions[file] = {
     baselineArtifact,
     baseline,
     actual: metrics,
     growthPercent: growth,
-    limits: budget.baseline.maxGrowthPercent.artifacts,
+    limits: growthLimits,
     pass: regressionPass,
   };
 }

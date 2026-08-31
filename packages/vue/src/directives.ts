@@ -1,16 +1,16 @@
 import type { ObjectDirective } from "vue";
 import { destroy, init } from "@gardenerim/css/runtime";
 import { behaviorAttributes, configAttributes } from "./component.js";
-import type { GardenerDirectiveOptions, GardenerDirectiveValue } from "./types.js";
+import type { GardenerimDirectiveOptions, GardenerimDirectiveValue } from "./types.js";
 
 const managed = new WeakMap<Element, Set<string>>();
 const signatures = new WeakMap<Element, string>();
-const normalize = (value: GardenerDirectiveValue): GardenerDirectiveOptions => {
+const normalize = (value: GardenerimDirectiveValue): GardenerimDirectiveOptions => {
   if (typeof value === "string" || Array.isArray(value)) return { behavior: value as string | readonly string[] };
-  return value as GardenerDirectiveOptions;
+  return value as GardenerimDirectiveOptions;
 };
 
-const apply = (element: Element, value: GardenerDirectiveValue): void => {
+const apply = (element: Element, value: GardenerimDirectiveValue): void => {
   for (const attribute of managed.get(element) ?? []) element.removeAttribute(attribute);
   const options = normalize(value);
   const behaviors = Array.isArray(options.behavior) ? options.behavior : [options.behavior];
@@ -21,7 +21,7 @@ const apply = (element: Element, value: GardenerDirectiveValue): void => {
   init(element);
 };
 
-export const vGardener: ObjectDirective<Element, GardenerDirectiveValue> = {
+export const vGardenerim: ObjectDirective<Element, GardenerimDirectiveValue> = {
   mounted: (element, binding) => apply(element, binding.value),
   updated: (element, binding) => {
     const options = normalize(binding.value);
@@ -32,4 +32,4 @@ export const vGardener: ObjectDirective<Element, GardenerDirectiveValue> = {
   beforeUnmount: (element) => { destroy(element); managed.delete(element); signatures.delete(element); },
 };
 
-export default vGardener;
+export default vGardenerim;

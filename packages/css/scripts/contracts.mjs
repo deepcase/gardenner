@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { componentPacks, platformProfiles } from "../config/builds.mjs";
@@ -260,6 +260,14 @@ const gardenerOpening = runtime.indexOf("Object.freeze({") + "Object.freeze(".le
 const gardenerProperties = returnedObjectKeys(runtime.slice(gardenerOpening + 1, matchingBrace(runtime, gardenerOpening)));
 const runtimeInventory = runtimeContract(runtime);
 const eventContracts = emittedEventContracts(runtime);
+if (process.argv.includes("--write-runtime")) {
+  publicApi.javascript.behaviorContracts = runtimeInventory.behaviorContracts;
+  publicApi.javascript.dataAttributes = runtimeInventory.dataAttributes;
+  publicApi.javascript.eventContracts = eventContracts;
+  writeFileSync(join(root, "metadata/public-api.json"), JSON.stringify(publicApi, null, 2) + "\n");
+  console.log("Updated runtime contract metadata; run the normal contracts gate to verify.");
+  process.exit(0);
+}
 const kebab = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;
 const jsIdentifier = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
 const adapters = new Set(publicApi.javascript.adapters.map(({ name }) => name));
@@ -332,7 +340,7 @@ if (!same(publicApi.javascript.guardEvents, publicApi.javascript.events.filter((
 if (!same(moduleExports, publicApi.javascript.moduleExports)) errors.push("public-api moduleExports must exactly match runtime module exports");
 if (!same(publicApi.javascript.moduleContracts.map(({ name }) => name), moduleExports)) errors.push("public-api moduleContracts must cover every module export in order");
 for (const contract of publicApi.javascript.moduleContracts) {
-  const expectedKind = ["default", "Gardener"].includes(contract.name) ? "object" : "function";
+    const expectedKind = ["default", "Gardenerim"].includes(contract.name) ? "object" : "function";
   if (contract.kind !== expectedKind) errors.push(`module contract ${contract.name}: kind must be ${expectedKind}`);
   if (!jsIdentifier.test(contract.name)) errors.push(`module contract ${contract.name}: name must be a valid JavaScript identifier`);
   const sourceParameters = contract.parameters.map((parameter) => parameter.endsWith("?") ? parameter.slice(0, -1) : parameter);
@@ -342,7 +350,7 @@ for (const contract of publicApi.javascript.moduleContracts) {
     : `${contract.name}: ${contract.returns}`;
   if (contract.signature !== expectedSignature) errors.push(`module contract ${contract.name}: signature must be derived from name, parameters, and return type`);
 }
-if (!same(gardenerProperties, publicApi.javascript.gardenerProperties)) errors.push("public-api gardenerProperties must exactly match the Gardener object");
+if (!same(gardenerProperties, publicApi.javascript.gardenerProperties)) errors.push("public-api gardenerProperties must exactly match the Gardenerim object");
 for (const name of [...publicApi.javascript.moduleExports, ...publicApi.javascript.gardenerProperties]) if (!jsIdentifier.test(name)) errors.push(`public-api JavaScript name must be a valid identifier: ${name}`);
 if (!same(runtimeInventory.behaviorContracts, publicApi.javascript.behaviorContracts)) errors.push("public-api behaviorContracts must exactly match runtime instance members");
 if (!same(runtimeInventory.dataAttributes, publicApi.javascript.dataAttributes)) errors.push("public-api dataAttributes must exactly match runtime selectors, configuration reads, and managed state writes");
