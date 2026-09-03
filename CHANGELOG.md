@@ -1,6 +1,14 @@
 # Changelog
 
-## [2.0.0] - Unreleased
+## [2.1.0] - 2026-09-01
+
+- Align CSS, Vue, React, AngularJS, and Blazor controls with Arco Design Vue's 28/32/36px scale and 14px control typography; compact mode uses 24/28/32px while mobile and touch targets remain larger.
+- Add a seven-locale runtime catalog with English fallback, message overrides, and shared configuration across CSS, Vue, React, AngularJS, and Blazor.
+- Scope and batch mutation observation, add explicit start/stop/disconnect controls, and verify a 1,000-node initialization batch within the performance gate.
+- Add XSS regression coverage, a 42-theme light/dark contrast matrix, modular admin-build guidance, and AngularJS legacy-risk enforcement.
+- Correct canonical repository metadata and harden releases with immutable Actions, OIDC provenance, dependency and code scanning, SBOMs, signature checks, and secret scanning.
+
+## [2.0.0] - 2026-08-31
 
 - Breaking: use Gardenerim-branded public exports only; remove Gardener aliases and update migration examples.
 - Fix Vue radio, multiple-select, checkbox-array and IME model semantics, and React multiple-select values.

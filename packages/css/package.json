@@ -1,15 +1,15 @@
 {
   "name": "@gardenerim/css",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A comprehensive, framework-agnostic CSS and web component foundation for human and AI-authored interfaces.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deecase/gardener.git",
+    "url": "git+https://github.com/deepcase/gardenner.git",
     "directory": "packages/css"
   },
-  "homepage": "https://github.com/deecase/gardener/tree/main/packages/css#readme",
+  "homepage": "https://github.com/deepcase/gardenner/tree/main/packages/css#readme",
   "bugs": {
-    "url": "https://github.com/deecase/gardener/issues"
+    "url": "https://github.com/deepcase/gardenner/issues"
   },
   "type": "module",
   "sideEffects": [
@@ -122,7 +122,7 @@
     "audit": "node scripts/audit.mjs",
     "contracts": "node scripts/contracts.mjs",
     "validate": "node scripts/validate.mjs examples/showcase.html examples/auth.html examples/mobile-category.html examples/cms-desktop.html examples/runtime-lab.html examples/grid.html examples/regions.html examples/primitives.html examples/page-components.html examples/help-system.html examples/form-compositions.html examples/navigation-compositions.html examples/data-compositions.html examples/selection-compositions.html examples/content-compositions.html examples/auth-compositions.html examples/commerce-compositions.html examples/mobile-compositions.html examples/desktop-compositions.html examples/ai-compositions.html examples/solution-compositions.html",
-    "test": "npm run build && npm run verify:reproducible && npm run budget && npm run test:schema && npm run contracts && npm run verify:compatibility && npm run test:types && npm run test:build && npm run test:runtime && npm run test:html && npm run check && npm run audit && npm run validate && npm run verify:package && npm run test:e2e",
+    "test": "npm run build && npm run verify:reproducible && npm run verify:admin-build && npm run budget && npm run test:schema && npm run contracts && npm run verify:compatibility && npm run test:types && npm run test:build && npm run test:runtime && npm run test:html && npm run check && npm run audit && npm run validate && npm run verify:package && npm run test:e2e",
     "test:schema": "node --test --test-concurrency=1 tests/schema.test.mjs",
     "test:runtime": "node --test --test-concurrency=1 tests/runtime.test.mjs",
     "test:html": "node --test --test-concurrency=1 tests/html.test.mjs",
@@ -136,7 +136,8 @@
     "test:e2e": "npm run test:browser && npm run test:browser:firefox && npm run test:mobile && npm run test:a11y",
     "release:verify": "npm test",
     "prepublishOnly": "npm run release:verify",
-    "dev": "node scripts/serve.mjs"
+    "dev": "node scripts/serve.mjs",
+    "verify:admin-build": "node scripts/verify-admin-build.mjs"
   },
   "keywords": [
     "css",

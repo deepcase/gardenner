@@ -8,6 +8,7 @@ import GardenerimVue, {
   useGardenerim,
   useGardenerimBehavior,
   useGardenerimEvent,
+  useGardenerimLocale,
   useGardenerimTheme,
   useGardenerimToast,
   vGardenerim,
@@ -24,6 +25,7 @@ interface DialogBehavior extends GardenerimBehaviorInstance { open(): void; clos
 useGardenerim(element);
 useGardenerimBehavior<DialogBehavior>(element, behavior).instance.value?.open();
 useGardenerimEvent(element, "open", (event) => event.detail);
+useGardenerimLocale().configure({ locale: ["fr", "en"] });
 useGardenerimTheme({ theme: "ocean", mode: "system" }, element);
 useGardenerimToast().show({ message: "Saved", tone: "success" });
 const definition: GardenerimComponentDefinition = componentByName.get("dialog")!;

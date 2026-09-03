@@ -1,6 +1,13 @@
 # Changelog
 
-## [2.0.0] - Unreleased
+## [2.1.0] - 2026-09-01
+
+- Embed the shared Arco-aligned 28/32/36px Gardenerim control scale and 14px control typography in the Razor Class Library assets.
+- Add GardenerimLocalizationService and strongly typed localization options/state for the seven-locale runtime catalog.
+- Include locales.js in Razor Class Library static assets so the localized runtime resolves in published consumers.
+- Keep all 506 components, 72 behaviors, 79 events, .NET 10 target, and .NET 11 consumer compatibility.
+
+## [2.0.0] - 2026-08-31
 
 - Breaking: use Gardenerim-branded public exports only; remove Gardener aliases and update migration examples.
 - Fix Vue radio, multiple-select, checkbox-array and IME model semantics, and React multiple-select values.

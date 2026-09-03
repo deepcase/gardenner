@@ -9,7 +9,7 @@ await mkdir(artifacts, { recursive: true });
 execFileSync("dotnet", ["pack", "src/Gardenerim.Blazor/Gardenerim.Blazor.csproj", "-c", "Release", "--no-build", "--nologo", "-o", artifacts], { cwd: root, stdio: "inherit" });
 const workspace = JSON.parse(await readFile(resolve(root, "package.json"), "utf8"));
 const packageName = (await readdir(artifacts)).find((name) => name === `Gardenerim.Blazor.${workspace.version}.nupkg`);
-if (!packageName) throw new Error("Gardenerim.Blazor.2.0.0.nupkg was not created.");
+if (!packageName) throw new Error("Gardenerim.Blazor.2.1.0.nupkg was not created.");
 const packagePath = resolve(artifacts, packageName);
 const entries = execFileSync("tar", ["-tf", packagePath], { encoding: "utf8" }).split(/\r?\n/u).filter(Boolean).map((entry) => entry.replaceAll("\\", "/"));
 const required = ["lib/net10.0/Gardenerim.Blazor.dll", "README.md", "LICENSE", "metadata/public-api.json", "metadata/compatibility.json", "metadata/components.json", "metadata/components.schema.json", "metadata/performance-budgets.schema.json", "staticwebassets/gardener.min.css.map", "staticwebassets/gardener.runtime.min.js.map"];

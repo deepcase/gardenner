@@ -3,6 +3,8 @@ import type {
   GardenerimBehaviorInstance as RuntimeBehaviorInstance,
   GardenerimBehaviorName as RuntimeBehaviorName,
   GardenerimEventName as RuntimeEventName,
+  GardenerimConfiguration,
+  GardenerimConfigureOptions,
 } from "@gardenerim/css/runtime";
 import type {
   GardenerimAngularJSComponentExportName,
@@ -71,6 +73,8 @@ export interface GardenerimRuntimeService {
   getInstance(element: Element, behavior?: string): GardenerimBehaviorInstance | Record<string, GardenerimBehaviorInstance> | null;
   emit(element: EventTarget, name: string, detail?: Record<string, unknown>): boolean;
   observe(): void;
+  configure(options?: GardenerimConfigureOptions): GardenerimConfiguration;
+  getConfiguration(): GardenerimConfiguration;
 }
 
 export type GardenerimValueChangeLocals = { $value: unknown; $event: Event };

@@ -36,7 +36,7 @@ assert(ajv.validate(apiSchema, api), `public-api.json schema errors: ${ajv.error
 assert(ajv.validate(compatibilitySchema, compatibility), `compatibility.json schema errors: ${ajv.errorsText()}`);
 assert(ajv.validate(componentsSchema, components), `components.json schema errors: ${ajv.errorsText()}`);
 assert(ajv.validate(budgetSchema, budgets), `performance-budgets.json schema errors: ${ajv.errorsText()}`);
-assert(api.version === "2.0.0" && api.status === "stable" && api.cssVersion === "2.0.0", "Versions/status must be stable 2.0.0.");
+assert(api.version === "2.1.0" && api.status === "stable" && api.cssVersion === "2.1.0", "Versions/status must be stable 2.1.0.");
 for (const property of ["PackageId", "AssemblyName", "RootNamespace"]) {
   assert(project.includes(`<${property}>${api.packageId}</${property}>`), `${property} must match the public NuGet package identity ${api.packageId}.`);
 }
@@ -49,9 +49,9 @@ assert(api.components === 506 && api.componentNames.length === 506 && api.compon
 assert(new Set(api.componentNames).size === 506 && new Set(api.componentTypes).size === 506, "Component names/types must be unique.");
 assert(cssComponents.components.length === api.components, "Blazor/CSS component counts differ.");
 assert(cssComponents.components.every((item) => api.componentNames.includes(item.name)), "A CSS component is missing from Blazor metadata.");
-assert(cssApi.javascript.behaviors.length === api.behaviors && api.behaviors === 66 && JSON.stringify(cssApi.javascript.behaviors) === JSON.stringify(api.behaviorNames), "Exactly 66 ordered runtime behaviors are required.");
+assert(cssApi.javascript.behaviors.length === api.behaviors && api.behaviors === 72 && JSON.stringify(cssApi.javascript.behaviors) === JSON.stringify(api.behaviorNames), "Exactly 72 ordered runtime behaviors are required.");
 assert(JSON.stringify(cssApi.javascript.behaviorContracts) === JSON.stringify(api.behaviorContracts), "Behavior member contracts differ from CSS runtime metadata.");
-assert(cssApi.javascript.events.length === api.events && api.events === 75 && JSON.stringify(cssApi.javascript.events) === JSON.stringify(api.eventNames), "Exactly 75 ordered runtime events are required.");
+assert(cssApi.javascript.events.length === api.events && api.events === 79 && JSON.stringify(cssApi.javascript.events) === JSON.stringify(api.eventNames), "Exactly 79 ordered runtime events are required.");
 assert(JSON.stringify(cssApi.javascript.eventContracts) === JSON.stringify(api.eventContracts) && JSON.stringify(cssApi.javascript.guardEvents) === JSON.stringify(api.guardEvents), "Event/guard contracts differ from CSS runtime metadata.");
 assert(components.count === 506 && JSON.stringify(components.components.map((item) => item.name)) === JSON.stringify(api.componentNames), "Full component catalog differs from public API.");
 assert(cssComponents.components.every((item, index) => components.components[index].status === (item.status ?? null) && JSON.stringify(components.components[index].accessibility) === JSON.stringify(item.accessibility ? { roles: item.accessibility.roles ?? [], keyboard: item.accessibility.keyboard ?? [], focusTrap: Boolean(item.accessibility.focusTrap), attributes: item.accessibility.attributes ?? [] } : null)), "Component status/accessibility metadata was not preserved.");

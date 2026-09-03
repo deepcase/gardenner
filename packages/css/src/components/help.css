@@ -1,12 +1,12 @@
 @layer gardener.components {
   /* Compact tips and inline explanations */
   .g-tip, .g-inline-hint, .g-help-text { color: var(--g-color-text-muted); font-size: var(--g-font-size-sm); line-height: 1.55; }
-  .g-tip { display: flex; align-items: flex-start; gap: var(--g-space-2); padding: var(--g-space-2) var(--g-space-3); border-inline-start: 3px solid var(--g-color-primary); border-radius: var(--g-radius-sm); background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
-  .g-tip::before { content: "TIP"; flex: none; margin-block-start: .12em; color: currentColor; font: 750 .65rem/1.35 var(--g-font-mono); letter-spacing: .06em; }
-  .g-tip.is-info { border-inline-start-color: var(--g-color-info); background: var(--g-color-info-soft); color: var(--g-color-info); }
-  .g-tip.is-success { border-inline-start-color: var(--g-color-success); background: var(--g-color-success-soft); color: var(--g-color-success); }
-  .g-tip.is-warning { border-inline-start-color: var(--g-color-warning); background: var(--g-color-warning-soft); color: var(--g-color-warning); }
-  .g-tip.is-danger { border-inline-start-color: var(--g-color-danger); background: var(--g-color-danger-soft); color: var(--g-color-danger); }
+  .g-tip { --g-help-accent: var(--g-color-primary); display: flex; align-items: flex-start; gap: var(--g-space-2); padding: var(--g-space-2) var(--g-space-3); border: 1px solid var(--g-color-border); border-inline-start: 3px solid var(--g-help-accent); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: var(--g-color-text); }
+  .g-tip::before { content: "TIP"; flex: none; margin-block-start: .12em; color: var(--g-help-accent); font: 750 .65rem/1.35 var(--g-font-mono); letter-spacing: .06em; }
+  .g-tip.is-info { --g-help-accent: var(--g-color-info); }
+  .g-tip.is-success { --g-help-accent: var(--g-color-success); }
+  .g-tip.is-warning { --g-help-accent: var(--g-color-warning); }
+  .g-tip.is-danger { --g-help-accent: var(--g-color-danger); }
   .g-inline-hint { display: inline-flex; align-items: baseline; gap: var(--g-space-1); }
   .g-inline-hint::before { content: "i"; display: inline-grid; inline-size: 1rem; block-size: 1rem; flex: none; place-items: center; border: 1px solid currentColor; border-radius: 50%; font: 700 .65rem/1 var(--g-font-serif); }
   .g-help-text { display: block; margin-block-start: var(--g-space-1); }
@@ -35,12 +35,12 @@
   .g-definition { border-block-end: 1px dotted currentColor; color: var(--g-color-primary-text); text-decoration: none; cursor: help; }
 
   /* Notes, callouts, guidance and shortcuts */
-  .g-callout, .g-note { --g-help-accent: var(--g-color-primary); --g-help-soft: var(--g-color-primary-soft); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--g-space-3); padding: var(--g-space-4); border: 1px solid var(--g-color-border); border-inline-start: 3px solid var(--g-help-accent); border-radius: var(--g-radius-md); background: var(--g-help-soft); }
-  .g-callout.is-neutral, .g-note { --g-help-accent: var(--g-color-border-strong); --g-help-soft: var(--g-color-surface-subtle); }
-  .g-callout.is-info { --g-help-accent: var(--g-color-info); --g-help-soft: var(--g-color-info-soft); }
-  .g-callout.is-success { --g-help-accent: var(--g-color-success); --g-help-soft: var(--g-color-success-soft); }
-  .g-callout.is-warning { --g-help-accent: var(--g-color-warning); --g-help-soft: var(--g-color-warning-soft); }
-  .g-callout.is-danger { --g-help-accent: var(--g-color-danger); --g-help-soft: var(--g-color-danger-soft); }
+  .g-callout, .g-note { --g-help-accent: var(--g-color-primary); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--g-space-2); padding: var(--g-space-2) var(--g-space-3); border: 1px solid var(--g-color-border); border-inline-start: 3px solid var(--g-help-accent); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
+  .g-callout.is-neutral, .g-note { --g-help-accent: var(--g-color-border-strong); }
+  .g-callout.is-info { --g-help-accent: var(--g-color-info); }
+  .g-callout.is-success { --g-help-accent: var(--g-color-success); }
+  .g-callout.is-warning { --g-help-accent: var(--g-color-warning); }
+  .g-callout.is-danger { --g-help-accent: var(--g-color-danger); }
   .g-callout-icon, .g-note-label { color: var(--g-help-accent); font-weight: 750; }
   .g-callout-title, .g-note-title { font-weight: 700; }
   .g-callout-content, .g-note-content { min-width: 0; color: var(--g-color-text); font-size: var(--g-font-size-sm); line-height: 1.65; }
@@ -83,7 +83,7 @@
   .g-help-topic-meta { color: var(--g-color-text-muted); font-size: var(--g-font-size-xs); }
   .g-faq { border-block-start: 1px solid var(--g-color-border); }
   .g-faq-item { border-block-end: 1px solid var(--g-color-border); }
-  .g-faq-question { display: flex; inline-size: 100%; min-block-size: 3rem; align-items: center; justify-content: space-between; gap: var(--g-space-4); padding: var(--g-space-3) 0; border: 0; background: transparent; color: var(--g-color-text); font-weight: 700; text-align: start; cursor: pointer; }
+  .g-faq-question { display: flex; inline-size: 100%; min-block-size: 2.5rem; align-items: center; justify-content: space-between; gap: var(--g-space-3); padding: var(--g-space-2) 0; border: 0; background: transparent; color: var(--g-color-text); font-weight: 650; text-align: start; cursor: pointer; }
   .g-faq-question::after { content: "+"; color: var(--g-color-text-muted); font-size: var(--g-font-size-xl); font-weight: 400; }
   .g-faq-question[aria-expanded="true"]::after { content: "−"; }
   .g-faq-answer { padding-block: 0 var(--g-space-4); color: var(--g-color-text-muted); line-height: 1.65; }
@@ -104,7 +104,7 @@
   .g-hotspot { position: relative; display: inline-grid; inline-size: 1rem; block-size: 1rem; place-items: center; border: 2px solid var(--g-color-surface); border-radius: 50%; background: var(--g-color-primary); box-shadow: 0 0 0 1px var(--g-color-primary); }
   .g-hotspot::after { content: ""; position: absolute; inset: -.45rem; border: 2px solid var(--g-color-primary); border-radius: 50%; animation: g-hotspot-pulse 1.8s ease-out infinite; }
   .g-hotspot-label { position: absolute; inset-block-start: 50%; inset-inline-start: calc(100% + var(--g-space-2)); width: max-content; max-width: 12rem; padding: var(--g-space-1) var(--g-space-2); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-sm); background: var(--g-color-surface-raised); color: var(--g-color-text); box-shadow: var(--g-shadow-sm); font-size: var(--g-font-size-xs); transform: translateY(-50%); }
-  .g-feature-hint { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: var(--g-space-3); padding: var(--g-space-3); border: 1px solid var(--g-color-primary); border-radius: var(--g-radius-md); background: var(--g-color-primary-soft); }
+  .g-feature-hint { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: var(--g-component-gap); padding: var(--g-component-padding-sm); border: 1px solid var(--g-color-border); border-inline-start: 4px solid var(--g-color-primary); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
   .g-feature-hint-badge { padding: .15rem .4rem; border-radius: var(--g-radius-sm); background: var(--g-color-primary); color: var(--g-color-on-primary); font-size: .65rem; font-weight: 750; text-transform: uppercase; }
   .g-feature-hint-title { font-weight: 700; }
   .g-feature-hint-description { margin-block-start: var(--g-space-1); color: var(--g-color-text); font-size: var(--g-font-size-sm); }
@@ -127,6 +127,8 @@
   .g-troubleshooting-description { margin-block-start: var(--g-space-1); color: var(--g-color-text-muted); font-size: var(--g-font-size-sm); line-height: 1.55; }
   .g-help-feedback { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--g-space-3); padding-block: var(--g-space-3); border-block-start: 1px solid var(--g-color-border); color: var(--g-color-text-muted); font-size: var(--g-font-size-sm); }
   .g-help-feedback-actions { display: inline-flex; gap: var(--g-space-2); }
+  .g-help-feedback-actions [aria-pressed="true"] { border-color: var(--g-color-primary); background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
+  .g-help-feedback [data-g-saved-choice-output]:empty { display: none; }
 
   @keyframes g-hotspot-pulse { from { opacity: .75; transform: scale(.45); } to { opacity: 0; transform: scale(1.25); } }
 

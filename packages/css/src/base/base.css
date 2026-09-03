@@ -5,8 +5,8 @@
   a { color: var(--g-color-primary-text); text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
   a:hover { color: var(--g-color-primary-hover); }
   h1, h2, h3, h4, h5, h6 { color: var(--g-color-text); font-weight: var(--g-heading-weight, 650); letter-spacing: var(--g-letter-spacing-heading, -0.015em); line-height: var(--g-line-height-tight); text-wrap: balance; }
-  h1 { font-size: clamp(2rem, 5vw, var(--g-font-size-5xl)); }
-  h2 { font-size: clamp(1.75rem, 4vw, var(--g-font-size-4xl)); }
+  h1 { font-size: clamp(2rem, 4vw, var(--g-font-size-4xl)); }
+  h2 { font-size: clamp(1.5rem, 3vw, var(--g-font-size-3xl)); }
   h3 { font-size: var(--g-font-size-2xl); }
   h4 { font-size: var(--g-font-size-xl); }
   p, li { text-wrap: pretty; }
@@ -32,6 +32,10 @@
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  @media (pointer: coarse) {
+    :where(button, [role="button"]):not([role="separator"]) { min-inline-size: 2.25rem; min-block-size: 2.25rem; }
   }
 
   @media (forced-colors: active) {

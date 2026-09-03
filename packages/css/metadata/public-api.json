@@ -1,7 +1,7 @@
 {
   "$schema": "./public-api.schema.json",
   "schemaVersion": 1,
-  "contractVersion": "2.0.0",
+  "contractVersion": "2.1.0",
   "status": "stable",
   "naming": {
     "cssClassPrefix": "g-",
@@ -60,12 +60,19 @@
       "default",
       "Gardenerim",
       "init",
+      "refresh",
       "destroy",
       "register",
       "getInstance",
       "emit",
       "toast",
-      "observe"
+      "observe",
+      "disconnect",
+      "start",
+      "stop",
+      "configure",
+      "getConfiguration",
+      "supportedLocales"
     ],
     "moduleContracts": [
       {
@@ -90,6 +97,15 @@
         ],
         "returns": "Gardenerim",
         "signature": "init(root = document) => Gardenerim"
+      },
+      {
+        "name": "refresh",
+        "kind": "function",
+        "parameters": [
+          "root = document"
+        ],
+        "returns": "Gardenerim",
+        "signature": "refresh(root = document) => Gardenerim"
       },
       {
         "name": "destroy",
@@ -143,21 +159,82 @@
       {
         "name": "observe",
         "kind": "function",
+        "parameters": [
+          "root = document",
+          "options = {}"
+        ],
+        "returns": "{ disconnect(): void }",
+        "signature": "observe(root = document, options = {}) => { disconnect(): void }"
+      },
+      {
+        "name": "disconnect",
+        "kind": "function",
         "parameters": [],
         "returns": "void",
-        "signature": "observe() => void"
+        "signature": "disconnect() => void"
+      },
+      {
+        "name": "start",
+        "kind": "function",
+        "parameters": [
+          "root = document",
+          "options = {}"
+        ],
+        "returns": "Gardenerim",
+        "signature": "start(root = document, options = {}) => Gardenerim"
+      },
+      {
+        "name": "stop",
+        "kind": "function",
+        "parameters": [
+          "options = {}"
+        ],
+        "returns": "void",
+        "signature": "stop(options = {}) => void"
+      },
+      {
+        "name": "configure",
+        "kind": "function",
+        "parameters": [
+          "options = {}"
+        ],
+        "returns": "GardenerimConfiguration",
+        "signature": "configure(options = {}) => GardenerimConfiguration"
+      },
+      {
+        "name": "getConfiguration",
+        "kind": "function",
+        "parameters": [],
+        "returns": "GardenerimConfiguration",
+        "signature": "getConfiguration() => GardenerimConfiguration"
+      },
+      {
+        "name": "supportedLocales",
+        "kind": "object",
+        "parameters": [],
+        "returns": "readonly string[]",
+        "signature": "supportedLocales: readonly string[]"
       }
     ],
     "gardenerProperties": [
       "version",
       "behaviors",
+      "started",
       "init",
+      "refresh",
       "destroy",
       "register",
       "getInstance",
       "emit",
       "toast",
-      "observe"
+      "observe",
+      "disconnect",
+      "start",
+      "stop",
+      "configure",
+      "getConfiguration",
+      "locale",
+      "supportedLocales"
     ],
     "behaviorAttributePattern": "data-g-{behavior}",
     "behaviors": [
@@ -191,6 +268,7 @@
       "native-file-picker",
       "window-switcher",
       "character-count",
+      "field-sync",
       "conditional-field",
       "repeatable-field",
       "tooltip",
@@ -200,6 +278,9 @@
       "split-pane",
       "tree",
       "data-grid",
+      "table-scroll",
+      "table-density",
+      "filter-summary",
       "table-sort",
       "row-select",
       "row-disclosure",
@@ -209,6 +290,7 @@
       "transfer",
       "picker",
       "cascader",
+      "range-picker",
       "saved-choice",
       "builder-list",
       "toast",
@@ -223,6 +305,7 @@
       "jump-nav",
       "upload-manager",
       "file-browser",
+      "media-player",
       "editor-shell",
       "revision-compare",
       "autosave",
@@ -520,6 +603,15 @@
         ]
       },
       {
+        "name": "field-sync",
+        "attribute": "data-g-field-sync",
+        "instanceMembers": [
+          "sync",
+          "value",
+          "destroy"
+        ]
+      },
+      {
         "name": "conditional-field",
         "attribute": "data-g-conditional-field",
         "instanceMembers": [
@@ -617,6 +709,33 @@
         ]
       },
       {
+        "name": "table-scroll",
+        "attribute": "data-g-table-scroll",
+        "instanceMembers": [
+          "update",
+          "state",
+          "destroy"
+        ]
+      },
+      {
+        "name": "table-density",
+        "attribute": "data-g-table-density",
+        "instanceMembers": [
+          "set",
+          "value",
+          "destroy"
+        ]
+      },
+      {
+        "name": "filter-summary",
+        "attribute": "data-g-filter-summary",
+        "instanceMembers": [
+          "clear",
+          "show",
+          "destroy"
+        ]
+      },
+      {
         "name": "table-sort",
         "attribute": "data-g-table-sort",
         "instanceMembers": [
@@ -695,6 +814,17 @@
         "attribute": "data-g-cascader",
         "instanceMembers": [
           "choose",
+          "destroy"
+        ]
+      },
+      {
+        "name": "range-picker",
+        "attribute": "data-g-range-picker",
+        "instanceMembers": [
+          "set",
+          "clear",
+          "value",
+          "apply",
           "destroy"
         ]
       },
@@ -823,6 +953,18 @@
         ]
       },
       {
+        "name": "media-player",
+        "attribute": "data-g-media-player",
+        "instanceMembers": [
+          "play",
+          "pause",
+          "toggle",
+          "seek",
+          "state",
+          "destroy"
+        ]
+      },
+      {
         "name": "editor-shell",
         "attribute": "data-g-editor-shell",
         "instanceMembers": [
@@ -889,6 +1031,7 @@
       "copy",
       "count",
       "couponchange",
+      "densitychange",
       "desktoptabchange",
       "desktoptabclose",
       "disclosure",
@@ -900,6 +1043,7 @@
       "expand",
       "feedbackchange",
       "feedbacksubmit",
+      "fieldchange",
       "filefilter",
       "files",
       "fileselect",
@@ -909,6 +1053,7 @@
       "init",
       "loadcomplete",
       "loadmore",
+      "mediachange",
       "nativefiles",
       "open",
       "otpchange",
@@ -922,6 +1067,7 @@
       "refresh",
       "refreshcomplete",
       "remove",
+      "rangechange",
       "resize",
       "revisionview",
       "savedchoice",
@@ -1229,6 +1375,16 @@
         "cancelable": true
       },
       {
+        "name": "densitychange",
+        "detailKeys": [
+          "density",
+          "table"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
         "name": "desktoptabchange",
         "detailKeys": [
           "tab",
@@ -1342,6 +1498,18 @@
         "cancelable": true
       },
       {
+        "name": "fieldchange",
+        "detailKeys": [
+          "kind",
+          "value",
+          "files",
+          "input"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
         "name": "filefilter",
         "detailKeys": [
           "query",
@@ -1426,6 +1594,19 @@
         "detailKeys": [
           "reason",
           "complete"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "mediachange",
+        "detailKeys": [
+          "playing",
+          "currentTime",
+          "duration",
+          "media",
+          "reason"
         ],
         "guard": false,
         "bubbles": true,
@@ -1531,6 +1712,19 @@
         "name": "quantitychange",
         "detailKeys": [
           "value",
+          "reason"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "rangechange",
+        "detailKeys": [
+          "start",
+          "end",
+          "valid",
+          "inputs",
           "reason"
         ],
         "guard": false,
@@ -1770,6 +1964,7 @@
         "data-g-native-file-picker",
         "data-g-window-switcher",
         "data-g-character-count",
+        "data-g-field-sync",
         "data-g-conditional-field",
         "data-g-repeatable-field",
         "data-g-tooltip",
@@ -1779,6 +1974,9 @@
         "data-g-split-pane",
         "data-g-tree",
         "data-g-data-grid",
+        "data-g-table-scroll",
+        "data-g-table-density",
+        "data-g-filter-summary",
         "data-g-table-sort",
         "data-g-row-select",
         "data-g-row-disclosure",
@@ -1788,6 +1986,7 @@
         "data-g-transfer",
         "data-g-picker",
         "data-g-cascader",
+        "data-g-range-picker",
         "data-g-saved-choice",
         "data-g-builder-list",
         "data-g-toast",
@@ -1802,6 +2001,7 @@
         "data-g-jump-nav",
         "data-g-upload-manager",
         "data-g-file-browser",
+        "data-g-media-player",
         "data-g-editor-shell",
         "data-g-revision-compare",
         "data-g-autosave",
@@ -1872,6 +2072,7 @@
         "data-g-feedback-output",
         "data-g-feedback-submit",
         "data-g-feedback-value",
+        "data-g-field-output",
         "data-g-file-count",
         "data-g-file-item",
         "data-g-file-search",
@@ -1889,6 +2090,10 @@
         "data-g-invert-selection",
         "data-g-item-number",
         "data-g-line-total",
+        "data-g-media-icon",
+        "data-g-media-time",
+        "data-g-media-timeline",
+        "data-g-media-toggle",
         "data-g-mobile-sheet-open",
         "data-g-multiple",
         "data-g-native-file-trigger",
@@ -1917,6 +2122,9 @@
         "data-g-quantity-decrement",
         "data-g-quantity-increment",
         "data-g-quantity-input",
+        "data-g-range-apply",
+        "data-g-range-clear",
+        "data-g-range-preset",
         "data-g-refresh",
         "data-g-repeatable-add",
         "data-g-repeatable-list",
@@ -1925,6 +2133,7 @@
         "data-g-revision-view",
         "data-g-row-toggle",
         "data-g-saved-choice-item",
+        "data-g-saved-choice-output",
         "data-g-select-all",
         "data-g-select-all-action",
         "data-g-select-row",
@@ -1946,6 +2155,7 @@
         "data-g-sort-key",
         "data-g-swipe-close",
         "data-g-swipe-toggle",
+        "data-g-table-scope",
         "data-g-toggle",
         "data-g-toggle-column",
         "data-g-tool-call-toggle",
@@ -1969,6 +2179,7 @@
         "data-g-upload-list",
         "data-g-upload-progress",
         "data-g-upload-status",
+        "data-g-value",
         "data-g-view",
         "data-g-view-panel",
         "data-g-wheel-column",
@@ -1986,10 +2197,12 @@
         "data-g-builder-template",
         "data-g-cascade-next",
         "data-g-clear-on-send",
+        "data-g-confirmation",
         "data-g-controller",
         "data-g-copy-value",
         "data-g-coupon-state",
         "data-g-currency",
+        "data-g-current-density",
         "data-g-current-view",
         "data-g-discount",
         "data-g-dismiss-outside",
@@ -2018,6 +2231,7 @@
         "data-g-password-target",
         "data-g-persistent",
         "data-g-placement",
+        "data-g-playing",
         "data-g-previous-overflow",
         "data-g-progress",
         "data-g-prompt-target",
@@ -2030,6 +2244,7 @@
         "data-g-refreshing-label",
         "data-g-release-label",
         "data-g-root-margin",
+        "data-g-runtime",
         "data-g-saved-label",
         "data-g-scroll-locks",
         "data-g-scroll-threshold",
@@ -2047,13 +2262,13 @@
         "data-g-start-open",
         "data-g-status",
         "data-g-streaming-label",
+        "data-g-suffix",
         "data-g-target",
         "data-g-tax",
         "data-g-timeout",
         "data-g-unit-price",
         "data-g-upload-template",
-        "data-g-valid-codes",
-        "data-g-value"
+        "data-g-valid-codes"
       ],
       "managedState": [
         "data-g-approval-state",
@@ -2061,6 +2276,7 @@
         "data-g-builder-index",
         "data-g-copy-state",
         "data-g-coupon-state",
+        "data-g-current-density",
         "data-g-current-view",
         "data-g-filter-previous-hidden",
         "data-g-index",
@@ -2068,6 +2284,7 @@
         "data-g-otp-value",
         "data-g-picker-remove",
         "data-g-placement",
+        "data-g-playing",
         "data-g-previous-overflow",
         "data-g-progress",
         "data-g-quantity-value",

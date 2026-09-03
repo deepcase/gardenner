@@ -5,6 +5,7 @@
 - `GardenerimServiceCollectionExtensions`
 - `AddGardenerimBlazor(Action<GardenerimOptions>?)`
 - `GardenerimRuntime`：`InitializeAsync`、`DestroyAsync`、`RefreshAsync`、`EmitAsync`、`FocusAsync`、`GetBehaviorMembersAsync`、`InvokeBehaviorAsync`
+- `GardenerimLocalizationService`：`ConfigureAsync`、`GetAsync`
 - `GardenerimThemeService`：`ApplyAsync`、`ReadAsync`、`ClearAsync`
 - `GardenerimToastService.ShowAsync`
 - `GardenerimTauriService.BindAsync/UnbindAsync`
@@ -32,8 +33,8 @@
 
 - `GardenerimCatalog.Components/ByName/ByComponentType`
 - `GardenerimThemePresets.All/AxisValues`：42 个颜色主题与全部轴预设
-- `GardenerimBehaviors.All`：66 个 DOM 行为名称与对应常量
-- `GardenerimEvents.All/Guards`：75 个事件与 7 个同步守卫事件
+- `GardenerimBehaviors.All`：72 个 DOM 行为名称与对应常量
+- `GardenerimEvents.All/Guards`：79 个事件与 7 个同步守卫事件
 - `GardenerimRuntimeCatalog`、`GardenerimBehaviorDefinition`、`GardenerimEventDefinition`：行为成员、事件 detail、冒泡与取消契约
 - `GardenerimAccessibilityDefinition`：组件的 roles、键盘、焦点陷阱与 ARIA 属性契约
 - `GardenerimEventArgs`：安全序列化后的通用事件参数
@@ -41,6 +42,8 @@
 - `GardenerimComponentDefinition`
 - `GardenerimThemeState`
 - `GardenerimOptions`
+- `GardenerimLocalizationOptions`
+- `GardenerimLocalizationState`
 - `GardenerimPlatform`
 - `GardenerimConstants`
 - `GardenerimValueChangedEventArgs`

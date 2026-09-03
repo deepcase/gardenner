@@ -46,6 +46,14 @@ export function refresh(element) {
   Gardenerim.init(element);
 }
 
+export function configureLocalization(options) {
+  return Gardenerim.configure(options ?? {});
+}
+
+export function getLocalization() {
+  return Gardenerim.getConfiguration();
+}
+
 export function mount(element, shouldInitialize, valueEvent, valueKey, listenForValue, eventNames = [], preventDefaultEvents = [], receiver) {
   if (!element) return;
   unmount(element);

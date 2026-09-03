@@ -41,11 +41,12 @@ dialog.current?.getInstance("dialog");
 <GTreeSelect value={id} valueEvent="pickerchange" valueKey="value" onValueChange={setId} />
 ```
 
-## 7 个 Hooks
+## 8 个 Hooks
 
 - `useGardenerim`
 - `useGardenerimBehavior`
 - `useGardenerimEvent`
+- `useGardenerimLocale`
 - `useGardenerimTheme`
 - `useGardenerimToast`
 - `useTauriWindowControls`

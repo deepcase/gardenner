@@ -25,9 +25,9 @@ var generated = assembly.GetExportedTypes()
 Assert(generated.Length == 506, $"Expected 506 generated components, got {generated.Length}.");
 Assert(GardenerimCatalog.Components.Count == 506, "Catalog must contain 506 definitions.");
 Assert(GardenerimThemePresets.All.Count == 42 && GardenerimThemePresets.All.Distinct(StringComparer.Ordinal).Count() == 42, "All 42 color themes must be exposed.");
-Assert(GardenerimBehaviors.All.Count == 66 && GardenerimBehaviors.All.Distinct(StringComparer.Ordinal).Count() == 66, "All 66 runtime behaviors must be exposed.");
-Assert(GardenerimEvents.All.Count == 75 && GardenerimEvents.Guards.Count == 7, "All 75 runtime events and 7 guards must be exposed.");
-Assert(GardenerimRuntimeCatalog.Behaviors.Count == 66 && GardenerimRuntimeCatalog.Events.Count == 75, "Runtime member/event catalogs must be complete.");
+Assert(GardenerimBehaviors.All.Count == 72 && GardenerimBehaviors.All.Distinct(StringComparer.Ordinal).Count() == 72, "All 72 runtime behaviors must be exposed.");
+Assert(GardenerimEvents.All.Count == 79 && GardenerimEvents.Guards.Count == 7, "All 79 runtime events and 7 guards must be exposed.");
+Assert(GardenerimRuntimeCatalog.Behaviors.Count == 72 && GardenerimRuntimeCatalog.Events.Count == 79, "Runtime member/event catalogs must be complete.");
 Assert(GardenerimAssets.Platforms.Count == 5 && GardenerimAssets.ComponentPacks.Count == 28, "All platform/component asset entries must be exposed.");
 Assert(GardenerimCatalog.ByName.Count == 506 && GardenerimCatalog.ByComponentType.Count == 506, "Catalog lookup maps must be complete.");
 Assert(generated.All(type => type.IsPublic && type.IsSealed && !type.IsGenericType), "Generated components must be public, sealed, and non-generic.");
@@ -58,6 +58,7 @@ await using (var scope = provider.CreateAsyncScope())
 {
     Assert(scope.ServiceProvider.GetRequiredService<GardenerimRuntime>() is not null, "Runtime DI registration failed.");
     Assert(scope.ServiceProvider.GetRequiredService<GardenerimThemeService>() is not null, "Theme DI registration failed.");
+    Assert(scope.ServiceProvider.GetRequiredService<GardenerimLocalizationService>() is not null, "Localization DI registration failed.");
     Assert(scope.ServiceProvider.GetRequiredService<GardenerimToastService>() is not null, "Toast DI registration failed.");
     Assert(scope.ServiceProvider.GetRequiredService<GardenerimTauriService>() is not null, "Tauri DI registration failed.");
     Assert(scope.ServiceProvider.GetRequiredService<GardenerimElectronService>() is not null, "Electron DI registration failed.");
@@ -98,10 +99,10 @@ await using (var renderer = new HtmlRenderer(renderScope.ServiceProvider, render
 
 var root = FindRoot();
 var publicApi = JsonDocument.Parse(File.ReadAllText(Path.Combine(root, "metadata", "public-api.json"))).RootElement;
-Assert(publicApi.GetProperty("version").GetString() == "2.0.0", "Public API version must be 2.0.0.");
+Assert(publicApi.GetProperty("version").GetString() == "2.1.0", "Public API version must be 2.1.0.");
 Assert(publicApi.GetProperty("targetFramework").GetString() == "net10.0", "Stable target must be net10.0.");
 Assert(publicApi.GetProperty("compatibleFrameworks").EnumerateArray().Any(item => item.GetString() == "net11.0"), "net11.0 compatibility declaration missing.");
-Assert(publicApi.GetProperty("components").GetInt32() == 506 && publicApi.GetProperty("behaviors").GetInt32() == 66, "Metadata counts are incorrect.");
+Assert(publicApi.GetProperty("components").GetInt32() == 506 && publicApi.GetProperty("behaviors").GetInt32() == 72, "Metadata counts are incorrect.");
 
 if (failures.Count > 0)
 {
@@ -110,7 +111,7 @@ if (failures.Count > 0)
     return 1;
 }
 
-Console.WriteLine("Gardenerim.Blazor contracts passed: 506 SSR renders, 66 behaviors, 75 events, 42 themes, DI, forms, handles, metadata, net10/net11 boundary.");
+Console.WriteLine("Gardenerim.Blazor contracts passed: 506 SSR renders, 72 behaviors, 79 events, 42 themes, DI, forms, handles, metadata, net10/net11 boundary.");
 return 0;
 
 static string FindRoot()

@@ -159,11 +159,11 @@
               </div>
               <div class="site-window-body">
                 <aside class="site-demo-rail" aria-label="演示导航">
-                  <button class="site-demo-icon is-active" aria-label="概览">
+                  <button type="button" class="site-demo-icon is-active" aria-label="概览">
                     OV</button
-                  ><button class="site-demo-icon" aria-label="内容">CT</button
-                  ><button class="site-demo-icon" aria-label="AI">AI</button
-                  ><button class="site-demo-icon" aria-label="设置">ST</button>
+                  ><button type="button" class="site-demo-icon" aria-label="内容">CT</button
+                  ><button type="button" class="site-demo-icon" aria-label="AI">AI</button
+                  ><button type="button" class="site-demo-icon" aria-label="设置">ST</button>
                 </aside>
                 <div class="site-demo-main">
                   <div class="site-demo-toolbar">
@@ -171,7 +171,7 @@
                       <div class="site-demo-line is-long"></div>
                       <div class="site-demo-line is-short g-mt-2"></div>
                     </div>
-                    <button class="g-btn g-btn-primary g-btn-sm">
+                    <button type="button" class="g-btn g-btn-primary g-btn-sm">
                       新建页面
                     </button>
                   </div>
@@ -305,17 +305,17 @@
       <section class="site-section site-section-soft" id="vue">
         <div class="site-container site-code-layout">
           <div>
-            <span class="site-eyebrow">Official Vue 3 bindings · 2.0.0 Stable</span>
+            <span class="site-eyebrow">Official Vue 3 bindings · 2.1.0 Stable</span>
             <h2 class="site-title">CSS 的全部能力，已经成为 Vue API</h2>
             <p class="site-lead">
-              <code>@gardenerim/vue</code> 完整映射 506 个组件和 66 种 DOM
+              <code>@gardenerim/vue</code> 完整映射 506 个组件和 72 种 DOM
               行为，提供插件、类型安全组件、指令、Composable、十轴主题
               Provider、v-model、SSR 与 Tauri / Electron 适配。每个 CSS
               组件都有独立的 <code>G*</code> 导出，AI 可以直接选组件，不必重新拼装样式。
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="Vue 项目指标">
               <span class="g-badge">506 components</span>
-              <span class="g-badge">538 runtime exports</span>
+              <span class="g-badge">546 runtime exports</span>
               <span class="g-badge">30 entrypoints</span>
               <span class="g-badge">28 CSS packs</span>
               <span class="g-badge">Vue 3.4+</span>
@@ -348,17 +348,17 @@ import &quot;@gardenerim/vue/style.css&quot;;
       <section class="site-section" id="react">
         <div class="site-container site-code-layout">
           <div>
-            <span class="site-eyebrow">Official React bindings · 2.0.0 Stable</span>
+            <span class="site-eyebrow">Official React bindings · 2.1.0 Stable</span>
             <h2 class="site-title">同一套 CSS，也有完整的 React 组件模型</h2>
             <p class="site-lead">
-              <code>@gardenerim/react</code> 将 506 个 CSS 组件和 66 种 DOM
+              <code>@gardenerim/react</code> 将 506 个 CSS 组件和 72 种 DOM
               行为映射为类型安全的 React API，提供精确原生元素类型、十轴主题
-              Provider、受控与非受控值桥接、Imperative Handle、7 个 Hooks、SSR / Hydration
+              Provider、受控与非受控值桥接、Imperative Handle、8 个 Hooks、SSR / Hydration
               以及相互隔离的 Tauri / Electron 适配入口。组件、样式和机器可读目录保持一一对应。
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="React 项目指标">
               <span class="g-badge">506 components</span>
-              <span class="g-badge">538 runtime exports</span>
+              <span class="g-badge">546 runtime exports</span>
               <span class="g-badge">30 entrypoints</span>
               <span class="g-badge">28 CSS packs</span>
               <span class="g-badge">React 18.3–19.x</span>
@@ -391,17 +391,17 @@ export function App() {
       <section class="site-section site-section-soft" id="angular">
         <div class="site-container site-code-layout">
           <div>
-            <span class="site-eyebrow">Official AngularJS bindings · 2.0.0 Stable</span>
+            <span class="site-eyebrow">Official AngularJS bindings · 2.1.0 Stable</span>
             <h2 class="site-title">让大型 AngularJS 遗留系统继续使用完整 Gardenerim API</h2>
             <p class="site-lead">
-              <code>@gardenerim/angularjs</code> 把 506 个 CSS 组件和 66 种 DOM
+              <code>@gardenerim/angularjs</code> 把 506 个 CSS 组件和 72 种 DOM
               行为映射为 AngularJS 元素/属性指令，提供模块工厂、严格组件子集、原生
               ngModel、十轴主题、3 个可注入服务、动态生命周期与相互隔离的 Tauri / Electron
               入口。它面向必须维护 AngularJS 1.8.x 的存量产品，并明确公开框架 EOL 安全边界。
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="AngularJS 项目指标">
               <span class="g-badge">506 directives</span>
-              <span class="g-badge">535 runtime exports</span>
+              <span class="g-badge">542 runtime exports</span>
               <span class="g-badge">30 entrypoints</span>
               <span class="g-badge">28 CSS packs</span>
               <span class="g-badge">AngularJS 1.8.2–1.8.3</span>
@@ -434,20 +434,20 @@ window.angular.module(&quot;app&quot;, [gardener]);
       <section class="site-section" id="blazor">
         <div class="site-container site-code-layout">
           <div>
-            <span class="site-eyebrow">Official Blazor RCL · 2.0.0 Stable</span>
+            <span class="site-eyebrow">Official Blazor RCL · 2.1.0 Stable</span>
             <h2 class="site-title">从静态 SSR 到桌面 WebView，使用同一套 Razor 组件</h2>
             <p class="site-lead">
-              <code>Gardenerim.Blazor</code> 将 506 个 CSS/混合组件、66 种 DOM
-              行为和 75 种事件映射为强类型 Razor API。稳定包以
+              <code>Gardenerim.Blazor</code> 将 506 个 CSS/混合组件、72 种 DOM
+              行为和 79 种事件映射为强类型 Razor API。稳定包以
               <code>net10.0</code> 为基线，已验证 <code>net11.0</code>
               消费，覆盖 Blazor Web App、WebAssembly、Hybrid、Tauri 与 Electron
               场景，并保留 SSR、表单、无障碍和十轴主题契约。
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-6" aria-label="Blazor 项目指标">
               <span class="g-badge">506 components</span>
-              <span class="g-badge">66 behaviors</span>
-              <span class="g-badge">75 events</span>
-              <span class="g-badge">44 static assets</span>
+              <span class="g-badge">72 behaviors</span>
+              <span class="g-badge">79 events</span>
+              <span class="g-badge">45 static assets</span>
               <span class="g-badge">.NET 10 / 11</span>
             </div>
             <div class="site-hero-actions">
@@ -607,7 +607,7 @@ window.angular.module(&quot;app&quot;, [gardener]);
               </div>
               <div class="g-repel">
                 <strong>Repel</strong
-                ><button class="g-btn g-btn-primary g-btn-sm">Action</button>
+                ><button type="button" class="g-btn g-btn-primary g-btn-sm">Action</button>
               </div>
               <div class="g-media-object">
                 <i class="g-media-object-media">M</i>
@@ -669,8 +669,8 @@ window.angular.module(&quot;app&quot;, [gardener]);
                 ><span class="g-badge g-badge-success">已同步</span>
               </div>
               <div class="g-page-header-actions">
-                <button class="g-btn g-btn-outline g-btn-sm">预览</button
-                ><button class="g-btn g-btn-primary g-btn-sm">新建</button>
+                <button type="button" class="g-btn g-btn-outline g-btn-sm">预览</button
+                ><button type="button" class="g-btn g-btn-primary g-btn-sm">新建</button>
               </div>
             </header>
             <div class="g-toolbar">
@@ -682,21 +682,21 @@ window.angular.module(&quot;app&quot;, [gardener]);
                 ><span class="g-filter-chip">语言：中文</span>
               </div>
               <div class="g-toolbar-end">
-                <button class="g-btn g-btn-ghost g-btn-sm">筛选</button>
+                <button type="button" class="g-btn g-btn-ghost g-btn-sm">筛选</button>
               </div>
             </div>
             <div class="g-context-bar is-info">
               <span aria-hidden="true">i</span>
               <div class="g-context-bar-content">当前显示生产环境内容</div>
               <div class="g-context-bar-actions">
-                <button class="g-btn g-btn-outline g-btn-sm">切换环境</button>
+                <button type="button" class="g-btn g-btn-outline g-btn-sm">切换环境</button>
               </div>
             </div>
             <div class="g-bulk-action-bar">
               <strong class="g-bulk-action-count">已选择 3 项</strong>
               <div class="g-bulk-action-actions">
-                <button class="g-btn g-btn-outline g-btn-sm">移动</button
-                ><button class="g-btn g-btn-danger g-btn-sm">删除</button>
+                <button type="button" class="g-btn g-btn-outline g-btn-sm">移动</button
+                ><button type="button" class="g-btn g-btn-danger g-btn-sm">删除</button>
               </div>
             </div>
             <div class="site-page-states">
@@ -1129,14 +1129,14 @@ window.angular.module(&quot;app&quot;, [gardener]);
                 </ol>
                 <div class="g-tabs g-mt-5" data-g-tabs>
                   <div class="g-tab-list" role="tablist">
-                    <button
+                    <button type="button"
                       class="g-tab"
                       role="tab"
                       aria-controls="site-nav-overview"
                       aria-selected="true"
                     >
                       概览</button
-                    ><button
+                    ><button type="button"
                       class="g-tab"
                       role="tab"
                       aria-controls="site-nav-activity"
@@ -1318,7 +1318,7 @@ window.angular.module(&quot;app&quot;, [gardener]);
                 >已选择 <strong data-g-selection-count>0</strong> 项</span
               >
               <div class="g-selection-summary-actions">
-                <button class="g-btn g-btn-outline g-btn-sm">批量编辑</button>
+                <button type="button" class="g-btn g-btn-outline g-btn-sm">批量编辑</button>
               </div>
             </div>
             <div class="g-responsive-table is-stacked">
@@ -1384,7 +1384,7 @@ window.angular.module(&quot;app&quot;, [gardener]);
                       ¥128,000
                     </td>
                     <td data-g-label="操作">
-                      <button
+                      <button type="button"
                         class="g-row-disclosure"
                         data-g-row-toggle="site-data-detail-a"
                         aria-expanded="false"
@@ -1585,14 +1585,14 @@ window.angular.module(&quot;app&quot;, [gardener]);
                 </div>
               </div>
               <div class="g-saved-filters g-mt-4" data-g-saved-choice>
-                <button
+                <button type="button"
                   class="g-saved-filter"
                   data-g-saved-choice-item
                   data-g-value="mine"
                   aria-pressed="true"
                 >
                   我的待办</button
-                ><button
+                ><button type="button"
                   class="g-saved-filter"
                   data-g-saved-choice-item
                   data-g-value="risk"
@@ -1606,7 +1606,7 @@ window.angular.module(&quot;app&quot;, [gardener]);
                   >已选 <strong data-g-selection-count>0</strong> 项</span
                 >
                 <div class="g-batch-toolbar-actions">
-                  <button class="g-btn g-btn-primary g-btn-sm">发布</button
+                  <button type="button" class="g-btn g-btn-primary g-btn-sm">发布</button
                   ><button
                     class="g-btn g-btn-outline g-btn-sm"
                     type="button"
@@ -2034,19 +2034,19 @@ window.angular.module(&quot;app&quot;, [gardener]);
                       ></span>
                     </div>
                     <div class="g-sku-options">
-                      <button
+                      <button type="button"
                         class="g-sku-option"
                         data-g-sku-option
                         data-g-value="Windows"
                       >
                         Windows</button
-                      ><button
+                      ><button type="button"
                         class="g-sku-option"
                         data-g-sku-option
                         data-g-value="macOS"
                       >
                         macOS</button
-                      ><button
+                      ><button type="button"
                         class="g-sku-option"
                         data-g-sku-option
                         data-g-value="Linux"
@@ -3030,8 +3030,8 @@ window.angular.module(&quot;app&quot;, [gardener]);
                   按钮、链接、焦点与选中状态自动跟随主题。
                 </p>
                 <div class="g-flex g-gap-2 g-mt-5">
-                  <button class="g-btn g-btn-primary">主要操作</button
-                  ><button class="g-btn g-btn-outline">次要操作</button>
+                  <button type="button" class="g-btn g-btn-primary">主要操作</button
+                  ><button type="button" class="g-btn g-btn-outline">次要操作</button>
                 </div>
               </div>
             </div>
@@ -3053,7 +3053,7 @@ window.angular.module(&quot;app&quot;, [gardener]);
         <div class="site-container site-code-layout">
           <div>
             <span class="site-eyebrow"
-              >Predictable authoring · Stable 2.0.0</span
+              >Predictable authoring · Stable 2.1.0</span
             >
             <h2 class="site-title">HTML 就是接口</h2>
             <p class="site-lead">
@@ -3122,7 +3122,7 @@ window.angular.module(&quot;app&quot;, [gardener]);
       <section class="site-section" id="build-system" aria-labelledby="build-title">
         <div class="site-container">
           <header class="site-section-head">
-            <span class="site-eyebrow">Release-ready delivery · 2.0.0</span>
+            <span class="site-eyebrow">Release-ready delivery · 2.1.0</span>
             <h2 class="site-title" id="build-title">只交付当前页面真正需要的平台与组件</h2>
             <p class="site-lead">
               5 个平台档案、28 个稳定组件包和 506 个组件归属映射，让开发者与 AI
@@ -3175,7 +3175,7 @@ npm run budget</code></pre>
       >
         <div class="site-container">
           <header class="site-section-head">
-            <span class="site-eyebrow">Release confidence · 2.0.0</span>
+            <span class="site-eyebrow">Release confidence · 2.1.0</span>
             <h2 class="site-title" id="quality-title">
               每一种页面，都要经得起真实环境
             </h2>
@@ -3218,7 +3218,7 @@ npm run budget</code></pre>
             </article>
           </div>
           <a class="g-btn g-btn-outline g-mt-6" href="./docs.html#accessibility"
-              >查看 2.0.0 测试矩阵</a
+              >查看 2.1.0 测试矩阵</a
           >
         </div>
       </section>
@@ -3463,13 +3463,13 @@ npm run budget</code></pre>
           </div>
         </div>
         <div class="site-footer-bottom">
-          <span>Gardenerim v2.0.0 · MIT License</span
+          <span>Gardenerim v2.1.0 · MIT License</span
           ><span>White canvas. Small radius. Broad coverage.</span>
         </div>
       </div>
     </footer>
     <div class="g-toast-region" aria-live="polite"></div>
     <script src="../assets/file-i18n.js"></script>
-    <script type="module" src="../assets/site.js?v=2.0.0"></script>
+    <script type="module" src="../assets/site.js?v=2.1.0"></script>
   </body>
 </html>

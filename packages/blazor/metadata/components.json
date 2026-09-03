@@ -1,7 +1,7 @@
 {
   "$schema": "./components.schema.json",
   "schemaVersion": 1,
-  "version": "2.0.0",
+  "version": "2.1.0",
   "count": 506,
   "components": [
     {
@@ -1076,18 +1076,20 @@
       "name": "range-field",
       "componentType": "GRangeField",
       "category": "form",
-      "kind": "css",
-      "selector": ".g-range-field",
-      "cssSelector": null,
+      "kind": "interactive",
+      "selector": "[data-g-field-sync].g-range-field",
+      "cssSelector": ".g-range-field",
       "className": "g-range-field",
       "defaultTag": "div",
-      "status": "css-ready",
+      "status": "runtime-ready",
       "variants": [],
       "states": [],
       "parts": [
         "g-range-field-output"
       ],
-      "behaviors": [],
+      "behaviors": [
+        "field-sync"
+      ],
       "platforms": [
         "web",
         "mobile",
@@ -1099,19 +1101,21 @@
       "name": "file-field",
       "componentType": "GFileField",
       "category": "form",
-      "kind": "css",
-      "selector": ".g-file-field",
-      "cssSelector": null,
+      "kind": "interactive",
+      "selector": "[data-g-field-sync].g-file-field",
+      "cssSelector": ".g-file-field",
       "className": "g-file-field",
       "defaultTag": "div",
-      "status": "css-ready",
+      "status": "runtime-ready",
       "variants": [],
       "states": [],
       "parts": [
         "g-file-field-control",
         "g-file-field-name"
       ],
-      "behaviors": [],
+      "behaviors": [
+        "field-sync"
+      ],
       "platforms": [
         "web",
         "mobile",
@@ -2591,12 +2595,12 @@
       "name": "responsive-table",
       "componentType": "GResponsiveTable",
       "category": "data",
-      "kind": "css",
-      "selector": ".g-responsive-table",
-      "cssSelector": null,
+      "kind": "interactive",
+      "selector": "[data-g-table-scroll].g-responsive-table",
+      "cssSelector": ".g-responsive-table",
       "className": "g-responsive-table",
       "defaultTag": "div",
-      "status": "css-ready",
+      "status": "runtime-ready",
       "variants": [
         "scroll",
         "stacked",
@@ -2612,7 +2616,9 @@
         "g-table-cell-sticky-end",
         "g-table-checkbox"
       ],
-      "behaviors": [],
+      "behaviors": [
+        "table-scroll"
+      ],
       "platforms": [
         "web",
         "mobile",
@@ -3465,18 +3471,20 @@
       "name": "table-density",
       "componentType": "GTableDensity",
       "category": "data",
-      "kind": "css",
-      "selector": ".g-table-density",
-      "cssSelector": null,
+      "kind": "interactive",
+      "selector": "[data-g-table-density].g-table-density",
+      "cssSelector": ".g-table-density",
       "className": "g-table-density",
       "defaultTag": "div",
-      "status": "css-ready",
+      "status": "runtime-ready",
       "variants": [],
       "states": [],
       "parts": [
         "g-table-density-button"
       ],
-      "behaviors": [],
+      "behaviors": [
+        "table-density"
+      ],
       "platforms": [
         "web",
         "mobile",
@@ -3488,12 +3496,12 @@
       "name": "filter-summary",
       "componentType": "GFilterSummary",
       "category": "data",
-      "kind": "css",
-      "selector": ".g-filter-summary",
-      "cssSelector": null,
+      "kind": "interactive",
+      "selector": "[data-g-filter-summary].g-filter-summary",
+      "cssSelector": ".g-filter-summary",
       "className": "g-filter-summary",
       "defaultTag": "div",
-      "status": "css-ready",
+      "status": "runtime-ready",
       "variants": [],
       "states": [],
       "parts": [
@@ -3501,7 +3509,9 @@
         "g-filter-summary-chip",
         "g-filter-summary-clear"
       ],
-      "behaviors": [],
+      "behaviors": [
+        "filter-summary"
+      ],
       "platforms": [
         "web",
         "mobile",
@@ -3909,12 +3919,12 @@
       "name": "date-range-picker-composition",
       "componentType": "GDateRangePickerComposition",
       "category": "interaction",
-      "kind": "css",
-      "selector": ".g-date-range-picker",
-      "cssSelector": null,
+      "kind": "interactive",
+      "selector": "[data-g-range-picker].g-date-range-picker",
+      "cssSelector": ".g-date-range-picker",
       "className": "g-date-range-picker",
       "defaultTag": "div",
-      "status": "css-ready",
+      "status": "runtime-ready",
       "variants": [],
       "states": [],
       "parts": [
@@ -3923,7 +3933,9 @@
         "g-range-picker-calendar",
         "g-range-picker-actions"
       ],
-      "behaviors": [],
+      "behaviors": [
+        "range-picker"
+      ],
       "platforms": [
         "web",
         "mobile",
@@ -3935,12 +3947,12 @@
       "name": "time-range-picker-composition",
       "componentType": "GTimeRangePickerComposition",
       "category": "interaction",
-      "kind": "css",
-      "selector": ".g-time-range-picker",
-      "cssSelector": null,
+      "kind": "interactive",
+      "selector": "[data-g-range-picker].g-time-range-picker",
+      "cssSelector": ".g-time-range-picker",
       "className": "g-time-range-picker",
       "defaultTag": "div",
-      "status": "css-ready",
+      "status": "runtime-ready",
       "variants": [],
       "states": [],
       "parts": [
@@ -3948,7 +3960,9 @@
         "g-range-picker-presets",
         "g-range-picker-actions"
       ],
-      "behaviors": [],
+      "behaviors": [
+        "range-picker"
+      ],
       "platforms": [
         "web",
         "mobile",
@@ -5454,18 +5468,20 @@
       "name": "help-feedback",
       "componentType": "GHelpFeedback",
       "category": "help",
-      "kind": "css",
-      "selector": ".g-help-feedback",
-      "cssSelector": null,
+      "kind": "interactive",
+      "selector": "[data-g-saved-choice].g-help-feedback",
+      "cssSelector": ".g-help-feedback",
       "className": "g-help-feedback",
       "defaultTag": "div",
-      "status": "css-ready",
+      "status": "runtime-ready",
       "variants": [],
       "states": [],
       "parts": [
         "g-help-feedback-actions"
       ],
-      "behaviors": [],
+      "behaviors": [
+        "saved-choice"
+      ],
       "platforms": [
         "web",
         "mobile",
@@ -8405,12 +8421,12 @@
       "name": "video-player-shell",
       "componentType": "GVideoPlayerShell",
       "category": "content",
-      "kind": "css",
-      "selector": ".g-video-player",
-      "cssSelector": null,
+      "kind": "interactive",
+      "selector": "[data-g-media-player].g-video-player",
+      "cssSelector": ".g-video-player",
       "className": "g-video-player",
       "defaultTag": "div",
-      "status": "css-ready",
+      "status": "runtime-ready",
       "variants": [],
       "states": [],
       "parts": [
@@ -8419,7 +8435,9 @@
         "g-media-timeline",
         "g-media-time"
       ],
-      "behaviors": [],
+      "behaviors": [
+        "media-player"
+      ],
       "platforms": [
         "web",
         "mobile",
@@ -8431,12 +8449,12 @@
       "name": "audio-player-shell",
       "componentType": "GAudioPlayerShell",
       "category": "content",
-      "kind": "css",
-      "selector": ".g-audio-player",
-      "cssSelector": null,
+      "kind": "interactive",
+      "selector": "[data-g-media-player].g-audio-player",
+      "cssSelector": ".g-audio-player",
       "className": "g-audio-player",
       "defaultTag": "div",
-      "status": "css-ready",
+      "status": "runtime-ready",
       "variants": [],
       "states": [],
       "parts": [
@@ -8445,7 +8463,9 @@
         "g-media-timeline",
         "g-media-time"
       ],
-      "behaviors": [],
+      "behaviors": [
+        "media-player"
+      ],
       "platforms": [
         "web",
         "mobile",

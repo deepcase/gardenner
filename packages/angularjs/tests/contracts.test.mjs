@@ -25,14 +25,14 @@ test("all 506 CSS components have unique AngularJS directive contracts", () => {
   }
 });
 
-test("component behaviors are covered by the 66-behavior runtime", () => {
-  assert.equal(cssApi.javascript.behaviors.length, 66);
+test("component behaviors are covered by the 72-behavior runtime", () => {
+  assert.equal(cssApi.javascript.behaviors.length, 72);
   for (const definition of componentCatalog) for (const behavior of definition.behaviors) assert.ok(cssApi.javascript.behaviors.includes(behavior), `${definition.name}/${behavior}`);
 });
 
 test("stable metadata records every root runtime and TypeScript contract", () => {
   assert.deepEqual(Object.keys(rootModule).sort(), api.moduleExports);
-  assert.equal(api.moduleExports.length, 535);
+  assert.equal(api.moduleExports.length, 542);
   assert.equal(api.typeExports.length, 24);
   assert.equal(api.componentAttributes.length, 8);
   assert.equal(api.componentHandleMembers.length, 4);

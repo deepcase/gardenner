@@ -1,4 +1,4 @@
-import { Gardenerim, destroy, emit, getInstance, init, observe, toast } from "@gardenerim/css/runtime";
+import { Gardenerim, configure, destroy, emit, getConfiguration, getInstance, init, observe, toast } from "@gardenerim/css/runtime";
 import { themeAxes } from "./directives.js";
 import type { GardenerimRuntimeService, GardenerimThemeService, GardenerimThemeState } from "./types.js";
 
@@ -13,6 +13,8 @@ export const GardenerimRuntimeFactory = (): GardenerimRuntimeService => ({
   getInstance: (element, behavior) => behavior ? getInstance(element, behavior) : getInstance(element),
   emit,
   observe,
+  configure,
+  getConfiguration,
 });
 
 export const GardenerimThemeFactory = (): GardenerimThemeService => {

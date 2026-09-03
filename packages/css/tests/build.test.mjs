@@ -12,11 +12,11 @@ import { contentIntegrity } from "../scripts/lib/build-tools.mjs";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const readJson = async (file) => JSON.parse(await readFile(resolve(root, file), "utf8"));
 
-test("2.0.0 build catalog covers every platform, pack, component, and integrity record", async () => {
+test("2.1.0 build catalog covers every platform, pack, component, and integrity record", async () => {
   const catalog = await readJson("dist/gardener.builds.json");
   const components = await readJson("metadata/components.json");
   const pkg = await readJson("package.json");
-  assert.equal(catalog.version, "2.0.0");
+  assert.equal(catalog.version, "2.1.0");
   assert.deepEqual(catalog.platforms.map(({ name }) => name), ["web", "mobile", "desktop", "tauri", "electron"]);
   assert.equal(catalog.componentPacks.length, 28);
   assert.equal(Object.keys(catalog.componentOwnership).length, components.components.length);
@@ -63,9 +63,9 @@ test("formal CSS and JavaScript minification emits smaller parseable artifacts a
     assert.equal(map.version, 3);
     assert.ok(map.sources.length > 0);
   }
-  const runtime = await import(`${pathToFileURL(resolve(root, "dist/gardener.runtime.min.js"))}?test=2.0.0`);
-  assert.equal(runtime.Gardenerim.version, "2.0.0");
-  assert.equal(Object.keys(runtime).length, 9);
+  const runtime = await import(`${pathToFileURL(resolve(root, "dist/gardener.runtime.min.js"))}?test=2.1.0`);
+  assert.equal(runtime.Gardenerim.version, "2.1.0");
+  assert.deepEqual(Object.keys(runtime).sort(), ["Gardenerim", "configure", "default", "destroy", "disconnect", "emit", "getConfiguration", "getInstance", "init", "observe", "refresh", "register", "start", "stop", "supportedLocales", "toast"].sort());
 });
 
 test("platform builds preserve platform boundaries", async () => {
@@ -82,6 +82,59 @@ test("platform builds preserve platform boundaries", async () => {
   assert.equal(desktop.includes(".g-titlebar"), true);
   assert.match(tauri, /@import[\s\"]+\.\/gardener\.desktop\.min\.css/);
   assert.match(electron, /@import[\s\"]+\.\/gardener\.desktop\.min\.css/);
+});
+
+test("default component density follows the compact scale and alerts use contextual styling", async () => {
+  const themes = await readFile(resolve(root, "dist/gardener.themes.css"), "utf8");
+  const components = await readFile(resolve(root, "dist/gardener.components.css"), "utf8");
+  const full = await readFile(resolve(root, "dist/gardener.css"), "utf8");
+  assert.match(themes, /--g-space-control-x:\s*var\(--g-space-3\);[\s\S]*--g-space-control-y:\s*var\(--g-space-1\);/u);
+  assert.match(themes, /--g-control-height-sm:\s*1\.75rem;[\s\S]*--g-control-height-md:\s*2rem;[\s\S]*--g-control-height-lg:\s*2\.25rem;[\s\S]*--g-touch-target:\s*2rem;/u);
+  assert.match(themes, /--g-component-padding:\s*var\(--g-space-4\);[\s\S]*--g-component-padding-sm:\s*var\(--g-space-3\);[\s\S]*--g-state-min-height:\s*10rem;/u);
+  assert.match(themes, /\[data-g-density="compact"\][\s\S]*--g-control-height-sm:\s*1\.5rem;[\s\S]*--g-control-height-md:\s*1\.75rem;[\s\S]*--g-control-height-lg:\s*2rem;/u);
+  assert.match(themes, /\[data-g-density="compact"\][\s\S]*--g-component-padding:\s*var\(--g-space-3\);[\s\S]*--g-state-min-height:\s*8rem;/u);
+  assert.match(components, /\.g-btn\s*\{[\s\S]*font-size:\s*var\(--g-font-size-sm\);/u);
+  assert.match(components, /\.g-input,\s*\.g-textarea,\s*\.g-select\s*\{[\s\S]*font-size:\s*var\(--g-font-size-sm\);/u);
+  assert.match(components, /\.g-card-header,\s*\.g-card-body,\s*\.g-card-footer\s*\{\s*padding:\s*var\(--g-component-padding\);/u);
+  assert.match(components, /\.g-card\s*\{[^}]*background:\s*var\(--g-color-surface\);[^}]*overflow:\s*hidden;[^}]*\}/u);
+  assert.doesNotMatch(components, /\.g-card\s*\{[^}]*box-shadow:/u);
+  assert.doesNotMatch(components, /\.g-card-interactive:hover\s*\{[^}]*transform:/u);
+  assert.doesNotMatch(components, /\.g-btn:active[^}]*transform:/u);
+  assert.match(components, /\.g-empty\s*\{[^}]*min-height:\s*var\(--g-state-min-height\);/u);
+  assert.match(components, /\.g-file-drop\s*\{[^}]*min-height:\s*var\(--g-file-drop-min-height,\s*var\(--g-state-min-height\)\);/u);
+  assert.doesNotMatch(components, /\.g-file-drop\s*\{[^}]*min-height:\s*(?:9|10|14)rem;/u);
+  assert.match(components, /\.g-alert\s*\{[^}]*border:\s*1px solid var\(--g-alert-border\);[^}]*background:\s*var\(--g-alert-background\);[^}]*color:\s*var\(--g-alert-accent\);/u);
+  assert.match(components, /\.g-alert:not\(:has\(> \.g-alert-icon\)\)::before\s*\{[^}]*mask:\s*var\(--g-alert-icon-image\)/u);
+  assert.match(components, /:is\(\.g-alert-info,\s*\.g-alert\.is-info\)/u);
+  assert.match(components, /\.g-toast-region\s*\{[^}]*inset-inline:\s*0;[^}]*align-items:\s*center;[^}]*text-align:\s*center;/u);
+  assert.match(components, /\.g-toast\s*\{[^}]*display:\s*inline-flex;[^}]*border:\s*1px solid var\(--g-color-border\);[^}]*background:\s*var\(--g-color-surface-raised\);[^}]*box-shadow:\s*var\(--g-shadow-md\);/u);
+  assert.match(components, /\.g-toast:not\(:has\(> \.g-toast-icon\)\)::before\s*\{[^}]*mask:\s*var\(--g-toast-icon-image\)/u);
+  assert.match(components, /:is\(\.g-toast-danger,\s*\.g-toast-error\)/u);
+  assert.doesNotMatch(components, /\.g-toast\s*\{[^}]*border-inline-start:/u);
+  assert.match(components, /\.g-tip\s*\{[^}]*background:\s*var\(--g-color-surface\);/u);
+  assert.match(components, /\.g-callout,\s*\.g-note\s*\{[^}]*background:\s*var\(--g-color-surface\);/u);
+  assert.match(components, /\.g-switch-row\s*\{[^}]*min-height:\s*var\(--g-control-height-lg\);[^}]*padding-block:\s*var\(--g-space-1\);/u);
+  assert.match(components, /\.g-choice-card:has\(input:checked\)\s*\{\s*border-color:\s*var\(--g-color-primary\);\s*\}/u);
+  assert.match(components, /\.g-page-header-title\s*\{[^}]*var\(--g-font-size-3xl\)/u);
+  assert.match(components, /\.g-context-bar\s*\{[^}]*background:\s*var\(--g-color-surface\);/u);
+  assert.match(full, /\.g-auth-notice\s*\{[^}]*border-inline-start:\s*4px solid var\(--g-auth-notice-accent\);[^}]*background:\s*var\(--g-color-surface\);/u);
+  assert.doesNotMatch(full, /\.g-auth-choice\[aria-selected="true"\][^}]*box-shadow:/u);
+  assert.match(full, /\.g-security-alert\s*\{[^}]*border:\s*1px solid color-mix\([^}]*background:\s*var\(--g-color-warning-soft\);[^}]*color:\s*var\(--g-color-warning\);/u);
+  assert.match(full, /\.g-security-alert:not\(:has\(> \.g-security-alert-icon\)\)::before\s*\{[^}]*mask:\s*var\(--g-security-alert-icon\)/u);
+  assert.match(full, /\.g-validation-summary\s*\{[^}]*border-inline-start:\s*4px solid var\(--g-color-danger\);[^}]*background:\s*var\(--g-color-surface\);/u);
+  assert.match(full, /\.g-selection-summary\s*\{[^}]*border-inline-start:\s*3px solid var\(--g-color-primary\);[^}]*background:\s*var\(--g-color-surface\);/u);
+  assert.match(full, /\.g-bulk-confirmation\s*\{[^}]*border-inline-start:\s*4px solid var\(--g-color-warning\);[^}]*background:\s*var\(--g-color-surface\);/u);
+  assert.match(full, /\.g-approval\s*\{[^}]*border-inline-start:\s*4px solid var\(--g-color-warning\);[^}]*background:\s*var\(--g-color-surface\);/u);
+  assert.match(full, /\.g-feature-hint\s*\{[^}]*border-inline-start:\s*4px solid var\(--g-color-primary\);[^}]*background:\s*var\(--g-color-surface\);/u);
+  assert.match(full, /\.g-industry-alert\s*\{[^}]*border:\s*1px solid color-mix\([^}]*background:\s*var\(--g-color-warning-soft\);[^}]*color:\s*var\(--g-color-warning\);/u);
+  assert.match(full, /\.g-industry-alert:not\(:has\(> \.g-industry-alert-icon\)\)::before\s*\{[^}]*mask:\s*var\(--g-industry-alert-icon\)/u);
+  assert.match(components, /\.g-page-state,[^}]*min-block-size:\s*var\(--g-page-state-min,\s*16rem\);/u);
+  assert.match(components, /\.g-page-state-visual\s*\{[^}]*var\(--g-page-state-visual-size,\s*4rem\)/u);
+  assert.match(components, /\.is-sticky-columns[^}]*:first-child\s*\{[^}]*position:\s*sticky;[^}]*inset-inline-start:\s*0;/u);
+  assert.match(components, /\.is-sticky-columns[^}]*:last-child\s*\{[^}]*position:\s*sticky;[^}]*inset-inline-end:\s*0;/u);
+  assert.match(components, /\.is-sticky-columns\.can-scroll-start[^}]*:first-child\s*\{[^}]*box-shadow:/u);
+  assert.match(components, /\.is-sticky-columns\.can-scroll-end[^}]*:last-child\s*\{[^}]*box-shadow:/u);
+  assert.doesNotMatch(components, /\.g-(?:page-header|form-actions|sticky-actions)\.is-sticky\s*\{[^}]*backdrop-filter:/u);
 });
 
 test("every component pack artifact exists and stays within its recorded budget metrics", async () => {
@@ -198,7 +251,7 @@ test("custom builds reject unknown components without emitting output", () => {
 test("published raw, gzip, brotli, ratio, and package budgets all pass", async () => {
   const report = await readJson("dist/gardener.performance.json");
   const budget = await readJson("config/performance-budgets.json");
-  assert.equal(report.version, "2.0.0");
+  assert.equal(report.version, "2.1.0");
   assert.equal(report.status, "passed");
   assert.equal(Object.keys(report.artifacts).length, 42);
   assert.deepEqual(report.compression, { gzipLevel: 9, brotliQuality: 11 });
@@ -206,8 +259,8 @@ test("published raw, gzip, brotli, ratio, and package budgets all pass", async (
   assert.ok(Object.values(report.ratios).every(({ pass }) => pass));
   assert.equal(report.package.pass, true);
   assert.deepEqual(report.package.rounding, { packedQuantum: 4096, unpackedQuantum: 65536 });
-  assert.equal(report.regressions.baselineVersion, "0.9.0");
-  assert.equal(budget.baseline.version, "0.9.0");
+  assert.equal(report.regressions.baselineVersion, "2.0.0");
+  assert.equal(budget.baseline.version, "2.0.0");
   assert.deepEqual(budget.baseline.artifactAliases, {});
   assert.deepEqual(Object.keys(budget.baseline.artifacts), Object.keys(report.artifacts));
   assert.equal(report.regressions.pass, true);
@@ -234,7 +287,7 @@ test("release metadata, declarations, support policy, and compatibility baseline
   const publicApi = await readJson("metadata/public-api.json");
   const compatibility = await readJson("dist/gardener.compatibility.json");
   const runtimeTypes = await readFile(resolve(root, "dist/gardener.d.ts"), "utf8");
-  assert.equal(pkg.version, "2.0.0");
+  assert.equal(pkg.version, "2.1.0");
   assert.equal(publicApi.status, "stable");
   const declaredEntrypoints = new Set([
     ...publicApi.css.entrypoints,
@@ -252,7 +305,7 @@ test("release metadata, declarations, support policy, and compatibility baseline
   assert.equal(pkg.engines.node, ">=18.18");
   assert.equal(pkg.publishConfig.provenance, true);
   assert.ok(pkg.sideEffects.includes("dist/gardener.runtime.js"));
-  assert.equal(compatibility.version, "2.0.0");
+  assert.equal(compatibility.version, "2.1.0");
   assert.equal(compatibility.baselineVersion, "0.9.0");
   assert.equal(compatibility.policy.stage, "stable");
   assert.equal(Object.values(compatibility.baseline).reduce((sum, values) => sum + values.length, 0), 1145);
@@ -323,7 +376,7 @@ test("the packed npm artifact installs and resolves every targeted public entryp
       "@gardenerim/css/tauri.min.js",
       "@gardenerim/css/electron.min.js",
     ];
-    await writeFile(resolve(temporary, "smoke.mjs"), `const runtime = await import("@gardenerim/css");\nif (runtime.Gardenerim.version !== "2.0.0") throw new Error("runtime version mismatch");\nfor (const specifier of ${JSON.stringify(specifiers)}) import.meta.resolve(specifier);\nconsole.log("resolved ${specifiers.length} entrypoints");\n`);
+    await writeFile(resolve(temporary, "smoke.mjs"), `const runtime = await import("@gardenerim/css");\nif (runtime.Gardenerim.version !== "2.1.0") throw new Error("runtime version mismatch");\nfor (const specifier of ${JSON.stringify(specifiers)}) import.meta.resolve(specifier);\nconsole.log("resolved ${specifiers.length} entrypoints");\n`);
     const smoke = spawnSync(process.execPath, ["smoke.mjs"], { cwd: temporary, encoding: "utf8", windowsHide: true });
     assert.equal(smoke.status, 0, smoke.stderr);
     assert.match(smoke.stdout, new RegExp(`resolved ${specifiers.length} entrypoints`));

@@ -1,6 +1,6 @@
 import type {} from "./generated/global-components.js";
 
-export { Gardenerim, destroy, emit, getInstance, init, observe, register, toast } from "@gardenerim/css/runtime";
+export { Gardenerim, configure, destroy, disconnect, emit, getConfiguration, getInstance, init, observe, refresh, register, start, stop, supportedLocales, toast } from "@gardenerim/css/runtime";
 export * from "./types.js";
 export * from "./component.js";
 export * from "./provider.js";

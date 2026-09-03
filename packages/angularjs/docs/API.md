@@ -1,4 +1,4 @@
-# Gardenerim AngularJS 2.0.0 API
+# Gardenerim AngularJS 2.1.0 API
 
 > AngularJS 1.x 已结束官方支持。本适配层用于经过验证的 AngularJS 1.8.2–1.8.3 遗留系统，并将 `angular` 保持为外部 peer dependency。应用仍需自行执行 CSP、依赖审计、输入净化与迁移计划；Gardenerim 不会掩盖或改写 AngularJS 自身的安全边界。完整要求见 [安全基线](./security.md)。
 

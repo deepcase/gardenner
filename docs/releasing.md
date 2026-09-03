@@ -1,10 +1,12 @@
 # Release process
 
-Gardenerim packages are versioned independently; this workspace prepares all official packages on the 2.0.0 release line. This is not a publication record. A release is complete only when source, generated output, metadata, docs, and package-manager artifacts agree.
+Gardenerim packages are versioned independently. Version 2.1.0 is the current release line: all four npm packages and the NuGet package are published and publicly verified. The [2.1.0 publication receipt](release-2.1-publication.json) records artifact hashes and registry verification. A release is complete only when source, generated output, metadata, docs, and package-manager artifacts agree.
+
+The 2.1.0 release state passed the complete local release matrix. Results and measured artifacts are recorded in the [2.1.0 verification report](release-2.1-verification.md); registry publication details remain in the separate publication receipt.
 
 ## Brand and API rename
 
-The requested removal of old Gardener exports is prepared as 2.0.0. See [migration guide](migration-2.0.md). All JavaScript entrypoints are checked by `npm run verify:exports`; no old brand alias is retained. The frozen 1.0.0 export snapshot is retained for rename mapping, while generated adapter compatibility manifests establish the new 2.0.0 baseline. Publishing still requires a separate explicit request.
+The requested removal of old Gardener exports was released as 2.0.0 following explicit user authorization. See [migration guide](migration-2.0.md). All JavaScript entrypoints are checked by `npm run verify:exports`; no old brand alias is retained. The frozen 1.0.0 export snapshot is retained for rename mapping, while generated adapter compatibility manifests establish the new 2.0.0 baseline. Future releases still require explicit authorization.
 
 The DataGrid data engine adds runtime code. Its measured initial increase over the existing 0.9 baseline is about 7.5% raw and 11.1% Brotli; only this artifact receives a documented 10% raw / 13% compressed growth allowance and 110 KB raw / 30 KB gzip / 26 KB Brotli absolute limits. CSS and other artifact budgets remain unchanged. Re-measure after any edits; do not silently rebaseline generated metrics.
 
@@ -12,7 +14,25 @@ The Vue packed-file limit is 102 (previously 100): `/contracts` contributes exac
 
 The working tree now uses the Gardenerim brand, including public API names such as `createGardenerimVue`, `GardenerimProvider`, and the `Gardenerim.Blazor` NuGet package and namespace. The npm scope remains `@gardenerim`.
 
-The four npm packages at version 1.0.0 have already been published and must not be overwritten or republished from this changed working tree. Renamed public exports are a breaking change: obtain approval for the next major version and update package versions, CSS peer dependency lower bounds, release guards, and changelogs together before publishing the renamed npm packages. Do not deploy examples of renamed APIs against the already-published npm 1.0.0 artifacts. The separately named `Gardenerim.Blazor` package was submitted to NuGet at version 1.0.0 on 2026-08-31; do not resubmit or overwrite that version.
+The four npm packages at version 1.0.0 have already been published and must not be overwritten or republished from this changed working tree. Renamed public exports are a breaking change, released with the approved 2.0.0 versions, CSS peer dependency range `>=2.0.0 <3.0.0`, release guards, and changelogs updated together. Do not deploy examples of renamed APIs against the already-published npm 1.0.0 artifacts. The separately named `Gardenerim.Blazor` package was submitted to NuGet at version 1.0.0 on 2026-08-31; do not resubmit or overwrite that version.
+
+## 2.1.0 publication record
+
+- Published on 2026-09-02: `@gardenerim/css`, `@gardenerim/vue`, `@gardenerim/react`, and `@gardenerim/angularjs`, all version 2.1.0 under MIT.
+- All four npm `latest` tags point to 2.1.0, and the downloaded public tarballs match the recorded release hashes.
+- `Gardenerim.Blazor` 2.1.0 main and symbol packages were accepted by NuGet; the indexed main package passed repository-signature, payload, isolated-consumer, Razor/DI, SSR, and static-asset HTTP verification.
+- The complete verification matrix, artifact measurements, public-consumer results, and package hashes are recorded in the [verification report](release-2.1-verification.md) and [publication receipt](release-2.1-publication.json).
+- Source tagging, pushing, and website deployment remain separate release actions and are not implied by package publication.
+
+## 2.0.0 publication record
+
+- Published on 2026-08-31: `@gardenerim/css`, `@gardenerim/vue`, `@gardenerim/react`, `@gardenerim/angularjs`, and `Gardenerim.Blazor`, all version 2.0.0 under MIT.
+- All four npm `latest` tags point to 2.0.0. Downloaded public tarballs match the frozen release artifacts by byte length, SHA-1, and SHA-512.
+- A fresh public-source npm consumer passed all 326 entrypoint resolutions, 4,864 export-name checks, Vue/React SSR, AngularJS compilation/model binding, DataGrid virtualized sorting/selection/editing, and TypeScript contract positive/negative tests.
+- npm publication used the existing CLI account with user-completed browser 2FA. Local publication used `--provenance=false`; this release does not claim GitHub Actions provenance or a CI attestation. The repository's CI publishing configuration was not changed.
+- NuGet accepted both the main package and symbols. The public main package passed repository-signature and payload verification, isolated-cache restore/publish, 506-component SSR and Razor/DI checks, and HTTP checks for all 44 static assets.
+- The complete local release gate passed with Firefox required; an additional .NET 11 Preview consumer build passed. Detailed results are recorded in the [verification report](release-2.0-verification.md) and [publication receipt](release-2.0-publication.json).
+- This publication did not push source changes, create a Git tag/release, or deploy the documentation website. Those actions are separate from publishing the package registries.
 
 ## NuGet 1.0.0 publication record
 
@@ -54,19 +74,10 @@ The release gate must pass without increasing a performance budget merely to hid
 2. Publish Vue, React, and AngularJS adapters after their peer range accepts the released CSS version.
 3. Pack and publish `Gardenerim.Blazor`.
 4. Build and deploy the website from the exact released package state.
-5. Create a signed repository tag and release notes that link package changelogs and call out migrations or deprecations.
+5. Create a signed `v<version>` repository tag and release notes that link package changelogs and call out migrations or deprecations.
 
-Registry credentials and signing keys must come from protected CI environments, never committed files. Test publication in a temporary consumer before promoting a release tag. The official npm scope is `@gardenerim`, the NuGet package ID is `Gardenerim.Blazor`, and release metadata points to `https://github.com/deecase/gardener`.
+Registry credentials and signing keys must come from protected CI environments, never committed files. Test publication in a temporary consumer before promoting a release tag. The official npm scope is `@gardenerim`, the NuGet package ID is `Gardenerim.Blazor`, and release metadata points to `https://github.com/deepcase/gardenner`.
 
-The first npm release uses a short-lived granular access token stored as the
-`NPM_TOKEN` GitHub Actions secret. Grant it read/write access to the
-`@gardenerim` scope, enable bypass 2FA only for this bootstrap run, and revoke
-it immediately after all four packages exist. Then configure each package's
-trusted publisher for repository `deecase/gardener`, workflow `publish.yml`,
-environment `release`, and the `npm publish` action. Future releases use OIDC
-and require no npm token.
+Configure each npm package's trusted publisher for repository `deepcase/gardenner`, workflow `publish.yml`, and environment `release`. The workflow publishes with GitHub OIDC and provenance; it must not receive `NPM_TOKEN` or `NODE_AUTH_TOKEN`.
 
-Before the first NuGet release, create a pending trusted-publishing policy for
-owner `deecase`, repository `gardener`, workflow `publish.yml`, and environment
-`release` under the `gardenerim` NuGet account. The workflow exchanges its
-GitHub OIDC identity for a one-hour NuGet API key immediately before upload.
+Configure the NuGet trusted-publishing policy for owner `deepcase`, repository `gardenner`, workflow `publish.yml`, and environment `release` under the `gardenerim` NuGet account. The workflow exchanges its GitHub OIDC identity for a temporary NuGet API key immediately before upload.

@@ -24,6 +24,8 @@ const requiredFiles = [
   ".github/dependabot.yml",
   ".github/workflows/ci.yml",
   ".github/workflows/blazor.yml",
+  ".github/workflows/publish.yml",
+  ".github/workflows/security.yml",
   ".github/ISSUE_TEMPLATE/bug_report.yml",
   ".github/ISSUE_TEMPLATE/config.yml",
   ".github/ISSUE_TEMPLATE/feature_request.yml",
@@ -36,6 +38,9 @@ const packages = new Map([
   ["packages/angularjs", "@gardenerim/angularjs"],
   ["packages/blazor", "@gardenerim/blazor-workspace"],
 ]);
+const rootManifest = JSON.parse(await readFile(resolve(root, "package.json"), "utf8"));
+const expectedVersion = rootManifest.version;
+const canonicalRepository = "git+https://github.com/deepcase/gardenner.git";
 
 for (const file of requiredFiles) {
   await access(resolve(root, file)).catch(() => errors.push(`Missing repository file: ${file}`));
@@ -52,13 +57,26 @@ for (const [directory, expectedName] of packages) {
   try {
     const manifest = JSON.parse(await readFile(resolve(root, directory, "package.json"), "utf8"));
     if (manifest.name !== expectedName) errors.push(`${directory}/package.json has package name ${manifest.name}`);
-    if (manifest.version !== "2.0.0") errors.push(`${expectedName} is not at version 2.0.0`);
+    if (manifest.version !== expectedVersion) errors.push(`${expectedName} is not at version ${expectedVersion}`);
     if (manifest.license !== "MIT") errors.push(`${expectedName} does not declare the repository MIT license`);
+    if (manifest.repository?.url !== canonicalRepository) errors.push(`${expectedName} does not use the canonical repository URL`);
     await access(resolve(root, directory, "LICENSE")).catch(() => errors.push(`${expectedName} is missing a package-local LICENSE`));
   } catch (error) {
     errors.push(`Cannot read ${directory}/package.json: ${error.message}`);
   }
 }
+
+if (rootManifest.repository?.url !== canonicalRepository) errors.push("Root package does not use the canonical repository URL");
+const securityPolicy = await readFile(resolve(root, "SECURITY.md"), "utf8");
+const currentMajor = expectedVersion.split(".")[0];
+if (!securityPolicy.includes(`| ${currentMajor}.x | Security fixes and compatibility maintenance |`)) {
+  errors.push(`SECURITY.md does not support the current ${currentMajor}.x line`);
+}
+const workflows = await Promise.all(["ci.yml", "blazor.yml", "publish.yml", "security.yml"].map((name) => readFile(resolve(root, ".github", "workflows", name), "utf8")));
+if (workflows.some((content) => /uses:\s+[^\s@]+@v\d+(?:\s|$)/.test(content))) errors.push("GitHub Actions must be pinned to immutable commit SHAs");
+const publishWorkflow = workflows[2];
+if (publishWorkflow.includes("NPM_TOKEN") || publishWorkflow.includes("NODE_AUTH_TOKEN")) errors.push("npm publishing must use OIDC without a long-lived registry token");
+if (!publishWorkflow.includes("npm publish --access public --provenance")) errors.push("npm publishing must generate provenance");
 
 const ignoredDirectories = new Set([
   ".git",

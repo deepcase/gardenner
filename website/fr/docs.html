@@ -44,7 +44,7 @@
           ><span class="site-brand-mark" aria-hidden="true">G</span
           ><span>Gardenerim</span></a
         >
-        <span class="g-badge">Docs 2.0.0</span>
+        <span class="g-badge">Docs 2.1.0</span>
         <div class="site-nav-links" id="site-menu">
           <a class="site-nav-link" href="./index.html">Page d'accueil</a>
           <details class="site-nav-dropdown">
@@ -321,7 +321,7 @@
               <span class="g-badge">42 thèmes</span
               ><span class="g-badge">506 composants</span
               ><span class="g-badge">11 498 services publics</span
-              ><span class="g-badge">66 comportements</span
+              ><span class="g-badge">72 comportements</span
               ><span class="g-badge">52 recettes</span>
             </div>
           </header>
@@ -498,14 +498,14 @@ import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
           <section class="docs-section" id="vue">
             <h2>Projet Gardenerim Vue 3</h2>
             <p>
-              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> est la couche d'adaptation officielle Vue 3 de Gardenerim CSS 2.0.0, la version actuelle est
-              <strong>2.0.0 Stable</strong>, supports Vue
+              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> est la couche d'adaptation officielle Vue 3 de Gardenerim CSS 2.1.0, la version actuelle est
+              <strong>2.1.0 Stable</strong>, supports Vue
               <code>&gt;=3.4.0 &lt;4.0.0</code> avec Node.js
-              <code>&gt;=18.18</code>. Il mappe les 506 composants CSS et les 66 comportements DOM élément par élément, tout en fournissant 538 exportations d'exécution racine, 21 exportations de type TypeScript, 29 points d'entrée de package et 28 proxys de package CSS de composants.
+              <code>&gt;=18.18</code>. Il mappe les 506 composants CSS et les 72 comportements DOM élément par élément, tout en fournissant 546 exportations d'exécution racine, 21 exportations de type TypeScript, 30 points d'entrée de package et 28 proxys de package CSS de composants.
             </p>
             <div class="docs-api-stats" aria-label="Vue projet public API échelle">
               <div><strong>506</strong><span>Composante G*</span></div>
-              <div><strong>538</strong><span>Exportation du runtime racine</span></div>
+              <div><strong>546</strong><span>Exportation du runtime racine</span></div>
               <div><strong>30</strong><span>Entrée publique de colis</span></div>
               <div><strong>28</strong><span>Paquet de composants CSS</span></div>
             </div>
@@ -523,8 +523,8 @@ import App from &quot;./App.vue&quot;;
 createApp(App).use(GardenerimVue).mount(&quot;#app&quot;);</code></pre>
             </div>
             <p>
-              Couverture complète des options de plug-in <code>prefix</code>、<code>components</code>、<code>directive</code>
-              et <code>initialize</code>. Besoin de personnaliser le préfixe, d'enregistrer uniquement certains composants, de fermer
+              Couverture complète des options de plug-in <code>prefix</code>、<code>components</code>、<code>directive</code>、
+              <code>initialize</code>、<code>locale</code> et <code>messages</code>. Besoin de personnaliser le préfixe, d'enregistrer uniquement certains composants, de fermer
               <code>v-gardenerim</code> ou l'initialisation d'exécution différée doit être transmise
               <code>createGardenerimVue(options)</code> Créez un plug-in.
             </p>
@@ -603,12 +603,13 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <code>modelEvent</code> et <code>modelKey</code> Événements personnalisés Bridge Gardenerim selon le même protocole.
             </p>
 
-            <h3>Tous les 7</h3>
+            <h3>Tous les 8</h3>
             <div class="docs-runtime-grid">
               <div class="docs-runtime-item"><code>useGardenerim</code><small>Capacités d'accès, d'initialisation et de destruction</small></div>
               <div class="docs-runtime-item"><code>useGardenerimBehavior</code><small>Comportement du bind et instances d'accès</small></div>
               <div class="docs-runtime-item"><code>useGardenerimEvent</code><small>Écoute sécuritaire pour jardinier :* événements</small></div>
               <div class="docs-runtime-item"><code>useGardenerimTheme</code><small>Lire et mettre à jour l'état du thème dix axes</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimLocale</code><small>Lire et mettre à jour la langue d’exécution et les remplacements de messages</small></div>
               <div class="docs-runtime-item"><code>useGardenerimToast</code><small>Créer et gérer des Toasts</small></div>
               <div class="docs-runtime-item"><code>useTauriWindowControls</code><small>Bouton de fenêtre Bind Tauri et cycle de destruction</small></div>
               <div class="docs-runtime-item"><code>useElectronWindowControls</code><small>Liaison du pont de sécurité et du cycle de destruction Electron</small></div>
@@ -642,7 +643,7 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
 
             <h3>Exportations de produits non-composants et types TypeScript</h3>
             <p>
-              32 runtimes non-composants exportés sous :<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerimComponent</code>、<code>createGardenerimVue</code>、<code>default</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>toast</code>, 7 Composables et <code>vGardenerim</code>。
+              40 runtimes non-composants exportés sous :<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createGardenerimComponent</code>、<code>createGardenerimVue</code>、<code>default</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimLocale</code>、<code>useGardenerimTheme</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>、<code>vGardenerim</code>。
             </p>
             <p>
               21 types exportés sous :<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentPublicInstance</code>、<code>GardenerimConfigValue</code>、<code>GardenerimDirectiveOptions</code>、<code>GardenerimDirectiveValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimVueComponentName</code>、<code>GardenerimVueOptions</code>。
@@ -653,8 +654,8 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <a href="../../packages/vue/metadata/public-api.json">API publique</a>、<a href="../../packages/vue/metadata/compatibility.json">Compatibilité</a>
               et <a href="../../packages/vue/dist/gardener-vue.performance.json">Rendement</a>
               Les deux ont des schémas JSON qui éteignent les champs inconnus;<a href="../../packages/vue/dist/catalog.json">Catalogue des composants JSON</a>
-              Lisible directement par l'IA, les générateurs de code et les outils de documentation. Le budget pour le package entièrement compressé est de 328 220 B raw, 51 602 B gzip, 26 926 B Brotli ; célibataire
-              <code>GButton</code> Le résultat réel de la secousse de l'arbre est de 3 718 B. La version déterministe couvre 87 fichiers, le package npm vérifie 98 fichiers, 284 183 B compressés, 3 729 929 B décompressés.
+              Lisible directement par l'IA, les générateurs de code et les outils de documentation. Le budget pour le package entièrement compressé est de 330 691 B raw, 52 236 B gzip, 27 220 B Brotli ; célibataire
+              <code>GButton</code> Le résultat réel de la secousse de l'arbre est de 3 718 B. La version déterministe couvre 91 fichiers, le package npm vérifie 102 fichiers, 284 183 B compressés, 3 729 929 B décompressés.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd vue
@@ -686,14 +687,14 @@ npm run release:verify
           <section class="docs-section" id="react">
             <h2>Gardenerim React Projet</h2>
             <p>
-              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> est la couche d'adaptation officielle React de Gardenerim CSS 2.0.0, la version actuelle est
-              <strong>2.0.0 Stable</strong>, prend en charge React
+              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> est la couche d'adaptation officielle React de Gardenerim CSS 2.1.0, la version actuelle est
+              <strong>2.1.0 Stable</strong>, prend en charge React
               <code>&gt;=18.3.0 &lt;20.0.0</code> avec Node.js
-              <code>&gt;=18.18</code>. Il mappe les 506 composants CSS et les 66 comportements DOM élément par élément, tout en fournissant 538 exportations d'exécution racine, 22 exportations de type TypeScript, 29 points d'entrée de packages publics et 28 proxys de packages CSS de composants.
+              <code>&gt;=18.18</code>. Il mappe les 506 composants CSS et les 72 comportements DOM élément par élément, tout en fournissant 546 exportations d'exécution racine, 22 exportations de type TypeScript, 30 points d'entrée de packages publics et 28 proxys de packages CSS de composants.
             </p>
             <div class="docs-api-stats" aria-label="React projet public API échelle">
               <div><strong>506</strong><span>Composante G*</span></div>
-              <div><strong>538</strong><span>Exportation du runtime racine</span></div>
+              <div><strong>546</strong><span>Exportation du runtime racine</span></div>
               <div><strong>30</strong><span>Entrée publique de colis</span></div>
               <div><strong>28</strong><span>Paquet de composants CSS</span></div>
             </div>
@@ -787,15 +788,16 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 /&gt;</code></pre>
             </div>
             <p>
-              <code>useGardenerimBehavior</code> Lier 66 comportements à un élément, un document ou un composant. Les manipuler et les détruire au déchargement ;<code>initialize</code> L'initialisation automatique des composants peut être désactivée pour faciliter la prise en charge unifiée par le moteur d'exécution au niveau de la page. Le comportement consistant à transmettre explicitement un attribut de données est prioritaire sur la génération d'une valeur par défaut.
+              <code>useGardenerimBehavior</code> Lier 72 comportements à un élément, un document ou un composant. Les manipuler et les détruire au déchargement ;<code>initialize</code> L'initialisation automatique des composants peut être désactivée pour faciliter la prise en charge unifiée par le moteur d'exécution au niveau de la page. Le comportement consistant à transmettre explicitement un attribut de données est prioritaire sur la génération d'une valeur par défaut.
             </p>
 
-            <h3>Tous les 7 crochets</h3>
+            <h3>Tous les 8 crochets</h3>
             <div class="docs-runtime-grid">
               <div class="docs-runtime-item"><code>useGardenerim</code><small>Capacités d'accès, d'initialisation, d'observation et de destruction</small></div>
               <div class="docs-runtime-item"><code>useGardenerimBehavior</code><small>Comportement du bind et instances d'accès</small></div>
               <div class="docs-runtime-item"><code>useGardenerimEvent</code><small>Écoute sécuritaire pour jardinier :* événements</small></div>
               <div class="docs-runtime-item"><code>useGardenerimTheme</code><small>Lire et mettre à jour l'état du thème dix axes</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimLocale</code><small>Lire et mettre à jour la langue d’exécution et les remplacements de messages</small></div>
               <div class="docs-runtime-item"><code>useGardenerimToast</code><small>Créer et gérer des Toasts</small></div>
               <div class="docs-runtime-item"><code>useTauriWindowControls</code><small>Bouton de fenêtre Bind Tauri et cycle de destruction</small></div>
               <div class="docs-runtime-item"><code>useElectronWindowControls</code><small>Liaison du pont de sécurité et du cycle de destruction Electron</small></div>
@@ -842,7 +844,7 @@ function WindowChrome() {
 
             <h3>Exportations de produits non-composants et types TypeScript</h3>
             <p>
-              32 runtimes non-composants exportés sous :<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerimComponent</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>resolveGardenerimTarget</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimTheme</code>、<code>useGardenerimThemeContext</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>。
+              40 runtimes non-composants exportés sous :<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createGardenerimComponent</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>resolveGardenerimTarget</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimLocale</code>、<code>useGardenerimTheme</code>、<code>useGardenerimThemeContext</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>。
             </p>
             <p>
               22 types exportés sous :<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentProps</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimGeneratedComponent</code>、<code>GardenerimOwnProps</code>、<code>GardenerimPlatform</code>、<code>GardenerimReactComponentName</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChange</code>。
@@ -853,8 +855,8 @@ function WindowChrome() {
               <a href="../../packages/react/metadata/public-api.json">API publique</a>、<a href="../../packages/react/metadata/compatibility.json">Compatibilité</a>
               et <a href="../../packages/react/dist/gardener-react.performance.json">Rendement</a>
               Tous deux validés par JSON Schema avec des champs inconnus désactivés;<a href="../../packages/react/dist/catalog.json">Catalogue des composants JSON</a>
-              Lisible directement par l'IA, les générateurs de code et les outils de documentation. La mesure réelle de l'emballage entièrement compressé est de 326 064 B raw, 50 126 B gzip, 26 381 B Brotli ; célibataire
-              <code>GButton</code> Le résultat réel de l'arborescence est de 2 599 B. La version déterministe couvrait 87 fichiers, le package npm a vérifié 98 fichiers, 262 706 B compressés, 2 438 775 B décompressés et l'audit de sécurité des dépendances de production ne comportait aucune vulnérabilité.
+              Lisible directement par l'IA, les générateurs de code et les outils de documentation. La mesure réelle de l'emballage entièrement compressé est de 328 129 B raw, 50 581 B gzip, 26 733 B Brotli ; célibataire
+              <code>GButton</code> Le résultat réel de l'arborescence est de 2 599 B. La version déterministe couvrait 91 fichiers, le package npm a vérifié 102 fichiers, 262 706 B compressés, 2 438 775 B décompressés et l'audit de sécurité des dépendances de production ne comportait aucune vulnérabilité.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd react
@@ -887,10 +889,10 @@ npm run release:verify
             <h2>Gardenerim AngularJS Projet</h2>
             <p>
               <a href="../../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
-              est la couche officielle d'adaptation du système AngularJS 1.x pour Gardenerim CSS 2.0.0, la version actuelle est
-              <strong>2.0.0 Stable</strong>. Il valide AngularJS
+              est la couche officielle d'adaptation du système AngularJS 1.x pour Gardenerim CSS 2.1.0, la version actuelle est
+              <strong>2.1.0 Stable</strong>. Il valide AngularJS
               <code>&gt;=1.8.2 &lt;1.9.0</code> avec Node.js
-              <code>&gt;=18.18</code>, mappage élément par élément des 506 composants CSS et des 66 comportements DOM, et fournit 535 exportations d'exécution racine, 24 exportations de type TypeScript, 29 points d'entrée de packages publics et 28 proxys de packages CSS de composants.
+              <code>&gt;=18.18</code>, mappage élément par élément des 506 composants CSS et des 72 comportements DOM, et fournit 542 exportations d'exécution racine, 24 exportations de type TypeScript, 30 points d'entrée de packages publics et 28 proxys de packages CSS de composants.
             </p>
             <div class="docs-warning docs-callout">
               <strong>Limites du système hérité :</strong>AngularJS a mis fin au support officiel et il n'existe aucun avis de sécurité connu pour le framework lui-même qui n'ait pas de correctifs en amont. Cette couche d'adaptation
@@ -899,7 +901,7 @@ npm run release:verify
             </div>
             <div class="docs-api-stats" aria-label="Échelle d'API publique du projet AngularJS">
               <div><strong>506</strong><span>Générer des instructions de composant</span></div>
-              <div><strong>535</strong><span>Exportation du runtime racine</span></div>
+              <div><strong>542</strong><span>Exportation du runtime racine</span></div>
               <div><strong>30</strong><span>Entrée publique de colis</span></div>
               <div><strong>28</strong><span>Paquet de composants CSS</span></div>
             </div>
@@ -1041,7 +1043,7 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
 
             <h3>Exportations de produits non-composants et types TypeScript</h3>
             <p>
-              29 runtimes non-composants exportés sous :<code>GARDENERIM_ANGULARJS_MODULE</code>、<code>Gardenerim</code>、<code>GardenerimRuntimeFactory</code>、<code>GardenerimThemeFactory</code>、<code>GardenerimToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createElectronWindowService</code>、<code>createGardenerimAngularJS</code>、<code>createGardenerimComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimBehaviorDirective</code>、<code>gardenerimDirectives</code>、<code>gardenerimProviderDirective</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
+              36 runtimes non-composants exportés sous :<code>GARDENERIM_ANGULARJS_MODULE</code>、<code>Gardenerim</code>、<code>GardenerimRuntimeFactory</code>、<code>GardenerimThemeFactory</code>、<code>GardenerimToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createElectronWindowService</code>、<code>createGardenerimAngularJS</code>、<code>createGardenerimComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimBehaviorDirective</code>、<code>gardenerimDirectives</code>、<code>gardenerimProviderDirective</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
             </p>
             <p>
               24 types exportés sous :<code>GardenerimAngularJSComponentExportName</code>、<code>GardenerimAngularJSComponentName</code>、<code>GardenerimAngularJSDirectiveFactory</code>、<code>GardenerimAngularJSDirectiveName</code>、<code>GardenerimAngularJSModule</code>、<code>GardenerimAngularJSOptions</code>、<code>GardenerimAngularJSStatic</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimRuntimeService</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeAxis</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChangeLocals</code>。
@@ -1052,8 +1054,8 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               <a href="../../packages/angularjs/metadata/public-api.json">API publique</a>、<a href="../../packages/angularjs/metadata/compatibility.json">Compatibilité</a> et
               <a href="../../packages/angularjs/dist/gardener-angularjs.performance.json">Rendement</a>
               Les deux sont validés par JSON Schema avec des champs inconnus désactivés; les plages de support AngularJS sont également écrites à la base de compatibilité lisible par machine.<a href="../../packages/angularjs/dist/catalog.json">Catalogue des composants JSON</a>
-              Lisible directement par l'IA, les générateurs de code et les outils de documentation. La mesure réelle du package entièrement compressé est de 404 094 B raw, 59 499 B gzip, 29 785 B Brotli ; célibataire
-              <code>GButtonDirective</code> est de 4 515 B. La version déterministe couvrait 83 fichiers, la vérification du package npm 95 fichiers, 325 747 B compressés, 2 938 245 B décompressés, l'audit de charge de production de Gardenerim était de 0 vulnérabilité.
+              Lisible directement par l'IA, les générateurs de code et les outils de documentation. La mesure réelle de l'emballage entièrement compressé est de 405 932 B raw, 59 850 B gzip, 30 016 B Brotli ; célibataire
+              <code>GButtonDirective</code> est de 4 515 B. La version déterministe couvrait 87 fichiers, la vérification du package npm 99 fichiers, 325 747 B compressés, 2 938 245 B décompressés, l'audit de charge de production de Gardenerim était de 0 vulnérabilité.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
@@ -1090,21 +1092,21 @@ npm run release:verify
             <h2>Gardenerim Blazor Projet</h2>
             <p>
               <a href="../../packages/blazor/README.md"><code>Gardenerim.Blazor</code></a>
-              est la bibliothèque officielle de classe Razor pour Gardenerim CSS 2.0.0, la version actuelle est
-              <strong>2.0.0 Stable</strong>. stabiliser les actifs pour <code>net10.0</code>
+              est la bibliothèque officielle de classe Razor pour Gardenerim CSS 2.1.0, la version actuelle est
+              <strong>2.1.0 Stable</strong>. stabiliser les actifs pour <code>net10.0</code>
               Compilé et vérifié avec un consommateur NuGet indépendant <code>net11.0</code>; S'applique à Blazor Web App Static SSR, Interactive Server, Interactive WebAssembly, Auto, Standalone WebAssembly, Hybrid et Desktop WebView.
             </p>
             <div class="docs-api-stats" aria-label="Échelle d'API publique du projet Blazor">
               <span><strong>506</strong> Composants du rasoir</span>
-              <span><strong>66</strong> Comportement DOM</span>
-              <span><strong>75</strong> Événements d'exécution</span>
-              <span><strong>28</strong> Type de cadre</span>
-              <span><strong>43</strong> Ressources statiques</span>
+              <span><strong>72</strong> Comportement DOM</span>
+              <span><strong>79</strong> Événements d'exécution</span>
+              <span><strong>31</strong> Type de cadre</span>
+              <span><strong>45</strong> Ressources statiques</span>
             </div>
 
             <h3>Installation, enregistrement et ressources statiques</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.0.0&quot; /&gt;</code></pre>
+              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.1.0&quot; /&gt;</code></pre>
               <pre class="site-code"><code>builder.Services.AddGardenerimBlazor();
 
 var app = builder.Build();
@@ -1151,7 +1153,7 @@ app.MapStaticAssets();</code></pre>
               <code>EditForm</code>、<code>EditContext</code>, DataAnnotations, statut de validation, saisie, sélection et zone de texte.
             </p>
 
-            <h3>Reliure de valeur, 75 événements et 7 caches de synchronisation</h3>
+            <h3>Liaison de valeur, 79 événements et 7 gardes de synchronisation</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;GCard Value=&quot;@selection&quot;
        ValueChanged=&quot;@(value =&gt; selection = value)&quot;
@@ -1172,30 +1174,30 @@ app.MapStaticAssets();</code></pre>
             <p>
               <code>Value/ValueChanged</code> Gérer les entrées/modifications natives,<code>ValueEvent</code> et
               <code>ValueKey</code> Gestion des CustomEvents complexes. Les valeurs sont converties en chaînes .NET, booléennes, nombres, tableaux ou dictionnaires ; DOM, File, BigInt, fonctions et références circulaires sont sérialisés en toute sécurité.
-              <code>GardenerimEvents.All</code> Exposer les 75 événements,<code>GardenerimEvents.Guards</code>
+              <code>GardenerimEvents.All</code> Exposer les 79 événements,<code>GardenerimEvents.Guards</code>
               Exposé beforeapproval, beforeclose, beforefilepicker, beforeopen, beforepromptstop, beforepromptsubmit, beforetabclose 7 événements de garde qui doivent être bloqués de manière synchrone avant les limites asynchrones JS/.NET. Les membres comportementaux et les contrats détaillés de l'événement sont disponibles auprès de
               <code>GardenerimRuntimeCatalog</code> Requête.
             </p>
 
             <h3>Thèmes, services et ponts de bureau</h3>
             <p>
-              <code>GardenerimProvider</code> Thème de support, mode, neutre, typographie, forme, densité, élévation, mouvement, plate-forme, thème imbriqué à dix axes ;<code>GardenerimThemePresets.All</code> Contient 42 thèmes de couleurs, avec un fond blanc clair par défaut et de petits coins arrondis. Les 5 services de portée sont <code>GardenerimRuntime</code>、<code>GardenerimThemeService</code>、<code>GardenerimToastService</code>、<code>GardenerimTauriService</code>、<code>GardenerimElectronService</code>. Desktop Bridge appelle uniquement les objets de liste blanche explicitement exposés par la couche de préchargement de l'hôte et n'ouvre pas les capacités globales de Node.
+              <code>GardenerimProvider</code> Thème de support, mode, neutre, typographie, forme, densité, élévation, mouvement, plate-forme, thème imbriqué à dix axes ;<code>GardenerimThemePresets.All</code> Contient 42 thèmes de couleurs, avec un fond blanc clair par défaut et de petits coins arrondis. Les 6 services de portée sont <code>GardenerimRuntime</code>、<code>GardenerimLocalizationService</code>、<code>GardenerimThemeService</code>、<code>GardenerimToastService</code>、<code>GardenerimTauriService</code>、<code>GardenerimElectronService</code>. Desktop Bridge appelle uniquement les objets de liste blanche explicitement exposés par la couche de préchargement de l'hôte et n'ouvre pas les capacités globales de Node.
             </p>
 
             <h3>Types publics complets et contrats lisibles par machine</h3>
             <p>
-              Les 28 types de trames sont :<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
+              Les 31 types de trames sont :<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimLocalizationOptions</code>、<code>GardenerimLocalizationService</code>、<code>GardenerimLocalizationState</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
             </p>
             <p>
               <a href="../../packages/blazor/metadata/public-api.json">API publique Blazor</a>、<a href="../../packages/blazor/metadata/components.json">Métadonnées des composantes</a>、<a href="../../packages/blazor/metadata/compatibility.json">Compatibilité</a>、<a href="../../packages/blazor/artifacts/gardener-blazor.performance.json">Rendement</a>
               Les deux ont fermé JSON Schema. La documentation lisible comprend également
-              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">66 comportements</a>、<a href="../../packages/blazor/docs/events.md">75 événements</a>、<a href="../../packages/blazor/docs/assets.md">43 ressources statiques</a>、<a href="../../packages/blazor/docs/runtime.md">Durée</a>、<a href="../../packages/blazor/docs/accessibility.md">Accessibilité et SSR</a> et
+              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">72 comportements</a>、<a href="../../packages/blazor/docs/events.md">79 événements</a>、<a href="../../packages/blazor/docs/assets.md">45 ressources statiques</a>、<a href="../../packages/blazor/docs/runtime.md">Durée</a>、<a href="../../packages/blazor/docs/accessibility.md">Accessibilité et SSR</a> et
               <a href="../../packages/blazor/docs/release.md">Contrôle d'accès à la mainlevée</a>。
             </p>
 
-            <h3>2.0.0 Qualité de sortie</h3>
+            <h3>2.1.0 Qualité de sortie</h3>
             <p>
-              Version de version avec 0 avertissement, 0 erreur ; 506 composants ont tous réussi le véritable SSR statique. Browser Matrix couvre Chromium, Firefox, WebKit, les fenêtres de bureau et mobiles, le clavier et Axe WCAG A/AA ; CI impose Firefox. NuGet utilise un cache isolé pour publier des applications grand public et valider les manifestes de points de terminaison statiques des actifs Web ; il existe également un consommateur de package .NET 11 Preview autonome. L'assemblage mesuré est de 343 552 B, 43 ressources statiques au total 7 608 327 B, CSS gzip 139 269 B, runtime gzip 25 989 B, Blazor bridge gzip 2 054 B, nupkg environ 1,22 Mio, en dessous de la limite stricte de 6 000 000 B ; le tout en dessous du budget strict et des DLL/XML reproductibles.
+              Version de version avec 0 avertissement, 0 erreur ; 506 composants ont tous réussi le véritable SSR statique. Browser Matrix couvre Chromium, Firefox, WebKit, les fenêtres de bureau et mobiles, le clavier et Axe WCAG A/AA ; CI impose Firefox. NuGet utilise un cache isolé pour publier des applications grand public et valider les manifestes de points de terminaison statiques des actifs Web ; il existe également un consommateur de package .NET 11 Preview autonome. L'assemblage mesuré est de 350 208 B, 45 ressources statiques au total 7 820 065 B, CSS gzip 140 386 B, runtime gzip 33 149 B, Blazor bridge gzip 2 097 B, nupkg environ 1,22 Mio, en dessous de la limite stricte de 6 000 000 B ; le tout en dessous du budget strict et des DLL/XML reproductibles.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd blazor
@@ -2241,7 +2243,7 @@ npm run test:net11</code></pre>
               <div class="g-cluster">
                 <span class="g-badge">Groupe</span
                 ><span class="g-badge">enveloppe</span
-                ><button class="g-btn g-btn-primary g-btn-sm">Action</button>
+                ><button type="button" class="g-btn g-btn-primary g-btn-sm">Action</button>
               </div>
             </div>
             <h3>matrice complète de 22 primitifs</h3>
@@ -2495,8 +2497,8 @@ npm run test:net11</code></pre>
                   ><span class="g-badge g-badge-success">Synchronisé</span>
                 </div>
                 <div class="g-page-header-actions">
-                  <button class="g-btn g-btn-outline g-btn-sm">Aperçu</button
-                  ><button class="g-btn g-btn-primary g-btn-sm">Nouveau</button>
+                  <button type="button" class="g-btn g-btn-outline g-btn-sm">Aperçu</button
+                  ><button type="button" class="g-btn g-btn-primary g-btn-sm">Nouveau</button>
                 </div>
               </header>
               <div class="g-toolbar">
@@ -2507,14 +2509,14 @@ npm run test:net11</code></pre>
                   <span class="g-filter-chip">État : Tous</span>
                 </div>
                 <div class="g-toolbar-end">
-                  <button class="g-btn g-btn-ghost g-btn-sm">Filtre</button>
+                  <button type="button" class="g-btn g-btn-ghost g-btn-sm">Filtre</button>
                 </div>
               </div>
               <div class="g-bulk-action-bar">
                 <strong class="g-bulk-action-count">3 éléments sélectionnés</strong>
                 <div class="g-bulk-action-actions">
-                  <button class="g-btn g-btn-outline g-btn-sm">Déplacement</button
-                  ><button class="g-btn g-btn-danger g-btn-sm">Supprimer</button>
+                  <button type="button" class="g-btn g-btn-outline g-btn-sm">Déplacement</button
+                  ><button type="button" class="g-btn g-btn-danger g-btn-sm">Supprimer</button>
                 </div>
               </div>
               <footer class="g-status-bar">
@@ -4129,8 +4131,8 @@ npm run test:net11</code></pre>
                   >Sélectionné <strong data-g-selection-count>0</strong> poste</span
                 >
                 <div class="g-batch-toolbar-actions">
-                  <button class="g-btn g-btn-primary g-btn-sm">Libération</button
-                  ><button class="g-btn g-btn-outline g-btn-sm">Déplacement</button>
+                  <button type="button" class="g-btn g-btn-primary g-btn-sm">Libération</button
+                  ><button type="button" class="g-btn g-btn-outline g-btn-sm">Déplacement</button>
                 </div>
               </div>
             </div>
@@ -5276,19 +5278,19 @@ npm run test:net11</code></pre>
                       ></span>
                     </div>
                     <div class="g-sku-options">
-                      <button
+                      <button type="button"
                         class="g-sku-option"
                         data-g-sku-option
                         data-g-value="Windows"
                       >
                         Windows</button
-                      ><button
+                      ><button type="button"
                         class="g-sku-option"
                         data-g-sku-option
                         data-g-value="macOS"
                       >
                         macOS</button
-                      ><button
+                      ><button type="button"
                         class="g-sku-option"
                         data-g-sku-option
                         data-g-value="Linux"
@@ -8133,11 +8135,11 @@ npm run test:net11</code></pre>
               >
               Continuer à effectuer quinze ensembles de tests de contrat négatifs et vérifier les références croisées des manifestes, la cohérence du code source et des artefacts de build, les sélecteurs, l'attribution des composants réels, l'intégrité SHA-256/SRI, les commandes de build reproductibles, les types/paramètres/signatures de modules, les membres d'instance, les attributs de données, les charges utiles d'événements, les adaptateurs, les types et les scripts de version, les lignes de base de compatibilité, les archives de build, 42 artefacts budgétaires absolus et relatifs, les résultats budgétaires, les versions et le package complet. exportations.
             </p>
-            <h3>Les 9 modules exportés</h3>
+            <h3>Les 16 modules exportés</h3>
             <div class="docs-runtime-grid" id="public-module-grid">
               <span class="docs-status">Interface module de lecture...</span>
             </div>
-            <h3>Les 66 comportements et membres d'instance</h3>
+            <h3>Les 72 comportements et membres d'instance</h3>
             <p>
               Chaque élément répertorie les propriétés d'initialisation déclaratives, et
               <code>getInstance()</code> Renvoie tous les membres de l'objet qui peuvent être appelés.
@@ -8145,7 +8147,7 @@ npm run test:net11</code></pre>
             <div class="docs-runtime-grid" id="public-behavior-grid">
               <span class="docs-status">Contrat de lecture de comportement...</span>
             </div>
-            <h3>Tous les 75 événements et charges utiles</h3>
+            <h3>Les 79 événements et charges utiles</h3>
             <p>
               Répertoriez chaque élément dans son intégralité
               <code>CustomEvent.detail</code> ; les événements bouillonnent et peuvent être annulés pour
@@ -8157,7 +8159,7 @@ npm run test:net11</code></pre>
             </div>
             <h3>Tous les attributs de données d'exécution</h3>
             <p>
-              Les 310 propriétés disponibles pour l'auteur sont divisées en 66 entrées de comportement dans le contrat de comportement ci-dessus, 167 sélecteurs de structure/action et 77 propriétés de configuration supplémentaires; il y a également 27 propriétés d'état maintenues par l'exécution. Les propriétés d'état peuvent être lues simultanément comme configuration initiale, mais les trois premiers ensembles disponibles pour l'auteur sont mutuellement exclusifs et ne sont pas comptés en double.
+              Les 331 propriétés disponibles à l'auteur sont divisées en 72 entrées de comportement dans le contrat de comportement ci-dessus, 178 sélecteurs de structure/action et 81 propriétés de configuration supplémentaires ; il existe également 29 propriétés d'état gérées par le runtime. Les propriétés d'état peuvent être lues simultanément en tant que configuration initiale, mais les trois premiers ensembles disponibles pour l'auteur s'excluent mutuellement et ne sont pas comptés deux fois.
             </p>
             <h4>Sélecteur de structure et d'action</h4>
             <div class="docs-runtime-grid" id="public-selector-attribute-grid">
@@ -8183,7 +8185,7 @@ npm run test:net11</code></pre>
               Le champ de spécification du manifeste est <code>behaviors</code>. vieux champ
               <code>runtimeBehaviors</code> Partout
               <code>0.x</code> Ligne de version réservée comme alias compatible en lecture seule ; vieux
-              <code>metadata/schema.json</code> Continuez à pointer vers le nouveau schéma de composants. 2.0.0 promeut le contrat public à Stable et utilise une base de référence de compatibilité lisible par machine pour enregistrer toutes les entrées publiques, couches, thèmes, environnements d'exécution, composants et recettes de 0.9.0 ; 1.x doit fournir des enregistrements de modifications et des instructions de migration avant de supprimer toute entrée compatible, et doit passer par la période de dépréciation d'au moins deux versions mineures. La suppression réelle ne peut avoir lieu que dans une nouvelle version majeure.
+              <code>metadata/schema.json</code> Continuez à pointer vers le nouveau schéma de composants. 2.1.0 promeut le contrat public à Stable et utilise une base de référence de compatibilité lisible par machine pour enregistrer toutes les entrées publiques, couches, thèmes, environnements d'exécution, composants et recettes de 0.9.0 ; 1.x doit fournir des enregistrements de modifications et des instructions de migration avant de supprimer toute entrée compatible, et doit passer par la période de dépréciation d'au moins deux versions mineures. La suppression réelle ne peut avoir lieu que dans une nouvelle version majeure.
             </p>
           </section>
 
@@ -8318,7 +8320,7 @@ Gardenerim.toast({
             </p>
             <h3>Contrôle d'accès à l'essai au moment de l'exécution (depuis 0,40)</h3>
             <p>
-              <code>npm run test:runtime</code> Utilisez Node.js intégré coureur de test et Happy DOM pour comparer bidirectionnellement les membres de l'instance réelle pour les 66 comportements de la liste publique, et vérifier l'initialisation, l'idempotence, la destruction et la réinitialisation; tout en couvrant les nœuds dynamiques de MutationObserver, les attributs dynamiques, l'enlèvement des sous-arbres, la destruction de la portée, la coexistence multi-comportement, la destruction globale et l'initialisation événement bouillonnant.
+              <code>npm run test:runtime</code> Utilisez l'exécuteur de test intégré de Node.js et Happy DOM pour comparer de manière bidirectionnelle les membres d'instances réelles pour les 72 comportements de la liste publique et vérifier l'initialisation, l'idempotence, la destruction et la réinitialisation ; tout en couvrant les nœuds dynamiques de MutationObserver, les propriétés dynamiques, la suppression de sous-arbres, la destruction de portée, la coexistence multi-comportements, la destruction globale et le bouillonnement d'événements d'initialisation.
             </p>
             <div class="docs-callout">
               Lorsqu'un comportement d'exécution est ajouté ou rebaptisé, l'API publique, les appareils échantillon/comportement et les tests par comportement doivent être synchronisés, sinon les tests échoueront en raison des appareils, instances ou membres manquants.
@@ -8429,7 +8431,7 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
           <section class="docs-section" id="targeted-builds">
             <h2>Constructions à la demande, types, compatibilité entre les versions et accès à la mainlevée</h2>
             <p>
-              <code>2.0.0</code> Rouler cinq plates-formes, 28 paquets de composants, des budgets de compression et de rendement officiels à la base de référence mesurée de la version précédente, et mettre à niveau le contrat public à Stable, en continuant de conserver les types, la compatibilité entre les versions et l'accès réel du paquet de lancement npm.<a
+              <code>2.1.0</code> Rouler cinq plates-formes, 28 paquets de composants, des budgets de compression et de rendement officiels à la base de référence mesurée de la version précédente, et mettre à niveau le contrat public à Stable, en continuant de conserver les types, la compatibilité entre les versions et l'accès réel du paquet de lancement npm.<a
                 href="../../packages/css/dist/gardener.builds.json"
                 ><code>gardener.builds.json</code></a
               >Enregistré les cinq profils de plate-forme, 28 paquets de composants, 506 mappages de composants dans un ou plusieurs paquets propriétaires réels, signatures de sélecteur, cibles de navigateur, paramètres de constructeur, et SHA-256/SRI pour les 42 artefacts de production;<a
@@ -8439,10 +8441,10 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
             </p>
             <h3>TypeScript est compatible avec les versions croisées</h3>
             <p>
-              Les builds sont automatiquement générés à partir de l'API publique <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> et <code>gardener.electron.d.ts</code>. 66 comportements et 75 événements forment un type d'union littéral complet ;<code>npm run test:types</code> Compilez de vrais consommateurs en utilisant le mode strict TypeScript, couvrant les exportations par défaut et nommées, les usines de comportement, les toasts, les requêtes d'instance et deux types de ponts de bureau.
+              Les builds sont automatiquement générés à partir de l'API publique <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> et <code>gardener.electron.d.ts</code>. 72 comportements et 79 événements forment un type d'union littéral complet ;<code>npm run test:types</code> Compilez de vrais consommateurs en utilisant le mode strict TypeScript, couvrant les exportations par défaut et nommées, les usines de comportement, les toasts, les requêtes d'instance et deux types de ponts de bureau.
             </p>
             <p>
-              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> Solidification de 1 145 contrats hérités de la version 0.9.0, comprenant les 47 entrées de package, les couches CSS, les thèmes, les environnements d'exécution, les propriétés de données, les adaptateurs, 506 composants et 52 recettes.<code>npm run verify:compatibility</code> Autoriser les ajouts 1.x ultérieurs et interdire les suppressions sans chemins de migration ; au seuil stable de 2.0.0, les entrées existantes seront également vérifiées de manière inverse pour voir si elles sont manquantes. Les entrées obsolètes restent dans au moins deux versions mineures et ne peuvent être supprimées que dans une nouvelle version majeure. Sa structure fermée est composée de <a href="../../packages/css/metadata/compatibility.schema.json">Schéma de compatibilité</a> Contraintes.
+              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> Solidification de 1 145 contrats hérités de la version 0.9.0, comprenant les 47 entrées de package, les couches CSS, les thèmes, les environnements d'exécution, les propriétés de données, les adaptateurs, 506 composants et 52 recettes.<code>npm run verify:compatibility</code> Autoriser les ajouts 1.x ultérieurs et interdire les suppressions sans chemins de migration ; au seuil stable de 2.1.0, les entrées existantes seront également vérifiées de manière inverse pour voir si elles sont manquantes. Les entrées obsolètes restent dans au moins deux versions mineures et ne peuvent être supprimées que dans une nouvelle version majeure. Sa structure fermée est composée de <a href="../../packages/css/metadata/compatibility.schema.json">Schéma de compatibilité</a> Contraintes.
             </p>
             <p>
               Le package prend explicitement en charge Node.js &gt;=18.18, Chrome/Edge/Firefox 100+, Safari/iOS 15.4+ et ESM ; le portail principal et l'adaptateur de bureau fournissent des conditions <code>types</code> Exporter. L'initialisation automatique du runtime est marquée comme <code>sideEffects</code>pour éviter toute suppression accidentelle par le conditionneur.<code>npm run verify:package</code> Vérifiera la liste blanche réelle des packages npm, chaque cible d'exportation, type de fichier, les fuites du répertoire de développement et Publint ;<code>prepublishOnly</code> Appliquer terminé <code>release:verify</code>et activez les packages publics et npm Provenance.
@@ -8494,7 +8496,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
             </p>
             <h3>Compresse formelle et budgétisation du rendement</h3>
             <p>
-              Les CSS et JavaScript formels utilisent esbuild pour la compression au niveau de la syntaxe sans utiliser de remplacement régulier ; l'entrée de compression principale et chaque build personnalisée génèrent une carte source externe traçable. Le CSS compressé utilise une bannière MIT stable qui ne change pas avec les versions pour éviter que le texte de la version pure ne perturbe la ligne de base de Brotli. Le CSS et le runtime non compressés fournissent toujours des versions précises.<code>npm run budget</code> En utilisant gzip niveau 9 et Brotli qualité 11, calculez simultanément raw, gzip et Brotli pour les 42 produits de compression officiels et vérifiez le taux de compression du CSS complet, du Runtime et <code>npm pack --dry-run</code> Nombre de fichiers compressés, décompressés et renvoyés. 2.0.0 utilise les résultats de mesure réels de la version scellée 0.9.0 comme référence immédiate, limitant la croissance brute de chaque produit à pas plus de 2 %, gzip/Brotli à pas plus de 3 %, le package npm emballé à pas plus de 3 %, déballé à pas plus de 2 % et le nombre de fichiers à pas plus de 10 % ; les cinq produits de plateforme ont tous des références historiques directes. Les mesures du volume d'inclusion sont arrondies à 4 Ko emballés et à 64 Ko non emballés, formant une limite supérieure déterministe qui ne sous-estime pas le véritable volume d'inclusion et n'est pas affectée par le cycle de compactage autonome du rapport de performance. L’échec du plafond absolu ou du plafond relatif bloquera la libération.
+              Les CSS et JavaScript formels utilisent esbuild pour la compression au niveau de la syntaxe sans utiliser de remplacement régulier ; l'entrée de compression principale et chaque build personnalisée génèrent une carte source externe traçable. Le CSS compressé utilise une bannière MIT stable qui ne change pas avec les versions pour éviter que le texte de la version pure ne perturbe la ligne de base de Brotli. Le CSS et le runtime non compressés fournissent toujours des versions précises.<code>npm run budget</code> En utilisant gzip niveau 9 et Brotli qualité 11, calculez simultanément raw, gzip et Brotli pour les 42 produits de compression officiels et vérifiez le taux de compression du CSS complet, du Runtime et <code>npm pack --dry-run</code> Nombre de fichiers compressés, décompressés et renvoyés. 2.1.0 utilise les résultats de mesure réels de la version scellée 2.0.0 comme référence immédiate, limitant la croissance brute de chaque produit à pas plus de 2 %, gzip/Brotli à pas plus de 3 %, le package npm emballé à pas plus de 3 %, déballé à pas plus de 2 % et le nombre de fichiers à pas plus de 10 % ; les cinq produits de plateforme ont tous des références historiques directes. Les mesures du volume d'inclusion sont arrondies à 4 Ko emballés et à 64 Ko non emballés, formant une limite supérieure déterministe qui ne sous-estime pas le véritable volume d'inclusion et n'est pas affectée par le cycle de compactage autonome du rapport de performance. L’échec du plafond absolu ou du plafond relatif bloquera la libération.
             </p>
             <div class="docs-table-wrap">
               <table class="docs-table">
@@ -8506,7 +8508,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
                   <tr><td>jardinier.utilities.min.css</td><td>550 000 B</td><td>80 000 B</td><td>18 000 B</td></tr>
                   <tr><td>jardinier.components.min.css</td><td>400 000 B</td><td>55 000B</td><td>42 000 B</td></tr>
                   <tr><td>jardinier.ai.min.css</td><td>30 000 B</td><td>6 000 B</td><td>5 000 B</td></tr>
-                  <tr><td>jardinier.runtime.min.js</td><td>105 000 B</td><td>30 000 B</td><td>25 000 B</td></tr>
+                  <tr><td>jardinier.runtime.min.js</td><td>120 000 B</td><td>34 000 milliards</td><td>30 000 B</td></tr>
                   <tr><td>plate-forme/web.min.css</td><td>1 000 000 B</td><td>140 000 B</td><td>60 000 B</td></tr>
                   <tr><td>plate-forme/mobile.min.css</td><td>1 020 000 B</td><td>142 000 B</td><td>62 000 B</td></tr>
                   <tr><td>plate-forme/desktop.min.css</td><td>1 030 000 B</td><td>143 000 B</td><td>63 000 B</td></tr>
@@ -8519,7 +8521,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
               Le tableau ci-dessus énumère 12 entrées principales CSS/Runtime; le document budgétaire détaille également la couverture de 2 adaptateurs de bureau, 28 paquets de composants et un total de 42 produits officiellement compressés, sans utiliser un plafond général de partage pour remplacer les inspections de produits uniques.
             </p>
             <p>
-              Le budget du paquet npm est de 2 050 000 B emballés, 16 500 000 B déballés, jusqu'à 92 fichiers. ressources budgétaires <a href="../../packages/css/config/performance-budgets.json"><code>performance-budgets.json</code></a> Gestion et <a href="../../packages/css/metadata/performance-budgets.schema.json">Budgets Schema</a> et <a href="../../packages/css/metadata/performance-report.schema.json">Schéma du rapport</a> Protection.
+              Le budget du paquet npm est de 2 050 000 B emballés, 16 500 000 B déballés, jusqu'à 93 fichiers. ressources budgétaires <a href="../../packages/css/config/performance-budgets.json"><code>performance-budgets.json</code></a> Gestion et <a href="../../packages/css/metadata/performance-budgets.schema.json">Budgets Schema</a> et <a href="../../packages/css/metadata/performance-report.schema.json">Schéma du rapport</a> Protection.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>npm run build       # Packages complets et hiérarchisés de 28 composants et 5 fichiers de plate-forme
@@ -8587,12 +8589,12 @@ npm run test:build  # 10 Cas d'utilisation de build, de compatibilité, de type,
               </li>
               <li>Les cibles tactiles mobiles utilisent une densité tactile d'au moins 44px.</li>
             </ul>
-            <h3>2.0.0 Matrice d'essai automatisée</h3>
+            <h3>2.1.0 Matrice d'essai automatisée</h3>
             <div
               class="g-table-wrap"
               tabindex="0"
               role="region"
-              aria-label="2.0.0 Matrice d'essai automatisée"
+              aria-label="2.1.0 Matrice d'essai automatisée"
             >
               <table class="g-table">
                 <thead>
@@ -8732,7 +8734,7 @@ npm run verify:package # npm Fichiers, cibles d'exportation et publication
 npm run test:schema # Ajv 2020-12 Vérifier onze ensembles de schémas
 npm run test:build # 10 Cas d'utilisation de build, type, compatibilité, version et chemin de défaillance
 npm run contracts  # Schema、API publique, noms et contrats entre manifestes croisés
-npm run test:runtime # 66 Comportement et cycle de vie du DOM
+npm run test:runtime # 72 Comportement et cycle de vie du DOM
 npm run test:html   # Exemple et structure HTML de l'accueil
 npm run check      # Cohérence des thèmes, des composants, de l'exécution et du manifeste
 npm run audit      # Token、Contraste, limites des paquets, exportation et version
@@ -8806,12 +8808,12 @@ node website/scripts/check-coverage.mjs  # Vérification zéro omission du docum
     <footer class="site-footer">
       <div class="site-container">
         <div class="site-footer-bottom">
-          <span>Gardenerim v2.0.0 · Licence MIT</span
+          <span>Gardenerim v2.1.0 · Licence MIT</span
           ><a href="./index.html">Retour à la page d'accueil</a>
         </div>
       </div>
     </footer>
     <script src="../assets/file-i18n.js"></script>
-    <script type="module" src="../assets/site.js?v=2.0.0"></script>
+    <script type="module" src="../assets/site.js?v=2.1.0"></script>
   </body>
 </html>

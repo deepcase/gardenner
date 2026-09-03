@@ -177,7 +177,10 @@ test("runtime, theme, and toast services are injectable", () => {
   const runtime = harness.injector.get("GardenerimRuntime");
   const theme = harness.injector.get("GardenerimTheme");
   const toast = harness.injector.get("GardenerimToast");
-  assert.equal(runtime.version, "2.0.0");
+  assert.equal(runtime.version, "2.1.0");
+  assert.equal(runtime.configure({ locale: "es", refresh: false }).locale, "es");
+  assert.equal(runtime.getConfiguration().locale, "es");
+  runtime.configure({ locale: "en", refresh: false });
   const target = document.createElement("div");
   theme.apply(target, { theme: "blue", mode: "light" });
   assert.deepEqual(theme.read(target), { theme: "blue", mode: "light" });

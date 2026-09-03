@@ -7,8 +7,8 @@
   "properties": {
     "$schema": { "const": "./compatibility.schema.json" },
     "schemaVersion": { "const": 1 },
-    "version": { "const": "2.0.0" },
-    "baselineVersion": { "const": "2.0.0" },
+    "version": { "const": "2.1.0" },
+    "baselineVersion": { "const": "2.1.0" },
     "policy": {
       "type": "object",
       "additionalProperties": false,
@@ -27,14 +27,14 @@
         "packageEntrypoints": { "type": "array", "minItems": 28, "uniqueItems": true, "items": { "type": "string" } },
         "componentNames": { "type": "array", "minItems": 506, "maxItems": 506, "uniqueItems": true, "items": { "type": "string" } },
         "componentExports": { "type": "array", "minItems": 506, "maxItems": 506, "uniqueItems": true, "items": { "type": "string", "pattern": "^G" } },
-        "moduleExports": { "type": "array", "minItems": 538, "maxItems": 538, "uniqueItems": true, "items": { "type": "string" } },
+        "moduleExports": { "type": "array", "minItems": 546, "maxItems": 546, "uniqueItems": true, "items": { "type": "string" } },
         "typeExports": { "type": "array", "minItems": 21, "uniqueItems": true, "items": { "type": "string" } },
-        "behaviors": { "type": "array", "minItems": 66, "maxItems": 66, "uniqueItems": true, "items": { "type": "string" } },
-        "composables": { "type": "array", "minItems": 7, "uniqueItems": true, "items": { "type": "string" } },
+        "behaviors": { "type": "array", "minItems": 72, "maxItems": 72, "uniqueItems": true, "items": { "type": "string" } },
+        "composables": { "type": "array", "minItems": 8, "maxItems": 8, "uniqueItems": true, "items": { "type": "string" } },
         "componentProps": { "type": "array", "minItems": 8, "maxItems": 8, "uniqueItems": true, "items": { "type": "string" } },
         "componentInstanceMembers": { "type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true, "items": { "type": "string" } },
         "themeAxes": { "type": "array", "minItems": 10, "maxItems": 10, "uniqueItems": true, "items": { "type": "string" } },
-        "pluginOptions": { "type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true, "items": { "type": "string" } }
+        "pluginOptions": { "type": "array", "minItems": 6, "maxItems": 6, "uniqueItems": true, "items": { "type": "string" } }
       }
     }
   }

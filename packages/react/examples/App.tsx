@@ -8,9 +8,9 @@ export function App() {
     <GardenerimProvider theme="garden" mode="light" shape="subtle" density="comfortable">
       <main className="g-container g-py-8" style={{ maxWidth: "54rem" }}>
         <header className="g-mb-6">
-          <span className="g-badge">React 2.0.0 Stable</span>
+          <span className="g-badge">React 2.1.0 Stable</span>
           <h1 className="g-mt-3">Gardenerim React</h1>
-          <p>506 个组件、66 种行为、Web / Mobile / Desktop / Tauri / Electron。</p>
+          <p>506 个组件、69 种行为、Web / Mobile / Desktop / Tauri / Electron。</p>
         </header>
         <GAlert state="success">官方 React 适配层已加载。</GAlert>
         <GCard className="g-mt-5 g-p-5">

@@ -165,7 +165,7 @@ function emittedEventContracts(source) {
 }
 
 function functionParameters(source, name) {
-  const match = source.match(new RegExp(`function\\s+${name}\\s*\\(([^)]*)\\)`));
+  const match = [...source.matchAll(new RegExp(`function\\s+${name}\\s*\\(([^)]*)\\)`, "g"))].at(-1);
   return match ? splitTopLevel(match[1]).filter(Boolean) : [];
 }
 
@@ -254,9 +254,9 @@ const registryBlock = runtime.match(/\[\s*\["dialog"[\s\S]*?\]\s*\.forEach\(\(\[
 const registeredBehaviors = [...registryBlock.matchAll(/\["([a-z-]+)"\s*,/g)].map((match) => match[1]);
 const emittedEvents = [...new Set([...runtime.matchAll(/emit\([^,]+,\s*["']([a-z0-9-]+)["']/g)].map((match) => match[1]))].sort();
 const declaredEvents = [...publicApi.javascript.events].sort();
-const namedExports = runtime.match(/export \{([^}]+)\}/)?.[1].split(",").map((name) => name.trim()) || [];
+const namedExports = runtime.match(/export \{([^}]+)\}/)?.[1].split(",").map((name) => name.trim().split(/\s+as\s+/).at(-1)) || [];
 const moduleExports = ["default", ...namedExports];
-const gardenerOpening = runtime.indexOf("Object.freeze({") + "Object.freeze(".length;
+const gardenerOpening = runtime.lastIndexOf("Object.freeze({") + "Object.freeze(".length;
 const gardenerProperties = returnedObjectKeys(runtime.slice(gardenerOpening + 1, matchingBrace(runtime, gardenerOpening)));
 const runtimeInventory = runtimeContract(runtime);
 const eventContracts = emittedEventContracts(runtime);
@@ -340,7 +340,7 @@ if (!same(publicApi.javascript.guardEvents, publicApi.javascript.events.filter((
 if (!same(moduleExports, publicApi.javascript.moduleExports)) errors.push("public-api moduleExports must exactly match runtime module exports");
 if (!same(publicApi.javascript.moduleContracts.map(({ name }) => name), moduleExports)) errors.push("public-api moduleContracts must cover every module export in order");
 for (const contract of publicApi.javascript.moduleContracts) {
-    const expectedKind = ["default", "Gardenerim"].includes(contract.name) ? "object" : "function";
+    const expectedKind = ["default", "Gardenerim", "supportedLocales"].includes(contract.name) ? "object" : "function";
   if (contract.kind !== expectedKind) errors.push(`module contract ${contract.name}: kind must be ${expectedKind}`);
   if (!jsIdentifier.test(contract.name)) errors.push(`module contract ${contract.name}: name must be a valid JavaScript identifier`);
   const sourceParameters = contract.parameters.map((parameter) => parameter.endsWith("?") ? parameter.slice(0, -1) : parameter);

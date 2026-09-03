@@ -74,7 +74,8 @@
 
   .g-mobile-picker { display: grid; gap: var(--g-space-3); }
   .g-mobile-picker-grid { display: grid; grid-template-columns: repeat(var(--g-mobile-picker-columns, 3), minmax(0, 1fr)); gap: var(--g-space-2); }
-  .g-mobile-picker-option { min-block-size: 2.75rem; padding: var(--g-space-2); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: inherit; }
+  .g-mobile-picker-option { min-block-size: 2.75rem; padding: var(--g-space-2); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: inherit; cursor: pointer; transition: border-color var(--g-duration-fast), background var(--g-duration-fast), color var(--g-duration-fast); }
+  .g-mobile-picker-option:hover:not([aria-pressed="true"]) { border-color: var(--g-primary-300); background: var(--g-color-surface-subtle); }
   .g-mobile-picker-option[aria-pressed="true"] { border-color: var(--g-color-primary); background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
   .g-mobile-wheel-picker { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); block-size: var(--g-wheel-height, 12rem); overflow: hidden; border-block: 1px solid var(--g-color-border); }
   .g-mobile-wheel-picker::before { content: ""; position: absolute; z-index: 1; inset: calc(50% - 1.5rem) 0 auto; block-size: 3rem; border-block: 1px solid var(--g-color-border-strong); background: var(--g-color-primary-soft); pointer-events: none; }

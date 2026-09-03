@@ -1,6 +1,14 @@
 # Changelog
 
-## [2.0.0] - Unreleased
+## [2.1.0] - 2026-09-01
+
+- Align default controls with Arco Design Vue: 28/32/36px heights, 14px control text, and a 24/28/32px compact scale while retaining larger mobile and touch targets.
+- Add runtime-generated copy for seven locales, English fallback, custom message overrides, and typed configuration APIs.
+- Add scoped/batched observation plus start, stop, refresh, and disconnect lifecycle controls with an opt-out from automatic startup.
+- Remove hard-coded Chinese runtime labels and add malicious-content, locale parity, large-mutation, and 42-theme contrast regression coverage.
+- Ship the locale catalog with runtime distributions and expose it through the public type and metadata contracts.
+
+## [2.0.0] - 2026-08-31
 
 - Breaking: use Gardenerim-branded public exports only; remove Gardener aliases and update migration examples.
 - Fix Vue radio, multiple-select, checkbox-array and IME model semantics, and React multiple-select values.

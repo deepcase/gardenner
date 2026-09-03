@@ -1,6 +1,6 @@
 # Gardenerim 事件完整目录
 
-共 75 个 `gardener:*` 自定义事件，无省略。使用 `EventNames` 订阅、`OnEvent` 接收安全序列化 detail；守卫事件需要在 `PreventDefaultEvents` 中声明，以便浏览器同步执行 `preventDefault()`。
+共 79 个 `gardener:*` 自定义事件，无省略。使用 `EventNames` 订阅、`OnEvent` 接收安全序列化 detail；守卫事件需要在 `PreventDefaultEvents` 中声明，以便浏览器同步执行 `preventDefault()`。
 
 | 事件名 | detail 键 | 守卫 | 冒泡 | 可取消 |
 | --- | --- | --- | --- | --- |
@@ -30,6 +30,7 @@
 | `copy` | `value` | 否 | 是 | 是 |
 | `count` | `count`, `maximum` | 否 | 是 | 是 |
 | `couponchange` | `state`, `code`, `reason` | 否 | 是 | 是 |
+| `densitychange` | `density`, `table` | 否 | 是 | 是 |
 | `desktoptabchange` | `tab`, `reason` | 否 | 是 | 是 |
 | `desktoptabclose` | `reason` | 否 | 是 | 是 |
 | `disclosure` | `trigger`, `targets`, `expanded`, `reason` | 否 | 是 | 是 |
@@ -41,6 +42,7 @@
 | `expand` | `item` | 否 | 是 | 是 |
 | `feedbackchange` | `value`, `option`, `reason` | 否 | 是 | 是 |
 | `feedbacksubmit` | `value`, `comment`, `reason` | 否 | 是 | 是 |
+| `fieldchange` | `kind`, `value`, `files`, `input` | 否 | 是 | 是 |
 | `filefilter` | `query`, `visible` | 否 | 是 | 是 |
 | `files` | `files`, `input` | 否 | 是 | 是 |
 | `fileselect` | `item`, `value`, `reason` | 否 | 是 | 是 |
@@ -50,6 +52,7 @@
 | `init` | `name`, `instance` | 否 | 是 | 是 |
 | `loadcomplete` | `done` | 否 | 是 | 是 |
 | `loadmore` | `reason`, `complete` | 否 | 是 | 是 |
+| `mediachange` | `playing`, `currentTime`, `duration`, `media`, `reason` | 否 | 是 | 是 |
 | `nativefiles` | `files`, `input`, `reason` | 否 | 是 | 是 |
 | `open` | `source`, `trigger`, `x`, `y` | 否 | 是 | 是 |
 | `otpchange` | `value`, `complete`, `reason` | 否 | 是 | 是 |
@@ -60,6 +63,7 @@
 | `promptstop` | `reason` | 否 | 是 | 是 |
 | `promptsubmit` | `value`, `reason`, `input` | 否 | 是 | 是 |
 | `quantitychange` | `value`, `reason` | 否 | 是 | 是 |
+| `rangechange` | `start`, `end`, `valid`, `inputs`, `reason` | 否 | 是 | 是 |
 | `refresh` | `reason`, `complete` | 否 | 是 | 是 |
 | `refreshcomplete` | — | 否 | 是 | 是 |
 | `remove` | `index` | 否 | 是 | 是 |

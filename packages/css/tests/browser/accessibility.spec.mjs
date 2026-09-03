@@ -1,6 +1,9 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 import { exampleUrl, releasePages } from "./pages.mjs";
+import { readFile } from "node:fs/promises";
+
+const manifest = JSON.parse(await readFile(new URL("../../dist/gardener.manifest.json", import.meta.url), "utf8"));
 
 for (const { name, url } of releasePages) {
   test(`${name} has no automated WCAG A/AA violations`, async ({ page }) => {
@@ -96,4 +99,29 @@ test("reduced motion, forced colors, RTL, and narrow reflow stay operable", asyn
   expect(state.hasHorizontalOverflow).toBe(false);
   expect(state.focused).toBe(true);
   expect(state.maximumMotionMs).toBeLessThanOrEqual(1);
+});
+
+test("all 42 themes pass WCAG AA color contrast in light and dark modes", async ({ page }) => {
+  test.setTimeout(240_000);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto(exampleUrl("showcase.html"), { waitUntil: "networkidle" });
+  const failures = [];
+  for (const theme of manifest.themes) {
+    for (const mode of ["light", "dark"]) {
+      await page.evaluate(({ theme, mode }) => {
+        document.documentElement.dataset.gTheme = theme;
+        document.documentElement.dataset.gMode = mode;
+      }, { theme, mode });
+      await page.evaluate(() => new Promise((accept) =>
+        requestAnimationFrame(() => requestAnimationFrame(accept)),
+      ));
+      const results = await new AxeBuilder({ page }).withRules(["color-contrast"]).analyze();
+      if (results.violations.length) failures.push({
+        theme,
+        mode,
+        violations: results.violations.map(({ id, nodes }) => ({ id, targets: nodes.map(({ target }) => target.join(" ")) })),
+      });
+    }
+  }
+  expect(failures).toEqual([]);
 });

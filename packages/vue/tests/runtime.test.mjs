@@ -185,16 +185,18 @@ test("the package entrypoint is safe to render during SSR", async () => {
   assert.match(html, />SSR</u);
 });
 
-test("GardenerimProvider applies all supplied theme axes", async () => {
-  const { app, host } = mount(() => h(library.GardenerimProvider, { theme: "garden", mode: "light", density: "compact", shape: "subtle" }, () => "Content"));
+test("GardenerimProvider applies theme axes and runtime locale", async () => {
+  const { app, host } = mount(() => h(library.GardenerimProvider, { theme: "garden", mode: "light", density: "compact", shape: "subtle", locale: "fr" }, () => "Content"));
   await nextTick();
   const provider = host.firstElementChild;
   assert.equal(provider.dataset.gTheme, "garden");
   assert.equal(provider.dataset.gMode, "light");
   assert.equal(provider.dataset.gDensity, "compact");
   assert.equal(provider.dataset.gShape, "subtle");
+  assert.equal(library.Gardenerim.locale, "fr");
   app.unmount();
   host.remove();
+  library.configure({ locale: "en", refresh: false });
 });
 
 test("the Vue plugin registers the complete component catalog and directive", () => {

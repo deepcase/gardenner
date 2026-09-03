@@ -66,8 +66,14 @@ function readableForeground(theme, shade) {
 
 function primaryTextShade(theme, mode) {
   const softSaturation = Math.max(0, theme.saturation - 12);
+  const darkSurface = [12 / 255, 17 / 255, 27 / 255];
+  const darkSoft = hslToRgb(
+    theme.hue,
+    theme.saturation,
+    shadeLightness(theme.lightness, 500),
+  ).map((channel, index) => channel * 0.18 + darkSurface[index] * 0.82);
   const background = mode === "dark"
-    ? luminance([12 / 255, 17 / 255, 27 / 255])
+    ? luminance(darkSoft)
     : luminance(hslToRgb(theme.hue, softSaturation, shadeLightness(theme.lightness, 100)));
   const candidates = mode === "dark" ? [400, 300, 200, 100, 50] : [600, 700, 800, 900, 950];
   const minimum = mode === "dark" ? 5 : 4.5;
@@ -477,6 +483,7 @@ const runtime = await readFile(join(sourceRoot, "js/index.js"), "utf8");
 const runtimeRegistry = runtime.match(/\[\s*\["dialog"[\s\S]*?\]\s*\.forEach\(\(\[name, factory\]\)/)?.[0] || "";
 const registeredBehaviors = [...runtimeRegistry.matchAll(/\["([a-z-]+)"\s*,/g)].map((match) => match[1]);
 await copyFile(join(sourceRoot, "js/index.js"), join(distRoot, "gardener.runtime.js"));
+await copyFile(join(sourceRoot, "js/locales.js"), join(distRoot, "locales.js"));
 await copyFile(join(sourceRoot, "js/tauri-adapter.js"), join(distRoot, "gardener.tauri.js"));
 await copyFile(join(sourceRoot, "js/electron-adapter.js"), join(distRoot, "gardener.electron.js"));
 for (const [sourceName, outputName] of [

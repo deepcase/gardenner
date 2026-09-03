@@ -509,7 +509,7 @@
             </div>
             <div class="g-field">
               <label class="g-label" for="quality-range">图片质量</label>
-              <div class="g-range-field">
+              <div class="g-range-field" data-g-field-sync>
                 <input
                   class="g-range"
                   id="quality-range"
@@ -517,14 +517,24 @@
                   min="0"
                   max="100"
                   value="82"
-                /><output class="g-range-field-output">82%</output>
+                /><output
+                  class="g-range-field-output"
+                  data-g-field-output
+                  data-g-suffix="%"
+                  >82%</output
+                >
               </div>
             </div>
-            <div class="g-file-field">
+            <div
+              class="g-file-field"
+              data-g-field-sync
+              data-g-empty-label="尚未选择文件"
+            >
               <label class="g-label" for="brand-logo">品牌 Logo</label>
               <div class="g-file-field-control">
                 <input id="brand-logo" type="file" /><span
                   class="g-file-field-name"
+                  data-g-field-output
                   >尚未选择文件</span
                 >
               </div>

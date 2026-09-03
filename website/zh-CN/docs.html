@@ -44,7 +44,7 @@
           ><span class="site-brand-mark" aria-hidden="true">G</span
           ><span>Gardenerim</span></a
         >
-        <span class="g-badge">Docs 2.0.0</span>
+        <span class="g-badge">Docs 2.1.0</span>
         <div class="site-nav-links" id="site-menu">
           <a class="site-nav-link" href="./index.html">首页</a>
           <details class="site-nav-dropdown">
@@ -322,7 +322,7 @@
               <span class="g-badge">42 themes</span
               ><span class="g-badge">506 components</span
               ><span class="g-badge">11,498 utilities</span
-              ><span class="g-badge">66 behaviors</span
+              ><span class="g-badge">72 behaviors</span
               ><span class="g-badge">52 recipes</span>
             </div>
           </header>
@@ -502,16 +502,16 @@ import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
             <h2>Gardenerim Vue 3 项目</h2>
             <p>
               <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> 是
-              Gardenerim CSS 2.0.0 的官方 Vue 3 适配层，当前版本为
-              <strong>2.0.0 Stable</strong>，支持 Vue
+              Gardenerim CSS 2.1.0 的官方 Vue 3 适配层，当前版本为
+              <strong>2.1.0 Stable</strong>，支持 Vue
               <code>&gt;=3.4.0 &lt;4.0.0</code> 与 Node.js
               <code>&gt;=18.18</code>。它逐项映射全部 506 个 CSS
-              组件和 66 种 DOM 行为，同时提供 538 个根运行时导出、21 个
+              组件和 72 种 DOM 行为，同时提供 546 个根运行时导出、21 个
               TypeScript 类型导出、30 个包入口与 28 个组件 CSS 包代理。
             </p>
             <div class="docs-api-stats" aria-label="Vue 项目公共 API 规模">
               <div><strong>506</strong><span>具名 G* 组件</span></div>
-              <div><strong>538</strong><span>根运行时导出</span></div>
+              <div><strong>546</strong><span>根运行时导出</span></div>
               <div><strong>30</strong><span>公共包入口</span></div>
               <div><strong>28</strong><span>组件 CSS 包</span></div>
             </div>
@@ -529,8 +529,8 @@ import App from &quot;./App.vue&quot;;
 createApp(App).use(GardenerimVue).mount(&quot;#app&quot;);</code></pre>
             </div>
             <p>
-              插件选项完整覆盖 <code>prefix</code>、<code>components</code>、<code>directive</code>
-              和 <code>initialize</code>。需要自定义前缀、只注册部分组件、关闭
+              插件选项完整覆盖 <code>prefix</code>、<code>components</code>、<code>directive</code>、
+              <code>initialize</code>、<code>locale</code> 和 <code>messages</code>。需要自定义前缀、只注册部分组件、关闭
               <code>v-gardenerim</code> 或延迟运行时初始化时，应通过
               <code>createGardenerimVue(options)</code> 创建插件。
             </p>
@@ -610,12 +610,13 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <code>modelEvent</code> 和 <code>modelKey</code> 将 Gardenerim 自定义事件桥接为相同协议。
             </p>
 
-            <h3>全部 7 个 Composable</h3>
+            <h3>全部 8 个 Composable</h3>
             <div class="docs-runtime-grid">
               <div class="docs-runtime-item"><code>useGardenerim</code><small>访问运行时、初始化与销毁能力</small></div>
               <div class="docs-runtime-item"><code>useGardenerimBehavior</code><small>绑定行为并访问实例</small></div>
               <div class="docs-runtime-item"><code>useGardenerimEvent</code><small>类型安全监听 gardener:* 事件</small></div>
               <div class="docs-runtime-item"><code>useGardenerimTheme</code><small>读取和更新十轴主题状态</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimLocale</code><small>读取和更新运行时语言与消息覆盖</small></div>
               <div class="docs-runtime-item"><code>useGardenerimToast</code><small>创建并管理 Toast</small></div>
               <div class="docs-runtime-item"><code>useTauriWindowControls</code><small>绑定 Tauri 窗口按钮与销毁周期</small></div>
               <div class="docs-runtime-item"><code>useElectronWindowControls</code><small>绑定 Electron 安全桥与销毁周期</small></div>
@@ -652,7 +653,7 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
 
             <h3>非组件运行时导出与 TypeScript 类型</h3>
             <p>
-              32 个非组件运行时导出为：<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerimComponent</code>、<code>createGardenerimVue</code>、<code>default</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>toast</code>、7 个 Composable 与 <code>vGardenerim</code>。
+              40 个非组件运行时导出为：<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createGardenerimComponent</code>、<code>createGardenerimVue</code>、<code>default</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimLocale</code>、<code>useGardenerimTheme</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>、<code>vGardenerim</code>。
             </p>
             <p>
               21 个类型导出为：<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentPublicInstance</code>、<code>GardenerimConfigValue</code>、<code>GardenerimDirectiveOptions</code>、<code>GardenerimDirectiveValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimVueComponentName</code>、<code>GardenerimVueOptions</code>。
@@ -663,9 +664,9 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <a href="../../packages/vue/metadata/public-api.json">Public API</a>、<a href="../../packages/vue/metadata/compatibility.json">Compatibility</a>
               和 <a href="../../packages/vue/dist/gardener-vue.performance.json">Performance</a>
               均有关闭未知字段的 JSON Schema；<a href="../../packages/vue/dist/catalog.json">组件目录 JSON</a>
-              可直接供 AI、代码生成器和文档工具读取。全量压缩包预算为 328,470 B raw、51,729 B gzip、27,031 B Brotli；单个
-              <code>GButton</code> 的真实摇树结果为 3,894 B。确定性构建覆盖 87
-              个文件，npm 包核对 102 个文件、294,191 B packed、3,851,916 B unpacked。
+              可直接供 AI、代码生成器和文档工具读取。全量压缩包预算为 330,691 B raw、52,236 B gzip、27,220 B Brotli；单个
+              <code>GButton</code> 的真实摇树结果为 3,894 B。确定性构建覆盖 91
+              个文件，npm 包核对 102 个文件、295,992 B packed、3,859,549 B unpacked。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd vue
@@ -699,16 +700,16 @@ npm run release:verify
             <h2>Gardenerim React 项目</h2>
             <p>
               <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> 是
-              Gardenerim CSS 2.0.0 的官方 React 适配层，当前版本为
-              <strong>2.0.0 Stable</strong>，支持 React
+              Gardenerim CSS 2.1.0 的官方 React 适配层，当前版本为
+              <strong>2.1.0 Stable</strong>，支持 React
               <code>&gt;=18.3.0 &lt;20.0.0</code> 与 Node.js
               <code>&gt;=18.18</code>。它逐项映射全部 506 个 CSS
-              组件和 66 种 DOM 行为，同时提供 538 个根运行时导出、22 个 TypeScript 类型导出、
+              组件和 72 种 DOM 行为，同时提供 546 个根运行时导出、22 个 TypeScript 类型导出、
               30 个公共包入口与 28 个组件 CSS 包代理。
             </p>
             <div class="docs-api-stats" aria-label="React 项目公共 API 规模">
               <div><strong>506</strong><span>具名 G* 组件</span></div>
-              <div><strong>538</strong><span>根运行时导出</span></div>
+              <div><strong>546</strong><span>根运行时导出</span></div>
               <div><strong>30</strong><span>公共包入口</span></div>
               <div><strong>28</strong><span>组件 CSS 包</span></div>
             </div>
@@ -804,17 +805,18 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 /&gt;</code></pre>
             </div>
             <p>
-              <code>useGardenerimBehavior</code> 将 66 种行为绑定到元素、Document 或组件
+              <code>useGardenerimBehavior</code> 将 72 种行为绑定到元素、Document 或组件
               Handle，并在卸载时销毁；<code>initialize</code> 可关闭组件自动初始化，
               方便由页面级运行时统一接管。显式传入的行为 data attribute 优先于生成默认值。
             </p>
 
-            <h3>全部 7 个 Hooks</h3>
+            <h3>全部 8 个 Hooks</h3>
             <div class="docs-runtime-grid">
               <div class="docs-runtime-item"><code>useGardenerim</code><small>访问运行时、初始化、观察与销毁能力</small></div>
               <div class="docs-runtime-item"><code>useGardenerimBehavior</code><small>绑定行为并访问实例</small></div>
               <div class="docs-runtime-item"><code>useGardenerimEvent</code><small>类型安全监听 gardener:* 事件</small></div>
               <div class="docs-runtime-item"><code>useGardenerimTheme</code><small>读取和更新十轴主题状态</small></div>
+              <div class="docs-runtime-item"><code>useGardenerimLocale</code><small>读取和更新运行时语言与消息覆盖</small></div>
               <div class="docs-runtime-item"><code>useGardenerimToast</code><small>创建并管理 Toast</small></div>
               <div class="docs-runtime-item"><code>useTauriWindowControls</code><small>绑定 Tauri 窗口按钮与销毁周期</small></div>
               <div class="docs-runtime-item"><code>useElectronWindowControls</code><small>绑定 Electron 安全桥与销毁周期</small></div>
@@ -865,7 +867,7 @@ function WindowChrome() {
 
             <h3>非组件运行时导出与 TypeScript 类型</h3>
             <p>
-              32 个非组件运行时导出为：<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createGardenerimComponent</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>resolveGardenerimTarget</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimTheme</code>、<code>useGardenerimThemeContext</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>。
+              40 个非组件运行时导出为：<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createGardenerimComponent</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>resolveGardenerimTarget</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimLocale</code>、<code>useGardenerimTheme</code>、<code>useGardenerimThemeContext</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>。
             </p>
             <p>
               22 个类型导出为：<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentProps</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimGeneratedComponent</code>、<code>GardenerimOwnProps</code>、<code>GardenerimPlatform</code>、<code>GardenerimReactComponentName</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChange</code>。
@@ -876,9 +878,9 @@ function WindowChrome() {
               <a href="../../packages/react/metadata/public-api.json">Public API</a>、<a href="../../packages/react/metadata/compatibility.json">Compatibility</a>
               和 <a href="../../packages/react/dist/gardener-react.performance.json">Performance</a>
               均由关闭未知字段的 JSON Schema 验证；<a href="../../packages/react/dist/catalog.json">组件目录 JSON</a>
-              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 326,194 B raw、50,172 B gzip、26,465 B Brotli；单个
-              <code>GButton</code> 的真实摇树结果为 2,685 B。确定性构建覆盖 87
-              个文件，npm 包核对 102 个文件、272,260 B packed、2,559,274 B unpacked，生产依赖安全审计为 0 个漏洞。
+              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 328,129 B raw、50,581 B gzip、26,733 B Brotli；单个
+              <code>GButton</code> 的真实摇树结果为 2,685 B。确定性构建覆盖 91
+              个文件，npm 包核对 102 个文件、273,601 B packed、2,563,603 B unpacked，生产依赖安全审计为 0 个漏洞。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd react
@@ -912,11 +914,11 @@ npm run release:verify
             <h2>Gardenerim AngularJS 项目</h2>
             <p>
               <a href="../../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
-              是 Gardenerim CSS 2.0.0 的官方 AngularJS 1.x 遗留系统适配层，当前版本为
-              <strong>2.0.0 Stable</strong>。它验证 AngularJS
+              是 Gardenerim CSS 2.1.0 的官方 AngularJS 1.x 遗留系统适配层，当前版本为
+              <strong>2.1.0 Stable</strong>。它验证 AngularJS
               <code>&gt;=1.8.2 &lt;1.9.0</code> 与 Node.js
-              <code>&gt;=18.18</code>，逐项映射全部 506 个 CSS 组件和 66 种 DOM
-              行为，并提供 535 个根运行时导出、24 个 TypeScript 类型导出、30 个公共包入口和 28 个组件 CSS 包代理。
+              <code>&gt;=18.18</code>，逐项映射全部 506 个 CSS 组件和 72 种 DOM
+              行为，并提供 542 个根运行时导出、24 个 TypeScript 类型导出、30 个公共包入口和 28 个组件 CSS 包代理。
             </p>
             <div class="docs-warning docs-callout">
               <strong>遗留系统边界：</strong>AngularJS 已结束官方支持，框架本体存在没有上游修复版本的已知安全公告。本适配层将
@@ -925,7 +927,7 @@ npm run release:verify
             </div>
             <div class="docs-api-stats" aria-label="AngularJS 项目公共 API 规模">
               <div><strong>506</strong><span>生成组件指令</span></div>
-              <div><strong>535</strong><span>根运行时导出</span></div>
+              <div><strong>542</strong><span>根运行时导出</span></div>
               <div><strong>30</strong><span>公共包入口</span></div>
               <div><strong>28</strong><span>组件 CSS 包</span></div>
             </div>
@@ -1069,7 +1071,7 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
 
             <h3>非组件运行时导出与 TypeScript 类型</h3>
             <p>
-              29 个非组件运行时导出为：<code>GARDENERIM_ANGULARJS_MODULE</code>、<code>Gardenerim</code>、<code>GardenerimRuntimeFactory</code>、<code>GardenerimThemeFactory</code>、<code>GardenerimToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>createElectronWindowService</code>、<code>createGardenerimAngularJS</code>、<code>createGardenerimComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>emit</code>、<code>gardenerimBehaviorDirective</code>、<code>gardenerimDirectives</code>、<code>gardenerimProviderDirective</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>register</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
+              36 个非组件运行时导出为：<code>GARDENERIM_ANGULARJS_MODULE</code>、<code>Gardenerim</code>、<code>GardenerimRuntimeFactory</code>、<code>GardenerimThemeFactory</code>、<code>GardenerimToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createElectronWindowService</code>、<code>createGardenerimAngularJS</code>、<code>createGardenerimComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimBehaviorDirective</code>、<code>gardenerimDirectives</code>、<code>gardenerimProviderDirective</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
             </p>
             <p>
               24 个类型导出为：<code>GardenerimAngularJSComponentExportName</code>、<code>GardenerimAngularJSComponentName</code>、<code>GardenerimAngularJSDirectiveFactory</code>、<code>GardenerimAngularJSDirectiveName</code>、<code>GardenerimAngularJSModule</code>、<code>GardenerimAngularJSOptions</code>、<code>GardenerimAngularJSStatic</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimRuntimeService</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeAxis</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChangeLocals</code>。
@@ -1080,8 +1082,8 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               <a href="../../packages/angularjs/metadata/public-api.json">Public API</a>、<a href="../../packages/angularjs/metadata/compatibility.json">Compatibility</a> 和
               <a href="../../packages/angularjs/dist/gardener-angularjs.performance.json">Performance</a>
               都由关闭未知字段的 JSON Schema 验证；AngularJS 支持范围也写入机器可读兼容基线。<a href="../../packages/angularjs/dist/catalog.json">组件目录 JSON</a>
-              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 404,142 B raw、59,508 B gzip、29,747 B Brotli；单个
-              <code>GButtonDirective</code> 的真实摇树结果为 4,519 B。确定性构建覆盖 87 个文件，npm 包核对 95 个文件、334,625 B packed、3,057,003 B unpacked，Gardenerim 自有生产负载审计为 0 个漏洞。
+              可直接供 AI、代码生成器和文档工具读取。全量压缩包实测为 405,932 B raw、59,850 B gzip、30,016 B Brotli；单个
+              <code>GButtonDirective</code> 的真实摇树结果为 4,519 B。确定性构建覆盖 87 个文件，npm 包核对 99 个文件、335,530 B packed、3,059,384 B unpacked，Gardenerim 自有生产负载审计为 0 个漏洞。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
@@ -1118,23 +1120,23 @@ npm run release:verify
             <h2>Gardenerim Blazor 项目</h2>
             <p>
               <a href="../../packages/blazor/README.md"><code>Gardenerim.Blazor</code></a>
-              是 Gardenerim CSS 2.0.0 的官方 Razor Class Library，当前版本为
-              <strong>2.0.0 Stable</strong>。稳定资产以 <code>net10.0</code>
+              是 Gardenerim CSS 2.1.0 的官方 Razor Class Library，当前版本为
+              <strong>2.1.0 Stable</strong>。稳定资产以 <code>net10.0</code>
               编译，并通过独立 NuGet 消费者验证 <code>net11.0</code>；适用于 Blazor Web App
               静态 SSR、Interactive Server、Interactive WebAssembly、Auto、独立 WebAssembly、Hybrid
               以及桌面 WebView。
             </p>
             <div class="docs-api-stats" aria-label="Blazor 项目公共 API 规模">
               <span><strong>506</strong> Razor 组件</span>
-              <span><strong>66</strong> DOM 行为</span>
-              <span><strong>75</strong> 运行时事件</span>
-              <span><strong>28</strong> 框架类型</span>
-              <span><strong>43</strong> 静态资源</span>
+              <span><strong>72</strong> DOM 行为</span>
+              <span><strong>79</strong> 运行时事件</span>
+              <span><strong>31</strong> 框架类型</span>
+              <span><strong>45</strong> 静态资源</span>
             </div>
 
             <h3>安装、注册与静态资源</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.0.0&quot; /&gt;</code></pre>
+              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.1.0&quot; /&gt;</code></pre>
               <pre class="site-code"><code>builder.Services.AddGardenerimBlazor();
 
 var app = builder.Build();
@@ -1182,7 +1184,7 @@ app.MapStaticAssets();</code></pre>
               <code>EditForm</code>、<code>EditContext</code>、DataAnnotations、验证状态、input、select 与 textarea。
             </p>
 
-            <h3>值绑定、75 个事件与 7 个同步守卫</h3>
+            <h3>值绑定、79 个事件与 7 个同步守卫</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;GCard Value=&quot;@selection&quot;
        ValueChanged=&quot;@(value =&gt; selection = value)&quot;
@@ -1203,7 +1205,7 @@ app.MapStaticAssets();</code></pre>
             <p>
               <code>Value/ValueChanged</code> 处理原生 input/change，<code>ValueEvent</code> 与
               <code>ValueKey</code> 处理复杂 CustomEvent。值会转换为 .NET 字符串、布尔、数字、数组或字典；DOM、File、BigInt、函数和循环引用会安全序列化。
-              <code>GardenerimEvents.All</code> 暴露全部 75 个事件，<code>GardenerimEvents.Guards</code>
+              <code>GardenerimEvents.All</code> 暴露全部 79 个事件，<code>GardenerimEvents.Guards</code>
               暴露 beforeapproval、beforeclose、beforefilepicker、beforeopen、beforepromptstop、beforepromptsubmit、beforetabclose
               7 个必须在 JS/.NET 异步边界前同步阻止的守卫事件。行为成员与事件 detail 契约可从
               <code>GardenerimRuntimeCatalog</code> 查询。
@@ -1213,25 +1215,25 @@ app.MapStaticAssets();</code></pre>
             <p>
               <code>GardenerimProvider</code> 支持 Theme、Mode、Neutral、Typography、Shape、Density、Elevation、Motion、Platform、Os
               十轴嵌套主题；<code>GardenerimThemePresets.All</code> 收录完整 42 个颜色主题，默认保持白底 Light 与小圆角 small。
-              5 个作用域服务为 <code>GardenerimRuntime</code>、<code>GardenerimThemeService</code>、<code>GardenerimToastService</code>、<code>GardenerimTauriService</code>、<code>GardenerimElectronService</code>。
+              6 个作用域服务为 <code>GardenerimRuntime</code>、<code>GardenerimLocalizationService</code>、<code>GardenerimThemeService</code>、<code>GardenerimToastService</code>、<code>GardenerimTauriService</code>、<code>GardenerimElectronService</code>。
               桌面桥只调用宿主预加载层明确暴露的白名单对象，不开放 Node 全局能力。
             </p>
 
             <h3>完整公共类型与机器可读契约</h3>
             <p>
-              28 个框架类型为：<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
+              31 个框架类型为：<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimLocalizationOptions</code>、<code>GardenerimLocalizationService</code>、<code>GardenerimLocalizationState</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
             </p>
             <p>
               <a href="../../packages/blazor/metadata/public-api.json">Blazor Public API</a>、<a href="../../packages/blazor/metadata/components.json">组件元数据</a>、<a href="../../packages/blazor/metadata/compatibility.json">Compatibility</a>、<a href="../../packages/blazor/artifacts/gardener-blazor.performance.json">Performance</a>
               均有闭合 JSON Schema。可读文档还包括
-              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">66 个行为</a>、<a href="../../packages/blazor/docs/events.md">75 个事件</a>、<a href="../../packages/blazor/docs/assets.md">44 个静态资源</a>、<a href="../../packages/blazor/docs/runtime.md">运行时</a>、<a href="../../packages/blazor/docs/accessibility.md">无障碍与 SSR</a> 和
+              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">72 个行为</a>、<a href="../../packages/blazor/docs/events.md">79 个事件</a>、<a href="../../packages/blazor/docs/assets.md">45 个静态资源</a>、<a href="../../packages/blazor/docs/runtime.md">运行时</a>、<a href="../../packages/blazor/docs/accessibility.md">无障碍与 SSR</a> 和
               <a href="../../packages/blazor/docs/release.md">发布门禁</a>。
             </p>
 
-            <h3>2.0.0 发布质量</h3>
+            <h3>2.1.0 发布质量</h3>
             <p>
               Release 构建为 0 警告、0 错误；506 个组件全部经过真实静态 SSR。浏览器矩阵覆盖 Chromium、Firefox、WebKit、桌面与移动视口、键盘和 Axe WCAG A/AA；CI 强制 Firefox。
-              NuGet 使用隔离缓存真实发布消费应用，并验证静态 Web Assets endpoint manifest；另有独立 .NET 11 Preview 包消费者。程序集实测 344,576 B，44 个静态资源共 7,701,545 B，CSS gzip 139,263 B，runtime gzip 29,289 B，Blazor bridge gzip 2,055 B，nupkg 约 1.22 MiB、低于 6,000,000 B 硬上限；全部低于硬预算且 DLL/XML 可复现。
+              NuGet 使用隔离缓存真实发布消费应用，并验证静态 Web Assets endpoint manifest；另有独立 .NET 11 Preview 包消费者。程序集实测 350,208 B，45 个静态资源共 7,820,065 B，CSS gzip 140,386 B，runtime gzip 33,149 B，Blazor bridge gzip 2,097 B，nupkg 约 1.27 MiB、低于 6,000,000 B 硬上限；全部低于硬预算且 DLL/XML 可复现。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd blazor
@@ -2303,7 +2305,7 @@ npm run test:net11</code></pre>
               <div class="g-cluster">
                 <span class="g-badge">Cluster</span
                 ><span class="g-badge">wrap</span
-                ><button class="g-btn g-btn-primary g-btn-sm">Action</button>
+                ><button type="button" class="g-btn g-btn-primary g-btn-sm">Action</button>
               </div>
             </div>
             <h3>22 个原语完整矩阵</h3>
@@ -2571,8 +2573,8 @@ npm run test:net11</code></pre>
                   ><span class="g-badge g-badge-success">已同步</span>
                 </div>
                 <div class="g-page-header-actions">
-                  <button class="g-btn g-btn-outline g-btn-sm">预览</button
-                  ><button class="g-btn g-btn-primary g-btn-sm">新建</button>
+                  <button type="button" class="g-btn g-btn-outline g-btn-sm">预览</button
+                  ><button type="button" class="g-btn g-btn-primary g-btn-sm">新建</button>
                 </div>
               </header>
               <div class="g-toolbar">
@@ -2583,14 +2585,14 @@ npm run test:net11</code></pre>
                   <span class="g-filter-chip">状态：全部</span>
                 </div>
                 <div class="g-toolbar-end">
-                  <button class="g-btn g-btn-ghost g-btn-sm">筛选</button>
+                  <button type="button" class="g-btn g-btn-ghost g-btn-sm">筛选</button>
                 </div>
               </div>
               <div class="g-bulk-action-bar">
                 <strong class="g-bulk-action-count">已选择 3 项</strong>
                 <div class="g-bulk-action-actions">
-                  <button class="g-btn g-btn-outline g-btn-sm">移动</button
-                  ><button class="g-btn g-btn-danger g-btn-sm">删除</button>
+                  <button type="button" class="g-btn g-btn-outline g-btn-sm">移动</button
+                  ><button type="button" class="g-btn g-btn-danger g-btn-sm">删除</button>
                 </div>
               </div>
               <footer class="g-status-bar">
@@ -4271,8 +4273,8 @@ npm run test:net11</code></pre>
                   >已选择 <strong data-g-selection-count>0</strong> 项</span
                 >
                 <div class="g-batch-toolbar-actions">
-                  <button class="g-btn g-btn-primary g-btn-sm">发布</button
-                  ><button class="g-btn g-btn-outline g-btn-sm">移动</button>
+                  <button type="button" class="g-btn g-btn-primary g-btn-sm">发布</button
+                  ><button type="button" class="g-btn g-btn-outline g-btn-sm">移动</button>
                 </div>
               </div>
             </div>
@@ -5446,19 +5448,19 @@ npm run test:net11</code></pre>
                       ></span>
                     </div>
                     <div class="g-sku-options">
-                      <button
+                      <button type="button"
                         class="g-sku-option"
                         data-g-sku-option
                         data-g-value="Windows"
                       >
                         Windows</button
-                      ><button
+                      ><button type="button"
                         class="g-sku-option"
                         data-g-sku-option
                         data-g-value="macOS"
                       >
                         macOS</button
-                      ><button
+                      ><button type="button"
                         class="g-sku-option"
                         data-g-sku-option
                         data-g-value="Linux"
@@ -8399,11 +8401,11 @@ npm run test:net11</code></pre>
               >
               继续执行十五组负向契约测试，并核对跨清单引用、源码与构建产物一致性、选择器、真实组件归属、SHA-256/SRI 完整性、可复现构建命令、模块种类/参数/签名、实例成员、数据属性、事件载荷、适配器、类型与发布脚本、兼容基线、构建档案、42 个绝对与相对预算产物、预算结果、版本与全部包导出。
             </p>
-            <h3>全部 9 个模块导出</h3>
+            <h3>全部 16 个模块导出</h3>
             <div class="docs-runtime-grid" id="public-module-grid">
               <span class="docs-status">正在读取模块接口…</span>
             </div>
-            <h3>全部 66 种行为与实例成员</h3>
+            <h3>全部 72 种行为与实例成员</h3>
             <p>
               每项列出声明式初始化属性，以及
               <code>getInstance()</code> 返回对象允许调用的全部成员。
@@ -8411,7 +8413,7 @@ npm run test:net11</code></pre>
             <div class="docs-runtime-grid" id="public-behavior-grid">
               <span class="docs-status">正在读取行为契约…</span>
             </div>
-            <h3>全部 75 种事件及载荷</h3>
+            <h3>全部 79 种事件及载荷</h3>
             <p>
               每项完整列出
               <code>CustomEvent.detail</code> 的字段；事件均会冒泡且可取消，以
@@ -8423,8 +8425,8 @@ npm run test:net11</code></pre>
             </div>
             <h3>全部运行时数据属性</h3>
             <p>
-              作者可使用的 310 个属性被划分为上方行为契约中的 66 个行为入口、167
-              个结构/动作选择器和 77 个附加配置属性；另有 27
+              作者可使用的 331 个属性被划分为上方行为契约中的 72 个行为入口、178
+              个结构/动作选择器和 81 个附加配置属性；另有 29
               个由运行时维护的状态属性。状态属性可能同时作为初始配置读取，但作者可用的前三组彼此互斥，不会重复计数。
             </p>
             <h4>结构与动作选择器</h4>
@@ -8452,7 +8454,7 @@ npm run test:net11</code></pre>
               <code>runtimeBehaviors</code> 在整个
               <code>0.x</code> 版本线作为只读兼容别名保留；旧
               <code>metadata/schema.json</code> 继续指向新的 Components
-              Schema。2.0.0 将公共契约提升为 Stable，并用机器可读 Compatibility 基线保存 0.9.0 的全部公共入口、层、主题、运行时、组件和配方；1.x 删除任何兼容入口前必须提供变更记录与迁移说明，并至少经过两个次版本的废弃期，实际移除只能发生在新的主版本。
+              Schema。2.1.0 将公共契约提升为 Stable，并用机器可读 Compatibility 基线保存 0.9.0 的全部公共入口、层、主题、运行时、组件和配方；1.x 删除任何兼容入口前必须提供变更记录与迁移说明，并至少经过两个次版本的废弃期，实际移除只能发生在新的主版本。
             </p>
           </section>
 
@@ -8591,7 +8593,7 @@ Gardenerim.toast({
             <h3>运行时测试门禁（0.4.0 起）</h3>
             <p>
               <code>npm run test:runtime</code> 使用 Node.js 内置测试运行器和
-              Happy DOM，对公共清单中的全部 66
+              Happy DOM，对公共清单中的全部 72
               种行为逐项双向比对真实实例成员，并验证初始化、幂等性、销毁和重新初始化；同时覆盖
               MutationObserver
               的动态节点、动态属性、子树移除、作用域销毁、多行为共存、全局销毁和初始化事件冒泡。
@@ -8708,7 +8710,7 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
           <section class="docs-section" id="targeted-builds">
             <h2>按需构建、类型、跨版本兼容与发布门禁</h2>
             <p>
-              <code>2.0.0</code> 将五个平台、28 个组件包、正式压缩与性能预算滚动到上一版本实测基线，并把公共契约提升为 Stable，继续保留类型、跨版本兼容和真实 npm 发布包门禁。<a
+              <code>2.1.0</code> 将五个平台、28 个组件包、正式压缩与性能预算滚动到上一版本实测基线，并把公共契约提升为 Stable，继续保留类型、跨版本兼容和真实 npm 发布包门禁。<a
                 href="../../packages/css/dist/gardener.builds.json"
                 ><code>gardener.builds.json</code></a
               >登记全部 5 个平台档案、28 个组件包、506 个组件到一个或多个真实所属包的映射、选择器签名、浏览器目标、构建器参数，以及全部 42 个正式产物的 SHA-256/SRI；<a
@@ -8718,10 +8720,10 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
             </p>
             <h3>TypeScript 与跨版本兼容</h3>
             <p>
-              构建会从 Public API 自动生成 <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> 与 <code>gardener.electron.d.ts</code>。66 种行为和 75 种事件形成完整字面量联合类型；<code>npm run test:types</code> 使用 TypeScript 严格模式编译真实消费者，覆盖默认及命名导出、行为工厂、Toast、实例查询和两类桌面桥接。
+              构建会从 Public API 自动生成 <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> 与 <code>gardener.electron.d.ts</code>。72 种行为和 79 种事件形成完整字面量联合类型；<code>npm run test:types</code> 使用 TypeScript 严格模式编译真实消费者，覆盖默认及命名导出、行为工厂、Toast、实例查询和两类桌面桥接。
             </p>
             <p>
-              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> 固化从 0.9.0 继承的 1,145 项契约，包括全部 47 个包入口、CSS 层、主题、运行时、数据属性、适配器、506 个组件和 52 个配方。<code>npm run verify:compatibility</code> 允许后续 1.x 新增，禁止无迁移路径的删除；在 2.0.0 稳定切点还会反向检查已有入口是否漏记。废弃入口至少保留两个次版本，并只能在新的主版本移除。其闭合结构由 <a href="../../packages/css/metadata/compatibility.schema.json">Compatibility Schema</a> 约束。
+              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> 固化从 0.9.0 继承的 1,145 项契约，包括全部 47 个包入口、CSS 层、主题、运行时、数据属性、适配器、506 个组件和 52 个配方。<code>npm run verify:compatibility</code> 允许后续 1.x 新增，禁止无迁移路径的删除；在 2.1.0 稳定切点还会反向检查已有入口是否漏记。废弃入口至少保留两个次版本，并只能在新的主版本移除。其闭合结构由 <a href="../../packages/css/metadata/compatibility.schema.json">Compatibility Schema</a> 约束。
             </p>
             <p>
               包明确支持 Node.js &gt;=18.18、Chrome/Edge/Firefox 100+、Safari/iOS 15.4+ 和 ESM；主入口及桌面适配器提供条件 <code>types</code> 导出。Runtime 自动初始化被标记为 <code>sideEffects</code>，避免打包器误删。<code>npm run verify:package</code> 会核对真实 npm 包白名单、每个导出目标、类型文件、开发目录泄漏与 Publint；<code>prepublishOnly</code> 强制执行完整 <code>release:verify</code>，并启用公开包和 npm Provenance。
@@ -8773,7 +8775,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
             </p>
             <h3>正式压缩与性能预算</h3>
             <p>
-              正式 CSS 与 JavaScript 使用 esbuild 做语法级压缩，不使用正则替换；主压缩入口和每次自定义构建生成可追溯的外部 Source Map。压缩 CSS 使用不随版本变化的稳定 MIT banner，避免纯版本文本扰动 Brotli 基线，未压缩 CSS 与 Runtime 仍提供精确版本。<code>npm run budget</code> 使用 gzip level 9 与 Brotli quality 11，对全部 42 个正式压缩产物同时计算 raw、gzip 和 Brotli，并检查全量 CSS、Runtime 的压缩比例，以及 <code>npm pack --dry-run</code> 返回的 packed、unpacked 和文件数。2.0.0 以封版的 0.9.0 实测结果为紧邻基线，限制每个产物 raw 增长不超过 2%、gzip/Brotli 不超过 3%，npm 包 packed 不超过 3%、unpacked 不超过 2%、文件数不超过 10%；五个平台产物均拥有直接历史基线。包体测量向上取整到 4 KiB packed 与 64 KiB unpacked，形成不低估真实包体且不受性能报告自包含压缩循环影响的确定性上界。绝对上限或相对上限任一失败都会阻断发布。
+              正式 CSS 与 JavaScript 使用 esbuild 做语法级压缩，不使用正则替换；主压缩入口和每次自定义构建生成可追溯的外部 Source Map。压缩 CSS 使用不随版本变化的稳定 MIT banner，避免纯版本文本扰动 Brotli 基线，未压缩 CSS 与 Runtime 仍提供精确版本。<code>npm run budget</code> 使用 gzip level 9 与 Brotli quality 11，对全部 42 个正式压缩产物同时计算 raw、gzip 和 Brotli，并检查全量 CSS、Runtime 的压缩比例，以及 <code>npm pack --dry-run</code> 返回的 packed、unpacked 和文件数。2.1.0 以封版的 2.0.0 实测结果为紧邻基线，限制每个产物 raw 增长不超过 2%、gzip/Brotli 不超过 3%，npm 包 packed 不超过 3%、unpacked 不超过 2%、文件数不超过 10%；五个平台产物均拥有直接历史基线。包体测量向上取整到 4 KiB packed 与 64 KiB unpacked，形成不低估真实包体且不受性能报告自包含压缩循环影响的确定性上界。绝对上限或相对上限任一失败都会阻断发布。
             </p>
             <div class="docs-table-wrap">
               <table class="docs-table">
@@ -8785,7 +8787,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
                   <tr><td>gardener.utilities.min.css</td><td>550,000 B</td><td>80,000 B</td><td>18,000 B</td></tr>
                   <tr><td>gardener.components.min.css</td><td>400,000 B</td><td>55,000 B</td><td>42,000 B</td></tr>
                   <tr><td>gardener.ai.min.css</td><td>30,000 B</td><td>6,000 B</td><td>5,000 B</td></tr>
-                  <tr><td>gardener.runtime.min.js</td><td>105,000 B</td><td>30,000 B</td><td>25,000 B</td></tr>
+                  <tr><td>gardener.runtime.min.js</td><td>120,000 B</td><td>34,000 B</td><td>30,000 B</td></tr>
                   <tr><td>platform/web.min.css</td><td>1,000,000 B</td><td>140,000 B</td><td>60,000 B</td></tr>
                   <tr><td>platform/mobile.min.css</td><td>1,020,000 B</td><td>142,000 B</td><td>62,000 B</td></tr>
                   <tr><td>platform/desktop.min.css</td><td>1,030,000 B</td><td>143,000 B</td><td>63,000 B</td></tr>
@@ -8798,7 +8800,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
               上表列出 12 个主要 CSS/Runtime 入口；预算文件还逐项覆盖 2 个桌面适配器、28 个组件包，共 42 个正式压缩产物，没有使用笼统的共享上限替代单产物检查。
             </p>
             <p>
-              npm 包预算为 packed 2,050,000 B、unpacked 16,500,000 B、最多 92 个文件。预算源由 <a href="../../packages/css/config/performance-budgets.json"><code>performance-budgets.json</code></a> 管理，并分别受 <a href="../../packages/css/metadata/performance-budgets.schema.json">Budgets Schema</a> 与 <a href="../../packages/css/metadata/performance-report.schema.json">Report Schema</a> 保护。
+              npm 包预算为 packed 2,050,000 B、unpacked 16,500,000 B、最多 93 个文件。预算源由 <a href="../../packages/css/config/performance-budgets.json"><code>performance-budgets.json</code></a> 管理，并分别受 <a href="../../packages/css/metadata/performance-budgets.schema.json">Budgets Schema</a> 与 <a href="../../packages/css/metadata/performance-report.schema.json">Report Schema</a> 保护。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>npm run build       # 全量、分层、28 个组件包和 5 个平台档案
@@ -8872,12 +8874,12 @@ npm run test:build  # 10 个构建、兼容、类型、发布与失败路径用�
               </li>
               <li>移动端触控目标使用 touch 密度或不小于约 44px。</li>
             </ul>
-            <h3>2.0.0 自动化测试矩阵</h3>
+            <h3>2.1.0 自动化测试矩阵</h3>
             <div
               class="g-table-wrap"
               tabindex="0"
               role="region"
-              aria-label="2.0.0 自动化测试矩阵"
+              aria-label="2.1.0 自动化测试矩阵"
             >
               <table class="g-table">
                 <thead>
@@ -9027,7 +9029,7 @@ npm run verify:package # npm 文件、导出目标与 Publint
 npm run test:schema # Ajv 2020-12 验证十一套 Schema
 npm run test:build # 10 个构建、类型、兼容、发布与失败路径用例
 npm run contracts  # Schema、公共 API、命名与跨清单契约
-npm run test:runtime # 66 种行为与 DOM 生命周期
+npm run test:runtime # 72 种行为与 DOM 生命周期
 npm run test:html   # 示例与 Home 的 HTML 结构
 npm run check      # 主题、组件、运行时和清单一致性
 npm run audit      # Token、对比度、包边界、导出和版本
@@ -9101,12 +9103,12 @@ node website/scripts/check-coverage.mjs  # 文档零遗漏校验</code></pre>
     <footer class="site-footer">
       <div class="site-container">
         <div class="site-footer-bottom">
-          <span>Gardenerim v2.0.0 · MIT License</span
+          <span>Gardenerim v2.1.0 · MIT License</span
           ><a href="./index.html">返回首页</a>
         </div>
       </div>
     </footer>
     <script src="../assets/file-i18n.js"></script>
-    <script type="module" src="../assets/site.js?v=2.0.0"></script>
+    <script type="module" src="../assets/site.js?v=2.1.0"></script>
   </body>
 </html>

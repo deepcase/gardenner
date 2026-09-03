@@ -1,11 +1,11 @@
-# Gardenerim.Blazor 2.0.0
+# Gardenerim.Blazor 2.1.0
 
-Gardenerim CSS 2.0.0 的官方 Blazor Razor Class Library。以 `net10.0` 为稳定基线，可直接由 `net11.0` 应用引用。库完整映射 506 个 CSS/混合组件、66 个 DOM 行为与 75 个事件，并提供主题、Toast、表单、Tauri、Electron 和底层运行时服务。
+Gardenerim CSS 2.1.0 的官方 Blazor Razor Class Library。以 `net10.0` 为稳定基线，可直接由 `net11.0` 应用引用。库完整映射 506 个 CSS/混合组件、72 个 DOM 行为与 79 个事件，并提供主题、Toast、表单、Tauri、Electron 和底层运行时服务。
 
 ## 安装
 
 ```xml
-<PackageReference Include="Gardenerim.Blazor" Version="2.0.0" />
+<PackageReference Include="Gardenerim.Blazor" Version="2.1.0" />
 ```
 
 ```csharp
@@ -19,6 +19,8 @@ builder.Services.AddGardenerimBlazor();
 ```
 
 组件首次交互渲染时会按需加载 `_content/Gardenerim.Blazor/gardener.blazor.js`，无需手写 `<script>`。
+
+默认控件使用 28 / 32 / 36px 高度与 14px 字体；紧凑模式为 24 / 28 / 32px。Razor Class Library 会内嵌这套 Gardenerim CSS 产物。
 
 ## 最小示例
 
@@ -46,8 +48,8 @@ builder.Services.AddGardenerimBlazor();
 - 安装与架构：`docs/getting-started.md`
 - 完整公共 API：`docs/api.md`
 - 506 个组件目录：`docs/components.md`
-- 66 个 DOM 行为目录：`docs/behaviors.md`
-- 75 个运行时事件目录：`docs/events.md`
+- 72 个 DOM 行为目录：`docs/behaviors.md`
+- 79 个运行时事件目录：`docs/events.md`
 - 44 个静态资源入口：`docs/assets.md`
 - 主题与 36+ 色彩主题：`docs/theming.md`
 - 表单、生命周期与 JS 互操作：`docs/runtime.md`
@@ -58,3 +60,7 @@ builder.Services.AddGardenerimBlazor();
 ## 兼容性承诺
 
 正式包只以稳定的 `net10.0` 编译，避免把预览版运行时带给生产项目。仓库保留独立 `net11.0` 消费者项目，并在 .NET 11 SDK 验证中构建，以证明向前兼容。公共 API、组件集合、静态资源及兼容基线均为机器可读 JSON，并受 CI 检查。
+
+## 运行时国际化
+
+注入 `GardenerimLocalizationService`，使用 `ConfigureAsync(new GardenerimLocalizationOptions { Locale = ["zh-CN"] })` 设置运行时语言。Razor Class Library 随包提供七语言 `locales.js`，不支持的语言回退到英语。

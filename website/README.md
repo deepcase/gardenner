@@ -10,10 +10,10 @@ Gardenerim 的白底官网与文档站。该目录只承载展示层，不参与
 
 ## 页面
 
-- `index.html`：产品落地页、`@gardenerim/vue 2.0.0`、`@gardenerim/react 2.0.0`、`@gardenerim/angularjs 2.0.0` 与 `Gardenerim.Blazor 2.0.0` 项目介绍、24 / 12 栅格、16 种传统区域布局、22 个经典布局原语、23 种页面级公共组件、28 种 Tip/帮助模式、37 种表单组合、38 种导航组合、48 种数据组合、32 种选择/批量操作模式、32 种文件/内容系统模式、32 种登录/账号模式、32 种商业/支付模式、32 种移动端特有模式、32 种桌面端特有模式、32 种 AI 智能交互模式与 32 种完整页面/行业解决方案，以及 `2.0.0` Stable 公共 API、TypeScript 类型、1,145 项兼容基线、npm/NuGet 发布包门禁、5 个平台档案、28 个组件包、506 个真实组件归属、正式产物预算和 SHA-256/SRI、可复现构建、运行时与 DOM 生命周期测试、真实浏览器、HTML/SSR 结构测试、主题和 52 个配方概览。
-- `docs.html`：完整使用文档；Vue 公共 API 与全部 506 个 Vue 组件目录、538 个根运行时导出、21 个类型导出、30 个公共包入口、插件、Provider、v-model、指令和 7 个 Composable；React 公共 API 与全部 506 个 React 组件目录、538 个根运行时导出、22 个类型导出、30 个公共包入口、Provider、受控值、Imperative Handle 和 7 个 Hooks；AngularJS 公共 API 与全部 506 个 AngularJS 组件目录、535 个根运行时导出、24 个类型导出、30 个公共包入口、模块工厂、元素/属性指令、ngModel、3 个服务、动态生命周期和 EOL 安全基线；Blazor 公共 API 与全部 506 个 Razor 组件目录、66 个行为、75 个事件、28 个框架类型、20 个共同参数、6 个组件句柄成员、5 个服务、44 个静态资源、Razor Class Library、表单、SSR、.NET 10/11、Tauri/Electron、NuGet 和性能门禁。四套适配层均覆盖主题、平台/组件 CSS 包、Schema、兼容性、性能及发布门禁。文档同时覆盖 CSS 公共 API 与十一套闭合 Schema、48 个标准 Schema 验证用例、TypeScript 类型、1,145 项跨版本兼容基线、npm 发布包门禁、按平台/组件构建、正式 esbuild 压缩、Source Map、SHA-256/SRI、可复现构建、raw/gzip/Brotli/npm 包绝对与相对性能预算、栅格、区域布局、布局原语、全部组合组件接口、源码级 CSS API、全部组件元数据、工具类、9 个模块导出、66 种行为实例、75 种事件及载荷、全部运行时数据属性、配方目录，以及 Chromium/Firefox/WebKit、Pixel 7/iPhone 13、Axe 和 HTML 结构测试矩阵。
+- `index.html`：产品落地页、`@gardenerim/vue 2.1.0`、`@gardenerim/react 2.1.0`、`@gardenerim/angularjs 2.1.0` 与 `Gardenerim.Blazor 2.1.0` 项目介绍、24 / 12 栅格、16 种传统区域布局、22 个经典布局原语、23 种页面级公共组件、28 种 Tip/帮助模式、37 种表单组合、38 种导航组合、48 种数据组合、32 种选择/批量操作模式、32 种文件/内容系统模式、32 种登录/账号模式、32 种商业/支付模式、32 种移动端特有模式、32 种桌面端特有模式、32 种 AI 智能交互模式与 32 种完整页面/行业解决方案，以及 `2.1.0` Stable 公共 API、TypeScript 类型、1,145 项兼容基线、npm/NuGet 发布包门禁、5 个平台档案、28 个组件包、506 个真实组件归属、正式产物预算和 SHA-256/SRI、可复现构建、运行时与 DOM 生命周期测试、真实浏览器、HTML/SSR 结构测试、主题和 52 个配方概览。
+- `docs.html`：完整使用文档；Vue 公共 API 与全部 506 个 Vue 组件目录、546 个根运行时导出、21 个类型导出、30 个公共包入口、插件、Provider、v-model、指令和 8 个 Composable；React 公共 API 与全部 506 个 React 组件目录、546 个根运行时导出、22 个类型导出、30 个公共包入口、Provider、受控值、Imperative Handle 和 8 个 Hooks；AngularJS 公共 API 与全部 506 个 AngularJS 组件目录、542 个根运行时导出、24 个类型导出、30 个公共包入口、模块工厂、元素/属性指令、ngModel、3 个服务、动态生命周期和 EOL 安全基线；Blazor 公共 API 与全部 506 个 Razor 组件目录、72 个 DOM 行为、79 个运行时事件、31 个框架类型、20 个共同参数、6 个组件句柄成员、6 个服务、45 个静态资源、Razor Class Library、表单、SSR、.NET 10/11、Tauri/Electron、NuGet 和性能门禁。四套适配层均覆盖主题、平台/组件 CSS 包、Schema、兼容性、性能及发布门禁。文档同时覆盖 CSS 公共 API 与十一套闭合 Schema、48 个标准 Schema 验证用例、TypeScript 类型、1,145 项跨版本兼容基线、npm 发布包门禁、按平台/组件构建、正式 esbuild 压缩、Source Map、SHA-256/SRI、可复现构建、raw/gzip/Brotli/npm 包绝对与相对性能预算、栅格、区域布局、布局原语、全部组合组件接口、源码级 CSS API、全部组件元数据、工具类、16 个模块导出、72 种行为实例、79 种事件及载荷、全部运行时数据属性、配方目录，以及 Chromium/Firefox/WebKit、Pixel 7/iPhone 13、Axe 和 HTML 结构测试矩阵。
 
-CSS 主框架的发布清单继续精确覆盖 42 个正式产物、77 个运行时与 DOM 生命周期测试、152 个默认真实浏览器用例和 24 个 HTML 结构用例；Vue 适配层继续提供 28 个组件 CSS 包。Blazor 使用同一份 CSS 权威元数据，但通过 NuGet 静态 Web Assets 分发 44 个资源文件。
+CSS 主框架的发布清单继续精确覆盖 42 个正式产物、90 个运行时与 DOM 生命周期测试、真实浏览器与移动端矩阵和 24 个 HTML 结构用例；Vue 适配层继续提供 28 个组件 CSS 包。Blazor 使用同一份 CSS 权威元数据，但通过 NuGet 静态 Web Assets 分发 45 个资源文件。
 
 ## 本地预览
 
@@ -50,4 +50,4 @@ node website/scripts/check.mjs
 node website/scripts/check-coverage.mjs
 ```
 
-最后一项会逐个核对源码模块哈希，并保证每个 CSS 类、Token、状态钩子、数据属性、关键帧、组件和页面配方都有文档入口；同时核对 Vue、React、AngularJS 与 Blazor 的组件目录、公共 API、主题轴、行为/事件、框架类型、服务、静态资源、性能报告和兼容基线，防止适配层文档与 2.0.0 产物漂移。
+最后一项会逐个核对源码模块哈希，并保证每个 CSS 类、Token、状态钩子、数据属性、关键帧、组件和页面配方都有文档入口；同时核对 Vue、React、AngularJS 与 Blazor 的组件目录、公共 API、主题轴、行为/事件、框架类型、服务、静态资源、性能报告和兼容基线，防止适配层文档与 2.1.0 产物漂移。

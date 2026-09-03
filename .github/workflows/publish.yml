@@ -6,7 +6,7 @@ on:
       version:
         description: Version to publish
         required: true
-        default: 2.0.0
+        default: 2.1.0
         type: string
       confirm:
         description: Type PUBLISH to authorize the registry upload
@@ -26,8 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 24
           package-manager-cache: false
@@ -53,8 +53,8 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
@@ -64,13 +64,12 @@ jobs:
         working-directory: packages/css
       - run: npx playwright install --with-deps chromium firefox webkit
         working-directory: packages/css
-      - run: npm publish --access public
+      - run: npm run release:verify
         working-directory: packages/css
         env:
-          # Required only for the one-time bootstrap publish. Once the package
-          # exists and its trusted publisher is configured, remove NPM_TOKEN
-          # from the repository; npm will authenticate through OIDC instead.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GARDENER_REQUIRE_FIREFOX: "1"
+      - run: npm publish --access public --provenance
+        working-directory: packages/css
 
   npm-adapters:
     name: Publish @gardenerim/${{ matrix.package }}
@@ -86,8 +85,8 @@ jobs:
       matrix:
         package: [vue, react, angularjs]
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
@@ -97,10 +96,12 @@ jobs:
         working-directory: packages/${{ matrix.package }}
       - run: npx playwright install --with-deps chromium firefox webkit
         working-directory: packages/${{ matrix.package }}
-      - run: npm publish --access public
+      - run: npm run release:verify
         working-directory: packages/${{ matrix.package }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GARDENER_REQUIRE_FIREFOX: "1"
+      - run: npm publish --access public --provenance
+        working-directory: packages/${{ matrix.package }}
 
   nuget:
     name: Publish Gardenerim.Blazor
@@ -112,11 +113,11 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5
         with:
           dotnet-version: 10.0.400
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 24
           package-manager-cache: false
@@ -130,7 +131,7 @@ jobs:
           GARDENER_REQUIRE_FIREFOX: "1"
       - name: Exchange GitHub OIDC token for a temporary NuGet API key
         id: nuget-login
-        uses: NuGet/login@v1
+        uses: NuGet/login@ebc737b6fc418a6ca0073cf116ec8dc156d8b81e # v1
         with:
           user: gardenerim
       - name: Publish Gardenerim.Blazor

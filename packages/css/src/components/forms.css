@@ -7,7 +7,7 @@
   .g-input, .g-textarea, .g-select {
     width: 100%; min-height: var(--g-control-height-md); padding: var(--g-space-control-y) var(--g-space-control-x);
     border: var(--g-border-width) solid var(--g-color-border-strong); border-radius: var(--g-radius-md);
-    background: var(--g-color-surface); color: var(--g-color-text); line-height: 1.35;
+    background: var(--g-color-surface); color: var(--g-color-text); font-size: var(--g-font-size-sm); line-height: 1.35;
     transition: border-color var(--g-duration-fast), box-shadow var(--g-duration-fast), background var(--g-duration-fast);
   }
   .g-input::placeholder, .g-textarea::placeholder { color: var(--g-color-text-subtle); }
@@ -16,7 +16,7 @@
   .g-input:disabled, .g-textarea:disabled, .g-select:disabled { opacity: 0.65; background: var(--g-color-surface-subtle); }
   .g-input[aria-invalid="true"], .g-textarea[aria-invalid="true"], .g-select[aria-invalid="true"] { border-color: var(--g-color-danger); }
   .g-input-sm, .g-select-sm { min-height: var(--g-control-height-sm); padding: var(--g-space-1) var(--g-space-3); font-size: var(--g-font-size-sm); }
-  .g-input-lg, .g-select-lg { min-height: var(--g-control-height-lg); font-size: var(--g-font-size-lg); }
+  .g-input-lg, .g-select-lg { min-height: var(--g-control-height-lg); font-size: var(--g-font-size-sm); }
   .g-textarea { resize: vertical; }
   .g-select { appearance: none; padding-inline-end: 2.5rem; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 1rem) 50%, calc(100% - 0.75rem) 50%; background-size: 0.3rem 0.3rem; background-repeat: no-repeat; }
   [dir="rtl"] .g-select { background-position: 1rem 50%, 0.75rem 50%; }
@@ -39,7 +39,7 @@
 
   .g-range { width: 100%; accent-color: var(--g-color-primary); }
   .g-color-input { inline-size: var(--g-control-height-md); block-size: var(--g-control-height-md); padding: 0.2rem; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
-  .g-file-drop { display: grid; place-items: center; min-height: 9rem; padding: var(--g-space-6); border: 2px dashed var(--g-color-border-strong); border-radius: var(--g-radius-lg); background: var(--g-color-surface-subtle); color: var(--g-color-text-muted); text-align: center; transition: border-color var(--g-duration-fast), background var(--g-duration-fast); }
+  .g-file-drop { display: grid; place-items: center; min-height: var(--g-file-drop-min-height, var(--g-state-min-height)); padding: var(--g-file-drop-padding, var(--g-component-padding)); border: 1px dashed var(--g-color-border-strong); border-radius: var(--g-radius-lg); background: var(--g-color-surface-subtle); color: var(--g-color-text-muted); text-align: center; transition: border-color var(--g-duration-fast), background var(--g-duration-fast); }
   .g-file-drop:is(:hover, .is-dragging) { border-color: var(--g-color-primary); background: var(--g-color-primary-soft); }
   .g-form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--g-space-4); }
   .g-form-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--g-space-2); padding-block-start: var(--g-space-4); }

@@ -22,6 +22,7 @@ public static class GardenerimServiceCollectionExtensions
         services.TryAddScoped<GardenerimJsModule>();
         services.TryAddScoped<GardenerimRuntime>();
         services.TryAddScoped<GardenerimThemeService>();
+        services.TryAddScoped<GardenerimLocalizationService>();
         services.TryAddScoped<GardenerimToastService>();
         services.TryAddScoped<GardenerimTauriService>();
         services.TryAddScoped<GardenerimElectronService>();

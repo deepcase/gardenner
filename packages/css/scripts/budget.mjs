@@ -29,7 +29,8 @@ const resolvedBaselineArtifacts = new Set(Object.keys(budget.artifacts).map((fil
 for (const file of Object.keys(budget.baseline.artifacts)) {
   if (!resolvedBaselineArtifacts.has(file)) errors.push(`performance baseline contains an unused artifact: ${file}`);
 }
-if (pkg.version === "2.0.0" && Object.keys(budget.baseline.artifactAliases).length) errors.push("2.0.0 requires direct 0.9.0 baselines for every formal artifact");
+if (pkg.version === "2.1.0" && budget.baseline.version !== "2.0.0") errors.push("2.1.0 performance budgets must use the released 2.0.0 measurements as the adjacent baseline");
+if (pkg.version === "2.1.0" && Object.keys(budget.baseline.artifactAliases).length) errors.push("2.1.0 requires direct 2.0.0 baselines for every formal artifact");
 for (const [file, limits] of Object.entries(budget.artifacts)) {
   const metrics = byteMetrics(await readFile(join(dist, file)), budget.compression);
   artifacts[file] = { limits, actual: metrics, pass: true };

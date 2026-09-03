@@ -712,12 +712,16 @@
     {
       "name": "range-field",
       "category": "form",
-      "type": "css",
-      "selector": ".g-range-field",
+      "type": "interactive",
+      "selector": "[data-g-field-sync].g-range-field",
+      "cssSelector": ".g-range-field",
       "parts": [
         "g-range-field-output"
       ],
-      "status": "css-ready",
+      "behaviors": [
+        "field-sync"
+      ],
+      "status": "runtime-ready",
       "platforms": [
         "web",
         "mobile",
@@ -727,13 +731,17 @@
     {
       "name": "file-field",
       "category": "form",
-      "type": "css",
-      "selector": ".g-file-field",
+      "type": "interactive",
+      "selector": "[data-g-field-sync].g-file-field",
+      "cssSelector": ".g-file-field",
       "parts": [
         "g-file-field-control",
         "g-file-field-name"
       ],
-      "status": "css-ready",
+      "behaviors": [
+        "field-sync"
+      ],
+      "status": "runtime-ready",
       "platforms": [
         "web",
         "mobile",
@@ -1764,8 +1772,9 @@
     {
       "name": "responsive-table",
       "category": "data",
-      "type": "css",
-      "selector": ".g-responsive-table",
+      "type": "interactive",
+      "selector": "[data-g-table-scroll].g-responsive-table",
+      "cssSelector": ".g-responsive-table",
       "parts": [
         "g-table-caption",
         "g-table-row",
@@ -1780,7 +1789,10 @@
         "stacked",
         "sticky-columns"
       ],
-      "status": "css-ready",
+      "behaviors": [
+        "table-scroll"
+      ],
+      "status": "runtime-ready",
       "platforms": [
         "web",
         "mobile",
@@ -2386,12 +2398,16 @@
     {
       "name": "table-density",
       "category": "data",
-      "type": "css",
-      "selector": ".g-table-density",
+      "type": "interactive",
+      "selector": "[data-g-table-density].g-table-density",
+      "cssSelector": ".g-table-density",
       "parts": [
         "g-table-density-button"
       ],
-      "status": "css-ready",
+      "behaviors": [
+        "table-density"
+      ],
+      "status": "runtime-ready",
       "platforms": [
         "web",
         "mobile",
@@ -2401,14 +2417,18 @@
     {
       "name": "filter-summary",
       "category": "data",
-      "type": "css",
-      "selector": ".g-filter-summary",
+      "type": "interactive",
+      "selector": "[data-g-filter-summary].g-filter-summary",
+      "cssSelector": ".g-filter-summary",
       "parts": [
         "g-filter-summary-label",
         "g-filter-summary-chip",
         "g-filter-summary-clear"
       ],
-      "status": "css-ready",
+      "behaviors": [
+        "filter-summary"
+      ],
+      "status": "runtime-ready",
       "platforms": [
         "web",
         "mobile",
@@ -2724,15 +2744,19 @@
     {
       "name": "date-range-picker-composition",
       "category": "interaction",
-      "type": "css",
-      "selector": ".g-date-range-picker",
+      "type": "interactive",
+      "selector": "[data-g-range-picker].g-date-range-picker",
+      "cssSelector": ".g-date-range-picker",
       "parts": [
         "g-range-picker-fields",
         "g-range-picker-presets",
         "g-range-picker-calendar",
         "g-range-picker-actions"
       ],
-      "status": "css-ready",
+      "behaviors": [
+        "range-picker"
+      ],
+      "status": "runtime-ready",
       "platforms": [
         "web",
         "mobile",
@@ -2742,14 +2766,18 @@
     {
       "name": "time-range-picker-composition",
       "category": "interaction",
-      "type": "css",
-      "selector": ".g-time-range-picker",
+      "type": "interactive",
+      "selector": "[data-g-range-picker].g-time-range-picker",
+      "cssSelector": ".g-time-range-picker",
       "parts": [
         "g-range-picker-fields",
         "g-range-picker-presets",
         "g-range-picker-actions"
       ],
-      "status": "css-ready",
+      "behaviors": [
+        "range-picker"
+      ],
+      "status": "runtime-ready",
       "platforms": [
         "web",
         "mobile",
@@ -3839,12 +3867,16 @@
     {
       "name": "help-feedback",
       "category": "help",
-      "type": "css",
-      "selector": ".g-help-feedback",
+      "type": "interactive",
+      "selector": "[data-g-saved-choice].g-help-feedback",
+      "cssSelector": ".g-help-feedback",
       "parts": [
         "g-help-feedback-actions"
       ],
-      "status": "css-ready",
+      "behaviors": [
+        "saved-choice"
+      ],
+      "status": "runtime-ready",
       "platforms": [
         "web",
         "mobile",
@@ -5801,15 +5833,19 @@
     {
       "name": "video-player-shell",
       "category": "content",
-      "type": "css",
-      "selector": ".g-video-player",
+      "type": "interactive",
+      "selector": "[data-g-media-player].g-video-player",
+      "cssSelector": ".g-video-player",
       "parts": [
         "g-video-stage",
         "g-media-controls",
         "g-media-timeline",
         "g-media-time"
       ],
-      "status": "css-ready",
+      "behaviors": [
+        "media-player"
+      ],
+      "status": "runtime-ready",
       "platforms": [
         "web",
         "mobile",
@@ -5819,15 +5855,19 @@
     {
       "name": "audio-player-shell",
       "category": "content",
-      "type": "css",
-      "selector": ".g-audio-player",
+      "type": "interactive",
+      "selector": "[data-g-media-player].g-audio-player",
+      "cssSelector": ".g-audio-player",
       "parts": [
         "g-audio-art",
         "g-media-controls",
         "g-media-timeline",
         "g-media-time"
       ],
-      "status": "css-ready",
+      "behaviors": [
+        "media-player"
+      ],
+      "status": "runtime-ready",
       "platforms": [
         "web",
         "mobile",

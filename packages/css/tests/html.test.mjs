@@ -33,6 +33,7 @@ for (const page of pages) {
     assert.match(html, /<html\b[^>]*\blang=["'][^"']+["']/i, `${page.label} needs a document language`);
     assert.match(html, /<title>\s*[^<]+\s*<\/title>/i, `${page.label} needs a non-empty title`);
     assert.match(html, /<meta\b[^>]*\bname=["']viewport["']/i, `${page.label} needs a viewport declaration`);
+    assert.doesNotMatch(html, /<button\b(?![^>]*\btype=)[^>]*>/i, `${page.label} buttons need an explicit type`);
   });
 }
 

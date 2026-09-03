@@ -33,8 +33,8 @@
     --g-space-16: 4rem;
     --g-space-20: 5rem;
     --g-space-24: 6rem;
-    --g-space-control-x: var(--g-space-4);
-    --g-space-control-y: var(--g-space-2);
+    --g-space-control-x: var(--g-space-3);
+    --g-space-control-y: var(--g-space-1);
     --g-space-page-x: clamp(1rem, 3vw, 2rem);
 
     /* Shape and depth */
@@ -92,10 +92,14 @@
     --g-color-selection: var(--g-primary-200);
 
     /* Controls and layout */
-    --g-control-height-sm: 2rem;
-    --g-control-height-md: 2.5rem;
-    --g-control-height-lg: 3rem;
-    --g-touch-target: 2.75rem;
+    --g-control-height-sm: 1.75rem;
+    --g-control-height-md: 2rem;
+    --g-control-height-lg: 2.25rem;
+    --g-touch-target: 2rem;
+    --g-component-padding: var(--g-space-4);
+    --g-component-padding-sm: var(--g-space-3);
+    --g-component-gap: var(--g-space-3);
+    --g-state-min-height: 10rem;
     --g-sidebar-width: 17rem;
     --g-sidebar-collapsed-width: 4.5rem;
     --g-header-height: 4rem;
@@ -105,17 +109,27 @@
   }
 
   [data-g-density="compact"] {
-    --g-control-height-sm: 1.75rem;
-    --g-control-height-md: 2rem;
-    --g-control-height-lg: 2.5rem;
+    --g-control-height-sm: 1.5rem;
+    --g-control-height-md: 1.75rem;
+    --g-control-height-lg: 2rem;
+    --g-touch-target: 1.75rem;
     --g-space-control-x: var(--g-space-3);
     --g-space-control-y: var(--g-space-1);
+    --g-component-padding: var(--g-space-3);
+    --g-component-padding-sm: var(--g-space-2);
+    --g-component-gap: var(--g-space-2);
+    --g-state-min-height: 8rem;
   }
 
   [data-g-density="comfortable"] {
-    --g-control-height-sm: 2.25rem;
-    --g-control-height-md: 2.75rem;
-    --g-control-height-lg: 3.25rem;
+    --g-control-height-sm: 2rem;
+    --g-control-height-md: 2.25rem;
+    --g-control-height-lg: 2.5rem;
+    --g-touch-target: 2.25rem;
+    --g-component-padding: var(--g-space-5);
+    --g-component-padding-sm: var(--g-space-4);
+    --g-component-gap: var(--g-space-4);
+    --g-state-min-height: 12rem;
   }
 
   [data-g-mode="dark"] {

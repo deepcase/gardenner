@@ -17,10 +17,10 @@ const catalog = await import(pathToFileURL(resolve(root, "dist/generated/catalog
 const components = await import(pathToFileURL(resolve(root, "dist/generated/components.js")).href);
 const module = await import(pathToFileURL(resolve(root, "dist/index.js")).href);
 const errors = [];
-if (pkg.version !== "2.0.0" || api.version !== pkg.version || api.status !== "stable") errors.push("version/status is not Stable 2.0.0");
+if (pkg.version !== "2.1.0" || api.version !== pkg.version || api.status !== "stable") errors.push("version/status is not Stable 2.1.0");
 if (catalog.componentCatalog.length !== css.components.length || css.components.length !== 506) errors.push("component catalog is incomplete");
 if (Object.keys(components.gardenerimDirectives).length !== 506) errors.push("generated directive registry is incomplete");
-if (api.behaviors !== runtime.javascript.behaviors.length || api.behaviors !== 66) errors.push("runtime behavior coverage is incomplete");
+if (api.behaviors !== runtime.javascript.behaviors.length || api.behaviors !== 72) errors.push("runtime behavior coverage is incomplete");
 if (api.angularjs !== pkg.peerDependencies.angular || compatibility.baseline.angularjs !== api.angularjs) errors.push("AngularJS support range differs across package and compatibility contracts");
 if (JSON.stringify(api.packageEntrypoints) !== JSON.stringify(Object.keys(pkg.exports))) errors.push("package exports differ from the public API");
 if (JSON.stringify(compatibility.baseline.packageEntrypoints) !== JSON.stringify(Object.keys(pkg.exports))) errors.push("package exports differ from the compatibility baseline");
@@ -29,10 +29,10 @@ if (JSON.stringify(compatibility.baseline.moduleExports) !== JSON.stringify(Obje
 if ((componentDocs.match(/^\| `G[^`]+Directive` \|/gmu) ?? []).length !== 506) errors.push("component documentation is incomplete");
 if (JSON.stringify(catalog.componentCatalog.map(({ name }) => name)) !== JSON.stringify(css.components.map(({ name }) => name))) errors.push("AngularJS catalog order differs from CSS metadata");
 for (const field of ["componentExports", "directiveNames", "elementNames"]) if (JSON.stringify(api[field]) !== JSON.stringify(catalog.componentCatalog.map((item) => item[field === "componentExports" ? "exportName" : field === "directiveNames" ? "directiveName" : "elementName"]))) errors.push(`public API differs from generated catalog: ${field}`);
-if (api.moduleExports.length !== 535 || api.typeExports.length !== 24 || api.packageEntrypoints.length !== 30 || api.services.length !== 3 || api.directives.length !== 2 || api.componentAttributes.length !== 8 || api.themeAxes.length !== 10) errors.push("public API inventory counts are incomplete");
+if (api.moduleExports.length !== 542 || api.typeExports.length !== 24 || api.packageEntrypoints.length !== 30 || api.services.length !== 3 || api.directives.length !== 2 || api.componentAttributes.length !== 8 || api.themeAxes.length !== 10) errors.push("public API inventory counts are incomplete");
 for (const field of ["componentExports", "directiveNames", "elementNames", "moduleExports", "typeExports", "packageEntrypoints", "services", "directives", "componentAttributes", "componentHandleMembers", "themeAxes"]) if (JSON.stringify(compatibility.baseline[field]) !== JSON.stringify(api[field])) errors.push(`compatibility baseline differs from public API: ${field}`);
 for (const marker of [...api.services, ...api.directives, ...api.componentAttributes, ...api.componentHandleMembers, ...api.themeAxes, ...api.typeExports, api.moduleFactory, "AngularJS 1.8", "Tauri", "Electron", "WCAG A/AA"]) if (!apiDocs.includes(marker)) errors.push(`API documentation is missing ${marker}`);
-for (const marker of ["506 个", "66 种", "2.0.0", "AngularJS 1.x", "release:verify"]) if (!readme.includes(marker)) errors.push(`README is missing ${marker}`);
+for (const marker of ["506 个", "72 种", "2.1.0", "AngularJS 1.x", "release:verify"]) if (!readme.includes(marker)) errors.push(`README is missing ${marker}`);
 if (!readme.includes('import "angular/angular.js"') || readme.includes('import angular from "angular"')) errors.push("README does not use the supported AngularJS ESM side-effect import");
 for (const marker of ["AngularJS 1.8.2–1.8.3", "XSS", "SVG", "拒绝服务", "CSP", "Tauri/Electron", "peer dependency", "迁离 AngularJS"]) if (!securityDocs.includes(marker)) errors.push(`security baseline is missing ${marker}`);
 for (const definition of catalog.componentCatalog) {

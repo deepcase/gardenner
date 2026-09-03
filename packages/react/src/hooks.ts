@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type Dispatch, type RefObject, type SetStateAction } from "react";
-import { Gardenerim, destroy, getInstance, init, toast } from "@gardenerim/css/runtime";
+import { Gardenerim, configure, destroy, getConfiguration, getInstance, init, toast, type GardenerimConfigureOptions } from "@gardenerim/css/runtime";
 import { themeAttributes, themeAxes } from "./provider.js";
 import type { GardenerimBehaviorInstance, GardenerimBehaviorName, GardenerimComponentHandle, GardenerimElementTarget, GardenerimEventHandler, GardenerimThemeState } from "./types.js";
 
@@ -83,3 +83,8 @@ export const useGardenerimTheme = (initial: GardenerimThemeState = {}, target?: 
 };
 
 export const useGardenerimToast = () => ({ show: toast });
+
+export const useGardenerimLocale = () => ({
+  getConfiguration,
+  configure: (options: GardenerimConfigureOptions) => configure(options),
+});

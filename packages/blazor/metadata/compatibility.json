@@ -1,8 +1,8 @@
 {
   "$schema": "./compatibility.schema.json",
   "schemaVersion": 1,
-  "version": "2.0.0",
-  "baselineVersion": "2.0.0",
+  "version": "2.1.0",
+  "baselineVersion": "2.1.0",
   "policy": {
     "stage": "stable",
     "additions": "allowed",
@@ -45,6 +45,7 @@
       "native-file-picker",
       "window-switcher",
       "character-count",
+      "field-sync",
       "conditional-field",
       "repeatable-field",
       "tooltip",
@@ -54,6 +55,9 @@
       "split-pane",
       "tree",
       "data-grid",
+      "table-scroll",
+      "table-density",
+      "filter-summary",
       "table-sort",
       "row-select",
       "row-disclosure",
@@ -63,6 +67,7 @@
       "transfer",
       "picker",
       "cascader",
+      "range-picker",
       "saved-choice",
       "builder-list",
       "toast",
@@ -77,6 +82,7 @@
       "jump-nav",
       "upload-manager",
       "file-browser",
+      "media-player",
       "editor-shell",
       "revision-compare",
       "autosave",
@@ -374,6 +380,15 @@
         ]
       },
       {
+        "name": "field-sync",
+        "attribute": "data-g-field-sync",
+        "instanceMembers": [
+          "sync",
+          "value",
+          "destroy"
+        ]
+      },
+      {
         "name": "conditional-field",
         "attribute": "data-g-conditional-field",
         "instanceMembers": [
@@ -471,6 +486,33 @@
         ]
       },
       {
+        "name": "table-scroll",
+        "attribute": "data-g-table-scroll",
+        "instanceMembers": [
+          "update",
+          "state",
+          "destroy"
+        ]
+      },
+      {
+        "name": "table-density",
+        "attribute": "data-g-table-density",
+        "instanceMembers": [
+          "set",
+          "value",
+          "destroy"
+        ]
+      },
+      {
+        "name": "filter-summary",
+        "attribute": "data-g-filter-summary",
+        "instanceMembers": [
+          "clear",
+          "show",
+          "destroy"
+        ]
+      },
+      {
         "name": "table-sort",
         "attribute": "data-g-table-sort",
         "instanceMembers": [
@@ -549,6 +591,17 @@
         "attribute": "data-g-cascader",
         "instanceMembers": [
           "choose",
+          "destroy"
+        ]
+      },
+      {
+        "name": "range-picker",
+        "attribute": "data-g-range-picker",
+        "instanceMembers": [
+          "set",
+          "clear",
+          "value",
+          "apply",
           "destroy"
         ]
       },
@@ -677,6 +730,18 @@
         ]
       },
       {
+        "name": "media-player",
+        "attribute": "data-g-media-player",
+        "instanceMembers": [
+          "play",
+          "pause",
+          "toggle",
+          "seek",
+          "state",
+          "destroy"
+        ]
+      },
+      {
         "name": "editor-shell",
         "attribute": "data-g-editor-shell",
         "instanceMembers": [
@@ -743,6 +808,7 @@
       "copy",
       "count",
       "couponchange",
+      "densitychange",
       "desktoptabchange",
       "desktoptabclose",
       "disclosure",
@@ -754,6 +820,7 @@
       "expand",
       "feedbackchange",
       "feedbacksubmit",
+      "fieldchange",
       "filefilter",
       "files",
       "fileselect",
@@ -763,6 +830,7 @@
       "init",
       "loadcomplete",
       "loadmore",
+      "mediachange",
       "nativefiles",
       "open",
       "otpchange",
@@ -776,6 +844,7 @@
       "refresh",
       "refreshcomplete",
       "remove",
+      "rangechange",
       "resize",
       "revisionview",
       "savedchoice",
@@ -1083,6 +1152,16 @@
         "cancelable": true
       },
       {
+        "name": "densitychange",
+        "detailKeys": [
+          "density",
+          "table"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
         "name": "desktoptabchange",
         "detailKeys": [
           "tab",
@@ -1196,6 +1275,18 @@
         "cancelable": true
       },
       {
+        "name": "fieldchange",
+        "detailKeys": [
+          "kind",
+          "value",
+          "files",
+          "input"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
         "name": "filefilter",
         "detailKeys": [
           "query",
@@ -1280,6 +1371,19 @@
         "detailKeys": [
           "reason",
           "complete"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "mediachange",
+        "detailKeys": [
+          "playing",
+          "currentTime",
+          "duration",
+          "media",
+          "reason"
         ],
         "guard": false,
         "bubbles": true,
@@ -1385,6 +1489,19 @@
         "name": "quantitychange",
         "detailKeys": [
           "value",
+          "reason"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "rangechange",
+        "detailKeys": [
+          "start",
+          "end",
+          "valid",
+          "inputs",
           "reason"
         ],
         "guard": false,
@@ -2734,6 +2851,9 @@
       "GardenerimEvents",
       "GardenerimField<TValue>",
       "GardenerimJsModule",
+      "GardenerimLocalizationOptions",
+      "GardenerimLocalizationService",
+      "GardenerimLocalizationState",
       "GardenerimOptions",
       "GardenerimPart",
       "GardenerimPlatform",
@@ -2751,6 +2871,7 @@
     ],
     "services": [
       "GardenerimRuntime",
+      "GardenerimLocalizationService",
       "GardenerimThemeService",
       "GardenerimToastService",
       "GardenerimTauriService",
@@ -2805,6 +2926,7 @@
       "gardener.min.css.map",
       "gardener.runtime.min.js",
       "gardener.runtime.min.js.map",
+      "locales.js",
       "gardener.blazor.js",
       "gardener.tauri.min.js",
       "gardener.tauri.min.js.map",

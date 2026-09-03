@@ -32,28 +32,28 @@
           id="theme-select"
           aria-label="颜色主题"
         ></select>
-        <button class="g-btn g-btn-sm" id="mode-button">模式：Light</button>
+        <button type="button" class="g-btn g-btn-sm" id="mode-button">模式：Light</button>
       </div>
     </header>
 
     <main id="main" class="g-container">
       <section class="showcase-section">
         <div class="g-stack" style="--g-stack-gap: 0.75rem">
-          <span class="g-badge">Gardenerim 2.0.0</span>
+          <span class="g-badge">Gardenerim 2.1.0</span>
           <h1>通用界面的基础设施</h1>
           <p class="g-text-muted">
             中性默认风格、小圆角、42 套颜色主题，以及 PC、移动端、Dashboard 和
             AI 组件。
           </p>
           <div class="g-cluster">
-            <button
+            <button type="button"
               class="g-btn g-btn-primary"
               data-g-dialog-open="demo-dialog"
             >
               打开 Dialog
             </button>
-            <button class="g-btn g-btn-outline">次要操作</button>
-            <button class="g-btn g-btn-ghost">轻量操作</button>
+            <button type="button" class="g-btn g-btn-outline">次要操作</button>
+            <button type="button" class="g-btn g-btn-ghost">轻量操作</button>
           </div>
         </div>
       </section>
@@ -94,7 +94,7 @@
             </header>
             <div class="g-card-body g-stack">
               <div class="g-alert g-alert-success">
-                <span>✓</span>
+                <span class="g-alert-icon" aria-hidden="true">✓</span>
                 <div>
                   <div class="g-alert-title">构建成功</div>
                   <div class="g-alert-description">所有检查均已通过。</div>
@@ -206,14 +206,14 @@
           ></textarea>
           <div class="g-composer-toolbar">
             <div class="g-composer-tools">
-              <button
+              <button type="button"
                 class="g-btn g-btn-ghost g-btn-icon"
                 aria-label="添加附件"
               >
                 ＋
               </button>
             </div>
-            <button class="g-btn g-btn-primary">发送</button>
+            <button type="button" class="g-btn g-btn-primary">发送</button>
           </div>
         </div>
       </section>
@@ -228,7 +228,7 @@
       >
         <header class="g-dialog-header">
           <h2 id="dialog-title" class="g-dialog-title">Gardenerim Dialog</h2>
-          <button
+          <button type="button"
             class="g-btn g-btn-ghost g-btn-icon"
             data-g-close
             aria-label="关闭"
@@ -240,8 +240,8 @@
           <p>Dialog 支持焦点约束、Escape、背景关闭、滚动锁定和焦点恢复。</p>
         </div>
         <footer class="g-dialog-footer">
-          <button class="g-btn" data-g-close>取消</button
-          ><button class="g-btn g-btn-primary" data-g-close>确认</button>
+          <button type="button" class="g-btn" data-g-close>取消</button
+          ><button type="button" class="g-btn g-btn-primary" data-g-close>确认</button>
         </footer>
       </section>
     </div>

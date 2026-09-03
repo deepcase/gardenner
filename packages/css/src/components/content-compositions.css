@@ -1,7 +1,7 @@
 @layer gardener.components {
   /* Category 10: files, uploads, viewers and reusable content-authoring compositions. */
   .g-content-container { container-type: inline-size; min-inline-size: 0; }
-  .g-file-drop { display: grid; min-height: 10rem; place-items: center; gap: var(--g-space-2); padding: var(--g-space-6); border: 1px dashed var(--g-color-border-strong); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: var(--g-color-text-muted); text-align: center; cursor: pointer; }
+  .g-file-drop { display: grid; min-height: var(--g-file-drop-min-height, var(--g-state-min-height)); place-items: center; gap: var(--g-space-2); padding: var(--g-file-drop-padding, var(--g-component-padding)); border: 1px dashed var(--g-color-border-strong); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: var(--g-color-text-muted); text-align: center; cursor: pointer; }
   .g-file-drop:is(:hover, :focus-visible, .is-dragging) { border-color: var(--g-color-primary); background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
   .g-file-drop-icon { display: grid; width: 3rem; height: 3rem; place-items: center; border-radius: var(--g-radius-md); background: var(--g-color-surface-subtle); font-size: var(--g-font-size-xl); }
   .g-file-drop-title { color: var(--g-color-text); font-weight: 700; }
@@ -98,8 +98,10 @@
   .g-media-controls { display: flex; align-items: center; gap: var(--g-space-2); padding: var(--g-space-2); background: var(--g-color-surface); }
   .g-media-timeline { min-width: 4rem; flex: 1; }
   .g-media-time { color: var(--g-color-text); font-size: var(--g-font-size-xs); font-variant-numeric: tabular-nums; }
+  :is(.g-video-player, .g-audio-player)[data-g-playing="true"] [data-g-media-toggle] { background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
   .g-video-player .g-media-controls, .g-video-player .g-media-controls .g-btn, .g-video-player .g-media-time { color: #fff; }
-  .g-audio-player { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--g-space-3); padding: var(--g-space-3); }
+  .g-audio-player { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--g-space-3); padding: var(--g-space-3); }
+  .g-audio-player > .g-media-controls { grid-column: 1 / -1; min-width: 0; padding: 0; }
   .g-audio-art { display: grid; width: 3.5rem; height: 3.5rem; place-items: center; border-radius: var(--g-radius-md); background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
 
   .g-code-editor, .g-rich-text-editor, .g-markdown-editor, .g-block-editor { display: grid; grid-template-rows: auto minmax(18rem, 1fr) auto; min-width: 0; overflow: hidden; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); }

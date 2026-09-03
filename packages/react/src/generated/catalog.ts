@@ -1,4 +1,4 @@
-/** Generated from @gardenerim/css 2.0.0 metadata. */
+/** Generated from @gardenerim/css 2.1.0 metadata. */
 import type { GardenerimComponentDefinition } from "../types.js";
 
 export const componentCatalog: readonly GardenerimComponentDefinition[] = [
@@ -929,8 +929,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "name": "range-field",
     "exportName": "GRangeField",
     "category": "form",
-    "type": "css",
-    "selector": ".g-range-field",
+    "type": "interactive",
+    "selector": "[data-g-field-sync].g-range-field",
+    "cssSelector": ".g-range-field",
     "className": "g-range-field",
     "tag": "div",
     "variants": [],
@@ -938,7 +939,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "parts": [
       "g-range-field-output"
     ],
-    "behaviors": [],
+    "behaviors": [
+      "field-sync"
+    ],
     "platforms": [
       "web",
       "mobile",
@@ -949,8 +952,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "name": "file-field",
     "exportName": "GFileField",
     "category": "form",
-    "type": "css",
-    "selector": ".g-file-field",
+    "type": "interactive",
+    "selector": "[data-g-field-sync].g-file-field",
+    "cssSelector": ".g-file-field",
     "className": "g-file-field",
     "tag": "div",
     "variants": [],
@@ -959,7 +963,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
       "g-file-field-control",
       "g-file-field-name"
     ],
-    "behaviors": [],
+    "behaviors": [
+      "field-sync"
+    ],
     "platforms": [
       "web",
       "mobile",
@@ -2142,8 +2148,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "name": "responsive-table",
     "exportName": "GResponsiveTable",
     "category": "data",
-    "type": "css",
-    "selector": ".g-responsive-table",
+    "type": "interactive",
+    "selector": "[data-g-table-scroll].g-responsive-table",
+    "cssSelector": ".g-responsive-table",
     "className": "g-responsive-table",
     "tag": "div",
     "variants": [
@@ -2161,7 +2168,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
       "g-table-cell-sticky-end",
       "g-table-checkbox"
     ],
-    "behaviors": [],
+    "behaviors": [
+      "table-scroll"
+    ],
     "platforms": [
       "web",
       "mobile",
@@ -2879,8 +2888,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "name": "table-density",
     "exportName": "GTableDensity",
     "category": "data",
-    "type": "css",
-    "selector": ".g-table-density",
+    "type": "interactive",
+    "selector": "[data-g-table-density].g-table-density",
+    "cssSelector": ".g-table-density",
     "className": "g-table-density",
     "tag": "div",
     "variants": [],
@@ -2888,7 +2898,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "parts": [
       "g-table-density-button"
     ],
-    "behaviors": [],
+    "behaviors": [
+      "table-density"
+    ],
     "platforms": [
       "web",
       "mobile",
@@ -2899,8 +2911,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "name": "filter-summary",
     "exportName": "GFilterSummary",
     "category": "data",
-    "type": "css",
-    "selector": ".g-filter-summary",
+    "type": "interactive",
+    "selector": "[data-g-filter-summary].g-filter-summary",
+    "cssSelector": ".g-filter-summary",
     "className": "g-filter-summary",
     "tag": "div",
     "variants": [],
@@ -2910,7 +2923,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
       "g-filter-summary-chip",
       "g-filter-summary-clear"
     ],
-    "behaviors": [],
+    "behaviors": [
+      "filter-summary"
+    ],
     "platforms": [
       "web",
       "mobile",
@@ -3259,8 +3274,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "name": "date-range-picker-composition",
     "exportName": "GDateRangePickerComposition",
     "category": "interaction",
-    "type": "css",
-    "selector": ".g-date-range-picker",
+    "type": "interactive",
+    "selector": "[data-g-range-picker].g-date-range-picker",
+    "cssSelector": ".g-date-range-picker",
     "className": "g-date-range-picker",
     "tag": "div",
     "variants": [],
@@ -3271,7 +3287,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
       "g-range-picker-calendar",
       "g-range-picker-actions"
     ],
-    "behaviors": [],
+    "behaviors": [
+      "range-picker"
+    ],
     "platforms": [
       "web",
       "mobile",
@@ -3282,8 +3300,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "name": "time-range-picker-composition",
     "exportName": "GTimeRangePickerComposition",
     "category": "interaction",
-    "type": "css",
-    "selector": ".g-time-range-picker",
+    "type": "interactive",
+    "selector": "[data-g-range-picker].g-time-range-picker",
+    "cssSelector": ".g-time-range-picker",
     "className": "g-time-range-picker",
     "tag": "div",
     "variants": [],
@@ -3293,7 +3312,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
       "g-range-picker-presets",
       "g-range-picker-actions"
     ],
-    "behaviors": [],
+    "behaviors": [
+      "range-picker"
+    ],
     "platforms": [
       "web",
       "mobile",
@@ -4621,8 +4642,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "name": "help-feedback",
     "exportName": "GHelpFeedback",
     "category": "help",
-    "type": "css",
-    "selector": ".g-help-feedback",
+    "type": "interactive",
+    "selector": "[data-g-saved-choice].g-help-feedback",
+    "cssSelector": ".g-help-feedback",
     "className": "g-help-feedback",
     "tag": "div",
     "variants": [],
@@ -4630,7 +4652,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "parts": [
       "g-help-feedback-actions"
     ],
-    "behaviors": [],
+    "behaviors": [
+      "saved-choice"
+    ],
     "platforms": [
       "web",
       "mobile",
@@ -7202,8 +7226,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "name": "video-player-shell",
     "exportName": "GVideoPlayerShell",
     "category": "content",
-    "type": "css",
-    "selector": ".g-video-player",
+    "type": "interactive",
+    "selector": "[data-g-media-player].g-video-player",
+    "cssSelector": ".g-video-player",
     "className": "g-video-player",
     "tag": "div",
     "variants": [],
@@ -7214,7 +7239,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
       "g-media-timeline",
       "g-media-time"
     ],
-    "behaviors": [],
+    "behaviors": [
+      "media-player"
+    ],
     "platforms": [
       "web",
       "mobile",
@@ -7225,8 +7252,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
     "name": "audio-player-shell",
     "exportName": "GAudioPlayerShell",
     "category": "content",
-    "type": "css",
-    "selector": ".g-audio-player",
+    "type": "interactive",
+    "selector": "[data-g-media-player].g-audio-player",
+    "cssSelector": ".g-audio-player",
     "className": "g-audio-player",
     "tag": "div",
     "variants": [],
@@ -7237,7 +7265,9 @@ export const componentCatalog: readonly GardenerimComponentDefinition[] = [
       "g-media-timeline",
       "g-media-time"
     ],
-    "behaviors": [],
+    "behaviors": [
+      "media-player"
+    ],
     "platforms": [
       "web",
       "mobile",

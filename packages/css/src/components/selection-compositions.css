@@ -89,6 +89,8 @@
   .g-range-picker-presets { display: flex; flex-wrap: wrap; gap: var(--g-space-2); }
   .g-range-picker-calendar { display: grid; grid-template-columns: repeat(2, minmax(15rem, 1fr)); gap: var(--g-space-3); overflow-x: auto; }
   .g-range-picker-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--g-space-2); padding-block-start: var(--g-space-2); border-block-start: 1px solid var(--g-color-border); }
+  :is(.g-date-range-picker, .g-time-range-picker).is-invalid { border-color: var(--g-color-danger); }
+  :is(.g-date-range-picker, .g-time-range-picker).is-applied { border-color: var(--g-color-success); }
 
   .g-saved-filters, .g-saved-views { display: flex; flex-wrap: wrap; gap: var(--g-space-2); }
   .g-saved-filter, .g-saved-view { display: inline-flex; min-height: var(--g-control-height-sm); align-items: center; gap: var(--g-space-2); padding-inline: var(--g-space-3); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: var(--g-color-text-muted); cursor: pointer; }
@@ -103,7 +105,7 @@
   .g-column-chooser { min-width: 15rem; }
   .g-column-chooser-actions { display: flex; justify-content: space-between; gap: var(--g-space-2); padding: var(--g-space-2); border-block-end: 1px solid var(--g-color-border); }
 
-  .g-bulk-confirmation { display: grid; gap: var(--g-space-3); padding: var(--g-space-4); border: 1px solid var(--g-color-warning); border-radius: var(--g-radius-md); background: var(--g-color-warning-soft); }
+  .g-bulk-confirmation { display: grid; gap: var(--g-component-gap); padding: var(--g-component-padding); border: 1px solid var(--g-color-border); border-inline-start: 4px solid var(--g-color-warning); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
   .g-bulk-confirmation-title { font-weight: 700; }
   .g-bulk-confirmation-summary { color: var(--g-color-text-muted); }
   .g-bulk-confirmation-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--g-space-2); }

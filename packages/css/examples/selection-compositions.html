@@ -132,7 +132,7 @@
             >已选择 <strong data-g-selection-count>0</strong> 项</span
           >
           <div class="g-selection-summary-actions">
-            <button class="g-btn g-btn-outline g-btn-sm">复制</button>
+            <button type="button" class="g-btn g-btn-outline g-btn-sm">复制</button>
           </div>
         </div>
         <div class="g-batch-toolbar g-mt-3" data-g-batch-toolbar hidden>
@@ -140,9 +140,9 @@
             >已选择 <strong data-g-selection-count>0</strong> 项</span
           >
           <div class="g-batch-toolbar-actions">
-            <button class="g-btn g-btn-outline g-btn-sm">移动</button
-            ><button class="g-btn g-btn-outline g-btn-sm">发布</button
-            ><button class="g-btn g-btn-danger g-btn-sm">删除</button>
+            <button type="button" class="g-btn g-btn-outline g-btn-sm">移动</button
+            ><button type="button" class="g-btn g-btn-outline g-btn-sm">发布</button
+            ><button type="button" class="g-btn g-btn-danger g-btn-sm">删除</button>
           </div>
         </div>
       </section>
@@ -546,7 +546,7 @@
                 placeholder="搜索图标"
               />
               <div class="g-icon-picker-grid">
-                <button
+                <button type="button"
                   class="g-icon-picker-item"
                   data-g-saved-choice-item
                   data-g-value="home"
@@ -554,7 +554,7 @@
                   aria-label="主页图标"
                 >
                   <span class="demo-icon">⌂</span></button
-                ><button
+                ><button type="button"
                   class="g-icon-picker-item"
                   data-g-saved-choice-item
                   data-g-value="star"
@@ -562,7 +562,7 @@
                   aria-label="收藏图标"
                 >
                   <span class="demo-icon">★</span></button
-                ><button
+                ><button type="button"
                   class="g-icon-picker-item"
                   data-g-saved-choice-item
                   data-g-value="file"
@@ -588,7 +588,7 @@
                 /></label>
               </div>
               <div class="g-color-picker-swatches">
-                <button
+                <button type="button"
                   class="g-color-swatch"
                   style="--g-swatch: #2563eb"
                   data-g-saved-choice-item
@@ -596,7 +596,7 @@
                   aria-pressed="true"
                   aria-label="蓝色"
                 ></button
-                ><button
+                ><button type="button"
                   class="g-color-swatch"
                   style="--g-swatch: #16a34a"
                   data-g-saved-choice-item
@@ -604,7 +604,7 @@
                   aria-pressed="false"
                   aria-label="绿色"
                 ></button
-                ><button
+                ><button type="button"
                   class="g-color-swatch"
                   style="--g-swatch: #dc2626"
                   data-g-saved-choice-item
@@ -617,10 +617,18 @@
           </article>
           <article class="demo-card">
             <h3>Date / Time Range</h3>
-            <div class="g-date-range-picker">
+            <div class="g-date-range-picker" data-g-range-picker>
               <div class="g-range-picker-presets">
-                <button class="g-btn g-btn-outline g-btn-sm">今天</button
-                ><button class="g-btn g-btn-outline g-btn-sm">最近 7 天</button>
+                <button
+                  class="g-btn g-btn-outline g-btn-sm"
+                  type="button"
+                  data-g-range-preset="today"
+                >今天</button
+                ><button
+                  class="g-btn g-btn-outline g-btn-sm"
+                  type="button"
+                  data-g-range-preset="last-7-days"
+                >最近 7 天</button>
               </div>
               <div class="g-range-picker-fields">
                 <label class="g-field"
@@ -642,10 +650,14 @@
                 <div class="g-calendar g-p-3">范围预览区域</div>
               </div>
               <div class="g-range-picker-actions">
-                <button class="g-btn g-btn-primary g-btn-sm">应用</button>
+                <button
+                  class="g-btn g-btn-primary g-btn-sm"
+                  type="button"
+                  data-g-range-apply
+                >应用</button>
               </div>
             </div>
-            <div class="g-time-range-picker g-mt-3">
+            <div class="g-time-range-picker g-mt-3" data-g-range-picker>
               <div class="g-range-picker-fields">
                 <label class="g-field"
                   ><span class="g-label">开始时间</span
@@ -667,14 +679,14 @@
           <article class="demo-card">
             <h3>Saved Filters / Views</h3>
             <div class="g-saved-filters" data-g-saved-choice>
-              <button
+              <button type="button"
                 class="g-saved-filter"
                 data-g-saved-choice-item
                 data-g-value="mine"
                 aria-pressed="true"
               >
                 我的待办 <span class="g-saved-choice-meta">12</span></button
-              ><button
+              ><button type="button"
                 class="g-saved-filter"
                 data-g-saved-choice-item
                 data-g-value="risk"
@@ -684,14 +696,14 @@
               </button>
             </div>
             <div class="g-saved-views g-mt-3" data-g-saved-choice>
-              <button
+              <button type="button"
                 class="g-saved-view"
                 data-g-saved-choice-item
                 data-g-value="table"
                 aria-pressed="true"
               >
                 表格视图</button
-              ><button
+              ><button type="button"
                 class="g-saved-view"
                 data-g-saved-choice-item
                 data-g-value="board"
@@ -702,8 +714,8 @@
             </div>
             <div class="g-column-chooser g-mt-3">
               <div class="g-column-chooser-actions">
-                <button class="g-btn g-btn-ghost g-btn-sm">全选</button
-                ><button class="g-btn g-btn-ghost g-btn-sm">重置</button>
+                <button type="button" class="g-btn g-btn-ghost g-btn-sm">全选</button
+                ><button type="button" class="g-btn g-btn-ghost g-btn-sm">重置</button>
               </div>
               <label class="g-column-chooser-item"
                 ><input type="checkbox" checked /> 标题</label
@@ -840,14 +852,14 @@
               ><input type="checkbox" /> 我已确认影响范围</label
             >
             <div class="g-bulk-confirmation-actions">
-              <button class="g-btn g-btn-outline">取消</button
-              ><button class="g-btn g-btn-primary">开始发布</button>
+              <button type="button" class="g-btn g-btn-outline">取消</button
+              ><button type="button" class="g-btn g-btn-primary">开始发布</button>
             </div>
           </article>
           <article class="g-bulk-progress">
             <header class="g-bulk-progress-header">
               <strong>正在处理 80 / 128</strong
-              ><button class="g-btn g-btn-outline g-btn-sm">后台运行</button>
+              ><button type="button" class="g-btn g-btn-outline g-btn-sm">后台运行</button>
             </header>
             <div class="demo-progress"><i></i></div>
             <div class="g-bulk-progress-list">

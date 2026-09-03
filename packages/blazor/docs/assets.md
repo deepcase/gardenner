@@ -1,6 +1,6 @@
 # 静态资源完整目录
 
-共 44 个公开静态资源：全量 CSS、Blazor/runtime/桌面适配 JS、对应 source map、5 个平台包与 28 个组件域包，无省略。C# 应用也可通过 `GardenerimAssets` 查询路径。
+共 45 个公开静态资源：全量 CSS、Blazor/runtime/桌面适配 JS、对应 source map、5 个平台包与 28 个组件域包，无省略。C# 应用也可通过 `GardenerimAssets` 查询路径。
 
 | 包内路径 | 应用 URL |
 | --- | --- |
@@ -10,6 +10,7 @@
 | `gardener.min.css.map` | `_content/Gardenerim.Blazor/gardener.min.css.map` |
 | `gardener.runtime.min.js` | `_content/Gardenerim.Blazor/gardener.runtime.min.js` |
 | `gardener.runtime.min.js.map` | `_content/Gardenerim.Blazor/gardener.runtime.min.js.map` |
+| `locales.js` | `_content/Gardenerim.Blazor/locales.js` |
 | `gardener.blazor.js` | `_content/Gardenerim.Blazor/gardener.blazor.js` |
 | `gardener.tauri.min.js` | `_content/Gardenerim.Blazor/gardener.tauri.min.js` |
 | `gardener.tauri.min.js.map` | `_content/Gardenerim.Blazor/gardener.tauri.min.js.map` |

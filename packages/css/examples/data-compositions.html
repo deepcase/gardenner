@@ -101,16 +101,20 @@
               >
             </div>
             <div class="g-data-toolbar-end">
-              <div class="g-saved-views">
+              <div class="g-saved-views" data-g-saved-choice>
                 <button
                   class="g-saved-view is-active"
                   type="button"
+                  data-g-saved-choice-item
+                  data-g-value="all"
                   aria-pressed="true"
                 >
                   全部客户</button
                 ><button
                   class="g-saved-view"
                   type="button"
+                  data-g-saved-choice-item
+                  data-g-value="priority"
                   aria-pressed="false"
                 >
                   重点跟进
@@ -167,16 +171,18 @@
                 >
               </div>
             </details>
-            <div class="g-table-density">
+            <div class="g-table-density" data-g-table-density="customer-table">
               <button
                 class="g-table-density-button"
                 type="button"
+                data-g-value="standard"
                 aria-pressed="true"
               >
                 标准</button
               ><button
                 class="g-table-density-button"
                 type="button"
+                data-g-value="compact"
                 aria-pressed="false"
               >
                 紧凑
@@ -184,12 +190,14 @@
             </div>
           </div>
           <div
-            class="g-responsive-table is-stacked g-mt-3"
+            class="g-responsive-table is-stacked is-sticky-columns g-mt-3"
+            data-g-table-scroll
             role="region"
             aria-label="客户收入与跟进状态"
             tabindex="0"
+            style="--g-table-min-width: 64rem"
           >
-            <table class="g-table g-table-hover g-expandable-table">
+            <table id="customer-table" class="g-table g-table-hover g-expandable-table">
               <caption class="g-table-caption">
                 客户收入与跟进状态
               </caption>
@@ -466,7 +474,7 @@
                     style="--g-tree-level: 0"
                   >
                     <td>
-                      <button
+                      <button type="button"
                         class="g-tree-table-toggle"
                         data-g-row-toggle="tree-root"
                         aria-expanded="true"
@@ -573,7 +581,7 @@
                   <span class="g-data-meta">客户 #C-2048</span>
                   <h3 class="g-record-detail-title">星河科技</h3>
                 </div>
-                <button class="g-btn g-btn-outline g-btn-sm">编辑</button>
+                <button type="button" class="g-btn g-btn-outline g-btn-sm">编辑</button>
               </header>
               <div class="g-record-detail-sections">
                 <section class="g-record-detail-section">
@@ -594,7 +602,7 @@
               <div class="g-key-value-row">
                 <span class="g-key-value-key">Region</span
                 ><span class="g-key-value-value">Asia / Shanghai</span
-                ><button class="g-btn g-btn-link g-btn-sm g-key-value-action">
+                ><button type="button" class="g-btn g-btn-link g-btn-sm g-key-value-action">
                   复制
                 </button>
               </div>
@@ -614,7 +622,7 @@
                   <strong>媒体列表</strong>
                   <div class="g-data-meta">带头像和尾部动作</div>
                 </div>
-                <button class="g-btn g-btn-ghost g-btn-sm">查看</button>
+                <button type="button" class="g-btn g-btn-ghost g-btn-sm">查看</button>
               </li>
             </ul>
             <ul class="g-dense-list g-mt-3">
@@ -842,7 +850,7 @@
             <div class="g-agenda g-mt-3">
               <div class="g-agenda-item">
                 <time>10:00</time><span>●</span><strong>版本评审</strong
-                ><button class="g-btn g-btn-link g-btn-sm">详情</button>
+                ><button type="button" class="g-btn g-btn-link g-btn-sm">详情</button>
               </div>
             </div>
           </article>
@@ -890,7 +898,7 @@
             </div>
             <div class="g-map-shell demo-map g-mt-3">
               <div class="g-map-tools">
-                <button class="g-btn g-btn-outline g-btn-icon">＋</button>
+                <button type="button" class="g-btn g-btn-outline g-btn-icon">＋</button>
               </div>
               <aside class="g-map-panel">
                 <div class="g-data-meta">上海 · 128 客户</div>
@@ -924,15 +932,19 @@
                 卡片视图
               </div>
             </div>
-            <div class="g-filter-summary g-mt-3">
+            <div class="g-filter-summary g-mt-3" data-g-filter-summary>
               <span class="g-filter-summary-label">筛选：</span
               ><span class="g-filter-summary-chip">状态 = 活跃</span
-              ><button class="g-btn g-btn-link g-btn-sm g-filter-summary-clear">
+              ><button
+                class="g-btn g-btn-link g-btn-sm g-filter-summary-clear"
+                type="button"
+              >
                 清除
               </button>
             </div>
-            <div class="g-sort-builder g-mt-3">
-              <div class="g-sort-rule">
+            <div class="g-sort-builder g-mt-3" data-g-builder-list>
+              <div data-g-builder-items>
+                <div class="g-sort-rule" data-g-builder-item>
                 <span class="g-sort-rule-handle">⠿</span
                 ><select class="g-select" aria-label="排序字段">
                   <option>收入</option></select
@@ -941,9 +953,12 @@
                 ><button
                   class="g-btn g-btn-ghost g-btn-icon"
                   aria-label="删除排序"
+                  type="button"
+                  data-g-builder-remove
                 >
                   ×
                 </button>
+                </div>
               </div>
             </div>
             <section class="g-export-panel g-mt-3">
@@ -961,10 +976,15 @@
           </article>
           <article class="demo-card">
             <h3>Inspector / State</h3>
-            <aside class="g-data-inspector">
+            <aside class="g-data-inspector" data-g-dismissible>
               <header class="g-data-inspector-header">
                 <strong>记录检查器</strong
-                ><button class="g-btn g-btn-ghost g-btn-icon" aria-label="关闭">
+                ><button
+                  class="g-btn g-btn-ghost g-btn-icon"
+                  aria-label="关闭"
+                  type="button"
+                  data-g-dismiss
+                >
                   ×
                 </button>
               </header>
@@ -974,7 +994,7 @@
                   ><strong class="g-data-state-title">选择一条记录</strong
                   ><span>属性和值将在这里显示。</span>
                   <div class="g-data-state-actions">
-                    <button class="g-btn g-btn-outline g-btn-sm">
+                    <button type="button" class="g-btn g-btn-outline g-btn-sm">
                       新建记录
                     </button>
                   </div>

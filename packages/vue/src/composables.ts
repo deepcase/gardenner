@@ -1,5 +1,5 @@
 import { nextTick, onBeforeUnmount, onMounted, reactive, readonly, shallowRef, unref, watch, type Ref } from "vue";
-import { Gardenerim, destroy, getInstance, init, toast } from "@gardenerim/css/runtime";
+import { Gardenerim, configure, destroy, getConfiguration, getInstance, init, toast, type GardenerimConfigureOptions } from "@gardenerim/css/runtime";
 import { themeAttributes } from "./provider.js";
 import type { GardenerimBehaviorInstance, GardenerimBehaviorName, GardenerimComponentPublicInstance, GardenerimElementTarget, GardenerimEventHandler, GardenerimThemeState, GardenerimTargetValue } from "./types.js";
 
@@ -96,3 +96,8 @@ export const useGardenerimTheme = (initial: GardenerimThemeState = {}, target?: 
 };
 
 export const useGardenerimToast = () => ({ show: toast });
+
+export const useGardenerimLocale = () => ({
+  get configuration() { return getConfiguration(); },
+  configure: (options: GardenerimConfigureOptions) => configure(options),
+});

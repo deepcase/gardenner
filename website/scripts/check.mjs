@@ -84,43 +84,43 @@ for (const section of ["quick-start", "installation", "vue", "react", "angular",
   if (!docs.includes(`id="${section}"`)) errors.push(`docs.html: missing required section #${section}`);
 }
 
-if (vuePublicApi.version !== "2.0.0" || vuePublicApi.status !== "stable") errors.push("Vue public API must document 2.0.0 stable");
+if (vuePublicApi.version !== "2.1.0" || vuePublicApi.status !== "stable") errors.push("Vue public API must document 2.1.0 stable");
 if (vuePublicApi.components !== vueCatalog.components.length || vuePublicApi.componentExports.length !== vueCatalog.components.length) errors.push("Vue component catalog and public API are not synchronized");
 if (vuePublicApi.componentExports.length !== new Set(vuePublicApi.componentExports).size) errors.push("Vue component export names must be unique");
-for (const marker of ["@gardenerim/vue", "506 个 CSS", "538 个根运行时导出", "30 个包入口", "28 个组件 CSS 包代理", "GardenerimProvider", "v-gardenerim", "useTauriWindowControls", "useElectronWindowControls", "vue-component-catalog", "npm run release:verify"]) {
+for (const marker of ["@gardenerim/vue", "506 个 CSS", "546 个根运行时导出", "30 个包入口", "28 个组件 CSS 包代理", "GardenerimProvider", "v-gardenerim", "useTauriWindowControls", "useElectronWindowControls", "vue-component-catalog", "npm run release:verify"]) {
   if (!docs.includes(marker)) errors.push(`docs.html: missing Vue documentation marker: ${marker}`);
 }
-for (const marker of ["@gardenerim/vue", "506 个组件", "538 runtime exports", "30 entrypoints", "28 CSS packs", "Vue 3.4+"]) {
+for (const marker of ["@gardenerim/vue", "506 个组件", "546 runtime exports", "30 entrypoints", "28 CSS packs", "Vue 3.4+"]) {
   if (!index.includes(marker)) errors.push(`index.html: missing Vue introduction marker: ${marker}`);
 }
 
-if (reactPublicApi.version !== "2.0.0" || reactPublicApi.status !== "stable") errors.push("React public API must document 2.0.0 stable");
+if (reactPublicApi.version !== "2.1.0" || reactPublicApi.status !== "stable") errors.push("React public API must document 2.1.0 stable");
 if (reactPublicApi.components !== reactCatalog.components.length || reactPublicApi.componentExports.length !== reactCatalog.components.length) errors.push("React component catalog and public API are not synchronized");
 if (reactPublicApi.componentExports.length !== new Set(reactPublicApi.componentExports).size) errors.push("React component export names must be unique");
-for (const marker of ["@gardenerim/react", "506 个 CSS", "538 个根运行时导出", "22 个 TypeScript 类型导出", "30 个公共包入口", "28 个组件 CSS 包代理", "GardenerimProvider", "onValueChange", "useTauriWindowControls", "useElectronWindowControls", "react-component-catalog", "npm run release:verify"]) {
+for (const marker of ["@gardenerim/react", "506 个 CSS", "546 个根运行时导出", "22 个 TypeScript 类型导出", "30 个公共包入口", "28 个组件 CSS 包代理", "GardenerimProvider", "onValueChange", "useTauriWindowControls", "useElectronWindowControls", "react-component-catalog", "npm run release:verify"]) {
   if (!docs.includes(marker)) errors.push(`docs.html: missing React documentation marker: ${marker}`);
 }
-for (const marker of ["@gardenerim/react", "506 个 CSS", "538 runtime exports", "30 entrypoints", "28 CSS packs", "React 18.3–19.x"]) {
+for (const marker of ["@gardenerim/react", "506 个 CSS", "546 runtime exports", "30 entrypoints", "28 CSS packs", "React 18.3–19.x"]) {
   if (!index.includes(marker)) errors.push(`index.html: missing React introduction marker: ${marker}`);
 }
 
-if (angularPublicApi.version !== "2.0.0" || angularPublicApi.status !== "stable" || angularPublicApi.angularjs !== ">=1.8.2 <1.9.0") errors.push("AngularJS public API must document the verified 2.0.0 stable range");
+if (angularPublicApi.version !== "2.1.0" || angularPublicApi.status !== "stable" || angularPublicApi.angularjs !== ">=1.8.2 <1.9.0") errors.push("AngularJS public API must document the verified 2.1.0 stable range");
 if (angularPublicApi.components !== angularCatalog.components.length || angularPublicApi.componentExports.length !== angularCatalog.components.length) errors.push("AngularJS component catalog and public API are not synchronized");
 if (angularPublicApi.componentExports.length !== new Set(angularPublicApi.componentExports).size) errors.push("AngularJS component export names must be unique");
-for (const marker of ["@gardenerim/angularjs", "506 个 CSS", "535 个根运行时导出", "24 个 TypeScript 类型导出", "30 个公共包入口", "28 个组件 CSS 包代理", "createGardenerimAngularJS", "gardenerProvider", "gGardenerim", "ngModel", "GardenerimRuntime", "GardenerimTheme", "GardenerimToast", "AngularJS 安全基线", "angular-component-catalog", "npm run release:verify"]) {
+for (const marker of ["@gardenerim/angularjs", "506 个 CSS", "542 个根运行时导出", "24 个 TypeScript 类型导出", "30 个公共包入口", "28 个组件 CSS 包代理", "createGardenerimAngularJS", "gardenerProvider", "gGardenerim", "ngModel", "GardenerimRuntime", "GardenerimTheme", "GardenerimToast", "AngularJS 安全基线", "angular-component-catalog", "npm run release:verify"]) {
   if (!docs.includes(marker)) errors.push(`docs.html: missing AngularJS documentation marker: ${marker}`);
 }
-for (const marker of ["@gardenerim/angularjs", "506 个 CSS", "535 runtime exports", "30 entrypoints", "28 CSS packs", "AngularJS 1.8.2–1.8.3"]) {
+for (const marker of ["@gardenerim/angularjs", "506 个 CSS", "542 runtime exports", "30 entrypoints", "28 CSS packs", "AngularJS 1.8.2–1.8.3"]) {
   if (!index.includes(marker)) errors.push(`index.html: missing AngularJS introduction marker: ${marker}`);
 }
 
-if (blazorPublicApi.version !== "2.0.0" || blazorPublicApi.status !== "stable" || blazorPublicApi.targetFramework !== "net10.0" || !blazorPublicApi.compatibleFrameworks.includes("net11.0")) errors.push("Blazor public API must document the verified 2.0.0 .NET 10/11 contract");
+if (blazorPublicApi.version !== "2.1.0" || blazorPublicApi.status !== "stable" || blazorPublicApi.targetFramework !== "net10.0" || !blazorPublicApi.compatibleFrameworks.includes("net11.0")) errors.push("Blazor public API must document the verified 2.1.0 .NET 10/11 contract");
 if (blazorPublicApi.components !== blazorCatalog.components.length || blazorPublicApi.componentTypes.length !== blazorCatalog.components.length) errors.push("Blazor component catalog and public API are not synchronized");
 if (blazorPublicApi.componentTypes.length !== new Set(blazorPublicApi.componentTypes).size) errors.push("Blazor component type names must be unique");
-for (const marker of ["Gardenerim.Blazor", "506 个 CSS", "66 个行为", "75 个事件", "28 个框架类型", "20 个参数", "6 个实例成员", "44 个静态资源", "GardenerimProvider", "GardenerimField&lt;TValue&gt;", "GardenerimRuntimeCatalog", "Blazor Public API", "blazor-component-catalog", "npm run release:verify", "npm run test:net11"]) {
+for (const marker of ["Gardenerim.Blazor", "506 个 CSS", "72 个行为", "79 个事件", "31 个框架类型", "20 个参数", "6 个实例成员", "45 个静态资源", "GardenerimProvider", "GardenerimField&lt;TValue&gt;", "GardenerimRuntimeCatalog", "Blazor Public API", "blazor-component-catalog", "npm run release:verify", "npm run test:net11"]) {
   if (!docs.includes(marker)) errors.push(`docs.html: missing Blazor documentation marker: ${marker}`);
 }
-for (const marker of ["Official Blazor RCL", "Gardenerim.Blazor", "506 个 CSS", "66 种 DOM", "75 种事件", "506 components", "66 behaviors", "75 events", "44 static assets", ".NET 10 / 11"]) {
+for (const marker of ["Official Blazor RCL", "Gardenerim.Blazor", "506 个 CSS", "72 种 DOM", "79 种事件", "506 components", "72 behaviors", "79 events", "45 static assets", ".NET 10 / 11"]) {
   if (!index.includes(marker)) errors.push(`index.html: missing Blazor introduction marker: ${marker}`);
 }
 

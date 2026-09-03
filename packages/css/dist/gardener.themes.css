@@ -1,4 +1,4 @@
-/* Gardenerim v2.0.0 | MIT License | gardener.css */
+/* Gardenerim v2.1.0 | MIT License | gardener.css */
 @layer gardener.reset, gardener.tokens, gardener.base, gardener.components, gardener.utilities, gardener.overrides;
 
 @layer gardener.tokens {
@@ -36,8 +36,8 @@
     --g-space-16: 4rem;
     --g-space-20: 5rem;
     --g-space-24: 6rem;
-    --g-space-control-x: var(--g-space-4);
-    --g-space-control-y: var(--g-space-2);
+    --g-space-control-x: var(--g-space-3);
+    --g-space-control-y: var(--g-space-1);
     --g-space-page-x: clamp(1rem, 3vw, 2rem);
 
     /* Shape and depth */
@@ -95,10 +95,14 @@
     --g-color-selection: var(--g-primary-200);
 
     /* Controls and layout */
-    --g-control-height-sm: 2rem;
-    --g-control-height-md: 2.5rem;
-    --g-control-height-lg: 3rem;
-    --g-touch-target: 2.75rem;
+    --g-control-height-sm: 1.75rem;
+    --g-control-height-md: 2rem;
+    --g-control-height-lg: 2.25rem;
+    --g-touch-target: 2rem;
+    --g-component-padding: var(--g-space-4);
+    --g-component-padding-sm: var(--g-space-3);
+    --g-component-gap: var(--g-space-3);
+    --g-state-min-height: 10rem;
     --g-sidebar-width: 17rem;
     --g-sidebar-collapsed-width: 4.5rem;
     --g-header-height: 4rem;
@@ -108,17 +112,27 @@
   }
 
   [data-g-density="compact"] {
-    --g-control-height-sm: 1.75rem;
-    --g-control-height-md: 2rem;
-    --g-control-height-lg: 2.5rem;
+    --g-control-height-sm: 1.5rem;
+    --g-control-height-md: 1.75rem;
+    --g-control-height-lg: 2rem;
+    --g-touch-target: 1.75rem;
     --g-space-control-x: var(--g-space-3);
     --g-space-control-y: var(--g-space-1);
+    --g-component-padding: var(--g-space-3);
+    --g-component-padding-sm: var(--g-space-2);
+    --g-component-gap: var(--g-space-2);
+    --g-state-min-height: 8rem;
   }
 
   [data-g-density="comfortable"] {
-    --g-control-height-sm: 2.25rem;
-    --g-control-height-md: 2.75rem;
-    --g-control-height-lg: 3.25rem;
+    --g-control-height-sm: 2rem;
+    --g-control-height-md: 2.25rem;
+    --g-control-height-lg: 2.5rem;
+    --g-touch-target: 2.25rem;
+    --g-component-padding: var(--g-space-5);
+    --g-component-padding-sm: var(--g-space-4);
+    --g-component-gap: var(--g-space-4);
+    --g-state-min-height: 12rem;
   }
 
   [data-g-mode="dark"] {
@@ -371,7 +385,7 @@
   --g-on-primary-light: #ffffff;
   --g-on-primary-dark: #000000;
   --g-primary-text-light: var(--g-primary-600);
-  --g-primary-text-dark: var(--g-primary-400);
+  --g-primary-text-dark: var(--g-primary-300);
   --g-color-primary: var(--g-primary-600);
   --g-color-primary-text: var(--g-primary-text-light);
   --g-color-primary-hover: var(--g-primary-700);
@@ -397,7 +411,7 @@
   --g-on-primary-light: #ffffff;
   --g-on-primary-dark: #000000;
   --g-primary-text-light: var(--g-primary-600);
-  --g-primary-text-dark: var(--g-primary-400);
+  --g-primary-text-dark: var(--g-primary-300);
   --g-color-primary: var(--g-primary-600);
   --g-color-primary-text: var(--g-primary-text-light);
   --g-color-primary-hover: var(--g-primary-700);
@@ -423,7 +437,7 @@
   --g-on-primary-light: #ffffff;
   --g-on-primary-dark: #000000;
   --g-primary-text-light: var(--g-primary-600);
-  --g-primary-text-dark: var(--g-primary-400);
+  --g-primary-text-dark: var(--g-primary-300);
   --g-color-primary: var(--g-primary-600);
   --g-color-primary-text: var(--g-primary-text-light);
   --g-color-primary-hover: var(--g-primary-700);
@@ -839,7 +853,7 @@
   --g-on-primary-light: #ffffff;
   --g-on-primary-dark: #000000;
   --g-primary-text-light: var(--g-primary-600);
-  --g-primary-text-dark: var(--g-primary-400);
+  --g-primary-text-dark: var(--g-primary-300);
   --g-color-primary: var(--g-primary-600);
   --g-color-primary-text: var(--g-primary-text-light);
   --g-color-primary-hover: var(--g-primary-700);
@@ -1047,7 +1061,7 @@
   --g-on-primary-light: #ffffff;
   --g-on-primary-dark: #000000;
   --g-primary-text-light: var(--g-primary-600);
-  --g-primary-text-dark: var(--g-primary-400);
+  --g-primary-text-dark: var(--g-primary-300);
   --g-color-primary: var(--g-primary-600);
   --g-color-primary-text: var(--g-primary-text-light);
   --g-color-primary-hover: var(--g-primary-700);
@@ -1073,7 +1087,7 @@
   --g-on-primary-light: #ffffff;
   --g-on-primary-dark: #000000;
   --g-primary-text-light: var(--g-primary-600);
-  --g-primary-text-dark: var(--g-primary-400);
+  --g-primary-text-dark: var(--g-primary-300);
   --g-color-primary: var(--g-primary-600);
   --g-color-primary-text: var(--g-primary-text-light);
   --g-color-primary-hover: var(--g-primary-700);
@@ -1099,7 +1113,7 @@
   --g-on-primary-light: #ffffff;
   --g-on-primary-dark: #000000;
   --g-primary-text-light: var(--g-primary-600);
-  --g-primary-text-dark: var(--g-primary-400);
+  --g-primary-text-dark: var(--g-primary-300);
   --g-color-primary: var(--g-primary-600);
   --g-color-primary-text: var(--g-primary-text-light);
   --g-color-primary-hover: var(--g-primary-700);
@@ -1125,7 +1139,7 @@
   --g-on-primary-light: #ffffff;
   --g-on-primary-dark: #000000;
   --g-primary-text-light: var(--g-primary-600);
-  --g-primary-text-dark: var(--g-primary-400);
+  --g-primary-text-dark: var(--g-primary-300);
   --g-color-primary: var(--g-primary-600);
   --g-color-primary-text: var(--g-primary-text-light);
   --g-color-primary-hover: var(--g-primary-700);
@@ -1406,8 +1420,8 @@
   [data-g-motion="calm"] { --g-duration-fast: 150ms; --g-duration-normal: 240ms; --g-duration-slow: 400ms; }
   [data-g-motion="quick"] { --g-duration-fast: 80ms; --g-duration-normal: 140ms; --g-duration-slow: 220ms; }
 
-  [data-g-platform="desktop"] { --g-header-height: 2.75rem; --g-touch-target: 2rem; --g-control-height-sm: 1.75rem; --g-control-height-md: 2.125rem; --g-control-height-lg: 2.5rem; --g-desktop-titlebar-height: 2rem; --g-desktop-statusbar-height: 1.5rem; }
-  :is([data-g-platform="tauri"], [data-g-platform="electron"]) { --g-header-height: 2.75rem; --g-touch-target: 2rem; --g-control-height-sm: 1.75rem; --g-control-height-md: 2.125rem; --g-control-height-lg: 2.5rem; --g-desktop-titlebar-height: 2rem; --g-desktop-statusbar-height: 1.5rem; }
+  [data-g-platform="desktop"] { --g-header-height: 2.75rem; --g-touch-target: 2rem; --g-control-height-sm: 1.5rem; --g-control-height-md: 1.75rem; --g-control-height-lg: 2rem; --g-desktop-titlebar-height: 2rem; --g-desktop-statusbar-height: 1.5rem; }
+  :is([data-g-platform="tauri"], [data-g-platform="electron"]) { --g-header-height: 2.75rem; --g-touch-target: 2rem; --g-control-height-sm: 1.5rem; --g-control-height-md: 1.75rem; --g-control-height-lg: 2rem; --g-desktop-titlebar-height: 2rem; --g-desktop-statusbar-height: 1.5rem; }
   [data-g-platform="mobile"] { --g-touch-target: 2.75rem; --g-control-height-sm: 2.25rem; --g-control-height-md: 2.75rem; --g-control-height-lg: 3.25rem; }
 
   /* Mode wins over every optional axis. */

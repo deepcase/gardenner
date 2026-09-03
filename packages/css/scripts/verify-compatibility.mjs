@@ -31,15 +31,15 @@ const current = {
 };
 
 if (compatibility.version !== pkg.version) errors.push("compatibility version must equal package version");
-if (compatibility.baselineVersion !== "0.9.0") errors.push("2.0.0 compatibility baseline must preserve the complete 0.9.0 contract");
-if (compatibility.policy.stage !== "stable") errors.push("2.0.0 compatibility policy must be stable");
+if (compatibility.baselineVersion !== "0.9.0") errors.push("2.1.0 compatibility baseline must preserve the complete 0.9.0 contract");
+if (compatibility.policy.stage !== "stable") errors.push("2.1.0 compatibility policy must be stable");
 if (pkg.engines?.node !== compatibility.support.node) errors.push("package Node engine must match compatibility support policy");
 for (const [group, baseline] of Object.entries(compatibility.baseline)) {
   const available = new Set(current[group] || []);
   for (const value of baseline) if (!available.has(value)) errors.push(`${group}: removed 0.9.0 public contract without compatibility coverage (${value})`);
   if (compatibility.policy.stage === "stable" && compatibility.policy.stableTarget === pkg.version) {
     const recorded = new Set(baseline);
-    for (const value of available) if (!recorded.has(value)) errors.push(`${group}: 2.0.0 Stable baseline omitted an existing 0.9.0 contract (${value})`);
+    for (const value of available) if (!recorded.has(value)) errors.push(`${group}: 2.1.0 Stable baseline omitted an existing 0.9.0 contract (${value})`);
   }
 }
 for (const alias of compatibility.deprecatedAliases) {

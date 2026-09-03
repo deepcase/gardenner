@@ -1,6 +1,6 @@
 # Gardenerim AngularJS 组件完整目录
 
-本目录由 `@gardenerim/css@2.0.0` 元数据自动生成，共 506 个 AngularJS 组件指令，无省略。每项同时支持元素与属性形式，并支持 `gardenerVariant`、`gardenerState`、`gardenerConfig`、`gardenerInitialize`、`ngModel`、`gardenerValueEvent`、`gardenerValueKey`、`gardenerOnValueChange`。
+本目录由 `@gardenerim/css@2.1.0` 元数据自动生成，共 506 个 AngularJS 组件指令，无省略。每项同时支持元素与属性形式，并支持 `gardenerVariant`、`gardenerState`、`gardenerConfig`、`gardenerInitialize`、`ngModel`、`gardenerValueEvent`、`gardenerValueKey`、`gardenerOnValueChange`。
 
 | ESM 导出 | 元素 / 指令名 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -48,8 +48,8 @@
 | `GDateRangeGroupDirective` | `g-date-range-group` / `gDateRangeGroup` | `date-range-group` | form | css | `g-date-range-group` | — |
 | `GTimeRangeGroupDirective` | `g-time-range-group` / `gTimeRangeGroup` | `time-range-group` | form | css | `g-time-range-group` | — |
 | `GUnitFieldDirective` | `g-unit-field` / `gUnitField` | `unit-field` | form | css | `g-unit-field` | — |
-| `GRangeFieldDirective` | `g-range-field` / `gRangeField` | `range-field` | form | css | `g-range-field` | — |
-| `GFileFieldDirective` | `g-file-field` / `gFileField` | `file-field` | form | css | `g-file-field` | — |
+| `GRangeFieldDirective` | `g-range-field` / `gRangeField` | `range-field` | form | interactive | `g-range-field` | field-sync |
+| `GFileFieldDirective` | `g-file-field` / `gFileField` | `file-field` | form | interactive | `g-file-field` | field-sync |
 | `GRepeatableFieldDirective` | `g-repeatable-field` / `gRepeatableField` | `repeatable-field` | form | interactive | `g-repeatable-field` | repeatable-field |
 | `GConditionalFieldDirective` | `g-conditional-field` / `gConditionalField` | `conditional-field` | form | interactive | `g-conditional-field` | conditional-field |
 | `GFormActionsDirective` | `g-form-actions` / `gFormActions` | `form-actions` | form | css | `g-form-actions` | — |
@@ -106,7 +106,7 @@
 | `GListGroupDirective` | `g-list-group` / `gListGroup` | `list-group` | data | css | `g-list-group` | — |
 | `GTreeDirective` | `g-tree` / `gTree` | `tree` | data | interactive | `g-tree` | tree |
 | `GTimelineDirective` | `g-timeline` / `gTimeline` | `timeline` | data | css | `g-timeline` | — |
-| `GResponsiveTableDirective` | `g-responsive-table` / `gResponsiveTable` | `responsive-table` | data | css | `g-responsive-table` | — |
+| `GResponsiveTableDirective` | `g-responsive-table` / `gResponsiveTable` | `responsive-table` | data | interactive | `g-responsive-table` | table-scroll |
 | `GTableSortDirective` | `g-table-sort` / `gTableSort` | `table-sort` | data | interactive | `g-sort-button` | table-sort |
 | `GRowSelectionDirective` | `g-row-selection` / `gRowSelection` | `row-selection` | data | interactive | `g-selection-summary` | row-select |
 | `GRowDisclosureDirective` | `g-row-disclosure` / `gRowDisclosure` | `row-disclosure` | data | interactive | `g-row-disclosure` | row-disclosure |
@@ -139,8 +139,8 @@
 | `GDataStateDirective` | `g-data-state` / `gDataState` | `data-state` | data | css | `g-data-state` | — |
 | `GDataViewSwitcherDirective` | `g-data-view-switcher` / `gDataViewSwitcher` | `data-view-switcher` | data | css | `g-data-view-switcher` | — |
 | `GSelectionSummaryDirective` | `g-selection-summary` / `gSelectionSummary` | `selection-summary` | data | css | `g-selection-summary` | — |
-| `GTableDensityDirective` | `g-table-density` / `gTableDensity` | `table-density` | data | css | `g-table-density` | — |
-| `GFilterSummaryDirective` | `g-filter-summary` / `gFilterSummary` | `filter-summary` | data | css | `g-filter-summary` | — |
+| `GTableDensityDirective` | `g-table-density` / `gTableDensity` | `table-density` | data | interactive | `g-table-density` | table-density |
+| `GFilterSummaryDirective` | `g-filter-summary` / `gFilterSummary` | `filter-summary` | data | interactive | `g-filter-summary` | filter-summary |
 | `GSortBuilderDirective` | `g-sort-builder` / `gSortBuilder` | `sort-builder` | interaction | interactive | `g-sort-builder` | builder-list |
 | `GDataInspectorDirective` | `g-data-inspector` / `gDataInspector` | `data-inspector` | data | css | `g-data-inspector` | — |
 | `GSelectionControlsDirective` | `g-selection-controls` / `gSelectionControls` | `selection-controls` | interaction | interactive | `g-selection-control` | row-select |
@@ -155,8 +155,8 @@
 | `GMediaPickerDirective` | `g-media-picker` / `gMediaPicker` | `media-picker` | interaction | interactive | `g-media-picker` | picker |
 | `GIconPickerDirective` | `g-icon-picker` / `gIconPicker` | `icon-picker` | interaction | interactive | `g-icon-picker` | saved-choice |
 | `GColorPickerCompositionDirective` | `g-color-picker-composition` / `gColorPickerComposition` | `color-picker-composition` | interaction | interactive | `g-color-picker` | saved-choice |
-| `GDateRangePickerCompositionDirective` | `g-date-range-picker-composition` / `gDateRangePickerComposition` | `date-range-picker-composition` | interaction | css | `g-date-range-picker` | — |
-| `GTimeRangePickerCompositionDirective` | `g-time-range-picker-composition` / `gTimeRangePickerComposition` | `time-range-picker-composition` | interaction | css | `g-time-range-picker` | — |
+| `GDateRangePickerCompositionDirective` | `g-date-range-picker-composition` / `gDateRangePickerComposition` | `date-range-picker-composition` | interaction | interactive | `g-date-range-picker` | range-picker |
+| `GTimeRangePickerCompositionDirective` | `g-time-range-picker-composition` / `gTimeRangePickerComposition` | `time-range-picker-composition` | interaction | interactive | `g-time-range-picker` | range-picker |
 | `GSavedFiltersDirective` | `g-saved-filters` / `gSavedFilters` | `saved-filters` | interaction | interactive | `g-saved-filters` | saved-choice |
 | `GGroupBuilderDirective` | `g-group-builder` / `gGroupBuilder` | `group-builder` | interaction | interactive | `g-group-builder` | builder-list |
 | `GEntityPickerDirective` | `g-entity-picker` / `gEntityPicker` | `entity-picker` | interaction | interactive | `g-entity-picker` | picker |
@@ -212,7 +212,7 @@
 | `GWhatsNewDirective` | `g-whats-new` / `gWhatsNew` | `whats-new` | help | css | `g-whats-new` | — |
 | `GHelpChecklistDirective` | `g-help-checklist` / `gHelpChecklist` | `help-checklist` | help | css | `g-help-checklist` | — |
 | `GTroubleshootingDirective` | `g-troubleshooting` / `gTroubleshooting` | `troubleshooting` | help | css | `g-troubleshooting` | — |
-| `GHelpFeedbackDirective` | `g-help-feedback` / `gHelpFeedback` | `help-feedback` | help | css | `g-help-feedback` | — |
+| `GHelpFeedbackDirective` | `g-help-feedback` / `gHelpFeedback` | `help-feedback` | help | interactive | `g-help-feedback` | saved-choice |
 | `GAppShellDirective` | `g-app-shell` / `gAppShell` | `app-shell` | layout | css | `g-app-shell` | — |
 | `GDashboardDirective` | `g-dashboard` / `gDashboard` | `dashboard` | layout | css | `g-dashboard` | — |
 | `GMobileShellDirective` | `g-mobile-shell` / `gMobileShell` | `mobile-shell` | layout | css | `g-mobile-shell` | — |
@@ -335,8 +335,8 @@
 | `GImageAnnotationCompositionDirective` | `g-image-annotation-composition` / `gImageAnnotationComposition` | `image-annotation-composition` | content | css | `g-image-annotation` | — |
 | `GDocumentViewerCompositionDirective` | `g-document-viewer-composition` / `gDocumentViewerComposition` | `document-viewer-composition` | content | css | `g-document-viewer` | — |
 | `GPdfViewerDirective` | `g-pdf-viewer` / `gPdfViewer` | `pdf-viewer` | content | css | `g-pdf-viewer` | — |
-| `GVideoPlayerShellDirective` | `g-video-player-shell` / `gVideoPlayerShell` | `video-player-shell` | content | css | `g-video-player` | — |
-| `GAudioPlayerShellDirective` | `g-audio-player-shell` / `gAudioPlayerShell` | `audio-player-shell` | content | css | `g-audio-player` | — |
+| `GVideoPlayerShellDirective` | `g-video-player-shell` / `gVideoPlayerShell` | `video-player-shell` | content | interactive | `g-video-player` | media-player |
+| `GAudioPlayerShellDirective` | `g-audio-player-shell` / `gAudioPlayerShell` | `audio-player-shell` | content | interactive | `g-audio-player` | media-player |
 | `GCodeEditorShellDirective` | `g-code-editor-shell` / `gCodeEditorShell` | `code-editor-shell` | content | interactive | `g-code-editor` | editor-shell |
 | `GRichTextEditorCompositionDirective` | `g-rich-text-editor-composition` / `gRichTextEditorComposition` | `rich-text-editor-composition` | content | interactive | `g-rich-text-editor` | editor-shell |
 | `GMarkdownEditorDirective` | `g-markdown-editor` / `gMarkdownEditor` | `markdown-editor` | content | interactive | `g-markdown-editor` | editor-shell |

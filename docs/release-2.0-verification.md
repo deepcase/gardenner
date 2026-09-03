@@ -2,6 +2,16 @@
 
 日期：2026-08-31。源码位置：`D:\develop\Gardener`。本记录表示本地准备完成，不表示已提交、推送、打标签或发布 npm/NuGet。
 
+## 发布阶段复验（2026-08-31）
+
+在上述本地准备之后，发布阶段使用 Node 26.5.1、npm 11.17.0 和 .NET SDK 10.0.400，完整连续运行 `npm run check:repository` 与 `npm run release:verify`，均通过；`GARDENER_REQUIRE_FIREFOX=1`，Firefox 验证为必需项。另使用 .NET SDK 11.0.100-preview.7.26381.103 运行 Blazor `npm run test:net11`，实际消费者编译通过。
+
+`Gardenerim.Blazor` 2.0.0 已发布至 NuGet.org，主包与符号包上传均获接受。公共包通过 NuGet.org 仓库签名验证，76 个原始载荷文件哈希一致，仅新增签名文件；独立缓存从公共源还原并发布的消费者通过 506 组件 SSR、Razor/DI、HTTP 页面以及 44 项静态资源哈希验证。
+
+四个 npm 包均在用户完成逐包 2FA 后发布为 2.0.0，所有 `latest` 标签正确。直接下载的公开 tarball 字节数、SHA-1 和 SHA-512 均与冻结产物一致。独立项目使用新缓存、仅公共 npm 源安装四个精确版本，326 个入口解析、4,864 个导出名、三套 506 组件目录、Vue/React SSR、AngularJS 编译与 ngModel、DataGrid 虚拟化/排序/选择/编辑，以及 TypeScript `/contracts` 正反例全部通过。消费者使用 Vue 3.5.42、React 19.2.8、AngularJS 1.8.3 与 TypeScript 7.0.2；安装时 AngularJS 上游停止维护警告仍然存在。各包发布状态和产物摘要见 [发布记录](release-2.0-publication.json)。
+
+下文保留发布前本地准备阶段的原始结果与当时边界；本节补充的连续发布门禁、.NET 11 Preview 和公开源消费实测更新了当时未执行的项目。本次没有推送 Git、创建标签或部署文档站。
+
 ## 本次变更
 
 - 公开品牌导出统一为 Gardenerim，删除旧 Gardener 别名，五套包与 lockfile 统一到 2.0.0。保留 GButton 等组件短名、CSS 类、DOM 事件和资源路径。

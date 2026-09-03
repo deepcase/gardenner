@@ -41,8 +41,15 @@
   .g-desktop-split-pane { display: flex; min-inline-size: 0; min-block-size: 0; overflow: hidden; }
   .g-desktop-split-pane[data-g-orientation="vertical"] { flex-direction: column; }
   .g-desktop-split-pane > .g-split-panel { min-inline-size: 0; min-block-size: 0; overflow: auto; }
-  .g-desktop-split-pane .g-split-handle { position: relative; z-index: 2; flex: 0 0 4px; background: transparent; touch-action: none; }
-  .g-desktop-split-pane .g-split-handle:is(:hover, :focus-visible, .is-dragging) { background: var(--g-color-primary); }
+  .g-desktop-split-pane .g-split-handle { --g-split-line-size: 4px; --g-split-hit-size: 1.0625rem; position: relative; z-index: 2; flex: 0 0 var(--g-split-hit-size); margin-inline: calc((var(--g-split-line-size) - var(--g-split-hit-size)) / 2); background: transparent; touch-action: none; }
+  .g-desktop-split-pane .g-split-handle::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: 50%; inline-size: var(--g-split-line-size); background: transparent; transform: translateX(-50%); pointer-events: none; }
+  .g-desktop-split-pane[data-g-orientation="vertical"] .g-split-handle { margin-block: calc((var(--g-split-line-size) - var(--g-split-hit-size)) / 2); margin-inline: 0; }
+  .g-desktop-split-pane[data-g-orientation="vertical"] .g-split-handle::before { inset-block-start: 50%; inset-inline: 0; inline-size: auto; block-size: var(--g-split-line-size); transform: translateY(-50%); }
+  .g-desktop-split-pane .g-split-handle:is(:hover, :focus-visible, .is-dragging)::before { background: var(--g-color-primary); }
+
+  @media (pointer: coarse) {
+    .g-desktop-split-pane .g-split-handle { --g-split-hit-size: 2.25rem; }
+  }
 
   .g-desktop-status-bar { grid-area: status; display: flex; min-inline-size: 0; align-items: center; justify-content: space-between; gap: var(--g-space-2); padding-inline: var(--g-space-2); overflow: hidden; background: var(--g-color-primary); color: var(--g-color-on-primary); font-size: .6875rem; }
   .g-desktop-status-group { display: flex; min-inline-size: 0; block-size: 100%; align-items: center; }

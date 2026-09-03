@@ -44,8 +44,8 @@ export interface GardenerimComponentContractMap {
   "date-range-group": { variant: never; state: never; behavior: never; };
   "time-range-group": { variant: never; state: never; behavior: never; };
   "unit-field": { variant: never; state: never; behavior: never; };
-  "range-field": { variant: never; state: never; behavior: never; };
-  "file-field": { variant: never; state: never; behavior: never; };
+  "range-field": { variant: never; state: never; behavior: "field-sync"; };
+  "file-field": { variant: never; state: never; behavior: "field-sync"; };
   "repeatable-field": { variant: never; state: never; behavior: "repeatable-field"; };
   "conditional-field": { variant: never; state: "visible" | "hidden"; behavior: "conditional-field"; };
   "form-actions": { variant: "end" | "start" | "between" | "sticky"; state: never; behavior: never; };
@@ -102,7 +102,7 @@ export interface GardenerimComponentContractMap {
   "list-group": { variant: never; state: never; behavior: never; };
   "tree": { variant: never; state: never; behavior: "tree"; };
   "timeline": { variant: never; state: never; behavior: never; };
-  "responsive-table": { variant: "scroll" | "stacked" | "sticky-columns"; state: never; behavior: never; };
+  "responsive-table": { variant: "scroll" | "stacked" | "sticky-columns"; state: never; behavior: "table-scroll"; };
   "table-sort": { variant: never; state: never; behavior: "table-sort"; };
   "row-selection": { variant: never; state: "none" | "partial" | "all"; behavior: "row-select"; };
   "row-disclosure": { variant: never; state: never; behavior: "row-disclosure"; };
@@ -135,8 +135,8 @@ export interface GardenerimComponentContractMap {
   "data-state": { variant: never; state: "loading" | "empty" | "error" | "offline"; behavior: never; };
   "data-view-switcher": { variant: never; state: never; behavior: never; };
   "selection-summary": { variant: never; state: never; behavior: never; };
-  "table-density": { variant: never; state: never; behavior: never; };
-  "filter-summary": { variant: never; state: never; behavior: never; };
+  "table-density": { variant: never; state: never; behavior: "table-density"; };
+  "filter-summary": { variant: never; state: never; behavior: "filter-summary"; };
   "sort-builder": { variant: never; state: never; behavior: "builder-list"; };
   "data-inspector": { variant: never; state: never; behavior: never; };
   "selection-controls": { variant: never; state: "none" | "partial" | "all"; behavior: "row-select"; };
@@ -151,8 +151,8 @@ export interface GardenerimComponentContractMap {
   "media-picker": { variant: never; state: never; behavior: "picker"; };
   "icon-picker": { variant: never; state: never; behavior: "saved-choice"; };
   "color-picker-composition": { variant: never; state: never; behavior: "saved-choice"; };
-  "date-range-picker-composition": { variant: never; state: never; behavior: never; };
-  "time-range-picker-composition": { variant: never; state: never; behavior: never; };
+  "date-range-picker-composition": { variant: never; state: never; behavior: "range-picker"; };
+  "time-range-picker-composition": { variant: never; state: never; behavior: "range-picker"; };
   "saved-filters": { variant: never; state: never; behavior: "saved-choice"; };
   "group-builder": { variant: never; state: never; behavior: "builder-list"; };
   "entity-picker": { variant: never; state: never; behavior: "picker"; };
@@ -208,7 +208,7 @@ export interface GardenerimComponentContractMap {
   "whats-new": { variant: never; state: never; behavior: never; };
   "help-checklist": { variant: never; state: "pending" | "complete"; behavior: never; };
   "troubleshooting": { variant: never; state: never; behavior: never; };
-  "help-feedback": { variant: never; state: never; behavior: never; };
+  "help-feedback": { variant: never; state: never; behavior: "saved-choice"; };
   "app-shell": { variant: never; state: never; behavior: never; };
   "dashboard": { variant: never; state: never; behavior: never; };
   "mobile-shell": { variant: never; state: never; behavior: never; };
@@ -331,8 +331,8 @@ export interface GardenerimComponentContractMap {
   "image-annotation-composition": { variant: never; state: never; behavior: never; };
   "document-viewer-composition": { variant: never; state: never; behavior: never; };
   "pdf-viewer": { variant: never; state: never; behavior: never; };
-  "video-player-shell": { variant: never; state: never; behavior: never; };
-  "audio-player-shell": { variant: never; state: never; behavior: never; };
+  "video-player-shell": { variant: never; state: never; behavior: "media-player"; };
+  "audio-player-shell": { variant: never; state: never; behavior: "media-player"; };
   "code-editor-shell": { variant: never; state: never; behavior: "editor-shell"; };
   "rich-text-editor-composition": { variant: never; state: never; behavior: "editor-shell"; };
   "markdown-editor": { variant: never; state: never; behavior: "editor-shell"; };

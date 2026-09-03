@@ -4,7 +4,7 @@ Gardenerim 是一套面向人类开发者与 AI 页面生成器的通用 CSS 和
 
 ## 当前版本
 
-- 当前包版本：`2.0.0`；公共契约状态为 Stable，1.x 中的删除必须先废弃、提供迁移说明，并延后到新的主版本
+- 当前包版本：`2.1.0`；公共契约状态为 Stable，1.x 中的删除必须先废弃、提供迁移说明，并延后到新的主版本
 - 42 套主色主题，并与中性色、字体、形状、密度、层次、动效、平台七类主题轴正交组合
 - Light、Dark、System、High Contrast 模式
 - 480、768、1024、1280、1536 五档响应式断点
@@ -24,7 +24,7 @@ Gardenerim 是一套面向人类开发者与 AI 页面生成器的通用 CSS 和
 - 公共 API 清单、完整 JSON Schema、跨清单引用校验与统一的 `behaviors` / `adapters` 命名
 - Web、Mobile、Desktop、Tauri、Electron 五个平台构建档案，28 个独立组件包，以及全部 506 个组件到一个或多个真实所属包的机器可读映射
 - esbuild 语法级正式压缩、主入口与自定义构建 Source Map、法律声明保留，以及覆盖全部 42 个正式压缩产物的 raw / gzip / Brotli / 压缩比例 / npm 包体积性能预算
-- 全部 42 个正式产物的 SHA-256/SRI 完整性摘要、连续构建字节级可复现门禁，以及相对 0.9.0 基线的体积回归预算
+- 全部 42 个正式产物的 SHA-256/SRI 完整性摘要、连续构建字节级可复现门禁，以及相对 2.0.0 基线的体积回归预算
 - 从 `0.9.0` 固化的 1,145 项跨版本兼容基线，覆盖全部 47 个包入口、CSS 层、主题、运行时、组件、事件、属性与配方，禁止 1.x 未声明删除
 - 自动生成并由 TypeScript 严格模式实测的 Runtime、Tauri、Electron 类型声明，支持 ESM 条件导出与编辑器补全
 - npm 发布包白名单、入口存在性、开发文件泄漏、Publint、Node/浏览器支持矩阵、公开发布与 Provenance 发布前门禁
@@ -113,13 +113,13 @@ ai, ai-extended, ai-compositions
 
 `npm run build` 使用 esbuild 对 CSS 与 ESM 运行时进行语法级压缩，目标为 Chrome 100+、Firefox 100+、Safari 15.4+；主产物保留 MIT 法律声明。主压缩入口与每次自定义构建生成外部 Source Map，平台包和组件包保持可独立解析的稳定发布入口。正式入口包括 `min.css`、`core.min.css`、`themes.min.css`、`utilities.min.css`、`components.min.css`、`ai.min.css` 与 `runtime.min.js`。
 
-`npm run budget` 对全部 42 个正式压缩产物执行 raw、gzip、Brotli 绝对预算，范围包括 7 个主入口、2 个桌面适配器、5 个平台 CSS 和 28 个组件包；同时对完整 CSS/运行时检查压缩比例，并通过 `npm pack --dry-run` 阻断发布包 packed、unpacked 和文件数回归。2.0.0 以封版的 0.9.0 实测结果为紧邻基线，对每个产物和 npm 包执行相对增长预算；五个平台产物都拥有自己的直接历史基线，不需要继承别名。包体使用 4 KiB packed、64 KiB unpacked 的确定性保守上界消除性能报告自包含产生的压缩循环；文件数仍受 10% 相对上限和 92 文件绝对上限共同约束。压缩参数固定为 gzip level 9、Brotli quality 11，并同时记录在配置、构建清单和性能报告中。压缩 CSS 使用不随版本变化的稳定 MIT banner，避免纯版本文本扰动 Brotli 基线；未压缩 CSS 与 Runtime 仍提供精确版本信息。
+`npm run budget` 对全部 42 个正式压缩产物执行 raw、gzip、Brotli 绝对预算，范围包括 7 个主入口、2 个桌面适配器、5 个平台 CSS 和 28 个组件包；同时对完整 CSS/运行时检查压缩比例，并通过 `npm pack --dry-run` 阻断发布包 packed、unpacked 和文件数回归。2.1.0 以已发布的 2.0.0 实测结果为紧邻基线，对每个产物和 npm 包执行相对增长预算；五个平台产物都拥有自己的直接历史基线，不需要继承别名。包体使用 4 KiB packed、64 KiB unpacked 的确定性保守上界消除性能报告自包含产生的压缩循环；新增七语言目录文件后，文件数绝对上限为 93，仍受 10% 相对增长上限约束。压缩参数固定为 gzip level 9、Brotli quality 11，并同时记录在配置、构建清单和性能报告中。压缩 CSS 使用不随版本变化的稳定 MIT banner，避免纯版本文本扰动 Brotli 基线；未压缩 CSS 与 Runtime 仍提供精确版本信息。
 
 `gardener.builds.json` 为 42 个正式产物登记 SHA-256 和 SRI；`npm run contracts` 会重新读取产物逐项复算。`npm run verify:reproducible` 连续重建并比较全部正式生成文件，发现任意 CSS、JavaScript、Source Map、元数据或构建清单发生非确定性变化即失败。自定义构建清单同样包含 CSS、压缩 CSS、Source Map 与适配器的完整性摘要。
 
 ## 发布与跨版本兼容
 
-`metadata/compatibility.json` 固化 `0.9.0` 的 1,145 项公共契约，包括全部 47 个包入口、CSS 层、主题属性、模块导出、Gardenerim 成员、66 种行为、75 种事件、运行时数据属性、桌面适配器、506 个组件、52 个配方、42 个主题和显示模式。`npm run verify:compatibility` 允许后续 1.x 新增能力，但会阻断任何未经过废弃流程的删除；在 2.0.0 稳定切点还会反向检查现有入口是否漏记。废弃入口至少保留两个次版本，并只能在新的主版本移除，现有兼容别名继续保留到 `2.0.0`。
+`metadata/compatibility.json` 固化 `0.9.0` 的 1,145 项公共契约，包括全部 47 个包入口、CSS 层、主题属性、模块导出、Gardenerim 成员、66 种行为、75 种事件、运行时数据属性、桌面适配器、506 个组件、52 个配方、42 个主题和显示模式。`npm run verify:compatibility` 允许后续 1.x 新增能力，但会阻断任何未经过废弃流程的删除；在 2.1.0 稳定切点还会反向检查现有入口是否漏记。废弃入口至少保留两个次版本，并只能在新的主版本移除，现有兼容别名继续保留到 `2.1.0`。
 
 构建会从 Public API 自动生成 `gardener.d.ts`、`gardener.tauri.d.ts` 和 `gardener.electron.d.ts`，其中行为名与事件名都是完整字面量联合类型。`npm run test:types` 使用 TypeScript 严格模式编译真实消费者夹具，覆盖默认/命名导出、Runtime API、Toast、行为工厂以及两种桌面桥接。
 
@@ -150,6 +150,8 @@ Firefox 项目也已纳入配置；在具备 Playwright Firefox 系统运行库�
 ```html
 <html data-g-density="compact">
 ```
+
+默认 Web 控件采用适合管理后台的 28 / 32 / 36px（small / medium / large）高度与 14px 字体；`compact` 为 24 / 28 / 32px。`mobile` 与 `touch` 仍使用更大的触控目标。
 
 各主题轴可任意组合，不需要为每个品牌复制组件 CSS：
 
@@ -527,7 +529,7 @@ gardener:dismiss
 
 ## 多浏览器、移动端与无障碍测试
 
-0.5.0 建立四层浏览器发布门禁；2.0.0 的构建、兼容与发布专项保持 10 个顶层用例，并扩展五个平台的真实消费断言：
+0.5.0 建立四层浏览器发布门禁；2.1.0 的构建、兼容与发布专项保持 10 个顶层用例，并扩展五个平台的真实消费断言：
 
 - `npm run test:html`：24 个 parse5 结构测试，检查 21 个示例和 Home 两个页面的解析错误、重复 ID、ARIA 引用、语言、标题、Viewport 与清单完整性。
 - `npm run test:browser`：Chromium 与 WebKit 默认执行 48 个桌面用例，逐页检查 21 个示例和 Home 两个页面的控制台、请求失败、样式加载、横向溢出，并验证 Dialog 键盘和焦点生命周期。
@@ -558,7 +560,7 @@ gardener:dismiss
 | `gardener.capabilities.json` | 行业能力实现状态与完整接口矩阵 |
 | `gardener.public-api.json` | 公共命名、入口、行为、事件、适配器与兼容契约 |
 | `gardener.builds.json` | 平台档案、组件包、组件归属、压缩器、产物尺寸、SHA-256/SRI 与可复现构建契约 |
-| `gardener.performance.json` | raw/gzip/Brotli、压缩比例、npm 包绝对预算及相对 0.9.0 基线回归结果 |
+| `gardener.performance.json` | raw/gzip/Brotli、压缩比例、npm 包绝对预算及相对 2.0.0 基线回归结果 |
 | `gardener.compatibility.json` | 0.9.0 公共 API 基线、Stable 废弃策略与 Node/浏览器支持矩阵 |
 | `gardener.d.ts` | Runtime API、66 种行为与 75 种事件的 TypeScript 声明 |
 | `gardener.tauri.d.ts` / `gardener.electron.d.ts` | 桌面窗口桥接类型声明 |
@@ -589,3 +591,7 @@ gardener:dismiss
 ## 目录边界
 
 Gardenerim 的核心框架位于 `packages/css/`，Vue、React、AngularJS 与 Blazor 适配器位于相邻的 `packages/` 子目录；根目录的 `website/` 是官网与完整文档站，不参与 npm 核心包的发布内容。
+
+## 2.1.0 运行时国际化与生命周期
+
+运行时内置 `en`、`zh-CN`、`ja`、`ko`、`es`、`fr`、`de`。使用 `configure({ locale, messages })` 设置语言和覆盖文案，使用 `getConfiguration()` 读取解析结果。应用可通过 `data-g-runtime="manual"` 关闭自动启动，再用 `start(root)`、`stop()` 和 `observe(root).disconnect()` 管理局部生命周期。

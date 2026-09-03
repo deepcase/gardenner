@@ -1,5 +1,5 @@
 import type { App, Plugin } from "vue";
-import { init } from "@gardenerim/css/runtime";
+import { configure, init } from "@gardenerim/css/runtime";
 import { GardenerimComponent, GardenerimPart } from "./component.js";
 import { GardenerimProvider } from "./provider.js";
 import { vGardenerim } from "./directives.js";
@@ -10,6 +10,8 @@ export interface GardenerimVueOptions {
   components?: boolean | readonly string[];
   directive?: boolean;
   initialize?: boolean;
+  locale?: string | readonly string[];
+  messages?: Readonly<Record<string, string>>;
 }
 
 const registrationName = (exportName: string, prefix: string): string => `${prefix}${exportName.replace(/^G/, "")}`;
@@ -26,6 +28,10 @@ export const createGardenerimVue = (defaults: GardenerimVueOptions = {}): Plugin
     app.component(`${resolved.prefix}Component`, GardenerimComponent);
     app.component(`${resolved.prefix}Part`, GardenerimPart);
     if (resolved.directive) { app.directive("gardenerim", vGardenerim); }
+    if (resolved.locale || resolved.messages) configure({
+      ...(resolved.locale ? { locale: resolved.locale } : {}),
+      ...(resolved.messages ? { messages: resolved.messages } : {}),
+    });
     if (resolved.initialize && typeof document !== "undefined") queueMicrotask(() => init(document));
   },
 });

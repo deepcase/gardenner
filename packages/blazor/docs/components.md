@@ -1,6 +1,6 @@
 # Gardenerim Blazor 组件完整目录
 
-由 `@gardenerim/css@2.0.0` 元数据生成，共 506 个 Razor 组件，无省略。全部组件继承 `GardenerimComponentBase`，共享 20 个参数与 6 个实例成员；状态与无障碍契约原样保留。
+由 `@gardenerim/css@2.1.0` 元数据生成，共 506 个 Razor 组件，无省略。全部组件继承 `GardenerimComponentBase`，共享 20 个参数与 6 个实例成员；状态与无障碍契约原样保留。
 
 | Razor 组件 | CSS 组件 | 分类 | 类型 | 状态 | 默认标签 | 根类/选择器 | 行为 | 无障碍契约 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -48,8 +48,8 @@
 | `GDateRangeGroup` | `date-range-group` | form | css | css-ready | `div` | `g-date-range-group` | — | — |
 | `GTimeRangeGroup` | `time-range-group` | form | css | css-ready | `div` | `g-time-range-group` | — | — |
 | `GUnitField` | `unit-field` | form | css | css-ready | `div` | `g-unit-field` | — | — |
-| `GRangeField` | `range-field` | form | css | css-ready | `div` | `g-range-field` | — | — |
-| `GFileField` | `file-field` | form | css | css-ready | `div` | `g-file-field` | — | — |
+| `GRangeField` | `range-field` | form | interactive | runtime-ready | `div` | `g-range-field` | field-sync | — |
+| `GFileField` | `file-field` | form | interactive | runtime-ready | `div` | `g-file-field` | field-sync | — |
 | `GRepeatableField` | `repeatable-field` | form | interactive | runtime-ready | `div` | `g-repeatable-field` | repeatable-field | — |
 | `GConditionalField` | `conditional-field` | form | interactive | runtime-ready | `div` | `g-conditional-field` | conditional-field | — |
 | `GFormActions` | `form-actions` | form | css | css-ready | `div` | `g-form-actions` | — | — |
@@ -106,7 +106,7 @@
 | `GListGroup` | `list-group` | data | css | css-ready | `div` | `g-list-group` | — | — |
 | `GTree` | `tree` | data | interactive | runtime-ready | `div` | `g-tree` | tree | — |
 | `GTimeline` | `timeline` | data | css | css-ready | `div` | `g-timeline` | — | — |
-| `GResponsiveTable` | `responsive-table` | data | css | css-ready | `div` | `g-responsive-table` | — | — |
+| `GResponsiveTable` | `responsive-table` | data | interactive | runtime-ready | `div` | `g-responsive-table` | table-scroll | — |
 | `GTableSort` | `table-sort` | data | interactive | runtime-ready | `div` | `g-sort-button` | table-sort | key:Enter, key:Space, aria-sort |
 | `GRowSelection` | `row-selection` | data | interactive | runtime-ready | `div` | `g-selection-summary` | row-select | key:Space, key:Shift+Click, aria-selected |
 | `GRowDisclosure` | `row-disclosure` | data | interactive | runtime-ready | `div` | `g-row-disclosure` | row-disclosure | key:Enter, key:Space, key:Escape, aria-controls, aria-expanded |
@@ -139,8 +139,8 @@
 | `GDataState` | `data-state` | data | css | css-ready | `div` | `g-data-state` | — | — |
 | `GDataViewSwitcher` | `data-view-switcher` | data | css | css-ready | `div` | `g-data-view-switcher` | — | — |
 | `GSelectionSummary` | `selection-summary` | data | css | css-ready | `div` | `g-selection-summary` | — | — |
-| `GTableDensity` | `table-density` | data | css | css-ready | `div` | `g-table-density` | — | — |
-| `GFilterSummary` | `filter-summary` | data | css | css-ready | `div` | `g-filter-summary` | — | — |
+| `GTableDensity` | `table-density` | data | interactive | runtime-ready | `div` | `g-table-density` | table-density | — |
+| `GFilterSummary` | `filter-summary` | data | interactive | runtime-ready | `div` | `g-filter-summary` | filter-summary | — |
 | `GSortBuilder` | `sort-builder` | interaction | interactive | runtime-ready | `div` | `g-sort-builder` | builder-list | — |
 | `GDataInspector` | `data-inspector` | data | css | css-ready | `div` | `g-data-inspector` | — | — |
 | `GSelectionControls` | `selection-controls` | interaction | interactive | runtime-ready | `div` | `g-selection-control` | row-select | key:Space, key:Shift+Click, aria-selected |
@@ -155,8 +155,8 @@
 | `GMediaPicker` | `media-picker` | interaction | interactive | runtime-ready | `div` | `g-media-picker` | picker | — |
 | `GIconPicker` | `icon-picker` | interaction | interactive | runtime-ready | `div` | `g-icon-picker` | saved-choice | — |
 | `GColorPickerComposition` | `color-picker-composition` | interaction | interactive | runtime-ready | `div` | `g-color-picker` | saved-choice | — |
-| `GDateRangePickerComposition` | `date-range-picker-composition` | interaction | css | css-ready | `div` | `g-date-range-picker` | — | — |
-| `GTimeRangePickerComposition` | `time-range-picker-composition` | interaction | css | css-ready | `div` | `g-time-range-picker` | — | — |
+| `GDateRangePickerComposition` | `date-range-picker-composition` | interaction | interactive | runtime-ready | `div` | `g-date-range-picker` | range-picker | — |
+| `GTimeRangePickerComposition` | `time-range-picker-composition` | interaction | interactive | runtime-ready | `div` | `g-time-range-picker` | range-picker | — |
 | `GSavedFilters` | `saved-filters` | interaction | interactive | runtime-ready | `div` | `g-saved-filters` | saved-choice | — |
 | `GGroupBuilder` | `group-builder` | interaction | interactive | runtime-ready | `div` | `g-group-builder` | builder-list | — |
 | `GEntityPicker` | `entity-picker` | interaction | interactive | runtime-ready | `div` | `g-entity-picker` | picker | — |
@@ -212,7 +212,7 @@
 | `GWhatsNew` | `whats-new` | help | css | css-ready | `div` | `g-whats-new` | — | — |
 | `GHelpChecklist` | `help-checklist` | help | css | css-ready | `div` | `g-help-checklist` | — | — |
 | `GTroubleshooting` | `troubleshooting` | help | css | css-ready | `div` | `g-troubleshooting` | — | — |
-| `GHelpFeedback` | `help-feedback` | help | css | css-ready | `div` | `g-help-feedback` | — | — |
+| `GHelpFeedback` | `help-feedback` | help | interactive | runtime-ready | `div` | `g-help-feedback` | saved-choice | — |
 | `GAppShell` | `app-shell` | layout | css | css-ready | `div` | `g-app-shell` | — | — |
 | `GDashboard` | `dashboard` | layout | css | css-ready | `div` | `g-dashboard` | — | — |
 | `GMobileShell` | `mobile-shell` | layout | css | css-ready | `div` | `g-mobile-shell` | — | — |
@@ -335,8 +335,8 @@
 | `GImageAnnotationComposition` | `image-annotation-composition` | content | css | css-ready | `div` | `g-image-annotation` | — | — |
 | `GDocumentViewerComposition` | `document-viewer-composition` | content | css | css-ready | `div` | `g-document-viewer` | — | — |
 | `GPdfViewer` | `pdf-viewer` | content | css | css-ready | `div` | `g-pdf-viewer` | — | — |
-| `GVideoPlayerShell` | `video-player-shell` | content | css | css-ready | `div` | `g-video-player` | — | — |
-| `GAudioPlayerShell` | `audio-player-shell` | content | css | css-ready | `div` | `g-audio-player` | — | — |
+| `GVideoPlayerShell` | `video-player-shell` | content | interactive | runtime-ready | `div` | `g-video-player` | media-player | — |
+| `GAudioPlayerShell` | `audio-player-shell` | content | interactive | runtime-ready | `div` | `g-audio-player` | media-player | — |
 | `GCodeEditorShell` | `code-editor-shell` | content | interactive | runtime-ready | `div` | `g-code-editor` | editor-shell | — |
 | `GRichTextEditorComposition` | `rich-text-editor-composition` | content | interactive | runtime-ready | `div` | `g-rich-text-editor` | editor-shell | — |
 | `GMarkdownEditor` | `markdown-editor` | content | interactive | runtime-ready | `div` | `g-markdown-editor` | editor-shell | — |

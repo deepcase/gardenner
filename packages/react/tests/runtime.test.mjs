@@ -75,8 +75,8 @@ test("the package entrypoint renders safely during SSR", () => {
   assert.match(html, />SSR</u);
 });
 
-test("GardenerimProvider applies supplied theme axes", async () => {
-  const mounted = await mount(React.createElement(library.GardenerimProvider, { theme: "garden", mode: "light", density: "compact", shape: "subtle", id: "provider", "aria-label": "Application", style: { minHeight: "10px" } }, "Content"));
+test("GardenerimProvider applies theme axes and runtime locale", async () => {
+  const mounted = await mount(React.createElement(library.GardenerimProvider, { theme: "garden", mode: "light", density: "compact", shape: "subtle", locale: "de", id: "provider", "aria-label": "Application", style: { minHeight: "10px" } }, "Content"));
   const provider = mounted.host.firstElementChild;
   assert.equal(provider.dataset.gTheme, "garden");
   assert.equal(provider.dataset.gMode, "light");
@@ -85,7 +85,9 @@ test("GardenerimProvider applies supplied theme axes", async () => {
   assert.equal(provider.id, "provider");
   assert.equal(provider.getAttribute("aria-label"), "Application");
   assert.equal(provider.style.minHeight, "10px");
+  assert.equal(library.Gardenerim.locale, "de");
   await mounted.unmount();
+  library.configure({ locale: "en", refresh: false });
 });
 
 test("checkbox and radio controls expose idiomatic values", async () => {

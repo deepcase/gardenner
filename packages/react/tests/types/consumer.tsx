@@ -1,7 +1,7 @@
 import { createRef } from "react";
 import {
   GButton, GDialog, GInput, GNavbar, GardenerimComponent, GardenerimProvider, componentByName, useGardenerim, useGardenerimBehavior,
-  useGardenerimEvent, useGardenerimTheme, useGardenerimToast, type GardenerimBehaviorInstance, type GardenerimBehaviorName,
+  useGardenerimEvent, useGardenerimLocale, useGardenerimTheme, useGardenerimToast, type GardenerimBehaviorInstance, type GardenerimBehaviorName,
   type GardenerimComponentDefinition, type GardenerimComponentHandle,
 } from "../../src/index.js";
 
@@ -12,11 +12,12 @@ interface DialogBehavior extends GardenerimBehaviorInstance { open(): void; clos
 useGardenerim(element);
 useGardenerimBehavior<DialogBehavior>(component, behavior).instance?.open();
 useGardenerimEvent(component, "open", (event) => event.detail);
+useGardenerimLocale().configure({ locale: ["de", "en"] });
 useGardenerimTheme({ theme: "ocean", mode: "system" }, component);
 useGardenerimToast().show({ message: "Saved", tone: "success" });
 const definition: GardenerimComponentDefinition = componentByName.get("dialog")!;
 const dynamic = <GardenerimComponent definition={definition}>Dialog</GardenerimComponent>;
-const app = <GardenerimProvider theme="garden" mode="light"><GButton variant="primary">Save</GButton></GardenerimProvider>;
+const app = <GardenerimProvider theme="garden" mode="light" locale="de"><GButton variant="primary">Save</GButton></GardenerimProvider>;
 const dialog = <GDialog config={{ startOpen: true }} ref={component}>Dialog</GDialog>;
 const controlled = <GButton value="save" valueEvent="change" valueKey="value" onValueChange={(value) => value}>Save</GButton>;
 const intrinsicTypes = [<GInput type="email" autoComplete="email" />, <GButton type="submit">Submit</GButton>, <GNavbar aria-label="Primary" />];

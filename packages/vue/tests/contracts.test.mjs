@@ -15,11 +15,11 @@ test("all 506 Gardenerim CSS components have unique Vue exports", () => {
   assert.deepEqual(catalog.componentCatalog.map(({ name }) => name), css.components.map(({ name }) => name));
 });
 
-test("component behaviors are covered by the 66-behavior runtime", async () => {
+test("component behaviors are covered by the 72-behavior runtime", async () => {
   const runtime = JSON.parse(await readFile(new URL("../../css/metadata/public-api.json", import.meta.url), "utf8"));
   const behaviorSet = new Set(runtime.javascript.behaviors);
   for (const component of catalog.componentCatalog) for (const behavior of component.behaviors) assert.ok(behaviorSet.has(behavior), `${component.name}/${behavior}`);
-  assert.equal(api.behaviors, 66);
+  assert.equal(api.behaviors, 72);
 });
 
 test("the stable API contains every component export", () => {
@@ -30,7 +30,7 @@ test("the stable API contains every component export", () => {
 test("the stable API records every root runtime and TypeScript contract", async () => {
   const module = await import("../dist/index.js");
   assert.deepEqual(api.moduleExports, Object.keys(module).sort());
-  assert.equal(api.moduleExports.length, 538);
+  assert.equal(api.moduleExports.length, 546);
   assert.equal(api.typeExports.length, 21);
   assert.deepEqual(api.componentProps, ["as", "variant", "state", "config", "initialize", "modelValue", "modelEvent", "modelKey"]);
   assert.equal(api.themeAxes.length, 10);

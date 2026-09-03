@@ -1,6 +1,13 @@
 # Changelog
 
-## [2.0.0] - Unreleased
+## [2.1.0] - 2026-09-01
+
+- Consume the shared Arco-aligned 28/32/36px Gardenerim control scale and 14px control typography.
+- Mark the adapter as a legacy migration bridge because AngularJS is end-of-life and has unresolved upstream advisories.
+- Expose runtime localization through GardenerimRuntime and re-export the complete 2.1 lifecycle API.
+- Add a narrow CI exception that fails for every vulnerability outside the upstream angular package or when a fix becomes available.
+
+## [2.0.0] - 2026-08-31
 
 - Breaking: use Gardenerim-branded public exports only; remove Gardener aliases and update migration examples.
 - Fix Vue radio, multiple-select, checkbox-array and IME model semantics, and React multiple-select values.

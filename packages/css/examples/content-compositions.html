@@ -568,24 +568,39 @@
       <section class="demo-section">
         <h2>Video / Audio / Code</h2>
         <div class="demo-grid g-mt-4">
-          <article class="g-video-player">
+          <article
+            class="g-video-player"
+            data-g-media-player
+            data-g-duration="260"
+          >
             <div class="g-video-stage">16:9 视频画布</div>
             <div class="g-media-controls">
               <button
                 class="g-btn g-btn-ghost g-btn-icon"
                 aria-label="播放视频"
                 type="button"
+                data-g-media-toggle
+                data-g-play-label="播放视频"
+                data-g-pause-label="暂停视频"
+                aria-pressed="false"
               >
-                ▶</button
+                <span data-g-media-icon>▶</span></button
               ><input
                 class="g-media-timeline"
                 aria-label="视频进度"
                 type="range"
-                value="32"
-              /><span class="g-media-time">01:32 / 04:20</span>
+                min="0"
+                max="260"
+                value="92"
+                data-g-media-timeline
+              /><span class="g-media-time" data-g-media-time>01:32 / 04:20</span>
             </div>
           </article>
-          <article class="g-audio-player">
+          <article
+            class="g-audio-player"
+            data-g-media-player
+            data-g-duration="210"
+          >
             <span class="g-audio-art">♪</span
             ><span
               ><strong class="g-file-name">访谈录音.mp3</strong
@@ -596,14 +611,21 @@
                 class="g-btn g-btn-ghost g-btn-icon"
                 aria-label="播放音频"
                 type="button"
+                data-g-media-toggle
+                data-g-play-label="播放音频"
+                data-g-pause-label="暂停音频"
+                aria-pressed="false"
               >
-                ▶</button
+                <span data-g-media-icon>▶</span></button
               ><input
                 class="g-media-timeline"
                 aria-label="音频进度"
                 type="range"
+                min="0"
+                max="210"
                 value="18"
-              />
+                data-g-media-timeline
+              /><span class="g-media-time" data-g-media-time>00:18 / 03:30</span>
             </div>
           </article>
         </div>

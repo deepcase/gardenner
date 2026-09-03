@@ -19,7 +19,7 @@ const entrypoints = Object.fromEntries(await Promise.all(Object.entries(entrypoi
   return [name, { bytes: content.length, gzipBytes: gzipSync(content, { level: 9 }).length, budget: budgets.entrypoints[name].bytes, gzipBudget: budgets.entrypoints[name].gzipBytes }];
 })));
 const report = {
-  version: "2.0.0",
+  version: "2.1.0",
   measuredAt: new Date().toISOString(),
   assembly: { bytes: (await stat(assemblyPath)).size, budget: budgets.assembly.bytes },
   staticAssets: { bytes: await total(assetPaths), files: assetPaths.length, budget: budgets.staticAssets.bytes },

@@ -12,9 +12,9 @@ const open = () => instance.value?.open?.();
   <GardenerimProvider class="g-container g-py-10" theme="garden" mode="light" shape="subtle" density="comfortable">
     <main class="g-stack g-gap-6">
       <header>
-        <span class="g-badge">Vue 2.0.0</span>
+        <span class="g-badge">Vue 2.1.0</span>
         <h1>Gardenerim Vue</h1>
-        <p class="g-text-muted">506 个组件、66 种行为和完整类型支持。</p>
+        <p class="g-text-muted">506 个组件、69 种行为和完整类型支持。</p>
       </header>
 
       <GAlert state="info">这是 Gardenerim CSS 与 Vue 3 的官方适配层。</GAlert>

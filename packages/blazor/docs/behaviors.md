@@ -1,6 +1,6 @@
 # Gardenerim DOM 行为完整目录
 
-共 66 个行为，无省略。生成组件按元数据自动初始化；任意元素可使用 `GardenerimBehavior`；`GardenerimRuntimeCatalog` 提供机器可读成员契约。
+共 72 个行为，无省略。生成组件按元数据自动初始化；任意元素可使用 `GardenerimBehavior`；`GardenerimRuntimeCatalog` 提供机器可读成员契约。
 
 | 行为名 | 属性 | 实例成员 | C# 常量 |
 | --- | --- | --- | --- |
@@ -34,6 +34,7 @@
 | `native-file-picker` | `data-g-native-file-picker` | `open`, `files`, `clear`, `destroy` | `GardenerimBehaviors.NativeFilePicker` |
 | `window-switcher` | `data-g-window-switcher` | `open`, `close`, `select`, `isOpen`, `destroy` | `GardenerimBehaviors.WindowSwitcher` |
 | `character-count` | `data-g-character-count` | `update`, `destroy` | `GardenerimBehaviors.CharacterCount` |
+| `field-sync` | `data-g-field-sync` | `sync`, `value`, `destroy` | `GardenerimBehaviors.FieldSync` |
 | `conditional-field` | `data-g-conditional-field` | `update`, `destroy` | `GardenerimBehaviors.ConditionalField` |
 | `repeatable-field` | `data-g-repeatable-field` | `add`, `sync`, `destroy` | `GardenerimBehaviors.RepeatableField` |
 | `tooltip` | `data-g-tooltip` | `open`, `close`, `toggle`, `destroy` | `GardenerimBehaviors.Tooltip` |
@@ -43,6 +44,9 @@
 | `split-pane` | `data-g-split-pane` | `set`, `destroy` | `GardenerimBehaviors.SplitPane` |
 | `tree` | `data-g-tree` | `focus`, `destroy` | `GardenerimBehaviors.Tree` |
 | `data-grid` | `data-g-data-grid` | `focus`, `destroy`, `refresh`, `setOptions`, `setRows`, `setPage`, `setSort`, `setFilter`, `select`, `getState`, `updateCell`, `load` | `GardenerimBehaviors.DataGrid` |
+| `table-scroll` | `data-g-table-scroll` | `update`, `state`, `destroy` | `GardenerimBehaviors.TableScroll` |
+| `table-density` | `data-g-table-density` | `set`, `value`, `destroy` | `GardenerimBehaviors.TableDensity` |
+| `filter-summary` | `data-g-filter-summary` | `clear`, `show`, `destroy` | `GardenerimBehaviors.FilterSummary` |
 | `table-sort` | `data-g-table-sort` | `sort`, `destroy` | `GardenerimBehaviors.TableSort` |
 | `row-select` | `data-g-row-select` | `sync`, `clear`, `selectAll`, `invert`, `selected`, `destroy` | `GardenerimBehaviors.RowSelect` |
 | `row-disclosure` | `data-g-row-disclosure` | `set`, `destroy` | `GardenerimBehaviors.RowDisclosure` |
@@ -52,6 +56,7 @@
 | `transfer` | `data-g-transfer` | `move`, `sync`, `values`, `destroy` | `GardenerimBehaviors.Transfer` |
 | `picker` | `data-g-picker` | `open`, `close`, `selected`, `choose`, `destroy` | `GardenerimBehaviors.Picker` |
 | `cascader` | `data-g-cascader` | `choose`, `destroy` | `GardenerimBehaviors.Cascader` |
+| `range-picker` | `data-g-range-picker` | `set`, `clear`, `value`, `apply`, `destroy` | `GardenerimBehaviors.RangePicker` |
 | `saved-choice` | `data-g-saved-choice` | `select`, `destroy` | `GardenerimBehaviors.SavedChoice` |
 | `builder-list` | `data-g-builder-list` | `add`, `sync`, `destroy` | `GardenerimBehaviors.BuilderList` |
 | `toast` | `data-g-toast` | `dismiss`, `pause`, `resume`, `destroy` | `GardenerimBehaviors.Toast` |
@@ -66,6 +71,7 @@
 | `jump-nav` | `data-g-jump-nav` | `jump`, `destroy` | `GardenerimBehaviors.JumpNav` |
 | `upload-manager` | `data-g-upload-manager` | `sync`, `addFile`, `items`, `destroy` | `GardenerimBehaviors.UploadManager` |
 | `file-browser` | `data-g-file-browser` | `select`, `filter`, `selected`, `destroy` | `GardenerimBehaviors.FileBrowser` |
+| `media-player` | `data-g-media-player` | `play`, `pause`, `toggle`, `seek`, `state`, `destroy` | `GardenerimBehaviors.MediaPlayer` |
 | `editor-shell` | `data-g-editor-shell` | `run`, `counts`, `surface`, `destroy` | `GardenerimBehaviors.EditorShell` |
 | `revision-compare` | `data-g-revision-compare` | `setView`, `view`, `destroy` | `GardenerimBehaviors.RevisionCompare` |
 | `autosave` | `data-g-autosave` | `save`, `state`, `destroy` | `GardenerimBehaviors.Autosave` |

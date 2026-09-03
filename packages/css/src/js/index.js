@@ -1,7 +1,17 @@
-/** Gardenerim runtime v2.0.0 — framework-agnostic, accessible component behavior. */
+/** Gardenerim runtime v2.1.0 — framework-agnostic, accessible component behavior. */
+
+import { formatGardenerimMessage, gardenerimLocaleNames, gardenerimLocales, resolveGardenerimLocale } from "./locales.js";
 
 const instanceStores = new WeakMap();
 const registry = new Map();
+let registrySelector = "";
+let runtimeLocale = resolveGardenerimLocale([
+  typeof document !== "undefined" ? document.documentElement.lang : null,
+  ...(typeof navigator !== "undefined" ? navigator.languages || [navigator.language] : []),
+]);
+let runtimeMessageOverrides = {};
+let observer;
+let observedRoot = null;
 const focusableSelector = [
   "a[href]", "button:not([disabled])", "input:not([disabled])", "select:not([disabled])",
   "textarea:not([disabled])", "[tabindex]:not([tabindex='-1'])", "[contenteditable='true']"
@@ -11,6 +21,34 @@ const uid = (prefix = "g") => `${prefix}-${Math.random().toString(36).slice(2, 9
 const numeric = (value, fallback) => value !== "" && value != null && Number.isFinite(Number(value)) ? Number(value) : fallback;
 const targetById = (value) => value ? document.getElementById(value.replace(/^#/, "")) : null;
 const visibleFocusable = (container) => [...container.querySelectorAll(focusableSelector)].filter((item) => item.getClientRects().length > 0);
+const isDisabled = (element) => !element || Boolean(element.disabled) || element.getAttribute("aria-disabled") === "true";
+
+function focusAfterRemoval(target, source) {
+  if (!target?.contains(document.activeElement)) return () => {};
+  const focusables = [...document.querySelectorAll(focusableSelector)].filter((item) => !target.contains(item) && !item.closest("[hidden]") && !isDisabled(item));
+  const relation = (item) => source.compareDocumentPosition(item);
+  const next = focusables.find((item) => relation(item) & Node.DOCUMENT_POSITION_FOLLOWING);
+  const previous = focusables.filter((item) => relation(item) & Node.DOCUMENT_POSITION_PRECEDING).at(-1);
+  const fallback = next || previous;
+  return () => queueMicrotask(() => fallback?.focus({ preventScroll: true }));
+}
+
+const message = (key, values) => formatGardenerimMessage(runtimeMessageOverrides[key] ?? gardenerimLocales[runtimeLocale]?.[key] ?? gardenerimLocales.en[key] ?? key, values);
+
+function getConfiguration() {
+  return Object.freeze({ locale: runtimeLocale, messages: Object.freeze({ ...runtimeMessageOverrides }), supportedLocales: gardenerimLocaleNames });
+}
+
+function configure(options = {}) {
+  if (options.locale != null) runtimeLocale = resolveGardenerimLocale(options.locale);
+  if (options.messages != null) {
+    if (typeof options.messages !== "object" || Array.isArray(options.messages)) throw new TypeError("Gardenerim.configure messages must be an object.");
+    runtimeMessageOverrides = { ...options.messages };
+  }
+  const root = options.root ?? (typeof document !== "undefined" ? document : null);
+  if (root && options.refresh !== false) refresh(root);
+  return getConfiguration();
+}
 
 function emit(element, name, detail = {}) {
   return element.dispatchEvent(new CustomEvent(`gardener:${name}`, { bubbles: true, cancelable: true, detail }));
@@ -128,7 +166,7 @@ function createDropdown(element) {
   let search = "";
   let searchTimer;
   const startsOpen = !menu.hidden;
-  const items = () => visibleFocusable(menu).filter((item) => item.getAttribute("aria-disabled") !== "true");
+  const items = () => visibleFocusable(menu).filter((item) => !isDisabled(item));
 
   function open() {
     if (!menu.hidden) return;
@@ -164,7 +202,7 @@ function createDropdown(element) {
     }
   }
   function toggle() { menu.hidden ? open() : close(); }
-  function menuClick(event) { if (event.target.closest("[role='menuitem']") && !event.target.closest("[aria-haspopup='menu']")) close(); }
+  function menuClick(event) { const item = event.target.closest("[role='menuitem']"); if (item && !isDisabled(item) && !item.closest("[aria-haspopup='menu']")) close(); }
   trigger.setAttribute("aria-haspopup", trigger.getAttribute("aria-haspopup") || "menu");
   menu.setAttribute("role", menu.getAttribute("role") || "menu");
   menu.hidden = true;
@@ -180,7 +218,7 @@ function createTabs(element) {
   if (!tabs.length) return null;
   const vertical = () => element.getAttribute("aria-orientation") === "vertical";
   function select(tab, focus = false) {
-    if (!tab || tab.getAttribute("aria-disabled") === "true") return;
+    if (isDisabled(tab)) return;
     tabs.forEach((item) => {
       const selected = item === tab;
       item.setAttribute("aria-selected", String(selected));
@@ -197,7 +235,7 @@ function createTabs(element) {
     if (current < 0) return;
     const forward = vertical() ? "ArrowDown" : "ArrowRight";
     const backward = vertical() ? "ArrowUp" : "ArrowLeft";
-    const enabled = tabs.filter((tab) => tab.getAttribute("aria-disabled") !== "true" && !tab.disabled);
+    const enabled = tabs.filter((tab) => !isDisabled(tab));
     if (!enabled.length) return;
     const enabledIndex = enabled.indexOf(tabs[current]);
     let next;
@@ -225,7 +263,7 @@ function createAccordion(element) {
     emit(element, "change", { trigger, expanded });
   }
   function toggle(trigger) {
-    if (trigger.disabled || trigger.getAttribute("aria-disabled") === "true") return;
+    if (isDisabled(trigger)) return;
     const expanded = trigger.getAttribute("aria-expanded") === "true";
     if (!expanded && element.dataset.gMultiple !== "true") triggers.forEach((other) => { if (other !== trigger) set(other, false); });
     set(trigger, !expanded);
@@ -237,6 +275,7 @@ function createAccordion(element) {
 }
 
 function createAutoResize(element) {
+  if (!element.hasAttribute("rows") && element.classList.contains("g-composer-input")) element.rows = 1;
   function resize() {
     element.style.height = "auto";
     element.style.height = `${Math.min(element.scrollHeight, Number(element.dataset.gMaxHeight || 224))}px`;
@@ -250,8 +289,8 @@ function createPasswordToggle(element) {
   const input = element.querySelector("input");
   const button = element.querySelector("[data-g-password-button]");
   if (!input || !button) return null;
-  const showLabel = button.dataset.gShowLabel || "显示密码";
-  const hideLabel = button.dataset.gHideLabel || "隐藏密码";
+  const showLabel = button.dataset.gShowLabel || message("password.show");
+  const hideLabel = button.dataset.gHideLabel || message("password.hide");
   function update() {
     const visible = input.type === "text";
     button.setAttribute("aria-pressed", String(visible));
@@ -283,7 +322,7 @@ function createOtpInput(element) {
     cells.forEach((cell, index) => {
       const digit = digits(cell.value).slice(-1);
       if (cell.value !== digit) cell.value = digit;
-      cell.setAttribute("aria-label", cell.getAttribute("aria-label") || `验证码第 ${index + 1} 位，共 ${cells.length} 位`);
+      cell.setAttribute("aria-label", cell.getAttribute("aria-label") || message("otp.cell", { index: index + 1, total: cells.length }));
     });
     element.dataset.gOtpValue = value;
     const valueOutput = element.querySelector("[data-g-otp-output]") || output;
@@ -339,11 +378,11 @@ function createPasswordStrength(element) {
     const value = input.value; const checks = Object.fromEntries(Object.entries(tests).map(([key, test]) => [key, test(value)]));
     const passed = Object.values(checks).filter(Boolean).length;
     const score = value ? Math.min(4, Math.max(1, Math.ceil((passed / Object.keys(checks).length) * 4))) : 0;
-    const labels = ["未设置", "较弱", "一般", "良好", "强"];
+    const labels = ["none", "weak", "fair", "good", "strong"].map((level) => message(`passwordStrength.${level}`));
     element.dataset.gStrength = String(score); element.style.setProperty("--g-password-strength", `${score * 25}%`);
     if (label) label.textContent = labels[score];
-    if (meter) { meter.setAttribute("role", "progressbar"); meter.setAttribute("aria-label", "密码强度"); meter.setAttribute("aria-valuemin", "0"); meter.setAttribute("aria-valuemax", "4"); meter.setAttribute("aria-valuenow", String(score)); meter.setAttribute("aria-valuetext", labels[score]); }
-    rules.forEach((rule) => { const valid = Boolean(checks[rule.dataset.gPasswordRule]); rule.classList.toggle("is-valid", valid); rule.setAttribute("aria-label", `${rule.textContent.trim()}：${valid ? "已满足" : "未满足"}`); });
+    if (meter) { meter.setAttribute("role", "progressbar"); meter.setAttribute("aria-label", message("passwordStrength.label")); meter.setAttribute("aria-valuemin", "0"); meter.setAttribute("aria-valuemax", "4"); meter.setAttribute("aria-valuenow", String(score)); meter.setAttribute("aria-valuetext", labels[score]); }
+    rules.forEach((rule) => { const valid = Boolean(checks[rule.dataset.gPasswordRule]); rule.classList.toggle("is-valid", valid); rule.setAttribute("aria-label", message("passwordStrength.rule", { rule: rule.textContent.trim(), status: message(valid ? "passwordStrength.met" : "passwordStrength.unmet") })); });
     emit(element, "passwordstrength", { score, checks, reason }); return { score, checks };
   }
   input.addEventListener("input", update); update("init");
@@ -355,7 +394,7 @@ function createAuthTimer(element) {
   const resetButton = element.querySelector("[data-g-auth-timer-reset]");
   const duration = Math.max(0, Number(element.dataset.gDuration || 60));
   let remaining = duration; let timer = 0;
-  function format(seconds) { const minutes = Math.floor(seconds / 60); const rest = seconds % 60; return minutes ? `${minutes}:${String(rest).padStart(2, "0")}` : `${rest} 秒`; }
+  function format(seconds) { const minutes = Math.floor(seconds / 60); const rest = seconds % 60; return minutes ? `${minutes}:${String(rest).padStart(2, "0")}` : message("auth.seconds", { seconds: rest }); }
   function render(reason = "tick") { output.textContent = format(remaining); const expired = remaining <= 0; element.dataset.gTimerState = expired ? "expired" : "active"; element.setAttribute("aria-live", expired ? "polite" : "off"); if (expired) { window.clearInterval(timer); timer = 0; emit(element, "authtimerexpired", { reason }); } }
   function start(seconds = duration, reason = "start") { window.clearInterval(timer); remaining = Math.max(0, Number(seconds)); render(reason); if (remaining > 0) timer = window.setInterval(() => { remaining -= 1; render(); }, 1000); emit(element, "authtimerstart", { remaining, reason }); }
   function reset() { start(duration, "reset"); }
@@ -377,7 +416,7 @@ function createClearInput(element) {
     input.focus({ preventScroll: true });
     emit(element, "clear", { input });
   }
-  if (!button.hasAttribute("aria-label")) button.setAttribute("aria-label", "清空输入");
+  if (!button.hasAttribute("aria-label")) button.setAttribute("aria-label", message("input.clear"));
   input.addEventListener("input", update);
   button.addEventListener("click", clear);
   update();
@@ -394,12 +433,38 @@ function createCharacterCount(element) {
     output.textContent = maximum > 0 ? `${count} / ${maximum}` : String(count);
     output.classList.toggle("is-near-limit", maximum > 0 && count >= maximum * .85 && count <= maximum);
     output.classList.toggle("is-over-limit", maximum > 0 && count > maximum);
-    output.setAttribute("aria-label", maximum > 0 ? `已输入 ${count} 个字符，最多 ${maximum} 个` : `已输入 ${count} 个字符`);
+    output.setAttribute("aria-label", message(maximum > 0 ? "character.withMax" : "character.withoutMax", { count, maximum }));
     emit(element, "count", { count, maximum });
   }
   input.addEventListener("input", update);
   update();
   return { update, destroy: () => input.removeEventListener("input", update) };
+}
+
+function createFieldSync(element) {
+  const input = element.querySelector("input[type='range'], input[type='file']");
+  const output = element.querySelector("[data-g-field-output], .g-range-field-output, .g-file-field-name");
+  if (!input || !output) return null;
+  const kind = input.type === "file" ? "file" : "range";
+  function value() {
+    if (kind === "file") return [...(input.files || [])].map((file) => file.name);
+    return input.value;
+  }
+  function sync(reason = "input", notify = true) {
+    const next = value();
+    if (kind === "file") output.textContent = next.length ? next.join(", ") : element.dataset.gEmptyLabel || message("file.none");
+    else output.textContent = `${next}${output.dataset.gSuffix ?? element.dataset.gSuffix ?? ""}`;
+    output.toggleAttribute("title", kind === "file" && next.length > 0);
+    if (output.hasAttribute("title")) output.title = next.join(", ");
+    if (notify) emit(element, "fieldchange", { kind, value: next, files: kind === "file" ? [...(input.files || [])] : [], input });
+    return next;
+  }
+  const change = () => sync("change");
+  const inputEvent = () => sync("input");
+  input.addEventListener("change", change);
+  if (kind === "range") input.addEventListener("input", inputEvent);
+  sync("init", false);
+  return { sync, value, destroy: () => { input.removeEventListener("change", change); input.removeEventListener("input", inputEvent); } };
 }
 
 function createConditionalField(element) {
@@ -486,7 +551,7 @@ function createCombobox(element) {
   const input = element.querySelector("[role='combobox'], input");
   const list = element.querySelector("[role='listbox'], .g-combobox-list");
   if (!input || !list) return null;
-  const options = () => [...list.querySelectorAll("[role='option'], .g-combobox-option")].filter((option) => !option.hidden && option.getAttribute("aria-disabled") !== "true");
+  const options = () => [...list.querySelectorAll("[role='option'], .g-combobox-option")].filter((option) => !option.hidden && !isDisabled(option));
   let activeIndex = -1;
   if (!list.id) list.id = uid("g-listbox");
   input.setAttribute("role", "combobox");
@@ -507,6 +572,7 @@ function createCombobox(element) {
     items[activeIndex].scrollIntoView({ block: "nearest" });
   }
   function choose(option) {
+    if (isDisabled(option)) return;
     input.value = option.dataset.gValue ?? option.textContent.trim();
     options().forEach((item) => item.setAttribute("aria-selected", String(item === option)));
     emit(element, "change", { option, value: input.value });
@@ -540,13 +606,32 @@ function createCombobox(element) {
 
 function positionFloating(trigger, panel, requestedPlacement = "bottom-start") {
   const rect = trigger.getBoundingClientRect();
-  const panelRect = panel.getBoundingClientRect();
   const gap = 8;
   const rtl = getComputedStyle(trigger).direction === "rtl";
   const [rawSide, rawAlign = "start"] = String(requestedPlacement || "bottom-start").toLowerCase().split("-");
   let side = rawSide === "start" ? (rtl ? "right" : "left") : rawSide === "end" ? (rtl ? "left" : "right") : rawSide;
   if (!["top", "bottom", "left", "right"].includes(side)) side = "bottom";
   const align = ["start", "center", "end"].includes(rawAlign) ? rawAlign : "start";
+
+  // Filters, transforms and containment can make a fixed descendant use an
+  // ancestor as its containing block. Probe that coordinate space so the
+  // viewport coordinates below remain correct without moving the panel out of
+  // its component tree.
+  panel.style.position = "fixed";
+  panel.style.inset = "0 auto auto 0";
+  const origin = panel.getBoundingClientRect();
+  panel.style.inset = "0 auto auto 100px";
+  const horizontalProbe = panel.getBoundingClientRect();
+  panel.style.inset = "100px auto auto 0";
+  const verticalProbe = panel.getBoundingClientRect();
+  const matrix = {
+    a: (horizontalProbe.left - origin.left) / 100,
+    b: (verticalProbe.left - origin.left) / 100,
+    c: (horizontalProbe.top - origin.top) / 100,
+    d: (verticalProbe.top - origin.top) / 100,
+  };
+  const determinant = matrix.a * matrix.d - matrix.b * matrix.c;
+  const panelRect = origin;
 
   function coordinates(candidate) {
     let top;
@@ -573,8 +658,11 @@ function positionFloating(trigger, panel, requestedPlacement = "bottom-start") {
   position = coordinates(side);
   const top = Math.max(gap, Math.min(position.top, window.innerHeight - panelRect.height - gap));
   const left = Math.max(gap, Math.min(position.left, window.innerWidth - panelRect.width - gap));
-  panel.style.position = "fixed";
-  panel.style.inset = `${top}px auto auto ${left}px`;
+  const deltaLeft = left - origin.left;
+  const deltaTop = top - origin.top;
+  const localLeft = Math.abs(determinant) > 0.0001 ? (matrix.d * deltaLeft - matrix.b * deltaTop) / determinant : deltaLeft;
+  const localTop = Math.abs(determinant) > 0.0001 ? (matrix.a * deltaTop - matrix.c * deltaLeft) / determinant : deltaTop;
+  panel.style.inset = `${localTop}px auto auto ${localLeft}px`;
   panel.dataset.gPlacement = `${side}-${align}`;
   panel.style.setProperty("--g-floating-arrow-inline", `${Math.max(10, Math.min(panelRect.width - 18, rect.left + rect.width / 2 - left - 6))}px`);
   panel.style.setProperty("--g-floating-arrow-block", `${Math.max(10, Math.min(panelRect.height - 18, rect.top + rect.height / 2 - top - 6))}px`);
@@ -674,7 +762,7 @@ function createTour(element) {
     });
     if (progress) progress.textContent = `${index + 1} / ${steps.length}`;
     element.querySelectorAll("[data-g-tour-prev]").forEach((button) => { button.disabled = index === 0; });
-    element.querySelectorAll("[data-g-tour-next]").forEach((button) => { button.textContent = index === steps.length - 1 ? (button.dataset.gFinishLabel || "完成") : (button.dataset.gNextLabel || "下一步"); });
+    element.querySelectorAll("[data-g-tour-next]").forEach((button) => { button.textContent = index === steps.length - 1 ? (button.dataset.gFinishLabel || message("tour.finish")) : (button.dataset.gNextLabel || message("tour.next")); });
     requestAnimationFrame(position);
     emit(element, "change", { index, step: steps[index], source });
   }
@@ -873,7 +961,7 @@ function createDataGrid(element) {
     const start = virtual ? Math.min(Math.max(0, pageRows.length - 1), Math.max(0, Math.floor(viewport.scrollTop / rowHeight) - 3)) : 0;
     const end = virtual ? Math.min(pageRows.length, start + Math.ceil(height / rowHeight) + 6) : pageRows.length;
     const head = make("thead"), header = make("tr"); header.setAttribute("role", "row");
-    if (options.selectable) { const th = make("th", options.labels?.select || "选择"); th.setAttribute("scope", "col"); header.append(th); }
+    if (options.selectable) { const th = make("th", options.labels?.select || message("grid.select")); th.setAttribute("scope", "col"); header.append(th); }
     for (const column of columns) {
       const th = make("th"); th.setAttribute("role", "columnheader"); th.setAttribute("scope", "col");
       th.setAttribute("aria-sort", sort?.field === column.field ? sort.direction === "asc" ? "ascending" : "descending" : "none");
@@ -897,7 +985,7 @@ function createDataGrid(element) {
         tr.setAttribute("aria-selected", String(selected.has(key)));
         const td = make("td"), checkbox = make("input"); checkbox.type = "checkbox"; checkbox.checked = selected.has(key);
         td.setAttribute("role", "gridcell"); identify(checkbox, ["select", key]);
-        checkbox.setAttribute("aria-label", `${options.labels?.select || "选择"} ${key}`);
+        checkbox.setAttribute("aria-label", `${options.labels?.select || message("grid.select")} ${key}`);
         checkbox.addEventListener("change", () => select(key, checkbox.checked)); td.append(checkbox); tr.append(td);
       }
       for (const column of columns) {
@@ -915,12 +1003,12 @@ function createDataGrid(element) {
       body.append(tr);
     }
     spacer((pageRows.length - end) * rowHeight);
-    if (!pageRows.length) { const tr = make("tr"), td = make("td", error || (loading ? options.labels?.loading || "加载中…" : options.labels?.empty || "暂无数据")); td.colSpan = span; tr.append(td); body.append(tr); }
+    if (!pageRows.length) { const tr = make("tr"), td = make("td", error || (loading ? options.labels?.loading || message("grid.loading") : options.labels?.empty || message("grid.empty"))); td.colSpan = span; tr.append(td); body.append(tr); }
     table.setAttribute("aria-rowcount", String(total + 1)); table.setAttribute("aria-colcount", String(span));
     element.setAttribute("aria-busy", String(loading)); element.classList.toggle("is-loading", loading); element.classList.toggle("is-error", !!error); element.classList.toggle("is-empty", total === 0 && !loading);
     viewport.style.maxHeight = `${height}px`; viewport.style.overflow = "auto";
     footer.replaceChildren();
-    const previous = make("button", options.labels?.previous || "上一页"), next = make("button", options.labels?.next || "下一页");
+    const previous = make("button", options.labels?.previous || message("grid.previous")), next = make("button", options.labels?.next || message("grid.next"));
     identify(previous, ["page", "previous"]); identify(next, ["page", "next"]);
     previous.type = next.type = "button"; previous.className = next.className = "g-btn";
     previous.disabled = page <= 1 || loading; next.disabled = page * pageSize >= total || loading;
@@ -977,7 +1065,7 @@ function createDataGrid(element) {
       originalChildren = [...element.childNodes]; element.replaceChildren();
       viewport = make("div"); viewport.setAttribute("data-g-grid-viewport", ""); table = make("table"); table.className = "g-table"; table.setAttribute("role", "grid");
       element.setAttribute("role", "region");
-      table.setAttribute("aria-label", element.getAttribute("aria-label") || "数据网格");
+      table.setAttribute("aria-label", element.getAttribute("aria-label") || message("grid.label"));
       if (element.hasAttribute("aria-labelledby")) table.setAttribute("aria-labelledby", element.getAttribute("aria-labelledby"));
       body = make("tbody"); table.append(body); viewport.append(table); footer = make("div"); footer.className = "g-pagination";
       element.append(viewport, footer); managed = true;
@@ -1014,6 +1102,152 @@ function createDataGrid(element) {
     if (scrollHandler) viewport.removeEventListener("scroll", scrollHandler);
     if (originalChildren) { element.replaceChildren(...originalChildren); element.setAttribute("role", "grid"); }
   }, refresh, setOptions, setRows, setPage, setSort, setFilter, select, getState, updateCell, load };
+}
+
+function createTableScroll(element) {
+  const table = element.querySelector("table, [role='grid']");
+  if (!table) return null;
+  const originalRole = element.getAttribute("role");
+  const originalTabIndex = element.getAttribute("tabindex");
+  let managedRole = false;
+  let managedTabIndex = false;
+  let managedLabel = false;
+  let frame = 0;
+  const direction = () => getComputedStyle(element).direction;
+  const maximum = () => Math.max(0, element.scrollWidth - element.clientWidth);
+  function position() {
+    const max = maximum();
+    if (direction() !== "rtl") return Math.max(0, Math.min(max, element.scrollLeft));
+    return Math.max(0, Math.min(max, Math.abs(element.scrollLeft)));
+  }
+  function scrollToPosition(value) {
+    const next = Math.max(0, Math.min(maximum(), value));
+    element.scrollLeft = direction() === "rtl" ? -next : next;
+    schedule();
+    return next;
+  }
+  function state() {
+    const max = maximum();
+    const current = position();
+    const overflow = max > 1;
+    return {
+      overflow,
+      atStart: !overflow || current <= 1,
+      atEnd: !overflow || current >= max - 1,
+      canScrollStart: overflow && current > 1,
+      canScrollEnd: overflow && current < max - 1,
+    };
+  }
+  function restoreAccessibility() {
+    if (managedRole) {
+      if (originalRole == null) element.removeAttribute("role"); else element.setAttribute("role", originalRole);
+      managedRole = false;
+    }
+    if (managedTabIndex) {
+      if (originalTabIndex == null) element.removeAttribute("tabindex"); else element.setAttribute("tabindex", originalTabIndex);
+      managedTabIndex = false;
+    }
+    if (managedLabel) { element.removeAttribute("aria-label"); managedLabel = false; }
+  }
+  function update() {
+    frame = 0;
+    const next = state();
+    element.classList.toggle("is-scrollable", next.overflow);
+    element.classList.toggle("can-scroll-start", next.canScrollStart);
+    element.classList.toggle("can-scroll-end", next.canScrollEnd);
+    if (next.overflow) {
+      if (!element.hasAttribute("role")) { element.setAttribute("role", "region"); managedRole = true; }
+      if (!element.hasAttribute("aria-label") && !element.hasAttribute("aria-labelledby")) {
+        element.setAttribute("aria-label", message("table.scrollLabel")); managedLabel = true;
+      }
+      if (!element.hasAttribute("tabindex")) { element.tabIndex = 0; managedTabIndex = true; }
+    } else restoreAccessibility();
+    return next;
+  }
+  function schedule() { if (!frame) frame = requestAnimationFrame(update); }
+  function keydown(event) {
+    if (event.target !== element || event.altKey || event.ctrlKey || event.metaKey) return;
+    const rtl = direction() === "rtl";
+    const line = Math.max(48, Math.round(element.clientWidth * 0.12));
+    const page = Math.max(line, Math.round(element.clientWidth * 0.8));
+    let next = null;
+    if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = maximum();
+    else if (event.key === "PageUp") next = position() - page;
+    else if (event.key === "PageDown") next = position() + page;
+    else if (event.key === "ArrowLeft") next = position() + (rtl ? line : -line);
+    else if (event.key === "ArrowRight") next = position() + (rtl ? -line : line);
+    if (next == null || !state().overflow) return;
+    event.preventDefault();
+    scrollToPosition(next);
+  }
+  const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(schedule) : null;
+  resizeObserver?.observe(element); resizeObserver?.observe(table);
+  const mutationObserver = typeof MutationObserver === "function" ? new MutationObserver(schedule) : null;
+  mutationObserver?.observe(table, { childList: true, subtree: true, attributes: true });
+  element.addEventListener("scroll", schedule, { passive: true });
+  element.addEventListener("keydown", keydown);
+  window.addEventListener("resize", schedule);
+  update();
+  return { update, state, destroy: () => {
+    if (frame) cancelAnimationFrame(frame);
+    resizeObserver?.disconnect(); mutationObserver?.disconnect();
+    element.removeEventListener("scroll", schedule); element.removeEventListener("keydown", keydown); window.removeEventListener("resize", schedule);
+    element.classList.remove("is-scrollable", "can-scroll-start", "can-scroll-end");
+    restoreAccessibility();
+  } };
+}
+
+function createTableDensity(element) {
+  const scope = element.closest("[data-g-table-sort], [data-g-data-grid], [data-g-table-scope]") || element.parentElement;
+  const table = targetById(element.dataset.gTableDensity) || scope?.querySelector(".g-table, [role='grid']");
+  const controls = [...element.querySelectorAll("[data-g-value]")];
+  if (!table || !controls.length) return null;
+  let current = element.dataset.gCurrentDensity || controls.find((control) => control.getAttribute("aria-pressed") === "true")?.dataset.gValue || "standard";
+  function set(value, focus = false, notify = true) {
+    current = value === "compact" ? "compact" : "standard";
+    element.dataset.gCurrentDensity = current;
+    table.classList.toggle("g-table-compact", current === "compact");
+    controls.forEach((control) => {
+      const active = control.dataset.gValue === current;
+      control.setAttribute("aria-pressed", String(active)); control.tabIndex = active ? 0 : -1;
+      if (active && focus) control.focus();
+    });
+    if (notify) emit(element, "densitychange", { density: current, table });
+    return current;
+  }
+  function click(event) { const control = event.target.closest("[data-g-value]"); if (control) set(control.dataset.gValue); }
+  function keydown(event) {
+    const control = event.target.closest("[data-g-value]"); if (!control) return;
+    const index = controls.indexOf(control);
+    const next = ["ArrowRight", "ArrowDown"].includes(event.key) ? controls[(index + 1) % controls.length]
+      : ["ArrowLeft", "ArrowUp"].includes(event.key) ? controls[(index - 1 + controls.length) % controls.length]
+      : event.key === "Home" ? controls[0] : event.key === "End" ? controls.at(-1) : null;
+    if (next) { event.preventDefault(); set(next.dataset.gValue, true); }
+  }
+  element.addEventListener("click", click); element.addEventListener("keydown", keydown); set(current, false, false);
+  return { set, value: () => current, destroy: () => { element.removeEventListener("click", click); element.removeEventListener("keydown", keydown); } };
+}
+
+function createFilterSummary(element) {
+  const clearControl = element.querySelector(".g-filter-summary-clear, [data-g-clear-selection]");
+  if (!clearControl) return null;
+  function clear(focus = false) {
+    const scope = element.closest("[data-g-table-scope], [data-g-data-filter], form, section") || element.parentElement;
+    const input = scope?.querySelector("[data-g-filter-input], input[type='search']");
+    const candidates = [...(scope?.querySelectorAll(focusableSelector) || [])].filter((item) => !element.contains(item) && item.tabIndex >= 0);
+    const previous = candidates.filter((item) => item.compareDocumentPosition(element) & Node.DOCUMENT_POSITION_FOLLOWING).at(-1);
+    const next = candidates.find((item) => item.compareDocumentPosition(element) & Node.DOCUMENT_POSITION_PRECEDING);
+    const focusTarget = input || previous || next;
+    if (emit(element, "clear", { input })) {
+      element.hidden = true;
+      if (focus) queueMicrotask(() => focusTarget?.focus({ preventScroll: true }));
+    }
+  }
+  function show() { element.hidden = false; }
+  const click = () => clear(true);
+  clearControl.addEventListener("click", click);
+  return { clear, show, destroy: () => clearControl.removeEventListener("click", click) };
 }
 
 function createTableSort(element) {
@@ -1136,7 +1370,8 @@ function createTransfer(element) {
   if (!source || !target) return null;
   const optionSelector = "[data-g-transfer-option]";
   const options = (pane) => [...pane.querySelectorAll(optionSelector)];
-  const checked = (pane) => options(pane).filter((option) => option.querySelector("input[type='checkbox']")?.checked || option.getAttribute("aria-selected") === "true");
+  const enabled = (pane) => options(pane).filter((option) => { const input = option.querySelector("input[type='checkbox']"); return !isDisabled(option) && (!input || !isDisabled(input)); });
+  const checked = (pane) => enabled(pane).filter((option) => option.querySelector("input[type='checkbox']")?.checked || option.getAttribute("aria-selected") === "true");
   function setChecked(option, value) {
     const input = option.querySelector("input[type='checkbox']");
     if (input) input.checked = value;
@@ -1154,7 +1389,7 @@ function createTransfer(element) {
     element.querySelectorAll("[data-g-transfer-move]").forEach((button) => {
       const direction = button.dataset.gTransferMove;
       const from = direction.endsWith("target") ? source : target;
-      button.disabled = direction.startsWith("all") ? options(from).length === 0 : checked(from).length === 0;
+      button.disabled = direction.startsWith("all") ? enabled(from).length === 0 : checked(from).length === 0;
     });
     emit(element, "transferchange", { source: options(source).map((item) => item.dataset.gValue), target: options(target).map((item) => item.dataset.gValue), reason });
   }
@@ -1162,7 +1397,7 @@ function createTransfer(element) {
     const toTarget = direction.endsWith("target");
     const from = toTarget ? source : target;
     const to = toTarget ? target : source;
-    const moving = direction.startsWith("all") ? options(from) : checked(from);
+    const moving = direction.startsWith("all") ? enabled(from) : checked(from);
     moving.forEach((option) => { setChecked(option, false); to.append(option); });
     sync(direction);
     moving[0]?.focus?.();
@@ -1171,11 +1406,11 @@ function createTransfer(element) {
     const button = event.target.closest("[data-g-transfer-move]");
     if (button) { event.preventDefault(); move(button.dataset.gTransferMove); return; }
     const option = event.target.closest(optionSelector);
-    if (option && !option.querySelector("input[type='checkbox']") && !event.target.matches("button,a")) { setChecked(option, option.getAttribute("aria-selected") !== "true"); sync("option"); }
+    if (option && !isDisabled(option) && !option.querySelector("input[type='checkbox']") && !event.target.matches("button,a")) { setChecked(option, option.getAttribute("aria-selected") !== "true"); sync("option"); }
   }
   function change(event) {
     const option = event.target.closest(optionSelector);
-    if (option) { setChecked(option, event.target.checked); sync("option"); }
+    if (option && !isDisabled(option) && !isDisabled(event.target)) { setChecked(option, event.target.checked); sync("option"); }
   }
   function input(event) {
     const field = event.target.closest("[data-g-transfer-search]");
@@ -1222,7 +1457,7 @@ function createPicker(element) {
       valuesHost.replaceChildren(...current.map((option) => {
         const chip = document.createElement("span"); chip.className = "g-picker-value"; chip.dataset.gValue = option.dataset.gValue || option.textContent.trim();
         const label = document.createElement("span"); label.className = "g-picker-value-label"; label.textContent = option.dataset.gLabel || option.querySelector(".g-picker-option-title")?.textContent || option.textContent.trim(); chip.append(label);
-        const remove = document.createElement("button"); remove.type = "button"; remove.className = "g-picker-value-remove"; remove.dataset.gPickerRemove = chip.dataset.gValue; remove.setAttribute("aria-label", `移除 ${label.textContent}`); remove.textContent = "×"; chip.append(remove); return chip;
+        const remove = document.createElement("button"); remove.type = "button"; remove.className = "g-picker-value-remove"; remove.dataset.gPickerRemove = chip.dataset.gValue; remove.setAttribute("aria-label", message("picker.remove", { label: label.textContent })); remove.textContent = "×"; chip.append(remove); return chip;
       }));
     }
     emit(element, "pickerchange", { values: current.map((option) => option.dataset.gValue), reason });
@@ -1233,6 +1468,7 @@ function createPicker(element) {
     emit(element, open ? "open" : "close", { reason });
   }
   function choose(option, reason = "option") {
+    if (isDisabled(option)) return;
     const next = option.getAttribute("aria-selected") !== "true";
     if (!multiple) options().forEach((item) => item.setAttribute("aria-selected", "false"));
     option.setAttribute("aria-selected", String(next)); sync(reason); if (!multiple) setOpen(false, "selection");
@@ -1253,14 +1489,14 @@ function createPicker(element) {
   function keydown(event) {
     if (event.key === "Escape" && open) { event.preventDefault(); setOpen(false, "escape"); trigger?.focus(); return; }
     if (!["ArrowDown", "ArrowUp", "Home", "End", "Enter", " "].includes(event.key)) return;
-    const visible = options().filter((option) => !option.hidden); if (!visible.length) return;
+    const visible = options().filter((option) => !option.hidden && !isDisabled(option)); if (!visible.length) return;
     const current = visible.indexOf(document.activeElement);
     if ((event.key === "Enter" || event.key === " ") && current >= 0) { event.preventDefault(); choose(visible[current], "keyboard"); return; }
     if (["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) { event.preventDefault(); setOpen(true, "keyboard"); const index = event.key === "Home" ? 0 : event.key === "End" ? visible.length - 1 : event.key === "ArrowDown" ? (current + 1 + visible.length) % visible.length : (current - 1 + visible.length) % visible.length; visible[index].focus(); }
   }
   function outside(event) { if (open && !element.contains(event.target)) setOpen(false, "outside"); }
   element.addEventListener("click", click); element.addEventListener("keydown", keydown); input?.addEventListener("input", filter); document.addEventListener("pointerdown", outside);
-  options().forEach((option) => { option.tabIndex ||= -1; option.setAttribute("role", option.getAttribute("role") || "option"); if (!option.hasAttribute("aria-selected")) option.setAttribute("aria-selected", "false"); });
+  options().forEach((option) => { option.tabIndex = isDisabled(option) ? -1 : (option.tabIndex || -1); option.setAttribute("role", option.getAttribute("role") || "option"); if (!option.hasAttribute("aria-selected")) option.setAttribute("aria-selected", "false"); });
   sync("init"); setOpen(open, "init");
   return { open: () => setOpen(true), close: () => setOpen(false), selected, choose, destroy: () => { element.removeEventListener("click", click); element.removeEventListener("keydown", keydown); input?.removeEventListener("input", filter); document.removeEventListener("pointerdown", outside); } };
 }
@@ -1271,6 +1507,7 @@ function createCascader(element) {
   const path = element.querySelector("[data-g-cascade-path]");
   if (!columns().length) return null;
   function choose(option, reason = "option") {
+    if (isDisabled(option)) return;
     const column = option.closest("[data-g-cascade-column]"); const index = columns().indexOf(column);
     [...column.querySelectorAll("[data-g-cascade-option]")].forEach((item) => { item.setAttribute("aria-current", String(item === option)); });
     columns().slice(index + 1).forEach((next) => { next.hidden = next.id !== option.dataset.gCascadeNext; });
@@ -1280,24 +1517,129 @@ function createCascader(element) {
     emit(element, "cascadechange", { value: output?.value, path: values.map((item) => item.dataset.gValue), reason });
   }
   function click(event) { const option = event.target.closest("[data-g-cascade-option]"); if (option) { event.preventDefault(); choose(option); } }
-  function keydown(event) { const option = event.target.closest("[data-g-cascade-option]"); if (!option) return; if (["Enter", " ", "ArrowRight"].includes(event.key)) { event.preventDefault(); choose(option, "keyboard"); const next = option.dataset.gCascadeNext && targetById(option.dataset.gCascadeNext); next?.querySelector("[data-g-cascade-option]")?.focus(); } if (event.key === "ArrowLeft") { event.preventDefault(); const column = option.closest("[data-g-cascade-column]"); columns()[Math.max(0, columns().indexOf(column) - 1)]?.querySelector('[data-g-cascade-option][aria-current="true"], [data-g-cascade-option]')?.focus(); } }
+  function keydown(event) { const option = event.target.closest("[data-g-cascade-option]"); if (!option || isDisabled(option)) return; if (["Enter", " ", "ArrowRight"].includes(event.key)) { event.preventDefault(); choose(option, "keyboard"); const next = option.dataset.gCascadeNext && targetById(option.dataset.gCascadeNext); [...(next?.querySelectorAll("[data-g-cascade-option]") || [])].find((item) => !isDisabled(item))?.focus(); } if (event.key === "ArrowLeft") { event.preventDefault(); const column = option.closest("[data-g-cascade-column]"); const previous = columns()[Math.max(0, columns().indexOf(column) - 1)]; [...(previous?.querySelectorAll('[data-g-cascade-option][aria-current="true"], [data-g-cascade-option]') || [])].find((item) => !isDisabled(item))?.focus(); } }
   element.addEventListener("click", click); element.addEventListener("keydown", keydown);
   return { choose, destroy: () => { element.removeEventListener("click", click); element.removeEventListener("keydown", keydown); } };
+}
+
+function createRangePicker(element) {
+  const inputs = [...element.querySelectorAll("input[type='date'], input[type='time'], input[type='datetime-local']")];
+  if (inputs.length < 2) return null;
+  const [startInput, endInput] = inputs;
+  const applyControls = [...element.querySelectorAll("[data-g-range-apply]")];
+  const localDate = (date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+  function value() {
+    const start = startInput.value;
+    const end = endInput.value;
+    return { start, end, valid: !start || !end || start <= end, inputs };
+  }
+  function sync(reason = "input", notify = true) {
+    const next = value();
+    if (startInput.value) endInput.min = startInput.value; else endInput.removeAttribute("min");
+    endInput.setAttribute("aria-invalid", String(!next.valid));
+    element.classList.toggle("is-invalid", !next.valid);
+    if (reason !== "apply") element.classList.remove("is-applied");
+    applyControls.forEach((control) => { control.disabled = !next.valid; });
+    if (notify) emit(element, "rangechange", { start: next.start, end: next.end, valid: next.valid, inputs: next.inputs, reason });
+    return next;
+  }
+  function set(start, end, reason = "api") {
+    startInput.value = start || "";
+    endInput.value = end || "";
+    return sync(reason);
+  }
+  function clear(reason = "clear") { return set("", "", reason); }
+  function preset(name) {
+    if (startInput.getAttribute("type") !== "date") return;
+    const end = new Date();
+    const start = new Date(end);
+    if (name === "last-7-days") start.setDate(end.getDate() - 6);
+    else if (name === "this-month") start.setDate(1);
+    set(localDate(start), localDate(end), `preset:${name}`);
+  }
+  function apply(reason = "apply") { const next = sync(reason); element.classList.toggle("is-applied", next.valid); return next; }
+  function click(event) {
+    const presetButton = event.target.closest("[data-g-range-preset]");
+    if (presetButton) { event.preventDefault(); preset(presetButton.dataset.gRangePreset); return; }
+    if (event.target.closest("[data-g-range-clear]")) { event.preventDefault(); clear(); }
+    else if (event.target.closest("[data-g-range-apply]")) { event.preventDefault(); apply(); }
+  }
+  const change = () => sync("change");
+  const input = () => sync("input");
+  inputs.forEach((input) => input.addEventListener("change", change));
+  inputs.forEach((control) => control.addEventListener("input", input));
+  element.addEventListener("click", click);
+  sync("init", false);
+  return { set, clear, value, apply, destroy: () => { inputs.forEach((control) => { control.removeEventListener("change", change); control.removeEventListener("input", input); }); element.removeEventListener("click", click); } };
 }
 
 function createSavedChoice(element) {
   const items = () => [...element.querySelectorAll("[data-g-saved-choice-item]")];
   if (!items().length) return null;
-  function select(item, reason = "option") { const multiple = element.hasAttribute("data-g-multiple"); if (!multiple) items().forEach((option) => option.setAttribute("aria-pressed", "false")); item.setAttribute("aria-pressed", String(multiple ? item.getAttribute("aria-pressed") !== "true" : true)); emit(element, "savedchoice", { values: items().filter((option) => option.getAttribute("aria-pressed") === "true").map((option) => option.dataset.gValue), reason }); }
+  const output = element.querySelector("[data-g-saved-choice-output]");
+  const inputFor = (item) => item.querySelector("input[type='radio'], input[type='checkbox']");
+  const disabled = (item) => { const input = inputFor(item); return isDisabled(item) || Boolean(input && isDisabled(input)); };
+  const isSelected = (item) => inputFor(item)?.checked || item.getAttribute("aria-pressed") === "true" || item.getAttribute("aria-selected") === "true" || item.classList.contains("is-selected");
+  function setSelected(item, selected) {
+    const input = inputFor(item);
+    if (input) input.checked = selected;
+    item.classList.toggle("is-selected", selected);
+    if (item.matches("button, [role='button']")) item.setAttribute("aria-pressed", String(selected));
+    else item.removeAttribute("aria-pressed");
+    if (item.hasAttribute("aria-selected")) item.setAttribute("aria-selected", String(selected));
+  }
+  function select(item, reason = "option") { if (disabled(item)) return; const multiple = element.hasAttribute("data-g-multiple"); const next = multiple ? !isSelected(item) : true; if (!multiple) items().forEach((option) => { setSelected(option, false); option.tabIndex = -1; }); setSelected(item, next); item.tabIndex = 0; if (output) output.textContent = item.dataset.gConfirmation || ""; emit(element, "savedchoice", { values: items().filter(isSelected).map((option) => option.dataset.gValue), reason }); }
   function click(event) { const item = event.target.closest("[data-g-saved-choice-item]"); if (item) { event.preventDefault(); select(item); } }
-  element.addEventListener("click", click); return { select, destroy: () => element.removeEventListener("click", click) };
+  function keydown(event) {
+    const item = event.target.closest("[data-g-saved-choice-item]");
+    if (!item) return;
+    if ((event.key === "Enter" || event.key === " ") && !item.matches("button, input, select, textarea")) {
+      event.preventDefault(); select(item, "keyboard"); return;
+    }
+    if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) return;
+    event.preventDefault(); const list = items().filter((option) => !disabled(option)); if (!list.length) return; const index = list.indexOf(item); const next = event.key === "Home" ? list[0] : event.key === "End" ? list.at(-1) : list[(index + (["ArrowRight", "ArrowDown"].includes(event.key) ? 1 : -1) + list.length) % list.length]; select(next, "keyboard"); next.focus();
+  }
+  const multiple = element.hasAttribute("data-g-multiple");
+  const initialStates = new Map(items().map((item) => [item, isSelected(item)]));
+  const selectedItems = items().filter((item) => initialStates.get(item));
+  const initial = selectedItems.find((item) => !disabled(item)) || items().find((item) => !disabled(item));
+  items().forEach((item) => { setSelected(item, multiple ? initialStates.get(item) : item === selectedItems[0]); item.tabIndex = item === initial ? 0 : -1; });
+  element.addEventListener("click", click); element.addEventListener("keydown", keydown); return { select, destroy: () => { element.removeEventListener("click", click); element.removeEventListener("keydown", keydown); } };
 }
 
 function createBuilderList(element) {
-  const list = element.querySelector("[data-g-builder-items]"); const template = targetById(element.dataset.gBuilderTemplate); if (!list || !template) return null;
-  function sync(reason = "api") { [...list.children].forEach((item, index) => { item.dataset.gBuilderIndex = String(index); item.querySelectorAll("[data-g-builder-position]").forEach((output) => { output.textContent = String(index + 1); }); }); emit(element, "builderchange", { count: list.children.length, reason }); }
-  function add() { const fragment = template.content ? template.content.cloneNode(true) : template.cloneNode(true); list.append(fragment); sync("add"); list.lastElementChild?.querySelector(focusableSelector)?.focus(); }
-  function click(event) { const control = event.target.closest("[data-g-builder-add], [data-g-builder-remove], [data-g-builder-up], [data-g-builder-down]"); if (!control) return; event.preventDefault(); if (control.hasAttribute("data-g-builder-add")) { add(); return; } const item = control.closest("[data-g-builder-item]"); if (!item) return; if (control.hasAttribute("data-g-builder-remove")) item.remove(); else if (control.hasAttribute("data-g-builder-up") && item.previousElementSibling) list.insertBefore(item, item.previousElementSibling); else if (control.hasAttribute("data-g-builder-down") && item.nextElementSibling) list.insertBefore(item.nextElementSibling, item); sync(control.hasAttribute("data-g-builder-remove") ? "remove" : "move"); }
+  const list = element.querySelector("[data-g-builder-items]"); const template = targetById(element.dataset.gBuilderTemplate); if (!list) return null;
+  function sync(reason = "api") {
+    const children = [...list.children];
+    children.forEach((item, index) => {
+      item.dataset.gBuilderIndex = String(index);
+      item.querySelectorAll("[data-g-builder-position]").forEach((output) => { output.textContent = String(index + 1); });
+      item.querySelectorAll("[data-g-builder-up]").forEach((control) => { control.disabled = index === 0; });
+      item.querySelectorAll("[data-g-builder-down]").forEach((control) => { control.disabled = index === children.length - 1; });
+    });
+    emit(element, "builderchange", { count: children.length, reason });
+  }
+  function add() { if (!template) return false; const fragment = template.content ? template.content.cloneNode(true) : template.cloneNode(true); list.append(fragment); sync("add"); list.lastElementChild?.querySelector(focusableSelector)?.focus(); return true; }
+  function click(event) {
+    const control = event.target.closest("[data-g-builder-add], [data-g-builder-remove], [data-g-builder-up], [data-g-builder-down]"); if (!control) return;
+    event.preventDefault(); if (control.hasAttribute("data-g-builder-add")) { add(); return; }
+    const item = control.closest("[data-g-builder-item]"); if (!item) return;
+    if (control.hasAttribute("data-g-builder-remove")) {
+      const adjacent = item.nextElementSibling || item.previousElementSibling;
+      const ordered = [...document.querySelectorAll(focusableSelector)].filter((candidate) => candidate.tabIndex >= 0 && !candidate.closest("[hidden]"));
+      const controlIndex = ordered.indexOf(control);
+      const outside = ordered.slice(controlIndex + 1).find((candidate) => !item.contains(candidate))
+        || ordered.slice(0, controlIndex).reverse().find((candidate) => !item.contains(candidate));
+      item.remove(); sync("remove");
+      const focusTarget = adjacent?.querySelector(focusableSelector) || element.querySelector("[data-g-builder-add]") || outside;
+      if (focusTarget) focusTarget.focus({ preventScroll: true });
+      else { list.tabIndex = -1; list.focus({ preventScroll: true }); }
+      return;
+    }
+    if (control.hasAttribute("data-g-builder-up") && item.previousElementSibling) list.insertBefore(item, item.previousElementSibling);
+    else if (control.hasAttribute("data-g-builder-down") && item.nextElementSibling) list.insertBefore(item.nextElementSibling, item);
+    sync("move");
+  }
   element.addEventListener("click", click); sync("init"); return { add, sync, destroy: () => element.removeEventListener("click", click) };
 }
 
@@ -1567,7 +1909,7 @@ function createNavToggle(element) {
 
 function createRovingNav(element) {
   const selector = ".g-nav-item, .g-nav-rail-item, .g-bottom-nav-item, .g-mobile-tab-item, .g-command-nav-item, [role='menuitem']";
-  const items = () => [...element.querySelectorAll(selector)].filter((item) => !item.disabled && item.getAttribute("aria-disabled") !== "true" && !item.hidden);
+  const items = () => [...element.querySelectorAll(selector)].filter((item) => !isDisabled(item) && !item.hidden);
   const vertical = () => element.getAttribute("aria-orientation") === "vertical" || element.dataset.gOrientation === "vertical";
   function select(item, focus = false) {
     if (!item) return;
@@ -1609,7 +1951,7 @@ function createContextMenu(element) {
   if (!menu || menu === target) return null;
   let open = !menu.hidden;
   let previousFocus = null;
-  const items = () => visibleFocusable(menu).filter((item) => item.getAttribute("aria-disabled") !== "true");
+  const items = () => visibleFocusable(menu).filter((item) => !isDisabled(item));
   menu.setAttribute("role", menu.getAttribute("role") || "menu");
   menu.hidden = true;
 
@@ -1817,7 +2159,7 @@ function createUploadManager(element) {
   function statusText(item) {
     const state = item.dataset.gStatus || "queued";
     const progress = Math.max(0, Math.min(100, Number(item.dataset.gProgress || 0)));
-    return state === "success" ? "已完成" : state === "error" ? "上传失败" : state === "paused" ? "已暂停" : state === "uploading" ? `上传中 ${progress}%` : "等待上传";
+    return message(state === "success" ? "upload.complete" : state === "error" ? "upload.failed" : state === "paused" ? "upload.paused" : state === "uploading" ? "upload.uploading" : "upload.waiting", { progress });
   }
   function sync(reason = "api") {
     const current = items();
@@ -1828,7 +2170,7 @@ function createUploadManager(element) {
       if (bar) { bar.style.setProperty("--g-progress", `${progress}%`); bar.setAttribute("aria-valuenow", String(progress)); }
       const status = item.querySelector("[data-g-upload-status]");
       if (status) status.textContent = statusText(item);
-      item.querySelectorAll("[data-g-upload-action='pause']").forEach((button) => { button.textContent = item.dataset.gStatus === "paused" ? "继续" : "暂停"; });
+      item.querySelectorAll("[data-g-upload-action='pause']").forEach((button) => { button.textContent = message(item.dataset.gStatus === "paused" ? "upload.continue" : "upload.pause"); });
     });
     const counts = { total: current.length, success: current.filter((item) => item.dataset.gStatus === "success").length, error: current.filter((item) => item.dataset.gStatus === "error").length, active: current.filter((item) => ["queued", "uploading", "paused"].includes(item.dataset.gStatus || "queued")).length };
     Object.entries(counts).forEach(([name, value]) => element.querySelectorAll(`[data-g-upload-count="${name}"]`).forEach((node) => { node.textContent = String(value); }));
@@ -1837,9 +2179,9 @@ function createUploadManager(element) {
   function addFile(file) {
     let item;
     if (template?.content) { const fragment = template.content.cloneNode(true); item = fragment.querySelector("[data-g-upload-item]") || fragment.firstElementChild; list.append(fragment); }
-    if (!item) { item = document.createElement("div"); item.className = "g-upload-item"; item.dataset.gUploadItem = ""; item.innerHTML = '<span class="g-file-icon">FILE</span><span class="g-file-main"><strong class="g-file-name"></strong><span class="g-file-meta"></span><span class="g-upload-status" data-g-upload-status></span></span><span class="g-upload-progress" data-g-upload-progress role="progressbar" aria-valuemin="0" aria-valuemax="100"><i class="g-upload-progress-bar"></i></span><span class="g-upload-actions"><button class="g-btn g-btn-ghost g-btn-sm" type="button" data-g-upload-action="remove">移除</button></span>'; list.append(item); }
+    if (!item) { item = document.createElement("div"); item.className = "g-upload-item"; item.dataset.gUploadItem = ""; item.innerHTML = '<span class="g-file-icon">FILE</span><span class="g-file-main"><strong class="g-file-name"></strong><span class="g-file-meta"></span><span class="g-upload-status" data-g-upload-status></span></span><span class="g-upload-progress" data-g-upload-progress role="progressbar" aria-valuemin="0" aria-valuemax="100"><i class="g-upload-progress-bar"></i></span><span class="g-upload-actions"><button class="g-btn g-btn-ghost g-btn-sm" type="button" data-g-upload-action="remove"></button></span>'; item.querySelector("[data-g-upload-action='remove']").textContent = message("upload.remove"); list.append(item); }
     item.dataset.gStatus = "queued"; item.dataset.gProgress = "0"; item.querySelector(".g-file-name")?.replaceChildren(document.createTextNode(file.name));
-    const meta = item.querySelector(".g-file-meta"); if (meta) meta.textContent = file.size ? `${Math.max(1, Math.round(file.size / 1024))} KB` : "等待计算";
+    const meta = item.querySelector(".g-file-meta"); if (meta) meta.textContent = file.size ? `${Math.max(1, Math.round(file.size / 1024))} KB` : message("upload.calculating");
     emit(element, "uploadadd", { file, item });
   }
   function action(item, name) {
@@ -1860,9 +2202,10 @@ function createFileBrowser(element) {
   const search = element.querySelector("[data-g-file-search]");
   let selected = items().find((item) => item.getAttribute("aria-selected") === "true") || null;
   function select(item, reason = "api") {
+    if (isDisabled(item)) return;
     items().forEach((entry) => { const active = entry === item; entry.setAttribute("aria-selected", String(active)); entry.tabIndex = active ? 0 : -1; });
     selected = item;
-    element.querySelectorAll("[data-g-file-selection]").forEach((node) => { node.textContent = item?.dataset.gFileName || item?.querySelector(".g-file-name, .g-media-label")?.textContent || "未选择"; });
+    element.querySelectorAll("[data-g-file-selection]").forEach((node) => { node.textContent = item?.dataset.gFileName || item?.querySelector(".g-file-name, .g-media-label")?.textContent || message("upload.notSelected"); });
     emit(element, "fileselect", { item, value: item?.dataset.gValue, reason });
   }
   function filter() {
@@ -1879,23 +2222,61 @@ function createFileBrowser(element) {
   }
   function keydown(event) {
     const item = event.target.closest("[data-g-file-item]"); if (!item || !["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft", "Home", "End", "Enter", " "].includes(event.key)) return;
-    const visible = items().filter((entry) => !entry.hidden); if (!visible.length) return; event.preventDefault();
+    const visible = items().filter((entry) => !entry.hidden && !isDisabled(entry)); if (!visible.length) return; event.preventDefault();
     if (["Enter", " "].includes(event.key)) { select(item, "keyboard"); return; }
     const current = visible.indexOf(item); const forward = ["ArrowDown", "ArrowRight"].includes(event.key); const index = event.key === "Home" ? 0 : event.key === "End" ? visible.length - 1 : (current + (forward ? 1 : -1) + visible.length) % visible.length; visible[index].focus();
   }
   element.addEventListener("click", click); element.addEventListener("keydown", keydown); search?.addEventListener("input", filter);
-  items().forEach((item, index) => {
-    item.tabIndex = item === selected || (!selected && index === 0) ? 0 : -1;
+  const initialFocusable = (selected && !isDisabled(selected) ? selected : items().find((item) => !isDisabled(item))) || null;
+  items().forEach((item) => {
+    item.tabIndex = item === initialFocusable ? 0 : -1;
     item.setAttribute("role", item.getAttribute("role") || "option");
     if (!item.hasAttribute("aria-selected")) item.setAttribute("aria-selected", "false");
     const collection = item.parentElement;
     if (collection) {
       if (!collection.hasAttribute("role")) collection.setAttribute("role", "listbox");
-      if (!collection.hasAttribute("aria-label") && !collection.hasAttribute("aria-labelledby")) collection.setAttribute("aria-label", element.getAttribute("aria-label") || "文件列表");
+      if (!collection.hasAttribute("aria-label") && !collection.hasAttribute("aria-labelledby")) collection.setAttribute("aria-label", element.getAttribute("aria-label") || message("upload.fileList"));
     }
   });
   if (selected) select(selected, "init"); filter();
   return { select, filter, selected: () => selected, destroy: () => { element.removeEventListener("click", click); element.removeEventListener("keydown", keydown); search?.removeEventListener("input", filter); } };
+}
+
+function createMediaPlayer(element) {
+  const media = element.querySelector("audio, video");
+  const toggleButton = element.querySelector("[data-g-media-toggle]");
+  const timeline = element.querySelector("[data-g-media-timeline], .g-media-timeline");
+  const timeOutput = element.querySelector("[data-g-media-time], .g-media-time");
+  if (!toggleButton && !timeline) return null;
+  let playing = media ? !media.paused : element.dataset.gPlaying === "true";
+  let currentTime = Number(media?.currentTime || timeline?.value || 0);
+  let duration = Number(media?.duration || element.dataset.gDuration || timeline?.max || 100);
+  const formatTime = (seconds) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
+  function state() { return { playing, currentTime, duration, media }; }
+  function sync(reason = "api", notify = true) {
+    if (media) { currentTime = Number(media.currentTime || 0); if (Number.isFinite(media.duration)) duration = media.duration; playing = !media.paused; }
+    element.dataset.gPlaying = String(playing);
+    if (toggleButton) {
+      toggleButton.setAttribute("aria-pressed", String(playing));
+      toggleButton.setAttribute("aria-label", toggleButton.dataset[playing ? "gPauseLabel" : "gPlayLabel"] || message(playing ? "media.pause" : "media.play"));
+      const icon = toggleButton.querySelector("[data-g-media-icon]"); if (icon) icon.textContent = playing ? "Ⅱ" : "▶";
+    }
+    if (timeline) { timeline.max = String(duration || 100); timeline.value = String(currentTime); timeline.setAttribute("aria-valuetext", `${formatTime(currentTime)} / ${formatTime(duration)}`); }
+    if (timeOutput) timeOutput.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+    if (notify) emit(element, "mediachange", { playing, currentTime, duration, media, reason });
+    return state();
+  }
+  function play(reason = "api") { playing = true; const result = media?.play?.(); result?.catch?.(() => { playing = false; sync("play-rejected"); }); return sync(reason); }
+  function pause(reason = "api") { playing = false; media?.pause?.(); return sync(reason); }
+  function toggle(reason = "api") { return playing ? pause(reason) : play(reason); }
+  function seek(value, reason = "seek") { currentTime = Math.max(0, Math.min(duration || 100, Number(value) || 0)); if (media) media.currentTime = currentTime; return sync(reason); }
+  const click = (event) => { if (event.target.closest("[data-g-media-toggle]")) { event.preventDefault(); toggle("button"); } };
+  const input = () => seek(timeline.value, "timeline");
+  const mediaSync = () => sync("media");
+  element.addEventListener("click", click); timeline?.addEventListener("input", input);
+  ["play", "pause", "timeupdate", "durationchange", "ended"].forEach((name) => media?.addEventListener(name, mediaSync));
+  sync("init", false);
+  return { play, pause, toggle, seek, state, destroy: () => { element.removeEventListener("click", click); timeline?.removeEventListener("input", input); ["play", "pause", "timeupdate", "durationchange", "ended"].forEach((name) => media?.removeEventListener(name, mediaSync)); } };
 }
 
 function createEditorShell(element) {
@@ -1934,7 +2315,7 @@ function createAutosave(element) {
   const scope = targetById(element.dataset.gAutosaveScope) || element.closest("form, [data-g-editor-shell]") || element.parentElement;
   const delay = Math.max(150, Number(element.dataset.gAutosaveDelay || 900));
   let timer = 0; let saveTimer = 0;
-  function setState(state, reason = "api") { element.dataset.gAutosaveState = state; const label = element.querySelector("[data-g-autosave-label]"); if (label) label.textContent = state === "dirty" ? "有未保存更改" : state === "saving" ? "正在保存…" : state === "error" ? "保存失败" : "已保存"; emit(element, "autosavestate", { state, reason }); }
+  function setState(state, reason = "api") { element.dataset.gAutosaveState = state; const label = element.querySelector("[data-g-autosave-label]"); if (label) label.textContent = message(state === "dirty" ? "autosave.dirty" : state === "saving" ? "autosave.saving" : state === "error" ? "autosave.error" : "autosave.saved"); emit(element, "autosavestate", { state, reason }); }
   function save(reason = "api") { clearTimeout(timer); clearTimeout(saveTimer); setState("saving", reason); saveTimer = window.setTimeout(() => setState("saved", "complete"), 260); }
   function dirty() { clearTimeout(timer); setState("dirty", "input"); timer = window.setTimeout(() => save("delay"), delay); }
   function click(event) { if (event.target.closest("[data-g-autosave-now]")) { event.preventDefault(); save("button"); } }
@@ -1988,12 +2369,12 @@ function createSkuSelector(element) {
     element.classList.toggle("is-complete", complete);
     element.dataset.gSkuComplete = String(complete);
     if (output) output.value = JSON.stringify(value);
-    if (summary) summary.textContent = Object.values(value).filter(Boolean).join(" / ") || element.dataset.gEmptyLabel || "请选择规格";
+    if (summary) summary.textContent = Object.values(value).filter(Boolean).join(" / ") || element.dataset.gEmptyLabel || message("sku.select");
     emit(element, "skuchange", { value, complete, reason });
     return value;
   }
   function choose(option, reason = "pointer") {
-    if (!option || option.disabled || option.getAttribute("aria-disabled") === "true") return;
+    if (isDisabled(option)) return;
     const group = option.closest("[data-g-sku-group]");
     options(group).forEach((item) => { item.setAttribute("aria-pressed", String(item === option)); item.tabIndex = item === option ? 0 : -1; });
     sync(reason);
@@ -2005,12 +2386,12 @@ function createSkuSelector(element) {
     if (["Enter", " "].includes(event.key)) { event.preventDefault(); choose(current, "keyboard"); return; }
     if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) return;
     event.preventDefault();
-    const enabled = options(current.closest("[data-g-sku-group]")).filter((item) => !item.disabled && item.getAttribute("aria-disabled") !== "true");
+    const enabled = options(current.closest("[data-g-sku-group]")).filter((item) => !isDisabled(item));
     const index = enabled.indexOf(current);
     const next = event.key === "Home" ? enabled[0] : event.key === "End" ? enabled.at(-1) : ["ArrowRight", "ArrowDown"].includes(event.key) ? enabled[index + 1] || enabled[0] : enabled[index - 1] || enabled.at(-1);
     next?.focus(); choose(next, "keyboard");
   }
-  groups.forEach((group) => { const items = options(group); const selected = items.find((item) => item.getAttribute("aria-pressed") === "true") || items.find((item) => !item.disabled && item.getAttribute("aria-disabled") !== "true"); items.forEach((item) => { item.setAttribute("aria-pressed", String(item === selected)); item.tabIndex = item === selected ? 0 : -1; }); });
+  groups.forEach((group) => { const items = options(group); const selected = items.find((item) => item.getAttribute("aria-pressed") === "true") || items.find((item) => !isDisabled(item)); items.forEach((item) => { item.setAttribute("aria-pressed", String(item === selected)); item.tabIndex = item === selected ? 0 : -1; }); });
   element.addEventListener("click", click); element.addEventListener("keydown", keydown); sync("init");
   return { value: selection, select: (groupName, value) => { const group = groups.find((item) => item.dataset.gSkuGroup === groupName); choose(options(group).find((item) => (item.dataset.gValue || item.textContent.trim()) === value), "api"); }, destroy: () => { element.removeEventListener("click", click); element.removeEventListener("keydown", keydown); } };
 }
@@ -2058,7 +2439,7 @@ function createCoupon(element) {
   function setState(state, code = "", reason = "api") {
     element.classList.toggle("is-applied", state === "applied"); element.classList.toggle("is-invalid", state === "invalid");
     element.dataset.gCouponState = state; input.setAttribute("aria-invalid", String(state === "invalid"));
-    if (status) { status.textContent = state === "applied" ? element.dataset.gAppliedMessage || `优惠码 ${code} 已使用` : state === "invalid" ? element.dataset.gInvalidMessage || "优惠码无效或已过期" : element.dataset.gIdleMessage || ""; status.setAttribute("role", state === "invalid" ? "alert" : "status"); }
+    if (status) { status.textContent = state === "applied" ? element.dataset.gAppliedMessage || message("coupon.applied", { code }) : state === "invalid" ? element.dataset.gInvalidMessage || message("coupon.invalid") : element.dataset.gIdleMessage || ""; status.setAttribute("role", state === "invalid" ? "alert" : "status"); }
     emit(element, "couponchange", { state, code, reason });
   }
   function apply(reason = "button") { const code = input.value.trim().toLocaleUpperCase(); if (!code || (validCodes.length && !validCodes.includes(code))) setState("invalid", code, reason); else { input.value = code; setState("applied", code, reason); } }
@@ -2072,6 +2453,12 @@ function createCoupon(element) {
 function register(name, factory) {
   if (!name || typeof factory !== "function") throw new TypeError("Gardenerim.register requires a name and factory function.");
   registry.set(name, factory);
+  registrySelector = [...registry.keys()].map((behavior) => `[data-g-${behavior}]`).join(",");
+  if (observer && observedRoot) {
+    const root = observedRoot;
+    disconnect();
+    observe(root);
+  }
 }
 
 function createPullRefresh(element) {
@@ -2079,11 +2466,11 @@ function createPullRefresh(element) {
   const indicator = element.querySelector("[data-g-pull-indicator]");
   const threshold = numeric(element.dataset.gPullThreshold, 72);
   let startY = 0; let distance = 0; let tracking = false; let refreshing = false;
-  function paint(value) { distance = Math.max(0, Math.min(value, threshold * 1.5)); element.style.setProperty("--g-pull-distance", `${distance}px`); element.classList.toggle("is-pulling", tracking); if (indicator) indicator.textContent = distance >= threshold ? element.dataset.gReleaseLabel || "松开刷新" : element.dataset.gPullLabel || "下拉刷新"; }
+  function paint(value) { distance = Math.max(0, Math.min(value, threshold * 1.5)); element.style.setProperty("--g-pull-distance", `${distance}px`); element.classList.toggle("is-pulling", tracking); if (indicator) indicator.textContent = distance >= threshold ? element.dataset.gReleaseLabel || message("refresh.release") : element.dataset.gPullLabel || message("refresh.pull"); }
   function begin(event) { if (refreshing || element.scrollTop > 0 || event.pointerType === "mouse" && event.button !== 0) return; startY = event.clientY; tracking = true; element.setPointerCapture?.(event.pointerId); }
   function move(event) { if (!tracking) return; const delta = event.clientY - startY; if (delta <= 0) return paint(0); if (delta > 8) event.preventDefault(); paint(Math.sqrt(delta) * 8); }
-  function finish() { if (!refreshing) return; refreshing = false; element.classList.remove("is-refreshing"); element.setAttribute("aria-busy", "false"); paint(0); if (indicator) indicator.textContent = element.dataset.gPullLabel || "下拉刷新"; emit(element, "refreshcomplete"); }
-  function refresh(reason = "gesture") { if (refreshing || !emit(element, "refresh", { reason, complete: finish })) return; refreshing = true; tracking = false; element.classList.add("is-refreshing"); element.setAttribute("aria-busy", "true"); paint(threshold / 2); if (indicator) indicator.textContent = element.dataset.gRefreshingLabel || "正在刷新…"; const timeout = numeric(element.dataset.gRefreshTimeout, 0); if (timeout > 0) window.setTimeout(finish, timeout); }
+  function finish() { if (!refreshing) return; refreshing = false; element.classList.remove("is-refreshing"); element.setAttribute("aria-busy", "false"); paint(0); if (indicator) indicator.textContent = element.dataset.gPullLabel || message("refresh.pull"); emit(element, "refreshcomplete"); }
+  function refresh(reason = "gesture") { if (refreshing || !emit(element, "refresh", { reason, complete: finish })) return; refreshing = true; tracking = false; element.classList.add("is-refreshing"); element.setAttribute("aria-busy", "true"); paint(threshold / 2); if (indicator) indicator.textContent = element.dataset.gRefreshingLabel || message("refresh.refreshing"); const timeout = numeric(element.dataset.gRefreshTimeout, 0); if (timeout > 0) window.setTimeout(finish, timeout); }
   function end() { if (!tracking) return; tracking = false; element.classList.remove("is-pulling"); distance >= threshold ? refresh() : paint(0); }
   function click(event) { if (event.target.closest("[data-g-refresh]")) refresh("button"); }
   element.addEventListener("pointerdown", begin); element.addEventListener("pointermove", move, { passive: false }); element.addEventListener("pointerup", end); element.addEventListener("pointercancel", end); element.addEventListener("click", click);
@@ -2115,11 +2502,12 @@ function createSwipeActions(element) {
 function createWheelPicker(element) {
   const columns = [...element.querySelectorAll("[data-g-wheel-column]")]; const output = element.querySelector("[data-g-wheel-output]"); const timers = new WeakMap();
   function options(column) { return [...column.querySelectorAll("[data-g-wheel-option]")]; }
-  function select(option, reason = "option") { const column = option.closest("[data-g-wheel-column]"); if (!column) return; options(column).forEach((item) => item.setAttribute("aria-selected", String(item === option))); option.scrollIntoView({ block: "center", behavior: reason === "scroll" ? "auto" : "smooth" }); const values = columns.map((item) => item.querySelector('[data-g-wheel-option][aria-selected="true"]')?.dataset.gValue || ""); if (output) output.value = JSON.stringify(values); emit(element, "wheelchange", { values, reason }); }
+  const enabled = (column) => options(column).filter((option) => !isDisabled(option));
+  function select(option, reason = "option") { if (isDisabled(option)) return; const column = option.closest("[data-g-wheel-column]"); if (!column) return; options(column).forEach((item) => item.setAttribute("aria-selected", String(item === option))); option.scrollIntoView({ block: "center", behavior: reason === "scroll" ? "auto" : "smooth" }); const values = columns.map((item) => item.querySelector('[data-g-wheel-option][aria-selected="true"]')?.dataset.gValue || ""); if (output) output.value = JSON.stringify(values); emit(element, "wheelchange", { values, reason }); }
   function click(event) { const option = event.target.closest("[data-g-wheel-option]"); if (option) select(option); }
-  function keydown(event) { const option = event.target.closest("[data-g-wheel-option]"); if (!option || !["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) return; event.preventDefault(); const list = options(option.closest("[data-g-wheel-column]")); const index = list.indexOf(option); const next = event.key === "Home" ? list[0] : event.key === "End" ? list.at(-1) : list[index + (event.key === "ArrowDown" ? 1 : -1)] || option; next.focus(); select(next, "keyboard"); }
-  function scroll(event) { const column = event.currentTarget; clearTimeout(timers.get(column)); timers.set(column, setTimeout(() => { const center = column.getBoundingClientRect().top + column.clientHeight / 2; const nearest = options(column).sort((a, b) => Math.abs(a.getBoundingClientRect().top + a.clientHeight / 2 - center) - Math.abs(b.getBoundingClientRect().top + b.clientHeight / 2 - center))[0]; if (nearest) select(nearest, "scroll"); }, 90)); }
-  columns.forEach((column) => { column.addEventListener("scroll", scroll, { passive: true }); const selected = column.querySelector('[data-g-wheel-option][aria-selected="true"]') || options(column)[0]; if (selected) select(selected, "init"); }); element.addEventListener("click", click); element.addEventListener("keydown", keydown);
+  function keydown(event) { const option = event.target.closest("[data-g-wheel-option]"); if (isDisabled(option) || !["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) return; event.preventDefault(); const list = enabled(option.closest("[data-g-wheel-column]")); const index = list.indexOf(option); const next = event.key === "Home" ? list[0] : event.key === "End" ? list.at(-1) : list[index + (event.key === "ArrowDown" ? 1 : -1)] || option; next?.focus(); select(next, "keyboard"); }
+  function scroll(event) { const column = event.currentTarget; clearTimeout(timers.get(column)); timers.set(column, setTimeout(() => { const center = column.getBoundingClientRect().top + column.clientHeight / 2; const nearest = enabled(column).sort((a, b) => Math.abs(a.getBoundingClientRect().top + a.clientHeight / 2 - center) - Math.abs(b.getBoundingClientRect().top + b.clientHeight / 2 - center))[0]; if (nearest) select(nearest, "scroll"); }, 90)); }
+  columns.forEach((column) => { column.addEventListener("scroll", scroll, { passive: true }); const selected = column.querySelector('[data-g-wheel-option][aria-selected="true"]:not([aria-disabled="true"])') || enabled(column)[0]; if (selected) select(selected, "init"); }); element.addEventListener("click", click); element.addEventListener("keydown", keydown);
   return { select, values: () => columns.map((column) => column.querySelector('[data-g-wheel-option][aria-selected="true"]')?.dataset.gValue || ""), destroy: () => { columns.forEach((column) => { clearTimeout(timers.get(column)); column.removeEventListener("scroll", scroll); }); element.removeEventListener("click", click); element.removeEventListener("keydown", keydown); } };
 }
 
@@ -2131,8 +2519,8 @@ function createAIComposer(element) {
   if (!input) return null;
   let streaming = element.classList.contains("is-streaming");
   function resize() { input.style.height = "auto"; input.style.height = `${Math.min(input.scrollHeight, Number(element.dataset.gMaxHeight || 224))}px`; }
-  function sync() { const empty = !input.value.trim(); if (send) send.disabled = empty || streaming; if (stop) stop.hidden = !streaming; element.classList.toggle("is-empty", empty); if (status && !streaming) status.textContent = empty ? element.dataset.gEmptyLabel || "输入消息，Enter 发送，Shift+Enter 换行" : element.dataset.gReadyLabel || "已准备发送"; resize(); }
-  function setStreaming(value, reason = "api") { streaming = Boolean(value); element.classList.toggle("is-streaming", streaming); element.setAttribute("aria-busy", String(streaming)); if (status) status.textContent = streaming ? element.dataset.gStreamingLabel || "正在生成；可停止" : element.dataset.gReadyLabel || "已准备发送"; sync(); emit(element, "composerstate", { streaming, reason }); }
+  function sync() { const empty = !input.value.trim(); if (send) send.disabled = empty || streaming; if (stop) stop.hidden = !streaming; element.classList.toggle("is-empty", empty); if (status && !streaming) status.textContent = empty ? element.dataset.gEmptyLabel || message("composer.empty") : element.dataset.gReadyLabel || message("composer.ready"); resize(); }
+  function setStreaming(value, reason = "api") { streaming = Boolean(value); element.classList.toggle("is-streaming", streaming); element.setAttribute("aria-busy", String(streaming)); if (status) status.textContent = streaming ? element.dataset.gStreamingLabel || message("composer.streaming") : element.dataset.gReadyLabel || message("composer.ready"); sync(); emit(element, "composerstate", { streaming, reason }); }
   function submit(reason = "api") { const value = input.value.trim(); if (!value || streaming || !emit(element, "beforepromptsubmit", { value, reason, input })) return; emit(element, "promptsubmit", { value, reason, input }); if (element.dataset.gClearOnSend !== "false") input.value = ""; sync(); }
   function stopGeneration(reason = "api") { if (!streaming || !emit(element, "beforepromptstop", { reason })) return; setStreaming(false, reason); emit(element, "promptstop", { reason }); }
   function keydown(event) { if (event.key === "Enter" && !event.shiftKey && !event.altKey && !event.isComposing) { event.preventDefault(); submit("keyboard"); } }
@@ -2142,14 +2530,14 @@ function createAIComposer(element) {
 }
 
 function createPromptFill(element) {
-  function click(event) { const item = event.target.closest("[data-g-prompt-value]"); if (!item) return; const target = targetById(item.dataset.gPromptTarget || element.dataset.gPromptTarget); if (!target) return; const value = item.dataset.gPromptValue || item.dataset.gValue || item.textContent.trim(); target.value = value; target.dispatchEvent(new Event("input", { bubbles: true })); target.focus(); emit(element, "promptfill", { value, item, target }); }
+  function click(event) { const item = event.target.closest("[data-g-prompt-value]"); if (isDisabled(item)) return; const target = targetById(item.dataset.gPromptTarget || element.dataset.gPromptTarget); if (!target || isDisabled(target)) return; const value = item.dataset.gPromptValue || item.dataset.gValue || item.textContent.trim(); target.value = value; target.dispatchEvent(new Event("input", { bubbles: true })); target.focus(); emit(element, "promptfill", { value, item, target }); }
   element.addEventListener("click", click);
   return { fill: (item) => click({ target: item }), destroy: () => element.removeEventListener("click", click) };
 }
 
 function createAIApproval(element) {
   const choices = [...element.querySelectorAll("[data-g-approval-choice]")];
-  function choose(choice, reason = "api") { if (!choice || choice.disabled) return; const value = choice.dataset.gApprovalChoice; if (!emit(element, "beforeapproval", { value, choice, reason })) return; element.dataset.gApprovalState = value; ["approved", "rejected", "cancelled"].forEach((state) => element.classList.toggle(`is-${state}`, value === state)); choices.forEach((item) => { item.setAttribute("aria-pressed", String(item === choice)); if (element.dataset.gKeepEnabled !== "true") item.disabled = true; }); emit(element, "approval", { value, choice, reason }); }
+  function choose(choice, reason = "api") { if (isDisabled(choice)) return; const value = choice.dataset.gApprovalChoice; if (!emit(element, "beforeapproval", { value, choice, reason })) return; element.dataset.gApprovalState = value; ["approved", "rejected", "cancelled"].forEach((state) => element.classList.toggle(`is-${state}`, value === state)); choices.forEach((item) => { item.setAttribute("aria-pressed", String(item === choice)); if (element.dataset.gKeepEnabled !== "true") item.disabled = true; }); emit(element, "approval", { value, choice, reason }); }
   function click(event) { choose(event.target.closest("[data-g-approval-choice]"), "pointer"); }
   element.addEventListener("click", click);
   return { choose, reset: () => { delete element.dataset.gApprovalState; element.classList.remove("is-approved", "is-rejected", "is-cancelled"); choices.forEach((item) => { item.disabled = false; item.setAttribute("aria-pressed", "false"); }); }, destroy: () => element.removeEventListener("click", click) };
@@ -2161,7 +2549,7 @@ function createAIFeedback(element) {
   const comment = element.querySelector("[data-g-feedback-comment]");
   const output = element.querySelector("[data-g-feedback-output]");
   let value = output?.value || "";
-  function select(option, reason = "api") { if (!option) return; value = option.dataset.gFeedbackValue; options.forEach((item) => item.setAttribute("aria-pressed", String(item === option))); if (output) output.value = value; if (detail) detail.hidden = false; emit(element, "feedbackchange", { value, option, reason }); }
+  function select(option, reason = "api") { if (isDisabled(option)) return; value = option.dataset.gFeedbackValue; options.forEach((item) => item.setAttribute("aria-pressed", String(item === option))); if (output) output.value = value; if (detail) detail.hidden = false; emit(element, "feedbackchange", { value, option, reason }); }
   function submit(reason = "api") { if (!value) return; emit(element, "feedbacksubmit", { value, comment: comment?.value || "", reason }); element.classList.add("is-submitted"); }
   function click(event) { const option = event.target.closest("[data-g-feedback-value]"); if (option) select(option, "pointer"); else if (event.target.closest("[data-g-feedback-submit]")) submit("button"); }
   element.addEventListener("click", click); if (value) select(options.find((item) => item.dataset.gFeedbackValue === value), "init");
@@ -2175,10 +2563,10 @@ function createShortcutRecorder(element) {
   const status = element.querySelector("[data-g-shortcut-status]");
   let recording = false; let value = output?.value || element.dataset.gValue || "";
   const modifierOrder = ["Control", "Alt", "Shift", "Meta"];
-  function format(shortcut) { return shortcut ? shortcut.replaceAll("Control", navigator.platform.includes("Mac") ? "⌃" : "Ctrl").replaceAll("Meta", navigator.platform.includes("Mac") ? "⌘" : "Meta").replaceAll("Alt", navigator.platform.includes("Mac") ? "⌥" : "Alt").replaceAll("Shift", navigator.platform.includes("Mac") ? "⇧" : "Shift") : element.dataset.gEmptyLabel || "未设置"; }
+  function format(shortcut) { return shortcut ? shortcut.replaceAll("Control", navigator.platform.includes("Mac") ? "⌃" : "Ctrl").replaceAll("Meta", navigator.platform.includes("Mac") ? "⌘" : "Meta").replaceAll("Alt", navigator.platform.includes("Mac") ? "⌥" : "Alt").replaceAll("Shift", navigator.platform.includes("Mac") ? "⇧" : "Shift") : element.dataset.gEmptyLabel || message("shortcut.empty"); }
   function sync(reason = "api") { if (output) output.value = value; if (display) display.textContent = format(value); element.dataset.gValue = value; emit(element, "shortcutchange", { value, reason }); }
-  function stop(reason = "cancel") { recording = false; control.classList.remove("is-recording"); control.setAttribute("aria-pressed", "false"); if (status) status.textContent = reason === "recorded" ? element.dataset.gSavedLabel || "快捷键已记录" : element.dataset.gIdleLabel || "点击后按下组合键"; }
-  function start() { recording = true; control.classList.add("is-recording"); control.setAttribute("aria-pressed", "true"); if (status) status.textContent = element.dataset.gRecordingLabel || "请按下快捷键；Esc 取消"; control.focus(); }
+  function stop(reason = "cancel") { recording = false; control.classList.remove("is-recording"); control.setAttribute("aria-pressed", "false"); if (status) status.textContent = reason === "recorded" ? element.dataset.gSavedLabel || message("shortcut.saved") : element.dataset.gIdleLabel || message("shortcut.idle"); }
+  function start() { recording = true; control.classList.add("is-recording"); control.setAttribute("aria-pressed", "true"); if (status) status.textContent = element.dataset.gRecordingLabel || message("shortcut.recording"); control.focus(); }
   function keydown(event) { if (!recording) return; event.preventDefault(); event.stopPropagation(); if (event.key === "Escape") return stop(); if (["Backspace", "Delete"].includes(event.key)) { value = ""; sync("clear"); return stop("recorded"); } if (["Control", "Alt", "Shift", "Meta"].includes(event.key)) return; const pressed = { Control: event.ctrlKey, Alt: event.altKey, Shift: event.shiftKey, Meta: event.metaKey }; const modifiers = modifierOrder.filter((name) => pressed[name]); const key = event.key.length === 1 ? event.key.toLocaleUpperCase() : event.key; value = [...modifiers, key].join("+"); sync("keyboard"); stop("recorded"); }
   function click(event) { if (event.target.closest("[data-g-shortcut-clear]")) { value = ""; sync("clear"); stop("recorded"); } else start(); }
   control.addEventListener("click", click); control.addEventListener("keydown", keydown); sync("init"); stop();
@@ -2187,7 +2575,7 @@ function createShortcutRecorder(element) {
 
 function createDesktopTabs(element) {
   const tabs = () => [...element.querySelectorAll("[data-g-desktop-tab]")];
-  function select(tab, reason = "api", focus = false) { if (!tab || tab.getAttribute("aria-disabled") === "true") return; tabs().forEach((item) => { const active = item === tab; item.setAttribute("aria-selected", String(active)); item.classList.toggle("is-active", active); item.tabIndex = active ? 0 : -1; const panel = targetById(item.getAttribute("aria-controls")); if (panel) panel.hidden = !active; }); if (focus) tab.focus(); emit(element, "desktoptabchange", { tab, reason }); }
+  function select(tab, reason = "api", focus = false) { if (isDisabled(tab)) return; tabs().forEach((item) => { const active = item === tab; item.setAttribute("aria-selected", String(active)); item.classList.toggle("is-active", active); item.tabIndex = active ? 0 : -1; const panel = targetById(item.getAttribute("aria-controls")); if (panel) panel.hidden = !active; }); if (focus) tab.focus(); emit(element, "desktoptabchange", { tab, reason }); }
   function close(tab, reason = "api") { if (!tab || !emit(element, "beforetabclose", { tab, reason, dirty: tab.classList.contains("is-dirty") })) return; const list = tabs(); const index = list.indexOf(tab); const wasActive = tab.getAttribute("aria-selected") === "true" || tab.classList.contains("is-active"); const panel = targetById(tab.getAttribute("aria-controls")); panel?.remove(); tab.remove(); const remaining = tabs(); if (wasActive) select(remaining[Math.min(index, remaining.length - 1)], "close", true); emit(element, "desktoptabclose", { reason }); }
   function click(event) { const closeButton = event.target.closest("[data-g-desktop-tab-close]"); const tab = event.target.closest("[data-g-desktop-tab]"); if (closeButton) { event.stopPropagation(); close(closeButton.closest("[data-g-desktop-tab]"), "button"); } else if (tab) select(tab, "pointer"); }
   function pointerdown(event) { if (event.button === 1) { const tab = event.target.closest("[data-g-desktop-tab]"); if (tab) { event.preventDefault(); close(tab, "middle-click"); } } }
@@ -2198,7 +2586,7 @@ function createDesktopTabs(element) {
 
 function createNativeFilePicker(element) {
   const input = element.querySelector("input[type='file']"); const trigger = element.querySelector("[data-g-native-file-trigger]"); const value = element.querySelector("[data-g-native-file-value]"); if (!input || !trigger) return null;
-  function sync(reason = "change") { const files = [...input.files]; if (value) value.textContent = files.length ? files.map((file) => file.name).join(", ") : element.dataset.gEmptyLabel || "未选择文件"; emit(element, "nativefiles", { files, input, reason }); }
+  function sync(reason = "change") { const files = [...input.files]; if (value) value.textContent = files.length ? files.map((file) => file.name).join(", ") : element.dataset.gEmptyLabel || message("file.none"); emit(element, "nativefiles", { files, input, reason }); }
   function open() { if (!emit(element, "beforefilepicker", { input })) return; input.click(); }
   function change() { sync(); }
   trigger.addEventListener("click", open); input.addEventListener("change", change); sync("init");
@@ -2228,21 +2616,22 @@ function createWindowSwitcher(element) {
   ["pull-refresh", createPullRefresh], ["infinite-load", createInfiniteLoad], ["swipe-actions", createSwipeActions], ["wheel-picker", createWheelPicker],
   ["ai-composer", createAIComposer], ["prompt-fill", createPromptFill], ["ai-approval", createAIApproval], ["ai-feedback", createAIFeedback],
   ["shortcut-recorder", createShortcutRecorder], ["desktop-tabs", createDesktopTabs], ["native-file-picker", createNativeFilePicker], ["window-switcher", createWindowSwitcher],
-  ["character-count", createCharacterCount], ["conditional-field", createConditionalField],
+  ["character-count", createCharacterCount], ["field-sync", createFieldSync], ["conditional-field", createConditionalField],
   ["repeatable-field", createRepeatableField],
   ["tooltip", (element) => createFloating(element, "tooltip")], ["popover", (element) => createFloating(element, "popover")],
   ["tour", createTour],
   ["carousel", createCarousel], ["split-pane", createSplitter], ["tree", createTree],
-  ["data-grid", createDataGrid], ["table-sort", createTableSort], ["row-select", createRowSelect],
+  ["data-grid", createDataGrid], ["table-scroll", createTableScroll], ["table-density", createTableDensity], ["filter-summary", createFilterSummary],
+  ["table-sort", createTableSort], ["row-select", createRowSelect],
   ["row-disclosure", createRowDisclosure], ["column-toggle", createColumnToggle],
   ["data-filter", createDataFilter], ["data-view", createDataView],
-  ["transfer", createTransfer], ["picker", createPicker], ["cascader", createCascader],
+  ["transfer", createTransfer], ["picker", createPicker], ["cascader", createCascader], ["range-picker", createRangePicker],
   ["saved-choice", createSavedChoice], ["builder-list", createBuilderList],
   ["toast", createToast], ["copy", createCopy],
   ["fullscreen", createFullscreen], ["scroll-top", createScrollTop], ["dropzone", createDropzone],
   ["nav-toggle", createNavToggle], ["roving-nav", createRovingNav], ["context-menu", createContextMenu],
   ["scrollspy", createScrollspy], ["jump-nav", createJumpNav],
-  ["upload-manager", createUploadManager], ["file-browser", createFileBrowser],
+  ["upload-manager", createUploadManager], ["file-browser", createFileBrowser], ["media-player", createMediaPlayer],
   ["editor-shell", createEditorShell], ["revision-compare", createRevisionCompare], ["autosave", createAutosave],
   ["command-palette", createCommandPalette]
 ].forEach(([name, factory]) => register(name, factory));
@@ -2258,10 +2647,16 @@ function initElement(element, name) {
 }
 
 function init(root = document) {
-  for (const [name] of registry) {
-    const selector = `[data-g-${name}]`;
-    if (root instanceof Element && root.matches(selector)) initElement(root, name);
-    root.querySelectorAll?.(selector).forEach((element) => initElement(element, name));
+  if (!registrySelector) return Gardenerim;
+  const candidates = [];
+  if (root instanceof Element && root.matches(registrySelector)) candidates.push(root);
+  root.querySelectorAll?.(registrySelector).forEach((element) => candidates.push(element));
+  for (const element of candidates) {
+    for (const attribute of element.getAttributeNames()) {
+      if (!attribute.startsWith("data-g-")) continue;
+      const name = attribute.slice(7);
+      if (registry.has(name)) initElement(element, name);
+    }
   }
   return Gardenerim;
 }
@@ -2285,20 +2680,28 @@ function destroy(root = document) {
   });
 }
 
+function refresh(root = document) {
+  destroy(root);
+  return init(root);
+}
+
 function toast(options = {}) {
+  const tone = options.tone || "info";
+  const urgent = tone === "danger" || tone === "error";
   let region = document.querySelector(".g-toast-region");
   if (!region) {
     region = document.createElement("div");
     region.className = "g-toast-region";
-    region.setAttribute("aria-live", options.tone === "danger" ? "assertive" : "polite");
+    region.setAttribute("aria-live", "polite");
     document.body.append(region);
   }
   const element = document.createElement("div");
-  element.className = `g-toast${options.tone ? ` g-toast-${options.tone}` : ""}`;
-  element.setAttribute("role", options.tone === "danger" ? "alert" : "status");
+  element.className = `g-toast g-toast-${tone}`;
+  element.setAttribute("role", urgent ? "alert" : "status");
   element.dataset.gToast = "";
   if (options.timeout != null) element.dataset.gTimeout = String(options.timeout);
-  element.innerHTML = `<div class="g-toast-content"><div class="g-toast-title"></div><div class="g-toast-message"></div></div><button class="g-btn g-btn-ghost g-btn-icon" data-g-dismiss aria-label="Close">×</button>`;
+  element.innerHTML = `<div class="g-toast-content"><div class="g-toast-title"></div><div class="g-toast-message"></div></div><button class="g-btn g-btn-ghost g-btn-icon" data-g-dismiss>×</button>`;
+  element.querySelector("[data-g-dismiss]").setAttribute("aria-label", message("toast.close"));
   element.querySelector(".g-toast-title").textContent = options.title || "";
   element.querySelector(".g-toast-message").textContent = options.message || "";
   region.append(element);
@@ -2350,41 +2753,97 @@ function delegateClick(event) {
   const dismiss = event.target.closest("[data-g-dismiss]");
   if (dismiss) {
     const target = dismiss.closest(".g-alert, .g-toast, .g-banner, [data-g-dismissible]");
+    const restoreFocus = focusAfterRemoval(target, dismiss);
     const toastInstance = target ? getInstance(target, "toast") : null;
-    if (toastInstance) toastInstance.dismiss("button");
-    else if (target && emit(target, "dismiss", { reason: "button" })) target.remove();
+    if (toastInstance) { toastInstance.dismiss("button"); restoreFocus(); }
+    else if (target && emit(target, "dismiss", { reason: "button" })) { target.remove(); restoreFocus(); }
   }
 }
 
-let observer;
-function observe() {
-  if (observer || typeof MutationObserver === "undefined") return;
-  observer = new MutationObserver((records) => records.forEach((record) => {
-    record.addedNodes.forEach((node) => { if (node instanceof Element) init(node); });
-    record.removedNodes.forEach((node) => { if (node instanceof Element) destroy(node); });
-    if (record.type === "attributes" && record.target instanceof Element && record.attributeName?.startsWith("data-g-")) {
+let delegatedRoot = null;
+let started = false;
+
+const topLevelNodes = (nodes) => [...nodes].filter((node) => {
+  for (let parent = node.parentElement; parent; parent = parent.parentElement) if (nodes.has(parent)) return false;
+  return true;
+});
+
+function disconnect() {
+  observer?.disconnect();
+  observer = undefined;
+  observedRoot = null;
+}
+
+function observe(root = document, options = {}) {
+  if (typeof MutationObserver === "undefined") return { disconnect };
+  const target = typeof document !== "undefined" && root === document ? document.documentElement : root;
+  if (!(target instanceof Element)) throw new TypeError("Gardenerim.observe root must be a Document or Element.");
+  if (observer && observedRoot === target) return { disconnect };
+  disconnect();
+  observedRoot = target;
+  observer = new MutationObserver((records) => {
+    const added = new Set();
+    const removed = new Set();
+    const attributes = [];
+    for (const record of records) {
+      record.addedNodes.forEach((node) => { if (node instanceof Element) added.add(node); });
+      record.removedNodes.forEach((node) => { if (node instanceof Element) removed.add(node); });
+      if (record.type === "attributes" && record.target instanceof Element) attributes.push(record);
+    }
+    topLevelNodes(removed).forEach(destroy);
+    topLevelNodes(added).forEach(init);
+    for (const record of attributes) {
       const name = record.attributeName.slice(7);
-      if (registry.has(name) && record.target.hasAttribute(record.attributeName)) initElement(record.target, name);
-      else if (registry.has(name)) {
+      if (record.target.hasAttribute(record.attributeName)) initElement(record.target, name);
+      else {
         const store = instanceStores.get(record.target);
         store?.get(name)?.destroy?.();
         store?.delete(name);
         if (store?.size === 0) instanceStores.delete(record.target);
       }
     }
-  }));
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+  });
+  observer.observe(target, {
+    childList: true,
+    subtree: options.subtree !== false,
+    attributes: options.attributes !== false,
+    attributeFilter: options.attributes === false ? undefined : [...registry.keys()].map((name) => `data-g-${name}`),
+  });
+  return { disconnect };
 }
 
-const Gardenerim = Object.freeze({ version: "2.0.0", get behaviors() { return Object.freeze([...registry.keys()]); }, init, destroy, register, getInstance, emit, toast, observe });
+function start(root = document, options = {}) {
+  if (typeof document === "undefined") return Gardenerim;
+  const eventRoot = root?.addEventListener ? root : document;
+  if (delegatedRoot !== eventRoot) {
+    delegatedRoot?.removeEventListener("click", delegateClick);
+    eventRoot.addEventListener("click", delegateClick);
+    delegatedRoot = eventRoot;
+  }
+  started = true;
+  init(root);
+  if (options.observe !== false) observe(root, options.observeOptions || {});
+  return Gardenerim;
+}
+
+function stop(options = {}) {
+  disconnect();
+  delegatedRoot?.removeEventListener("click", delegateClick);
+  delegatedRoot = null;
+  started = false;
+  if (options.destroy === true && typeof document !== "undefined") destroy(options.root || document);
+}
+
+const Gardenerim = Object.freeze({ version: "2.1.0", get behaviors() { return Object.freeze([...registry.keys()]); }, get started() { return started; }, init, refresh, destroy, register, getInstance, emit, toast, observe, disconnect, start, stop, configure, getConfiguration, get locale() { return runtimeLocale; }, supportedLocales: gardenerimLocaleNames });
 
 if (typeof document !== "undefined") {
-  document.addEventListener("click", delegateClick);
-  const start = () => { init(); observe(); };
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true });
-  else queueMicrotask(start);
+  const autoStart = () => {
+    if (globalThis.GardenerimAutoStart === false || document.documentElement.dataset.gRuntime === "manual") return;
+    start(document);
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", autoStart, { once: true });
+  else queueMicrotask(autoStart);
 }
 
-
-export { Gardenerim, init, destroy, register, getInstance, emit, toast, observe };
+export { Gardenerim, init, refresh, destroy, register, getInstance, emit, toast, observe, disconnect, start, stop, configure, getConfiguration, gardenerimLocaleNames as supportedLocales };
 export default Gardenerim;

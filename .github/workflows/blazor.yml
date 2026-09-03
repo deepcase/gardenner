@@ -18,11 +18,11 @@ jobs:
     env:
       GARDENER_REQUIRE_FIREFOX: "1"
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5
         with:
           dotnet-version: 10.0.400
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 24
           cache: npm
@@ -33,20 +33,20 @@ jobs:
         working-directory: packages/blazor
       - run: npm run release:verify
         working-directory: packages/blazor
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: gardener-blazor-2.0.0
+          name: gardener-blazor-2.1.0
           path: |
-            packages/blazor/artifacts/Gardenerim.Blazor.2.0.0.nupkg
-            packages/blazor/artifacts/Gardenerim.Blazor.2.0.0.snupkg
+            packages/blazor/artifacts/Gardenerim.Blazor.2.1.0.nupkg
+            packages/blazor/artifacts/Gardenerim.Blazor.2.1.0.snupkg
             packages/blazor/artifacts/gardener-blazor.performance.json
 
   net11-consumer:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5
         with:
           dotnet-version: 11.0.x
           dotnet-quality: preview

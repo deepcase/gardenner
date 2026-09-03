@@ -18,7 +18,7 @@
   .g-rating-item { padding: 0; border: 0; background: transparent; color: inherit; font-size: var(--g-font-size-xl); cursor: pointer; }
   .g-transfer { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--g-space-3); align-items: center; }
   .g-transfer-list { min-height: 14rem; overflow: auto; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-lg); background: var(--g-color-surface); }
-  .g-validation-summary { padding: var(--g-space-4); border-inline-start: 3px solid var(--g-color-danger); background: var(--g-color-danger-soft); color: var(--g-color-danger); }
+  .g-validation-summary { padding: var(--g-component-padding-sm) var(--g-component-padding); border: 1px solid var(--g-color-border); border-inline-start: 4px solid var(--g-color-danger); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: var(--g-color-text); }
 
   /* Advanced navigation and onboarding */
   .g-mega-menu { position: absolute; z-index: var(--g-z-dropdown); inset: 100% 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: var(--g-space-6); padding: var(--g-space-6) var(--g-space-page-x); border-block: 1px solid var(--g-color-border); background: var(--g-color-surface-raised); box-shadow: var(--g-shadow-lg); }
@@ -74,7 +74,7 @@
   .g-lightbox { position: fixed; z-index: var(--g-z-dialog); inset: 0; display: grid; place-items: center; padding: var(--g-space-4); background: rgb(0 0 0 / 0.9); }
   .g-lightbox-media { max-width: 100%; max-height: 90dvh; object-fit: contain; }
   .g-media-player { overflow: hidden; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-lg); background: #080d14; color: #fff; }
-  .g-media-controls { display: flex; align-items: center; gap: var(--g-space-3); min-height: 3rem; padding-inline: var(--g-space-3); background: rgb(0 0 0 / 0.78); }
+  .g-media-player > .g-media-controls { display: flex; align-items: center; gap: var(--g-space-3); min-height: 3rem; padding-inline: var(--g-space-3); background: rgb(0 0 0 / 0.78); }
   .g-document-viewer { display: grid; min-height: 30rem; grid-template-columns: minmax(10rem, 14rem) minmax(0, 1fr); border: 1px solid var(--g-color-border); background: var(--g-color-surface-sunken); }
   .g-document-thumbnails { overflow-y: auto; border-inline-end: 1px solid var(--g-color-border); background: var(--g-color-surface); }
   .g-document-page { width: min(100% - 2rem, 52rem); margin: var(--g-space-4) auto; background: #fff; box-shadow: var(--g-shadow-md); }
@@ -83,9 +83,15 @@
   .g-split-pane { display: flex; min-width: 0; min-height: 0; }
   .g-split-pane[data-g-orientation="vertical"] { flex-direction: column; }
   .g-split-panel { min-width: 0; min-height: 0; overflow: auto; }
-  .g-split-handle { flex: 0 0 5px; background: var(--g-color-border); cursor: col-resize; touch-action: none; }
-  .g-split-pane[data-g-orientation="vertical"] > .g-split-handle { cursor: row-resize; }
-  .g-split-handle:hover, .g-split-handle.is-dragging { background: var(--g-color-primary); }
+  .g-split-handle { --g-split-line-size: 5px; --g-split-hit-size: 1.0625rem; position: relative; z-index: 1; flex: 0 0 var(--g-split-hit-size); margin-inline: calc((var(--g-split-line-size) - var(--g-split-hit-size)) / 2); background: transparent; cursor: col-resize; touch-action: none; }
+  .g-split-handle::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: 50%; inline-size: var(--g-split-line-size); background: var(--g-color-border); transform: translateX(-50%); pointer-events: none; }
+  .g-split-pane[data-g-orientation="vertical"] > .g-split-handle { margin-block: calc((var(--g-split-line-size) - var(--g-split-hit-size)) / 2); margin-inline: 0; cursor: row-resize; }
+  .g-split-pane[data-g-orientation="vertical"] > .g-split-handle::before { inset-block-start: 50%; inset-inline: 0; inline-size: auto; block-size: var(--g-split-line-size); transform: translateY(-50%); }
+  .g-split-handle:is(:hover, :focus-visible, .is-dragging)::before { background: var(--g-color-primary); }
+
+  @media (pointer: coarse) {
+    .g-split-handle { --g-split-hit-size: 2.25rem; }
+  }
   .g-sortable-item { position: relative; touch-action: manipulation; }
   .g-sortable-item.is-dragging { z-index: 1; opacity: 0.7; box-shadow: var(--g-shadow-lg); }
   .g-drop-zone.is-over { outline: 2px dashed var(--g-color-primary); outline-offset: -3px; background: var(--g-color-primary-soft); }

@@ -293,13 +293,14 @@
               主工作区保留上下文，帮助面板可独立滚动。
             </p>
           </div>
-          <aside class="g-help-panel">
+          <aside class="g-help-panel" data-g-dismissible>
             <header class="g-help-panel-header">
               <strong class="g-help-panel-title">页面帮助</strong
               ><button
                 class="g-btn g-btn-ghost g-btn-icon g-btn-sm"
                 type="button"
                 aria-label="关闭帮助"
+                data-g-dismiss
               >
                 ×
               </button>
@@ -502,15 +503,30 @@
             </div>
           </li>
         </ol>
-        <div class="g-help-feedback">
+        <div class="g-help-feedback" data-g-saved-choice>
           <span>这篇内容有帮助吗？</span>
           <div class="g-help-feedback-actions">
-            <button class="g-btn g-btn-outline g-btn-sm" type="button">
+            <button
+              class="g-btn g-btn-outline g-btn-sm"
+              type="button"
+              data-g-saved-choice-item
+              data-g-value="helpful"
+              data-g-confirmation="感谢反馈"
+              aria-pressed="false"
+            >
               有帮助</button
-            ><button class="g-btn g-btn-outline g-btn-sm" type="button">
+            ><button
+              class="g-btn g-btn-outline g-btn-sm"
+              type="button"
+              data-g-saved-choice-item
+              data-g-value="not-helpful"
+              data-g-confirmation="感谢反馈，我们会继续改进"
+              aria-pressed="false"
+            >
               没有
             </button>
           </div>
+          <span data-g-saved-choice-output aria-live="polite"></span>
         </div>
       </section>
     </main>

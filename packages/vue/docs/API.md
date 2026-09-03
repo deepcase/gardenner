@@ -23,6 +23,7 @@ createApp(App).use(GardenerimVue).mount("#app");
 - `state`：字符串或数组，转换为 `is-*` 状态类。
 - `config`：转换为 `data-g-*` 运行时配置。
 - `initialize`：是否初始化 Gardenerim DOM 行为，默认 `true`。
+- `locale` / `messages`：设置七语言运行时目录或覆盖消息。
 - `modelValue`：支持原生表单 `v-model`；复杂行为可配合 `modelEvent` 和 `modelKey` 从 `gardener:*` 事件同步值。
 - 所有原生 attributes、事件和 slots 均透传。
 
@@ -39,6 +40,7 @@ createApp(App).use(GardenerimVue).mount("#app");
 - `useGardenerim`
 - `useGardenerimBehavior`
 - `useGardenerimEvent`
+- `useGardenerimLocale`
 - `useGardenerimTheme`
 - `useGardenerimToast`
 - `useTauriWindowControls`

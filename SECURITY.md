@@ -4,10 +4,13 @@
 
 | Version | Support |
 | --- | --- |
-| 1.x | Security fixes and compatibility maintenance |
+| 2.x | Security fixes and compatibility maintenance |
+| 1.x | Critical security fixes through 2027-03-31 |
 | 0.x | Unsupported |
 
-The AngularJS adapter receives Gardenerim-side security fixes, but AngularJS itself is end-of-life. Teams using it must assess framework-level risk and maintain a migration plan.
+The AngularJS adapter is a legacy migration bridge. It receives Gardenerim-side security fixes through the 2.x line, but AngularJS itself is end-of-life and has known unresolved upstream advisories. Do not start new applications with it. Existing users should apply a strict content security policy, avoid compiling untrusted templates, and migrate to Vue, React, Blazor, or the framework-neutral runtime.
+
+Release CI runs dependency review, CodeQL, npm and NuGet vulnerability checks, package-signature verification, secret scanning, and CycloneDX SBOM generation. The AngularJS audit has one explicit exception: unresolved vulnerabilities reported directly against the end-of-life `angular` package. Any additional affected package or any newly available fix fails CI.
 
 ## Reporting a vulnerability
 
@@ -20,4 +23,3 @@ Good-faith research that avoids privacy violations, data destruction, service di
 ## Security boundaries
 
 Gardenerim renders and coordinates user-interface behavior. It does not replace server-side authentication, authorization, validation, sanitization, rate limiting, audit logging, or content security policy. Tauri/Electron bridges must expose narrowly scoped commands and must never pass raw Node.js or native objects into untrusted page code.
-

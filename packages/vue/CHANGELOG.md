@@ -1,6 +1,13 @@
 # Changelog
 
-## [2.0.0] - Unreleased
+## [2.1.0] - 2026-09-01
+
+- Consume the shared Arco-aligned 28/32/36px Gardenerim control scale and 14px control typography.
+- Re-export the complete 2.1 runtime lifecycle and localization API.
+- Add plugin and provider locale/message options plus useGardenerimLocale.
+- Keep component, directive, model, SSR, and 2.x public contracts compatible.
+
+## [2.0.0] - 2026-08-31
 
 - Breaking: use Gardenerim-branded public exports only; remove Gardener aliases and update migration examples.
 - Fix Vue radio, multiple-select, checkbox-array and IME model semantics, and React multiple-select values.

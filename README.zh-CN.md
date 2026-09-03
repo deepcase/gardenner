@@ -2,7 +2,7 @@
 
 [English](README.md)
 
-Gardenerim 是面向人工开发和 AI 自动生成页面的通用 CSS 基础框架与组件系统。2.0.0 覆盖 PC 网站、移动网页、后台 Dashboard、超级 CMS、AI 交互，以及 Tauri/Electron 类桌面应用外壳；默认采用白色浅色基调、克制的通用风格和小圆角。
+Gardenerim 是面向人工开发和 AI 自动生成页面的通用 CSS 基础框架与组件系统。2.1.0 覆盖 PC 网站、移动网页、后台 Dashboard、超级 CMS、AI 交互，以及 Tauri/Electron 类桌面应用外壳；默认采用白色浅色基调、克制的通用风格和小圆角。
 
 仓库包含 CSS/运行时核心、506 个完整组件、Vue 3、React、AngularJS 1.x、Blazor 官方适配器，以及支持七种语言的官网与文档。系统刻意准备足够完整的预设、组合组件和机器可读契约，减少 AI 或业务项目临时组织 CSS 的需要。
 
@@ -19,7 +19,7 @@ Gardenerim 是面向人工开发和 AI 自动生成页面的通用 CSS 基础框
 
 AngularJS 本身已经停止官方维护。该适配器用于明确的存量维护和迁移场景；新项目通常应选择 Vue、React、Blazor，或直接使用无框架的 CSS/运行时包。
 
-## 2.0.0 能力范围
+## 2.1.0 能力范围
 
 - 42 套预设颜色主题，默认白色浅色、小圆角。
 - 14,916 个 CSS 类，其中 11,498 个工具类、3,418 个语义类。
@@ -100,6 +100,7 @@ npm run serve
 - [组件能力层级](docs/component-levels.md)
 - [数据驱动 DataGrid](docs/data-grid.md)
 - [轻量后台引入](docs/lightweight-admin.md)
+- [2.1 迁移与安全说明](docs/migration-2.1.md)
 - [发布流程](docs/releasing.md)
 - [参与贡献](CONTRIBUTING.md)
 - [安全策略](SECURITY.md)

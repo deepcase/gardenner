@@ -2,7 +2,7 @@
 
 [简体中文](README.zh-CN.md)
 
-Gardenerim is a comprehensive, framework-agnostic CSS foundation and component system for human- and AI-authored interfaces. Version 2.0.0 covers public websites, mobile web, dashboards, CMS products, AI workflows, and Tauri/Electron-style desktop shells with a light, restrained, small-radius default visual language.
+Gardenerim is a comprehensive, framework-agnostic CSS foundation and component system for human- and AI-authored interfaces. Version 2.1.0 covers public websites, mobile web, dashboards, CMS products, AI workflows, and Tauri/Electron-style desktop shells with a light, restrained, small-radius default visual language.
 
 The repository includes the core CSS/runtime package, 506 documented components, official Vue 3, React, AngularJS 1.x, and Blazor adapters, plus a seven-language documentation website. The system intentionally favors complete reusable contracts over requiring application generators to invent new CSS.
 
@@ -19,7 +19,7 @@ The repository includes the core CSS/runtime package, 506 documented components,
 
 AngularJS itself is end-of-life. The adapter exists for deliberate legacy maintenance and migrations; new applications should normally select Vue, React, Blazor, or the framework-agnostic CSS/runtime package.
 
-## Coverage at 2.0.0
+## Coverage at 2.1.0
 
 - 42 preset color themes with a white/light default and intentionally small default radii.
 - 14,916 CSS classes: 11,498 utilities and 3,418 semantic classes.
@@ -102,6 +102,8 @@ Then open `http://127.0.0.1:4173/website/`. The complete release gate is `npm ru
 - [Component capability levels](docs/component-levels.md)
 - [Data-driven DataGrid](docs/data-grid.md)
 - [Lightweight admin imports](docs/lightweight-admin.md)
+- [2.1 migration and security notes](docs/migration-2.1.md)
+- [2.1 local verification report](docs/release-2.1-verification.md)
 - [Release process](docs/releasing.md)
 - [Contributing](CONTRIBUTING.md)
 - [Security policy](SECURITY.md)

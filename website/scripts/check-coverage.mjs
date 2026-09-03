@@ -12,6 +12,7 @@ const angularRoot = resolve(project, "packages/angularjs");
 const blazorRoot = resolve(project, "packages/blazor");
 const sourceRoot = resolve(cssRoot, "src");
 const errors = [];
+const bytes = (value) => Number(value).toLocaleString("en-US");
 
 async function listCss(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -197,35 +198,35 @@ if (recipes.recipes.length !== new Set(recipes.recipes.map((item) => item.id)).s
 if (!docs.includes(`全部 ${publicApi.javascript.behaviors.length} 种行为`)) errors.push("docs.html behavior contract count is not synchronized");
 if (!docs.includes(`全部 ${publicApi.javascript.events.length} 种事件`)) errors.push("docs.html event contract count is not synchronized");
 if (!docs.includes(`全部 ${publicApi.javascript.moduleExports.length} 个模块导出`)) errors.push("docs.html module export count is not synchronized");
-if (!docs.includes("运行时测试门禁（0.4.0 起）") || !docs.includes("npm run test:runtime") || !docs.includes("全部 66 种行为") || !docs.includes("双向比对真实实例成员")) errors.push("docs.html missing the runtime unit and DOM lifecycle test contract");
+if (!docs.includes("运行时测试门禁（0.4.0 起）") || !docs.includes("npm run test:runtime") || !docs.includes("全部 72 种行为") || !docs.includes("双向比对真实实例成员")) errors.push("docs.html missing the runtime unit and DOM lifecycle test contract");
 for (const marker of ["npm run test:schema", "Ajv 2020-12", "48 个标准验证用例", "十一套 Schema", "未知嵌套字段", "缺失嵌套必填字段", "JavaScript 标识符", "SHA-256 格式", "基线回归状态", "兼容别名", "模块种类/参数/签名"]) {
   if (!docsText.includes(marker)) errors.push(`docs.html missing deep JSON Schema/public API contract marker: ${marker}`);
 }
-for (const marker of ["2.0.0 自动化测试矩阵", "test:build", "test:types", "verify:compatibility", "verify:package", "test:html", "test:browser", "test:browser:firefox", "test:browser:all", "test:mobile", "test:a11y", "test:e2e", "Desktop Chromium + WebKit", "Desktop Firefox", "Pixel 7 Chromium + iPhone 13 WebKit", "Chromium + Axe", "WCAG 2 A/AA", "全部 21 个示例", "52 个移动用例", "不按 impact", "44px 触控目标", "Reduced Motion", "Forced Colors", "152 个真实浏览器用例", "24 个 HTML 结构用例", "311 个默认自动化用例"]) {
-  if (!docsText.includes(marker)) errors.push(`docs.html missing 2.0.0 release/browser/mobile/accessibility test marker: ${marker}`);
+for (const marker of ["2.1.0 自动化测试矩阵", "test:build", "test:types", "verify:compatibility", "verify:package", "test:html", "test:browser", "test:browser:firefox", "test:browser:all", "test:mobile", "test:a11y", "test:e2e", "Desktop Chromium + WebKit", "Desktop Firefox", "Pixel 7 Chromium + iPhone 13 WebKit", "Chromium + Axe", "WCAG 2 A/AA", "全部 21 个示例", "52 个移动用例", "不按 impact", "44px 触控目标", "Reduced Motion", "Forced Colors", "152 个真实浏览器用例", "24 个 HTML 结构用例", "311 个默认自动化用例"]) {
+  if (!docsText.includes(marker)) errors.push(`docs.html missing 2.1.0 release/browser/mobile/accessibility test marker: ${marker}`);
 }
-for (const marker of ["Stable 2.0.0", "48 个标准 Schema 用例", "10 个构建专项用例", "152 个真实浏览器用例", "24 个 HTML", "桌面多浏览器", "Pixel 7", "iPhone 13", "全量覆盖 21 个示例", "全部自动违规归零", "Axe WCAG", "5 个平台档案", "28 个稳定组件包", "506 个组件归属映射", "SHA-256/SRI", "可复现构建", "TypeScript 类型", "跨版本兼容基线", "1,145", "Gardenerim v2.0.0"]) {
-  if (!homePage.includes(marker)) errors.push(`index.html missing 2.0.0 quality/build marker: ${marker}`);
+for (const marker of ["Stable 2.1.0", "48 个标准 Schema 用例", "10 个构建专项用例", "152 个真实浏览器用例", "24 个 HTML", "桌面多浏览器", "Pixel 7", "iPhone 13", "全量覆盖 21 个示例", "全部自动违规归零", "Axe WCAG", "5 个平台档案", "28 个稳定组件包", "506 个组件归属映射", "SHA-256/SRI", "可复现构建", "TypeScript 类型", "跨版本兼容基线", "1,145", "Gardenerim v2.1.0"]) {
+  if (!homePage.includes(marker)) errors.push(`index.html missing 2.1.0 quality/build marker: ${marker}`);
 }
-for (const marker of ["`2.0.0` Stable 公共 API", "1,145 项兼容基线", "5 个平台档案", "28 个组件包", "506 个真实组件归属", "42 个正式产物", "77 个运行时与 DOM 生命周期测试", "152 个默认真实浏览器用例", "24 个 HTML 结构用例", "52 个配方"]) {
-  if (!homeReadme.includes(marker)) errors.push(`README.md missing synchronized 2.0.0 inventory marker: ${marker}`);
+for (const marker of ["`2.1.0` Stable 公共 API", "1,145 项兼容基线", "5 个平台档案", "28 个组件包", "506 个真实组件归属", "42 个正式产物", "90 个运行时与 DOM 生命周期测试", "真实浏览器与移动端矩阵", "24 个 HTML 结构用例", "52 个配方"]) {
+  if (!homeReadme.includes(marker)) errors.push(`README.md missing synchronized 2.1.0 inventory marker: ${marker}`);
 }
-if (!docs.includes('id="targeted-builds"')) errors.push("docs.html missing dedicated 2.0.0 release-build documentation #targeted-builds");
-for (const marker of ["5 个平台档案", "28 个稳定组件包", "506 个组件到一个或多个真实所属包", "./component/*.css", "build:platform", "build:custom", "--components", "--packs", "--no-utilities", "独立轻量入口继承 desktop CSS", "esbuild", "Source Map", "SHA-256", "SRI", "verify:reproducible", "字节级可复现", "稳定 MIT banner", "0.9.0 实测结果为紧邻基线", "raw 增长不超过 2%", "gzip level 9", "Brotli quality 11", "raw、gzip、Brotli", "npm pack --dry-run", "42 个正式压缩产物", "test:build", "10 个构建", "TypeScript", "Compatibility Schema", "Node.js &gt;=18.18", "Publint", "Provenance", "packed 2,050,000 B", "unpacked 16,500,000 B", "最多 92 个文件"]) {
-  if (!docsText.includes(marker)) errors.push(`docs.html missing 2.0.0 release-build/performance marker: ${marker}`);
+if (!docs.includes('id="targeted-builds"')) errors.push("docs.html missing dedicated 2.1.0 release-build documentation #targeted-builds");
+for (const marker of ["5 个平台档案", "28 个稳定组件包", "506 个组件到一个或多个真实所属包", "./component/*.css", "build:platform", "build:custom", "--components", "--packs", "--no-utilities", "独立轻量入口继承 desktop CSS", "esbuild", "Source Map", "SHA-256", "SRI", "verify:reproducible", "字节级可复现", "稳定 MIT banner", `${performance.regressions.baselineVersion} 实测结果为紧邻基线`, "raw 增长不超过 2%", "gzip level 9", "Brotli quality 11", "raw、gzip、Brotli", "npm pack --dry-run", "42 个正式压缩产物", "test:build", "10 个构建", "TypeScript", "Compatibility Schema", "Node.js &gt;=18.18", "Publint", "Provenance", "packed 2,050,000 B", "unpacked 16,500,000 B", `最多 ${performance.package.limits.files} 个文件`]) {
+  if (!docsText.includes(marker)) errors.push(`docs.html missing 2.1.0 release-build/performance marker: ${marker}`);
 }
 if (builds.platforms.length !== 5) errors.push("Build documentation source does not expose exactly 5 platform profiles");
 if (builds.componentPacks.length !== 28) errors.push("Build documentation source does not expose exactly 28 component packs");
 if (Object.keys(builds.componentOwnership).length !== manifest.components.length) errors.push("Build component ownership is not synchronized with the component manifest");
 if (performance.status !== "passed" || Object.keys(performance.artifacts).length !== 42 || !performance.package.pass) errors.push("Performance report is missing, incomplete, or failing");
 if (Object.keys(builds.artifactIntegrity || {}).length !== 42 || builds.reproducibility?.deterministic !== true) errors.push("Build integrity or reproducibility documentation source is incomplete");
-if (performance.regressions?.baselineVersion !== "0.9.0" || performance.regressions?.pass !== true || Object.keys(performance.regressions?.artifacts || {}).length !== 42) errors.push("Performance baseline regression report is missing, incomplete, or failing");
+if (performance.regressions?.baselineVersion !== "2.0.0" || performance.regressions?.pass !== true || Object.keys(performance.regressions?.artifacts || {}).length !== 42) errors.push("Performance baseline regression report is missing, incomplete, or failing");
 for (const platform of ["web", "mobile", "desktop", "tauri", "electron"]) {
   const profile = builds.platforms.find(({ name }) => name === platform);
   if (profile?.minCss !== `platforms/gardener.${platform}.min.css`) errors.push(`Build documentation source is missing an independent ${platform} CSS entrypoint`);
 }
 const compatibilityContractCount = Object.values(compatibility.baseline || {}).reduce((sum, values) => sum + values.length, 0);
-if (compatibility.version !== "2.0.0" || compatibility.baselineVersion !== "0.9.0" || compatibility.policy?.stage !== "stable" || compatibility.baseline.componentNames.length !== manifest.components.length || compatibilityContractCount !== 1145) errors.push("Compatibility baseline is missing, stale, or incomplete");
+if (compatibility.version !== "2.1.0" || compatibility.baselineVersion !== "0.9.0" || compatibility.policy?.stage !== "stable" || compatibility.baseline.componentNames.length !== manifest.components.length || compatibilityContractCount !== 1145) errors.push("Compatibility baseline is missing, stale, or incomplete");
 if (JSON.stringify(compatibility.baseline.packageEntrypoints) !== JSON.stringify(Object.keys(packageManifest.exports))) errors.push("Stable compatibility baseline does not cover every package export in order");
 if (performance.compression?.gzipLevel !== 9 || performance.compression?.brotliQuality !== 11) errors.push("Performance report compression settings are missing or inconsistent");
 for (const count of [publicApi.javascript.dataAttributes.behaviors.length, publicApi.javascript.dataAttributes.selectors.length, publicApi.javascript.dataAttributes.configuration.length, publicApi.javascript.dataAttributes.managedState.length]) {
@@ -234,11 +235,11 @@ for (const count of [publicApi.javascript.dataAttributes.behaviors.length, publi
 
 if (!docs.includes('id="vue"') || !docs.includes('id="vue-component-catalog"')) errors.push("docs.html missing the complete Vue project documentation and catalog host");
 if (!siteJs.includes("setupVueCatalog") || !siteJs.includes("packages/vue/metadata/public-api.json") || !siteJs.includes("packages/vue/dist/catalog.json")) errors.push("site.js does not hydrate the Vue component catalog from canonical metadata");
-if (vuePublicApi.version !== "2.0.0" || vuePublicApi.status !== "stable" || vuePublicApi.cssVersion !== packageManifest.version) errors.push("Vue 2.0.0 stable metadata is missing or does not match Gardenerim CSS");
+if (vuePublicApi.version !== "2.1.0" || vuePublicApi.status !== "stable" || vuePublicApi.cssVersion !== packageManifest.version) errors.push("Vue 2.1.0 stable metadata is missing or does not match Gardenerim CSS");
 if (vueCatalog.version !== vuePublicApi.version || vueCatalog.components.length !== vuePublicApi.components || vuePublicApi.componentExports.length !== vuePublicApi.components) errors.push("Vue component counts are not synchronized");
 if (vueCompatibility.baseline.componentNames.length !== vueCatalog.components.length || JSON.stringify(vueCompatibility.baseline.componentNames) !== JSON.stringify(vueCatalog.components.map(({ name }) => name))) errors.push("Vue compatibility baseline does not cover every catalog component in order");
 if (JSON.stringify(vuePublicApi.packageEntrypoints) !== JSON.stringify(Object.keys(vuePackageManifest.exports)) || JSON.stringify(vueCompatibility.baseline.packageEntrypoints) !== JSON.stringify(vuePublicApi.packageEntrypoints)) errors.push("Vue documentation source does not cover the complete package export map");
-if (vuePublicApi.moduleExports.length !== 538 || vuePublicApi.typeExports.length !== 21 || vuePublicApi.packageEntrypoints.length !== 30 || vuePublicApi.composables.length !== 7 || vuePublicApi.componentProps.length !== 8 || vuePublicApi.themeAxes.length !== 10) errors.push("Vue public API inventory is incomplete");
+if (vuePublicApi.moduleExports.length !== 546 || vuePublicApi.typeExports.length !== 21 || vuePublicApi.packageEntrypoints.length !== 30 || vuePublicApi.composables.length !== 8 || vuePublicApi.componentProps.length !== 8 || vuePublicApi.themeAxes.length !== 10) errors.push("Vue public API inventory is incomplete");
 if (vuePublicApi.componentExports.length !== new Set(vuePublicApi.componentExports).size || vueCatalog.components.length !== new Set(vueCatalog.components.map(({ name }) => name)).size) errors.push("Vue public component identifiers are not unique");
 for (const marker of [...vuePublicApi.composables, ...vuePublicApi.componentProps, ...vuePublicApi.componentInstanceMembers, ...vuePublicApi.themeAxes, ...vuePublicApi.pluginOptions, vuePublicApi.directive, vuePublicApi.provider]) {
   if (!docs.includes(marker)) errors.push(`docs.html missing Vue public API marker: ${marker}`);
@@ -246,24 +247,24 @@ for (const marker of [...vuePublicApi.composables, ...vuePublicApi.componentProp
 for (const entrypoint of vuePublicApi.packageEntrypoints) {
   if (!docs.includes(entrypoint)) errors.push(`docs.html missing Vue package entrypoint: ${entrypoint}`);
 }
-for (const marker of ["2.0.0 Stable", "全部 506 个 Vue 组件", "538 个根运行时导出", "21 个 TypeScript 类型导出", "30 个公共包入口", "28 个组件 CSS 包", "328,470 B raw", "51,729 B gzip", "27,031 B Brotli", "3,894 B", "87", "98", "294,191 B packed", "3,851,916 B unpacked", "SSR", "Hydration", "npm run release:verify"]) {
-  if (!docsText.includes(marker)) errors.push(`docs.html missing Vue 2.0.0 documentation marker: ${marker}`);
+for (const marker of ["2.1.0 Stable", "全部 506 个 Vue 组件", `${vuePublicApi.moduleExports.length} 个根运行时导出`, "21 个 TypeScript 类型导出", "30 个公共包入口", "28 个组件 CSS 包", `${bytes(vuePerformance.metrics.raw)} B raw`, `${bytes(vuePerformance.metrics.gzip)} B gzip`, `${bytes(vuePerformance.metrics.brotli)} B Brotli`, "3,894 B", "91", "295,992 B packed", "3,859,549 B unpacked", "SSR", "Hydration", "npm run release:verify"]) {
+  if (!docsText.includes(marker)) errors.push(`docs.html missing Vue 2.1.0 documentation marker: ${marker}`);
 }
-for (const marker of ["Official Vue 3 bindings", "@gardenerim/vue", "506 个组件", "66 种 DOM", "538 runtime exports", "30 entrypoints", "28 CSS packs", "Vue 3.4+", "./docs.html#vue"]) {
+for (const marker of ["Official Vue 3 bindings", "@gardenerim/vue", "506 个组件", "72 种 DOM", `${vuePublicApi.moduleExports.length} runtime exports`, "30 entrypoints", "28 CSS packs", "Vue 3.4+", "./docs.html#vue"]) {
   if (!homePage.includes(marker)) errors.push(`index.html missing Vue project introduction marker: ${marker}`);
 }
-for (const marker of ["@gardenerim/vue 2.0.0", "506 个 Vue 组件", "538 个根运行时导出", "30 个公共包入口", "28 个组件 CSS 包", "Vue 公共 API", "Vue 组件目录"]) {
+for (const marker of ["@gardenerim/vue 2.1.0", "506 个 Vue 组件", `${vuePublicApi.moduleExports.length} 个根运行时导出`, "30 个公共包入口", "28 个组件 CSS 包", "Vue 公共 API", "Vue 组件目录"]) {
   if (!homeReadme.includes(marker)) errors.push(`README.md missing Vue documentation inventory marker: ${marker}`);
 }
-if (vuePerformance.status !== "passed" || vuePerformance.metrics.raw !== 328470 || vuePerformance.metrics.gzip !== 51729 || vuePerformance.metrics.brotli !== 27031) errors.push("Vue documented performance budget is stale or failing");
+if (vuePerformance.status !== "passed" || Object.values(vuePerformance.metrics).some((value) => !Number.isInteger(value) || value <= 0)) errors.push("Vue documented performance budget is stale or failing");
 
 if (!docs.includes('id="react"') || !docs.includes('id="react-component-catalog"')) errors.push("docs.html missing the complete React project documentation and catalog host");
 if (!siteJs.includes("setupReactCatalog") || !siteJs.includes("setupFrameworkCatalog") || !siteJs.includes("packages/react/metadata/public-api.json") || !siteJs.includes("packages/react/dist/catalog.json")) errors.push("site.js does not hydrate the React component catalog from canonical metadata");
-if (reactPublicApi.version !== "2.0.0" || reactPublicApi.status !== "stable" || reactPublicApi.cssVersion !== packageManifest.version) errors.push("React 2.0.0 stable metadata is missing or does not match Gardenerim CSS");
+if (reactPublicApi.version !== "2.1.0" || reactPublicApi.status !== "stable" || reactPublicApi.cssVersion !== packageManifest.version) errors.push("React 2.1.0 stable metadata is missing or does not match Gardenerim CSS");
 if (reactCatalog.version !== reactPublicApi.version || reactCatalog.components.length !== reactPublicApi.components || reactPublicApi.componentExports.length !== reactPublicApi.components) errors.push("React component counts are not synchronized");
 if (reactCompatibility.baseline.componentNames.length !== reactCatalog.components.length || JSON.stringify(reactCompatibility.baseline.componentNames) !== JSON.stringify(reactCatalog.components.map(({ name }) => name))) errors.push("React compatibility baseline does not cover every catalog component in order");
 if (JSON.stringify(reactPublicApi.packageEntrypoints) !== JSON.stringify(Object.keys(reactPackageManifest.exports)) || JSON.stringify(reactCompatibility.baseline.packageEntrypoints) !== JSON.stringify(reactPublicApi.packageEntrypoints)) errors.push("React documentation source does not cover the complete package export map");
-if (reactPublicApi.moduleExports.length !== 538 || reactPublicApi.typeExports.length !== 22 || reactPublicApi.packageEntrypoints.length !== 30 || reactPublicApi.hooks.length !== 7 || reactPublicApi.componentProps.length !== 10 || reactPublicApi.themeAxes.length !== 10) errors.push("React public API inventory is incomplete");
+if (reactPublicApi.moduleExports.length !== 546 || reactPublicApi.typeExports.length !== 22 || reactPublicApi.packageEntrypoints.length !== 30 || reactPublicApi.hooks.length !== 8 || reactPublicApi.componentProps.length !== 10 || reactPublicApi.themeAxes.length !== 10) errors.push("React public API inventory is incomplete");
 if (reactPublicApi.componentExports.length !== new Set(reactPublicApi.componentExports).size || reactCatalog.components.length !== new Set(reactCatalog.components.map(({ name }) => name)).size) errors.push("React public component identifiers are not unique");
 for (const marker of [...reactPublicApi.hooks, ...reactPublicApi.componentProps, ...reactPublicApi.componentHandleMembers, ...reactPublicApi.themeAxes, ...reactPublicApi.typeExports, reactPublicApi.provider]) {
   if (!docs.includes(marker)) errors.push(`docs.html missing React public API marker: ${marker}`);
@@ -274,24 +275,24 @@ for (const marker of reactPublicApi.moduleExports.filter((name) => !reactPublicA
 for (const entrypoint of reactPublicApi.packageEntrypoints) {
   if (!docs.includes(entrypoint)) errors.push(`docs.html missing React package entrypoint: ${entrypoint}`);
 }
-for (const marker of ["2.0.0 Stable", "全部 506 个 React 组件", "538 个根运行时导出", "22 个 TypeScript 类型导出", "30 个公共包入口", "28 个组件 CSS 包", "326,194 B raw", "50,172 B gzip", "26,465 B Brotli", "2,685 B", "87", "98", "272,260 B packed", "2,559,274 B unpacked", "SSR", "Hydration", "StrictMode", "npm run release:verify"]) {
-  if (!docsText.includes(marker)) errors.push(`docs.html missing React 2.0.0 documentation marker: ${marker}`);
+for (const marker of ["2.1.0 Stable", "全部 506 个 React 组件", `${reactPublicApi.moduleExports.length} 个根运行时导出`, "22 个 TypeScript 类型导出", "30 个公共包入口", "28 个组件 CSS 包", `${bytes(reactPerformance.metrics.raw)} B raw`, `${bytes(reactPerformance.metrics.gzip)} B gzip`, `${bytes(reactPerformance.metrics.brotli)} B Brotli`, "2,685 B", "91", "273,601 B packed", "2,563,603 B unpacked", "SSR", "Hydration", "StrictMode", "npm run release:verify"]) {
+  if (!docsText.includes(marker)) errors.push(`docs.html missing React 2.1.0 documentation marker: ${marker}`);
 }
-for (const marker of ["Official React bindings", "@gardenerim/react", "506 个 CSS", "66 种 DOM", "538 runtime exports", "30 entrypoints", "28 CSS packs", "React 18.3–19.x", "./docs.html#react"]) {
+for (const marker of ["Official React bindings", "@gardenerim/react", "506 个 CSS", "72 种 DOM", `${reactPublicApi.moduleExports.length} runtime exports`, "30 entrypoints", "28 CSS packs", "React 18.3–19.x", "./docs.html#react"]) {
   if (!homePage.includes(marker)) errors.push(`index.html missing React project introduction marker: ${marker}`);
 }
-for (const marker of ["@gardenerim/react 2.0.0", "506 个 React 组件", "538 个根运行时导出", "22 个类型导出", "30 个公共包入口", "React 公共 API", "React 组件目录"]) {
+for (const marker of ["@gardenerim/react 2.1.0", "506 个 React 组件", `${reactPublicApi.moduleExports.length} 个根运行时导出`, "22 个类型导出", "30 个公共包入口", "React 公共 API", "React 组件目录"]) {
   if (!homeReadme.includes(marker)) errors.push(`README.md missing React documentation inventory marker: ${marker}`);
 }
-if (reactPerformance.status !== "passed" || reactPerformance.metrics.raw !== 326194 || reactPerformance.metrics.gzip !== 50172 || reactPerformance.metrics.brotli !== 26465) errors.push("React documented performance budget is stale or failing");
+if (reactPerformance.status !== "passed" || Object.values(reactPerformance.metrics).some((value) => !Number.isInteger(value) || value <= 0)) errors.push("React documented performance budget is stale or failing");
 
 if (!docs.includes('id="angular"') || !docs.includes('id="angular-component-catalog"')) errors.push("docs.html missing the complete AngularJS project documentation and catalog host");
 if (!siteJs.includes("setupAngularCatalog") || !siteJs.includes("packages/angularjs/metadata/public-api.json") || !siteJs.includes("packages/angularjs/dist/catalog.json") || !siteJs.includes('packageName: "@gardenerim/angularjs"')) errors.push("site.js does not hydrate the AngularJS component catalog from canonical metadata");
-if (angularPublicApi.version !== "2.0.0" || angularPublicApi.status !== "stable" || angularPublicApi.cssVersion !== packageManifest.version || angularPublicApi.angularjs !== angularPackageManifest.peerDependencies.angular) errors.push("AngularJS 2.0.0 stable metadata is missing or does not match Gardenerim CSS/package support");
+if (angularPublicApi.version !== "2.1.0" || angularPublicApi.status !== "stable" || angularPublicApi.cssVersion !== packageManifest.version || angularPublicApi.angularjs !== angularPackageManifest.peerDependencies.angular) errors.push("AngularJS 2.1.0 stable metadata is missing or does not match Gardenerim CSS/package support");
 if (angularCatalog.version !== angularPublicApi.version || angularCatalog.components.length !== angularPublicApi.components || angularPublicApi.componentExports.length !== angularPublicApi.components) errors.push("AngularJS component counts are not synchronized");
 if (angularCompatibility.baseline.angularjs !== angularPublicApi.angularjs || angularCompatibility.baseline.componentNames.length !== angularCatalog.components.length || JSON.stringify(angularCompatibility.baseline.componentNames) !== JSON.stringify(angularCatalog.components.map(({ name }) => name))) errors.push("AngularJS compatibility baseline does not cover the supported version and every catalog component in order");
 if (JSON.stringify(angularPublicApi.packageEntrypoints) !== JSON.stringify(Object.keys(angularPackageManifest.exports)) || JSON.stringify(angularCompatibility.baseline.packageEntrypoints) !== JSON.stringify(angularPublicApi.packageEntrypoints)) errors.push("AngularJS documentation source does not cover the complete package export map");
-if (angularPublicApi.moduleExports.length !== 535 || angularPublicApi.typeExports.length !== 24 || angularPublicApi.packageEntrypoints.length !== 30 || angularPublicApi.services.length !== 3 || angularPublicApi.directives.length !== 2 || angularPublicApi.componentAttributes.length !== 8 || angularPublicApi.componentHandleMembers.length !== 4 || angularPublicApi.themeAxes.length !== 10) errors.push("AngularJS public API inventory is incomplete");
+if (angularPublicApi.moduleExports.length !== 542 || angularPublicApi.typeExports.length !== 24 || angularPublicApi.packageEntrypoints.length !== 30 || angularPublicApi.services.length !== 3 || angularPublicApi.directives.length !== 2 || angularPublicApi.componentAttributes.length !== 8 || angularPublicApi.componentHandleMembers.length !== 4 || angularPublicApi.themeAxes.length !== 10) errors.push("AngularJS public API inventory is incomplete");
 if (angularPublicApi.componentExports.length !== new Set(angularPublicApi.componentExports).size || angularCatalog.components.length !== new Set(angularCatalog.components.map(({ name }) => name)).size) errors.push("AngularJS public component identifiers are not unique");
 for (const marker of [...angularPublicApi.services, ...angularPublicApi.directives, ...angularPublicApi.componentAttributes, ...angularPublicApi.componentHandleMembers, ...angularPublicApi.themeAxes, ...angularPublicApi.typeExports, angularPublicApi.moduleFactory]) {
   if (!docs.includes(marker)) errors.push(`docs.html missing AngularJS public API marker: ${marker}`);
@@ -302,38 +303,38 @@ for (const marker of angularPublicApi.moduleExports.filter((name) => !angularPub
 for (const entrypoint of angularPublicApi.packageEntrypoints) {
   if (!docs.includes(entrypoint)) errors.push(`docs.html missing AngularJS package entrypoint: ${entrypoint}`);
 }
-for (const marker of ["2.0.0 Stable", "全部 506 个 AngularJS 组件", "535 个根运行时导出", "24 个 TypeScript 类型导出", "30 个公共包入口", "28 个组件 CSS 包代理", "404,142 B raw", "59,508 B gzip", "29,747 B Brotli", "4,519 B", "87 个文件", "95 个文件", "334,625 B packed", "3,057,003 B unpacked", "AngularJS 1.8.2 / 1.8.3", "17 项运行时/契约测试", "20 项五引擎与移动端浏览器集成测试", "Axe WCAG A/AA", "peer dependency", "AngularJS 安全基线", "npm run release:verify"]) {
-  if (!docsText.includes(marker)) errors.push(`docs.html missing AngularJS 2.0.0 documentation marker: ${marker}`);
+for (const marker of ["2.1.0 Stable", "全部 506 个 AngularJS 组件", `${angularPublicApi.moduleExports.length} 个根运行时导出`, "24 个 TypeScript 类型导出", "30 个公共包入口", "28 个组件 CSS 包代理", `${bytes(angularPerformance.metrics.raw)} B raw`, `${bytes(angularPerformance.metrics.gzip)} B gzip`, `${bytes(angularPerformance.metrics.brotli)} B Brotli`, "4,519 B", "87 个文件", "99 个文件", "335,530 B packed", "3,059,384 B unpacked", "AngularJS 1.8.2 / 1.8.3", "17 项运行时/契约测试", "20 项五引擎与移动端浏览器集成测试", "Axe WCAG A/AA", "peer dependency", "AngularJS 安全基线", "npm run release:verify"]) {
+  if (!docsText.includes(marker)) errors.push(`docs.html missing AngularJS 2.1.0 documentation marker: ${marker}`);
 }
-for (const marker of ["Official AngularJS bindings", "@gardenerim/angularjs", "506 个 CSS", "66 种 DOM", "535 runtime exports", "30 entrypoints", "28 CSS packs", "AngularJS 1.8.2–1.8.3", "./docs.html#angular"]) {
+for (const marker of ["Official AngularJS bindings", "@gardenerim/angularjs", "506 个 CSS", "72 种 DOM", `${angularPublicApi.moduleExports.length} runtime exports`, "30 entrypoints", "28 CSS packs", "AngularJS 1.8.2–1.8.3", "./docs.html#angular"]) {
   if (!homePage.includes(marker)) errors.push(`index.html missing AngularJS project introduction marker: ${marker}`);
 }
-for (const marker of ["@gardenerim/angularjs 2.0.0", "506 个 AngularJS 组件", "535 个根运行时导出", "24 个类型导出", "30 个公共包入口", "AngularJS 公共 API", "AngularJS 组件目录", "EOL 安全基线"]) {
+for (const marker of ["@gardenerim/angularjs 2.1.0", "506 个 AngularJS 组件", `${angularPublicApi.moduleExports.length} 个根运行时导出`, "24 个类型导出", "30 个公共包入口", "AngularJS 公共 API", "AngularJS 组件目录", "EOL 安全基线"]) {
   if (!homeReadme.includes(marker)) errors.push(`README.md missing AngularJS documentation inventory marker: ${marker}`);
 }
-if (angularPerformance.status !== "passed" || angularPerformance.metrics.raw !== 404142 || angularPerformance.metrics.gzip !== 59508 || angularPerformance.metrics.brotli !== 29747) errors.push("AngularJS documented performance budget is stale or failing");
+if (angularPerformance.status !== "passed" || Object.values(angularPerformance.metrics).some((value) => !Number.isInteger(value) || value <= 0)) errors.push("AngularJS documented performance budget is stale or failing");
 
 if (!docs.includes('id="blazor"') || !docs.includes('id="blazor-component-catalog"')) errors.push("docs.html missing the complete Blazor project documentation and catalog host");
 if (!siteJs.includes("setupBlazorCatalog") || !siteJs.includes("packages/blazor/metadata/public-api.json") || !siteJs.includes("packages/blazor/metadata/components.json") || !siteJs.includes('packageName: "Gardenerim.Blazor"')) errors.push("site.js does not hydrate the Blazor component catalog from canonical metadata");
-if (blazorPublicApi.version !== "2.0.0" || blazorPublicApi.status !== "stable" || blazorPublicApi.cssVersion !== packageManifest.version || blazorPublicApi.targetFramework !== "net10.0" || JSON.stringify(blazorPublicApi.compatibleFrameworks) !== JSON.stringify(["net10.0", "net11.0"])) errors.push("Blazor 2.0.0 stable metadata is missing or does not match Gardenerim CSS/.NET support");
+if (blazorPublicApi.version !== "2.1.0" || blazorPublicApi.status !== "stable" || blazorPublicApi.cssVersion !== packageManifest.version || blazorPublicApi.targetFramework !== "net10.0" || JSON.stringify(blazorPublicApi.compatibleFrameworks) !== JSON.stringify(["net10.0", "net11.0"])) errors.push("Blazor 2.1.0 stable metadata is missing or does not match Gardenerim CSS/.NET support");
 if (blazorCatalog.version !== blazorPublicApi.version || blazorCatalog.components.length !== blazorPublicApi.components || blazorPublicApi.componentTypes.length !== blazorPublicApi.components || JSON.stringify(blazorPublicApi.componentNames) !== JSON.stringify(blazorCatalog.components.map(({ name }) => name)) || JSON.stringify(blazorPublicApi.componentTypes) !== JSON.stringify(blazorCatalog.components.map(({ componentType }) => componentType))) errors.push("Blazor component names, types and counts are not synchronized");
 if (JSON.stringify(blazorCompatibility.baseline.componentNames) !== JSON.stringify(blazorPublicApi.componentNames) || JSON.stringify(blazorCompatibility.baseline.componentTypes) !== JSON.stringify(blazorPublicApi.componentTypes) || JSON.stringify(blazorCompatibility.baseline.staticAssets) !== JSON.stringify(blazorPublicApi.staticAssets)) errors.push("Blazor compatibility baseline does not cover all components and static assets");
-if (blazorPublicApi.behaviors !== 66 || blazorPublicApi.behaviorNames.length !== 66 || blazorPublicApi.behaviorContracts.length !== 66 || blazorPublicApi.events !== 75 || blazorPublicApi.eventNames.length !== 75 || blazorPublicApi.eventContracts.length !== 75 || blazorPublicApi.guardEvents.length !== 7 || blazorPublicApi.frameworkTypes.length !== 28 || blazorPublicApi.services.length !== 5 || blazorPublicApi.componentParameters.length !== 20 || blazorPublicApi.componentHandleMembers.length !== 6 || blazorPublicApi.themeAxes.length !== 10 || blazorPublicApi.staticAssets.length !== 44) errors.push("Blazor public API inventory is incomplete");
+if (blazorPublicApi.behaviors !== 72 || blazorPublicApi.behaviorNames.length !== 72 || blazorPublicApi.behaviorContracts.length !== 72 || blazorPublicApi.events !== 79 || blazorPublicApi.eventNames.length !== 79 || blazorPublicApi.eventContracts.length !== 79 || blazorPublicApi.guardEvents.length !== 7 || blazorPublicApi.frameworkTypes.length !== 31 || blazorPublicApi.services.length !== 6 || blazorPublicApi.componentParameters.length !== 20 || blazorPublicApi.componentHandleMembers.length !== 6 || blazorPublicApi.themeAxes.length !== 10 || blazorPublicApi.staticAssets.length !== 45) errors.push("Blazor public API inventory is incomplete");
 if (blazorPublicApi.componentTypes.length !== new Set(blazorPublicApi.componentTypes).size || blazorCatalog.components.length !== new Set(blazorCatalog.components.map(({ name }) => name)).size) errors.push("Blazor public component identifiers are not unique");
 for (const marker of [...blazorPublicApi.frameworkTypes, ...blazorPublicApi.services, ...blazorPublicApi.componentParameters, ...blazorPublicApi.componentHandleMembers, ...blazorPublicApi.themeAxes]) {
   const encoded = marker.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
   if (!docs.includes(marker) && !docs.includes(encoded)) errors.push(`docs.html missing Blazor public API marker: ${marker}`);
 }
-for (const marker of ["2.0.0 Stable", "全部 506 个 Blazor 组件", "66 个行为", "75 个事件", "28 个框架类型", "20 个参数", "6 个实例成员", "5 个作用域服务", "44 个静态资源", "42 个颜色主题", "net10.0", "net11.0", "Razor Class Library", "Interactive Server", "Interactive WebAssembly", "GardenerimField&lt;TValue&gt;", "GardenerimRuntimeCatalog", "7 个必须", "Source Map", "344,576 B", "7,701,545 B", "139,263 B", "29,289 B", "2,055 B", "1.22 MiB", "6,000,000 B", "Chromium、Firefox、WebKit", "Axe WCAG A/AA", "npm run release:verify", "npm run test:net11"]) {
-  if (!docsText.includes(marker)) errors.push(`docs.html missing Blazor 2.0.0 documentation marker: ${marker}`);
+for (const marker of ["2.1.0 Stable", "全部 506 个 Blazor 组件", "72 个行为", "79 个事件", `${blazorPublicApi.frameworkTypes.length} 个框架类型`, "20 个参数", "6 个实例成员", `${blazorPublicApi.services.length} 个作用域服务`, `${blazorPublicApi.staticAssets.length} 个静态资源`, "42 个颜色主题", "net10.0", "net11.0", "Razor Class Library", "Interactive Server", "Interactive WebAssembly", "GardenerimField&lt;TValue&gt;", "GardenerimRuntimeCatalog", "7 个必须", "Source Map", `${bytes(blazorPerformance.assembly.bytes)} B`, `${bytes(blazorPerformance.staticAssets.bytes)} B`, `${bytes(blazorPerformance.entrypoints.css.gzipBytes)} B`, `${bytes(blazorPerformance.entrypoints.runtime.gzipBytes)} B`, `${bytes(blazorPerformance.entrypoints.blazor.gzipBytes)} B`, "1.27 MiB", `${bytes(blazorPerformance.package.budget)} B`, "Chromium、Firefox、WebKit", "Axe WCAG A/AA", "npm run release:verify", "npm run test:net11"]) {
+  if (!docsText.includes(marker)) errors.push(`docs.html missing Blazor 2.1.0 documentation marker: ${marker}`);
 }
-for (const marker of ["Official Blazor RCL", "Gardenerim.Blazor", "506 个 CSS", "66 种 DOM", "75 种事件", "506 components", "66 behaviors", "75 events", "44 static assets", ".NET 10 / 11", "./docs.html#blazor"]) {
+for (const marker of ["Official Blazor RCL", "Gardenerim.Blazor", "506 个 CSS", "72 种 DOM", "79 种事件", "506 components", "72 behaviors", "79 events", `${blazorPublicApi.staticAssets.length} static assets`, ".NET 10 / 11", "./docs.html#blazor"]) {
   if (!homePage.includes(marker)) errors.push(`index.html missing Blazor project introduction marker: ${marker}`);
 }
-for (const marker of ["Gardenerim.Blazor 2.0.0", "506 个 Razor 组件目录", "66 个行为", "75 个事件", "28 个框架类型", "20 个共同参数", "6 个组件句柄成员", "5 个服务", "44 个静态资源", "Blazor 公共 API"]) {
+for (const marker of ["Gardenerim.Blazor 2.1.0", "506 个 Razor 组件目录", "72 个 DOM 行为", "79 个运行时事件", `${blazorPublicApi.frameworkTypes.length} 个框架类型`, "20 个共同参数", "6 个组件句柄成员", `${blazorPublicApi.services.length} 个服务`, `${blazorPublicApi.staticAssets.length} 个静态资源`, "Blazor 公共 API"]) {
   if (!homeReadme.includes(marker)) errors.push(`README.md missing Blazor documentation inventory marker: ${marker}`);
 }
-if (blazorPerformance.version !== "2.0.0" || blazorPerformance.assembly.bytes !== 344576 || blazorPerformance.staticAssets.bytes !== 7701545 || blazorPerformance.staticAssets.files !== 44 || blazorPerformance.entrypoints.css.gzipBytes !== 139263 || blazorPerformance.entrypoints.runtime.gzipBytes !== 29289 || blazorPerformance.entrypoints.blazor.gzipBytes !== 2055 || !blazorPerformance.package || blazorPerformance.package.budget !== 6000000 || blazorPerformance.package.bytes <= 0 || blazorPerformance.package.bytes > blazorPerformance.package.budget) errors.push("Blazor documented performance report is stale or failing");
+if (blazorPerformance.version !== "2.1.0" || !blazorPerformance.package || blazorPerformance.package.budget !== 6000000 || blazorPerformance.package.bytes <= 0 || blazorPerformance.package.bytes > blazorPerformance.package.budget || blazorPerformance.staticAssets.files !== blazorPublicApi.staticAssets.length) errors.push("Blazor documented performance report is stale or failing");
 
 for (const marker of ["initI18n", "setLocale", "translateElement", "translateTemplate", "formatNumber", "gardener.locale", "data-site-language"]) {
   if (!siteJs.includes(marker) && !(await readFile(resolve(home, "assets/i18n.js"), "utf8")).includes(marker)) errors.push(`Website multilingual runtime missing marker: ${marker}`);

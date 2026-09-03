@@ -75,6 +75,13 @@ test("mobile controls expose touch-sized targets", async ({ page }) => {
       44,
     );
   }
+
+  const compactActions = page.locator(".g-btn-sm:visible");
+  for (let index = 0; index < await compactActions.count(); index += 1) {
+    const box = await compactActions.nth(index).boundingBox();
+    expect(box, `compact touch action ${index} must have a layout box`).not.toBeNull();
+    expect(box.height, `compact touch action ${index} height`).toBeGreaterThanOrEqual(36);
+  }
 });
 
 test("mobile sheet opens, traps an operable surface, closes, and restores focus", async ({

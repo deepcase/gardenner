@@ -9,12 +9,12 @@ if (!services.Any(descriptor => descriptor.ServiceType == typeof(GardenerimRunti
 _ = new GButton();
 _ = new GardenerimField<string>();
 if (GardenerimCatalog.Components.Count != 506) return 1;
-if (GardenerimRuntimeCatalog.Behaviors.Count != 66) return 1;
-if (GardenerimRuntimeCatalog.Events.Count != 75) return 1;
+if (GardenerimRuntimeCatalog.Behaviors.Count != 72) return 1;
+if (GardenerimRuntimeCatalog.Events.Count != 79) return 1;
 if (GardenerimEvents.Guards.Count != 7) return 1;
 if (!GardenerimRuntimeCatalog.Events.Any(item => item.Name == GardenerimEvents.Selectionchange)) return 1;
 _ = new GardenerimEventArgs(new Dictionary<string, object?> { ["value"] = "verified" }, "selectionchange", false);
 var packageVersion = typeof(GButton).Assembly.GetName().Version?.ToString();
-if (packageVersion != "2.0.0.0") return 1;
-Console.WriteLine("Gardenerim.Blazor 2.0.0 net11.0 NuGet consumer passed: 506 components, 66 behaviors, 75 events.");
+if (packageVersion != "2.1.0.0") return 1;
+Console.WriteLine("Gardenerim.Blazor 2.1.0 net11.0 NuGet consumer passed: 506 components, 72 behaviors, 79 events.");
 return 0;
