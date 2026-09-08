@@ -28,6 +28,8 @@ useGardenerimEvent(element, "open", (event) => event.detail);
 useGardenerimLocale().configure({ locale: ["fr", "en"] });
 useGardenerimTheme({ theme: "ocean", mode: "system" }, element);
 useGardenerimToast().show({ message: "Saved", tone: "success" });
+useGardenerimToast().config({ maxCount: 3, position: "top" });
+useGardenerimToast().clear("bottom");
 const definition: GardenerimComponentDefinition = componentByName.get("dialog")!;
 h(GardenerimComponent, { definition });
 h(GDialog, { config: { startOpen: true } });

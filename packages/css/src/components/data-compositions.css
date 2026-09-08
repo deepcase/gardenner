@@ -13,15 +13,15 @@
   /* Table family */
   .g-responsive-table { position: relative; max-width: 100%; overflow: auto; overscroll-behavior-inline: contain; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); -webkit-overflow-scrolling: touch; }
   .g-responsive-table > .g-table { min-width: var(--g-table-min-width, 42rem); }
-  :is(.g-responsive-table, .g-table-wrap).is-sticky-columns > .g-table > :is(thead, tbody, tfoot) > tr > :first-child,
-  :is(.g-responsive-table, .g-table-wrap).is-sticky-columns > table > :is(thead, tbody, tfoot) > tr > :first-child { position: sticky; z-index: 1; inset-inline-start: 0; background: var(--g-table-row-background, var(--g-color-surface)); background-clip: padding-box; }
-  :is(.g-responsive-table, .g-table-wrap).is-sticky-columns > .g-table > :is(thead, tbody, tfoot) > tr > :last-child,
-  :is(.g-responsive-table, .g-table-wrap).is-sticky-columns > table > :is(thead, tbody, tfoot) > tr > :last-child { position: sticky; z-index: 1; inset-inline-end: 0; background: var(--g-table-row-background, var(--g-color-surface)); background-clip: padding-box; }
-  :is(.g-responsive-table, .g-table-wrap).is-sticky-columns > :is(.g-table, table) > thead > tr > :is(:first-child, :last-child) { z-index: 2; background: var(--g-color-surface-subtle); }
-  :is(.g-responsive-table, .g-table-wrap).is-sticky-columns.can-scroll-start > :is(.g-table, table) > :is(thead, tbody, tfoot) > tr > :first-child { box-shadow: 0.45rem 0 0.55rem -0.55rem rgb(15 23 42 / .32); }
-  :is(.g-responsive-table, .g-table-wrap).is-sticky-columns.can-scroll-end > :is(.g-table, table) > :is(thead, tbody, tfoot) > tr > :last-child { box-shadow: -0.45rem 0 0.55rem -0.55rem rgb(15 23 42 / .32); }
-  [dir="rtl"] :is(.g-responsive-table, .g-table-wrap).is-sticky-columns.can-scroll-start > :is(.g-table, table) > :is(thead, tbody, tfoot) > tr > :first-child { box-shadow: -0.45rem 0 0.55rem -0.55rem rgb(15 23 42 / .32); }
-  [dir="rtl"] :is(.g-responsive-table, .g-table-wrap).is-sticky-columns.can-scroll-end > :is(.g-table, table) > :is(thead, tbody, tfoot) > tr > :last-child { box-shadow: 0.45rem 0 0.55rem -0.55rem rgb(15 23 42 / .32); }
+  :is(.g-responsive-table.is-sticky-columns,.g-table-wrap.is-sticky-columns,.g-responsive-table-sticky-columns) > .g-table > :is(thead, tbody, tfoot) > tr > :first-child,
+  :is(.g-responsive-table.is-sticky-columns,.g-table-wrap.is-sticky-columns,.g-responsive-table-sticky-columns) > table > :is(thead, tbody, tfoot) > tr > :first-child { position: sticky; z-index: 1; inset-inline-start: 0; background: var(--g-table-row-background, var(--g-color-surface)); background-clip: padding-box; }
+  :is(.g-responsive-table.is-sticky-columns,.g-table-wrap.is-sticky-columns,.g-responsive-table-sticky-columns) > .g-table > :is(thead, tbody, tfoot) > tr > :last-child,
+  :is(.g-responsive-table.is-sticky-columns,.g-table-wrap.is-sticky-columns,.g-responsive-table-sticky-columns) > table > :is(thead, tbody, tfoot) > tr > :last-child { position: sticky; z-index: 1; inset-inline-end: 0; background: var(--g-table-row-background, var(--g-color-surface)); background-clip: padding-box; }
+  :is(.g-responsive-table.is-sticky-columns,.g-table-wrap.is-sticky-columns,.g-responsive-table-sticky-columns) > :is(.g-table, table) > thead > tr > :is(:first-child, :last-child) { z-index: 2; background: var(--g-color-surface-subtle); }
+  :is(.g-responsive-table.is-sticky-columns,.g-table-wrap.is-sticky-columns,.g-responsive-table-sticky-columns).can-scroll-start > :is(.g-table, table) > :is(thead, tbody, tfoot) > tr > :first-child { box-shadow: 0.45rem 0 0.55rem -0.55rem rgb(15 23 42 / .32); }
+  :is(.g-responsive-table.is-sticky-columns,.g-table-wrap.is-sticky-columns,.g-responsive-table-sticky-columns).can-scroll-end > :is(.g-table, table) > :is(thead, tbody, tfoot) > tr > :last-child { box-shadow: -0.45rem 0 0.55rem -0.55rem rgb(15 23 42 / .32); }
+  [dir="rtl"] :is(.g-responsive-table.is-sticky-columns,.g-table-wrap.is-sticky-columns,.g-responsive-table-sticky-columns).can-scroll-start > :is(.g-table, table) > :is(thead, tbody, tfoot) > tr > :first-child { box-shadow: -0.45rem 0 0.55rem -0.55rem rgb(15 23 42 / .32); }
+  [dir="rtl"] :is(.g-responsive-table.is-sticky-columns,.g-table-wrap.is-sticky-columns,.g-responsive-table-sticky-columns).can-scroll-end > :is(.g-table, table) > :is(thead, tbody, tfoot) > tr > :last-child { box-shadow: 0.45rem 0 0.55rem -0.55rem rgb(15 23 42 / .32); }
   .g-table-caption { padding: var(--g-space-3) var(--g-space-4); color: var(--g-color-text-muted); font-size: var(--g-font-size-sm); text-align: start; }
   .g-table-row:is(.is-selected, [aria-selected="true"]) { --g-table-row-background: var(--g-color-primary-soft); background: var(--g-table-row-background); }
   .g-table-row.is-disabled { opacity: .55; }
@@ -148,6 +148,7 @@
   .g-column-chooser { display: grid; gap: var(--g-space-1); min-width: 15rem; max-height: 22rem; overflow: auto; padding: var(--g-space-2); }
   .g-column-chooser-item { display: flex; min-height: var(--g-control-height-sm); align-items: center; gap: var(--g-space-2); padding: var(--g-space-1) var(--g-space-2); border-radius: var(--g-radius-md); }
   .g-column-chooser-item:hover { background: var(--g-color-surface-subtle); }
+  .g-column-chooser-item:is([aria-checked="true"], [aria-selected="true"]), [data-g-column-toggle][aria-pressed="true"] { background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
 
   .g-saved-views { display: flex; flex-wrap: wrap; gap: var(--g-space-2); }
   .g-saved-view { display: inline-flex; min-height: var(--g-control-height-sm); align-items: center; gap: var(--g-space-2); padding-inline: var(--g-space-3); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: var(--g-color-text-muted); cursor: pointer; }
@@ -170,6 +171,7 @@
 
   .g-selection-summary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--g-component-gap); min-height: var(--g-control-height-lg); padding: var(--g-space-2) var(--g-space-3); border: 1px solid var(--g-color-border); border-inline-start: 3px solid var(--g-color-primary); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: var(--g-color-text); }
   .g-selection-summary[hidden] { display: none; }
+  [data-g-row-select] :where(.g-table-row, [role="row"])[aria-selected="true"] { background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
   .g-selection-summary-count { font-weight: 650; }
   .g-selection-summary-actions { display: flex; flex-wrap: wrap; gap: var(--g-space-2); }
 
@@ -199,15 +201,15 @@
   .g-data-container { container-type: inline-size; }
 
   @media (max-width: 639.98px) {
-    .g-responsive-table.is-stacked { overflow: visible; border: 0; }
-    .g-responsive-table.is-stacked > .g-table { min-width: 0; }
-    .g-responsive-table.is-stacked .g-table, .g-responsive-table.is-stacked tbody, .g-responsive-table.is-stacked tr, .g-responsive-table.is-stacked td { display: block; width: 100%; }
-    .g-responsive-table.is-stacked .g-table-caption { display: block; width: 100%; }
-    .g-responsive-table.is-stacked thead { position: absolute; overflow: hidden; inline-size: 1px; block-size: 1px; clip-path: inset(50%); white-space: nowrap; }
-    .g-responsive-table.is-stacked tr { margin-block-end: var(--g-space-3); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
-    .g-responsive-table.is-stacked td { display: grid; grid-template-columns: minmax(6rem, .4fr) minmax(0, 1fr); gap: var(--g-space-3); padding: var(--g-space-2) var(--g-space-3); text-align: start !important; }
-    .g-responsive-table.is-stacked :is(th, td) { position: static !important; box-shadow: none !important; }
-    .g-responsive-table.is-stacked td::before { content: attr(data-g-label); color: var(--g-color-text-muted); font-size: var(--g-font-size-xs); font-weight: 650; }
+    :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) { overflow: visible; border: 0; }
+    :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) > .g-table { min-width: 0; }
+    :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) .g-table, :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) tbody, :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) tr, :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) td { display: block; width: 100%; }
+    :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) .g-table-caption { display: block; width: 100%; }
+    :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) thead { position: absolute; overflow: hidden; inline-size: 1px; block-size: 1px; clip-path: inset(50%); white-space: nowrap; }
+    :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) tr { margin-block-end: var(--g-space-3); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
+    :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) td { display: grid; grid-template-columns: minmax(6rem, .4fr) minmax(0, 1fr); gap: var(--g-space-3); padding: var(--g-space-2) var(--g-space-3); text-align: start !important; }
+    :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) :is(th, td) { position: static !important; box-shadow: none !important; }
+    :is(.g-responsive-table.is-stacked,.g-responsive-table-stacked) td::before { content: attr(data-g-label); color: var(--g-color-text-muted); font-size: var(--g-font-size-xs); font-weight: 650; }
     .g-key-value-row { grid-template-columns: 1fr auto; }
     .g-key-value-value { grid-column: 1 / -1; }
     .g-record-detail-header, .g-data-toolbar { align-items: stretch; flex-direction: column; }

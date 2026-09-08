@@ -1,0 +1,10 @@
+@page "/popover"
+@using System.Text.Json
+<PageTitle>GPopover</PageTitle>
+<section style="max-width:800px;margin:24px auto;padding:16px"><h1>GPopover</h1><p>十二方向、受控状态和原位编辑。</p><label>位置 <select aria-label="位置" @bind="Position">@foreach(var p in Positions){<option>@p</option>}</select></label><label><input type="checkbox" @bind="Arrow" />箭头</label><div style="padding:60px 20px"><GPopover Config="Config" EventNames="@(new[]{"change"})" OnEvent="Changed"><button type="button" class="g-btn" data-g-popover-trigger>项目详情</button><div data-g-popover-content hidden><h2 class="g-popover-title">项目设置</h2><div class="g-popover-content"><label>备注 <input aria-label="项目备注" @bind="Note" /></label></div><div class="g-popover-footer"><button type="button" class="g-btn" data-g-close>保存备注</button></div></div></GPopover></div><output aria-live="polite">@(Visible?"已打开":"已关闭") · @Note</output></section>
+@code {
+ private string Position="top",Note="设计评审"; private bool Arrow=true,Visible=false;
+ private string[] Positions=["top","tl","tr","bottom","bl","br","left","lt","lb","right","rt","rb"];
+ private IReadOnlyDictionary<string,object?> Config=>new Dictionary<string,object?>{["overlay-options"]=JsonSerializer.Serialize(new{position=Position,trigger="click",showArrow=Arrow,popupVisible=Visible,width=300})};
+ private void Changed(Gardenerim.Blazor.Models.GardenerimEventArgs e){if(e.Detail is IReadOnlyDictionary<string,object?> detail && detail.TryGetValue("value",out var value) && value is bool visible)Visible=visible;}
+}

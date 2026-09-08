@@ -1,0 +1,168 @@
+{
+  "scope": "solution",
+  "components": 32,
+  "variants": 224,
+  "libraryComponents": 559,
+  "behaviors": 94,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "runtimeTests": 569,
+  "solutionTests": 15,
+  "schemaTests": 48,
+  "htmlTests": 43,
+  "buildTests": 11,
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 140
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 89
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 77
+        }
+      ]
+    }
+  ],
+  "browsers": [
+    {
+      "engine": "chromium",
+      "layouts": 448,
+      "sections": 174,
+      "states": 3,
+      "interactions": 3,
+      "axe": 32,
+      "failures": []
+    },
+    {
+      "engine": "firefox",
+      "layouts": 448,
+      "sections": 174,
+      "states": 3,
+      "interactions": 3,
+      "axe": 0,
+      "failures": []
+    },
+    {
+      "engine": "webkit",
+      "layouts": 448,
+      "sections": 174,
+      "states": 3,
+      "interactions": 3,
+      "axe": 0,
+      "failures": []
+    }
+  ],
+  "staticBlazor": {
+    "staticPages": 32,
+    "staticVariants": 224,
+    "actions": 41,
+    "blazorPages": 32,
+    "blazorVariants": 224,
+    "controlled": 32,
+    "passed": true
+  },
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "rootCheck": "passed",
+  "demoBuild": "passed",
+  "blazorBuild": "passed",
+  "website": {
+    "locales": 7,
+    "pages": 14,
+    "messagesPerLocale": 3307
+  },
+  "limitations": [
+    "示例服务为本地模拟；真实权限、持久化和业务系统由宿主接入。"
+  ],
+  "passed": true
+}

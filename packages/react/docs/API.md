@@ -10,7 +10,7 @@ React 版本范围为 `>=18.3.0 <20.0.0`。加载 `@gardenerim/react/style.css` 
 
 ## 组件公共属性
 
-全部 506 个 `G*` 组件都支持：
+全部 510 个 `G*` 组件都支持：
 
 - `as`：替换根元素或 React 组件。
 - `variant`：字符串或数组，转换为组件变体类。
@@ -78,4 +78,30 @@ import "@gardenerim/react/component-css/forms.css";
 - `@gardenerim/react/catalog.json`
 - `@gardenerim/react/performance`
 
-全部 506 个组件见 [components.md](./components.md)。
+全部 510 个组件见 [components.md](./components.md)。
+
+## 参数化导航（41 个组件）
+
+`navigation` / `items`（AngularJS 为 `gardenerNavigation` / `gardener-navigation`）接入共享 CSS 导航控制器。`GardenerimNavigationItem` 描述条目，`GardenerimNavigationOptions` 描述外观和行为，`GardenerimNavigationChange` 描述变更，`GardenerimNavigationInstance` 提供更新和销毁。受控值使用原有框架绑定，未提供数据参数时保持原插槽用法。
+
+完整参数、事件、五框架示例及生命周期边界见 [导航说明](../../../docs/navigation/README.md)。
+
+## GTable 数据表格
+
+`table` 配置整体表格，`columns` 与 `data` 可单独传入 Vue / React。AngularJS 使用 `gardenerTable`（`gardener-table`）和 `gardenerOnChange`（`gardener-on-change`，局部值 `$value` 是完整变更详情）。类型导出：`GardenerimTableOptions`、`GardenerimTableColumn`、`GardenerimTableInstance`、`GardenerimTableState`、`GardenerimTableChange`、`GardenerimTableKey`。
+
+支持四档尺寸、排序筛选、选择、分页、固定/分组表头、树形与详情展开、合并、汇总、编辑、调整列宽、行排序与固定行高虚拟滚动。保留静态表格。完整选项和平台边界见 [GTable 文档](../../../docs/table.md)。
+
+## GTag
+
+使用共享 `tag-options`，支持受控 checked / visible、可取消的选择与关闭、4 档尺寸、13 种预设色、自定义颜色及原生模板。完整参数及事件见 [GTag API](../../../docs/tag.md)。
+
+## GTimeline
+
+使用共享 `data-options` 配置时间线方向、排列、倒序、进行中节点和原生模板。完整参数与事件见 [GTimeline API](../../../docs/timeline.md)。
+
+## GTooltip
+
+通过 overlay-options 配置内容、十二方位、Mini、背景色、受控开关及触发器。完整参数见 [GTooltip API](../../../docs/tooltip.md)。
+
+Arco 对照新增组件：GInputNumber、GInputTag、GColorPicker、GAffix、GResizeBox、GScrollbar、GSpace、GWatermark、GOverflowList、GLink、GTypography、GIcon。共用 foundation-options；参阅 [参数与差异](../../../docs/arco/README.md)。

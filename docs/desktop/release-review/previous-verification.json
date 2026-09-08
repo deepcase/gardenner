@@ -1,0 +1,110 @@
+{
+  "verifiedAt": "2026-09-06T23:16:08.576Z",
+  "status": "passed",
+  "scope": "desktop",
+  "components": 38,
+  "variants": 152,
+  "newComponents": [
+    "desktop-preferences",
+    "desktop-session-manager",
+    "desktop-problems-panel"
+  ],
+  "frameworks": {
+    "components": 38,
+    "variants": 152,
+    "frameworks": [
+      "css",
+      "vue",
+      "react",
+      "angularjs",
+      "blazor"
+    ],
+    "sharedCss": true,
+    "sharedRuntime": true,
+    "identicalBlazorAssets": true,
+    "examples": true
+  },
+  "browsers": [
+    {
+      "engine": "chromium",
+      "layouts": 304,
+      "a11y": 192,
+      "interactions": 20
+    },
+    {
+      "engine": "firefox",
+      "layouts": 304,
+      "a11y": 0,
+      "interactions": 20
+    },
+    {
+      "engine": "webkit",
+      "layouts": 304,
+      "a11y": 0,
+      "interactions": 20
+    }
+  ],
+  "blazor": {
+    "variants": 152,
+    "controlledInteractions": 11,
+    "errors": []
+  },
+  "static": {
+    "staticVariants": 152,
+    "catalogComponents": 38,
+    "errors": []
+  },
+  "tests": {
+    "cssRuntime": 469,
+    "desktop": 21,
+    "cssSchema": 48,
+    "cssBuild": 11,
+    "html": 40,
+    "vue": 136,
+    "react": 85,
+    "angularjs": 73
+  },
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "rootCheck": "passed",
+  "limitations": [
+    "演示使用内存数据与模拟宿主。",
+    "真实 Tauri / Electron 操作系统进程未在本次浏览器环境中运行；已测试注入桥接接口。",
+    "系统窗口、文件、更新和持久化由应用宿主执行与验证。"
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "originalComponents": 3,
+  "newComponents": 7,
+  "components": 10,
+  "variants": 40,
+  "decision": "现有分类仅有三个外壳，缺少功能展示、社会证明、行动引导、订阅、公告和页脚，因此新增七项。FAQ、价格对比、Cookie 同意、统计指标已有独立组件，保留原分类。",
+  "items": [
+    {
+      "name": "site-header",
+      "category": "marketing",
+      "type": "interactive",
+      "selector": ".g-site-header",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-site-header",
+      "behaviors": [
+        "marketing"
+      ],
+      "variants": [
+        "standard",
+        "centered",
+        "compact",
+        "sticky"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "billing-cycles",
+        "consent",
+        "responsive-navigation"
+      ],
+      "before": {
+        "name": "site-header",
+        "category": "marketing",
+        "type": "css",
+        "selector": ".g-site-header",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来只有固定横排导航；补齐移动展开、嵌套导航、Escape 焦点返回、居中/紧凑/吸顶布局。"
+    },
+    {
+      "name": "hero",
+      "category": "marketing",
+      "type": "interactive",
+      "selector": ".g-hero",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-hero",
+      "behaviors": [
+        "marketing"
+      ],
+      "variants": [
+        "split",
+        "centered",
+        "compact",
+        "media"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "billing-cycles",
+        "consent",
+        "responsive-navigation"
+      ],
+      "before": {
+        "name": "hero",
+        "category": "marketing",
+        "type": "css",
+        "selector": ".g-hero",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来固定大尺寸区域；补齐分栏、居中、紧凑与媒体优先布局，支持图片、标题、内容与行动参数。"
+    },
+    {
+      "name": "pricing",
+      "category": "marketing",
+      "type": "interactive",
+      "selector": ".g-pricing-grid",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-pricing-grid",
+      "behaviors": [
+        "marketing"
+      ],
+      "variants": [
+        "cards",
+        "comparison",
+        "compact",
+        "enterprise"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "billing-cycles",
+        "consent",
+        "responsive-navigation"
+      ],
+      "before": {
+        "name": "pricing",
+        "category": "marketing",
+        "type": "css",
+        "selector": ".g-pricing-grid",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来只有静态网格；新增月/年计费、席位、整数金额、币种、对比表及联系销售。"
+    },
+    {
+      "name": "feature-grid",
+      "category": "marketing",
+      "type": "interactive",
+      "selector": ".g-feature-grid",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-feature-grid",
+      "behaviors": [
+        "marketing"
+      ],
+      "variants": [
+        "cards",
+        "alternating",
+        "compact",
+        "tabs"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "billing-cycles",
+        "consent",
+        "responsive-navigation"
+      ],
+      "before": null,
+      "finding": "新增可独立使用的功能展示，支持分类筛选、卡片、交替布局和紧凑变体。"
+    },
+    {
+      "name": "logo-cloud",
+      "category": "marketing",
+      "type": "interactive",
+      "selector": ".g-logo-cloud",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-logo-cloud",
+      "behaviors": [
+        "marketing"
+      ],
+      "variants": [
+        "grid",
+        "strip",
+        "compact",
+        "monochrome"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "billing-cycles",
+        "consent",
+        "responsive-navigation"
+      ],
+      "before": null,
+      "finding": "新增品牌标识网格、排列、紧凑、单色变体，可使用图片与链接。"
+    },
+    {
+      "name": "testimonial",
+      "category": "marketing",
+      "type": "interactive",
+      "selector": ".g-testimonial-grid",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-testimonial-grid",
+      "behaviors": [
+        "marketing"
+      ],
+      "variants": [
+        "cards",
+        "carousel",
+        "compact",
+        "featured"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "billing-cycles",
+        "consent",
+        "responsive-navigation"
+      ],
+      "before": null,
+      "finding": "新增评价卡片、精选和轮播，支持键盘、循环、自动播放及暂停。"
+    },
+    {
+      "name": "cta-section",
+      "category": "marketing",
+      "type": "interactive",
+      "selector": ".g-cta-section",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-cta-section",
+      "behaviors": [
+        "marketing"
+      ],
+      "variants": [
+        "inline",
+        "centered",
+        "split",
+        "subtle"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "billing-cycles",
+        "consent",
+        "responsive-navigation"
+      ],
+      "before": null,
+      "finding": "新增独立行动引导区，支持行内、居中、分栏、柔和色调。"
+    },
+    {
+      "name": "newsletter",
+      "category": "marketing",
+      "type": "interactive",
+      "selector": ".g-newsletter",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-newsletter",
+      "behaviors": [
+        "marketing"
+      ],
+      "variants": [
+        "inline",
+        "card",
+        "split",
+        "minimal"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "billing-cycles",
+        "consent",
+        "responsive-navigation"
+      ],
+      "before": null,
+      "finding": "新增可配置订阅表单，支持邮箱、同意项、隐私链接及异步反馈。"
+    },
+    {
+      "name": "announcement-bar",
+      "category": "marketing",
+      "type": "interactive",
+      "selector": ".g-announcement-bar",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-announcement-bar",
+      "behaviors": [
+        "marketing"
+      ],
+      "variants": [
+        "inline",
+        "sticky",
+        "countdown",
+        "subtle"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "billing-cycles",
+        "consent",
+        "responsive-navigation"
+      ],
+      "before": null,
+      "finding": "新增活动公告，支持吸顶、可取消关闭、到期状态及倒计时。"
+    },
+    {
+      "name": "site-footer",
+      "category": "marketing",
+      "type": "interactive",
+      "selector": ".g-site-footer",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-site-footer",
+      "behaviors": [
+        "marketing"
+      ],
+      "variants": [
+        "columns",
+        "simple",
+        "centered",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "billing-cycles",
+        "consent",
+        "responsive-navigation"
+      ],
+      "before": null,
+      "finding": "新增分组页脚，支持多列、简洁、居中、紧凑及版权链接。"
+    }
+  ]
+}

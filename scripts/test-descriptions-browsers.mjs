@@ -1,0 +1,28 @@
+import {build} from '../packages/css/node_modules/esbuild/lib/main.js';
+import {chromium,firefox,webkit,expect} from '../packages/css/node_modules/@playwright/test/index.mjs';
+import AxeBuilder from '../packages/css/node_modules/@axe-core/playwright/dist/index.mjs';
+import {writeFile} from './fs-retry.mjs';
+const engine=process.env.AUDIT_ENGINE||'chromium',browser=await({chromium,firefox,webkit}[engine]).launch(),context=await browser.newContext({reducedMotion:'reduce'}),results=[];
+const options={title:'Project',column:{xs:1,md:2,lg:3},bordered:true,data:[{key:'name',label:'Name',value:'Garden'},{key:'count',label:'Tasks',value:0},{key:'note',label:'Note',value:null},{key:'wide',label:'Details',value:'Responsive description content',span:3}]};
+try {
+ const sources={
+  vue:`import{createApp,h,ref}from'vue';import{GDescriptions}from'./dist/index.js';createApp({setup(){const o=ref(${JSON.stringify(options)});window.setOptions=p=>o.value={...o.value,...p};return()=>h(GDescriptions,{id:'descriptions',config:{'data-options':JSON.stringify(o.value)}})}}).mount('#app');`,
+  react:`import React from'react';import{createRoot}from'react-dom/client';import{GDescriptions}from'./dist/index.js';function App(){const[o,set]=React.useState(${JSON.stringify(options)});window.setOptions=p=>set(o=>({...o,...p}));return React.createElement(GDescriptions,{id:'descriptions',config:{'data-options':JSON.stringify(o)}})}createRoot(document.getElementById('app')).render(React.createElement(App));`,
+  angularjs:`import'angular/angular.js';import{createGardenerimAngularJS}from'./dist/index.js';const a=window.angular,mod=createGardenerimAngularJS(a,{moduleName:'descriptions.test'});document.getElementById('app').innerHTML='<div ng-controller="Ctrl"><div id="descriptions" g-descriptions gardener-config="config"></div></div>';a.module(mod).controller('Ctrl',['$scope',function(s){let o=${JSON.stringify(options)};s.config={'data-options':JSON.stringify(o)};window.setOptions=p=>s.$apply(()=>{o={...o,...p};s.config={'data-options':JSON.stringify(o)}})}]);a.bootstrap(document.getElementById('app'),[mod]);`
+ };
+ for(const [framework,contents]of Object.entries(sources)){
+  const bundle=await build({stdin:{contents,resolveDir:'D:/develop/Gardener/packages/'+framework},bundle:true,write:false,format:'iife',define:{'process.env.NODE_ENV':'"production"','__VUE_OPTIONS_API__':'true','__VUE_PROD_DEVTOOLS__':'false','__VUE_PROD_HYDRATION_MISMATCH_DETAILS__':'false'}});
+  const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.route('**/descriptions-adapter.html',r=>r.fulfill({contentType:'text/html',body:`<!doctype html><html lang="en"><head><title>Descriptions</title><link rel="stylesheet" href="/dist/gardener.css"></head><body><main><h1>Descriptions</h1><div id="app"></div></main><script>${bundle.outputFiles[0].text.replaceAll('</script','<\/script')}</script></body></html>`}));
+  await page.goto('http://127.0.0.1:4187/descriptions-adapter.html');const root=page.locator('#descriptions');await expect(root.locator('.g-desc-value')).toHaveCount(4);await expect(root.locator('.g-desc-value').nth(1)).toHaveText('0');
+  for(const layout of ['horizontal','vertical','inline-horizontal','inline-vertical']){await page.evaluate(layout=>window.setOptions({layout}),layout);await expect(root).toHaveClass(new RegExp('g-desc-'+layout));await expect(root.locator('.g-desc-value')).toHaveCount(4);const a=await new AxeBuilder({page}).include('#descriptions').analyze();expect(a.violations).toEqual([]);}
+  await page.evaluate(()=>window.setOptions({layout:'horizontal',size:'mini',align:{label:'right',value:'center'}}));await expect(root.locator('th').first()).toHaveCSS('text-align','right');await expect(root.locator('td').first()).toHaveCSS('text-align','center');
+  await page.setViewportSize({width:390,height:800});await expect(root.locator('tr')).toHaveCount(4);
+  await page.evaluate(()=>window.setOptions({loading:true}));await expect(root).toHaveAttribute('aria-busy','true');await expect(root.locator('table')).toHaveCount(0);
+  await page.evaluate(()=>window.setOptions({loading:false,data:[]}));await expect(root.locator('[role=status]')).toHaveText('No data');expect(errors).toEqual([]);results.push({framework,layouts:4,responsive:true,updates:true,axe:true});await page.close();
+ }
+ const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:4180/?component=descriptions#catalog');await expect(page.locator('[data-descriptions-demo]')).toHaveCount(10);
+ const rich=page.locator('[data-descriptions-demo=rich]');await rich.locator('input').fill('Edited project');await rich.getByRole('button',{name:'切换布局'}).click();await expect(rich.locator('input')).toHaveValue('Edited project');
+ for(const width of [1440,768,390]){await page.setViewportSize({width,height:900});for(const mode of ['light','dark']){await page.evaluate(mode=>document.querySelector('.showcase-app').setAttribute('data-g-mode',mode),mode);expect(await page.locator('.descriptions-showcase').evaluate(el=>el.scrollWidth>el.clientWidth+1)).toBe(false);const a=await new AxeBuilder({page}).include('.descriptions-showcase').analyze();expect(a.violations).toEqual([]);}}
+ await page.locator('[data-descriptions-demo=playground]').screenshot({path:'docs/descriptions/'+engine+'-playground.png'});expect(errors).toEqual([]);results.push({demo:10,widths:[1440,768,390],themes:['light','dark'],templatePreservation:true,axe:true});await writeFile('docs/descriptions/'+engine+'.json',JSON.stringify(results,null,2));console.log(engine+' descriptions checks passed');
+}finally{await browser.close();}

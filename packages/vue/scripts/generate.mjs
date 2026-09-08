@@ -4,6 +4,7 @@ import { writeFile } from "../../../scripts/fs-retry.mjs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
+const releaseVersion = JSON.parse(await readFile(resolve(root, "package.json"), "utf8")).version;
 const cssRoot = resolve(root, "..", "css");
 const source = JSON.parse(await readFile(resolve(cssRoot, "metadata", "components.json"), "utf8"));
 const publicApi = JSON.parse(await readFile(resolve(cssRoot, "metadata", "public-api.json"), "utf8"));
@@ -12,9 +13,10 @@ await mkdir(generated, { recursive: true });
 
 const pascal = (name) => `G${name.split(/[^a-zA-Z0-9]+/u).filter(Boolean).map((part) => part[0].toUpperCase() + part.slice(1)).join("")}`;
 const tags = new Map([
-  ["button", "button"], ["input", "input"], ["textarea", "textarea"], ["select", "select"], ["form", "form"],
-  ["table", "table"], ["navbar", "nav"], ["breadcrumb", "nav"], ["sidebar", "aside"], ["main-region", "main"],
+  ["button", "button"], ["input", "input"], ["textarea", "textarea"], ["select", "select"], ["form", "form"], ["compact-form", "form"], ["fieldset", "fieldset"], ["checkbox-group", "fieldset"], ["radio-group", "fieldset"], ["choice-card-group", "fieldset"], ["name-group", "fieldset"], ["address-group", "fieldset"], ["phone-group", "fieldset"], ["money-group", "fieldset"], ["date-range-group", "fieldset"],
+  ["table", "table"], ["navbar", "nav"], ["breadcrumb", "nav"], ["pagination", "nav"], ["navigation-rail", "nav"], ["activity-bar", "nav"], ["menu-bar", "nav"], ["sidebar", "aside"], ["main-region", "main"],
   ["header-region", "header"], ["footer-region", "footer"], ["article", "article"], ["section", "section"], ["link", "a"],
+  ["badge", "span"], ["tag", "span"], ["chip", "span"], ["switch-row", "label"],
 ]);
 const rootClassOverrides = new Map([
   ["combobox", "g-combobox"], ["tabs", "g-tabs"], ["dialog", "g-dialog-backdrop"], ["drawer", "g-drawer-backdrop"],
@@ -43,8 +45,8 @@ for (const definition of definitions) {
   if (exports.has(definition.exportName)) throw new Error(`Duplicate Vue component export: ${definition.exportName}`);
   exports.add(definition.exportName);
 }
-if (definitions.length !== 506) throw new Error(`Expected 506 CSS components, received ${definitions.length}`);
-if (publicApi.javascript.behaviors.length !== 72) throw new Error("Expected 72 Gardenerim behaviors");
+if (definitions.length !== 575) throw new Error(`Expected 575 CSS components, received ${definitions.length}`);
+if (publicApi.javascript.behaviors.length !== 96) throw new Error("Expected 96 Gardenerim behaviors");
 const frameworkExports = [
   "Gardenerim", "GardenerimComponent", "GardenerimPart", "GardenerimProvider", "GardenerimVue", "behaviorAttributes",
   "bindElectronWindowControls", "bindTauriWindowControls", "componentByExportName", "componentByName", "componentCatalog",
@@ -53,15 +55,17 @@ const frameworkExports = [
   "useGardenerimBehavior", "useGardenerimEvent", "useGardenerimLocale", "useGardenerimTheme", "useGardenerimToast", "useTauriWindowControls", "vGardenerim",
 ];
 const typeExports = [
+  "GardenerimTableOptions", "GardenerimTableColumn", "GardenerimTableInstance", "GardenerimTableState", "GardenerimTableChange", "GardenerimTableKey",
+  "GardenerimNavigationItem", "GardenerimNavigationChange", "GardenerimNavigationOptions", "GardenerimNavigationInstance",
   "GardenerimAs", "GardenerimBehaviorInstance", "GardenerimBehaviorName", "GardenerimComponentDefinition", "GardenerimComponentKind",
   "GardenerimComponentPublicInstance", "GardenerimConfigValue", "GardenerimDirectiveOptions", "GardenerimDirectiveValue", "GardenerimElectronBinding",
   "GardenerimElectronBridge", "GardenerimElementTarget", "GardenerimEventHandler", "GardenerimEventName", "GardenerimPlatform", "GardenerimTargetValue",
   "GardenerimTauriBinding", "GardenerimTauriBridge", "GardenerimThemeState", "GardenerimVueComponentName", "GardenerimVueOptions",
 ];
-const componentProps = ["as", "variant", "state", "config", "initialize", "modelValue", "modelEvent", "modelKey"];
+const componentProps = ["as", "variant", "state", "config", "initialize", "modelValue", "modelEvent", "modelKey", "navigation", "items", "table", "columns", "data"];
 const themeAxes = ["theme", "mode", "neutral", "typography", "shape", "density", "elevation", "motion", "platform", "os"];
 
-const catalog = `/** Generated from @gardenerim/css 2.1.0 metadata. */\nimport type { GardenerimComponentDefinition } from "../types.js";\n\nexport const componentCatalog: readonly GardenerimComponentDefinition[] = ${JSON.stringify(definitions, null, 2)};\nexport const componentByName = new Map(componentCatalog.map((component) => [component.name, component] as const));\nexport const componentByExportName = new Map(componentCatalog.map((component) => [component.exportName, component] as const));\n`;
+const catalog = `/** Generated from @gardenerim/css ${releaseVersion} metadata. */\nimport type { GardenerimComponentDefinition } from "../types.js";\n\nexport const componentCatalog: readonly GardenerimComponentDefinition[] = ${JSON.stringify(definitions, null, 2)};\nexport const componentByName = new Map(componentCatalog.map((component) => [component.name, component] as const));\nexport const componentByExportName = new Map(componentCatalog.map((component) => [component.exportName, component] as const));\n`;
 await writeFile(resolve(generated, "catalog.ts"), catalog);
 
 const componentLines = definitions.map((definition) => `export const ${definition.exportName} = /* @__PURE__ */ createGardenerimComponent(${JSON.stringify(definition)} as GardenerimComponentDefinition);`);
@@ -76,9 +80,9 @@ await mkdir(resolve(root, "metadata"), { recursive: true });
 await writeFile(resolve(root, "metadata", "public-api.json"), `${JSON.stringify({
   $schema: "./public-api.schema.json",
   schemaVersion: 1,
-  version: "2.1.0",
+  version: releaseVersion,
   status: "stable",
-  cssVersion: "2.1.0",
+  cssVersion: releaseVersion,
   vue: ">=3.4.0 <4.0.0",
   components: definitions.length,
   behaviors: publicApi.javascript.behaviors.length,
@@ -98,8 +102,8 @@ await writeFile(resolve(root, "metadata", "public-api.json"), `${JSON.stringify(
 await writeFile(resolve(root, "metadata", "compatibility.json"), `${JSON.stringify({
   $schema: "./compatibility.schema.json",
   schemaVersion: 1,
-  version: "2.1.0",
-  baselineVersion: "2.1.0",
+  version: releaseVersion,
+  baselineVersion: releaseVersion,
   policy: { stage: "stable", additions: "allowed", removals: "deprecate-before-removal" },
   baseline: {
     packageEntrypoints: [".", "./components", "./component", "./composables", "./directives", "./plugin", "./adapters", "./tauri", "./electron", "./catalog", "./catalog.json", "./style.css", "./core.css", "./themes.css", "./utilities.css", "./components.css", "./ai.css", "./platform/web.css", "./platform/mobile.css", "./platform/desktop.css", "./platform/tauri.css", "./platform/electron.css", "./component-css/*", "./bundle.min.js", "./performance", "./schema/public-api", "./schema/compatibility", "./schema/performance", "./package.json", "./contracts"],
@@ -118,7 +122,7 @@ await writeFile(resolve(root, "metadata", "compatibility.json"), `${JSON.stringi
 
 await mkdir(resolve(root, "docs"), { recursive: true });
 const table = definitions.map((item) => `| \`${item.exportName}\` | \`${item.name}\` | ${item.category} | ${item.type} | \`${item.className || item.selector}\` | ${item.behaviors.join(", ") || "—"} |`).join("\n");
-await writeFile(resolve(root, "docs", "components.md"), `# Gardenerim Vue 组件完整目录\n\n本目录由 \`@gardenerim/css@2.1.0\` 元数据自动生成，共 ${definitions.length} 个 Vue 组件，无省略。所有组件支持 \`as\`、\`variant\`、\`state\`、\`config\`、\`initialize\`、\`modelValue\`、\`modelEvent\`、\`modelKey\` 和原生 attributes/events/slots。\n\n| Vue 导出 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |\n| --- | --- | --- | --- | --- | --- |\n${table}\n`);
+await writeFile(resolve(root, "docs", "components.md"), `# Gardenerim Vue 组件完整目录\n\n本目录由 \`@gardenerim/css@${releaseVersion}\` 元数据自动生成，共 ${definitions.length} 个 Vue 组件，无省略。所有组件支持 \`as\`、\`variant\`、\`state\`、\`config\`、\`initialize\`、\`modelValue\`、\`modelEvent\`、\`modelKey\` 和原生 attributes/events/slots。\n\n| Vue 导出 | CSS 组件 | 分类 | 类型 | 根选择器/类 | 行为 |\n| --- | --- | --- | --- | --- | --- |\n${table}\n`);
 console.log(`Generated ${definitions.length} Vue components and ${publicApi.javascript.behaviors.length} behavior bindings.`);
 
 await writeFile(resolve(generated, "contracts.ts"), componentContracts(source.components));

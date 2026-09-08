@@ -1,8 +1,8 @@
 {
   "$schema": "./compatibility.schema.json",
   "schemaVersion": 1,
-  "version": "2.1.0",
-  "baselineVersion": "2.1.0",
+  "version": "2.2.0",
+  "baselineVersion": "2.2.0",
   "policy": {
     "stage": "stable",
     "additions": "allowed",
@@ -19,6 +19,8 @@
       "drawer",
       "mobile-sheet",
       "dropdown",
+      "stepper",
+      "tag",
       "tabs",
       "accordion",
       "auto-resize",
@@ -47,14 +49,36 @@
       "character-count",
       "field-sync",
       "conditional-field",
+      "rating",
+      "validation-summary",
       "repeatable-field",
       "tooltip",
       "popover",
       "tour",
       "carousel",
       "split-pane",
+      "foundation",
       "tree",
       "data-grid",
+      "data-display",
+      "dashboard",
+      "interaction",
+      "content",
+      "layout",
+      "help",
+      "ai",
+      "media",
+      "auth",
+      "mobile",
+      "workflow",
+      "communication",
+      "legal",
+      "solution",
+      "desktop",
+      "enterprise",
+      "marketing",
+      "cms",
+      "commerce",
       "table-scroll",
       "table-density",
       "filter-summary",
@@ -97,6 +121,8 @@
           "close",
           "toggle",
           "isOpen",
+          "setBusy",
+          "complete",
           "destroy"
         ]
       },
@@ -108,6 +134,8 @@
           "close",
           "toggle",
           "isOpen",
+          "setBusy",
+          "complete",
           "destroy"
         ]
       },
@@ -119,6 +147,8 @@
           "close",
           "toggle",
           "isOpen",
+          "setBusy",
+          "complete",
           "destroy"
         ]
       },
@@ -129,6 +159,31 @@
           "open",
           "close",
           "toggle",
+          "isOpen",
+          "destroy"
+        ]
+      },
+      {
+        "name": "stepper",
+        "attribute": "data-g-stepper",
+        "instanceMembers": [
+          "current",
+          "select",
+          "next",
+          "previous",
+          "refresh",
+          "destroy"
+        ]
+      },
+      {
+        "name": "tag",
+        "attribute": "data-g-tag",
+        "instanceMembers": [
+          "check",
+          "close",
+          "setOptions",
+          "getState",
+          "refresh",
           "destroy"
         ]
       },
@@ -145,6 +200,10 @@
         "attribute": "data-g-accordion",
         "instanceMembers": [
           "toggle",
+          "open",
+          "close",
+          "value",
+          "refresh",
           "destroy"
         ]
       },
@@ -163,6 +222,8 @@
           "open",
           "close",
           "choose",
+          "clear",
+          "search",
           "destroy"
         ]
       },
@@ -393,6 +454,33 @@
         "attribute": "data-g-conditional-field",
         "instanceMembers": [
           "update",
+          "value",
+          "values",
+          "controllers",
+          "isVisible",
+          "isResolved",
+          "destroy"
+        ]
+      },
+      {
+        "name": "rating",
+        "attribute": "data-g-rating",
+        "instanceMembers": [
+          "value",
+          "setValue",
+          "clear",
+          "refresh",
+          "destroy"
+        ]
+      },
+      {
+        "name": "validation-summary",
+        "attribute": "data-g-validation-summary",
+        "instanceMembers": [
+          "errors",
+          "refresh",
+          "focus",
+          "navigate",
           "destroy"
         ]
       },
@@ -412,6 +500,10 @@
           "open",
           "close",
           "toggle",
+          "isOpen",
+          "reposition",
+          "setBusy",
+          "complete",
           "destroy"
         ]
       },
@@ -422,6 +514,10 @@
           "open",
           "close",
           "toggle",
+          "isOpen",
+          "reposition",
+          "setBusy",
+          "complete",
           "destroy"
         ]
       },
@@ -460,10 +556,32 @@
         ]
       },
       {
+        "name": "foundation",
+        "attribute": "data-g-foundation",
+        "instanceMembers": [
+          "setOptions",
+          "refresh",
+          "getState",
+          "value",
+          "increment",
+          "decrement",
+          "add",
+          "remove",
+          "resize",
+          "focus",
+          "scrollTo",
+          "destroy"
+        ]
+      },
+      {
         "name": "tree",
         "attribute": "data-g-tree",
         "instanceMembers": [
           "focus",
+          "refresh",
+          "expand",
+          "select",
+          "value",
           "destroy"
         ]
       },
@@ -483,6 +601,342 @@
           "getState",
           "updateCell",
           "load"
+        ]
+      },
+      {
+        "name": "data-display",
+        "attribute": "data-g-data-display",
+        "instanceMembers": [
+          "setOptions",
+          "getState",
+          "refresh",
+          "select",
+          "move",
+          "setDate",
+          "scrollTo",
+          "exportCsv",
+          "load",
+          "cancel",
+          "destroy"
+        ]
+      },
+      {
+        "name": "dashboard",
+        "attribute": "data-g-dashboard",
+        "instanceMembers": [
+          "setOptions",
+          "getState",
+          "refresh",
+          "setValue",
+          "setFilter",
+          "reset",
+          "load",
+          "cancel",
+          "exportCsv",
+          "destroy"
+        ]
+      },
+      {
+        "name": "interaction",
+        "attribute": "data-g-interaction",
+        "instanceMembers": [
+          "setOptions",
+          "getState",
+          "refresh",
+          "setValue",
+          "select",
+          "move",
+          "reorder",
+          "addRule",
+          "removeRule",
+          "setRange",
+          "load",
+          "run",
+          "cancel",
+          "commit",
+          "undo",
+          "redo",
+          "copy",
+          "toggleFullscreen",
+          "destroy"
+        ]
+      },
+      {
+        "name": "content",
+        "attribute": "data-g-content",
+        "instanceMembers": [
+          "setOptions",
+          "getState",
+          "refresh",
+          "setValue",
+          "select",
+          "addFiles",
+          "upload",
+          "pauseUpload",
+          "cancel",
+          "save",
+          "copy",
+          "exportCrop",
+          "play",
+          "pause",
+          "seek",
+          "format",
+          "findNext",
+          "replace",
+          "destroy"
+        ]
+      },
+      {
+        "name": "layout",
+        "attribute": "data-g-layout",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "getState",
+          "setValue",
+          "toggle",
+          "destroy"
+        ]
+      },
+      {
+        "name": "help",
+        "attribute": "data-g-help",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "search",
+          "open",
+          "close",
+          "go",
+          "submit",
+          "cancel",
+          "destroy"
+        ]
+      },
+      {
+        "name": "ai",
+        "attribute": "data-g-ai",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "generate",
+          "stop",
+          "pause",
+          "resume",
+          "retry",
+          "decide",
+          "submitFeedback",
+          "destroy"
+        ]
+      },
+      {
+        "name": "media",
+        "attribute": "data-g-media",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "getPlaybackState",
+          "go",
+          "next",
+          "previous",
+          "open",
+          "close",
+          "start",
+          "stop",
+          "play",
+          "pause",
+          "seek",
+          "exportCrop",
+          "retry",
+          "destroy"
+        ]
+      },
+      {
+        "name": "auth",
+        "attribute": "data-g-auth",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "request",
+          "resolve",
+          "takeCredentials",
+          "runPasskey",
+          "exportRecoveryCodes",
+          "cancel",
+          "destroy"
+        ]
+      },
+      {
+        "name": "mobile",
+        "attribute": "data-g-mobile",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "request",
+          "resolve",
+          "cancel",
+          "open",
+          "close",
+          "next",
+          "previous",
+          "takeCredentials",
+          "runPasskey",
+          "getTotals",
+          "destroy"
+        ]
+      },
+      {
+        "name": "workflow",
+        "attribute": "data-g-workflow",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "request",
+          "resolve",
+          "cancel",
+          "next",
+          "previous",
+          "validate",
+          "setHost",
+          "destroy"
+        ]
+      },
+      {
+        "name": "communication",
+        "attribute": "data-g-communication",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "request",
+          "resolve",
+          "cancel",
+          "setHost",
+          "destroy"
+        ]
+      },
+      {
+        "name": "legal",
+        "attribute": "data-g-legal",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "request",
+          "resolve",
+          "cancel",
+          "exportData",
+          "setHost",
+          "destroy"
+        ]
+      },
+      {
+        "name": "solution",
+        "attribute": "data-g-solution",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "request",
+          "resolve",
+          "cancel",
+          "setHost",
+          "destroy"
+        ]
+      },
+      {
+        "name": "desktop",
+        "attribute": "data-g-desktop",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "request",
+          "resolve",
+          "cancel",
+          "takeFiles",
+          "setHost",
+          "destroy"
+        ]
+      },
+      {
+        "name": "enterprise",
+        "attribute": "data-g-enterprise",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "request",
+          "resolve",
+          "cancel",
+          "exportCsv",
+          "destroy"
+        ]
+      },
+      {
+        "name": "marketing",
+        "attribute": "data-g-marketing",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "request",
+          "resolve",
+          "cancel",
+          "getPrice",
+          "next",
+          "previous",
+          "destroy"
+        ]
+      },
+      {
+        "name": "cms",
+        "attribute": "data-g-cms",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "request",
+          "resolve",
+          "cancel",
+          "takeFiles",
+          "destroy"
+        ]
+      },
+      {
+        "name": "commerce",
+        "attribute": "data-g-commerce",
+        "instanceMembers": [
+          "refresh",
+          "setOptions",
+          "setValue",
+          "getState",
+          "getTotals",
+          "setQuantity",
+          "selectSku",
+          "request",
+          "resolve",
+          "cancel",
+          "destroy"
         ]
       },
       {
@@ -562,6 +1016,7 @@
         "attribute": "data-g-data-view",
         "instanceMembers": [
           "select",
+          "value",
           "destroy"
         ]
       },
@@ -581,8 +1036,10 @@
         "instanceMembers": [
           "open",
           "close",
+          "clear",
           "selected",
           "choose",
+          "refresh",
           "destroy"
         ]
       },
@@ -618,6 +1075,15 @@
         "attribute": "data-g-builder-list",
         "instanceMembers": [
           "add",
+          "select",
+          "update",
+          "move",
+          "remove",
+          "duplicate",
+          "schema",
+          "load",
+          "items",
+          "selected",
           "sync",
           "destroy"
         ]
@@ -661,6 +1127,9 @@
         "name": "dropzone",
         "attribute": "data-g-dropzone",
         "instanceMembers": [
+          "open",
+          "files",
+          "clear",
           "destroy"
         ]
       },
@@ -680,6 +1149,7 @@
         "attribute": "data-g-roving-nav",
         "instanceMembers": [
           "select",
+          "refresh",
           "destroy"
         ]
       },
@@ -689,6 +1159,7 @@
         "instanceMembers": [
           "open",
           "close",
+          "refresh",
           "isOpen",
           "destroy"
         ]
@@ -715,6 +1186,10 @@
         "instanceMembers": [
           "sync",
           "addFile",
+          "addFiles",
+          "update",
+          "remove",
+          "clear",
           "items",
           "destroy"
         ]
@@ -765,6 +1240,12 @@
         "attribute": "data-g-autosave",
         "instanceMembers": [
           "save",
+          "dirty",
+          "complete",
+          "fail",
+          "offline",
+          "enable",
+          "disable",
           "state",
           "destroy"
         ]
@@ -777,18 +1258,25 @@
           "close",
           "toggle",
           "isOpen",
+          "query",
+          "active",
+          "select",
+          "refresh",
           "destroy"
         ]
       }
     ],
     "eventNames": [
+      "action",
       "add",
       "approval",
       "attachmentremove",
       "authtimerexpired",
       "authtimerstart",
+      "autosaverequest",
       "autosavestate",
       "beforeapproval",
+      "beforechange",
       "beforeclose",
       "beforefilepicker",
       "beforeopen",
@@ -800,10 +1288,13 @@
       "cartremove",
       "cascadechange",
       "change",
+      "check",
       "clear",
       "close",
       "collapse",
       "columnchange",
+      "commandselect",
+      "complete",
       "composerstate",
       "copy",
       "count",
@@ -818,6 +1309,7 @@
       "editorcommand",
       "error",
       "expand",
+      "export",
       "feedbackchange",
       "feedbacksubmit",
       "fieldchange",
@@ -832,6 +1324,19 @@
       "loadmore",
       "mediachange",
       "nativefiles",
+      "navigationback",
+      "navigationchange",
+      "navigationcheck",
+      "navigationcloseitem",
+      "navigationcollapse",
+      "navigationerror",
+      "navigationexpand",
+      "navigationloadmore",
+      "navigationnext",
+      "navigationopen",
+      "navigationpagesize",
+      "navigationprevious",
+      "navigationselect",
       "open",
       "otpchange",
       "otpcomplete",
@@ -841,10 +1346,11 @@
       "promptstop",
       "promptsubmit",
       "quantitychange",
+      "rangechange",
+      "ratingchange",
       "refresh",
       "refreshcomplete",
       "remove",
-      "rangechange",
       "resize",
       "revisionview",
       "savedchoice",
@@ -852,20 +1358,68 @@
       "shortcutchange",
       "skuchange",
       "sort",
+      "stepchange",
       "swipechange",
       "toggle",
       "transferchange",
       "uploadadd",
       "uploadchange",
+      "validationblocked",
+      "validationchange",
+      "validationnavigate",
       "viewchange",
+      "visibilitychange",
       "wheelchange",
       "windowactivate",
       "windowselect"
     ],
     "eventContracts": [
       {
+        "name": "action",
+        "detailKeys": [
+          "component",
+          "key",
+          "action",
+          "item",
+          "reason",
+          "count",
+          "index",
+          "scrollTop",
+          "behavior",
+          "requestId",
+          "value",
+          "version",
+          "keys",
+          "price",
+          "href",
+          "status",
+          "message",
+          "phase",
+          "totals",
+          "files",
+          "blob",
+          "crop",
+          "playing",
+          "currentTime",
+          "duration",
+          "text",
+          "id",
+          "found",
+          "results",
+          "items",
+          "active",
+          "source",
+          "trigger"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
         "name": "add",
         "detailKeys": [
+          "reason",
+          "activeKey",
           "item",
           "index"
         ],
@@ -913,6 +1467,19 @@
         "cancelable": true
       },
       {
+        "name": "autosaverequest",
+        "detailKeys": [
+          "reason",
+          "scope",
+          "respondWith",
+          "complete",
+          "fail"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
         "name": "autosavestate",
         "detailKeys": [
           "state",
@@ -934,10 +1501,43 @@
         "cancelable": true
       },
       {
+        "name": "beforechange",
+        "detailKeys": [
+          "component",
+          "reason",
+          "value",
+          "key",
+          "node",
+          "checked",
+          "previous",
+          "previousKey",
+          "tab",
+          "panel",
+          "controlled",
+          "previousValue",
+          "behavior",
+          "action",
+          "requestId",
+          "version",
+          "keys",
+          "price",
+          "files",
+          "label",
+          "item"
+        ],
+        "guard": true,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
         "name": "beforeclose",
         "detailKeys": [
           "reason",
-          "trigger"
+          "visible",
+          "trigger",
+          "expanded",
+          "keys",
+          "controlled"
         ],
         "guard": true,
         "bubbles": true,
@@ -956,7 +1556,11 @@
         "name": "beforeopen",
         "detailKeys": [
           "source",
-          "trigger"
+          "reason",
+          "trigger",
+          "expanded",
+          "keys",
+          "controlled"
         ],
         "guard": true,
         "bubbles": true,
@@ -985,8 +1589,13 @@
       {
         "name": "beforetabclose",
         "detailKeys": [
+          "key",
+          "value",
+          "previousKey",
           "tab",
+          "panel",
           "reason",
+          "controlled",
           "dirty"
         ],
         "guard": true,
@@ -1041,32 +1650,84 @@
       {
         "name": "change",
         "detailKeys": [
+          "component",
+          "reason",
+          "value",
+          "previousValue",
+          "controlled",
+          "width",
+          "height",
+          "key",
+          "node",
+          "data",
+          "selectedKeys",
+          "checkedKeys",
+          "halfCheckedKeys",
+          "expandedKeys",
+          "loadingKeys",
+          "dropKey",
+          "dropPosition",
+          "checked",
+          "previousKey",
           "tab",
+          "panel",
+          "current",
+          "pageSize",
+          "visible",
+          "index",
+          "behavior",
+          "action",
+          "previousIndex",
+          "previousCurrent",
+          "isManual",
+          "open",
+          "item",
+          "previousTab",
+          "previousPanel",
+          "activeKey",
           "trigger",
           "expanded",
-          "visible",
-          "value",
+          "keys",
+          "input",
+          "resolved",
+          "values",
+          "controllers",
           "option",
-          "index",
+          "label",
           "step",
           "source",
-          "item",
-          "reason",
           "page",
-          "pageSize",
           "total",
           "sort",
           "filter",
-          "selectedKeys",
           "loading",
           "error",
-          "key",
           "field",
           "previous",
           "row",
           "link",
           "section",
-          "target"
+          "target",
+          "date",
+          "path",
+          "zoom",
+          "rules",
+          "items",
+          "pageShowDate",
+          "modelValue",
+          "mode"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "check",
+        "detailKeys": [
+          "checked",
+          "value",
+          "reason",
+          "controlled"
         ],
         "guard": false,
         "bubbles": true,
@@ -1075,7 +1736,10 @@
       {
         "name": "clear",
         "detailKeys": [
-          "input"
+          "input",
+          "previousValue",
+          "value",
+          "reason"
         ],
         "guard": false,
         "bubbles": true,
@@ -1085,8 +1749,11 @@
         "name": "close",
         "detailKeys": [
           "reason",
-          "index",
-          "trigger"
+          "visible",
+          "controlled",
+          "trigger",
+          "menu",
+          "index"
         ],
         "guard": false,
         "bubbles": true,
@@ -1095,7 +1762,8 @@
       {
         "name": "collapse",
         "detailKeys": [
-          "item"
+          "item",
+          "key"
         ],
         "guard": false,
         "bubbles": true,
@@ -1106,6 +1774,43 @@
         "detailKeys": [
           "key",
           "visible"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "commandselect",
+        "detailKeys": [
+          "item",
+          "value",
+          "label",
+          "query",
+          "reason"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "complete",
+        "detailKeys": [
+          "component",
+          "reason",
+          "value",
+          "action",
+          "src",
+          "fallback",
+          "naturalWidth",
+          "naturalHeight",
+          "behavior",
+          "key",
+          "requestId",
+          "status",
+          "items",
+          "message",
+          "keys",
+          "blob"
         ],
         "guard": false,
         "bubbles": true,
@@ -1134,7 +1839,13 @@
         "name": "count",
         "detailKeys": [
           "count",
-          "maximum"
+          "maximum",
+          "remaining",
+          "mode",
+          "nearLimit",
+          "atLimit",
+          "overLimit",
+          "reason"
         ],
         "guard": false,
         "bubbles": true,
@@ -1195,7 +1906,8 @@
       {
         "name": "dismiss",
         "detailKeys": [
-          "reason"
+          "reason",
+          "trigger"
         ],
         "guard": false,
         "bubbles": true,
@@ -1205,7 +1917,11 @@
         "name": "drop",
         "detailKeys": [
           "files",
-          "dataTransfer"
+          "acceptedFiles",
+          "rejectedFiles",
+          "input",
+          "dataTransfer",
+          "source"
         ],
         "guard": false,
         "bubbles": true,
@@ -1236,7 +1952,15 @@
       {
         "name": "error",
         "detailKeys": [
+          "component",
+          "reason",
+          "message",
+          "key",
           "action",
+          "src",
+          "behavior",
+          "requestId",
+          "status",
           "error"
         ],
         "guard": false,
@@ -1246,7 +1970,21 @@
       {
         "name": "expand",
         "detailKeys": [
-          "item"
+          "item",
+          "key"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "export",
+        "detailKeys": [
+          "component",
+          "behavior",
+          "action",
+          "value",
+          "count"
         ],
         "guard": false,
         "bubbles": true,
@@ -1300,7 +2038,11 @@
         "name": "files",
         "detailKeys": [
           "files",
-          "input"
+          "acceptedFiles",
+          "rejectedFiles",
+          "input",
+          "dataTransfer",
+          "source"
         ],
         "guard": false,
         "bubbles": true,
@@ -1329,9 +2071,15 @@
       {
         "name": "filter",
         "detailKeys": [
+          "query",
+          "visibleOptions",
+          "source",
           "value",
           "terms",
-          "count"
+          "count",
+          "items",
+          "visibleItems",
+          "reason"
         ],
         "guard": false,
         "bubbles": true,
@@ -1401,10 +2149,132 @@
         "cancelable": true
       },
       {
+        "name": "navigationback",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationchange",
+        "detailKeys": [
+          "value",
+          "previousValue",
+          "item",
+          "originalEvent"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationcheck",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationcloseitem",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationcollapse",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationerror",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationexpand",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationloadmore",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationnext",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationopen",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationpagesize",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationprevious",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "navigationselect",
+        "detailKeys": [
+          "value"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
         "name": "open",
         "detailKeys": [
           "source",
+          "reason",
           "trigger",
+          "menu",
           "x",
           "y"
         ],
@@ -1417,6 +2287,8 @@
         "detailKeys": [
           "value",
           "complete",
+          "filled",
+          "total",
           "reason"
         ],
         "guard": false,
@@ -1427,6 +2299,7 @@
         "name": "otpcomplete",
         "detailKeys": [
           "value",
+          "total",
           "reason"
         ],
         "guard": false,
@@ -1448,7 +2321,11 @@
         "name": "pickerchange",
         "detailKeys": [
           "values",
-          "reason"
+          "value",
+          "start",
+          "end",
+          "reason",
+          "month"
         ],
         "guard": false,
         "bubbles": true,
@@ -1502,6 +2379,21 @@
           "end",
           "valid",
           "inputs",
+          "reason",
+          "value",
+          "duration",
+          "complete"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "ratingchange",
+        "detailKeys": [
+          "value",
+          "maximum",
+          "step",
           "reason"
         ],
         "guard": false,
@@ -1528,6 +2420,13 @@
       {
         "name": "remove",
         "detailKeys": [
+          "key",
+          "value",
+          "previousKey",
+          "tab",
+          "panel",
+          "reason",
+          "controlled",
           "index"
         ],
         "guard": false,
@@ -1608,6 +2507,20 @@
         "cancelable": true
       },
       {
+        "name": "stepchange",
+        "detailKeys": [
+          "step",
+          "index",
+          "value",
+          "previousStep",
+          "previousIndex",
+          "reason"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
         "name": "swipechange",
         "detailKeys": [
           "revealed",
@@ -1660,9 +2573,58 @@
         "cancelable": true
       },
       {
+        "name": "validationblocked",
+        "detailKeys": [
+          "errors",
+          "count",
+          "submitter"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "validationchange",
+        "detailKeys": [
+          "errors",
+          "count",
+          "valid",
+          "reason"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "validationnavigate",
+        "detailKeys": [
+          "target",
+          "targetId",
+          "reason"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
         "name": "viewchange",
         "detailKeys": [
-          "view"
+          "view",
+          "value",
+          "item",
+          "previousItem",
+          "reason"
+        ],
+        "guard": false,
+        "bubbles": true,
+        "cancelable": true
+      },
+      {
+        "name": "visibilitychange",
+        "detailKeys": [
+          "visible",
+          "input",
+          "reason"
         ],
         "guard": false,
         "bubbles": true,
@@ -1672,6 +2634,10 @@
         "name": "wheelchange",
         "detailKeys": [
           "values",
+          "value",
+          "hour",
+          "minute",
+          "second",
           "reason"
         ],
         "guard": false,
@@ -1702,6 +2668,7 @@
     ],
     "guardEvents": [
       "beforeapproval",
+      "beforechange",
       "beforeclose",
       "beforefilepicker",
       "beforeopen",
@@ -1824,8 +2791,12 @@
       "button",
       "button-group",
       "card",
+      "badge",
+      "tag",
+      "chip",
       "badge-tag-chip",
       "avatar",
+      "avatar-group",
       "alert",
       "progress-meter",
       "spinner-skeleton",
@@ -1914,12 +2885,16 @@
       "drawer",
       "popover",
       "tooltip",
+      "popconfirm",
+      "confirm-dialog",
       "toast",
       "accordion",
       "table",
       "data-grid",
       "kpi-stat",
       "description-list",
+      "descriptions",
+      "list",
       "list-group",
       "tree",
       "timeline",
@@ -2326,14 +3301,79 @@
       "solution-public-service-portal",
       "solution-marketplace-page",
       "solution-community-page",
-      "solution-status-center"
+      "solution-status-center",
+      "collapse",
+      "read-more",
+      "kpi-group",
+      "dashboard-widget",
+      "goal-tracker",
+      "gauge-chart",
+      "undo-history",
+      "markdown-viewer",
+      "responsive-container",
+      "help-search",
+      "help-glossary",
+      "ai-run-timeline",
+      "ai-structured-output",
+      "responsive-image",
+      "image",
+      "image-comparison",
+      "feature-grid",
+      "logo-cloud",
+      "testimonial",
+      "cta-section",
+      "newsletter",
+      "announcement-bar",
+      "site-footer",
+      "member-management",
+      "invitation-manager",
+      "role-manager",
+      "team-management",
+      "enterprise-integrations",
+      "desktop-preferences",
+      "desktop-session-manager",
+      "desktop-problems-panel",
+      "workflow-checklist",
+      "workflow-approval",
+      "workflow-builder",
+      "workflow-run-history",
+      "workflow-run-detail",
+      "workflow-trigger",
+      "communication-composer",
+      "communication-contacts",
+      "notification-preferences",
+      "communication-delivery",
+      "consent-preferences",
+      "legal-document",
+      "legal-agreement",
+      "consent-history",
+      "privacy-request",
+      "privacy-request-status",
+      "policy-updates",
+      "statistic",
+      "affix",
+      "resize-box",
+      "scrollbar",
+      "space",
+      "watermark",
+      "overflow-list",
+      "input-number",
+      "input-tag",
+      "color-picker",
+      "link",
+      "typography",
+      "icon"
     ],
     "componentTypes": [
       "GButton",
       "GButtonGroup",
       "GCard",
+      "GBadge",
+      "GTag",
+      "GChip",
       "GBadgeTagChip",
       "GAvatar",
+      "GAvatarGroup",
       "GAlert",
       "GProgressMeter",
       "GSpinnerSkeleton",
@@ -2422,12 +3462,16 @@
       "GDrawer",
       "GPopover",
       "GTooltip",
+      "GPopconfirm",
+      "GConfirmDialog",
       "GToast",
       "GAccordion",
       "GTable",
       "GDataGrid",
       "GKpiStat",
       "GDescriptionList",
+      "GDescriptions",
+      "GList",
       "GListGroup",
       "GTree",
       "GTimeline",
@@ -2834,9 +3878,76 @@
       "GSolutionPublicServicePortal",
       "GSolutionMarketplacePage",
       "GSolutionCommunityPage",
-      "GSolutionStatusCenter"
+      "GSolutionStatusCenter",
+      "GCollapse",
+      "GReadMore",
+      "GKpiGroup",
+      "GDashboardWidget",
+      "GGoalTracker",
+      "GGaugeChart",
+      "GUndoHistory",
+      "GMarkdownViewer",
+      "GResponsiveContainer",
+      "GHelpSearch",
+      "GHelpGlossary",
+      "GAiRunTimeline",
+      "GAiStructuredOutput",
+      "GResponsiveImage",
+      "GImage",
+      "GImageComparison",
+      "GFeatureGrid",
+      "GLogoCloud",
+      "GTestimonial",
+      "GCtaSection",
+      "GNewsletter",
+      "GAnnouncementBar",
+      "GSiteFooter",
+      "GMemberManagement",
+      "GInvitationManager",
+      "GRoleManager",
+      "GTeamManagement",
+      "GEnterpriseIntegrations",
+      "GDesktopPreferences",
+      "GDesktopSessionManager",
+      "GDesktopProblemsPanel",
+      "GWorkflowChecklist",
+      "GWorkflowApproval",
+      "GWorkflowBuilder",
+      "GWorkflowRunHistory",
+      "GWorkflowRunDetail",
+      "GWorkflowTrigger",
+      "GCommunicationComposer",
+      "GCommunicationContacts",
+      "GNotificationPreferences",
+      "GCommunicationDelivery",
+      "GConsentPreferences",
+      "GLegalDocument",
+      "GLegalAgreement",
+      "GConsentHistory",
+      "GPrivacyRequest",
+      "GPrivacyRequestStatus",
+      "GPolicyUpdates",
+      "GStatistic",
+      "GAffix",
+      "GResizeBox",
+      "GScrollbar",
+      "GSpace",
+      "GWatermark",
+      "GOverflowList",
+      "GInputNumber",
+      "GInputTag",
+      "GColorPicker",
+      "GLink",
+      "GTypography",
+      "GIcon"
     ],
     "frameworkTypes": [
+      "GardenerimTableOptions",
+      "GardenerimTableColumn",
+      "GardenerimTablePagination",
+      "GardenerimTableScroll",
+      "GardenerimNavigationOptions",
+      "GardenerimNavigationItem",
       "GardenerimAccessibilityDefinition",
       "GardenerimAssets",
       "GardenerimBehavior",
@@ -2897,7 +4008,10 @@
       "PreventDefaultEvents",
       "OnEvent",
       "ChildContent",
-      "AdditionalAttributes"
+      "AdditionalAttributes",
+      "Navigation",
+      "BeforeNavigationChange",
+      "Table"
     ],
     "componentHandleMembers": [
       "Element",
@@ -2964,7 +4078,38 @@
       "components/catalog.min.css",
       "components/ai.min.css",
       "components/ai-extended.min.css",
-      "components/ai-compositions.min.css"
+      "components/ai-compositions.min.css",
+      "foundation.js",
+      "tree.js",
+      "timeline.js",
+      "tag.js",
+      "tabs.js",
+      "statistic.js",
+      "list.js",
+      "image.js",
+      "descriptions.js",
+      "table.js",
+      "solution.js",
+      "legal.js",
+      "communication.js",
+      "workflow.js",
+      "desktop.js",
+      "enterprise.js",
+      "marketing.js",
+      "cms.js",
+      "mobile.js",
+      "auth.js",
+      "commerce.js",
+      "media.js",
+      "ai.js",
+      "help.js",
+      "layout.js",
+      "content.js",
+      "navigation.js",
+      "navigation-catalog.js",
+      "data-display.js",
+      "dashboard.js",
+      "interaction.js"
     ]
   }
 }

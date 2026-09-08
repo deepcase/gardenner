@@ -7,7 +7,7 @@ const manifest = JSON.parse(await readFile(new URL("../../dist/gardener.manifest
 
 for (const { name, url } of releasePages) {
   test(`${name} has no automated WCAG A/AA violations`, async ({ page }) => {
-    // The documentation renders the complete 506-component catalog. Keep the
+    // The documentation renders the complete component catalog. Keep the
     // full-document Axe scan instead of weakening its rules or excluding the
     // generated catalog, but allow enough time for slower CI/browser hosts.
     if (name === "website/docs.html") test.setTimeout(240_000);

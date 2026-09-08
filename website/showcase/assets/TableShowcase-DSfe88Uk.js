@@ -1,0 +1,51 @@
+var e=`<script setup lang="ts">
+import {computed,ref} from 'vue';
+import {GTable,type GardenerimTableOptions,type GardenerimTableColumn,type GardenerimTableChange,type GardenerimTableKey} from '@gardenerim/vue';
+const size=ref<'mini'|'small'|'medium'|'large'>('large'),stripe=ref(false),border=ref(true),cellBorder=ref(false),selection=ref(true),summary=ref(false),last=ref('点击表头排序、选择行或切换页码'),selected=ref<GardenerimTableKey[]>([2]);
+const labels={pagination:'分页',scrollArea:'滚动区域',reorder:'行排序',selectAll:'全选本页',selectRow:'选择行',expand:'展开行',sort:'排序',filter:'筛选',all:'全部',resize:'调整列宽',moveUp:'上移',moveDown:'下移',loading:'正在加载…',empty:'暂无数据',summary:'合计',previous:'上一页',next:'下一页',total:'共',page:'第',pageSize:'每页条数',selected:'已选择',retry:'重试'};
+const data=Array.from({length:36},(_,index)=>({key:index+1,name:['林晓','陈晨','许宁','李云','周言','赵远'][index%6]+(index>5?' '+(index+1):''),team:['设计','工程','产品'][index%3],email:\`member\${index+1}@example.com\`,amount:1200+index*137,status:index%3?'进行中':'已完成',expand:\`成员 \${index+1} · 本季度负责设计系统落地、文档维护及跨团队协作。\`}));
+const columns:GardenerimTableColumn[]=[{dataIndex:'name',title:'姓名',width:160,sortable:true},{dataIndex:'team',title:'团队',width:150,filterable:{filters:[{text:'设计',value:'设计'},{text:'工程',value:'工程'},{text:'产品',value:'产品'}]}},{dataIndex:'email',title:'邮箱',ellipsis:true,width:260},{dataIndex:'amount',title:'预算',type:'number',align:'right',sortable:true,width:140},{dataIndex:'status',title:'状态',width:130}];
+const common={labels,ariaLabel:'成员项目表',columns,data,scroll:{x:760}};
+const interactive=computed<GardenerimTableOptions>(()=>({...common,ariaLabel:'基础与参数实验',size:size.value,stripe:stripe.value,bordered:{wrapper:border.value,cell:cellBorder.value},rowSelection:selection.value,summary:summary.value,pagination:{defaultPageSize:5,pageSizeOptions:[5,10,20]},onChange:(d)=>last.value=\`\${d.reason} · 第 \${d.page} 页 · \${d.total} 条 · 已选 \${d.selectedKeys.length} 条\`}));
+const controlled=computed<GardenerimTableOptions>(()=>({...common,ariaLabel:'受控选择',columns:columns.slice(0,2),scroll:undefined,data:data.slice(0,5),pagination:false,rowSelection:true,selectedKeys:selected.value,onSelectionChange:d=>selected.value=d.selectedKeys,size:'small'}));
+const grouped:GardenerimTableOptions={...common,ariaLabel:'分组与固定列',columns:[{title:'成员资料',fixed:'left',children:[{dataIndex:'name',title:'姓名',width:150},{dataIndex:'team',title:'团队',width:120}]},{title:'项目资料',children:[{dataIndex:'email',title:'邮箱',width:300,ellipsis:true},{dataIndex:'amount',title:'预算',type:'number',width:200,sortable:true}]},{dataIndex:'status',title:'状态',fixed:'right',width:140}],scroll:{x:1200,y:260},pagination:false,columnResizable:true,bordered:{cell:true},size:'medium'};
+const tree:GardenerimTableOptions={...common,ariaLabel:'树形关联选择',columns:columns.slice(0,2),scroll:undefined,pagination:false,rowSelection:{checkStrictly:false},data:[{key:'design',name:'设计中心',team:'设计',children:[{key:'ux',name:'体验设计',team:'设计'},{key:'brand',name:'品牌设计',team:'设计'}]},{key:'engineering',name:'研发中心',team:'工程',children:[{key:'web',name:'前端团队',team:'工程'},{key:'platform',name:'平台团队',team:'工程'}]}],defaultExpandedKeys:['design']};
+const lazy:GardenerimTableOptions={...common,ariaLabel:'异步树形',columns:columns.slice(0,2),scroll:undefined,pagination:false,data:[{key:'lazy',name:'按需加载团队',team:'工程'}],loadMore:async(row,{signal})=>{await new Promise(resolve=>setTimeout(resolve,350));if(signal.aborted)return [];return [{key:row.key+'-1',name:'应用工程',team:'工程',isLeaf:true},{key:row.key+'-2',name:'基础设施',team:'工程',isLeaf:true}];}};
+const details:GardenerimTableOptions={...common,ariaLabel:'展开详情',data:data.slice(0,3),pagination:false,expandable:{},defaultExpandedKeys:[1]};
+const merged:GardenerimTableOptions={...common,ariaLabel:'合并与汇总',columns:[{dataIndex:'team',title:'团队',width:140},...columns.filter(c=>c.dataIndex!=='team')],data:data.slice(0,4).map((r,i)=>({...r,team:i<2?'设计':'工程'})),pagination:false,bordered:{cell:true},spanMethod:({columnIndex,rowIndex})=>columnIndex===0?{rowspan:rowIndex%2?0:2}:undefined,summary:true};
+const editLog=ref('姓名及预算可以直接修改；预算必须不小于 0。');
+const editing:GardenerimTableOptions={...common,ariaLabel:'编辑与排序',columns:[{dataIndex:'name',title:'姓名',editable:true,width:180},{dataIndex:'amount',title:'预算',type:'number',editable:true,validate:v=>Number(v)<0?'预算不能为负数':undefined}],scroll:undefined,data:data.slice(0,4),pagination:false,draggable:{type:'handle'},columnResizable:true,onChange:d=>editLog.value=d.reason==='edit'?\`已修改 \${d.record?.name} 的 \${d.dataIndex} 为 \${d.value}\`:'已更新行顺序'};
+const virtual:GardenerimTableOptions={...common,ariaLabel:'一万条虚拟表格',data:Array.from({length:10000},(_,i)=>({...data[i%36],key:i+1,name:'成员 '+(i+1)})),size:'small',pagination:false,virtualListProps:{height:264,itemHeight:33},tableLayoutFixed:true};
+const serverLog=ref('分页、筛选和排序将触发模拟请求。'),simulateError=ref(false),server=ref<any>();
+const remote:GardenerimTableOptions={...common,ariaLabel:'服务端查询',data:[],mode:'server',pagination:{defaultPageSize:5,pageSizeOptions:[5,10,20]},load:async q=>{serverLog.value=\`请求第 \${q.page} 页，每页 \${q.pageSize} 条\`;await new Promise(resolve=>setTimeout(resolve,300));if(q.signal.aborted)return {data:[],total:0};if(simulateError.value)throw Error('模拟网络异常，请关闭故障开关后重试');let rows=[...data];if(q.filters.team?.length)rows=rows.filter(r=>q.filters.team?.includes(String(r.team)));if(q.sorter){const {field,direction}=q.sorter;rows.sort((a,b)=>String(a[field as keyof typeof a]).localeCompare(String(b[field as keyof typeof b]),undefined,{numeric:true})*(direction==='ascend'?1:-1));}return {data:rows.slice((q.page-1)*q.pageSize,q.page*q.pageSize),total:rows.length};}};
+const state=ref<'empty'|'loading'|'disabled'>('empty');
+const states=computed<GardenerimTableOptions>(()=>({...common,ariaLabel:'空数据加载禁用',data:state.value==='disabled'?data.slice(0,2):[],pagination:false,loading:state.value==='loading',disabled:state.value==='disabled',rowSelection:true}));
+<\/script>
+
+<template>
+ <div class="table-showcase">\r
+  <h2 class="table-title">Table <small>GTable</small></h2>
+  <p class="table-intro">参考 Arco Design Vue Table 的尺寸与配置方式。通过列和数据配置实现排序、筛选、选择与分页，保持 Gardener 的主题颜色。</p>
+  <section data-table-demo="playground"><h3>基础与参数实验</h3><p>四档密度，行边框与单元格边框独立控制；选择、排序、筛选和分页可组合使用。</p>
+   <div class="table-controls"><label>尺寸 <select v-model="size"><option>large</option><option>medium</option><option>small</option><option>mini</option></select></label><label><input v-model="stripe" type="checkbox">斑马纹</label><label><input v-model="border" type="checkbox">外边框</label><label><input v-model="cellBorder" type="checkbox">单元格边框</label><label><input v-model="selection" type="checkbox">行选择</label><label><input v-model="summary" type="checkbox">合计行</label></div>
+   <GTable :table="interactive"/><output>{{last}}</output>
+  </section>
+  <section data-table-demo="controlled"><h3>受控选择</h3><p>选中状态由 Vue 数据管理，支持跨页保留和外部清空。</p><button type="button" class="g-btn g-btn-outline" @click="selected=[]">清空选择</button><GTable :table="controlled"/><output>selectedKeys: {{selected}}</output></section>
+  <section data-table-demo="fixed"><h3>分组表头 · 固定列 · 调整列宽</h3><p>滚动查看固定表头及两侧列；拖动列边界或聚焦分隔线后按方向键调整宽度。</p><GTable :table="grouped"/></section>
+  <section data-table-demo="tree"><h3>树形数据与关联选择</h3><p>父子选择关联、半选状态与默认展开。</p><GTable :table="tree"/></section>
+  <section data-table-demo="lazy"><h3>异步加载子节点</h3><p>首次展开时加载，重复点击不会发起重复请求。</p><GTable :table="lazy"/></section>
+  <section data-table-demo="details"><h3>展开行详情</h3><GTable :table="details"/></section>
+  <section data-table-demo="merged"><h3>合并单元格与汇总</h3><p>团队按两行合并，预算汇总当前页可见记录。</p><GTable :table="merged"/></section>
+  <section data-table-demo="editing"><h3>单元格编辑与行排序</h3><p>编辑触发校验与变更事件，拖动手柄或使用上下按钮排序。</p><GTable :table="editing"/><output>{{editLog}}</output></section>
+  <section data-table-demo="virtual"><h3>10,000 条数据 · 虚拟滚动</h3><p>固定行高，只挂载视区及缓冲区内的行。此模式与树形、展开详情及合并单元格互斥。</p><GTable :table="virtual"/></section>
+  <section data-table-demo="server"><h3>服务端查询、错误恢复</h3><p>模拟异步服务；切换分页会取消旧请求，避免旧结果覆盖新数据。</p><div class="table-controls"><label><input v-model="simulateError" type="checkbox">模拟故障</label><button type="button" class="g-btn g-btn-outline" @click="server?.getInstance()?.reload()">重新加载</button></div><GTable ref="server" :table="remote"/><output>{{serverLog}}</output></section>
+  <section data-table-demo="states"><h3>空数据、加载与禁用状态</h3><label>状态 <select v-model="state"><option value="empty">空数据</option><option value="loading">加载中</option><option value="disabled">禁用</option></select></label><GTable :table="states"/></section>
+  <section><h3>接入示例</h3><pre><code>&lt;GTable :table="{ columns, data, size: 'small', rowSelection: true,
+  pagination: { defaultPageSize: 10 }, scroll: { x: 900, y: 320 } }" /&gt;</code></pre><p>CSS 使用 createTable(host, options)；React 使用 table 属性；AngularJS 使用 gardener-table；Blazor 使用 Table 参数。所有入口共用同一套样式与控制器。</p><p><a href="https://arco.design/vue/component/table" target="_blank" rel="noreferrer">Arco Table 参考</a> · <a href="http://127.0.0.1:4188/docs/table.md" target="_blank">GTable 参数与兼容边界</a></p></section>
+ </div>
+</template>
+
+<style scoped>
+.table-showcase{min-width:0;max-width:100%;font-size:14px;line-height:1.6}.table-title{margin:0 0 16px;font-size:28px;line-height:1.3;font-weight:500}.table-title small{font-size:18px;color:var(--g-color-text-muted)}.table-showcase section{padding:24px 0;border-top:1px solid var(--g-color-border);min-width:0}.table-showcase h3{margin:0 0 8px;font-size:20px;font-weight:600;line-height:1.4}.table-showcase p{margin:8px 0 16px;color:var(--g-color-text-muted)}.table-intro{max-width:80ch}.table-controls{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin:16px 0}.table-controls label{display:inline-flex;gap:6px;align-items:center}.table-showcase select{font:inherit;color:var(--g-color-text);background:var(--g-color-surface);border:1px solid var(--g-color-border);border-radius:2px;padding:4px 8px}.table-showcase input[type=checkbox]{accent-color:var(--g-color-primary-text)}.table-showcase output{display:block;font-size:12px;color:var(--g-color-text-muted);margin-top:8px}.table-showcase pre{overflow:auto;font-size:13px;padding:16px;background:var(--g-color-surface-subtle)}
+</style>
+`;export{e as default};

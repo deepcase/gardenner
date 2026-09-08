@@ -37,7 +37,9 @@ const localizedPageUrl = (locale) => {
   if (Object.hasOwn(localeDefinitions, parent)) segments.splice(-2, 1);
   segments.splice(-1, 0, targetLocale);
   url.pathname = segments.join("/");
-  url.search = "";
+  const componentQuery = new URLSearchParams();
+  for (const key of ['demo', 'category']) if (url.searchParams.has(key)) componentQuery.set(key, url.searchParams.get(key));
+  url.search = componentQuery.toString();
   return url;
 };
 

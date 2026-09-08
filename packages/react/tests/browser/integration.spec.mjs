@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+const expectedCount = JSON.parse(readFileSync(new URL('../../metadata/public-api.json', import.meta.url), 'utf8')).components;
 import { expect, test } from "@playwright/test";
 
 test("React example loads all contracts without console or layout failures", async ({ page }) => {
@@ -7,7 +9,7 @@ test("React example loads all contracts without console or layout failures", asy
   const response = await page.goto("/", { waitUntil: "networkidle" });
   expect(response?.ok()).toBe(true);
   await expect(page.getByRole("heading", { name: "Gardenerim React" })).toBeVisible();
-  await expect(page.getByTestId("catalog-count")).toHaveText("506 components");
+  await expect(page.getByTestId("catalog-count")).toHaveText(`${expectedCount} components`);
   const state = await page.evaluate(() => ({
     mode: document.querySelector("[data-g-mode]")?.getAttribute("data-g-mode"),
     overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,

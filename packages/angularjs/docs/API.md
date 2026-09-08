@@ -1,4 +1,4 @@
-# Gardenerim AngularJS 2.1.0 API
+# Gardenerim AngularJS 2.2.0 API
 
 > AngularJS 1.x 已结束官方支持。本适配层用于经过验证的 AngularJS 1.8.2–1.8.3 遗留系统，并将 `angular` 保持为外部 peer dependency。应用仍需自行执行 CSP、依赖审计、输入净化与迁移计划；Gardenerim 不会掩盖或改写 AngularJS 自身的安全边界。完整要求见 [安全基线](./security.md)。
 
@@ -21,7 +21,7 @@ const moduleName = createGardenerimAngularJS(angular, {
 
 同一个 AngularJS 实例、模块名和同一组选项重复安装会返回已有模块，不会重复注册指令；若同名模块使用不同依赖、组件子集或初始化选项再次安装，会明确抛错，避免应用静默运行在错误的部分注册状态。
 
-## 506 个组件指令
+## 510 个组件指令
 
 每个 CSS 组件生成三个稳定名称：
 
@@ -90,3 +90,29 @@ import { createElectronWindowService } from "@gardenerim/angularjs/electron";
 ## 生命周期与兼容性
 
 组件在 AngularJS link 阶段配置，在 `$evalAsync` 后初始化，在 `$destroy` 中移除事件并销毁行为。包支持 AngularJS 1.8.2–1.8.3、桌面 Chromium/WebKit/Firefox、Pixel 7、iPhone 13、WCAG A/AA，并对完整 npm 包、摇树、可复现构建和压缩体积设有发布门禁。
+
+## 参数化导航（41 个组件）
+
+`navigation` / `items`（AngularJS 为 `gardenerNavigation` / `gardener-navigation`）接入共享 CSS 导航控制器。`GardenerimNavigationItem` 描述条目，`GardenerimNavigationOptions` 描述外观和行为，`GardenerimNavigationChange` 描述变更，`GardenerimNavigationInstance` 提供更新和销毁。受控值使用原有框架绑定，未提供数据参数时保持原插槽用法。
+
+完整参数、事件、五框架示例及生命周期边界见 [导航说明](../../../docs/navigation/README.md)。
+
+## GTable 数据表格
+
+`table` 配置整体表格，`columns` 与 `data` 可单独传入 Vue / React。AngularJS 使用 `gardenerTable`（`gardener-table`）和 `gardenerOnChange`（`gardener-on-change`，局部值 `$value` 是完整变更详情）。类型导出：`GardenerimTableOptions`、`GardenerimTableColumn`、`GardenerimTableInstance`、`GardenerimTableState`、`GardenerimTableChange`、`GardenerimTableKey`。
+
+支持四档尺寸、排序筛选、选择、分页、固定/分组表头、树形与详情展开、合并、汇总、编辑、调整列宽、行排序与固定行高虚拟滚动。保留静态表格。完整选项和平台边界见 [GTable 文档](../../../docs/table.md)。
+
+## GTag
+
+使用共享 `tag-options`，支持受控 checked / visible、可取消的选择与关闭、4 档尺寸、13 种预设色、自定义颜色及原生模板。完整参数及事件见 [GTag API](../../../docs/tag.md)。
+
+## GTimeline
+
+使用共享 `data-options` 配置时间线方向、排列、倒序、进行中节点和原生模板。完整参数与事件见 [GTimeline API](../../../docs/timeline.md)。
+
+## GTooltip
+
+通过 overlay-options 配置内容、十二方位、Mini、背景色、受控开关及触发器。完整参数见 [GTooltip API](../../../docs/tooltip.md)。
+
+Arco 对照新增组件：GInputNumber、GInputTag、GColorPicker、GAffix、GResizeBox、GScrollbar、GSpace、GWatermark、GOverflowList、GLink、GTypography、GIcon。共用 foundation-options；参阅 [参数与差异](../../../docs/arco/README.md)。

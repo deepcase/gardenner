@@ -1,0 +1,48 @@
+import fs from 'node:fs';import {writeFile,copyFile} from './fs-retry.mjs';import {authVariants,authExamples,authDemoCss,authDemoService} from './auth-examples.mjs';
+const edit=async(p,fn)=>writeFile(p,fn(fs.readFileSync(p,'utf8')));
+for(const p of ['../GardenerDemo/src/data/auth-examples.json','packages/css/examples/auth-examples.json'])await writeFile(p,JSON.stringify(authVariants)+'\n');
+for(const root of ['../GardenerDemo/public','packages/css/examples','packages/blazor/samples/Gardenerim.Blazor.Demo/wwwroot']){fs.mkdirSync(root+'/auth-assets',{recursive:true});if(root!=='packages/css/examples')await copyFile('packages/css/examples/auth-assets/demo-qr.svg',root+'/auth-assets/demo-qr.svg');}
+for(const p of ['../GardenerDemo/src/auth-demo.css','packages/css/examples/auth-demo.css','packages/blazor/samples/Gardenerim.Blazor.Demo/wwwroot/auth-demo.css'])await writeFile(p,authDemoCss);
+await writeFile('packages/css/examples/auth-demo-services.js',authDemoService);
+await writeFile('../GardenerDemo/src/auth-demo-services.ts','// @ts-nocheck -- shared demonstration-only service; public runtime types are checked separately.\n'+authDemoService);
+await edit('../GardenerDemo/scripts/build-examples.mjs',s=>s.includes('import { authExamples }')?s:"import { authExamples } from '../../Gardener/scripts/auth-examples.mjs';\n"+s.replace('Object.assign(overrides, commerceExamples);','Object.assign(overrides, commerceExamples);\nObject.assign(overrides, authExamples);'));
+await edit('../GardenerDemo/src/preview.ts',s=>{
+ if(!s.includes('import authVariants'))s="import authVariants from './data/auth-examples.json';\nimport {installAuthDemo} from './auth-demo-services';\nimport './auth-demo.css';\n"+s;
+ if(!s.includes("definition?.category==='auth'"))s=s.replace('document.title =',"if(definition?.category==='auth'){const variants=(authVariants as Record<string,Record<string,{html:string}>>)[name];fixture=variants?.[params.get('variant')||'']||Object.values(variants||{})[0]||fixture;}\ndocument.title =");
+ if(!s.includes("if(definition!.category==='auth')"))s=s.replace("if(definition!.category==='commerce'){",`if(definition!.category==='auth'){
+ const options=JSON.parse(String(attrs['data-g-auth-options']));for(const key of ['size','direction','flow','codeType']){const value=params.get('auth-'+key);if(value)options[key]=value;}for(const key of ['bordered','readonly','requireTerms','confirmPassword','showRemember','showTrust','confirmActions']){const value=params.get('auth-'+key);if(value)options[key]=value==='true';}for(const key of ['codeLength','minLength','maxLength','resendDelay']){const value=params.get('auth-'+key);if(value)options[key]=Number(value);}if(params.get('auth-service')==='timeout')options.requestTimeout=1500;const data=params.get('auth-data');if(data==='empty'){options.items=[];options.providers=[];options.scopes=[];options.recoveryCodes=[];}if(data==='loading'||data==='error')options.status=data;if(state==='disabled')attrs['data-g-auth-disabled']='true';attrs['data-g-auth-options']=JSON.stringify(options);if(params.get('auth-controlled')==='true')attrs['data-g-auth-value']=JSON.stringify(options.defaultValue||{});
+ }
+ if(definition!.category==='commerce'){`);
+ if(!s.includes("if(definition.category==='auth')"))s=s.replace("if(definition.category==='commerce'){",`if(definition.category==='auth'){
+ installAuthDemo(selected,getInstance,params.get('auth-service')||'success');selected.addEventListener('gardener:change',((event:CustomEvent)=>{if(event.target!==selected||!event.detail.value)return;if(event.detail.controlled)selected.setAttribute('data-g-auth-value',JSON.stringify(event.detail.value));result.hidden=false;result.textContent='公开状态（不包含密码或验证码）：'+JSON.stringify(event.detail.value);}) as EventListener);
+ }
+ if(definition.category==='commerce'){`);
+ return s.replace("'media','commerce'].includes(definition.category)","'media','commerce','auth'].includes(definition.category)");
+});
+await edit('../GardenerDemo/src/preview-actions.ts',s=>s.includes('[data-g-auth-options]')?s:s.replace('[data-g-commerce-options]','[data-g-commerce-options],[data-g-auth-options]'));
+await edit('../GardenerDemo/src/App.vue',s=>s.includes("normalizedQuery.value === 'auth'")?s:s.replace("if (normalizedQuery.value === 'commerce'","if (normalizedQuery.value === 'auth' || normalizedQuery.value === '认证') return component.category === 'auth';\n  if (normalizedQuery.value === 'commerce'"));
+await edit('../GardenerDemo/src/components/ComponentShowcase.vue',s=>{
+ if(!s.includes('const auth=ref'))s=s.replace('const commerce=ref',"const auth=ref({size:'',direction:'ltr',bordered:'true',readonly:'false',codeLength:'',codeType:'',minLength:'',showRemember:'',confirmPassword:'',requireTerms:'',resendDelay:'',data:'ready',service:'success',controlled:'false'});\nconst commerce=ref");
+ if(!s.includes("props.definition.category==='auth'?"))s=s.replace("props.definition.category==='commerce'?","props.definition.category==='auth'?Object.fromEntries(Object.entries(auth.value).map(([k,v])=>['auth-'+k,v])):props.definition.category==='commerce'?");
+ if(!s.includes('v-model="auth.size"'))s=s.replace('<div class="specimen-controls">',`<div class="specimen-controls">
+<template v-if="definition.category==='auth'">
+<label>数据<select v-model="auth.data" aria-label="认证数据"><option value="ready">正常</option><option value="empty">空内容</option><option value="loading">加载中</option><option value="error">加载失败</option></select></label>
+<label>尺寸<select v-model="auth.size" aria-label="认证尺寸"><option value="">跟随变体</option><option value="small">紧凑</option><option value="medium">标准</option><option value="large">宽松</option></select></label>
+<label>边框<select v-model="auth.bordered" aria-label="认证边框"><option value="true">显示</option><option value="false">隐藏</option></select></label>
+<label>方向<select v-model="auth.direction" aria-label="认证方向"><option>ltr</option><option>rtl</option></select></label>
+<label>只读<select v-model="auth.readonly" aria-label="认证只读"><option value="false">关闭</option><option value="true">开启</option></select></label>
+<label>验证码长度<select v-model="auth.codeLength" aria-label="验证码长度"><option value="">跟随组件</option><option>4</option><option>6</option><option>8</option></select></label>
+<label>验证码类型<select v-model="auth.codeType" aria-label="验证码类型"><option value="">跟随变体</option><option value="numeric">数字</option><option value="alphanumeric">字母数字</option></select></label>
+<label>密码最小长度<select v-model="auth.minLength" aria-label="密码最小长度"><option value="">跟随组件</option><option>8</option><option>12</option><option>15</option><option>20</option></select></label>
+<label>确认密码<select v-model="auth.confirmPassword" aria-label="确认密码参数"><option value="">跟随组件</option><option value="true">需要</option><option value="false">不需要</option></select></label>
+<label>服务结果<select v-model="auth.service" aria-label="认证服务"><option value="success">模拟确认</option><option value="error">模拟失败</option><option value="timeout">模拟超时</option></select></label>
+<label>状态管理<select v-model="auth.controlled" aria-label="认证状态管理"><option value="false">组件管理</option><option value="true">外部受控</option></select></label>
+</template>`);return s;
+});
+const sections=Object.entries(authVariants).map(([kind,modes])=>'<section data-example="'+kind+'"><h2>'+kind+'</h2><label>变体<select aria-label="'+kind+' 变体">'+Object.keys(modes).map(m=>'<option>'+m+'</option>').join('')+'</select></label><div data-stage>'+Object.values(modes)[0].html+'</div></section>').join('\n');
+await writeFile('packages/css/examples/auth-lab.html','<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>认证组件完整演示</title><link rel="stylesheet" href="../dist/gardener.css"><link rel="stylesheet" href="auth-demo.css"></head><body><main style="max-width:1100px;margin:auto;padding:24px"><h1>认证组件 · 33 个组件 / 99 个变体</h1><p>本地模拟服务，不创建真实账户、会话或安全凭证。</p>'+sections+'</main><script type="module">import {init,destroy,getInstance} from "../dist/gardener.runtime.js";import {installAuthDemo} from "./auth-demo-services.js";const examples=await fetch("./auth-examples.json").then(r=>r.json());function mount(scope){init(scope);for(const root of scope.querySelectorAll("[data-g-auth]"))installAuthDemo(root,getInstance);}mount(document);for(const section of document.querySelectorAll("[data-example]"))section.querySelector("select").addEventListener("change",e=>{const stage=section.querySelector("[data-stage]");destroy(stage);stage.innerHTML=examples[section.dataset.example][e.target.value].html;mount(stage);});</script></body></html>');
+let razor=fs.readFileSync('packages/blazor/samples/Gardenerim.Blazor.Demo/Components/Pages/MediaLab.razor','utf8');razor=razor.replace(/private static readonly JsonDocument Examples=JsonDocument.Parse\("""[\s\S]*?"""\);/,'private static readonly JsonDocument Examples=JsonDocument.Parse("""\n'+JSON.stringify(authVariants)+'\n""");').replaceAll('媒体','认证').replaceAll('media','auth').replace('Name{get;set;}="carousel"','Name{get;set;}="auth-centered"').replace('本地图片、音视频与文档；可实际翻页、预览、播放和导出裁剪。','本地模拟认证服务；不会创建真实账号或安全凭证。');
+await writeFile('packages/blazor/samples/Gardenerim.Blazor.Demo/Components/Pages/AuthLab.razor',razor.replace('Name="@Name" Config=', 'Name="@Name" Variant="@Mode" Config='));
+await writeFile('packages/blazor/samples/Gardenerim.Blazor.Demo/wwwroot/auth-demo.js',"import {init,getInstance} from './_content/Gardenerim.Blazor/gardener.runtime.min.js';\n"+authDemoService+'\nexport function install(id){const root=document.getElementById(id);if(root){init(root);installAuthDemo(root,getInstance);}}\n');
+
+await import('./auth-demo-params.mjs');

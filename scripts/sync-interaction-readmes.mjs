@@ -1,0 +1,3 @@
+import fs from 'node:fs';
+import {writeFile} from './fs-retry.mjs';
+for(const p of ['README.md',...['css','vue','react','angularjs','blazor'].map(n=>'packages/'+n+'/README.md')]){let s=fs.readFileSync(p,'utf8').replace(/\b518\b/g,'519').replace(/\b77(?=\s*(?:种 Gardenerim|种 DOM|个 DOM))/g,'78');if(p.endsWith('blazor/README.md'))s=s.replace('88 个事件','102 个事件');if(p.endsWith('css/README.md'))s=s.replace('Runtime API、66 种行为与 77 种事件','Runtime API、78 种行为与 102 种事件');const link=p==='README.md'?'docs/interaction/README.md':'../../docs/interaction/README.md';if(!s.includes('35 个交互组件'))s+='\n\n## 交互组件\n\n35 个交互组件、239 个可组合变体共享数据、受控状态和行为实现，新增撤销／重做。详见 [交互参数与完整演示]('+link+')。\n';await writeFile(p,s);}

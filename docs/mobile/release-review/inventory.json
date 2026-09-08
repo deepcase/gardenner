@@ -1,0 +1,1338 @@
+{
+  "components": 33,
+  "variants": 99,
+  "items": [
+    {
+      "name": "mobile-category",
+      "title": "移动分类",
+      "variants": [
+        "grid",
+        "list",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "分类切换、子项、网格/列表",
+      "relevantParameters": [
+        "items.children"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-safe-shell",
+      "title": "安全区外壳",
+      "variants": [
+        "contained",
+        "fullscreen",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "安全区、满屏外壳、应用导航",
+      "relevantParameters": [
+        "safeArea",
+        "position"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-app-bar",
+      "title": "应用标题栏",
+      "variants": [
+        "standard",
+        "large",
+        "search"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "返回/更多请求、搜索标题栏",
+      "relevantParameters": [
+        "showClear",
+        "position"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-bottom-navigation",
+      "title": "底部导航",
+      "variants": [
+        "labels",
+        "badges",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "选中状态、禁用项、徽标",
+      "relevantParameters": [
+        "items.badge",
+        "size"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-bottom-sheet",
+      "title": "底部面板",
+      "variants": [
+        "standard",
+        "snap",
+        "full"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "原生模态焦点、关闭返回、分段高度、拖动关闭",
+      "relevantParameters": [
+        "sheetHeight",
+        "sheetMaxWidth",
+        "snapPoints",
+        "dismissible"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-action-sheet",
+      "title": "操作面板",
+      "variants": [
+        "list",
+        "grid",
+        "destructive"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "列表/网格、危险操作确认、禁用操作",
+      "relevantParameters": [
+        "actions",
+        "confirmActions",
+        "sheetHeight",
+        "sheetMaxWidth"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-pull-refresh",
+      "title": "下拉刷新",
+      "variants": [
+        "standard",
+        "compact",
+        "manual"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "顶部触摸刷新、内部滚动、异步结果",
+      "relevantParameters": [
+        "scrollMaxHeight",
+        "threshold",
+        "allowSwipe"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-infinite-load",
+      "title": "无限加载",
+      "variants": [
+        "automatic",
+        "manual",
+        "finished"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "自动/手动加载、去重、结束与重试",
+      "relevantParameters": [
+        "hasMore",
+        "autoLoad",
+        "requestTimeout"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-swipe-actions",
+      "title": "滑动操作",
+      "variants": [
+        "end",
+        "both",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "方向手势、显式操作入口、危险操作确认",
+      "relevantParameters": [
+        "direction",
+        "allowSwipe",
+        "confirmActions"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-swipe-tabs",
+      "title": "滑动标签",
+      "variants": [
+        "line",
+        "pills",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "触摸与键盘切换、纵向页面滚动",
+      "relevantParameters": [
+        "items",
+        "threshold",
+        "allowSwipe"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-category-view",
+      "title": "分类视图",
+      "variants": [
+        "rail",
+        "grid",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "分类栏、子列表、紧凑视图",
+      "relevantParameters": [
+        "items.children"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-filter-sheet",
+      "title": "筛选面板",
+      "variants": [
+        "single",
+        "multiple",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "选择草稿、取消回退、确认回写、焦点返回",
+      "relevantParameters": [
+        "multiple",
+        "maxSelected",
+        "sheetMaxWidth"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-purchase-bar",
+      "title": "购买栏",
+      "variants": [
+        "standard",
+        "quantity",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "整数步长、数量边界、宿主购物请求",
+      "relevantParameters": [
+        "min",
+        "max",
+        "step",
+        "priceLabel"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-search",
+      "title": "移动搜索",
+      "variants": [
+        "suggestions",
+        "history",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "建议、受控输入、清除、Enter提交最新值",
+      "relevantParameters": [
+        "showClear",
+        "items"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-picker",
+      "title": "移动选择器",
+      "variants": [
+        "single",
+        "multiple",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "单/多选、禁用项、选择上限、计数",
+      "relevantParameters": [
+        "multiple",
+        "maxSelected",
+        "showSelectionCount"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-wheel-picker",
+      "title": "滚轮选择器",
+      "variants": [
+        "wheel",
+        "native",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "原生/滚轮、滚动定位、键盘跳过禁用项",
+      "relevantParameters": [
+        "columns"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-fab",
+      "title": "悬浮按钮",
+      "variants": [
+        "single",
+        "extended",
+        "menu"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "单操作、扩展按钮、菜单展开",
+      "relevantParameters": [
+        "actions",
+        "position"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-fullscreen-dialog",
+      "title": "全屏对话框",
+      "variants": [
+        "standard",
+        "form",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "全屏焦点管理、表单、关闭返回",
+      "relevantParameters": [
+        "fields",
+        "editorRows",
+        "dismissible"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-keyboard-avoidance",
+      "title": "键盘避让",
+      "variants": [
+        "form",
+        "chat",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "视口避让、表单/聊天、保留输入",
+      "relevantParameters": [
+        "fields",
+        "editorRows",
+        "safeArea"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-gesture-hint",
+      "title": "手势提示",
+      "variants": [
+        "swipe",
+        "pull",
+        "home"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "横向/下拉/底部提示、安全区",
+      "relevantParameters": [
+        "safeArea"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-offline-banner",
+      "title": "离线提示",
+      "variants": [
+        "automatic",
+        "offline",
+        "online"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "自动联网监听、显式在线/离线、重试",
+      "relevantParameters": [
+        "online"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-segmented-control",
+      "title": "分段选择",
+      "variants": [
+        "standard",
+        "icons",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "分段选中、图标、紧凑模式",
+      "relevantParameters": [
+        "items.icon"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-feed",
+      "title": "信息流",
+      "variants": [
+        "list",
+        "cards",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "图文列表/卡片、禁用项、空状态",
+      "relevantParameters": [
+        "items",
+        "imageFit"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-card-carousel",
+      "title": "卡片轮播",
+      "variants": [
+        "cards",
+        "dots",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "循环/边界、圆点、手势、按钮开关",
+      "relevantParameters": [
+        "loop",
+        "showControls",
+        "imageFit"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-form",
+      "title": "移动表单",
+      "variants": [
+        "stacked",
+        "inline",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "长度/数字/选项校验、IME、受控输入、请求恢复",
+      "relevantParameters": [
+        "fields",
+        "editorRows"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-auth",
+      "title": "移动认证",
+      "variants": [
+        "password",
+        "code",
+        "register"
+      ],
+      "implementation": "共享认证/结算控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "共享认证、注册/验证码、受控值、忙状态保留",
+      "relevantParameters": [
+        "auth",
+        "targetSize"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-checkout",
+      "title": "移动结算",
+      "variants": [
+        "standard",
+        "steps",
+        "compact"
+      ],
+      "implementation": "共享认证/结算控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "共享金额计算、地址/付款选择、条款、受控确认",
+      "relevantParameters": [
+        "commerce",
+        "targetSize"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-media-viewer",
+      "title": "媒体查看器",
+      "variants": [
+        "image",
+        "gallery",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "画廊翻页、缩放旋转、模态关闭",
+      "relevantParameters": [
+        "loop",
+        "imageFit",
+        "sheetMaxWidth"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-keyboard-toolbar",
+      "title": "键盘工具栏",
+      "variants": [
+        "navigation",
+        "actions",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "前后字段、完成、只读/禁用字段",
+      "relevantParameters": [
+        "fields",
+        "editorRows"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-selection-mode",
+      "title": "批量选择",
+      "variants": [
+        "standard",
+        "multiple",
+        "compact"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "批量选择、上限全选可清除、危险操作",
+      "relevantParameters": [
+        "multiple",
+        "maxSelected",
+        "showSelectionCount",
+        "actions"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-snackbar",
+      "title": "轻提示",
+      "variants": [
+        "standard",
+        "action",
+        "persistent"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "限时/持续、焦点/悬停暂停、关闭",
+      "relevantParameters": [
+        "duration",
+        "dismissible"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-permission-prompt",
+      "title": "权限说明",
+      "variants": [
+        "location",
+        "camera",
+        "notifications"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "位置/相机/通知说明、宿主确认和延后",
+      "relevantParameters": [
+        "actionLabel",
+        "labels"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    },
+    {
+      "name": "mobile-state",
+      "title": "移动状态",
+      "variants": [
+        "empty",
+        "error",
+        "loading"
+      ],
+      "implementation": "共享移动端控制器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "空/失败/加载、重试请求",
+      "relevantParameters": [
+        "mode",
+        "message"
+      ],
+      "sharedParameters": [
+        "size",
+        "direction",
+        "bordered",
+        "disabled",
+        "readonly",
+        "targetSize",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light + dark RTL Axe scans",
+        "CSS and Blazor 3 variants",
+        "shared runtime/assets and adapter contracts"
+      ]
+    }
+  ]
+}

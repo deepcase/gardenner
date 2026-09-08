@@ -1,0 +1,153 @@
+<!doctype html>
+<html
+  class="docs-page components-page"
+  lang="ko"
+  data-g-theme="garden"
+  data-g-mode="light"
+  data-g-typography="cjk"
+  data-g-neutral="cool"
+  data-g-shape="medium"
+ data-locale="ko">
+  <head>
+    <meta name="gardenerim-version" content="2.2.0" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="모든 컴포넌트, 변형, 매개변수 및 API를 살펴보세요."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'"
+    />
+    <title>Gardenerim 컴포넌트</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="./components.html" />
+    <link rel="alternate" hreflang="zh-CN" href="../zh-CN/components.html" />
+    <link rel="alternate" hreflang="en" href="../en/components.html" />
+    <link rel="alternate" hreflang="ja" href="../ja/components.html" />
+    <link rel="alternate" hreflang="ko" href="../ko/components.html" />
+    <link rel="alternate" hreflang="es" href="../es/components.html" />
+    <link rel="alternate" hreflang="fr" href="../fr/components.html" />
+    <link rel="alternate" hreflang="de" href="../de/components.html" />
+    <link rel="alternate" hreflang="x-default" href="../components.html" />
+    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=2.2.0-89f744a56e" />
+    <link rel="stylesheet" href="../assets/site.css?v=2.2.0-999db7025a" />
+    <link rel="stylesheet" href="../assets/docs-gallery.css?v=2.2.0-3b2ec2c26b" />
+  </head>
+  <body>
+    <a class="g-skip-link" href="#docs-main">문서 텍스트로 건너뛰기</a>
+    <header class="site-header">
+      <nav class="site-nav site-container" aria-label="문서 기본 탐색">
+        <a class="site-brand" href="./index.html"
+          ><span class="site-brand-mark" aria-hidden="true">지</span
+          ><span>Gardenerim</span></a
+        >
+        <span class="g-badge site-version" data-site-version>v2.2.0</span>
+        <div class="site-nav-links" id="site-menu">
+          <a class="site-nav-link" href="./components.html" aria-current="page">구성요소</a>
+          <a class="site-nav-link" href="./docs.html">문서</a>
+          <a class="site-nav-link" href="./index.html">홈페이지</a>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">프레임워크</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="./docs.html#vue">Vue</a>
+              <a class="site-nav-link" href="./docs.html#react">React</a>
+              <a class="site-nav-link" href="./docs.html#angular">AngularJS</a>
+              <a class="site-nav-link" href="./docs.html#blazor">Blazor</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown">
+            <summary class="site-nav-trigger">플랫폼</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="./docs.html#commerce-compositions">사업</a>
+              <a class="site-nav-link" href="./docs.html#mobile-compositions">이동</a>
+              <a class="site-nav-link" href="./docs.html#desktop-compositions">데스크탑</a>
+              <a class="site-nav-link" href="./docs.html#ai-compositions">AI</a>
+              <a class="site-nav-link" href="./docs.html#solution-compositions">장면</a>
+            </div>
+          </details>
+          <details class="site-nav-dropdown site-nav-dropdown-end">
+            <summary class="site-nav-trigger">더보기</summary>
+            <div class="site-nav-dropdown-menu">
+              <a class="site-nav-link" href="./docs.html#public-api">API 계약</a>
+              <a class="site-nav-link" href="./docs.html#targeted-builds">빌드</a>
+              <a class="site-nav-link" href="./docs.html#utilities">도구</a>
+              <a class="site-nav-link" href="./docs.html#runtime">런타임</a>
+              <a class="site-nav-link" href="./docs.html#recipes">레시피</a>
+            </div>
+          </details>
+        </div>
+        <div class="site-nav-actions">
+          <label class="g-sr-only" for="site-language">언어 선택</label>
+          <select class="g-select g-select-sm site-language-select" id="site-language" data-site-language data-i18n-ignore translate="no">
+            <option value="zh-CN" lang="zh-CN" translate="no">简体中文</option>
+            <option value="en" lang="en" translate="no">English</option>
+            <option value="ja" lang="ja" translate="no">日本語</option>
+            <option value="ko" lang="ko" translate="no" selected>한국어</option>
+            <option value="es" lang="es" translate="no">Español</option>
+            <option value="fr" lang="fr" translate="no">Français</option>
+            <option value="de" lang="de" translate="no">Deutsch</option>
+          </select>
+          <a
+            class="g-btn g-btn-primary g-btn-sm site-docs-button"
+            href="./docs.html#quick-start"
+            >빠른 시작</a
+          ><button
+            class="g-btn g-btn-outline g-btn-icon site-menu-button"
+            type="button"
+            data-site-menu
+            aria-controls="site-menu"
+            aria-expanded="false"
+            aria-label="내비게이션 열기"
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+    </header>
+    <div class="docs-shell">
+      <aside class="docs-sidebar" aria-label="컴포넌트 카테고리"><details class="docs-category-navigation" open><summary>컴포넌트 카테고리</summary><nav data-demo-category-navigation aria-label="컴포넌트 카테고리"></nav></details></aside>
+      <main class="docs-main" id="docs-main"><article>
+      <section class="docs-section" id="component-demos">
+            <div class="components-title"><h1>구성요소</h1><a class="g-btn g-btn-outline g-btn-sm" href="#component-api">컴포넌트 API</a></div>
+            <p>컴포넌트를 조작하고 매개변수, 변형 및 데모 소스를 확인하세요. GardenerDemo와 동일한 예제를 사용합니다.</p>
+            <div id="docs-live-gallery" class="docs-live-gallery">
+              <div class="docs-catalog-toolbar docs-demo-filters">
+                <label>컴포넌트 검색<input class="g-input" type="search" data-demo-search placeholder="GTable / GButton" /></label>
+                <label>카테고리<select class="g-select" data-demo-category><option value="">모든 카테고리</option></select></label>
+                <label>컴포넌트 선택<select class="g-select" data-demo-picker></select></label>
+              </div>
+              <p class="docs-catalog-meta" data-demo-count aria-live="polite"></p>
+              <div class="docs-demo-toolbar">
+                <span>GardenerDemo · Vue</span>
+                <label>미리보기 너비<select class="g-select g-select-sm" data-demo-width><option value="auto">자동</option><option value="768">768px</option><option value="390">390px</option></select></label>
+                <button class="g-btn g-btn-outline g-btn-sm" type="button" data-demo-reset>데모 초기화</button>
+                <a class="g-btn g-btn-ghost g-btn-sm" data-demo-external target="_blank" rel="noopener">별도로 열기</a>
+              </div>
+              <div class="docs-demo-viewport"><div class="docs-demo-stage" data-demo-stage></div></div>
+            </div>
+          </section>
+      <section class="docs-section" id="component-api">
+        <div class="components-api-heading"><h2>컴포넌트 API</h2><label>프레임워크<select class="g-select" data-component-api-framework><option value="css">CSS</option><option value="vue">Vue</option><option value="react">React</option><option value="angularjs">AngularJS</option><option value="blazor">Blazor</option></select></label></div>
+        <div data-component-api aria-live="polite"></div>
+        <p><a data-component-api-docs href="./docs.html#components">전체 API 문서</a></p>
+      </section>
+      </article></main>
+    </div>
+    <footer class="site-footer">
+      <div class="site-container">
+        <div class="site-footer-bottom">
+          <span>Gardenerim v2.2.0 · MIT 라이센스</span
+          ><a href="./index.html">홈페이지로 돌아가기</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../assets/file-i18n.js"></script>
+    <script type="module" src="../assets/site.js?v=2.2.0-f3c9a03abf"></script>
+  </body>
+</html>

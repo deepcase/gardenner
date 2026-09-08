@@ -1,0 +1,21 @@
+@page "/collapse"
+@using System.Text.Json
+@using Gardenerim.Blazor.Models
+<PageTitle>GCollapse · Blazor</PageTitle>
+<h1>GCollapse 折叠面板</h1>
+<p>与 CSS、Vue、React、AngularJS 共用 disclosureOptions 配置。</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap;margin:16px 0">
+<label><input type="checkbox" @bind="Accordion"/>手风琴</label>
+<label><input type="checkbox" @bind="Bordered"/>边框</label>
+<label>图标 <select @bind="Position"><option>left</option><option>right</option></select></label>
+</div>
+<GCollapse Id="blazor-collapse" Config="CollapseConfig" EventNames="Events" OnEvent="Changed" />
+<output id="collapse-state">@Message</output>
+@code {
+ private bool Accordion, Bordered=true;
+ private string Position="left", Message="展开面板或点击附加操作";
+ private object[] Active=[];
+ private readonly string[] Events=["gardener:change","gardener:action"];
+ private IReadOnlyDictionary<string,object?> CollapseConfig => new Dictionary<string,object?> { ["disclosureOptions"]=JsonSerializer.Serialize(new {label="Blazor 设置",accordion=Accordion,bordered=Bordered,expandIconPosition=Position,activeKey=Active,items=new object[]{new{key="overview",header="项目概览",content="项目资源与里程碑。",extra=new{label="编辑",action="edit"}},new{key="settings",header="高级设置",content="通知与访问策略。"},new{key="locked",header="组织策略",disabled=true,content="由管理员管理。"}}}) };
+ private void Changed(GardenerimEventArgs args){var d=JsonSerializer.SerializeToElement(args.Detail);if(d.TryGetProperty("activeKey",out var keys)){Active=keys.EnumerateArray().Select(v=>(object)v.GetString()!).ToArray();Message=keys.GetRawText();}else if(d.TryGetProperty("action",out var action)){Message=action.GetString()!;}}
+}

@@ -1,0 +1,496 @@
+[
+  {
+    "name": "desktop-shell",
+    "title": "桌面应用框架",
+    "origin": "css",
+    "variants": [
+      "standard",
+      "compact",
+      "focus",
+      "studio"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "工作区容器、文档、侧栏和底部区域开关"
+  },
+  {
+    "name": "desktop-titlebar",
+    "title": "标题栏",
+    "origin": "interactive",
+    "variants": [
+      "windows",
+      "macos",
+      "compact",
+      "centered"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "平台外观、窗口最小化/最大化/还原/关闭的宿主请求"
+  },
+  {
+    "name": "desktop-workbench",
+    "title": "工作台",
+    "origin": "css",
+    "variants": [
+      "editor",
+      "split",
+      "focus",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "编辑/分割/专注布局与文档状态"
+  },
+  {
+    "name": "desktop-native-titlebar",
+    "title": "原生标题栏",
+    "origin": "interactive",
+    "variants": [
+      "windows",
+      "macos",
+      "compact",
+      "centered"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "平台外观和显式原生宿主接口"
+  },
+  {
+    "name": "desktop-window-controls-composition",
+    "title": "窗口控制",
+    "origin": "interactive",
+    "variants": [
+      "windows",
+      "macos",
+      "compact",
+      "vertical"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "窗口控制及禁用能力"
+  },
+  {
+    "name": "desktop-menubar-composition",
+    "title": "桌面菜单栏",
+    "origin": "interactive",
+    "variants": [
+      "standard",
+      "compact",
+      "icons",
+      "overflow"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "分组菜单、键盘方向导航、禁用命令与取消"
+  },
+  {
+    "name": "desktop-activity-bar-composition",
+    "title": "活动栏",
+    "origin": "interactive",
+    "variants": [
+      "rail",
+      "horizontal",
+      "compact",
+      "labels"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "活动选择、横向/轨道布局、命令请求"
+  },
+  {
+    "name": "desktop-dock-panel",
+    "title": "停靠面板",
+    "origin": "interactive",
+    "variants": [
+      "left",
+      "right",
+      "floating",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "停靠位置、浮动、折叠及内容区域"
+  },
+  {
+    "name": "desktop-split-pane",
+    "title": "分割面板",
+    "origin": "interactive",
+    "variants": [
+      "horizontal",
+      "vertical",
+      "balanced",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "鼠标/触摸拖动、键盘调整、RTL、方向和最小最大比例"
+  },
+  {
+    "name": "desktop-inspector-panel",
+    "title": "属性检查器",
+    "origin": "interactive",
+    "variants": [
+      "properties",
+      "sections",
+      "floating",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "可配置字段、校验、只读和异步保存"
+  },
+  {
+    "name": "desktop-status-bar",
+    "title": "状态栏",
+    "origin": "css",
+    "variants": [
+      "standard",
+      "compact",
+      "segmented",
+      "subtle"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "可交互状态项、宿主命令和紧凑布局"
+  },
+  {
+    "name": "desktop-command-palette",
+    "title": "命令面板",
+    "origin": "interactive",
+    "variants": [
+      "commands",
+      "grouped",
+      "recent",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "命令搜索、分组、快捷键提示和键盘执行"
+  },
+  {
+    "name": "shortcut-recorder",
+    "title": "快捷键录制",
+    "origin": "interactive",
+    "variants": [
+      "standard",
+      "compact",
+      "macos",
+      "inline"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "组合键录制、重复/保留键检查及 Escape 取消"
+  },
+  {
+    "name": "desktop-context-menu",
+    "title": "上下文菜单",
+    "origin": "interactive",
+    "variants": [
+      "standard",
+      "grouped",
+      "compact",
+      "icons"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "可访问触发入口、菜单键盘导航和命令请求"
+  },
+  {
+    "name": "desktop-document-tabs",
+    "title": "文档标签",
+    "origin": "interactive",
+    "variants": [
+      "standard",
+      "compact",
+      "pills",
+      "underline"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "激活、键盘导航、固定、排序、脏文档关闭确认"
+  },
+  {
+    "name": "desktop-drag-region",
+    "title": "窗口拖动区域",
+    "origin": "interactive",
+    "variants": [
+      "standard",
+      "compact",
+      "toolbar",
+      "centered"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "原生拖动请求，交互控件不进入系统拖动区"
+  },
+  {
+    "name": "window-loading",
+    "title": "窗口加载",
+    "origin": "css",
+    "variants": [
+      "progress",
+      "indeterminate",
+      "skeleton",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "确定/不确定进度与可取消宿主加载流程"
+  },
+  {
+    "name": "update-available",
+    "title": "可用更新",
+    "origin": "css",
+    "variants": [
+      "banner",
+      "card",
+      "inline",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "版本说明、下载、延后与确认安装"
+  },
+  {
+    "name": "desktop-permission-request",
+    "title": "权限请求",
+    "origin": "css",
+    "variants": [
+      "card",
+      "inline",
+      "detailed",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "授权目的、显式允许/拒绝及已确认状态"
+  },
+  {
+    "name": "native-file-picker",
+    "title": "文件选择",
+    "origin": "interactive",
+    "variants": [
+      "single",
+      "multiple",
+      "directory",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "单/多/目录浏览器选择、类型/大小/数量校验、显式原生选择请求"
+  },
+  {
+    "name": "tray-menu-shell",
+    "title": "托盘菜单",
+    "origin": "interactive",
+    "variants": [
+      "standard",
+      "grouped",
+      "compact",
+      "status"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "托盘菜单内容、分组和宿主命令"
+  },
+  {
+    "name": "multi-window-placeholder",
+    "title": "多窗口起始页",
+    "origin": "css",
+    "variants": [
+      "empty",
+      "cards",
+      "inline",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "多窗口引导与创建窗口请求"
+  },
+  {
+    "name": "desktop-workspace-composition",
+    "title": "桌面工作空间",
+    "origin": "css",
+    "variants": [
+      "standard",
+      "compact",
+      "focus",
+      "studio"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "完整工作空间组合、文档与可配置面板"
+  },
+  {
+    "name": "desktop-window-switcher",
+    "title": "窗口切换",
+    "origin": "interactive",
+    "variants": [
+      "cards",
+      "list",
+      "recent",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "搜索分页、切换窗口与关闭确认"
+  },
+  {
+    "name": "recent-documents",
+    "title": "最近文档",
+    "origin": "css",
+    "variants": [
+      "list",
+      "cards",
+      "grouped",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "搜索、分组、分页、固定与打开请求"
+  },
+  {
+    "name": "desktop-toolbar",
+    "title": "桌面工具栏",
+    "origin": "css",
+    "variants": [
+      "standard",
+      "compact",
+      "icons",
+      "grouped"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "参数化操作项、禁用能力和键盘导航"
+  },
+  {
+    "name": "desktop-bottom-panel",
+    "title": "底部面板",
+    "origin": "interactive",
+    "variants": [
+      "tabs",
+      "terminal",
+      "problems",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "可折叠终端/输出/问题标签及内容配置"
+  },
+  {
+    "name": "background-task-center",
+    "title": "后台任务",
+    "origin": "css",
+    "variants": [
+      "list",
+      "cards",
+      "active",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "任务筛选、进度、暂停/继续/重试/取消状态约束"
+  },
+  {
+    "name": "desktop-notification-center",
+    "title": "通知中心",
+    "origin": "css",
+    "variants": [
+      "list",
+      "unread",
+      "grouped",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "未读筛选、标记已读、全部已读与移除"
+  },
+  {
+    "name": "sync-status",
+    "title": "同步状态",
+    "origin": "css",
+    "variants": [
+      "inline",
+      "card",
+      "detailed",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "同步阶段、进度与冲突处理请求"
+  },
+  {
+    "name": "update-progress",
+    "title": "更新进度",
+    "origin": "css",
+    "variants": [
+      "linear",
+      "steps",
+      "detailed",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "下载/安装阶段、重试、取消与安装确认"
+  },
+  {
+    "name": "crash-recovery",
+    "title": "崩溃恢复",
+    "origin": "css",
+    "variants": [
+      "card",
+      "list",
+      "detailed",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "恢复快照预览、恢复/放弃请求与放弃确认"
+  },
+  {
+    "name": "single-instance-notice",
+    "title": "单实例提示",
+    "origin": "css",
+    "variants": [
+      "inline",
+      "card",
+      "detailed",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "已有实例说明与切换窗口请求"
+  },
+  {
+    "name": "deep-link-handler",
+    "title": "深层链接",
+    "origin": "css",
+    "variants": [
+      "card",
+      "inline",
+      "preview",
+      "compact"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "目标预览、协议白名单与宿主打开请求"
+  },
+  {
+    "name": "about-dialog",
+    "title": "关于应用",
+    "origin": "interactive",
+    "variants": [
+      "standard",
+      "compact",
+      "credits",
+      "licenses"
+    ],
+    "diagnosis": "缺少统一参数、变体和受控演示；保留已有渐进增强用法。",
+    "implemented": "产品、版本、致谢与许可证内容配置及信息复制请求"
+  },
+  {
+    "name": "desktop-preferences",
+    "title": "应用偏好设置",
+    "origin": "new",
+    "variants": [
+      "sidebar",
+      "tabs",
+      "stacked",
+      "compact"
+    ],
+    "diagnosis": "补齐桌面应用中独立的管理场景。",
+    "implemented": "编辑器/外观/文件设置、分组、脏状态、校验/保存/重置"
+  },
+  {
+    "name": "desktop-session-manager",
+    "title": "工作区会话",
+    "origin": "new",
+    "variants": [
+      "cards",
+      "list",
+      "recent",
+      "compact"
+    ],
+    "diagnosis": "补齐桌面应用中独立的管理场景。",
+    "implemented": "命名会话、搜索/分页、保存/恢复/删除确认"
+  },
+  {
+    "name": "desktop-problems-panel",
+    "title": "问题诊断",
+    "origin": "new",
+    "variants": [
+      "table",
+      "grouped",
+      "errors",
+      "compact"
+    ],
+    "diagnosis": "补齐桌面应用中独立的管理场景。",
+    "implemented": "按文件/级别筛选、定位行列与可用快速修复请求"
+  }
+]

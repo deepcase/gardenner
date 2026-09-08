@@ -1,4 +1,6 @@
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import {navigationEventContracts} from '../src/js/navigation.js';
+import { existsSync, readFileSync } from "node:fs";
+import { writeFile } from "../../../scripts/fs-retry.mjs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { componentPacks, platformProfiles } from "../config/builds.mjs";
@@ -165,7 +167,7 @@ function emittedEventContracts(source) {
 }
 
 function functionParameters(source, name) {
-  const match = [...source.matchAll(new RegExp(`function\\s+${name}\\s*\\(([^)]*)\\)`, "g"))].at(-1);
+  const match = [...source.matchAll(new RegExp(`^(?:export\\s+)?function\\s+${name}\\s*\\(([^)]*)\\)`, "gm"))].at(-1);
   return match ? splitTopLevel(match[1]).filter(Boolean) : [];
 }
 
@@ -186,7 +188,7 @@ function runtimeContract(source) {
   const kebabDataset = (name) => name.replace(/^g/, "").replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
   const behaviorAttributes = behaviorContracts.map(({ attribute }) => attribute);
   const behaviorAttributeSet = new Set(behaviorAttributes);
-  const selectors = [...new Set([...source.matchAll(/data-g-[a-z0-9-]+/g)].map((match) => match[0]))].filter((name) => !behaviorAttributeSet.has(name)).sort();
+  const selectors = [...new Set([...source.matchAll(/data-g-[a-z0-9-]+/g)].map((match) => match[0]))].filter((name) => /^data-g-[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/.test(name) && !behaviorAttributeSet.has(name)).sort();
   const reads = new Set();
   const managedState = new Set();
   for (const match of source.matchAll(/\.dataset\.([A-Za-z][A-Za-z0-9]*)/g)) {
@@ -240,7 +242,7 @@ const budgets = json(join(root, "config/performance-budgets.json"));
 const performance = json(join(root, "dist/gardener.performance.json"));
 const compatibility = json(join(root, "metadata/compatibility.json"));
 const css = readFileSync(join(root, "dist/gardener.css"), "utf8");
-const runtime = readFileSync(join(root, "src/js/index.js"), "utf8");
+const runtime = readFileSync(join(root, "src/js/foundation.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/tree.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/timeline.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/tag.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/tabs.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/statistic.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/list.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/image.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/descriptions.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/solution.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/legal.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/communication.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/workflow.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/desktop.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/enterprise.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/marketing.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/cms.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/mobile.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/auth.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/commerce.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/media.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/ai.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/help.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/layout.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/content.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/interaction.js"), "utf8") + "\n" + readFileSync(join(root, "src/js/index.js"), "utf8") + '\n' + readFileSync(join(root, "src/js/data-display.js"), "utf8") + '\n' + readFileSync(join(root, "src/js/dashboard.js"), "utf8");
 const runtimeTests = readFileSync(join(root, "tests/runtime.test.mjs"), "utf8");
 const runtimeFixtures = readFileSync(join(root, "tests/runtime-fixtures.mjs"), "utf8");
 const websiteDocs = readFileSync(join(root, "../../website/docs.html"), "utf8");
@@ -253,18 +255,22 @@ const htmlTests = readFileSync(join(root, "tests/html.test.mjs"), "utf8");
 const registryBlock = runtime.match(/\[\s*\["dialog"[\s\S]*?\]\s*\.forEach\(\(\[name, factory\]\)/)?.[0] || "";
 const registeredBehaviors = [...registryBlock.matchAll(/\["([a-z-]+)"\s*,/g)].map((match) => match[1]);
 const emittedEvents = [...new Set([...runtime.matchAll(/emit\([^,]+,\s*["']([a-z0-9-]+)["']/g)].map((match) => match[1]))].sort();
+emittedEvents.push(...navigationEventContracts.map(x=>x.name));emittedEvents.sort();
 const declaredEvents = [...publicApi.javascript.events].sort();
 const namedExports = runtime.match(/export \{([^}]+)\}/)?.[1].split(",").map((name) => name.trim().split(/\s+as\s+/).at(-1)) || [];
 const moduleExports = ["default", ...namedExports];
 const gardenerOpening = runtime.lastIndexOf("Object.freeze({") + "Object.freeze(".length;
 const gardenerProperties = returnedObjectKeys(runtime.slice(gardenerOpening + 1, matchingBrace(runtime, gardenerOpening)));
 const runtimeInventory = runtimeContract(runtime);
-const eventContracts = emittedEventContracts(runtime);
+const eventContracts = [...emittedEventContracts(runtime),...navigationEventContracts].sort((a,b)=>a.name.localeCompare(b.name));
 if (process.argv.includes("--write-runtime")) {
   publicApi.javascript.behaviorContracts = runtimeInventory.behaviorContracts;
+  publicApi.javascript.behaviors = runtimeInventory.behaviorContracts.map(contract => contract.name);
+  publicApi.javascript.events = eventContracts.map(contract => contract.name);
+  publicApi.javascript.guardEvents = eventContracts.filter(contract => contract.guard).map(contract => contract.name);
   publicApi.javascript.dataAttributes = runtimeInventory.dataAttributes;
   publicApi.javascript.eventContracts = eventContracts;
-  writeFileSync(join(root, "metadata/public-api.json"), JSON.stringify(publicApi, null, 2) + "\n");
+  await writeFile(join(root, "metadata/public-api.json"), JSON.stringify(publicApi, null, 2) + "\n");
   console.log("Updated runtime contract metadata; run the normal contracts gate to verify.");
   process.exit(0);
 }
@@ -340,11 +346,11 @@ if (!same(publicApi.javascript.guardEvents, publicApi.javascript.events.filter((
 if (!same(moduleExports, publicApi.javascript.moduleExports)) errors.push("public-api moduleExports must exactly match runtime module exports");
 if (!same(publicApi.javascript.moduleContracts.map(({ name }) => name), moduleExports)) errors.push("public-api moduleContracts must cover every module export in order");
 for (const contract of publicApi.javascript.moduleContracts) {
-    const expectedKind = ["default", "Gardenerim", "supportedLocales"].includes(contract.name) ? "object" : "function";
+    const expectedKind = ["default", "Gardenerim", "supportedLocales", "navigationDefaults"].includes(contract.name) ? "object" : "function";
   if (contract.kind !== expectedKind) errors.push(`module contract ${contract.name}: kind must be ${expectedKind}`);
   if (!jsIdentifier.test(contract.name)) errors.push(`module contract ${contract.name}: name must be a valid JavaScript identifier`);
   const sourceParameters = contract.parameters.map((parameter) => parameter.endsWith("?") ? parameter.slice(0, -1) : parameter);
-  if (contract.kind === "function" && !same(sourceParameters, functionParameters(runtime, contract.name))) errors.push(`module contract ${contract.name}: parameters do not match runtime source`);
+  if (contract.kind === "function" && !same(sourceParameters, functionParameters(contract.name === "createNavigation" ? readFileSync(join(root,"src/js/navigation.js"),"utf8") : runtime, contract.name))) errors.push(`module contract ${contract.name}: parameters do not match runtime source`);
   const expectedSignature = contract.kind === "function"
     ? `${contract.name}(${contract.parameters.join(", ")}) => ${contract.returns}`
     : `${contract.name}: ${contract.returns}`;
@@ -388,7 +394,7 @@ for (const component of components.components) {
   if (component.type === "interactive" && !component.behaviors?.length && !component.adapters?.length) errors.push(`component ${component.name}: interactive entries require behaviors or adapters`);
   if (component.type === "css" && (component.behaviors?.length || component.adapters?.length)) errors.push(`component ${component.name}: CSS-only entries cannot declare behaviors or adapters`);
   const expectedStatus = component.type === "interactive" ? "runtime-ready" : "css-ready";
-  if (component.status !== expectedStatus) errors.push(`component ${component.name}: status must be ${expectedStatus}`);
+  if (component.status !== expectedStatus && component.status !== "deprecated") errors.push(`component ${component.name}: status must be ${expectedStatus} or deprecated`);
   for (const behavior of component.behaviors || []) if (!registeredBehaviors.includes(behavior)) errors.push(`component ${component.name}: unknown behavior ${behavior}`);
   for (const adapter of component.adapters || []) if (!adapters.has(adapter)) errors.push(`component ${component.name}: unknown adapter ${adapter}`);
   const selector = component.cssSelector || (component.selector.startsWith(".") ? component.selector : null);

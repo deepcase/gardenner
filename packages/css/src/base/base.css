@@ -2,7 +2,8 @@
   html { font-family: var(--g-font-sans); line-height: var(--g-line-height-normal); color: var(--g-color-text); background: var(--g-color-canvas); }
   body { background: var(--g-color-canvas); color: var(--g-color-text); font-size: var(--g-font-size-md); text-rendering: optimizeLegibility; }
   ::selection { background: var(--g-color-selection); }
-  a { color: var(--g-color-primary-text); text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+  a, a:any-link { color: var(--g-color-primary-text); text-decoration: none !important; }
+  a:is(:hover, :focus-visible, :active, :visited) { text-decoration: none !important; }
   a:hover { color: var(--g-color-primary-hover); }
   h1, h2, h3, h4, h5, h6 { color: var(--g-color-text); font-weight: var(--g-heading-weight, 650); letter-spacing: var(--g-letter-spacing-heading, -0.015em); line-height: var(--g-line-height-tight); text-wrap: balance; }
   h1 { font-size: clamp(2rem, 4vw, var(--g-font-size-4xl)); }

@@ -1,0 +1,135 @@
+{
+  "date": "2026-09-07T12:07:35.071Z",
+  "scope": "navigation",
+  "components": 41,
+  "namedVariants": 174,
+  "scenarios": 123,
+  "newOptions": 17,
+  "frameworks": [
+    "CSS",
+    "Vue",
+    "React",
+    "AngularJS",
+    "Blazor"
+  ],
+  "tests": {
+    "navigation": 25,
+    "runtime": 855,
+    "schema": 48,
+    "build": 11,
+    "adapters": [
+      {
+        "package": "vue",
+        "checks": [
+          {
+            "task": "test:schema",
+            "exitCode": 0,
+            "tests": 3
+          },
+          {
+            "task": "test:types",
+            "exitCode": 0,
+            "tests": 0
+          },
+          {
+            "task": "test:unit",
+            "exitCode": 0,
+            "tests": 145
+          }
+        ]
+      },
+      {
+        "package": "react",
+        "checks": [
+          {
+            "task": "test:schema",
+            "exitCode": 0,
+            "tests": 3
+          },
+          {
+            "task": "test:types",
+            "exitCode": 0,
+            "tests": 0
+          },
+          {
+            "task": "test:unit",
+            "exitCode": 0,
+            "tests": 93
+          }
+        ]
+      },
+      {
+        "package": "angularjs",
+        "checks": [
+          {
+            "task": "test:schema",
+            "exitCode": 0,
+            "tests": 3
+          },
+          {
+            "task": "test:types",
+            "exitCode": 0,
+            "tests": 0
+          },
+          {
+            "task": "test:unit",
+            "exitCode": 0,
+            "tests": 81
+          }
+        ]
+      }
+    ],
+    "engines": {
+      "chromium": {
+        "release": 50,
+        "interactions": 41
+      },
+      "firefox": {
+        "release": 50,
+        "interactions": 41
+      },
+      "webkit": {
+        "release": 50,
+        "interactions": 41
+      }
+    },
+    "audits": {
+      "desktop": 123,
+      "mobile390": 123
+    },
+    "accessibility": {
+      "components": 41,
+      "additionalVariants": 10,
+      "violations": 0
+    },
+    "blazor": {
+      "components": 41,
+      "scenarios": 123,
+      "variants": 174
+    }
+  },
+  "sharedAssets": {
+    "gardener.css": "c89c1fc1b0fb73fd2891c9716bf23e5fb402319b60432065c81b738a14005784",
+    "gardener.min.css": "b16d19b0fe07af6b32c9ed06d173e430f4894aa75621d8b618a1a0f40de6a44e",
+    "gardener.runtime.min.js": "2f56939f0f3c62532f516f9e40e1b7c35dfacfcdc12c56c3064eec0325a87341",
+    "navigation.js": "0dc0706af241857f62ddd5959300fb7bb2a390aff2b71787c84b73c17d2d15af",
+    "navigation-catalog.js": "c8b025696a4b2fbe1b23ba2cd4159e0c94e91b3e8ae4f4bfc3ed91676ca34f27"
+  },
+  "performance": {
+    "css": {
+      "raw": 1886886,
+      "gzip": 260634,
+      "brotli": 147253
+    },
+    "navigation": {
+      "raw": 74670,
+      "gzip": 11181,
+      "brotli": 9843
+    }
+  },
+  "limitations": [
+    "Automated accessibility does not replace assistive-technology user testing.",
+    "Navigation callbacks and Blazor service cancellation require application integration.",
+    "This verifies the navigation changes in the current workspace; no npm or NuGet publication was performed."
+  ]
+}

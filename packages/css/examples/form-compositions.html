@@ -70,7 +70,17 @@
                   这些内容会显示在企业资料中。
                 </p>
               </div>
-              <span class="g-autosave-status is-saved">已自动保存</span>
+              <div
+                class="g-autosave-status g-autosave-status-compact"
+                data-g-autosave
+                data-g-autosave-delay="600"
+                data-g-autosave-auto-complete="true"
+                data-g-autosave-state="saved"
+              >
+                <span class="g-autosave-status-indicator" aria-hidden="true"></span>
+                <span class="g-autosave-status-label" data-g-autosave-label role="status" aria-live="polite">已保存</span>
+                <time class="g-autosave-status-time" data-g-autosave-time></time>
+              </div>
             </header>
             <div class="g-form-row">
               <div class="g-field">
@@ -123,9 +133,23 @@
               </div>
             </fieldset>
           </section>
-          <div class="g-form-actions is-between">
-            <button class="g-btn g-btn-ghost" type="button">取消</button
-            ><button class="g-btn g-btn-primary" type="submit">保存</button>
+          <div
+            class="g-form-actions g-form-actions-between g-form-actions-bordered"
+            role="group"
+            aria-label="联系信息操作"
+          >
+            <div class="g-form-actions-secondary">
+              <button class="g-btn g-btn-ghost" type="button">取消</button>
+            </div>
+            <div class="g-form-actions-meta">
+              <span class="g-form-actions-status" role="status" aria-live="polite"
+                >更改尚未保存</span
+              >
+            </div>
+            <div class="g-form-actions-main">
+              <button class="g-btn g-btn-outline" type="button">保存草稿</button
+              ><button class="g-btn g-btn-primary" type="submit">保存</button>
+            </div>
           </div>
         </form>
         <div class="demo-grid g-mt-5">
@@ -336,15 +360,35 @@
           </section>
           <section class="demo-card">
             <h3>Validation Summary</h3>
-            <aside class="g-validation-summary" role="alert">
-              <strong class="g-validation-summary-title"
-                >请修正 2 个问题</strong
+            <form class="g-form" id="validation-summary-form">
+              <aside
+                class="g-validation-summary g-validation-summary-compact"
+                data-g-validation-summary
+                data-g-validation-mode="live"
+                aria-labelledby="validation-summary-title"
+                aria-describedby="validation-summary-description validation-summary-status"
               >
-              <ul class="g-validation-summary-list">
-                <li><a href="#invalid-email">通知邮箱格式不正确</a></li>
-                <li><a href="#consent">需要接受服务条款</a></li>
-              </ul>
-            </aside>
+                <span class="g-validation-summary-icon" aria-hidden="true"></span>
+                <div class="g-validation-summary-content">
+                  <div class="g-validation-summary-header">
+                    <strong class="g-validation-summary-title" id="validation-summary-title">请修正以下内容</strong>
+                    <span class="g-validation-summary-count" data-g-validation-count></span>
+                  </div>
+                  <p class="g-validation-summary-description" id="validation-summary-description">选择问题即可返回对应字段。</p>
+                  <ul class="g-validation-summary-list" data-g-validation-list></ul>
+                  <span class="g-validation-summary-status" id="validation-summary-status" data-g-validation-status></span>
+                </div>
+              </aside>
+              <div class="g-field">
+                <label class="g-label" for="summary-name">项目名称</label>
+                <input class="g-input" id="summary-name" name="projectName" required data-g-validation-message="请输入项目名称" />
+              </div>
+              <div class="g-field">
+                <label class="g-label" for="summary-email">通知邮箱</label>
+                <input class="g-input" id="summary-email" name="email" type="email" value="invalid" required data-g-validation-message="请输入有效邮箱地址" />
+              </div>
+              <button class="g-btn g-btn-primary" type="submit">提交检查</button>
+            </form>
           </section>
           <section class="demo-card">
             <h3>Checkbox / Radio</h3>
@@ -475,6 +519,148 @@
               </div>
             </div>
           </div>
+          <section class="demo-card g-mt-4" aria-labelledby="publish-date-picker-heading">
+            <h3 id="publish-date-picker-heading">发布日期选择器</h3>
+            <p class="g-text-muted">支持月份导航、日期边界、快捷选择，以及方向键、Home、End、PageUp 和 PageDown。</p>
+            <div
+              class="g-date-picker g-date-picker-inline g-date-picker-with-presets g-date-picker-with-footer"
+              data-g-picker
+              data-g-date-picker-value="2026-09-12"
+              data-g-date-picker-min="2026-09-01"
+              data-g-date-picker-max="2026-12-31"
+              data-g-date-picker-first-day="1"
+              aria-label="选择发布日期"
+            >
+              <div class="g-date-picker-presets" aria-label="快捷日期">
+                <button class="g-date-picker-preset" type="button" data-g-date-picker-preset="today">今天</button>
+                <button class="g-date-picker-preset" type="button" data-g-date-picker-preset="tomorrow">明天</button>
+                <button class="g-date-picker-preset" type="button" data-g-date-picker-preset="next-week">一周后</button>
+              </div>
+              <header class="g-date-picker-header">
+                <div class="g-date-picker-navigation">
+                  <button class="g-date-picker-previous" type="button" data-g-date-picker-previous aria-label="上个月">
+                    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m10 3-5 5 5 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"></path></svg>
+                  </button>
+                </div>
+                <h4 class="g-date-picker-title" id="publish-date-picker-title" data-g-date-picker-title aria-live="polite">2026年9月</h4>
+                <div class="g-date-picker-navigation">
+                  <button class="g-date-picker-next" type="button" data-g-date-picker-next aria-label="下个月">
+                    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"></path></svg>
+                  </button>
+                </div>
+              </header>
+              <div class="g-date-picker-body">
+                <div class="g-calendar-grid" data-g-date-picker-grid aria-labelledby="publish-date-picker-title"></div>
+              </div>
+              <input class="g-date-picker-output" type="hidden" name="publishDate" data-g-date-picker-output>
+              <footer class="g-date-picker-footer">
+                <div class="g-date-picker-selection"><span class="g-date-picker-status" data-g-date-picker-status role="status" aria-live="polite">尚未选择日期</span></div>
+                <div class="g-date-picker-actions">
+                  <button class="g-btn g-btn-ghost g-btn-sm" type="button" data-g-date-picker-clear>清空</button>
+                  <button class="g-btn g-btn-outline g-btn-sm" type="button" data-g-date-picker-today>今天</button>
+                </div>
+              </footer>
+            </div>
+          </section>
+          <section class="demo-card g-mt-4" aria-labelledby="publish-time-picker-heading">
+            <h3 id="publish-time-picker-heading">发布时间选择器</h3>
+            <p class="g-text-muted">支持直接输入、时间边界、五分钟步进、快捷时间及键盘选择。</p>
+            <div
+              class="g-time-picker g-time-picker-inline g-time-picker-with-presets g-time-picker-with-footer"
+              data-g-wheel-picker
+              data-g-time-picker-value="13:30"
+              data-g-time-picker-min="09:00"
+              data-g-time-picker-max="18:00"
+              data-g-time-picker-minute-step="5"
+              aria-label="选择发布时间"
+            >
+              <div class="g-time-picker-control" data-g-time-picker-trigger>
+                <span class="g-time-picker-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.75" fill="none" stroke="currentColor" stroke-width="1.5"></circle><path d="M8 4.8v3.5l2.4 1.4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+                </span>
+                <input class="g-time-picker-input" data-g-time-picker-input inputmode="numeric" autocomplete="off" placeholder="HH:mm" aria-label="发布时间">
+                <button class="g-time-picker-clear" type="button" data-g-time-picker-clear aria-label="清空时间">×</button>
+              </div>
+              <div class="g-time-picker-panel" data-g-time-picker-panel>
+                <div class="g-time-picker-presets" aria-label="快捷时间">
+                  <button class="g-time-picker-preset" type="button" data-g-time-picker-preset="morning">上午 9:00</button>
+                  <button class="g-time-picker-preset" type="button" data-g-time-picker-preset="noon">中午 12:00</button>
+                  <button class="g-time-picker-preset" type="button" data-g-time-picker-preset="evening">下午 18:00</button>
+                </div>
+                <div class="g-time-picker-columns" data-g-time-picker-columns></div>
+                <footer class="g-time-picker-footer">
+                  <span class="g-time-picker-status" data-g-time-picker-status role="status" aria-live="polite">尚未选择时间</span>
+                  <div class="g-time-picker-actions">
+                    <button class="g-btn g-btn-ghost g-btn-sm" type="button" data-g-time-picker-now>现在</button>
+                    <button class="g-btn g-btn-primary g-btn-sm" type="button" data-g-time-picker-apply>确定</button>
+                  </div>
+                </footer>
+              </div>
+              <input class="g-time-picker-output" type="hidden" name="publishTime" data-g-time-picker-output>
+            </div>
+          </section>
+          <section class="demo-card g-mt-4" aria-labelledby="verification-pin-heading">
+            <h3 id="verification-pin-heading">验证码输入</h3>
+            <p class="g-text-muted">支持自动跳格、整串粘贴、退格回退、方向键导航和原生表单提交。</p>
+            <div
+              class="g-pin-input g-pin-input-boxed"
+              data-g-otp-input
+              data-g-pin-input-mode="numeric"
+              data-g-pin-input-empty-label="请输入 6 位验证码"
+              data-g-pin-input-partial-label="继续输入剩余验证码"
+              data-g-pin-input-complete-label="验证码已完整"
+              aria-labelledby="verification-pin-label"
+              aria-describedby="verification-pin-status verification-pin-help"
+            >
+              <label class="g-pin-input-label" id="verification-pin-label">短信验证码</label>
+              <div class="g-pin-input-cells">
+                <input class="g-pin-input-cell" data-g-pin-input-cell inputmode="numeric" autocomplete="one-time-code" aria-label="验证码第 1 位，共 6 位">
+                <input class="g-pin-input-cell" data-g-pin-input-cell inputmode="numeric" autocomplete="off" aria-label="验证码第 2 位，共 6 位">
+                <input class="g-pin-input-cell" data-g-pin-input-cell inputmode="numeric" autocomplete="off" aria-label="验证码第 3 位，共 6 位">
+                <input class="g-pin-input-cell" data-g-pin-input-cell inputmode="numeric" autocomplete="off" aria-label="验证码第 4 位，共 6 位">
+                <input class="g-pin-input-cell" data-g-pin-input-cell inputmode="numeric" autocomplete="off" aria-label="验证码第 5 位，共 6 位">
+                <input class="g-pin-input-cell" data-g-pin-input-cell inputmode="numeric" autocomplete="off" aria-label="验证码第 6 位，共 6 位">
+              </div>
+              <input class="g-pin-input-output" type="hidden" name="verificationCode" data-g-pin-input-output>
+              <footer class="g-pin-input-footer">
+                <span class="g-pin-input-status" id="verification-pin-status" data-g-pin-input-status role="status" aria-live="polite">请输入 6 位验证码</span>
+                <div class="g-pin-input-actions"><button class="g-pin-input-clear" type="button" data-g-pin-input-clear>清空</button></div>
+              </footer>
+              <span class="g-pin-input-help" id="verification-pin-help">可直接粘贴完整验证码；仅接受数字。</span>
+            </div>
+          </section>
+          <section class="demo-card g-mt-4" aria-labelledby="experience-rating-heading">
+            <h3 id="experience-rating-heading">体验评分</h3>
+            <p class="g-text-muted">支持半星精度、悬停预览、键盘调整、再次选择清空和原生表单提交。</p>
+            <div
+              class="g-rating g-rating-large g-rating-half g-rating-clearable g-rating-with-label g-rating-with-value"
+              data-g-rating
+              data-g-rating-value="3.5"
+              data-g-rating-max="5"
+              data-g-rating-step="0.5"
+              data-g-rating-allow-clear
+              aria-labelledby="experience-rating-label"
+              aria-describedby="experience-rating-status experience-rating-help"
+            >
+              <span class="g-rating-label" id="experience-rating-label">本次使用体验</span>
+              <div class="g-rating-items">
+                <button class="g-rating-item" type="button" data-g-rating-item data-g-value="1"><span class="g-rating-icon" aria-hidden="true"></span></button>
+                <button class="g-rating-item" type="button" data-g-rating-item data-g-value="2"><span class="g-rating-icon" aria-hidden="true"></span></button>
+                <button class="g-rating-item" type="button" data-g-rating-item data-g-value="3"><span class="g-rating-icon" aria-hidden="true"></span></button>
+                <button class="g-rating-item" type="button" data-g-rating-item data-g-value="4"><span class="g-rating-icon" aria-hidden="true"></span></button>
+                <button class="g-rating-item" type="button" data-g-rating-item data-g-value="5"><span class="g-rating-icon" aria-hidden="true"></span></button>
+              </div>
+              <input class="g-rating-output" type="hidden" name="experienceRating" value="3.5" data-g-rating-output>
+              <footer class="g-rating-footer">
+                <span class="g-rating-status" id="experience-rating-status" data-g-rating-status role="status" aria-live="polite">已评分：3.5 / 5 星</span>
+                <div class="g-rating-actions">
+                  <strong class="g-rating-value" data-g-rating-value-label>3.5 / 5</strong>
+                  <button class="g-rating-clear" type="button" data-g-rating-clear>清除</button>
+                </div>
+              </footer>
+              <span class="g-rating-help" id="experience-rating-help">方向键每次调整半星，Home 清空，End 选择满分。</span>
+            </div>
+          </section>
           <div class="demo-grid">
             <div class="g-field">
               <label class="g-label" for="date-start">活动日期</label>
@@ -501,7 +687,7 @@
               <div class="g-unit-field">
                 <input
                   class="g-input"
-                  id="storage-size"
+                  id="storage-size" aria-label="存储限制"
                   type="number"
                   value="100"
                 /><span class="g-input-addon">GB</span>
@@ -512,7 +698,7 @@
               <div class="g-range-field" data-g-field-sync>
                 <input
                   class="g-range"
-                  id="quality-range"
+                  id="quality-range" aria-label="图片质量"
                   type="range"
                   min="0"
                   max="100"
@@ -625,27 +811,37 @@
               >
             </div>
           </section>
-          <section class="demo-card">
+          <form class="demo-card" id="conditional-field-demo" data-g-conditional-scope>
             <h3>Conditional Field</h3>
             <div class="g-field">
               <label class="g-label" for="delivery-method">交付方式</label
-              ><select class="g-select" id="delivery-method">
+              ><select class="g-select" id="delivery-method" aria-label="交付方式" name="deliveryMethod">
                 <option value="pickup">到店自取</option>
-                <option value="shipping">快递配送</option>
+                <option value="shipping" selected>快递配送</option>
               </select>
             </div>
             <div
-              class="g-conditional-field g-mt-3"
+              class="g-conditional-field g-conditional-field-panel g-mt-3"
+              id="shipping-fields"
               data-g-conditional-field
               data-g-controller="#delivery-method"
               data-g-show-when="shipping"
             >
-              <div class="g-field">
-                <label class="g-label" for="shipping-address">配送地址</label
-                ><input class="g-input" id="shipping-address" />
+              <div class="g-conditional-field-header">
+                <div>
+                  <div class="g-conditional-field-title">配送信息</div>
+                  <div class="g-conditional-field-description">选择快递配送时需要填写，切换为自取后不会参与表单提交。</div>
+                </div>
+                <span class="g-conditional-field-status">按条件显示</span>
+              </div>
+              <div class="g-conditional-field-content">
+                <div class="g-field">
+                  <label class="g-label" for="shipping-address">配送地址</label
+                  ><input class="g-input" id="shipping-address" name="shippingAddress" autocomplete="street-address" required />
+                </div>
               </div>
             </div>
-          </section>
+          </form>
         </div>
       </section>
 
@@ -654,58 +850,165 @@
         <div class="demo-grid">
           <section class="demo-card">
             <h3>Form Progress</h3>
-            <div class="g-form-progress">
-              <div class="g-form-progress-meta">
-                <span>资料完成度</span><strong>72%</strong>
+            <div class="g-form-progress g-form-progress-card g-form-progress-with-steps is-active">
+              <div class="g-form-progress-header">
+                <div class="g-form-progress-heading">
+                  <strong class="g-form-progress-label" id="profile-progress-label">发布资料</strong>
+                  <span class="g-form-progress-description" id="profile-progress-description">完成必要信息后即可提交审核。</span>
+                </div>
+                <span class="g-form-progress-count">已完成 2 / 4</span>
+                <strong class="g-form-progress-percentage">50%</strong>
               </div>
-              <div class="g-form-progress-track">
-                <div
-                  class="g-form-progress-value"
-                  style="--g-form-progress: 72%"
-                ></div>
+              <div class="g-form-progress-track" role="progressbar" aria-labelledby="profile-progress-label" aria-describedby="profile-progress-description" aria-valuemin="0" aria-valuemax="4" aria-valuenow="2" aria-valuetext="已完成 2 项，共 4 项">
+                <div class="g-form-progress-value" style="--g-form-progress: 50%"></div>
+              </div>
+              <ol class="g-form-progress-steps" aria-label="发布资料步骤">
+                <li class="g-form-progress-step is-complete">
+                  <span class="g-form-progress-step-marker" aria-hidden="true">1</span>
+                  <span class="g-form-progress-step-content"><strong class="g-form-progress-step-title">基本信息</strong><span class="g-form-progress-step-description">已完成</span></span>
+                </li>
+                <li class="g-form-progress-step is-complete">
+                  <span class="g-form-progress-step-marker" aria-hidden="true">2</span>
+                  <span class="g-form-progress-step-content"><strong class="g-form-progress-step-title">负责人</strong><span class="g-form-progress-step-description">已完成</span></span>
+                </li>
+                <li class="g-form-progress-step is-active" aria-current="step">
+                  <span class="g-form-progress-step-marker" aria-hidden="true">3</span>
+                  <span class="g-form-progress-step-content"><strong class="g-form-progress-step-title">发布范围</strong><span class="g-form-progress-step-description">正在填写</span></span>
+                </li>
+                <li class="g-form-progress-step">
+                  <span class="g-form-progress-step-marker" aria-hidden="true">4</span>
+                  <span class="g-form-progress-step-content"><strong class="g-form-progress-step-title">确认提交</strong><span class="g-form-progress-step-description">尚未开始</span></span>
+                </li>
+              </ol>
+              <span class="g-form-progress-status" role="status">下一步：选择内容发布范围。</span>
+            </div>
+            <div class="g-stack g-gap-2 g-mt-4" aria-label="自动保存状态示例">
+              <div class="g-autosave-status g-autosave-status-badge is-dirty">
+                <span class="g-autosave-status-indicator" aria-hidden="true"></span><span class="g-autosave-status-label">有未保存更改</span>
+              </div>
+              <div class="g-autosave-status g-autosave-status-badge is-saving" aria-busy="true">
+                <span class="g-autosave-status-indicator" aria-hidden="true"></span><span class="g-autosave-status-label" role="status">正在保存…</span>
+              </div>
+              <div class="g-autosave-status g-autosave-status-badge is-saved">
+                <span class="g-autosave-status-indicator" aria-hidden="true"></span><span class="g-autosave-status-label">已保存</span><time class="g-autosave-status-time" datetime="2026-09-05T10:24:00+08:00">10:24</time>
+              </div>
+              <div class="g-autosave-status g-autosave-status-subtle is-error">
+                <span class="g-autosave-status-indicator" aria-hidden="true"></span><span class="g-autosave-status-label" role="alert">保存失败</span><span class="g-autosave-status-detail">网络请求未完成，请重试。</span>
+                <span class="g-autosave-status-actions"><button class="g-btn g-btn-ghost g-btn-sm g-autosave-status-retry" type="button">重试</button></span>
               </div>
             </div>
-            <p class="g-autosave-status is-saving g-mt-4">正在保存更改…</p>
           </section>
           <section class="demo-card">
             <h3>Review</h3>
-            <dl class="g-form-review">
-              <div class="g-form-review-row">
-                <dt class="g-form-review-label">企业名称</dt>
-                <dd class="g-form-review-value">Gardenerim Studio</dd>
-                <dd>
-                  <button class="g-btn g-btn-link g-btn-sm" type="button">
-                    编辑
-                  </button>
-                </dd>
-              </div>
-              <div class="g-form-review-row">
-                <dt class="g-form-review-label">发布范围</dt>
-                <dd class="g-form-review-value">全部访客</dd>
-                <dd>
-                  <button class="g-btn g-btn-link g-btn-sm" type="button">
-                    编辑
-                  </button>
-                </dd>
-              </div>
-            </dl>
+            <section class="g-form-review g-form-review-bordered g-form-review-editable is-complete" aria-labelledby="review-title" aria-describedby="review-description">
+              <header class="g-form-review-header">
+                <div class="g-form-review-heading">
+                  <h4 class="g-form-review-title" id="review-title">提交前确认</h4>
+                  <p class="g-form-review-description" id="review-description">请核对以下资料，编辑会返回对应表单项。</p>
+                </div>
+                <span class="g-form-review-summary">4 项已确认</span>
+              </header>
+              <section class="g-form-review-section" aria-labelledby="review-organization-title">
+                <div class="g-form-review-section-header">
+                  <h5 class="g-form-review-section-title" id="review-organization-title">组织信息</h5>
+                  <span class="g-form-review-section-description">用于公开展示</span>
+                </div>
+                <dl class="g-form-review-list">
+                  <div class="g-form-review-row">
+                    <dt class="g-form-review-label">企业名称</dt>
+                    <dd class="g-form-review-value"><strong class="g-form-review-value-primary">Gardenerim Studio</strong><span class="g-form-review-value-secondary">认证主体名称</span></dd>
+                    <dd class="g-form-review-action"><button class="g-btn g-btn-link g-btn-sm" type="button" aria-label="编辑企业名称">编辑</button></dd>
+                  </div>
+                  <div class="g-form-review-row is-changed">
+                    <dt class="g-form-review-label">负责人</dt>
+                    <dd class="g-form-review-value"><strong class="g-form-review-value-primary">林青禾</strong><span class="g-form-review-value-secondary">本次已修改</span></dd>
+                    <dd class="g-form-review-action"><button class="g-btn g-btn-link g-btn-sm" type="button" aria-label="编辑负责人">编辑</button></dd>
+                  </div>
+                </dl>
+              </section>
+              <section class="g-form-review-section" aria-labelledby="review-publish-title">
+                <div class="g-form-review-section-header">
+                  <h5 class="g-form-review-section-title" id="review-publish-title">发布设置</h5>
+                  <span class="g-form-review-section-description">提交后立即生效</span>
+                </div>
+                <dl class="g-form-review-list">
+                  <div class="g-form-review-row">
+                    <dt class="g-form-review-label">发布范围</dt>
+                    <dd class="g-form-review-value"><strong class="g-form-review-value-primary">全部访客</strong><span class="g-form-review-value-secondary">允许搜索引擎收录</span></dd>
+                    <dd class="g-form-review-action"><button class="g-btn g-btn-link g-btn-sm" type="button" aria-label="编辑发布范围">编辑</button></dd>
+                  </div>
+                  <div class="g-form-review-row">
+                    <dt class="g-form-review-label">通知邮箱</dt>
+                    <dd class="g-form-review-value"><strong class="g-form-review-value-primary g-form-review-value-sensitive">li***@garden.dev</strong><span class="g-form-review-value-secondary">敏感信息已隐藏</span></dd>
+                    <dd class="g-form-review-action"><button class="g-btn g-btn-link g-btn-sm" type="button" aria-label="编辑通知邮箱">编辑</button></dd>
+                  </div>
+                </dl>
+              </section>
+              <p class="g-form-review-note">提交代表你确认上述资料真实有效；敏感值默认仅显示必要片段。</p>
+              <footer class="g-form-review-footer">
+                <span class="g-form-review-status" role="status">所有必填资料均已确认</span>
+                <button class="g-btn g-btn-outline g-btn-sm" type="button">返回检查</button>
+              </footer>
+            </section>
           </section>
         </div>
-        <section class="g-consent-group g-mt-4" id="consent">
-          <strong class="g-consent-group-title">确认与授权</strong>
-          <p class="g-consent-group-description">
-            提交前请确认你有权代表该组织完成配置。
+        <fieldset
+          class="g-consent-group g-consent-group-legal g-consent-group-divided is-partial g-mt-4"
+          id="consent"
+          aria-describedby="consent-description consent-feedback"
+          aria-invalid="true"
+        >
+          <legend class="g-consent-group-title">
+            确认与授权<span class="g-consent-group-required">必选</span>
+          </legend>
+          <p class="g-consent-group-description" id="consent-description">
+            请逐项确认必要授权；不同用途独立选择，不会替你默认勾选。
           </p>
-          <label class="g-check"
-            ><input type="checkbox" />我已阅读并接受服务条款</label
-          >
-        </section>
-        <div class="g-form-actions is-sticky">
-          <button class="g-btn g-btn-outline" type="button">保存草稿</button
-          ><button class="g-btn g-btn-primary" type="button">确认提交</button>
+          <span class="g-consent-group-summary">已同意 1 / 2</span>
+          <div class="g-consent-group-items">
+            <div class="g-consent-group-item g-check">
+              <input class="g-consent-group-control" id="consent-terms" name="termsAccepted" type="checkbox" required checked />
+              <div class="g-consent-group-content">
+                <label class="g-consent-group-label" for="consent-terms">我同意服务条款</label>
+                <span class="g-consent-group-item-description">用于确认账户、组织配置和提交内容符合平台规则。</span>
+                <span class="g-consent-group-links"><a class="g-consent-group-link" href="#service-terms">查看服务条款</a></span>
+              </div>
+              <span class="g-consent-group-meta"><span class="g-consent-group-version">版本 2.1</span></span>
+            </div>
+            <div class="g-consent-group-item g-check">
+              <input class="g-consent-group-control" id="consent-privacy" name="privacyAccepted" type="checkbox" required />
+              <div class="g-consent-group-content">
+                <label class="g-consent-group-label" for="consent-privacy">我同意隐私政策</label>
+                <span class="g-consent-group-item-description">用于处理本次申请所需的联系人和审核资料。</span>
+                <span class="g-consent-group-links"><a class="g-consent-group-link" href="#privacy-policy">查看隐私政策</a><a class="g-consent-group-link" href="#data-summary">数据使用摘要</a></span>
+              </div>
+              <span class="g-consent-group-meta"><span class="g-consent-group-version">版本 3.0</span></span>
+            </div>
+          </div>
+          <p class="g-consent-group-feedback" id="consent-feedback" role="alert">还需同意隐私政策后才能提交。</p>
+          <footer class="g-consent-group-footer">
+            <span class="g-consent-group-status" role="status">必要授权尚未完成</span>
+            <span class="g-consent-group-meta"><time class="g-consent-group-timestamp" datetime="2026-09-05">更新于 2026-09-05</time></span>
+          </footer>
+        </fieldset>
+        <div
+          class="g-form-actions g-form-actions-sticky"
+          role="group"
+          aria-label="提交操作"
+        >
+          <div class="g-form-actions-meta">
+            <span class="g-form-actions-status" role="status" aria-live="polite"
+              >所有必填项已完成</span
+            >
+          </div>
+          <div class="g-form-actions-main">
+            <button class="g-btn g-btn-outline" type="button">保存草稿</button
+            ><button class="g-btn g-btn-primary" type="button">确认提交</button>
+          </div>
         </div>
       </section>
     </main>
     <script type="module" src="../dist/gardener.runtime.js"></script>
-  </body>
+  <section id="form-config-lab" class="demo-shell"><h2>表单参数实验室</h2><p>调整间距、宽度与标签规则；长度单位为像素，宽度0表示自适应。</p><div id="form-config-controls" style="display:flex;gap:12px;flex-wrap:wrap;margin-block:20px"></div><form id="form-config-example" class="g-form" data-g-form-layout="horizontal" data-g-form-responsive="true"><div class="g-field"><label class="g-field-label" for="form-config-name">姓名</label><div class="g-field-control"><input class="g-input" id="form-config-name" name="name" required><p class="g-field-help">用于展示的名称。</p></div></div><div class="g-field"><label class="g-field-label" for="form-config-notes">备注</label><div class="g-field-control" data-g-character-count="40" data-g-character-hard-limit><textarea class="g-textarea" id="form-config-notes" data-g-auto-resize rows="2"></textarea><output data-g-character-output></output></div></div><div class="g-form-actions"><button class="g-btn" type="reset">重置</button><button class="g-btn g-btn-primary" type="submit">校验表单</button></div><output id="form-config-result" aria-live="polite"></output></form></section><script type="module" src="./form-parameters.js"></script>
+</body>
 </html>

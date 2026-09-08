@@ -1,0 +1,17 @@
+import {chromium,expect} from '../packages/css/node_modules/@playwright/test/index.mjs';
+import AxeBuilder from '../packages/css/node_modules/@axe-core/playwright/dist/index.mjs';
+import {readFileSync} from 'node:fs';import {writeFile} from './fs-retry.mjs';
+const browser=await chromium.launch(),context=await browser.newContext(),results=[];
+try{
+ for(const [framework,url]of [['css','http://127.0.0.1:4187/examples/calendar.html'],['blazor','http://127.0.0.1:5192/calendar']]){
+  const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(url);
+  const host=page.locator(framework==='css'?'#calendar-month':'#blazor-calendar'),day=value=>host.locator('[data-g-data-action=date][data-g-data-key="'+value+'"]');await expect(day('2026-09-07')).toHaveAttribute('aria-pressed','true');await day('2026-09-10').click();await expect(day('2026-09-10')).toHaveAttribute('aria-pressed','true');
+  await page.getByRole('combobox',{name:framework==='css'?'Header':'表头',exact:true}).selectOption('select');await expect(day('2026-09-10')).toHaveAttribute('aria-pressed','true');await host.locator('[data-g-data-action=calendar-month]').selectOption('10');await expect(host.locator('[data-g-data-action=calendar-month]')).toHaveValue('10');
+  if(framework==='blazor'){await expect(page.locator('#calendar-state')).toContainText('2026-10-01');await page.getByRole('checkbox',{name:'卡片模式',exact:true}).check();await expect(host).toHaveClass(/g-cal-panel/);await page.getByRole('button',{name:'清空选中',exact:true}).click();await expect(host.locator('[data-g-data-action=date][aria-pressed=true]')).toHaveCount(0);}
+  const axe=await new AxeBuilder({page}).include(framework==='css'?'#calendar-month':'#blazor-calendar').analyze();expect(axe.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))).toEqual([]);expect(errors).toEqual([]);results.push({framework,selection:true,controlled:framework==='blazor',configuration:true,axe:true});await page.close();
+ }
+ const page=await context.newPage();await page.goto('http://127.0.0.1:4188/website/docs.html#calendar-data-mode');await expect(page.locator('#calendar-data-mode')).toBeVisible();await page.locator('#calendar-data-mode iframe').scrollIntoViewIfNeeded();await expect(page.frameLocator('#calendar-data-mode iframe').locator('#calendar-month [data-g-data-action=date]')).toHaveCount(42);results.push({website:true,localizedDefault:true});await page.close();
+ for(const timezoneId of ['Pacific/Honolulu','Pacific/Auckland']){const local=await browser.newContext({timezoneId}),page=await local.newPage();await page.goto('http://127.0.0.1:4187/examples/calendar.html');await page.waitForFunction(()=>Boolean(window.calendar));const value=await page.evaluate(()=>{window.calendar.setOptions({modelValue:new Date(2026,8,7)});return window.calendar.getState().modelValue;});expect(value).toBe('2026-09-07');results.push({timezoneId,localDate:value});await local.close();}
+ for(const file of ['data-display.js','gardener.min.css']){expect(readFileSync('packages/css/dist/'+file,'utf8')).toBe(readFileSync('packages/blazor/src/Gardenerim.Blazor/wwwroot/'+file,'utf8'));}expect(readFileSync('packages/css/src/js/data-display.js','utf8')).toBe(readFileSync('packages/css/dist/data-display.js','utf8'));results.push({sharedAssetsIdentical:true});
+}finally{await browser.close();}
+await writeFile('docs/calendar/hosts.json',JSON.stringify(results,null,2));console.log('Calendar CSS, Blazor, Website and timezone checks passed');

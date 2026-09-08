@@ -36,7 +36,9 @@
   .g-desktop-bottom-panel { block-size: var(--g-desktop-bottom-panel-size, 12rem); border-block-start: 1px solid var(--g-color-border); }
   .g-desktop-panel-header { display: flex; min-block-size: 2.25rem; align-items: center; justify-content: space-between; gap: var(--g-space-2); padding-inline: var(--g-space-3); border-block-end: 1px solid var(--g-color-border); background: var(--g-color-surface-subtle); font-size: var(--g-font-size-xs); font-weight: 650; }
   .g-desktop-panel-body { min-inline-size: 0; min-block-size: 0; overflow: auto; padding: var(--g-desktop-panel-padding, var(--g-space-3)); }
-  :where(.g-desktop-dock-panel, .g-desktop-inspector-panel, .g-desktop-bottom-panel).is-collapsed { display: none; }
+  :where(.g-desktop-dock-panel, .g-desktop-inspector-panel, .g-desktop-bottom-panel).is-collapsed:not(:has([data-g-panel-toggle])) { display: none; }
+  :where(.g-desktop-dock-panel, .g-desktop-inspector-panel, .g-desktop-bottom-panel).is-collapsed:has([data-g-panel-toggle]) { grid-template-rows: auto; block-size: auto; }
+  :where(.g-desktop-dock-panel, .g-desktop-inspector-panel, .g-desktop-bottom-panel).is-collapsed:has([data-g-panel-toggle]) > .g-desktop-panel-body { display: none; }
 
   .g-desktop-split-pane { display: flex; min-inline-size: 0; min-block-size: 0; overflow: hidden; }
   .g-desktop-split-pane[data-g-orientation="vertical"] { flex-direction: column; }

@@ -1,6 +1,6 @@
 {
   "name": "@gardenerim/blazor-workspace",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "description": "Development workspace for the official Gardenerim.Blazor Razor component package.",
   "repository": {
@@ -22,7 +22,18 @@
     "verify:package": "node scripts/verify-package.mjs",
     "pack": "dotnet pack src/Gardenerim.Blazor/Gardenerim.Blazor.csproj -c Release --no-build -o artifacts",
     "test": "npm run build && npm run test:contracts && npm run check && npm run test:browser && npm run verify:reproducible && npm run verify:package && npm run budget",
-    "release:verify": "npm test"
+    "release:verify": "npm test",
+    "test:navigation": "node scripts/test-navigation.mjs",
+    "test:basic": "node scripts/test-basic.mjs",
+    "test:feedback": "node scripts/test-feedback.mjs",
+    "test:form": "node scripts/test-form.mjs",
+    "test:overlay": "node scripts/test-overlay.mjs",
+    "test:disclosure": "node scripts/test-disclosure.mjs",
+    "test:data": "node scripts/test-data.mjs",
+    "test:content": "node scripts/test-content.mjs",
+    "test:help": "node scripts/test-help.mjs",
+    "test:ai": "node scripts/test-ai.mjs",
+    "test:media": "node scripts/test-media.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

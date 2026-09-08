@@ -138,6 +138,7 @@
   .g-pricing-comparison { inline-size: 100%; border-collapse: separate; border-spacing: 0; }
   .g-pricing-comparison th, .g-pricing-comparison td { padding: var(--g-space-3); border-block-end: 1px solid var(--g-color-border); text-align: center; }
   .g-pricing-comparison th:first-child, .g-pricing-comparison td:first-child { position: sticky; inset-inline-start: 0; background: var(--g-color-surface); text-align: start; z-index: 1; }
+  .g-mini-cart[hidden] { display: none; }
   .g-commerce-usage-meter { display: grid; gap: var(--g-space-2); }
   .g-usage-meter-header { display: flex; justify-content: space-between; gap: var(--g-space-4); }
   .g-usage-meter-track { overflow: hidden; block-size: .55rem; border-radius: var(--g-radius-sm); background: var(--g-color-surface-subtle); }
@@ -167,6 +168,8 @@
     .g-billing-history-item { grid-template-columns: 1fr auto; }
   }
   @media (max-width: 704px) {
+    .g-invoice-information { gap: var(--g-space-3); }
+    .g-pricing-comparison { display: block; max-inline-size: 100%; overflow-x: auto; white-space: nowrap; }
     .g-commerce-product-detail, .g-commerce-checkout { grid-template-columns: minmax(0, 1fr); }
     .g-checkout-sidebar { position: static; }
     .g-checkout-mobile-actions { display: flex; }

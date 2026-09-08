@@ -1,5 +1,5 @@
 import type angular from "angular";
-import { destroy, getInstance, init } from "@gardenerim/css/runtime";
+import { destroy, getInstance, init, createTable, createNavigation, type GardenerimNavigationOptions } from "@gardenerim/css/runtime";
 import type {
   GardenerimAngularJSDirectiveFactory,
   GardenerimComponentDefinition,
@@ -18,8 +18,8 @@ const eventName = (value?: string): string => {
 export const configAttributes = (config?: Readonly<Record<string, GardenerimConfigValue>>): Record<string, string> => {
   const attributes: Record<string, string> = {};
   for (const [name, value] of Object.entries(config ?? {})) {
-    if (value === false || value == null) continue;
-    attributes[`data-g-${kebab(name)}`] = value === true ? "" : String(value);
+    if (value == null || value === false && !kebab(name).startsWith("form-") && !kebab(name).startsWith("overlay-") && !kebab(name).startsWith("disclosure-") && !kebab(name).startsWith("data-") && !kebab(name).startsWith("dashboard-") && !kebab(name).startsWith("interaction-") && !kebab(name).startsWith("content-") && !kebab(name).startsWith("layout-") && !kebab(name).startsWith("help-") && !kebab(name).startsWith("ai-") && !kebab(name).startsWith("media-") && !kebab(name).startsWith("auth-") && !kebab(name).startsWith("mobile-") && !kebab(name).startsWith("workflow-") && !kebab(name).startsWith("communication-") && !kebab(name).startsWith("solution-") && !kebab(name).startsWith("legal-") && !kebab(name).startsWith("desktop-") && !kebab(name).startsWith("enterprise-") && !kebab(name).startsWith("marketing-") && !kebab(name).startsWith("cms-") && !kebab(name).startsWith("commerce-")) continue;
+    attributes[`data-g-${kebab(name)}`] = value === true && !kebab(name).startsWith("form-") && !kebab(name).startsWith("data-") && !kebab(name).startsWith("dashboard-") && !kebab(name).startsWith("interaction-") && !kebab(name).startsWith("content-") && !kebab(name).startsWith("layout-") && !kebab(name).startsWith("help-") && !kebab(name).startsWith("ai-") && !kebab(name).startsWith("media-") && !kebab(name).startsWith("auth-") && !kebab(name).startsWith("mobile-") && !kebab(name).startsWith("workflow-") && !kebab(name).startsWith("communication-") && !kebab(name).startsWith("solution-") && !kebab(name).startsWith("legal-") && !kebab(name).startsWith("desktop-") && !kebab(name).startsWith("enterprise-") && !kebab(name).startsWith("marketing-") && !kebab(name).startsWith("cms-") && !kebab(name).startsWith("commerce-") ? "" : String(value);
   }
   return attributes;
 };
@@ -59,6 +59,25 @@ export const createGardenerimComponent = (
     link(scope: angular.IScope, jqElement: angular.IAugmentedJQuery, attrs: angular.IAttributes, ngModel?: angular.INgModelController | null) {
       const element = jqElement[0];
       if (!(element instanceof Element)) return;
+      if(definition.name==='table' && attrs.gardenerTable){
+        let controller:ReturnType<typeof createTable>|undefined;
+        const update=()=>{const options=scope.$eval(attrs.gardenerTable);if(!options)return;if(controller)controller.update(options);else controller=createTable(element as HTMLElement,options);};
+        const changed=(event:Event)=>scope.$evalAsync(()=>{if(attrs.gardenerOnChange)scope.$eval(attrs.gardenerOnChange,{$value:(event as CustomEvent).detail,$event:event});});
+        element.addEventListener('gardener:change',changed);scope.$watch(attrs.gardenerTable,update,true);
+        jqElement.data('$gardenerHandle',{element,refresh:update,getInstance:()=>controller,destroy:()=>controller?.destroy()});
+        scope.$on('$destroy',()=>{controller?.destroy();element.removeEventListener('gardener:change',changed);jqElement.removeData('$gardenerHandle');});scope.$evalAsync(update);return;
+      }
+      if(definition.category==='navigation' && attrs.gardenerNavigation){
+        let controller:ReturnType<typeof createNavigation>|undefined;
+        const update=()=>{const options=scope.$eval(attrs.gardenerNavigation) as GardenerimNavigationOptions||{};const next={...options,component:definition.name,...(ngModel?{value:ngModel.$viewValue}:{})};if(controller)controller.update(next);else controller=createNavigation(element as HTMLElement,next);};
+        const changed=(event:Event)=>scope.$evalAsync(()=>{const detail=(event as CustomEvent).detail;ngModel?.$setViewValue(detail.value);if(attrs.gardenerOnValueChange)scope.$eval(attrs.gardenerOnValueChange,{$value:detail.value,$event:event});});
+        element.addEventListener('gardener:navigationchange',changed);
+        if(ngModel)ngModel.$render=update;
+        scope.$watch(attrs.gardenerNavigation,update,true);
+        jqElement.data('$gardenerHandle',{element,refresh:update,getInstance:()=>controller,destroy:()=>controller?.destroy()});
+        scope.$on('$destroy',()=>{controller?.destroy();element.removeEventListener('gardener:navigationchange',changed);jqElement.removeData('$gardenerHandle');});
+        scope.$evalAsync(update);return;
+      }
       if (definition.className) element.classList.add(definition.className);
       if (element instanceof HTMLButtonElement && !element.hasAttribute("type")) element.type = "button";
 
@@ -100,7 +119,7 @@ export const createGardenerimComponent = (
       });
       if (attrs.gardenerConfig) scope.$watch(attrs.gardenerConfig, (value) => {
         configNames = applyConfig(element, configNames, value);
-        refresh();
+        if (((['tabs','tag'].includes(definition.name)||definition.behaviors.includes('foundation')) && element.hasAttribute(`data-g-${definition.behaviors.includes('foundation')?'foundation':definition.name}-options`) || ["form", "overlay", "disclosure", "data", "dashboard"].includes(definition.category) || ["interaction", "content", "layout", "help", "ai", "media", "auth", "mobile", "workflow", "communication", "solution", "legal", "desktop", "enterprise", "marketing", "cms", "marketing", "commerce"].includes(definition.category) && element.hasAttribute(`data-g-${definition.category}-options`))) { if (shouldInitialize) init(element); } else refresh();
       }, true);
       if (attrs.gardenerInitialize != null) scope.$watch(attrs.gardenerInitialize, (value) => {
         shouldInitialize = value !== false;
@@ -109,6 +128,7 @@ export const createGardenerimComponent = (
 
       if (ngModel) {
         const isNativeControl = element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement || element instanceof HTMLSelectElement;
+        if (isNativeControl) scope.$watch(() => ngModel.$viewValue, () => scope.$evalAsync(() => { if (shouldInitialize) init(element); }));
         if (isNativeControl && attrs.gardenerOnValueChange) {
           const nativeEvent = element instanceof HTMLSelectElement || (element instanceof HTMLInputElement && ["checkbox", "radio"].includes(element.type)) ? "change" : "input";
           const update = (event: Event) => scope.$evalAsync(() => scope.$eval(attrs.gardenerOnValueChange, { $value: nativeValue(element), $event: event }));
@@ -125,6 +145,7 @@ export const createGardenerimComponent = (
       if (ngModel || attrs.gardenerOnValueChange) {
         const customEvent = eventName(attrs.gardenerValueEvent);
         const customUpdate = (event: Event) => scope.$evalAsync(() => {
+          if ((["tabs","tag"].includes(definition.name) || ["overlay", "disclosure", "data", "dashboard", "interaction", "content", "layout", "help", "ai", "media", "auth", "mobile", "workflow", "communication", "solution", "legal", "desktop", "enterprise", "marketing", "cms", "marketing", "commerce"].includes(definition.category)) && event.target !== element) return;
           const detail = (event as CustomEvent<Record<string, unknown>>).detail ?? {};
           const key = attrs.gardenerValueKey || "value";
           const value = detail[key] ?? detail.value ?? detail.values ?? detail.selected;

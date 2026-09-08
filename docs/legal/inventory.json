@@ -1,0 +1,106 @@
+[
+  {
+    "name": "cookie-consent",
+    "title": "Cookie 同意",
+    "variants": [
+      "banner",
+      "card",
+      "inline",
+      "compact"
+    ],
+    "new": false,
+    "diagnosis": "原有静态固定横幅，缺少参数、同意状态、服务确认和完整演示；原法律分类包映射也不对应实际 CSS 所属。",
+    "implemented": "同等可见的接受/仅必要/自定义入口，顶栏/底栏/文档流位置，回执与撤回确认"
+  },
+  {
+    "name": "consent-preferences",
+    "title": "同意偏好",
+    "variants": [
+      "panel",
+      "table",
+      "cards",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "新增独立法律界面场景；不重复表单 consent-group、认证 auth-consent 或 AI privacy-notice。",
+    "implemented": "必要项锁定、可选项默认关闭、用途/提供方/期限、独立选择与精确回执"
+  },
+  {
+    "name": "legal-document",
+    "title": "法律文档",
+    "variants": [
+      "toc",
+      "article",
+      "print",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "新增独立法律界面场景；不重复表单 consent-group、认证 auth-consent 或 AI privacy-notice。",
+    "implemented": "目录跳转、分节文本、搜索、版本、打印样式、长文本与移动端"
+  },
+  {
+    "name": "legal-agreement",
+    "title": "协议确认",
+    "variants": [
+      "checklist",
+      "document",
+      "cards",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "新增独立法律界面场景；不重复表单 consent-group、认证 auth-consent 或 AI privacy-notice。",
+    "implemented": "必选/可选协议、阅读确认、文档内嵌、版本更新重新确认、快照校验"
+  },
+  {
+    "name": "consent-history",
+    "title": "同意历史",
+    "variants": [
+      "table",
+      "timeline",
+      "cards",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "新增独立法律界面场景；不重复表单 consent-group、认证 auth-consent 或 AI privacy-notice。",
+    "implemented": "记录筛选、分页、详情、类别快照、JSON 导出"
+  },
+  {
+    "name": "privacy-request",
+    "title": "隐私请求",
+    "variants": [
+      "form",
+      "guided",
+      "inline",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "新增独立法律界面场景；不重复表单 consent-group、认证 auth-consent 或 AI privacy-notice。",
+    "implemented": "类型限制、邮箱/说明校验、删除请求确认、分步核对、失败保留与服务回执"
+  },
+  {
+    "name": "privacy-request-status",
+    "title": "隐私请求进度",
+    "variants": [
+      "timeline",
+      "steps",
+      "cards",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "新增独立法律界面场景；不重复表单 consent-group、认证 auth-consent 或 AI privacy-notice。",
+    "implemented": "服务端进度、阶段列表、筛选分页、手动刷新和取消确认"
+  },
+  {
+    "name": "policy-updates",
+    "title": "政策更新",
+    "variants": [
+      "compare",
+      "list",
+      "cards",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "新增独立法律界面场景；不重复表单 consent-group、认证 auth-consent 或 AI privacy-notice。",
+    "implemented": "前后版本对照、变更摘要、生效时间、分页和逐条确认回执"
+  }
+]

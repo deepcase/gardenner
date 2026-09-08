@@ -1,0 +1,249 @@
+{
+  "originalComponents": 5,
+  "newComponents": 2,
+  "components": 7,
+  "variants": 29,
+  "items": [
+    {
+      "name": "carousel",
+      "category": "media",
+      "type": "interactive",
+      "selector": "[data-g-carousel]",
+      "behaviors": [
+        "carousel",
+        "media"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-carousel",
+      "variants": [
+        "default",
+        "fade",
+        "thumbnails",
+        "vertical",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "safe-content"
+      ],
+      "finding": "原有轮播仅有基础导航。补齐非循环边界、自动轮播暂停、键盘、缩略图、方向与受控索引。"
+    },
+    {
+      "name": "gallery-lightbox",
+      "category": "media",
+      "type": "interactive",
+      "selector": ".g-gallery",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-gallery",
+      "behaviors": [
+        "media"
+      ],
+      "variants": [
+        "grid",
+        "compact",
+        "masonry",
+        "strip"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "safe-content"
+      ],
+      "finding": "原先仅有画廊样式。补齐真实模态灯箱、焦点返回、Escape、缩放、下载和加载失败重试。"
+    },
+    {
+      "name": "media-player",
+      "category": "media",
+      "type": "interactive",
+      "selector": ".g-media-player",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-media-player",
+      "behaviors": [
+        "media"
+      ],
+      "variants": [
+        "video",
+        "audio",
+        "playlist",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "safe-content"
+      ],
+      "finding": "原先仅有播放器外壳。补齐真实 audio/video、多源、字幕、进度、音量、倍速、播放失败与播放列表。"
+    },
+    {
+      "name": "document-viewer",
+      "category": "media",
+      "type": "interactive",
+      "selector": ".g-document-viewer",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-document-viewer",
+      "behaviors": [
+        "media"
+      ],
+      "variants": [
+        "default",
+        "thumbnails",
+        "continuous",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "safe-content"
+      ],
+      "finding": "原先主要是静态布局。补齐内置 Markdown 文档分页、缩放、连续阅读、页导航与浏览器 PDF 嵌入。"
+    },
+    {
+      "name": "image-crop-shell",
+      "category": "media",
+      "type": "interactive",
+      "selector": ".g-image-crop",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-image-crop",
+      "behaviors": [
+        "media"
+      ],
+      "variants": [
+        "default",
+        "square",
+        "wide",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "safe-content"
+      ],
+      "finding": "原先只有裁剪框样式。补齐百分比区域、拖拽与键盘、固定比例、只读、真实 Canvas 导出和像素上限。"
+    },
+    {
+      "name": "responsive-image",
+      "category": "media",
+      "type": "interactive",
+      "selector": ".g-responsive-image",
+      "parts": [
+        "g-media-image"
+      ],
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop",
+        "print"
+      ],
+      "cssSelector": ".g-responsive-image",
+      "behaviors": [
+        "media"
+      ],
+      "status": "runtime-ready",
+      "variants": [
+        "default",
+        "square",
+        "circle",
+        "cover",
+        "contain"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "safe-content"
+      ],
+      "finding": "新增独立图片组件，集中处理 srcset、sizes、适配比例、延迟加载、加载提示和失败重试。"
+    },
+    {
+      "name": "image-comparison",
+      "category": "media",
+      "type": "interactive",
+      "selector": ".g-image-comparison",
+      "parts": [
+        "g-media-image"
+      ],
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop",
+        "print"
+      ],
+      "cssSelector": ".g-image-comparison",
+      "behaviors": [
+        "media"
+      ],
+      "status": "runtime-ready",
+      "variants": [
+        "horizontal",
+        "vertical",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "safe-content"
+      ],
+      "finding": "新增双图对比组件，提供横向 / 纵向裁切、原生范围控制、键盘、只读及受控位置。"
+    }
+  ]
+}

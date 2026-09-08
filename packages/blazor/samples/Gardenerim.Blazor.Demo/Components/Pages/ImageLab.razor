@@ -1,0 +1,6 @@
+@page "/image"
+@using System.Text.Json
+<PageTitle>GImage</PageTitle>
+<main style="max-width:900px;margin:32px auto;padding:16px"><h1>GImage</h1><p>五端共享图片加载与预览。点击图片后可缩放、旋转、翻转和切换。</p><label>适配 <select @bind="Fit"><option>cover</option><option>contain</option><option>fill</option></select></label><label>说明位置 <select @bind="Footer"><option>inner</option><option>outer</option></select></label><label><input type="checkbox" @bind="Preview" />允许预览</label><div style="margin-top:20px"><GImage Config="Config" /></div></main>
+@code {private string Fit="cover",Footer="outer";private bool Preview=true;
+private IReadOnlyDictionary<string,object?> Config=>new Dictionary<string,object?>{["media-options"]=JsonSerializer.Serialize(new{src="/media-assets/mountain.svg",alt="山间风景",width=240,height=150,fit=Fit,footerPosition=Footer,preview=Preview,showLoader=true,title="山间漫步",description="本地图片与完整预览",items=new[]{new{src="/media-assets/mountain.svg",alt="山间"},new{src="/media-assets/sea.svg",alt="海边"},new{src="/media-assets/sunset.svg",alt="日落"}}})};}

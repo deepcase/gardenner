@@ -1,4 +1,4 @@
-/* Gardenerim v2.1.0 | MIT License | gardener.css */
+/* Gardenerim v2.2.0 | MIT License | gardener.css */
 @layer gardener.reset, gardener.tokens, gardener.base, gardener.components, gardener.utilities, gardener.overrides;
 
 @layer gardener.components {
@@ -233,4 +233,205 @@
   @media (prefers-reduced-motion: reduce) { .g-stream-cursor::after, .g-voice-bar, .g-generation-card.is-generating::after { animation: none; } }
   @media (forced-colors: active) { .g-message-user .g-message-content, .g-tool-call, .g-approval, .g-agent-card, .g-ai-memory-item, .g-ai-feedback-option[aria-pressed="true"] { outline: 1px solid CanvasText; } .g-stream-cursor::after, .g-context-meter-value, .g-tool-call-progress > span { background: Highlight; } }
   @media print { .g-ai-sidebar, .g-ai-header, .g-composer-wrap, .g-message-actions, .g-artifact-toolbar, .g-ai-feedback, .g-ai-command-menu { display: none !important; } .g-ai-shell, .g-ai-main, .g-chat, .g-artifact-layout, .g-artifact-panel { display: block; block-size: auto; min-block-size: 0; overflow: visible; border: 0; } .g-artifact-panel { margin-block-start: var(--g-space-6); } .g-thinking-content[hidden] { display: block; } }
+}
+
+@layer gardener.components {
+ .g-ai-run-timeline,.g-ai-structured-output{min-width:0;color:var(--g-color-text)}
+ [data-g-ai-options]{container-type:inline-size;display:block;position:relative;inset:auto;transform:none;width:auto;inline-size:auto;max-width:100%;max-inline-size:100%;height:auto;block-size:auto;min-height:0;min-block-size:0;min-width:0;min-inline-size:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--g-color-text);box-shadow:none;overflow:visible;white-space:normal;text-align:start;font:14px/1.6 var(--g-font-sans);z-index:auto;overflow-wrap:anywhere}
+ [data-g-ai-options]::before,[data-g-ai-options]::after{display:none}
+ .g-ai-composition{display:grid;gap:12px;min-width:0;padding:16px;border:1px solid var(--g-color-border);border-radius:6px;background:var(--g-color-surface);color:var(--g-color-text)}
+ [data-g-ai-frame=false] .g-ai-composition{border-color:transparent}
+ [data-g-ai-density=small] .g-ai-composition{padding:12px;gap:8px;font-size:12px}
+ [data-g-ai-density=large] .g-ai-composition{padding:20px;gap:16px;font-size:14px}
+ .g-ai-heading{display:block;margin:0;font-size:16px;line-height:1.5;font-weight:600}
+ .g-ai-description{margin:0;color:var(--g-color-text-muted);white-space:pre-line}
+ .g-ai-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:32px;padding:4px 12px;max-width:100%;margin:0;border:1px solid var(--g-color-border);border-radius:4px;background:var(--g-color-surface);color:var(--g-color-text);font:inherit;line-height:1.5;text-align:start;white-space:normal;cursor:pointer;overflow-wrap:anywhere}
+ .g-ai-button:hover{background:var(--g-color-surface-subtle)}
+ .g-ai-button:disabled{opacity:.55;cursor:not-allowed}
+ [data-g-ai-options] :is(.g-ai-button,.g-ai-input,a,input,summary):focus-visible{outline:2px solid var(--g-color-primary-text);outline-offset:2px}
+ .g-ai-button:is([aria-pressed=true],[aria-selected=true]){color:var(--g-color-primary-text);background:var(--g-color-primary-subtle,var(--g-color-primary-soft));border-color:var(--g-color-primary)}
+ .g-ai-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+ .g-ai-input{box-sizing:border-box;width:100%;min-width:0;max-width:100%;min-height:32px;padding:6px 12px;border:1px solid var(--g-color-border);border-radius:4px;background:var(--g-color-surface);color:var(--g-color-text);font:inherit;line-height:1.5}
+ [data-g-ai-options] textarea.g-ai-input{resize:vertical;max-height:240px}
+ .g-ai-compose{display:grid;gap:8px;min-width:0;padding:12px;border:1px solid var(--g-color-border);border-radius:6px;background:var(--g-color-surface)}
+ .g-ai-count{font-size:12px;color:var(--g-color-text-muted)}
+ .g-ai-items{display:grid;grid-template-columns:repeat(var(--g-ai-columns,1),minmax(0,1fr));gap:12px;min-width:0}
+ .g-ai-item{display:grid;align-content:start;gap:8px;min-width:0;padding:12px;border:1px solid var(--g-color-border);border-radius:4px;background:var(--g-color-surface)}
+ .g-ai-item img{width:100%;max-width:100%;height:auto;border-radius:4px;object-fit:var(--g-ai-imageFit,cover);aspect-ratio:var(--g-ai-imageRatio,16/9)}
+ .g-ai-empty,.g-ai-group{grid-column:1/-1;margin:0;font-size:inherit}
+ .g-ai-messages{display:grid;align-content:start;gap:var(--g-ai-messageGap,16px);max-height:var(--g-ai-height,360px);overflow:auto;min-width:0;padding:4px;scrollbar-gutter:stable}
+ .g-ai-message{display:grid;gap:8px;max-width:100%;min-width:0;padding:12px;background:var(--g-color-surface-subtle);border:1px solid var(--g-color-border);border-radius:6px}
+ .g-ai-message[data-ai-role=user]{margin-inline-start:min(10%,48px);background:var(--g-color-primary-subtle,var(--g-color-primary-soft))}
+ .g-ai-message[data-ai-role=system]{color:var(--g-color-text-muted);background:transparent;border-style:dashed}
+ .g-ai-text{min-width:0;overflow-wrap:anywhere}
+ .g-ai-text>*{max-width:100%;margin:0}
+ .g-ai-text>*+*{margin-block-start:8px}
+ .g-ai-text :is(h1,h2,h3,h4,h5,h6){font-size:1.12em;line-height:1.5}
+ [data-g-ai-options] pre{box-sizing:border-box;max-width:100%;min-width:0;max-height:var(--g-ai-codeHeight,400px);overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;margin:0;background:var(--g-color-surface-subtle);color:var(--g-color-text);border:1px solid var(--g-color-border);border-radius:4px;font:12px/1.7 var(--g-font-mono,monospace)}
+ [data-g-ai-options] code{font-family:var(--g-font-mono,monospace);font-size:.92em}
+ [data-g-ai-options] blockquote{margin:0;border-inline-start:3px solid var(--g-color-border);padding-inline-start:12px;color:var(--g-color-text-muted)}
+ [data-g-ai-options] a{color:var(--g-color-primary-text)}
+ .g-ai-badge{justify-self:start;display:inline-flex;min-height:24px;align-items:center;padding:2px 8px;border:1px solid var(--g-color-border);border-radius:4px;background:var(--g-color-surface-subtle);color:var(--g-color-text);font-size:12px}
+ .g-ai-badge:is([data-ai-status=error],[data-ai-status=failed],[data-ai-status=blocked],[data-ai-status=rejected]){border-inline-start:3px solid var(--g-color-danger)}
+ .g-ai-badge:is([data-ai-status=complete],[data-ai-status=approved],[data-ai-status=success]){border-inline-start:3px solid var(--g-color-success)}
+ .g-ai-badge:is([data-ai-status=pending],[data-ai-status=warning],[data-ai-status=expired]){border-inline-start:3px solid var(--g-color-warning)}
+ .g-ai-meter{display:grid;gap:6px;min-width:0}
+ [data-g-ai-options] progress{appearance:auto;accent-color:var(--g-color-primary-text);height:8px;width:100%;max-width:100%}
+ .g-ai-meter>span{color:var(--g-color-text-muted);font-size:12px}
+ .g-ai-check{display:flex;gap:10px;align-items:flex-start}
+ .g-ai-check input{appearance:auto;flex:none;width:16px;height:16px;margin-block-start:4px;accent-color:var(--g-color-primary-text)}
+ .g-ai-tabs{display:flex;gap:8px;flex-wrap:wrap;border-block-end:1px solid var(--g-color-border);padding-block-end:8px}
+ .g-ai-artifact{display:grid;gap:12px;min-width:0}
+ .g-ai-workspace-grid{display:grid;grid-template-columns:minmax(120px,var(--g-ai-sidebarWidth,180px)) minmax(0,1fr);gap:16px;min-width:0}
+ .g-ai-workspace-nav{display:flex;flex-direction:column;gap:8px;align-items:stretch;padding-inline-end:12px;border-inline-end:1px solid var(--g-color-border)}
+ .g-ai-workspace-main{display:grid;gap:12px;min-width:0}
+ [data-g-ai-mode=bubbles] .g-ai-message{max-width:90%;justify-self:start}
+ [data-g-ai-mode=bubbles] .g-ai-message[data-ai-role=user]{justify-self:end}
+ .g-ai-tree{display:grid;gap:4px;min-width:0}
+ .g-ai-tree-row{padding-inline-start:min(calc(var(--g-ai-depth,0)*var(--g-ai-treeIndent,16px)),96px)}
+ .g-ai-tree-row button{justify-content:start;width:100%;border-color:transparent}
+ .g-ai-wave{display:flex;gap:6px;align-items:center;height:48px}
+ .g-ai-wave span{width:5px;border-radius:3px;background:var(--g-color-primary-text)}
+ .g-ai-metrics{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;margin:0}
+ .g-ai-metrics dd{margin:0;font-variant-numeric:tabular-nums}
+ .g-ai-file-label{display:grid;gap:4px;max-width:100%;font-size:12px}
+ [data-g-ai-options] input[type=file]{max-width:100%;min-width:0}
+ .g-ai-file-row{display:flex;justify-content:space-between;align-items:center;gap:8px;min-width:0}
+ .g-ai-notice:empty{display:none}
+ .g-ai-notice[role=alert]{padding:8px 12px;border-inline-start:3px solid var(--g-color-danger);background:var(--g-color-surface-subtle);color:var(--g-color-text)}
+ [data-g-ai-options] [hidden]{display:none!important}
+ [data-g-ai-mode=list] .g-ai-items{grid-template-columns:1fr}
+ [data-g-ai-kind=ai-run-timeline] .g-ai-item{border:0;border-inline-start:2px solid var(--g-color-border);border-radius:0}
+ [data-g-ai-options] details{padding-inline-start:12px;min-width:0}
+ [data-g-ai-options] summary{cursor:pointer;font-weight:600}
+ [data-g-ai-density=small] :is(.g-ai-button,.g-ai-input){min-height:28px;padding-block:3px}
+ [data-g-ai-density=large] :is(.g-ai-button,.g-ai-input){min-height:36px;padding-block:6px}
+ @container(max-width:560px){.g-ai-items,.g-ai-workspace-grid{grid-template-columns:1fr}.g-ai-workspace-nav{flex-direction:row;flex-wrap:wrap;border:0;padding:0}}
+ @media(pointer:coarse){[data-g-ai-options] :is(.g-ai-button,.g-ai-input){min-height:44px}}
+ @media(max-width:640px){.g-ai-items,.g-ai-workspace-grid{grid-template-columns:1fr}.g-ai-workspace-nav{flex-direction:row;flex-wrap:wrap;border-inline-end:0;border-block-end:1px solid var(--g-color-border);padding-block-end:8px}.g-ai-composition{padding:12px}}
+ @media(prefers-reduced-motion:reduce){[data-g-ai-options] *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+ @media print{.g-ai-messages{max-height:none;overflow:visible}.g-ai-compose,.g-ai-actions{display:none}.g-ai-details[hidden]{display:block!important}}
+}
+@layer gardener.base{[data-g-ai-options] a{text-decoration:underline!important;text-underline-offset:3px}}
+
+@layer gardener.components {
+.g-chat-default{--g-ai-variant:default}
+.g-chat-compact{--g-ai-variant:compact}
+.g-chat-bubbles{--g-ai-variant:bubbles}
+.g-chat-readonly{--g-ai-variant:readonly}
+.g-message-assistant{--g-ai-variant:assistant}
+.g-message-user{--g-ai-variant:user}
+.g-message-system{--g-ai-variant:system}
+.g-message-compact{--g-ai-variant:compact}
+.g-message-plain{--g-ai-variant:plain}
+.g-composer-default{--g-ai-variant:default}
+.g-composer-compact{--g-ai-variant:compact}
+.g-composer-multiline{--g-ai-variant:multiline}
+.g-composer-attachments{--g-ai-variant:attachments}
+.g-attachment-default{--g-ai-variant:default}
+.g-attachment-compact{--g-ai-variant:compact}
+.g-attachment-list{--g-ai-variant:list}
+.g-thinking-default{--g-ai-variant:default}
+.g-thinking-expanded{--g-ai-variant:expanded}
+.g-thinking-compact{--g-ai-variant:compact}
+.g-tool-call-default{--g-ai-variant:default}
+.g-tool-call-expanded{--g-ai-variant:expanded}
+.g-tool-call-compact{--g-ai-variant:compact}
+.g-approval-default{--g-ai-variant:default}
+.g-approval-detailed{--g-ai-variant:detailed}
+.g-approval-compact{--g-ai-variant:compact}
+.g-agent-status-default{--g-ai-variant:default}
+.g-agent-status-compact{--g-ai-variant:compact}
+.g-agent-status-detailed{--g-ai-variant:detailed}
+.g-plan-default{--g-ai-variant:default}
+.g-plan-compact{--g-ai-variant:compact}
+.g-plan-checkable{--g-ai-variant:checkable}
+.g-sources-default{--g-ai-variant:default}
+.g-sources-list{--g-ai-variant:list}
+.g-sources-compact{--g-ai-variant:compact}
+.g-artifact-panel-default{--g-ai-variant:default}
+.g-artifact-panel-code{--g-ai-variant:code}
+.g-artifact-panel-markdown{--g-ai-variant:markdown}
+.g-artifact-panel-compact{--g-ai-variant:compact}
+.g-model-selector-default{--g-ai-variant:default}
+.g-model-selector-detailed{--g-ai-variant:detailed}
+.g-model-selector-compact{--g-ai-variant:compact}
+.g-context-meter-default{--g-ai-variant:default}
+.g-context-meter-compact{--g-ai-variant:compact}
+.g-context-meter-detailed{--g-ai-variant:detailed}
+.g-voice-state-default{--g-ai-variant:default}
+.g-voice-state-compact{--g-ai-variant:compact}
+.g-voice-state-transcript{--g-ai-variant:transcript}
+.g-generation-placeholder-default{--g-ai-variant:default}
+.g-generation-placeholder-compact{--g-ai-variant:compact}
+.g-generation-placeholder-progress{--g-ai-variant:progress}
+.g-ai-shell-default{--g-ai-variant:default}
+.g-ai-shell-compact{--g-ai-variant:compact}
+.g-ai-shell-sidebar{--g-ai-variant:sidebar}
+.g-prompt-starter-default{--g-ai-variant:default}
+.g-prompt-starter-list{--g-ai-variant:list}
+.g-prompt-starter-compact{--g-ai-variant:compact}
+.g-ai-command-menu-default{--g-ai-variant:default}
+.g-ai-command-menu-grouped{--g-ai-variant:grouped}
+.g-ai-command-menu-compact{--g-ai-variant:compact}
+.g-streaming-response-default{--g-ai-variant:default}
+.g-streaming-response-compact{--g-ai-variant:compact}
+.g-streaming-response-plain{--g-ai-variant:plain}
+.g-agent-board-default{--g-ai-variant:default}
+.g-agent-board-list{--g-ai-variant:list}
+.g-agent-board-compact{--g-ai-variant:compact}
+.g-agent-handoff-default{--g-ai-variant:default}
+.g-agent-handoff-detailed{--g-ai-variant:detailed}
+.g-agent-handoff-compact{--g-ai-variant:compact}
+.g-artifact-layout-default{--g-ai-variant:default}
+.g-artifact-layout-code{--g-ai-variant:code}
+.g-artifact-layout-compact{--g-ai-variant:compact}
+.g-generation-grid-default{--g-ai-variant:default}
+.g-generation-grid-list{--g-ai-variant:list}
+.g-generation-grid-compact{--g-ai-variant:compact}
+.g-ai-context-manager-default{--g-ai-variant:default}
+.g-ai-context-manager-compact{--g-ai-variant:compact}
+.g-ai-context-manager-readonly{--g-ai-variant:readonly}
+.g-ai-usage-panel-default{--g-ai-variant:default}
+.g-ai-usage-panel-compact{--g-ai-variant:compact}
+.g-ai-usage-panel-detailed{--g-ai-variant:detailed}
+.g-ai-safety-notice-default{--g-ai-variant:default}
+.g-ai-safety-notice-compact{--g-ai-variant:compact}
+.g-ai-safety-notice-dismissible{--g-ai-variant:dismissible}
+.g-ai-feedback-default{--g-ai-variant:default}
+.g-ai-feedback-detailed{--g-ai-variant:detailed}
+.g-ai-feedback-compact{--g-ai-variant:compact}
+.g-conversation-list-default{--g-ai-variant:default}
+.g-conversation-list-grouped{--g-ai-variant:grouped}
+.g-conversation-list-compact{--g-ai-variant:compact}
+.g-prompt-library-default{--g-ai-variant:default}
+.g-prompt-library-grouped{--g-ai-variant:grouped}
+.g-prompt-library-compact{--g-ai-variant:compact}
+.g-mention-default{--g-ai-variant:default}
+.g-mention-mentions{--g-ai-variant:mentions}
+.g-mention-commands{--g-ai-variant:commands}
+.g-generation-card-default{--g-ai-variant:default}
+.g-generation-card-compact{--g-ai-variant:compact}
+.g-generation-card-progress{--g-ai-variant:progress}
+.g-file-tree-default{--g-ai-variant:default}
+.g-file-tree-expanded{--g-ai-variant:expanded}
+.g-file-tree-compact{--g-ai-variant:compact}
+.g-version-list-default{--g-ai-variant:default}
+.g-version-list-compact{--g-ai-variant:compact}
+.g-version-list-detailed{--g-ai-variant:detailed}
+.g-permission-scope-default{--g-ai-variant:default}
+.g-permission-scope-checkable{--g-ai-variant:checkable}
+.g-permission-scope-compact{--g-ai-variant:compact}
+.g-cost-default{--g-ai-variant:default}
+.g-cost-compact{--g-ai-variant:compact}
+.g-cost-detailed{--g-ai-variant:detailed}
+.g-privacy-notice-default{--g-ai-variant:default}
+.g-privacy-notice-compact{--g-ai-variant:compact}
+.g-privacy-notice-dismissible{--g-ai-variant:dismissible}
+.g-ai-run-timeline-default{--g-ai-variant:default}
+.g-ai-run-timeline-compact{--g-ai-variant:compact}
+.g-ai-run-timeline-detailed{--g-ai-variant:detailed}
+.g-ai-structured-output-default{--g-ai-variant:default}
+.g-ai-structured-output-tree{--g-ai-variant:tree}
+.g-ai-structured-output-compact{--g-ai-variant:compact}
 }

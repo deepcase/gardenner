@@ -1,0 +1,5 @@
+@page "/tooltip"
+@using System.Text.Json
+<PageTitle>GTooltip</PageTitle>
+<section style="padding:48px 24px"><h1>GTooltip</h1><label>位置 <select aria-label="位置" @bind="Position"><option>top</option><option>bottom</option><option>left</option><option>right</option></select></label><label><input type="checkbox" @bind="Mini" />Mini</label><div style="padding:48px 0"><GTooltip id="tooltip" Config="Config" EventNames="@(new[]{"change"})" OnEvent="Handle"><button type="button" data-g-tooltip-trigger>查看提示</button><div data-g-tooltip-content hidden></div></GTooltip></div><output aria-live="polite">@Result</output></section>
+@code {private string Position="top",Result="已关闭";private bool Mini;private IReadOnlyDictionary<string,object?> Config=>new Dictionary<string,object?>{["overlay-options"]=JsonSerializer.Serialize(new{content="这是一条补充说明",trigger="click",position=Position,mini=Mini})};private void Handle(Gardenerim.Blazor.Models.GardenerimEventArgs e){if(e.Detail is IReadOnlyDictionary<string,object?> d&&d.TryGetValue("value",out var value))Result=value is true?"已打开":"已关闭";}}

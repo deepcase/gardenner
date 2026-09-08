@@ -1,0 +1,466 @@
+{
+  "verifiedAt": "2026-09-07T11:13:52.876Z",
+  "scope": {
+    "components": 6,
+    "variants": 28,
+    "configurationParameters": 26,
+    "newParameters": [
+      "overlayMaxHeight",
+      "overlayDensity",
+      "overlayShowClose"
+    ],
+    "frameworks": [
+      "css",
+      "vue",
+      "react",
+      "angularjs",
+      "blazor"
+    ]
+  },
+  "tests": {
+    "overlay": 19,
+    "runtime": 840,
+    "schema": 48,
+    "build": 11
+  },
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 143
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 92
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 80
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0,
+      "tail": "\n> @gardenerim/vue@2.1.0 budget\n> node scripts/budget.mjs\n\nPerformance budget passed: 548274 raw / 83592 gzip / 40379 brotli bytes.\n"
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0,
+      "tail": "\n> @gardenerim/react@2.1.0 budget\n> node scripts/budget.mjs\n\nPerformance budget passed: 544426 raw / 81168 gzip / 39335 brotli bytes.\n"
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0,
+      "tail": "\n> @gardenerim/angularjs@2.1.0 budget\n> node scripts/budget.mjs\n\nPerformance budget passed: 629808 raw / 91475 gzip / 42964 brotli bytes.\n"
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0,
+      "tail": "\n> @gardenerim/blazor-workspace@2.1.0 budget\n> node scripts/budget.mjs\n\nPerformance budgets passed: assembly 523776 B; static 15952508 B; CSS gzip 259987 B; runtime gzip 71314 B.\n"
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0,
+      "tail": "\n> @gardenerim/blazor-workspace@2.1.0 test:contracts\n> dotnet run --project tests/Gardenerim.Blazor.Tests/Gardenerim.Blazor.Tests.csproj -c Release --no-build\n\nGardenerim.Blazor contracts passed: 559 SSR renders, 94 behaviors, 104 events, 42 themes, DI, forms, handles, metadata, net10/net11 boundary.\r\n"
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0,
+      "tail": "\n> @gardenerim/css@2.1.0 test:types\n> tsc -p tsconfig.types.json\n\n"
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0,
+      "tail": "tion-compositions.html has conforming HTML structure and references (5.3084ms)\n✔ examples/overlay-compositions.html has conforming HTML structure and references (1.4795ms)\n✔ examples/page-components.html has conforming HTML structure and references (3.8295ms)\n✔ examples/primitives.html has conforming HTML structure and references (2.495ms)\n✔ examples/regions.html has conforming HTML structure and references (2.0403ms)\n✔ examples/runtime-lab.html has conforming HTML structure and references (3.634ms)\n✔ examples/selection-compositions.html has conforming HTML structure and references (4.5404ms)\n✔ examples/showcase.html has conforming HTML structure and references (2.9692ms)\n✔ examples/solution-compositions.html has conforming HTML structure and references (2.0127ms)\n✔ examples/workflow-lab.html has conforming HTML structure and references (2.5391ms)\n✔ website/index.html has conforming HTML structure and references (17.8134ms)\n✔ website/docs.html has conforming HTML structure and references (73.9637ms)\n✔ HTML release inventory covers every example and both documentation pages (0.4895ms)\nℹ tests 43\nℹ suites 0\nℹ pass 43\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 578.3097\n"
+    }
+  ],
+  "browsers": [
+    {
+      "engine": "chromium",
+      "variants": 28,
+      "components": 6,
+      "dimensionsAndDarkRtl": 6,
+      "errors": [],
+      "variantChecks": 84
+    },
+    {
+      "engine": "firefox",
+      "variants": 28,
+      "components": 6,
+      "dimensionsAndDarkRtl": 6,
+      "errors": [],
+      "variantChecks": 84
+    },
+    {
+      "engine": "webkit",
+      "variants": 28,
+      "components": 6,
+      "dimensionsAndDarkRtl": 6,
+      "errors": [],
+      "variantChecks": 84
+    }
+  ],
+  "interactions": [
+    {
+      "engine": "chromium",
+      "results": [
+        {
+          "name": "dialog",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "drawer",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "popover",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "tooltip",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "popconfirm",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "confirm-dialog",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "dialog",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "drawer",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "popover",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "tooltip",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "popconfirm",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "confirm-dialog",
+          "width": 390,
+          "passed": true
+        }
+      ],
+      "placements": 12
+    },
+    {
+      "engine": "firefox",
+      "results": [
+        {
+          "name": "dialog",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "drawer",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "popover",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "tooltip",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "popconfirm",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "confirm-dialog",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "dialog",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "drawer",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "popover",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "tooltip",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "popconfirm",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "confirm-dialog",
+          "width": 390,
+          "passed": true
+        }
+      ],
+      "placements": 12
+    },
+    {
+      "engine": "webkit",
+      "results": [
+        {
+          "name": "dialog",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "drawer",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "popover",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "tooltip",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "popconfirm",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "confirm-dialog",
+          "width": 1280,
+          "passed": true
+        },
+        {
+          "name": "dialog",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "drawer",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "popover",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "tooltip",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "popconfirm",
+          "width": 390,
+          "passed": true
+        },
+        {
+          "name": "confirm-dialog",
+          "width": 390,
+          "passed": true
+        }
+      ],
+      "placements": 12
+    }
+  ],
+  "blazor": {
+    "components": 6,
+    "variants": 28,
+    "dimensions": 6,
+    "retries": 5,
+    "errors": []
+  },
+  "website": {
+    "passed": true,
+    "locales": 7,
+    "exampleParameters": 21,
+    "errors": []
+  },
+  "parity": {
+    "components": 6,
+    "variants": 28,
+    "frameworks": [
+      "css",
+      "vue",
+      "react",
+      "angularjs",
+      "blazor"
+    ],
+    "sharedAssets": {
+      "gardener.css": "fd078f5c391fedb3caa24e81b99d7ab7f790585753871e989f96ef62febe0fb4",
+      "gardener.min.css": "f329a8df707c817499752274facb025ce227719de76786636ecb116e41df8625",
+      "gardener.runtime.min.js": "2f56939f0f3c62532f516f9e40e1b7c35dfacfcdc12c56c3064eec0325a87341"
+    }
+  },
+  "budgets": {
+    "reason": "Explicit fixed allowance for overlay state cleanup, synchronous confirmation, disabled ownership, configurable dimensions and density. No baseline or compression settings changed.",
+    "changes": [
+      {
+        "limit": "CSS runtime bytes",
+        "before": 254000,
+        "after": 258000
+      },
+      {
+        "limit": "Desktop CSS bytes",
+        "before": 1845000,
+        "after": 1848000
+      },
+      {
+        "limit": "Main CSS growth %",
+        "before": 87,
+        "after": 88
+      },
+      {
+        "limit": "Runtime growth %",
+        "before": 141,
+        "after": 145
+      },
+      {
+        "limit": "Desktop CSS growth %",
+        "before": 87,
+        "after": 88
+      },
+      {
+        "limit": "Desktop Brotli growth %",
+        "before": 144,
+        "after": 145
+      },
+      {
+        "limit": "Blazor shared runtime bytes",
+        "before": 254000,
+        "after": 258000
+      },
+      {
+        "limit": "Blazor static asset bytes",
+        "before": 15950000,
+        "after": 15980000
+      },
+      {
+        "limit": "Main CSS Brotli bytes",
+        "before": 148000,
+        "after": 149000
+      },
+      {
+        "limit": "Main CSS Brotli growth %",
+        "before": 142,
+        "after": 144
+      },
+      {
+        "limit": "Web CSS Brotli growth %",
+        "before": 147,
+        "after": 148
+      },
+      {
+        "limit": "Feedback/overlay CSS bytes",
+        "before": 27000,
+        "after": 27500
+      },
+      {
+        "limit": "Feedback/overlay CSS growth %",
+        "before": 390,
+        "after": 400
+      }
+    ]
+  },
+  "limitations": [
+    "Component acceptance covers the six overlay components, not an entire-library publication.",
+    "Business confirmation services and business timeouts belong to the host.",
+    "Fixed-position fallback in browsers without native popover support cannot escape every clipping ancestor; mount at an application root when needed.",
+    "Automated accessibility scans do not replace manual assistive-technology testing."
+  ],
+  "warnings": [
+    "GardenerDemo retains its existing large-chunk advisory."
+  ]
+}

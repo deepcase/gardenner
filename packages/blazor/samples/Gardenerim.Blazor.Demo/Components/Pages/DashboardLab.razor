@@ -1,0 +1,62 @@
+@page "/dashboard"
+@using System.Text.Json
+@using Microsoft.JSInterop
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+<PageTitle>仪表盘 · Blazor</PageTitle>
+<h1>仪表盘 · Blazor</h1>
+<div style="max-width:900px;display:grid;gap:16px">
+<label>组件<select id="dashboard-kind" @bind="Name" @bind:after="Reset">@foreach(var name in Names){<option>@name</option>}</select></label>
+<label>变体<select id="dashboard-variant" @bind="Mode"><option value="">默认</option>@foreach(var v in Variants.RootElement.GetProperty(Name).EnumerateArray()){<option>@v.GetString()</option>}</select></label>
+<label>本地服务<select id="dashboard-service" @bind="Service" @bind:after="ResetState"><option value="success">成功</option><option value="retry">失败后重试</option><option value="timeout">超时</option><option value="none">未接入</option></select></label>
+<details><summary>参数组合</summary><div style="display:flex;flex-wrap:wrap;gap:12px">
+<label>尺寸<select id="dashboard-size" value="@Parameters.GetValueOrDefault("size","")" @onchange='e=>ParameterChanged("size",e)'><option value="">默认</option><option>small</option><option>medium</option><option>large</option></select></label>
+<label>边框<select id="dashboard-bordered" value="@Parameters.GetValueOrDefault("bordered","")" @onchange='e=>ParameterChanged("bordered",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>指标列数<select id="dashboard-columns" value="@Parameters.GetValueOrDefault("columns","")" @onchange='e=>ParameterChanged("columns",e)'><option value="">默认</option><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+<label>标题<select id="dashboard-showHeader" value="@Parameters.GetValueOrDefault("showHeader","")" @onchange='e=>ParameterChanged("showHeader",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>图例<select id="dashboard-showLegend" value="@Parameters.GetValueOrDefault("showLegend","")" @onchange='e=>ParameterChanged("showLegend",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>网格线<select id="dashboard-showGrid" value="@Parameters.GetValueOrDefault("showGrid","")" @onchange='e=>ParameterChanged("showGrid",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>坐标文字<select id="dashboard-showAxisLabels" value="@Parameters.GetValueOrDefault("showAxisLabels","")" @onchange='e=>ParameterChanged("showAxisLabels",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>数据点<select id="dashboard-showMarkers" value="@Parameters.GetValueOrDefault("showMarkers","")" @onchange='e=>ParameterChanged("showMarkers",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>数据表入口<select id="dashboard-tableVisible" value="@Parameters.GetValueOrDefault("tableVisible","")" @onchange='e=>ParameterChanged("tableVisible",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>趋势<select id="dashboard-showTrend" value="@Parameters.GetValueOrDefault("showTrend","")" @onchange='e=>ParameterChanged("showTrend",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>指标说明<select id="dashboard-showDescription" value="@Parameters.GetValueOrDefault("showDescription","")" @onchange='e=>ParameterChanged("showDescription",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>目标值<select id="dashboard-showTarget" value="@Parameters.GetValueOrDefault("showTarget","")" @onchange='e=>ParameterChanged("showTarget",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>剩余目标<select id="dashboard-showRemaining" value="@Parameters.GetValueOrDefault("showRemaining","")" @onchange='e=>ParameterChanged("showRemaining",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>仪表范围<select id="dashboard-showRange" value="@Parameters.GetValueOrDefault("showRange","")" @onchange='e=>ParameterChanged("showRange",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>数值<select id="dashboard-showValue" value="@Parameters.GetValueOrDefault("showValue","")" @onchange='e=>ParameterChanged("showValue",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>应用筛选<select id="dashboard-showApply" value="@Parameters.GetValueOrDefault("showApply","")" @onchange='e=>ParameterChanged("showApply",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>重置筛选<select id="dashboard-showReset" value="@Parameters.GetValueOrDefault("showReset","")" @onchange='e=>ParameterChanged("showReset",e)'><option value="">默认</option><option>true</option><option>false</option></select></label>
+<label>面板最大高度<select id="dashboard-maxHeight" value="@Parameters.GetValueOrDefault("maxHeight","")" @onchange='e=>ParameterChanged("maxHeight",e)'><option value="">默认</option><option>320</option><option>480</option><option>640</option></select></label>
+<label>数据表高度<select id="dashboard-tableHeight" value="@Parameters.GetValueOrDefault("tableHeight","")" @onchange='e=>ParameterChanged("tableHeight",e)'><option value="">默认</option><option>120</option><option>240</option><option>480</option></select></label>
+<label>数据点半径<select id="dashboard-pointRadius" value="@Parameters.GetValueOrDefault("pointRadius","")" @onchange='e=>ParameterChanged("pointRadius",e)'><option value="">默认</option><option>2</option><option>4</option><option>8</option></select></label>
+<label>曲线线宽<select id="dashboard-lineWidth" value="@Parameters.GetValueOrDefault("lineWidth","")" @onchange='e=>ParameterChanged("lineWidth",e)'><option value="">默认</option><option>1</option><option>2</option><option>4</option></select></label>
+<label>圆环宽度<select id="dashboard-donutWidth" value="@Parameters.GetValueOrDefault("donutWidth","")" @onchange='e=>ParameterChanged("donutWidth",e)'><option value="">默认</option><option>12</option><option>28</option><option>40</option></select></label>
+<label>加载超时<select id="dashboard-serviceTimeout" value="@Parameters.GetValueOrDefault("serviceTimeout","")" @onchange='e=>ParameterChanged("serviceTimeout",e)'><option value="">默认</option><option>200</option><option>1000</option><option>60000</option></select></label>
+</div></details>
+<button id="dashboard-resize" class="g-btn" @onclick="ToggleSize">切换尺寸</button>
+<GardenerimComponent @key="@(Name+Service)" Name="@Name" Variant="@Mode" Config="Options" data-demo-dashboard-service="@Service" EventNames="@(new[]{"change","error"})" OnEvent="Changed" id="dashboard-root"><label>交接备注<input class="g-input" value="保留草稿" /></label></GardenerimComponent>
+<output id="dashboard-state" style="overflow-wrap:anywhere">@Result</output>
+<p>7 个组件、39 个变体共用数据和样式。配置更新保留草稿；本地加载可成功、重试、超时或取消。业务数据由宿主服务提供。</p>
+</div>
+@code {
+private static readonly JsonDocument Examples=JsonDocument.Parse("""
+{"kpi-stat":{"label":"本月营业额","value":128650.75,"previous":112340.5,"format":"currency","currency":"CNY","precision":2,"description":"已扣除退款，按订单完成时间统计"},"filter-bar":{"fields":[{"key":"period","label":"统计周期","type":"select","defaultValue":"month","options":[{"value":"week","label":"最近 7 天"},{"value":"month","label":"本月"},{"value":"quarter","label":"本季度"}]},{"key":"team","label":"团队","type":"select","defaultValue":"all","options":[{"value":"all","label":"全部团队"},{"value":"east","label":"华东团队"},{"value":"south","label":"华南团队"}]},{"key":"keyword","label":"项目检索","type":"search","placeholder":"输入项目名称"}],"values":{"period":"month","team":"all","keyword":""}},"chart-container":{"title":"营收与成本趋势","description":"最近六个月营收与成本，单位万元","categories":["1 月","2 月","3 月","4 月","5 月","6 月"],"series":[{"id":"revenue","label":"营收","values":[42,56,51,73,81,96]},{"id":"cost","label":"成本","values":[28,35,32,45,49,57]}],"precision":1,"filename":"revenue.csv"},"kpi-group":{"metrics":[{"label":"活跃客户","value":2860,"previous":2400,"unit":"户"},{"label":"成交订单","value":1368,"previous":1200,"unit":"笔"},{"label":"转化率","value":0.286,"previous":0.24,"format":"percent","precision":1},{"label":"响应时间","value":182,"previous":240,"inverse":true,"unit":"ms"}]},"dashboard-widget":{"title":"团队协作摘要","collapsible":true},"goal-tracker":{"title":"季度签约目标","value":780000,"target":1000000,"unit":"元","precision":0},"gauge-chart":{"title":"服务健康评分","value":82,"min":0,"max":100,"unit":"分","thresholds":[{"value":0,"tone":"danger"},{"value":60,"tone":"warning"},{"value":80,"tone":"success"}]}}
+""");
+private static readonly JsonDocument Variants=JsonDocument.Parse("""
+{"kpi-stat":["compact","comfortable","borderless","horizontal","centered","accent"],"filter-bar":["compact","comfortable","borderless","vertical","sticky","inline"],"chart-container":["compact","comfortable","borderless","line","area","bar","donut"],"kpi-group":["compact","comfortable","borderless","divided","stacked"],"dashboard-widget":["compact","comfortable","borderless","flat","accent"],"goal-tracker":["compact","comfortable","borderless","horizontal","centered"],"gauge-chart":["compact","comfortable","borderless","semicircle","ring"]}
+""");
+private static readonly string[] Names=Examples.RootElement.EnumerateObject().Select(p=>p.Name).ToArray();
+private string Name {get;set;}="kpi-stat";
+private string Mode="",Service="success",Size="",State="{}",Result="";
+private Dictionary<string,string> Parameters=new();
+private IJSObjectReference? Module;
+private void ParameterChanged(string key,ChangeEventArgs args){Parameters[key]=args.Value?.ToString()??"";if(key=="size")Size="";}
+private IReadOnlyDictionary<string,object?> Options {get{var data=JsonSerializer.Deserialize<Dictionary<string,object?>>(Examples.RootElement.GetProperty(Name).GetRawText())!;foreach(var pair in Parameters){if(pair.Value=="")continue;data[pair.Key]=bool.TryParse(pair.Value,out var flag)?(object)flag:int.TryParse(pair.Value,out var number)?(object)number:pair.Value;}return new Dictionary<string,object?>{["dashboardOptions"]=JsonSerializer.Serialize(data),["dashboardValue"]=State,["dashboardSize"]=(Parameters.GetValueOrDefault("size","")==""?Size:Parameters["size"]),["dashboardBordered"]=Parameters.GetValueOrDefault("bordered","")==""?(object?)null:Parameters["bordered"]=="true",["dashboardDisabled"]=false};}}
+private void ToggleSize(){Size=Size=="small"?"large":"small";}
+private void Reset(){Mode="";Size="";Parameters.Clear();ResetState();}
+private void ResetState(){State="{}";Result="";}
+private void Changed(Gardenerim.Blazor.Models.GardenerimEventArgs args){Result=JsonSerializer.Serialize(args.Detail);if(args.EventName=="gardener:change" && args.Detail is IReadOnlyDictionary<string,object?> values && values.TryGetValue("value",out var value))State=JsonSerializer.Serialize(value);}
+protected override async Task OnAfterRenderAsync(bool firstRender){Module??=await JS.InvokeAsync<IJSObjectReference>("import","./dashboard-demo.js");await Module.InvokeVoidAsync("install","dashboard-root");}
+public async ValueTask DisposeAsync(){if(Module is not null){try{await Module.DisposeAsync();}catch(JSDisconnectedException){}}}
+}

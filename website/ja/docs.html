@@ -4,10 +4,12 @@
   lang="ja"
   data-g-theme="garden"
   data-g-mode="light"
+  data-g-typography="cjk"
   data-g-neutral="cool"
-  data-g-shape="small"
+  data-g-shape="medium"
  data-locale="ja">
   <head>
+    <meta name="gardenerim-version" content="2.2.0" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -15,7 +17,7 @@
     />
     <meta
       name="description"
-      content="Gardenerim の完全なドキュメント: CSS、Vue 3、React、AngularJS、Blazor、テーマ、トークン、ツール クラス、506 コンポーネント、ランタイム、完全なページ、AI ページ生成、およびデスクトップの適応。"
+      content="Gardenerim の完全なドキュメント: CSS、Vue 3、React、AngularJS、Blazor、テーマ、トークン、ツール クラス、575 コンポーネント、ランタイム、完全なページ、AI ページ生成、およびデスクトップの適応。"
     />
     <meta name="theme-color" content="#ffffff" />
     <meta
@@ -33,8 +35,9 @@
     <link rel="alternate" hreflang="fr" href="../fr/docs.html" />
     <link rel="alternate" hreflang="de" href="../de/docs.html" />
     <link rel="alternate" hreflang="x-default" href="../docs.html" />
-    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=afe73d14" />
-    <link rel="stylesheet" href="../assets/site.css?v=hero-balance-3" />
+    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=2.2.0-89f744a56e" />
+    <link rel="stylesheet" href="../assets/site.css?v=2.2.0-999db7025a" />
+    <link rel="stylesheet" href="../assets/docs-gallery.css?v=2.2.0-3b2ec2c26b" />
   </head>
   <body>
     <a class="g-skip-link" href="#docs-main">ドキュメントのテキストにスキップ</a>
@@ -44,8 +47,10 @@
           ><span class="site-brand-mark" aria-hidden="true">G</span
           ><span>Gardenerim</span></a
         >
-        <span class="g-badge">ドキュメント 2.1.0</span>
+        <span class="g-badge site-version" data-site-version>v2.2.0</span>
         <div class="site-nav-links" id="site-menu">
+          <a class="site-nav-link" href="./components.html">コンポーネント</a>
+          <a class="site-nav-link" href="./docs.html" aria-current="page">ドキュメント</a>
           <a class="site-nav-link" href="./index.html">ホームページ</a>
           <details class="site-nav-dropdown">
             <summary class="site-nav-trigger">フレームワーク</summary>
@@ -71,7 +76,6 @@
             <div class="site-nav-dropdown-menu">
               <a class="site-nav-link" href="#public-api">API コントラクト</a>
               <a class="site-nav-link" href="#targeted-builds">ビルド</a>
-              <a class="site-nav-link" href="#components">コンポーネント</a>
               <a class="site-nav-link" href="#utilities">ツール</a>
               <a class="site-nav-link" href="#runtime">ランタイム</a>
               <a class="site-nav-link" href="#recipes">レシピ</a>
@@ -112,7 +116,7 @@
         <div class="docs-mobile-jump">
           <label class="g-label" for="docs-jump">章にジャンプ</label
           ><select class="g-select g-select-sm" id="docs-jump">
-            <option value="#quick-start">クイックスタート</option>
+            <option value="#quick-start">クイックスタート</option><option value="#component-demos">コンポーネントのデモ</option>
             <option value="#installation">インストールとパッケージ</option>
             <option value="#vue">Vue 3 プロジェクト</option>
             <option value="#react">Reactプロジェクト</option>
@@ -152,11 +156,12 @@
             <option value="#customization">カスタマイズと公開</option>
           </select>
         </div>
+        <details class="docs-category-navigation" open><summary>コンポーネント分類</summary><nav data-demo-category-navigation aria-label="コンポーネント分類"></nav></details>
         <section class="docs-sidebar-section">
           <h2 class="docs-sidebar-title">概要</h2>
           <ul class="docs-sidebar-list">
             <li>
-              <a class="docs-sidebar-link" href="#quick-start">クイックスタート</a>
+              <a class="docs-sidebar-link" href="#quick-start">クイックスタート</a><a class="docs-sidebar-link" href="#component-demos">コンポーネントのデモ</a>
             </li>
             <li>
               <a class="docs-sidebar-link" href="#installation">インストールとパッケージ</a>
@@ -319,7 +324,7 @@
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-6">
               <span class="g-badge">42 テーマ</span
-              ><span class="g-badge">506 コンポーネント</span
+              ><span class="g-badge">575 コンポーネント</span
               ><span class="g-badge">11,498 の公共事業</span
               ><span class="g-badge">72 の動作</span
               ><span class="g-badge">52 レシピ</span>
@@ -367,6 +372,25 @@
             </ol>
           </section>
 
+          <section class="docs-section" id="component-demos">
+            <h2>コンポーネントのデモ</h2>
+            <p>コンポーネントを操作し、パラメーター、バリエーション、デモのソースを確認できます。GardenerDemo と同じ実装を使用しています。</p>
+            <div id="docs-live-gallery" class="docs-live-gallery">
+              <div class="docs-catalog-toolbar docs-demo-filters">
+                <label>コンポーネントを検索<input class="g-input" type="search" data-demo-search placeholder="GTable / GButton" /></label>
+                <label>カテゴリー<select class="g-select" data-demo-category><option value="">すべてのカテゴリ</option></select></label>
+                <label>コンポーネントを選択<select class="g-select" data-demo-picker></select></label>
+              </div>
+              <p class="docs-catalog-meta" data-demo-count aria-live="polite"></p>
+              <div class="docs-demo-toolbar">
+                <span>GardenerDemo · Vue</span>
+                <label>プレビュー幅<select class="g-select g-select-sm" data-demo-width><option value="auto">自動</option><option value="768">768px</option><option value="390">390px</option></select></label>
+                <button class="g-btn g-btn-outline g-btn-sm" type="button" data-demo-reset>デモをリセット</button>
+                <a class="g-btn g-btn-ghost g-btn-sm" data-demo-external target="_blank" rel="noopener">別に開く</a>
+              </div>
+              <div class="docs-demo-viewport"><div class="docs-demo-stage" data-demo-stage></div></div>
+            </div>
+          </section>
           <section class="docs-section" id="installation">
             <h2>インストールとパッケージ</h2>
             <p>
@@ -498,14 +522,14 @@ import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
           <section class="docs-section" id="vue">
             <h2>Gardenerim Vue 3 プロジェクト</h2>
             <p>
-              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> は Gardenerim CSS 2.1.0 の公式 Vue 3 アダプテーション レイヤーであり、現在のバージョンは
-              <strong>2.1.0 安定版</strong>、Vue をサポート
+              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> は Gardenerim CSS 2.2.0 の公式 Vue 3 アダプテーション レイヤーであり、現在のバージョンは
+              <strong>2.2.0 安定版</strong>、Vue をサポート
               <code>&gt;=3.4.0 &lt;4.0.0</code> Node.js を使用
-              <code>&gt;=18.18</code>。 506 個の CSS コンポーネントすべてと 72 個の DOM 動作を項目ごとにマップし、546 個のルート ランタイム エクスポート、21 個の TypeScript タイプ エクスポート、30 個のパッケージ エントリ ポイント、および 28 個のコンポーネント CSS パッケージ プロキシを提供します。
+              <code>&gt;=18.18</code>。 575 個の CSS コンポーネントすべてと 96 個の DOM 動作を項目ごとにマップし、615 個のルート ランタイム エクスポート、31 個の TypeScript タイプ エクスポート、30 個のパッケージ エントリ ポイント、および 28 個のコンポーネント CSS パッケージ プロキシを提供します。
             </p>
             <div class="docs-api-stats" aria-label="Vue プロジェクトのパブリック API スケール">
-              <div><strong>506</strong><span>名前付き G* コンポーネント</span></div>
-              <div><strong>546</strong><span>ルート ランタイムのエクスポート</span></div>
+              <div><strong>575</strong><span>名前付き G* コンポーネント</span></div>
+              <div><strong>615</strong><span>ルート ランタイムのエクスポート</span></div>
               <div><strong>30</strong><span>パブリックパッケージエントリ</span></div>
               <div><strong>28</strong><span>コンポーネント CSS パッケージ</span></div>
             </div>
@@ -646,7 +670,7 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               40 個の非コンポーネント ランタイムが次のようにエクスポートされました:<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createGardenerimComponent</code>、<code>createGardenerimVue</code>、<code>default</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimLocale</code>、<code>useGardenerimTheme</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>、<code>vGardenerim</code>。
             </p>
             <p>
-              21 種類が次のようにエクスポートされました:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentPublicInstance</code>、<code>GardenerimConfigValue</code>、<code>GardenerimDirectiveOptions</code>、<code>GardenerimDirectiveValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimVueComponentName</code>、<code>GardenerimVueOptions</code>。
+              31 タイプは次のようにエクスポートされました:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentPublicInstance</code>、<code>GardenerimConfigValue</code>、<code>GardenerimDirectiveOptions</code>、<code>GardenerimDirectiveValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimVueComponentName</code>、<code>GardenerimVueOptions</code>。
             </p>
 
             <h3>パブリックスキーマ、メタデータ、および公開アクセス</h3>
@@ -654,8 +678,8 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <a href="../../packages/vue/metadata/public-api.json">パブリック API</a>、<a href="../../packages/vue/metadata/compatibility.json">互換性</a>
               と <a href="../../packages/vue/dist/gardener-vue.performance.json">パフォーマンス</a>
               どちらにも、不明なフィールドをオフにする JSON スキーマがあります。<a href="../../packages/vue/dist/catalog.json">コンポーネント カタログ JSON</a>
-              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全な圧縮パッケージの予算は、raw 330,691 B、gzip 52,236 B、Brotli 27,220 B です。独身
-              <code>GButton</code> の実際のツリーシェイキング結果は 3,894 B です。確定的ビルドは 91 ファイルをカバーし、npm パッケージは 102 ファイルをチェックし、284,418 B がパックされ、3,737,323 B がアンパックされます。
+              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全な圧縮パッケージの実測値は、raw 561,983 B、gzip 85,726 B、Brotli 41,537 B です。独身
+              <code>GButton</code> の実際のツリーシェイキング結果は 3,894 B です。確定的ビルドは 91 ファイルをカバーし、npm パッケージは 105 ファイルをチェックし、284,418 B がパックされ、3,737,323 B がアンパックされます。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd vue
@@ -666,11 +690,11 @@ npm run release:verify
 # ツリーシェイキング、再現可能なビルド、パフォーマンスバジェット、npm パッケージ化および publint</code></pre>
             </div>
 
-            <h3>506 個の Vue コンポーネントすべて</h3>
+            <h3>575 個の Vue コンポーネントすべて</h3>
             <p>
               次のディレクトリは直接マージされます
               <a href="../../packages/vue/metadata/public-api.json">Vue パブリック API</a> と
-              <a href="../../packages/vue/dist/catalog.json">コンポーネントのメタデータ</a>は、Vue エクスポート名、CSS 名、カテゴリ、タイプ、セレクター、バリアント、状態、ウィジェット、動作、およびプラットフォームを項目別に示します。これは注目のサンプルではありません。 506 個のアイテムはすべて同じ検索可能なディレクトリにあります。
+              <a href="../../packages/vue/dist/catalog.json">コンポーネントのメタデータ</a>は、Vue エクスポート名、CSS 名、カテゴリ、タイプ、セレクター、バリアント、状態、ウィジェット、動作、およびプラットフォームを項目別に示します。これは注目のサンプルではありません。 575 個のアイテムはすべて同じ検索可能なディレクトリにあります。
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="vue-component-search">Vue コンポーネントの検索</label>
@@ -682,19 +706,287 @@ npm run release:verify
             </div>
             <div class="docs-catalog-meta" id="vue-component-meta">Vue コンポーネント マニフェストを読み取り中...</div>
             <div class="docs-catalog" id="vue-component-catalog" aria-live="polite"></div>
-          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- generated-adapter-options --><p>ナビゲーションおよびコンポーネント拡張 API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTableInstance</code>、<code>GardenerimTableState</code>、<code>GardenerimTableChange</code>、<code>GardenerimTableKey</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimNavigationChange</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationInstance</code>、<code>navigation</code>、<code>items</code>、<code>columns</code>。完全な種類と使用方法については、を参照してください。 <a href="../../packages/vue/docs/API.md">Vue API</a>。</p><!-- /generated-adapter-options -->
+</section>
 
           <section class="docs-section" id="react">
             <h2>Gardenerim React プロジェクト</h2>
             <p>
-              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> は Gardenerim CSS 2.1.0 の公式 React アダプテーション レイヤーであり、現在のバージョンは
-              <strong>2.1.0 安定版</strong>、React をサポート
+              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> は Gardenerim CSS 2.2.0 の公式 React アダプテーション レイヤーであり、現在のバージョンは
+              <strong>2.2.0 安定版</strong>、React をサポート
               <code>&gt;=18.3.0 &lt;20.0.0</code> Node.js を使用
-              <code>&gt;=18.18</code>。 506 個の CSS コンポーネントすべてと 72 個の DOM 動作を項目ごとにマップし、546 個のルート ランタイム エクスポート、22 個の TypeScript タイプ エクスポート、30 個のパブリック パッケージ エントリ ポイント、および 28 個のコンポーネント CSS パッケージ プロキシを提供します。
+              <code>&gt;=18.18</code>。 575 個の CSS コンポーネントすべてと 96 個の DOM 動作を項目ごとにマップし、615 個のルート ランタイム エクスポート、32 個の TypeScript タイプ エクスポート、30 個のパブリック パッケージ エントリ ポイント、および 28 個のコンポーネント CSS パッケージ プロキシを提供します。
             </p>
             <div class="docs-api-stats" aria-label="React プロジェクトのパブリック API スケール">
-              <div><strong>506</strong><span>名前付き G* コンポーネント</span></div>
-              <div><strong>546</strong><span>ルート ランタイムのエクスポート</span></div>
+              <div><strong>575</strong><span>名前付き G* コンポーネント</span></div>
+              <div><strong>615</strong><span>ルート ランタイムのエクスポート</span></div>
               <div><strong>30</strong><span>パブリックパッケージエントリ</span></div>
               <div><strong>28</strong><span>コンポーネント CSS パッケージ</span></div>
             </div>
@@ -788,7 +1080,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 /&gt;</code></pre>
             </div>
             <p>
-              <code>useGardenerimBehavior</code> 72 のビヘイビアーを要素、ドキュメント、またはコンポーネント ハンドルにバインドし、アンロード時にそれらを破棄します。<code>initialize</code> ページレベルのランタイムによる統合テイクオーバーを容易にするために、コンポーネントの自動初期化をオフにすることができます。データ属性を明示的に渡す動作は、デフォルト値の生成よりも優先されます。
+              <code>useGardenerimBehavior</code> 96 のビヘイビアを要素、ドキュメント、またはコンポーネント ハンドルにバインドし、アンロード時にそれらを破棄します。<code>initialize</code> ページレベルのランタイムによる統合テイクオーバーを容易にするために、コンポーネントの自動初期化をオフにすることができます。データ属性を明示的に渡す動作は、デフォルト値の生成よりも優先されます。
             </p>
 
             <h3>フック全8個</h3>
@@ -822,7 +1114,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 
             <h3>SSR、ハイドレーション、デスクトップブリッジング</h3>
             <div class="docs-callout">
-              パッケージのエントリポイントはサーバー側でも安全に import でき、506 個すべてのコンポーネントについて個別に SSR を検証しています。ビヘイビアは Effect のライフサイクル内でのみ初期化されます。サーバーで生成したマークアップの Hydration では recoverable error が発生せず、StrictMode にも対応します。Tauri と Electron はそれぞれ
+              パッケージのエントリポイントはサーバー側でも安全に import でき、575 個すべてのコンポーネントについて個別に SSR を検証しています。ビヘイビアは Effect のライフサイクル内でのみ初期化されます。サーバーで生成したマークアップの Hydration では recoverable error が発生せず、StrictMode にも対応します。Tauri と Electron はそれぞれ
               <code>@gardenerim/react/tauri</code> と
               <code>@gardenerim/react/electron</code> ポータルを独立させ、どちらのポータルも別のプラットフォームのブリッジング API を誤ってエクスポートしないようにします。
             </div>
@@ -847,7 +1139,7 @@ function WindowChrome() {
               40 個の非コンポーネント ランタイムが次のようにエクスポートされました:<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createGardenerimComponent</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>resolveGardenerimTarget</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimLocale</code>、<code>useGardenerimTheme</code>、<code>useGardenerimThemeContext</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>。
             </p>
             <p>
-              22 種類が次のようにエクスポートされました:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentProps</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimGeneratedComponent</code>、<code>GardenerimOwnProps</code>、<code>GardenerimPlatform</code>、<code>GardenerimReactComponentName</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChange</code>。
+              32 タイプは次のようにエクスポートされました:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentProps</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimGeneratedComponent</code>、<code>GardenerimOwnProps</code>、<code>GardenerimPlatform</code>、<code>GardenerimReactComponentName</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChange</code>。
             </p>
 
             <h3>パブリックスキーマ、パフォーマンス、リリースアクセス</h3>
@@ -855,23 +1147,23 @@ function WindowChrome() {
               <a href="../../packages/react/metadata/public-api.json">パブリック API</a>、<a href="../../packages/react/metadata/compatibility.json">互換性</a>
               と <a href="../../packages/react/dist/gardener-react.performance.json">パフォーマンス</a>
               どちらも不明なフィールドをオフにして JSON スキーマによって検証されました。<a href="../../packages/react/dist/catalog.json">コンポーネント カタログ JSON</a>
-              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全な圧縮パッケージの実測値は、raw 328,129 B、gzip 50,581 B、Brotli 26,733 B です。独身
-              <code>GButton</code> の実際のツリーシェイク結果は 2,685 B です。決定論的ビルドでは 91 個のファイルがカバーされ、npm パッケージでは 102 個のファイルがチェックされ、263,011 個がパックされ、2,445,217 個がアンパックされ、運用環境の依存関係のセキュリティ監査では脆弱性は 0 件でした。
+              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全な圧縮パッケージの実測値は、raw 557,236 B、gzip 83,043 B、Brotli 40,488 B です。独身
+              <code>GButton</code> の実際のツリーシェイク結果は 2,685 B です。決定論的ビルドでは 91 個のファイルがカバーされ、npm パッケージでは 105 個のファイルがチェックされ、263,011 個がパックされ、2,445,217 個がアンパックされ、運用環境の依存関係のセキュリティ監査では脆弱性は 0 件でした。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd react
 npm run release:verify
 
-# ビルドとパブリック API、スキーマ、TypeScript、506 コンポーネント SSR、ハイドレーション、DOM ライフサイクル、
+# ビルドとパブリック API、スキーマ、TypeScript、575 コンポーネント SSR、ハイドレーション、DOM ライフサイクル、
 # Chromium / WebKit / Firefox / Pixel 7 / iPhone 13、WCAG A/AA、
 # ツリーシェイキング、再現可能なビルド、パフォーマンスバジェット、npm パッケージ化および publint</code></pre>
             </div>
 
-            <h3>506 個の React コンポーネントすべて</h3>
+            <h3>575 個の React コンポーネントすべて</h3>
             <p>
               次のディレクトリは直接マージされます
               <a href="../../packages/react/metadata/public-api.json">React パブリック API</a> と
-              <a href="../../packages/react/dist/catalog.json">コンポーネントのメタデータ</a>、React エクスポート名、CSS 名、カテゴリ、タイプ、デフォルト タグ、セレクター、バリアント、状態、ウィジェット、動作、プラットフォームを項目別に示します。これは注目のサンプルではありません。 506 個のアイテムはすべて同じ検索可能なディレクトリにあります。
+              <a href="../../packages/react/dist/catalog.json">コンポーネントのメタデータ</a>、React エクスポート名、CSS 名、カテゴリ、タイプ、デフォルト タグ、セレクター、バリアント、状態、ウィジェット、動作、プラットフォームを項目別に示します。これは注目のサンプルではありません。 575 個のアイテムはすべて同じ検索可能なディレクトリにあります。
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="react-component-search">React コンポーネントの検索</label>
@@ -883,16 +1175,284 @@ npm run release:verify
             </div>
             <div class="docs-catalog-meta" id="react-component-meta">React コンポーネント マニフェストを読み取り中...</div>
             <div class="docs-catalog" id="react-component-catalog" aria-live="polite"></div>
-          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- generated-adapter-options --><p>ナビゲーションおよびコンポーネント拡張 API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTableInstance</code>、<code>GardenerimTableState</code>、<code>GardenerimTableChange</code>、<code>GardenerimTableKey</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimNavigationChange</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationInstance</code>、<code>navigation</code>、<code>items</code>、<code>columns</code>。完全な種類と使用方法については、を参照してください。 <a href="../../packages/react/docs/API.md">React API</a>。</p><!-- /generated-adapter-options -->
+</section>
 
           <section class="docs-section" id="angular">
             <h2>Gardenerim AngularJS プロジェクト</h2>
             <p>
               <a href="../../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
-              は Gardenerim CSS 2.1.0 の公式 AngularJS 1.x レガシー システム アダプテーション レイヤーであり、現在のバージョンは
-              <strong>2.1.0 安定版</strong>。 AngularJS を検証します
+              は Gardenerim CSS 2.2.0 の公式 AngularJS 1.x レガシー システム アダプテーション レイヤーであり、現在のバージョンは
+              <strong>2.2.0 安定版</strong>。 AngularJS を検証します
               <code>&gt;=1.8.2 &lt;1.9.0</code> Node.js を使用
-              <code>&gt;=18.18</code>、506 個の CSS コンポーネントすべてと 72 個の DOM 動作の項目ごとのマッピング。542 個のルート ランタイム エクスポート、24 個の TypeScript タイプ エクスポート、30 個のパブリック パッケージ エントリ ポイント、および 28 個のコンポーネント CSS パッケージ プロキシを提供します。
+              <code>&gt;=18.18</code>、575 個の CSS コンポーネントすべてと 96 個の DOM 動作の項目ごとのマッピング。611 個のルート ランタイム エクスポート、28 個の TypeScript タイプ エクスポート、30 個のパブリック パッケージ エントリ ポイント、および 28 個のコンポーネント CSS パッケージ プロキシを提供します。
             </p>
             <div class="docs-warning docs-callout">
               <strong>レガシー システム境界:</strong>AngularJS は公式サポートを終了しており、上流の修正がないフレームワーク自体に関する既知のセキュリティ アドバイザリはありません。このアダプテーション層は、
@@ -900,8 +1460,8 @@ npm run release:verify
               <a href="../../packages/angularjs/docs/security.md">AngularJS セキュリティ ベースライン</a>。
             </div>
             <div class="docs-api-stats" aria-label="AngularJS プロジェクトのパブリック API スケール">
-              <div><strong>506</strong><span>コンポーネント命令を生成する</span></div>
-              <div><strong>542</strong><span>ルート ランタイムのエクスポート</span></div>
+              <div><strong>575</strong><span>コンポーネント命令を生成する</span></div>
+              <div><strong>611</strong><span>ルート ランタイムのエクスポート</span></div>
               <div><strong>30</strong><span>パブリックパッケージエントリ</span></div>
               <div><strong>28</strong><span>コンポーネント CSS パッケージ</span></div>
             </div>
@@ -935,7 +1495,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
 });</code></pre>
             </div>
             <p>
-              <code>components</code> 506 個の共用体タイプによって制限されたコンポーネント名、AngularJS ディレクティブ名、または ESM エクスポート名を受け入れます。不明な名前を指定すると、すぐにエラーがスローされます。同じ AngularJS インスタンス、モジュール名、および同等のオプションを繰り返しインストールすると、冪等になります。異なるコンポーネントのサブセット、依存関係、または初期化オプションが同じ名前のモジュールを使用する場合、半登録されたモジュールをサイレントに取得することを防ぐためにエラーが明示的に報告されます。
+              <code>components</code> 575 個の共用体タイプによって制限されたコンポーネント名、AngularJS ディレクティブ名、または ESM エクスポート名を受け入れます。不明な名前を指定すると、すぐにエラーがスローされます。同じ AngularJS インスタンス、モジュール名、および同等のオプションを繰り返しインストールすると、冪等になります。異なるコンポーネントのサブセット、依存関係、または初期化オプションが同じ名前のモジュールを使用する場合、半登録されたモジュールをサイレントに取得することを防ぐためにエラーが明示的に報告されます。
             </p>
 
             <h3>要素ディレクティブ、属性ディレクティブ、およびセマンティクス</h3>
@@ -1046,7 +1606,7 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               36 個の非コンポーネント ランタイムが次のようにエクスポートされました:<code>GARDENERIM_ANGULARJS_MODULE</code>、<code>Gardenerim</code>、<code>GardenerimRuntimeFactory</code>、<code>GardenerimThemeFactory</code>、<code>GardenerimToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createElectronWindowService</code>、<code>createGardenerimAngularJS</code>、<code>createGardenerimComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimBehaviorDirective</code>、<code>gardenerimDirectives</code>、<code>gardenerimProviderDirective</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
             </p>
             <p>
-              24 種類は次のようにエクスポートされました:<code>GardenerimAngularJSComponentExportName</code>、<code>GardenerimAngularJSComponentName</code>、<code>GardenerimAngularJSDirectiveFactory</code>、<code>GardenerimAngularJSDirectiveName</code>、<code>GardenerimAngularJSModule</code>、<code>GardenerimAngularJSOptions</code>、<code>GardenerimAngularJSStatic</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimRuntimeService</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeAxis</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChangeLocals</code>。
+              34 タイプは次のようにエクスポートされました:<code>GardenerimAngularJSComponentExportName</code>、<code>GardenerimAngularJSComponentName</code>、<code>GardenerimAngularJSDirectiveFactory</code>、<code>GardenerimAngularJSDirectiveName</code>、<code>GardenerimAngularJSModule</code>、<code>GardenerimAngularJSOptions</code>、<code>GardenerimAngularJSStatic</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimRuntimeService</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeAxis</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChangeLocals</code>。
             </p>
 
             <h3>パブリックスキーマ、互換性、パフォーマンス、リリースアクセス</h3>
@@ -1054,15 +1614,15 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               <a href="../../packages/angularjs/metadata/public-api.json">パブリック API</a>、<a href="../../packages/angularjs/metadata/compatibility.json">互換性</a> と
               <a href="../../packages/angularjs/dist/gardener-angularjs.performance.json">パフォーマンス</a>
               どちらも、不明なフィールドがオフになっている JSON スキーマによって検証されます。 AngularJS のサポート範囲は、機械可読な互換性ベースラインにも書き込まれます。<a href="../../packages/angularjs/dist/catalog.json">コンポーネント カタログ JSON</a>
-              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全な圧縮パッケージの実測値は、raw 405,932 B、gzip 59,850 B、Brotli 30,016 B です。独身
-              <code>GButtonDirective</code> の実際のツリーシェイク結果は 4,519 B です。決定論的ビルドでは 87 ファイル、npm パッケージ チェック 99 ファイル、パックされた 326,015 B、アンパックされた 2,943,451 B、Gardenerim 独自の運用負荷監査では脆弱性は 0 件でした。
+              AI、コード ジェネレーター、ドキュメント ツールで直接読み取り可能。完全な圧縮パッケージの実測値は、raw 644,355 B、gzip 93,476 B、Brotli 44,085 B です。独身
+              <code>GButtonDirective</code> の実際のツリーシェイク結果は 4,534 B です。決定論的ビルドでは 88 ファイル、npm パッケージ チェック 99 ファイル、パックされた 326,015 B、アンパックされた 2,943,451 B、Gardenerim 独自の運用負荷監査では脆弱性は 0 件でした。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
 npm run release:verify
 
 # 生成およびパブリック API、3 セットのスキーマ、TypeScript、AngularJS 1.8.2 / 1.8.3、
-# 506 ディレクティブの登録、ngModel および DOM ライフサイクル、Chromium / WebKit / Firefox、
+# 584 ディレクティブの登録、ngModel および DOM ライフサイクル、Chromium / WebKit / Firefox、
 # Pixel 7 / iPhone 13、WCAG A/AA、ツリーの揺れ、再現可能なビルド、パフォーマンス、パケット化、パブリント</code></pre>
             </div>
             <p>
@@ -1070,11 +1630,11 @@ npm run release:verify
               <code>npm audit</code> AngularJS オントロジーの既知のアドバイザリーは引き続き忠実に表示されます。これは、分離、受け入れ、または移行する必要があるレガシー リスクであり、修正済みとしてマークすることはできません。
             </p>
 
-            <h3>506 個の AngularJS コンポーネントすべて</h3>
+            <h3>575 個の AngularJS コンポーネントすべて</h3>
             <p>
               次のディレクトリは直接マージされます
               <a href="../../packages/angularjs/metadata/public-api.json">AngularJS パブリック API</a> と
-              <a href="../../packages/angularjs/dist/catalog.json">コンポーネントのメタデータ</a>は、ESM ディレクティブ ファクトリ エクスポート名、CSS 名、カテゴリ、タイプ、デフォルト タグ、セレクター、バリアント、状態、ウィジェット、動作、およびプラットフォームを項目化します。これは注目のサンプルではありません。 506 個のアイテムはすべて同じ検索可能なディレクトリにあります。
+              <a href="../../packages/angularjs/dist/catalog.json">コンポーネントのメタデータ</a>は、ESM ディレクティブ ファクトリ エクスポート名、CSS 名、カテゴリ、タイプ、デフォルト タグ、セレクター、バリアント、状態、ウィジェット、動作、およびプラットフォームを項目化します。これは注目のサンプルではありません。 575 個のアイテムはすべて同じ検索可能なディレクトリにあります。
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="angular-component-search">AngularJS コンポーネントの検索</label>
@@ -1086,27 +1646,295 @@ npm run release:verify
             </div>
             <div class="docs-catalog-meta" id="angular-component-meta">AngularJS コンポーネント マニフェストを読み取り中…</div>
             <div class="docs-catalog" id="angular-component-catalog" aria-live="polite"></div>
-          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- generated-adapter-options --><p>ナビゲーションおよびコンポーネント拡張 API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTableInstance</code>、<code>GardenerimTableState</code>、<code>GardenerimTableChange</code>、<code>GardenerimTableKey</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimNavigationChange</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationInstance</code>、<code>gardenerNavigation</code>、<code>gardenerTable</code>、<code>gardenerOnChange</code>。完全な種類と使用方法については、を参照してください。 <a href="../../packages/angularjs/docs/API.md">AngularJS API</a>。</p><!-- /generated-adapter-options -->
+</section>
 
           <section class="docs-section" id="blazor">
             <h2>Gardenerim Blazor プロジェクト</h2>
             <p>
               <a href="../../packages/blazor/README.md"><code>Gardenerim.Blazor</code></a>
-              は Gardenerim CSS 2.1.0 の公式 Razor クラス ライブラリであり、現在のバージョンは
-              <strong>2.1.0 安定版</strong>。資産を安定させる <code>net10.0</code>
+              は Gardenerim CSS 2.2.0 の公式 Razor クラス ライブラリであり、現在のバージョンは
+              <strong>2.2.0 安定版</strong>。資産を安定させる <code>net10.0</code>
               独立した NuGet コンシューマーでコンパイルおよび検証されています <code>net11.0</code>;Blazor Web App 静的 SSR、Interactive Server、Interactive WebAssembly、Auto、Standalone WebAssembly、Hybrid、および Desktop WebView に適用されます。
             </p>
             <div class="docs-api-stats" aria-label="Blazor プロジェクトのパブリック API スケール">
-              <span><strong>506</strong> カミソリのコンポーネント</span>
-              <span><strong>72</strong> DOM の動作</span>
-              <span><strong>79</strong> ランタイム イベント</span>
+              <span><strong>575</strong> カミソリのコンポーネント</span>
+              <span><strong>96</strong> DOM の動作</span>
+              <span><strong>105</strong> ランタイム イベント</span>
               <span><strong>31</strong> フレームタイプ</span>
-              <span><strong>45</strong> 静的リソース</span>
+              <span><strong>76</strong> 静的リソース</span>
             </div>
 
             <h3>インストール、登録、および静的リソース</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.1.0&quot; /&gt;</code></pre>
+              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.2.0&quot; /&gt;</code></pre>
               <pre class="site-code"><code>builder.Services.AddGardenerimBlazor();
 
 var app = builder.Build();
@@ -1145,7 +1973,7 @@ app.MapStaticAssets();</code></pre>
 
             <h3>共通パラメータ、refnum、およびフォーム</h3>
             <p>
-              生成されたすべてのコンポーネントは 20 個のパラメータを共有します。<code>As</code>、<code>Id</code>、<code>Class</code>、<code>Style</code>、<code>Variant</code>、<code>Variants</code>、<code>State</code>、<code>States</code>、<code>Config</code>、<code>Initialize</code>、<code>Value</code>、<code>ValueChanged</code>、<code>ValueEvent</code>、<code>ValueKey</code>、<code>OnValueChange</code>、<code>EventNames</code>、<code>PreventDefaultEvents</code>、<code>OnEvent</code>、<code>ChildContent</code>、<code>AdditionalAttributes</code>。
+              生成されたすべてのコンポーネントは 23 のパラメータを共有します。<code>As</code>、<code>Id</code>、<code>Class</code>、<code>Style</code>、<code>Variant</code>、<code>Variants</code>、<code>State</code>、<code>States</code>、<code>Config</code>、<code>Initialize</code>、<code>Value</code>、<code>ValueChanged</code>、<code>ValueEvent</code>、<code>ValueKey</code>、<code>OnValueChange</code>、<code>EventNames</code>、<code>PreventDefaultEvents</code>、<code>OnEvent</code>、<code>ChildContent</code>、<code>AdditionalAttributes</code>。
             </p>
             <p>
               コンポーネント リファレンスには、6 つのインスタンス メンバーが提供されています。<code>Element</code>、<code>RefreshAsync</code>、<code>DestroyAsync</code>、<code>FocusAsync</code>、<code>GetBehaviorMembersAsync</code>、<code>InvokeBehaviorAsync</code>。
@@ -1153,7 +1981,7 @@ app.MapStaticAssets();</code></pre>
               <code>EditForm</code>、<code>EditContext</code>、DataAnnotations、検証ステータス、入力、選択、テキストエリア。
             </p>
 
-            <h3>値バインディング、79 個のイベント、および 7 個の同期ガード</h3>
+            <h3>値バインディング、105 イベントおよび 8 同期ガード</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;GCard Value=&quot;@selection&quot;
        ValueChanged=&quot;@(value =&gt; selection = value)&quot;
@@ -1174,8 +2002,8 @@ app.MapStaticAssets();</code></pre>
             <p>
               <code>Value/ValueChanged</code> ネイティブ入力/変更を処理します。<code>ValueEvent</code> と
               <code>ValueKey</code> 複雑な CustomEvent の処理。値は .NET 文字列、ブール値、数値、配列、または辞書に変換されます。 DOM、File、BigInt、関数、循環参照は安全にシリアル化されます。
-              <code>GardenerimEvents.All</code> 79 個のイベントをすべて公開します。<code>GardenerimEvents.Guards</code>
-              JS/.NET の非同期境界の前で同期的にブロックする必要がある beforeapproval、beforeclose、beforefilepicker、beforeopen、beforepromptstop、beforepromptsubmit、beforetabclose 7 つのガード イベントが公開されました。行動メンバーとイベント詳細契約は以下から入手できます。
+              <code>GardenerimEvents.All</code> 105 イベントをすべて公開します。<code>GardenerimEvents.Guards</code>
+              JS/.NET 非同期境界の前で同期的にブロックする必要がある beforeapproval、beforechange、beforeclose、beforefilepicker、beforeopen、beforepromptstop、beforepromptsubmit、beforetabclose 8 つのガード イベントが公開されました。行動メンバーとイベント詳細契約は以下から入手できます。
               <code>GardenerimRuntimeCatalog</code> クエリ。
             </p>
 
@@ -1186,18 +2014,18 @@ app.MapStaticAssets();</code></pre>
 
             <h3>完全なパブリック型と機械可読コントラクト</h3>
             <p>
-              31 種類のフレーム タイプは次のとおりです。<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimLocalizationOptions</code>、<code>GardenerimLocalizationService</code>、<code>GardenerimLocalizationState</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
+              37 のフレーム タイプは次のとおりです。<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimLocalizationOptions</code>、<code>GardenerimLocalizationService</code>、<code>GardenerimLocalizationState</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
             </p>
             <p>
               <a href="../../packages/blazor/metadata/public-api.json">Blazor パブリック API</a>、<a href="../../packages/blazor/metadata/components.json">コンポーネントのメタデータ</a>、<a href="../../packages/blazor/metadata/compatibility.json">互換性</a>、<a href="../../packages/blazor/artifacts/gardener-blazor.performance.json">パフォーマンス</a>
               どちらも JSON スキーマを閉じました。読みやすいドキュメントには次のものが含まれます
-              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">72 の動作</a>、<a href="../../packages/blazor/docs/events.md">79 イベント</a>、<a href="../../packages/blazor/docs/assets.md">45 静的リソース</a>、<a href="../../packages/blazor/docs/runtime.md">ランタイム</a>、<a href="../../packages/blazor/docs/accessibility.md">アクセシビリティと SSR</a> と
+              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">96 の動作</a>、<a href="../../packages/blazor/docs/events.md">105 イベント</a>、<a href="../../packages/blazor/docs/assets.md">76 静的リソース</a>、<a href="../../packages/blazor/docs/runtime.md">ランタイム</a>、<a href="../../packages/blazor/docs/accessibility.md">アクセシビリティと SSR</a> と
               <a href="../../packages/blazor/docs/release.md">アクセス制御を解除する</a>。
             </p>
 
-            <h3>2.1.0 リリースの品質</h3>
+            <h3>2.2.0 リリースの品質</h3>
             <p>
-              リリースビルドは警告 0 件、エラー 0 件で、506 個のコンポーネントすべてが実際の静的 SSR テストに合格しています。ブラウザマトリクスは Chromium、Firefox、WebKit、デスクトップ／モバイルのビューポート、キーボード操作、Axe による WCAG A/AA 監査を対象とし、CI では Firefox を必須としています。NuGet では分離キャッシュを使ってコンシューマーアプリを実際に publish し、Static Web Assets の endpoint manifest を検証します。さらに、独立した .NET 11 Preview パッケージコンシューマーも用意しています。実測値は、アセンブリ 350,208 B、静的アセット 45 ファイルで合計 7,820,065 B、CSS gzip 140,386 B、runtime gzip 33,149 B、Blazor bridge gzip 2,097 B です。nupkg は約 1.27 MiB で、6,000,000 B の厳格な上限を下回っています。DLL/XML の再現性も確認済みです。
+              リリースビルドは警告 0 件、エラー 0 件で、575 個のコンポーネントすべてが実際の静的 SSR テストに合格しています。ブラウザマトリクスは Chromium、Firefox、WebKit、デスクトップ／モバイルのビューポート、キーボード操作、Axe による WCAG A/AA 監査を対象とし、CI では Firefox を必須としています。NuGet は分離キャッシュから実際のコンシューマーアプリを publish し、Static Web Assets endpoint manifest を検証します。独立した .NET 11 Preview パッケージコンシューマーも用意しています。実測値はアセンブリ 549,376 B、静的アセット 76 ファイル合計 16,966,238 B、CSS gzip 274,562 B、runtime gzip 77,417 B、Blazor bridge gzip 3,189 B です。nupkg は約 2.91 MiB で 6,000,000 B の厳格な上限を下回り、DLL/XML の再現性も確認済みです。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd blazor
@@ -1205,11 +2033,11 @@ npm run release:verify
 npm run test:net11</code></pre>
             </div>
 
-            <h3>506 個の Blazor コンポーネントすべて</h3>
+            <h3>575 個の Blazor コンポーネントすべて</h3>
             <p>
               次のディレクトリは直接マージされます
               <a href="../../packages/blazor/metadata/public-api.json">Blazor パブリック API</a> と
-              <a href="../../packages/blazor/metadata/components.json">コンポーネントのメタデータ</a>、Razor タイプ、CSS 名、カテゴリ、タイプ、デフォルト タグ、セレクター、状態、バリアント、ウィジェット、動作、プラットフォーム、およびアクセシビリティ コントラクトを項目別に示します。これは注目のサンプルではありません。 506 個のアイテムはすべて同じ検索可能なディレクトリにあります。
+              <a href="../../packages/blazor/metadata/components.json">コンポーネントのメタデータ</a>、Razor タイプ、CSS 名、カテゴリ、タイプ、デフォルト タグ、セレクター、状態、バリアント、ウィジェット、動作、プラットフォーム、およびアクセシビリティ コントラクトを項目別に示します。これは注目のサンプルではありません。 575 個のアイテムはすべて同じ検索可能なディレクトリにあります。
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="blazor-component-search">Blazor コンポーネントの検索</label>
@@ -1221,7 +2049,7 @@ npm run test:net11</code></pre>
             </div>
             <div class="docs-catalog-meta" id="blazor-component-meta">Blazor コンポーネント マニフェストを読み取り中...</div>
             <div class="docs-catalog" id="blazor-component-catalog" aria-live="polite"></div>
-          </section>
+          <!-- generated-blazor-options --><p>拡張 API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTablePagination</code>、<code>GardenerimTableScroll</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimField<TValue></code>、<code>Navigation</code>、<code>BeforeNavigationChange</code>、<code>Table</code>。参照 <a href="../../packages/blazor/docs/api.md">完全な Blazor API</a>。</p><!-- /generated-blazor-options --></section>
 
           <section class="docs-section" id="principles">
             <h2>設計原則</h2>
@@ -1582,7 +2410,7 @@ npm run test:net11</code></pre>
                   </tr>
                   <tr>
                     <td><code>g-md-*</code></td>
-                    <td>768ピクセル</td>
+                    <td>768px</td>
                     <td>タブレット</td>
                   </tr>
                   <tr>
@@ -1649,7 +2477,25 @@ npm run test:net11</code></pre>
             </button>
           </section>
 
-          <section class="docs-section" id="layouts">
+          <section id="solution-enhancements" class="docs-section"><p>ソリューションのリリース確認：32 ページで見出し、状態、詳細、ページ分割、請求周期、編集行数、フォーム列数、詳細高さを設定できます。テーブル操作、入力検証、無効状態、制御状態は 5 実装で統一されています。</p><h2>ソリューション：32 の設定可能なページ</h2><p>公開サイト、業務画面、業界ポータル向けに、記事、カード、表、指標、フォーム、履歴、料金、ボードを備えた 224 種類のレイアウトを提供します。</p><p>5 種類の実装が solutionOptions、solutionValue とランタイムを共有し、ナビゲーション、検索、絞り込み、並べ替え、ページ切替、検証、受領記録、取消、制御状態に対応します。</p><p><a href="../../packages/css/examples/solution-compositions.html">ソリューションのデモ</a> · <a href="../../docs/solution/README.md">ソリューションの設定と検証</a></p></section>
+<section id="legal-enhancements" class="docs-section"><p>法務コンポーネントのリリース確認：検索とフィルターの表示、全件または絞り込み結果の出力、バナーの閉じる操作と同意後の非表示、標準フォーム送信、狭いコンテナーに対応しました。バナーを閉じても同意にはならず、業務操作にはサービスの受領記録が必要です。</p><h2>法務：文書、同意とプライバシーリクエスト</h2><p>8 個のコンポーネントが Cookie 同意、設定、文書、規約確認、同意履歴、プライバシーリクエスト、進捗、ポリシー更新の 32 種類のバリエーションを提供します。</p><p>5 種類の実装で legalOptions、legalValue とランタイムを共有し、バージョン確認、選択スナップショット、非同期受領記録、撤回、取消、入力検証、制御状態、アクセシビリティに対応します。</p><p><a href="../../packages/css/examples/legal-lab.html">法務コンポーネントのデモ</a></p><p><a href="../../docs/legal/README.md">法務パラメーターと検証</a></p></section>
+<section id="communication-enhancements" class="docs-section"><p>コミュニケーション部品のリリース確認：検索と絞り込みの個別設定、件名・宛先・入力行数の設定、通知設定の完全な真偽値スナップショット、全配信状態の絞り込み、狭いコンテナーのレイアウトに対応しました。</p><h2>コミュニケーション：通知、メッセージと共同作業</h2><p>8 個のコンポーネントが、通知、受信箱、コメント、アクティビティ、メッセージ作成、連絡先、通知設定、配信状態の 32 種類のバリエーションを提供します。</p><p>5 種類の実装で communicationOptions、communicationValue とランタイムを共有し、制御状態、非同期確認、返信、編集、添付検証、通知設定、再試行、アクセシビリティに対応します。</p><p><a href="../../packages/css/examples/communication-lab.html">コミュニケーションのデモ</a></p><p><a href="../../docs/communication/README.md">コミュニケーションのパラメーターと検証</a></p></section>
+<section id="workflow-enhancements" class="docs-section"><p>ワークフローのリリース確認：検索、絞り込み、進捗、ログ、保存、ズームの個別設定、入力行数・ログ高さ・フィールド制約に対応。承認と実行結果を検証し、5 つの実装でコンパクトな寸法とアクセシブルな操作を共有します。</p><h2>ワークフロー：案内、承認と実行</h2><p>8 個のコンポーネントが 32 種類のバリエーションを提供し、案内、ウィザード、依存タスク、承認、フロー編集、履歴、実行詳細、トリガーをカバーします。</p><p>5 種類の実装で workflowOptions、workflowValue とランタイムを共有し、条件付きステップ、非同期確認、順次・並列承認、グラフ検証、制御状態、アクセシビリティに対応します。</p><p><a href="../../packages/css/examples/workflow-lab.html">ワークフローのデモ</a></p><p><a href="../../docs/workflow/README.md">ワークフローのパラメーターと検証</a></p></section>
+<section id="desktop-enhancements" class="docs-section"><p>デスクトップのリリース確認：38 コンポーネントでコンパクトな寸法と狭いコンテナーのレイアウトを共有。フィルター、進捗、準備状態、リセット、固定、ウィンドウ操作、エディターを設定でき、ホスト応答、無効メニュー、キーボード操作を検証しました。</p><h2>デスクトップ：ワークスペースとネイティブホスト</h2><p>38 コンポーネントと 152 バリアントで、ウィンドウ、作業環境、メニュー、文書、パネル、タスク、通知、ファイル、更新、復元、設定、セッション、診断に対応します。</p><p>5 実装で desktopOptions、desktopValue と実行機能を共有。制御状態、キーボードとドラッグ操作、非同期確認、Tauri / Electron の明示的ウィンドウ API を提供します。</p><p><a href="../../packages/css/examples/desktop-lab.html">デスクトップの全サンプル</a></p><p><a href="../../docs/desktop/README.md">デスクトップのパラメーターと検査</a></p></section>
+<section id="enterprise-enhancements" class="docs-section"><p>企業コンポーネントの確認：8 コンポーネントでコンパクトな寸法と検索、フィルター、一括操作、リセット、状態、詳細、編集設定を共有。所有者保護、入力検証、サービス応答、制御状態を 5 実装で統一しました。</p><h2>エンタープライズ：組織設定とチーム管理</h2><p>8 コンポーネントと 32 バリアントで、設定、権限、監査、メンバー、招待、ロール、チーム、連携を管理します。</p><p>5 実装で enterpriseOptions、enterpriseValue と実行機能を共有。制御状態、権限制限、非同期確認、レスポンシブレイアウトに対応します。</p><p><a href="../../packages/css/examples/enterprise-lab.html">エンタープライズの全サンプル</a></p><p><a href="../../docs/enterprise/README.md">エンタープライズのパラメーターと検査</a></p></section>
+<section id="marketing-enhancements" class="docs-section"><p>マーケティング公開前検査：料金・席数・機能・フィルター・状態の表示、画像の調整と高さ、メール入力のヒントと長さを設定可能に。28/32/36px の操作要素と狭いコンテナーを統一し、制御入力、不正な応答、期限切れリンク、バリアント変更を修正。</p><h2>マーケティング：ブランド、料金とアクション</h2><p>10 コンポーネントと 40 バリアントで、ナビゲーション、ヒーロー、料金、機能、ロゴ、評価、アクション、購読、お知らせ、フッターに対応します。</p><p>5 実装で marketingOptions、marketingValue と実行機能を共有。正確な金額、制御状態、キャンセル可能なリクエスト、レスポンシブレイアウトを提供します。</p><p><a href="../../packages/css/examples/marketing-lab.html">マーケティングの全サンプル</a></p><p><a href="../../docs/marketing/README.md">5 実装のマーケティングパラメーターと検査</a></p></section>
+<section id="cms-enhancements" class="docs-section"><p>CMS 公開前検査：検索、フィルター、メタデータ、履歴、アップロード、選択、状態の表示と、ブロック種類、編集行数、プレビュー上限、サムネイルを設定可能に。28/32/36px の操作要素を統一し、バージョン確認、審査権限、制御入力、元に戻す範囲を修正。</p><h2>CMS：編集、承認と多言語対応</h2><p>6 つの CMS コンポーネントと 24 バリアントで、構造化ブロック、SEO、メディア選択、履歴の復元、公開承認、多言語編集に対応します。</p><p>5 実装で cmsOptions、cmsValue と CMS 実行機能を共有。権限設定、制御状態、キャンセル可能な非同期リクエストに対応します。</p><p><a href="../../packages/css/examples/cms-lab.html">CMS の全サンプル</a></p><p><a href="../../docs/cms/README.md">5 実装の CMS パラメーターと検査</a></p></section>
+<section id="mobile-enhancements" class="docs-section"><p>モバイル公開前検査で 11 の設定パラメーターと 7 のフィールド設定を追加。サイズ、制御入力、検証、非同期復旧とサンプルを 5 実装で統一しました。</p><h2>モバイル：タッチ、パネルとアプリ画面</h2><p>33 コンポーネントと 99 バリアントで、セーフエリア、ボトムシート、更新と読み込み、ジェスチャー、選択、キーボード回避、アプリ画面に対応。</p><p>5 実装で mobileOptions、mobileValue と実行機能を共有。制御状態、タッチとキーボード、非同期結果、認証と購入手続きの共有に対応します。</p><p><a href="../../packages/css/examples/mobile-lab.html">モバイルの全サンプル</a></p><p><a href="../../docs/mobile/README.md">5 実装のモバイルパラメーターと検査</a></p></section>
+<section id="auth-enhancements" class="docs-section"><p>認証公開前検査で 12 の表示・レイアウト設定を追加。サイズ、制御入力、認証情報の分離、エラー復旧、有効期限を 5 実装と全サンプルで統一しました。</p><h2>認証とアカウントの安全性</h2><p>33 コンポーネントと 99 バリアントで、ログイン、登録、復旧、確認コード、パスキー、組織選択、同意、端末管理に対応。</p><p>5 実装で authOptions、authValue と認証機能を共有。制御状態、非公開の認証情報の受け渡し、有効期限、非同期結果に対応。サンプルはローカルの模擬サービスを使用します。</p><p><a href="../../packages/css/examples/auth-lab.html">認証の全サンプル</a></p><p><a href="../../docs/auth/README.md">5 実装の認証パラメーターと検査</a></p></section>
+<section id="commerce-enhancements" class="docs-section"><h2>コマース：商品、購入手続き、サブスクリプション</h2><p>37 コンポーネントと 111 バリアントで、商品仕様、カート、配送、請求書、支払い、注文、サブスクリプションに対応。</p><p>5 実装で commerceOptions、commerceValue と実行機能を共有。サイズ調整、制御状態、在庫制約、整数金額、非同期結果に対応します。</p><p><a href="../../packages/css/examples/commerce-lab.html">コマースの全サンプル</a></p><p><a href="../../docs/commerce/README.md">5 実装のコマースパラメーターと検査</a></p><p>コマースの公開前検査で、見出し、状態、画像、説明、お気に入り、在庫、元価格、クーポン、集計、サムネイル、請求周期、画像と一覧のサイズに対応する14の表示設定を追加。操作部品は28/32/36pxに統一し、制御入力、不正な応答、割引見積もり、在庫切れの選択、購読料金を改善しました。</p></section>
+<section id="media-enhancements" class="docs-section"><h2>メディア：再生、画像プレビュー、切り抜き</h2><p>8 コンポーネントと 34 バリアントで、カルーセル、ライトボックス、音声と動画、文書、切り抜き、レスポンシブ画像、画像比較を提供します。</p><p>5 実装で mediaOptions、mediaValue とネイティブメディア実行機能を共有。小型表示、制御パラメーター、キーボード操作、読み込み再試行、画像出力に対応します。</p><p><a href="../../packages/css/examples/media-lab.html">メディアの全サンプル</a></p><p><a href="../../docs/media/README.md">5 実装のメディアパラメーターとコンポーネント検査</a></p><p>メディアの公開前検査で、ナビゲーション、ツールバー、説明、表示サイズ、サムネイル、再生リスト、速度とタイムアウトの18設定を追加。操作部品は28/32/36pxに統一し、初期選択、再生キャンセル、古い切り抜き結果を5実装とデモで修正しました。</p><div class="docs-callout" id="image-media-mode"><h3>GImage</h3><p>GImage · fit · footerPosition · fallback · previewVisible · previewProps · items · templates</p><p><a href="../../packages/css/examples/image.html">GImage Demo</a> · <a href="../../docs/image.md">GImage API</a> · <a href="https://arco.design/vue/component/image">Arco Image</a></p><iframe src="../../packages/css/examples/image.html" title="GImage Demo" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="carousel-media-mode"><h3>GCarousel</h3><p>GCarousel · slide / fade / card · current · autoPlay · indicatorType · indicatorPosition · direction · thumbnails</p><p><a href="../../packages/css/examples/carousel.html">GCarousel Demo</a> · <a href="../../docs/carousel.md">GCarousel API</a> · <a href="https://arco.design/vue/component/carousel">Arco Carousel</a></p><iframe src="../../packages/css/examples/carousel.html" title="GCarousel Demo" loading="lazy" style="width:100%;height:720px;border:1px solid var(--g-color-border)"></iframe></div></section>
+<section id="ai-enhancements" class="docs-section"><h2>AI：対話、ツール連携、生成物</h2><p>38 コンポーネントと 119 バリアントで、メッセージ、入力、ストリーミング、ツール承認、コンテキスト、使用量、生成物、実行履歴、構造化出力に対応します。</p><p>5 実装で aiOptions、aiValue と非同期サービスを共有。小型表示、制御状態、キーボード操作、一時停止、キャンセル、再試行に対応します。デモはローカルの収録済みテキストを使用します。</p><p><a href="../../packages/css/examples/ai-lab.html">AI の全サンプル</a></p><p><a href="../../docs/ai/README.md">5 実装の AI パラメーターとコンポーネント検査</a></p><p>AIの公開前検査で、メッセージ操作、入力、レイアウト、画像プレビュー、サービスの時間制限、評価文字数の18設定を追加しました。操作部品は28/32/36pxに統一し、取消、制御された会話切替、モデル選択を5実装とデモで修正しました。</p></section>
+<section id="form-release" class="docs-section"><h2>フォーム：正確なレイアウトと組み合わせ可能な設定</h2><p>51 のフォームコンポーネントと550 の名前付きバリアントで、CSS、Vue、React、AngularJS、Blazor のスタイルと動作を共有します。</p><p>9 つの追加設定でフィールド・ラベル・列の間隔、ラベルと入力欄の幅、補足説明、コロン、必須マークを制御します。入力欄は24/28/32/36px の4サイズ。動的な読み取り専用・無効状態、標準リセット、IME入力、自動高さ調整、日時範囲、レスポンシブレイアウトに対応します。</p><p><a href="../../docs/form/parameters.md">5つのフレームワークのフォーム設定と動作</a></p><p><a href="../../packages/css/examples/form-compositions.html#form-config-lab">設定可能なフォームのデモ</a></p></section>
+<section id="navigation-release" class="docs-section"><h2>ナビゲーション：正確なサイズと組み合わせ可能な設定</h2><p>41 コンポーネント、174 の名前付きバリアント、123 のシナリオ。CSS、Vue、React、AngularJS、Blazor でスタイルとランタイムを共有します。</p><p>17 の追加設定でアイコン、バッジ、説明、ショートカット、グループ、見出し、操作、パネル、境界線、最大高さ、ポップアップ寸法、間隔、インデント、選択タイムアウト、閉じる方針を制御します。標準行は28/32/36px、本文は14px/22px、角丸は4px。制御値、IME入力、キーボード操作、ネイティブモーダルのフォーカス、非同期キャンセルをサポートします。</p><p><a href="../../docs/navigation/README.md">各フレームワークの設定と動作</a></p><p><a href="../../packages/css/examples/navigation-lab.html">すべてのバリアントと設定例</a></p></section>
+<section id="popover-reference" class="docs-section"><h2>GPopover</h2><p>GPopover · overlay-options · title · content · position · trigger · popupVisible · contentStyle · arrowStyle</p><p><a href="../../docs/popover.md">GPopover API</a> · <a href="../../packages/css/examples/popover.html">GPopover Demo</a> · <a href="https://arco.design/vue/component/popover">Arco Popover</a></p><iframe title="GPopover Demo" src="../../packages/css/examples/popover.html" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></section><section id="overlay-release" class="docs-section"><h2>オーバーレイ：寸法、密度、操作</h2><p>6 コンポーネント、28 バリアント、26 共通設定。Dialog、Drawer、Popover、Tooltip、Popconfirm、ConfirmDialog は CSS、Vue、React、AngularJS、Blazor でスタイルとランタイムを共有します。</p><p>overlayWidth、overlayHeight、overlayMaxHeight で寸法とスクロールを設定します。overlayDensity は compact / default / comfortable、overlayShowClose は閉じるボタンを制御します。制御状態、4 方向のドロワー、12 種の配置、遅延、境界回避、フォーカス復元、入れ子、非同期再試行に対応。本文 14px / 22px、見出し 16px / 24px、角丸 4px、タッチ用閉じるボタンは 44px 以上。</p><p><a href="../../docs/overlay/README.md">共通パラメーターと操作プロトコル</a> · <a href="../../packages/css/examples/overlay-compositions.html">全バリアントと設定例</a></p></section>
+<section id="help-enhancements" class="docs-section"><h2>ヘルプ：検索、ヒント、操作ガイド</h2><p>29 コンポーネントと 99 バリアントで、説明、FAQ、ショートカット、ヘルプセンター、用語集、チェックリスト、フィードバック、ツアーを提供します。</p><p>5 実装で helpOptions、helpValue と非同期サービスを共有。コンパクトなサイズ、制御状態、キーボード操作、再試行、キャンセルに対応します。</p><p><a href="../../packages/css/examples/help-lab.html">ヘルプの全サンプル</a></p><p><a href="../../docs/help/README.md">5 実装のヘルプパラメーターとコンポーネント検査</a></p><p>ヘルプの公開前検査で、表示、浮動パネルの終了、ガイドの間隔、サービス時間制限、評価文字数の18設定を追加。リンク、中国語入力、非同期取消、制御された評価を修正し、5実装とデモのコンパクトな寸法を統一しました。</p></section>
+<section id="layout-enhancements" class="docs-section"><h2>レイアウト：コンテナ、領域、ページ構造</h2><p>11 コンポーネントと 89 モードで、グリッド、基本構成、領域、ヘッダー、フッター、アプリシェル、レスポンシブコンテナを提供します。</p><p>5 実装で layoutOptions、layoutValue、layoutDisabled を共有。間隔、幅、ブレークポイント、方向を設定し、子要素を保持してサイドバーの開閉を制御できます。</p><p>レイアウトの公開前検査で、論理余白、最大高さ、行高、狭幅時の列数、整列、Escape、折りたたみ、フォーカスの10設定を追加。優先順位、狭幅時の間隔、状態保持を修正し、11コンポーネント・89モードと5実装のデモを同期しました。</p><p><a href="../../packages/css/examples/layout-lab.html">レイアウトの全サンプル</a></p><p><a href="../../docs/layout/README.md">5 実装のレイアウトパラメーターとコンポーネント検査</a></p></section>
+<section class="docs-section" id="layouts">
             <h2>レイアウトシステム</h2>
             <p>
               基本レイアウトはコンテナとグリッドを担当し、アプリケーション シェルは固定領域、スクロール境界、および端のフィッティングを担当します。複雑なページの場合は、多数の位置決めツール クラスを直接使用しないでください。
@@ -1906,7 +2752,7 @@ npm run test:net11</code></pre>
                   </tr>
                   <tr>
                     <td><code>md</code></td>
-                    <td>768ピクセル</td>
+                    <td>768px</td>
                     <td><code>g-md-offset-4</code></td>
                   </tr>
                   <tr>
@@ -2000,7 +2846,9 @@ npm run test:net11</code></pre>
             <div class="g-region-frame docs-region-demo">
               <header class="g-region-top">トップ</header>
               <aside class="g-region-start">スタート</aside>
-              <main class="g-region-main">メインワークスペース</main>
+              <main class="g-region-main">メインワークスペース<section id="content-components"><h2>コンテンツ：編集、ファイル、閲覧</h2><p>39 コンポーネント、234 バリアント。コード、記事、ファイル、アップロード、プレビュー、メディア、編集、コメント、バージョン履歴に対応します。</p><p>共通パラメーター：contentOptions、contentValue、contentSize、contentBordered、contentDisabled。5 実装で制御状態、キャンセル可能なイベント、非同期サービスを共有します。</p><p>コンテンツの公開前検査で表示、寸法、ページ送り、画像プレビュー、サービス時間制限の20設定を追加。下書きリセット、中国語入力、非同期取消、画像座標を修正し、39コンポーネント・234種類と5実装のデモを同期しました。</p><a href="../../packages/css/examples/content-lab.html">コンテンツの全サンプル</a><a href="../../docs/content/README.md">5 実装のコンテンツパラメーターとコンポーネント検査</a></section>
+<section id="interaction-components"><h2>インタラクション：パラメーター、状態、5 実装の一貫性</h2><p>35 コンポーネント、239 バリアント。選択、転送、ルール、範囲、分割パネル、一括処理、コピー、全画面、取り消しとやり直しでデータとスタイルの契約を共有します。</p><p>共通パラメーター：interactionOptions、interactionValue、interactionSize、interactionBordered、interactionDisabled、interactionOrientation、interactionLimit。サイズは 28 / 32 / 36px。制御状態、キャンセル可能なイベント、非同期処理の中止とエラー表示に対応。</p><a href="../../packages/css/examples/interaction-compositions.html">インタラクションの全サンプル</a><a href="../../docs/interaction/README.md">5 実装のパラメーターとコンポーネント検査</a><p>公開前の再確認で表示、列数、高さ、サービスのタイムアウトを設定する17項目を追加。35コンポーネント、239バリアントを5実装とデモで同期し、状態リセット、中文入力、非同期中止、再試行を修正しました。</p></section>
+<section id="dashboard-components" class="docs-section"><h2>ダッシュボード：データ、状態、5 実装の一貫性</h2><p>7 コンポーネント、39 バリアント：GKpiStat、GFilterBar、GChartContainer、GKpiGroup、GDashboardWidget、GGoalTracker、GGaugeChart。指標グループ、折りたたみウィジェット、目標追跡、範囲ゲージを追加し、既存の Dashboard / DashboardGrid レイアウトを再利用します。</p><p>共通パラメーター：dashboardOptions、dashboardValue、dashboardSize、dashboardBordered、dashboardColumns、dashboardChartType、dashboardHeight、dashboardDisabled。通貨・割合表示、実データの SVG グラフ、フィルターの適用とリセット、制御状態、キャンセル可能なイベント、空・読み込み・エラー・無効状態に対応。主要数値は 24 / 30 / 36px、間隔は 8 / 12 / 16px。パラメーター変更でインスタンスを維持し、折りたたみ時も内容を保持します。</p><p>Vue / React は config、AngularJS は gardener-config、Blazor は Config、CSS は data-g-dashboard-* 属性を使用します。グラフはキーボード操作、データ表、CSV、系列の切り替えに対応します。 23 個の新しい設定: size, bordered, columns, showHeader, showLegend, showGrid, showAxisLabels, showMarkers, tableVisible, showTrend, showDescription, showTarget, showRemaining, showRange, showValue, showApply, showReset, maxHeight, tableHeight, pointRadius, lineWidth, donutWidth, serviceTimeout. 28 / 32 / 36px; IME, load / cancel.</p><p><a href="../../packages/css/examples/dashboard-compositions.html">ダッシュボードと連動サンプル</a> · <a href="../../docs/dashboard/README.md">5 実装のパラメーターとデータ API</a></p></section><section id="arco-foundations"><h2>Arco コンポーネント対応と基盤機能の拡張</h2><p>Arco Design Vue 2.58.0 のトップレベル 74 コンポーネントを照合し、既存機能を再利用して不足する 12 件を追加しました。Gardenerim のテーマ、書体、比率、意味別の色とフォーカスを維持し、CSS、Vue、React、AngularJS、Blazor は foundation-options を共有します。</p><p>数値・タグ・色の入力、固定、サイズ調整、スクロール領域、間隔、透かし、オーバーフローリスト、リンク、文字組み、アイコンを追加。対応機能にはパラメーター、制御値、無効状態、キーボードと狭い画面を含みます。詳細は API を参照してください。</p><p><a href="../../docs/arco/coverage.md">74 件の対応一覧</a> · <a href="../../docs/arco/README.md">5 フレームワークの使い方と相違点</a> · <a href="../../packages/css/examples/arco-foundations.html">操作デモを開く</a></p><iframe src="../../packages/css/examples/arco-foundations.html" title="Gardenerim の追加コンポーネント操作デモ" loading="lazy" style="width:100%;height:720px;border:1px solid var(--g-color-border);border-radius:4px"></iframe></section></main>
               <aside class="g-region-end">終了</aside>
               <footer class="g-region-bottom">下</footer>
             </div>
@@ -3020,7 +3868,9 @@ npm run test:net11</code></pre>
             </div>
           </section>
 
-          <section class="docs-section" id="form-compositions">
+          <section class="docs-section" id="data-display"><h2>データ表示</h2><p>54 のコンポーネント、265 のバリエーションにより、統一された密度、境界線、レイアウト、およびデータ パラメーターが提供されます。 15 の管理コンポーネントは、仮想リスト、ダッシュボード、カレンダー、スケジュール、ファイル参照、フィルター ルール、ピボット サマリー、タイム バー、座標マーカー、CSV エクスポート、構造チェック、凡例の選択など、現実世界のデータ操作をサポートします。</p><p>CSS: data-g-data-*; Vue / React: config; AngularJS: gardener-config; Blazor: Config. dataOptions / gridOptions: JSON; dataValue: selected keys. データ表示：24 個の管理設定: size, bordered, layout, showHeader, showSearch, showDescriptions, showLaneCount, showMoveControls, showCalendarEvents, showToday, showBreadcrumbs, showFileMeta, showResults, showPreview, showModeSwitch, showZoomControls, maxHeight, tableHeight, laneWidth, calendarDayHeight, mapHeight, maxRules, exportPreviewRows, serviceTimeout. 28 / 32 / 36px; IME, load / cancel.</p><div class="docs-callout"><a href="../../docs/data/README.md">すべてのコンポーネント、パラメータ、および 5 端子の例</a> · <a href="../../packages/css/examples/data-compositions.html">完全なインタラクティブなデモンストレーション</a></div><p>MapShell は座標キャンバス インターフェイスを提供し、FileManager はアプリケーション データを参照し、GanttShell はタイム バーを表示します。ビジネスはオンライン ベースマップ、ファイル サービス、スケジュール エンジンにアクセスします。</p></section>
+<section class="docs-section" id="disclosure"><h2>開閉</h2><p>Accordion はグループ化されたコンテンツに使用され、Collapse は独立した領域に使用され、ReadMore は概要と完全なコンテンツに使用されます。 3 つはアコーディオンの動作を共有し、19 の構成可能なバリアントを提供します。単一または複数の拡張、制御された値、1 つの項目の保持、無効化、ネスト、動的パネル、キーボード ナビゲーション、およびフォーカスの復元をサポートします。</p><p>サイズは小 32px、中 40px、大 48px の 1 行タイトルの比率に従い、タッチ スクリーンの最小サイズは 44px です。セマンティック カラーを使用し、ダーク カラー、RTL、ダイナミック エフェクトと印刷をサポートします。</p><div class="docs-callout">パラメータ、5 端子構文および例:<a href="../../docs/disclosure/README.md">ドキュメント全体を展開折りたたむ</a> · <a href="../../packages/css/examples/disclosure-compositions.html">インタラクティブなデモンストレーション</a></div><p><code>disclosureMultiple</code>、<code>disclosureCollapsible</code>、<code>disclosureSize</code>、<code>disclosureIcon</code>、<code>disclosureKeyboard</code>、<code>disclosureDefaultValue</code>、<code>disclosureValue</code>、<code>disclosureLines</code>、<code>disclosureLength</code>、<code>disclosureExpandLabel</code>、<code>disclosureCollapseLabel</code> CSS、Vue、React、AngularJS、Blazor 全体で一貫性があります。</p><p>安定したキーの JSON 配列文字列で渡される制御された値。 Change はキーを返します。キーはアプリケーションによって DisclosureValue に書き戻されます。 beforeopen / beforeclose で切り替えをキャンセルできます。折りたたみではコンテンツとフォームの値が保持され、完全なコンテンツは展開時にキーボード シーケンスにのみ入力され、印刷して全文が表示されます。</p><div class="docs-callout" id="collapse-disclosure-mode"><h3>GCollapse</h3><p>GCollapse · activeKey · accordion · bordered · expandIconPosition · destroyOnHide · extra</p><p><a href="../../packages/css/examples/collapse.html">GCollapse Demo</a> · <a href="../../docs/collapse.md">GCollapse API</a> · <a href="https://arco.design/vue/component/collapse">Arco Collapse</a></p><iframe title="GCollapse Demo" src="../../packages/css/examples/collapse.html" loading="lazy" style="width:100%;height:680px;border:1px solid var(--g-color-border)"></iframe></div></section>
+<section class="docs-section" id="form-compositions">
             <h2>伝統的な組み合わせを形成する</h2>
             <p>
               カテゴリ 6 の機能は、基本的なコントロールを 37 の安定したフォーム構造に高め、通常の Web ページ、モバイル フォーム、ダッシュボード設定ページ、CMS エディター、および Tauri/Electron インスペクターをカバーします。フィールドのラベル、説明、検証、ビジネスのグループ化、動的な追加と削除、最終送信のための明確なインターフェイスがあります。
@@ -3608,7 +4458,7 @@ npm run test:net11</code></pre>
                     <td>キーボード ユーザーに対して繰り返しのナビゲーションがスキップされる</td>
                   </tr>
                   <tr>
-                    <td rowspan="4">モバイル端末</td>
+                    <td rowspan="4">モバイル</td>
                     <td>モバイルトップ <code>g-mobile-top-nav</code></td>
                     <td>リターン、タイトル、末尾のアクション</td>
                   </tr>
@@ -3705,6 +4555,17 @@ npm run test:net11</code></pre>
 
           <section class="docs-section" id="data-compositions">
             <h2>データ表示と操作の組み合わせ</h2>
+
+<div class="docs-callout" id="calendar-data-mode"><h3>GCalendar カレンダー</h3>
+            <p>Arco Calendar を参考に、月と年の表示、コンパクトパネル、選択日と表示ページの制御、ヘッダー設定、週と複数日の選択、日付制限、カスタム内容、非同期予定に対応します。</p>
+            <p>CSS、Vue、React、AngularJS、Blazor で dataOptions、スタイル、操作を共有し、キーボード、明暗テーマ、レスポンシブな年間表示に対応します。</p>
+            <p><a href="../../packages/css/examples/calendar.html">カレンダーの操作例</a> · <a href="../../docs/calendar.md">カレンダーの設定と導入</a> · <a href="https://arco.design/vue/component/calendar">Arco Calendar リファレンス</a></p>
+            <iframe src="../../packages/css/examples/calendar.html" title="GCalendar カレンダーデモ" loading="lazy" style="width:100%;height:720px;border:1px solid var(--g-color-border);border-radius:8px"></iframe></div>
+            <div class="docs-callout" id="table-data-mode"><h3>GTable データテーブル</h3>
+            <p>Arco Design Vue Table を参考に、4 段階の密度、columns/data 設定、ソートとフィルター、制御された選択、ページ分割、グループ見出し、固定列、ツリーと詳細の展開、セル結合、集計、編集、列幅変更、行の並べ替え、固定行高の仮想スクロール、サーバー読み込みに対応します。</p>
+            <p>CSS は createTable、Vue と React は table プロパティ、AngularJS は gardener-table、Blazor は Table パラメーターを使用します。5 種類でスタイルとコントローラーを共有し、静的テーブルも維持します。</p>
+            <p><a href="../../packages/css/examples/table.html">操作可能な CSS デモ</a> · <a href="../../docs/table.md">全設定と互換性の範囲</a> · <a href="https://arco.design/vue/component/table">Arco リファレンス</a></p>
+            <iframe title="GTable データテーブルのデモ" src="../../packages/css/examples/table.html" loading="lazy" style="width:100%;height:480px;border:1px solid var(--g-color-border);border-radius:2px"></iframe></div>
             <p>
               カテゴリ 8 機能は 48 の安定したデータ モードを提供し、「データ表示」と「データ操作」を同じ一連のコントラクトとして扱います。通常の Web サイト、ダッシュボード、スーパー CMS、モバイル リスト、分析レポート、Tauri/Electron 高密度ワークベンチはすべて、テーブル、レコード、リスト、階層、フロー、インジケーター、ビジュアライゼーション、プラン、スペース、または操作モードを直接選択できます。
             </p>
@@ -4041,7 +4902,7 @@ npm run test:net11</code></pre>
                 >独立したデータの例</a
               >並べ替え、選択、展開、列の表示/非表示、検索、ビューの切り替え、積み重ねられたテーブルの移動、およびキーボード グリッドを直接テストできます。
             </div>
-          </section>
+          <div class="docs-callout" id="tree-data-mode"><h3>GTree</h3><p>GTree · data · size · checkable · checkedStrategy · selectedKeys · expandedKeys · loadMore · draggable · virtualListProps</p><p><a href="../../docs/tree.md">GTree API</a> · <a href="../../packages/css/examples/tree.html">GTree Demo</a> · <a href="https://arco.design/vue/component/tree">Arco Tree</a></p><iframe title="GTree Demo" src="../../packages/css/examples/tree.html" loading="lazy" style="width:100%;height:420px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="tooltip-options-mode"><h3>GTooltip</h3><p>GTooltip · content · position · mini · backgroundColor · popupVisible · trigger</p><p><a href="../../docs/tooltip.md">GTooltip API</a> · <a href="../../packages/css/examples/tooltip.html">GTooltip Demo</a> · <a href="https://arco.design/vue/component/tooltip">Arco Tooltip</a></p><iframe title="GTooltip Demo" src="../../packages/css/examples/tooltip.html" loading="lazy" style="width:100%;height:380px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="timeline-data-mode"><h3>GTimeline</h3><p>GTimeline · direction · mode · labelPosition · reverse · pending · dotType · lineType · templates</p><p><a href="../../docs/timeline.md">GTimeline API</a> · <a href="../../packages/css/examples/timeline.html">GTimeline Demo</a> · <a href="https://arco.design/vue/component/timeline">Arco Timeline</a></p><iframe title="GTimeline Demo" src="../../packages/css/examples/timeline.html" loading="lazy" style="width:100%;height:480px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="tag-options-mode"><h3>GTag</h3><p>GTag · size · color · checked · visible · closable · loading · templates</p><p><a href="../../docs/tag.md">GTag API</a> · <a href="../../packages/css/examples/tag.html">GTag Demo</a> · <a href="https://arco.design/vue/component/tag">Arco Tag</a></p><iframe title="GTag Demo" src="../../packages/css/examples/tag.html" loading="lazy" style="width:100%;height:300px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="tabs-options-mode"><h3>GTabs</h3><p>GTabs · type · size · position · activeKey · editable · lazyLoad · destroyOnHide</p><p><a href="../../docs/tabs.md">GTabs API</a> · <a href="../../packages/css/examples/tabs.html">GTabs Demo</a> · <a href="https://arco.design/vue/component/tabs">Arco Tabs</a></p><iframe title="GTabs Demo" src="../../packages/css/examples/tabs.html" loading="lazy" style="width:100%;height:min(560px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="statistic-data-mode"><h3>GStatistic</h3><p>GStatistic · precision · showGroupSeparator · prefix · suffix · animation · countdown · templates</p><p><a href="../../docs/statistic.md">GStatistic API</a> · <a href="../../packages/css/examples/statistic.html">GStatistic Demo</a> · <a href="https://arco.design/vue/component/statistic">Arco Statistic</a></p><iframe title="GStatistic Demo" src="../../packages/css/examples/statistic.html" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="list-data-mode"><h3>GList</h3><p>GList · size · split · hoverable · paginationProps · gridProps · virtualListProps · templates</p><p><a href="../../packages/css/examples/list.html">GList Demo</a> · <a href="../../docs/list.md">GList API</a> · <a href="https://arco.design/vue/component/list">Arco List</a></p><iframe title="GList Demo" src="../../packages/css/examples/list.html" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="descriptions-data-mode"><h3>GDescriptions</h3><p>GDescriptions · column · span · layout · align · size · bordered · templates</p><p><a href="../../packages/css/examples/descriptions.html">GDescriptions Demo</a> · <a href="../../docs/descriptions.md">GDescriptions API</a> · <a href="https://arco.design/vue/component/descriptions">Arco Descriptions</a></p><iframe title="GDescriptions Demo" src="../../packages/css/examples/descriptions.html" loading="lazy" style="width:100%;height:680px;border:1px solid var(--g-color-border)"></iframe></div></section>
 
           <section class="docs-section" id="selection-compositions">
             <h2>コンポーネントの選択とバッチ処理</h2>
@@ -7650,6 +8511,7 @@ npm run test:net11</code></pre>
             <p>
               カテゴリ 16 は、Gardenerim の最上位構成層です。最初の 15 のカテゴリは、レイアウト、コンポーネント、ビジネス チェーン、エンド固有のインタラクションを提供し、このカテゴリはそれらを直接選択可能な 32 のフルページ コントラクトに固めます。個人と企業、公開 Web サイトとバックエンド、一般企業と垂直産業をカバーしており、ブラウザ、モバイル Web ページ、PWA、Tauri、および Electron WebView にも適しています。 AI は、ページ全体の CSS を最初から編成するのではなく、まずここでページのルート クラスと対応するレシピを選択し、次にコンポーネントを設定する必要があります。
             </p>
+<div class="g-card g-p-4"><h3>32 のソリューション: バリアントとパラメーター</h3><p>すべてのページの組み合わせは、コンパクト、快適、ボックス化、ワイド、流動的、フラット、アウトラインのバリアントをサポートします。 solutionDensity、solutionWidth、solutionSurface、solutionColumns、solutionSidebar、solutionHero、solutionSticky を使用して、密度、ページ幅、カード列の数、サイドバー、および最初の画面の配置を構成します。 CSS は data-g-solution-* 属性を使用します。 Vue/React は構成を使用します。 AngularJS は gardener-config を使用します。 Blazor は構成を使用します。正確な寸法については、 --g-solution-* カスタム属性を使用してください。</p><p>コンパクトカードのパディング 12 ピクセル、デフォルトのテキスト 14 ピクセル / 22 ピクセル、最初の画面タイトル 28 ～ 48 ピクセル。狭い画面は 1 列にリフローされ、ナビゲーションと補助コンテンツが保持されます。注文、ログイン、業界のビジネス インターフェイスにはアプリケーションからアクセスします。</p><p><a href="../../docs/solution/README.md">完全なパラメータと 5 端子の例</a> · <a href="../../docs/solution/inventory.json">32 項目の項目別リスト</a> · <a href="../../docs/overlay/README.md">6 つのフローティング レイヤー パラメータと非同期確認</a></p></div>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-4">
               <span class="g-badge">完全な 32 ページ</span
               ><span class="g-badge">合計 52 レシピ</span
@@ -7682,7 +8544,9 @@ npm run test:net11</code></pre>
                     <span class="g-solution-stat-label">サイト</span
                     ><strong class="g-solution-stat-value">28,640</strong
                     ><small class="g-text-success">↑ 12.4%</small>
-                  </section>
+
+
+</section>
                   <section class="g-dashboard-panel g-solution-stat">
                     <span class="g-solution-stat-label">ページ</span
                     ><strong class="g-solution-stat-value">486k</strong
@@ -8135,11 +8999,11 @@ npm run test:net11</code></pre>
               >
               15 セットのネガティブ コントラクト テストを継続して実行し、マニフェスト間の参照、ソース コードとビルド アーティファクトの一貫性、セレクター、実際のコンポーネントの属性、SHA-256/SRI 整合性、再現可能なビルド コマンド、モジュール タイプ/パラメーター/シグネチャ、インスタンス メンバー、データ属性、イベント ペイロード、アダプター、タイプとリリース スクリプト、互換性ベースライン、ビルド アーカイブ、絶対および相対予算を検証します。成果物、予算結果、バージョン、および完全なパッケージのエクスポート。
             </p>
-            <h3>16 個のモジュールすべてがエクスポートされました</h3>
+            <h3>19 個のモジュールすべてがエクスポートされました</h3>
             <div class="docs-runtime-grid" id="public-module-grid">
               <span class="docs-status">モジュール インターフェイスを読み取り中...</span>
             </div>
-            <h3>72 個の動作とインスタンス メンバーすべて</h3>
+            <h3>96 個すべての動作とインスタンス メンバー</h3>
             <p>
               各項目には宣言的な初期化プロパティがリストされています。
               <code>getInstance()</code> 呼び出しが許可されているオブジェクトのすべてのメンバーを返します。
@@ -8147,7 +9011,7 @@ npm run test:net11</code></pre>
             <div class="docs-runtime-grid" id="public-behavior-grid">
               <span class="docs-status">行動契約の読み取り...</span>
             </div>
-            <h3>79 個のイベントとペイロードすべて</h3>
+            <h3>105 個のイベントとペイロードすべて</h3>
             <p>
               各項目を完全にリストします
               <code>CustomEvent.detail</code> ;イベントが発生し、キャンセルできる
@@ -8159,7 +9023,7 @@ npm run test:net11</code></pre>
             </div>
             <h3>すべてのランタイム データ属性</h3>
             <p>
-              作成者が利用できる 331 のプロパティは、上記の動作コントラクト内の 72 の動作エントリ、178 の構造/アクション セレクター、および 81 の追加の構成プロパティに分割されます。ランタイムによって維持される 29 の状態プロパティもあります。ステータス プロパティは初期設定として同時に読み込むことができますが、作成者が利用できる最初の 3 つのセットは相互に排他的であり、二重にカウントされません。
+              作成者が利用できる 896 のプロパティには、96 の動作エントリ、578 の構造/アクション セレクター、および 230 の追加構成プロパティが含まれます。ランタイムによって維持される 230 の状態プロパティもあります。最初の 3 つのグループは相互に排他的であり、2 回カウントされることはありません。
             </p>
             <h4>構造とアクションのセレクター</h4>
             <div class="docs-runtime-grid" id="public-selector-attribute-grid">
@@ -8185,7 +9049,7 @@ npm run test:net11</code></pre>
               マニフェストの仕様フィールドは次のとおりです。 <code>behaviors</code>。古い畑
               <code>runtimeBehaviors</code> 全体を通して
               <code>0.x</code> バージョン行は読み取り専用互換エイリアスとして予約されています。古い
-              <code>metadata/schema.json</code> 新しいコンポーネント スキーマを引き続き指定します。 2.1.0 はパブリック コントラクトを安定版に昇格し、機械可読な互換性ベースラインを使用して、0.9.0 のすべてのパブリック エントリ、レイヤー、テーマ、ランタイム、コンポーネント、レシピを保存します。 1.x では、互換性のあるエントリを削除する前に、変更レコードと移行手順を提供する必要があり、少なくとも 2 つのマイナー バージョンの非推奨期間を経る必要があります。実際の削除は、新しいメジャー バージョンでのみ発生します。
+              <code>metadata/schema.json</code> は Components Schema を参照します。2.2.0 は Stable 契約と 0.9.0 基準を維持します。削除には移行手順、二つのマイナーバージョンの非推奨期間、新しいメジャーバージョンが必要です。
             </p>
           </section>
 
@@ -8198,14 +9062,14 @@ npm run test:net11</code></pre>
               >には、カテゴリ、タイプ、状態、セレクター、バリアント、ウィジェット、関数、プラットフォーム、動作、アダプター、およびアクセシビリティ コントラクトが含まれています。以下のダイナミックでは、厳選されたリストではなく、すべてのエントリとすべてのメタデータが表示されます。
             </p>
             <div class="docs-catalog-toolbar">
-              <label class="g-sr-only" for="component-search">検索コンポーネント</label
+              <label class="g-sr-only" for="component-search">コンポーネントを検索</label
               ><input
                 class="g-input"
                 id="component-search"
                 type="search"
                 placeholder="名前、カテゴリ、セレクター、パーツ、ステータス、またはプラットフォームを検索します"
               /><label class="g-sr-only" for="component-category"
-                >コンポーネントのカテゴリ</label
+                >カテゴリー</label
               ><select class="g-select g-w-auto" id="component-category">
                 <option value="">すべてのカテゴリ</option>
               </select>
@@ -8320,7 +9184,7 @@ Gardenerim.toast({
             </p>
             <h3>実行時のアクセス制御のテスト (0.4.0 以降)</h3>
             <p>
-              <code>npm run test:runtime</code> Node.js 組み込みテスト ランナーと Happy DOM を使用して、公開リスト内の 72 個の動作すべてについて実際のインスタンス メンバーを双方向に比較し、初期化、べき等、破棄、再初期化を検証します。 MutationObserver の動的ノード、動的プロパティ、サブツリーの削除、スコープの破棄、複数の動作の共存、グローバルの破棄、および初期化イベントのバブリングについて説明します。
+              <code>npm run test:runtime</code> Node.js 組み込みテスト ランナーと Happy DOM を使用して、公開リスト内の 96 個の動作すべてについて実際のインスタンス メンバーを双方向に比較し、初期化、べき等、破棄、再初期化を検証します。 MutationObserver の動的ノード、動的プロパティ、サブツリーの削除、スコープの破棄、複数の動作の共存、グローバルの破棄、および初期化イベントのバブリングについて説明します。
             </p>
             <div class="docs-callout">
               ランタイム動作を追加または名前変更する場合、パブリック API、サンプル/補足フィクスチャ、および動作ごとのテストを同期する必要があります。同期しないと、フィクスチャ、インスタンス、またはメンバーが欠落しているためにテストが失敗します。
@@ -8431,20 +9295,20 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
           <section class="docs-section" id="targeted-builds">
             <h2>オンデマンドのビルド、タイプ、バージョン間の互換性、リリース アクセス</h2>
             <p>
-              <code>2.1.0</code> 5 つのプラットフォーム、28 のコンポーネント パッケージ、正式な圧縮とパフォーマンス バジェットを以前のバージョンの測定ベースラインにロールアップし、パブリック コントラクトを安定版にアップグレードし、タイプ、バージョン間の互換性、および実際の npm リリース パッケージ アクセスを引き続き保持します。<a
+              <code>2.2.0</code> は五つのプラットフォーム、28 パックと性能予算を固定された履歴基準と比較し、Stable 契約、型、互換性と npm パッケージ検証を維持します。<a
                 href="../../packages/css/dist/gardener.builds.json"
                 ><code>gardener.builds.json</code></a
-              >5 つのプラットフォーム プロファイルすべて、28 のコンポーネント パッケージ、1 つ以上の実際の所有パッケージへの 506 のコンポーネント マッピング、セレクター署名、ブラウザ ターゲット、ビルダー パラメーター、および 42 の製品アーティファクトすべての SHA-256/SRI を登録しました。<a
+              >5 つのプラットフォーム プロファイルすべて、28 のコンポーネント パッケージ、1 つ以上の実際の所有パッケージへの 575 のコンポーネント マッピング、セレクター署名、ブラウザ ターゲット、ビルダー パラメーター、および 42 の製品アーティファクトすべての SHA-256/SRI を登録しました。<a
                 href="../../packages/css/dist/gardener.performance.json"
                 ><code>gardener.performance.json</code></a
               >各公式ビルドの raw、gzip、Brotli、圧縮率、npm パッケージ ボリュームの結果を保存します。
             </p>
             <h3>TypeScript はバージョン間の互換性があります</h3>
             <p>
-              ビルドはパブリック API から自動的に生成されます <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> と <code>gardener.electron.d.ts</code>。 72 の動作と 79 のイベントが完全な文字通りの結合タイプを形成します。<code>npm run test:types</code> TypeScript の厳密モードを使用して実際のコンシューマをコンパイルし、デフォルトおよび名前付きエクスポート、動作ファクトリー、トースト、インスタンス クエリ、および 2 種類のデスクトップ ブリッジをカバーします。
+              ビルドはパブリック API から自動的に生成されます <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> と <code>gardener.electron.d.ts</code>。 96 の動作と 105 のイベントが完全なリテラル結合タイプを形成します。<code>npm run test:types</code> TypeScript の厳密モードを使用して実際のコンシューマをコンパイルし、デフォルトおよび名前付きエクスポート、動作ファクトリー、トースト、インスタンス クエリ、および 2 種類のデスクトップ ブリッジをカバーします。
             </p>
             <p>
-              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> 0.9.0 から継承された 1,145 のコントラクトが固定化され、これには 47 のパッケージ エントリ、CSS レイヤー、テーマ、ランタイム、データ プロパティ、アダプター、506 のコンポーネント、および 52 のレシピがすべて含まれます。<code>npm run verify:compatibility</code> 後続の 1.x の追加は許可し、移行パスなしの削除は禁止します。 2.1.0 安定カットオフ ポイントでは、既存のエントリも逆にチェックされ、欠落していないかどうかが確認されます。非推奨のエントリは少なくとも 2 つのマイナー バージョンに残り、新しいメジャー バージョンでのみ削除できます。その閉鎖構造は次のもので構成されています。 <a href="../../packages/css/metadata/compatibility.schema.json">互換性スキーマ</a> 制約。
+              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> は 0.9.0 の 1,145 契約を保持します。47 エントリポイント、CSS レイヤー、テーマ、ランタイム、属性、アダプター、506 の従来コンポーネント、52 レシピを含みます。<code>npm run verify:compatibility</code> は互換性のある追加を許可します。2.2.0 は公開済み v2.1.0 とも比較します。削除には移行手順、二つのマイナーバージョンの非推奨期間、新しいメジャーバージョンが必要です。構造の定義： <a href="../../packages/css/metadata/compatibility.schema.json">互換性スキーマ</a> 制約。
             </p>
             <p>
               パッケージは Node.js &gt;=18.18、Chrome/Edge/Firefox 100 以降、Safari/iOS 15.4 以降、および ESM を明示的にサポートしています。メインポータルとデスクトップアダプターが条件を提供します <code>types</code> エクスポートします。実行時の自動初期化は次のようにマークされます。 <code>sideEffects</code>パッケージャによる誤った削除を避けるため。<code>npm run verify:package</code> 実際の npm パッケージのホワイトリスト、各エクスポート ターゲット、タイプ ファイル、開発ディレクトリのリーク、Publint をチェックします。<code>prepublishOnly</code> 強制完了 <code>release:verify</code>、パブリック パッケージと npm Provenance を有効にします。
@@ -8477,7 +9341,7 @@ npm run build:platform -- --platform tauri --out dist/custom/tauri-app</code></p
               <code>layouts</code>、<code>regions</code>、<code>primitives</code>、<code>grid</code>、<code>basic</code>、<code>forms</code>、<code>form-compositions</code>、<code>navigation</code>、<code>navigation-compositions</code>、<code>feedback</code>、<code>data</code>、<code>data-compositions</code>、<code>selection-compositions</code>、<code>content-compositions</code>、<code>auth-compositions</code>、<code>commerce-compositions</code>、<code>mobile-compositions</code>、<code>extended</code>、<code>page</code>、<code>help</code>、<code>recipes</code>、<code>desktop</code>、<code>desktop-compositions</code>、<code>solution-compositions</code>、<code>catalog</code>、<code>ai</code>、<code>ai-extended</code>、<code>ai-compositions</code>。
             </div>
             <p>
-              <code>./component/*.css</code> 上記のすべての公式圧縮パッケージのエクスポートを標準化します。<code>./component/*</code> 互換性のあるエイリアスとして予約されています。コンポーネント名でビルドする場合、ビルダーはクラスセレクターと <code>data-g-*</code> プロパティの実際のソース コード ヒット。個々のセレクターを切り捨てるのではなく、506 コンポーネントを 1 つ以上の完全な所属パッケージに解決するため、疑似クラス、状態、アニメーション、サブパーツ、コンテナ クエリ、依存関係ルールが失われません。
+              <code>./component/*.css</code> 上記のすべての公式圧縮パッケージのエクスポートを標準化します。<code>./component/*</code> 互換性のあるエイリアスとして予約されています。コンポーネント名でビルドする場合、ビルダーはクラスセレクターと <code>data-g-*</code> プロパティの実際のソース コード ヒット。個々のセレクターを切り捨てるのではなく、575 コンポーネントを 1 つ以上の完全な所属パッケージに解決するため、疑似クラス、状態、アニメーション、サブパーツ、コンテナ クエリ、依存関係ルールが失われません。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>npm run build:custom -- --components button,card,dialog --out dist/custom/account-ui
@@ -8496,22 +9360,22 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
             </p>
             <h3>正式な圧縮とパフォーマンスの予算設定</h3>
             <p>
-              正式な CSS と JavaScript は、通常の置換を使用せずに、構文レベルの圧縮に esbuild を使用します。メインの圧縮エントリと各カスタム ビルドは、追跡可能な外部ソース マップを生成します。圧縮 CSS は、純粋なバージョン テキストが Brotli ベースラインを乱すことを避けるために、バージョンによって変化しない安定した MIT バナーを使用します。非圧縮の CSS とランタイムでも正確なバージョンが提供されます。<code>npm run budget</code> gzip レベル 9 と Brotli 品質 11 を使用して、42 の公式圧縮製品すべての raw、gzip、Brotli を同時に計算し、完全な CSS、ランタイム、および <code>npm pack --dry-run</code> パックされたファイル、アンパックされたファイル、および返されたファイルの数。 2.1.0 では、シールされたバージョン 2.0.0 の実測結果を当面のベースラインとして使用し、各製品の生の増加を 2% 以内、gzip/Brotli の増加を 3% 以内、npm パッケージのパック化を 3% 以内、アンパックされた状態で 2% 以内、およびファイル数を 10% 以内に制限します。 5 つのプラットフォーム製品にはすべて、直接的な過去のベースラインがあります。封入体積の測定値はパック時 4 KiB、アンパック時 64 KiB に切り上げられ、真の封入体積を過小評価せず、パフォーマンス レポートの自己完結型圧縮サイクルの影響を受けない決定的な上限を形成します。絶対キャップまたは相対キャップのいずれかが故障すると、リリースがブロックされます。
+              正式な CSS と JavaScript は、通常の置換を使用せずに、構文レベルの圧縮に esbuild を使用します。メインの圧縮エントリと各カスタム ビルドは、追跡可能な外部ソース マップを生成します。圧縮 CSS は、純粋なバージョン テキストが Brotli ベースラインを乱すことを避けるために、バージョンによって変化しない安定した MIT バナーを使用します。非圧縮の CSS とランタイムでも正確なバージョンが提供されます。<code>npm run budget</code> gzip レベル 9 と Brotli 品質 11 を使用して、42 の公式圧縮製品すべての raw、gzip、Brotli を同時に計算し、完全な CSS、ランタイム、および <code>npm pack --dry-run</code> パック、アンパック、および返されたファイルの数。 2.2.0 は、クローズド バージョン 2.0.0 の実測結果を直接のベースラインとして採用します。デフォルトの戦略では、raw の増加は 2% を超えず、gzip/Brotli の増加は 3% を超えません。このコンポーネント拡張の修正された例外と測定基準は、次の文書に記載されています。 <a href="../../docs/solution/budget-review.json">予算レビュー.json</a>;例外には依然として製品ごとの絶対的および相対的な上限があり、建設によって自動的に予算が増加するわけではありません。 5 つのプラットフォーム製品すべてに、直接的な過去のベースラインがあります。封入体積の測定値はパック時 4 KiB、アンパック時 64 KiB に切り上げられ、真の封入体積を過小評価せず、パフォーマンス レポートの自己完結型圧縮サイクルの影響を受けない決定的な上限を形成します。絶対キャップまたは相対キャップのいずれかが故障すると、リリースがブロックされます。
             </p>
             <div class="docs-table-wrap">
               <table class="docs-table">
                 <thead><tr><th>管理対象商品</th><th>生の上限</th><th>gzip の上限</th><th>ブロトリの上限</th></tr></thead>
                 <tbody>
-                  <tr><td>gardener.min.css</td><td>1,050,000B</td><td>145,000B</td><td>65,000B</td></tr>
+                  <tr><td>gardener.min.css</td><td>1,969,000B</td><td>275,000B</td><td>160,000B</td></tr>
                   <tr><td>gardener.core.min.css</td><td>65,000B</td><td>9,000B</td><td>6,000B</td></tr>
                   <tr><td>gardener.主題.min.css</td><td>60,000B</td><td>7,500B</td><td>5,000B</td></tr>
                   <tr><td>gardener.utilities.min.css</td><td>550,000B</td><td>80,000B</td><td>18,000B</td></tr>
-                  <tr><td>gardener.components.min.css</td><td>400,000B</td><td>55,000B</td><td>42,000B</td></tr>
-                  <tr><td>gardener.ai.min.css</td><td>30,000B</td><td>6,000B</td><td>5,000B</td></tr>
-                  <tr><td>gardener.runtime.min.js</td><td>120,000B</td><td>34,000B</td><td>30,000B</td></tr>
-                  <tr><td>プラットフォーム/web.min.css</td><td>1,000,000B</td><td>140,000B</td><td>60,000B</td></tr>
-                  <tr><td>プラットフォーム/mobile.min.css</td><td>1,020,000B</td><td>142,000B</td><td>62,000B</td></tr>
-                  <tr><td>platform/desktop.min.css</td><td>1,030,000B</td><td>143,000B</td><td>63,000B</td></tr>
+                  <tr><td>gardener.components.min.css</td><td>1,332,000B</td><td>185,200B</td><td>135,000B</td></tr>
+                  <tr><td>gardener.ai.min.css</td><td>43,000B</td><td>7,100B</td><td>6,300B</td></tr>
+                  <tr><td>gardener.runtime.min.js</td><td>276,000B</td><td>77,500B</td><td>66,000B</td></tr>
+                  <tr><td>プラットフォーム/web.min.css</td><td>1,873,000B</td><td>262,000B</td><td>149,000B</td></tr>
+                  <tr><td>プラットフォーム/mobile.min.css</td><td>1,910,000B</td><td>267,000B</td><td>154,000B</td></tr>
+                  <tr><td>platform/desktop.min.css</td><td>1,932,000B</td><td>270,000B</td><td>154,000B</td></tr>
                   <tr><td>プラットフォーム/tauri.min.css</td><td>256B</td><td>256B</td><td>256B</td></tr>
                   <tr><td>プラットフォーム/electron.min.css</td><td>256B</td><td>256B</td><td>256B</td></tr>
                 </tbody>
@@ -8521,7 +9385,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
               上の表には、12 個の主要な CSS/ランタイム エントリがリストされています。また、予算書には、単一製品の検査に代わる一般的な共有キャップを使用せずに、2 つのデスクトップ アダプタ、28 のコンポーネント パッケージ、合計 42 の正式に圧縮された製品の対象範囲が項目化されています。
             </p>
             <p>
-              npm パッケージの予算は、パック時 2,050,000 B、アンパック時 16,500,000 B、最大 93 ファイルです。予算源 <a href="../../packages/css/config/performance-budgets.json"><code>performance-budgets.json</code></a> 別途管理対象となります <a href="../../packages/css/metadata/performance-budgets.schema.json">予算スキーマ</a> と <a href="../../packages/css/metadata/performance-report.schema.json">レポートスキーマ</a> 保護。
+              npm パッケージの予算は、パック時 4,350,000 B、アンパック時 30,000,000 B、最大 127 ファイルです。予算源 <a href="../../packages/css/config/performance-budgets.json"><code>performance-budgets.json</code></a> 別途管理対象となります <a href="../../packages/css/metadata/performance-budgets.schema.json">予算スキーマ</a> と <a href="../../packages/css/metadata/performance-report.schema.json">レポートスキーマ</a> 保護。
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>npm run build       # 完全な階層化された 28 コンポーネント パッケージと 5 つのプラットフォーム ファイル
@@ -8530,7 +9394,7 @@ npm run budget      # 42 本番環境 + npm パッケージの絶対/相対予�
 npm run verify:compatibility # 1,145 項目 0.9.0 公契約
 npm run test:types # TypeScript 厳格な消費者認証
 npm run verify:package # npm ホワイトリスト、エクスポートターゲット、および公開
-npm run test:build  # 10 ビルド、互換性、タイプ、リリース、および障害パスの使用例</code></pre>
+npm run test:build  # 11 ビルド、互換性、タイプ、リリース、および障害パスの使用例</code></pre>
             </div>
           </section>
 
@@ -8589,12 +9453,12 @@ npm run test:build  # 10 ビルド、互換性、タイプ、リリース、お�
               </li>
               <li>モバイル タッチ ターゲットでは、少なくとも約 44 ピクセルのタッチ密度が使用されます。</li>
             </ul>
-            <h3>2.1.0 自動テスト マトリックス</h3>
+            <h3>2.2.0 自動テスト マトリックス</h3>
             <div
               class="g-table-wrap"
               tabindex="0"
               role="region"
-              aria-label="2.1.0 自動テスト マトリックス"
+              aria-label="2.2.0 自動テスト マトリックス"
             >
               <table class="g-table">
                 <thead>
@@ -8609,21 +9473,21 @@ npm run test:build  # 10 ビルド、互換性、タイプ、リリース、お�
                   <tr>
                     <td><code>test:build</code></td>
                     <td>Node.js + esbuild + Ajv</td>
-                    <td>10</td>
+                    <td>11</td>
                     <td>プラットフォームの境界、実際のコンポーネントの所有権、正式な圧縮、ソース マップ、SHA-256/SRI、再現可能なビルド、絶対/相対予算、タイプ、互換性ベースライン、サポート ポリシー、カスタム ビルド、障害パス、npm パッケージのインストール解決</td>
                   </tr>
                   <tr>
                     <td><code>test:browser</code></td>
                     <td>デスクトップ Chromium + WebKit</td>
-                    <td>48</td>
+                    <td>172</td>
                     <td>
-                      全 21 例、ホーム ランディング ページとドキュメント、コンソール、リクエスト、スタイル、水平オーバーフロー、ダイアログ キーボードとフォーカスのライフ サイクル
+                      全 56 例、ホーム ランディング ページとドキュメント、コンソール、リクエスト、スタイル、水平オーバーフロー、ダイアログ キーボードとフォーカスのライフ サイクル
                     </td>
                   </tr>
                   <tr>
                     <td><code>test:browser:firefox</code></td>
                     <td>デスクトップ Firefox</td>
-                    <td>24</td>
+                    <td>86</td>
                     <td>
                       デスクトップのデフォルトのアクセスと同じです。 Playwright Firefox システム ランタイムを使用してホストまたは CI で実行
                     </td>
@@ -8631,25 +9495,25 @@ npm run test:build  # 10 ビルド、互換性、タイプ、リリース、お�
                   <tr>
                     <td><code>test:mobile</code></td>
                     <td>Pixel 7 Chromium + iPhone 13 WebKit</td>
-                    <td>52</td>
+                    <td>124</td>
                     <td>
-                      全 21 例、ホーム ランディング ページとドキュメント、リフロー、44 ピクセルのタッチ ターゲット、ボトム シート、320 ピクセルの狭い画面と横長の画面
+                      全 56 例、ホーム ランディング ページとドキュメント、リフロー、44 ピクセルのタッチ ターゲット、ボトム シート、320 ピクセルの狭い画面と横長の画面
                     </td>
                   </tr>
                   <tr>
                     <td><code>test:a11y</code></td>
                     <td>Chromium + Axe</td>
-                    <td>25</td>
+                    <td>61</td>
                     <td>
-                      WCAG 2 A/AA、2.1 A/AA、2.2 AA の 21 の例とホーム 2 ページ、およびキーボード、フォーカス、RTL、削減モーション、強制カラー
+                      WCAG 2 A/AA、2.1 A/AA、2.2 AA の 56 の例とホーム 2 ページ、およびキーボード、フォーカス、RTL、削減モーション、強制カラー
                     </td>
                   </tr>
                   <tr>
                     <td><code>test:html</code></td>
                     <td>解析5</td>
-                    <td>24</td>
+                    <td>59</td>
                     <td>
-                      21 の例、ホームとドキュメントの解析、重複 ID、ARIA 参照、言語、タイトル、ビューポート、リスト
+                      56 の例、ホームとドキュメントの解析、重複 ID、ARIA 参照、言語、タイトル、ビューポート、リスト
                     </td>
                   </tr>
                 </tbody>
@@ -8658,17 +9522,17 @@ npm run test:build  # 10 ビルド、互換性、タイプ、リリース、お�
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>npm run test:html             # 24 HTML 構造の使用例
-npm run test:browser          # Chromium + WebKit，48 デスクトップの使用例
-npm run test:browser:firefox  # Firefox スタンドアロン アクセス コントロール、24 のデスクトップ ユース ケース
-npm run test:browser:all      # Chromium + Firefox + WebKit，72 デスクトップの使用例
-npm run test:mobile           # Pixel 7 + iPhone 13，52 モバイルの使用例
-npm run test:a11y             # Axe、キーボードと環境マトリックス、25 の使用例
+              ><code>npm run test:html             # 59 HTML 構造の使用例
+npm run test:browser          # Chromium + WebKit，172 デスクトップの使用例
+npm run test:browser:firefox  # Firefox スタンドアロン アクセス コントロール、86 のデスクトップ ユース ケース
+npm run test:browser:all      # Chromium + Firefox + WebKit，258 デスクトップの使用例
+npm run test:mobile           # Pixel 7 + iPhone 13，124 モバイルの使用例
+npm run test:a11y             # Axe、キーボードと環境マトリックス、61 の使用例
 npm run test:e2e              # デフォルトの 125 の実際のブラウザの使用例
 npm run test:types            # TypeScript 厳格な消費者アクセス制御
 npm run verify:compatibility  # 1,145 アイテム 0.9.0 互換ベースライン
 npm run verify:package        # npm ファイル、エクスポート、および公開
-npm test                      # 311 デフォルトの自動化ユースケースとすべての静的、契約、タイプ、互換性、リリース、再現可能、および予算ゲート</code></pre>
+npm test                      # 全自動テストと静的検証、契約、型、互換性、パッケージ、再現性、予算のゲート</code></pre>
             </div>
             <div class="docs-callout">
               Axe ゲートは、対象の WCAG A/AA ルールで検出されたすべての違反を impact に関係なくブロックし、ルール、ノードセレクター、HTML、修正概要を出力します。自動化は人によるスクリーンリーダーテストの代わりにはならないため、正式製品では NVDA / JAWS / VoiceOver を使って重要な操作を確認する必要があります。
@@ -8732,9 +9596,9 @@ npm run verify:compatibility # 0.9.0 クロスバージョンの公共契約ベ�
 npm run test:types # TypeScript 厳格な消費者認証
 npm run verify:package # npm ファイル、エクスポート ターゲット、および公開
 npm run test:schema # Ajv 2020-12 11 セットのスキーマを検証する
-npm run test:build # 10 ビルド、タイプ、互換性、リリース、および障害パスの使用例
+npm run test:build # 11 ビルド、タイプ、互換性、リリース、および障害パスの使用例
 npm run contracts  # Schema、パブリック API、命名、およびクロスマニフェスト コントラクト
-npm run test:runtime # 72 動作と DOM ライフサイクル
+npm run test:runtime # 96 動作と DOM ライフサイクル
 npm run test:html   # ホームの例と HTML 構造
 npm run check      # テーマ、コンポーネント、ランタイム、およびマニフェストの一貫性
 npm run audit      # Token、コントラスト、パケット境界、エクスポートおよびバージョン
@@ -8772,7 +9636,7 @@ node website/scripts/check-coverage.mjs  # 文書漏れゼロ検証</code></pre>
       <aside class="docs-toc" aria-label="このページの目次">
         <strong>このページの目次</strong>
         <nav>
-          <a href="#quick-start">クイックスタート</a><a href="#installation">インストールとパッケージ</a
+          <a href="#quick-start">クイックスタート</a><a href="#component-demos">コンポーネントのデモ</a><a href="#installation">インストールとパッケージ</a
           ><a href="#vue">Vue 3 プロジェクト</a
           ><a href="#react">Reactプロジェクト</a
           ><a href="#angular">AngularJS プロジェクト</a
@@ -8808,12 +9672,12 @@ node website/scripts/check-coverage.mjs  # 文書漏れゼロ検証</code></pre>
     <footer class="site-footer">
       <div class="site-container">
         <div class="site-footer-bottom">
-          <span>Gardenerim v2.1.0 · MIT ライセンス</span
+          <span>Gardenerim v2.2.0 · MIT ライセンス</span
           ><a href="./index.html">ホームページに戻る</a>
         </div>
       </div>
     </footer>
     <script src="../assets/file-i18n.js"></script>
-    <script type="module" src="../assets/site.js?v=2.1.0"></script>
+    <script type="module" src="../assets/site.js?v=2.2.0-f3c9a03abf"></script>
   </body>
 </html>

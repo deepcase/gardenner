@@ -1,6 +1,27 @@
+const formComponentClasses = ["g-input","g-textarea","g-select","g-check","g-switch","g-range-color","g-file-drop","g-combobox","g-form","g-form-section","g-field","g-fieldset","g-form-row","g-form-grid","g-form-horizontal","g-form-inline","g-form-compact","g-input-group","g-input-affix","g-search-field","g-password-field","g-clearable-field","g-character-field","g-validation-state","g-check-group","g-radio-group","g-switch-row","g-choice-group","g-name-group","g-address-group","g-phone-group","g-money-group","g-date-range-group","g-time-range-group","g-unit-field","g-range-field","g-file-field","g-repeatable-field","g-conditional-field","g-form-actions","g-autosave-status","g-form-progress","g-form-review","g-consent-group","g-date-picker","g-time-picker","g-pin-input","g-rating","g-validation-summary","g-upload-queue","g-form-builder","g-input-number","g-input-tag","g-color-picker"];
 import * as Gardenerim from "./gardener.runtime.min.js";
 
 const mounted = new WeakMap();
+const navigations = new WeakMap();
+const navigationGuards = new WeakMap();
+export function mountNavigation(element, component, options, value, controlled, guard, receiver) {
+  const existing=navigations.get(element);
+  if(!existing)unmount(element);
+  let beforeChange=navigationGuards.get(element);
+  if(guard&&!beforeChange){beforeChange=detail=>receiver.invokeMethodAsync('CanNavigate',serializable(detail));navigationGuards.set(element,beforeChange);}
+  const next={...options,component,...(controlled?{value}:{}),
+    beforeChange:guard?beforeChange:undefined,
+    onChange:(detail)=>receiver.invokeMethodAsync('NotifyGardenerimValueChanged',detail.value,'gardener:navigationchange',serializable(detail)).catch(()=>{}),
+  };
+  if(existing){existing.update(next);return;}
+  const listeners=[];
+  for(const name of ['change','select','open','collapse','expand','pagesize','loadmore','previous','next','back','closeitem','check','error']){
+    const eventName='gardener:navigation'+name;
+    const listener=e=>receiver.invokeMethodAsync('NotifyGardenerimEvent',serializable(e.detail),eventName,false).catch(()=>{});
+    element.addEventListener(eventName,listener);listeners.push({eventName,listener});
+  }
+  mounted.set(element,{listeners});navigations.set(element,Gardenerim.createNavigation(element,next));
+}
 const tauriBindings = new WeakMap();
 const electronBindings = new WeakMap();
 const themeAxes = ["theme", "mode", "neutral", "typography", "shape", "density", "elevation", "motion", "platform", "os"];
@@ -56,7 +77,10 @@ export function getLocalization() {
 
 export function mount(element, shouldInitialize, valueEvent, valueKey, listenForValue, eventNames = [], preventDefaultEvents = [], receiver) {
   if (!element) return;
-  unmount(element);
+  if (formComponentClasses.some(name => element.classList.contains(name)) || element.matches('[data-g-table-options],[data-g-dialog],[data-g-drawer],[data-g-tabs-options], [data-g-tag-options],[data-g-popover],[data-g-tooltip],[data-g-accordion],[data-g-data-display],[data-g-dashboard],[data-g-interaction-options],[data-g-content-options],[data-g-layout-options],[data-g-help-options],[data-g-ai-options],[data-g-media-options],[data-g-auth-options],[data-g-mobile-options],[data-g-workflow-options],[data-g-communication-options],[data-g-solution-options],[data-g-legal-options],[data-g-desktop-options],[data-g-enterprise-options],[data-g-marketing-options],[data-g-cms-options],[data-g-commerce-options],[data-g-data-grid],[data-g-foundation],[data-g-tree]')) {
+    for (const {eventName,listener} of mounted.get(element)?.listeners ?? []) element.removeEventListener(eventName,listener);
+    mounted.delete(element);
+  } else unmount(element);
   if (shouldInitialize) Gardenerim.init(element); else Gardenerim.destroy(element);
   const valueEventName = normalizeEvent(valueEvent || "change");
   const subscribed = new Set((Array.isArray(eventNames) ? eventNames : []).map(normalizeEvent));
@@ -67,6 +91,7 @@ export function mount(element, shouldInitialize, valueEvent, valueKey, listenFor
   if (receiver) {
     for (const eventName of observed) {
       const listener = (event) => {
+        if (element.matches("[data-g-tabs-options], [data-g-tag-options],[data-g-popover],[data-g-tooltip],[data-g-dialog],[data-g-drawer],[data-g-accordion],[data-g-data-display],[data-g-dashboard],[data-g-interaction-options],[data-g-content-options],[data-g-layout-options],[data-g-help-options],[data-g-ai-options],[data-g-media-options],[data-g-auth-options],[data-g-mobile-options],[data-g-workflow-options],[data-g-communication-options],[data-g-solution-options],[data-g-legal-options],[data-g-desktop-options],[data-g-enterprise-options],[data-g-marketing-options],[data-g-cms-options],[data-g-commerce-options],[data-g-data-grid],[data-g-foundation],[data-g-tree]") && event.target !== element) return;
         if (prevented.has(eventName) && event.cancelable) event.preventDefault();
         const detail = event.detail ?? null;
         const safeDetail = serializable(detail);
@@ -85,6 +110,7 @@ export function unmount(element) {
   const state = mounted.get(element);
   for (const { eventName, listener } of state?.listeners ?? []) element.removeEventListener(eventName, listener);
   mounted.delete(element);
+  navigations.get(element)?.destroy();navigations.delete(element);navigationGuards.delete(element);
   Gardenerim.destroy(element);
 }
 
@@ -97,7 +123,7 @@ export function focus(element) {
 }
 
 export function getBehaviorMembers(element, behavior) {
-  const instance = element ? Gardenerim.getInstance(element, behavior) : null;
+  const instance = element ? (behavior === 'navigation' ? navigations.get(element) : Gardenerim.getInstance(element, behavior)) : null;
   if (!instance) return [];
   const names = new Set();
   let current = instance;
@@ -139,6 +165,14 @@ export function clearTheme(element) {
 
 export function showToast(options) {
   Gardenerim.toast(options ?? {});
+}
+
+export function configureToast(options) {
+  return Gardenerim.toast.config(options ?? {});
+}
+
+export function clearToasts(position) {
+  Gardenerim.toast.clear(position ?? undefined);
 }
 
 export async function bindTauri(root) {

@@ -1,0 +1,658 @@
+{
+  "originalComponents": 27,
+  "newComponents": 2,
+  "components": 29,
+  "variants": 99,
+  "items": [
+    {
+      "name": "tip",
+      "selector": ".g-tip",
+      "variants": [
+        "default",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "finding": "原有提示样式缺少可配置内容；补齐标题、说明、五种语义色、尺寸和禁用状态。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 5,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "inline-hint",
+      "selector": ".g-inline-hint",
+      "variants": [
+        "default",
+        "compact",
+        "success",
+        "warning"
+      ],
+      "finding": "原有单行文字缺少组合方式；补齐紧凑说明、多行文本、语义色和方向。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 4,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-text",
+      "selector": ".g-help-text",
+      "variants": [
+        "default",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "finding": "原有状态类只能手工拼装；提供成功、警告、危险说明及统一字号与内距。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 4,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-trigger",
+      "selector": ".g-help-trigger",
+      "variants": [
+        "default",
+        "text",
+        "icon"
+      ],
+      "finding": "原有问号触发器缺少可阅读内容；补齐文字/图标入口、交互面板与焦点返回。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "浮层关闭、箭头、间距、延迟可配置；按钮操作和受控开关通过。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "rich-tooltip",
+      "selector": ".g-tooltip-rich",
+      "variants": [
+        "default",
+        "top",
+        "bottom",
+        "start",
+        "end"
+      ],
+      "finding": "原有 CSS 与基础 tooltip 行为分离；复用浮层定位，补齐内容、方向、宽度和触发方式。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "悬停/聚焦浮层，延迟与关闭策略可配置；打开后无障碍与 Escape 检查通过。",
+        "variants": 5,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-popover",
+      "selector": ".g-help-popover",
+      "variants": [
+        "default",
+        "top",
+        "bottom",
+        "start",
+        "end"
+      ],
+      "finding": "原有基础弹出面板缺少完整配置；增加操作区、受控打开、外部关闭及焦点管理。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "无 href 操作恢复为按钮；浮层策略、受控开关、关闭后的焦点返回通过。",
+        "variants": 5,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "definition-help",
+      "selector": ".g-definition",
+      "variants": [
+        "default",
+        "inline",
+        "popover"
+      ],
+      "finding": "原有术语下划线没有完整解释入口；补齐内联释义和可交互解释浮层。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "行内与浮层解释保留语义标题，浮层宽度和关闭策略一致。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "callout",
+      "selector": ".g-callout",
+      "variants": [
+        "default",
+        "info",
+        "success",
+        "warning",
+        "danger",
+        "dismissible"
+      ],
+      "finding": "原有语义容器需手写内容；补齐标题说明、状态色、可关闭通知及紧凑尺寸。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 6,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "note",
+      "selector": ".g-note",
+      "variants": [
+        "default",
+        "compact",
+        "warning"
+      ],
+      "finding": "原有注释块缺少尺寸和警示选择；补齐配置内容、紧凑与警告模式。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "guidance-pair",
+      "selector": ".g-guidance-pair",
+      "variants": [
+        "default",
+        "stacked",
+        "compact"
+      ],
+      "finding": "原有正反例为固定两列；补齐正反例标签与内容参数、堆叠和窄屏排列。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "key-hint",
+      "selector": ".g-key-hint",
+      "variants": [
+        "default",
+        "mac",
+        "windows"
+      ],
+      "finding": "原有按键样式需手工组装；增加任意按键数组、Mac/Windows 示例及可读组合标签。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "shortcut-list",
+      "selector": ".g-shortcut-list",
+      "variants": [
+        "default",
+        "searchable",
+        "grouped"
+      ],
+      "finding": "原有静态快捷键行没有查找能力；增加键位数组、说明、分组与可关闭检索。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-card",
+      "selector": ".g-help-card",
+      "variants": [
+        "default",
+        "compact",
+        "borderless"
+      ],
+      "finding": "原有卡片仅有样式；补齐真实说明、链接/操作回调、尺寸与无边框模式。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "无链接操作发出 action；无边框与紧凑变体在五端展示正确。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-panel",
+      "selector": ".g-help-panel",
+      "variants": [
+        "default",
+        "compact",
+        "borderless"
+      ],
+      "finding": "原有侧边说明框缺少结构配置；补齐标题、说明、条目列表、操作区和紧凑比例。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "条目与自定义操作可配置；无边框、紧凑模式及内容视区通过。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-center",
+      "selector": ".g-help-center",
+      "variants": [
+        "default",
+        "compact",
+        "categorized"
+      ],
+      "finding": "原有搜索框仅作装饰；补齐关键词与分类检索、结果上限、远程服务和空/错误状态。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "本地/异步检索、分类、最短查询、超时重试；修复中文输入与输入节点身份。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-topics",
+      "selector": ".g-help-topics",
+      "variants": [
+        "default",
+        "list",
+        "compact"
+      ],
+      "finding": "原有主题入口需静态编排；增加数据条目、网格/列表、可选检索和响应式列数。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "faq",
+      "selector": ".g-faq",
+      "variants": [
+        "default",
+        "multiple",
+        "searchable",
+        "borderless"
+      ],
+      "finding": "原有基础手写 accordion；补齐稳定 ID、单项/多项展开、受控状态、检索与键盘切换。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "单项/多项展开、键盘导航、受控检索；无边框变体正确设置默认边框。",
+        "variants": 4,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "contextual-help",
+      "selector": ".g-contextual-help",
+      "variants": [
+        "default",
+        "compact",
+        "dismissible"
+      ],
+      "finding": "原有行内说明缺少业务操作；增加说明、链接、操作事件及可取消关闭。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "coach-mark",
+      "selector": ".g-coach-mark",
+      "variants": [
+        "default",
+        "top",
+        "bottom"
+      ],
+      "finding": "原有绝对定位说明卡没有完整引导生命周期；增加步骤、目标定位、关闭及缺失目标回退。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "目标留白和定位间距可配置，进度与上一步可隐藏；目标回退和焦点返回通过。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "spotlight",
+      "selector": ".g-spotlight",
+      "variants": [
+        "default",
+        "top",
+        "bottom"
+      ],
+      "finding": "原有仅有高亮蒙层样式；增加带说明的目标高亮、步骤参数与窗口滚动时定位。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "目标留白和定位间距可配置，进度与上一步可隐藏；目标回退和焦点返回通过。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "hotspot",
+      "selector": ".g-hotspot",
+      "variants": [
+        "default",
+        "quiet",
+        "text"
+      ],
+      "finding": "原有装饰热点缺少实际内容和可控入口；增加说明面板、文字模式、安静模式及禁用控制。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "浮层触发、箭头、延迟、关闭策略与 quiet 变体显式参数优先。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "feature-hint",
+      "selector": ".g-feature-hint",
+      "variants": [
+        "default",
+        "compact",
+        "dismissible"
+      ],
+      "finding": "原有新功能提示需静态拼装；增加说明、操作入口、紧凑与可关闭模式。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "whats-new",
+      "selector": ".g-whats-new",
+      "variants": [
+        "default",
+        "compact",
+        "grouped"
+      ],
+      "finding": "原有更新列表没有数据接口；增加发布日期、分类、内容条目及紧凑展示。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "已核对全部变体、内容、操作、主题、方向与五端配置；统一紧凑比例，通用展示开关与输入校验生效。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-checklist",
+      "selector": ".g-help-checklist",
+      "variants": [
+        "default",
+        "compact",
+        "readonly"
+      ],
+      "finding": "原有状态标记不可操作；改为原生复选框，增加完成进度、稳定 ID、只读与受控模式。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "只读与禁用项保护、受控进度、进度开关与列表高度通过。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "troubleshooting",
+      "selector": ".g-troubleshooting",
+      "variants": [
+        "default",
+        "linear",
+        "compact"
+      ],
+      "finding": "原有排查步骤仅为静态列表；增加步骤选择、线性前进、前后导航和操作事件。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "上一步与步骤目录可配置；跳过禁用步骤，完成守卫只触发一次。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-feedback",
+      "selector": ".g-help-feedback",
+      "variants": [
+        "default",
+        "reason",
+        "compact"
+      ],
+      "finding": "原有只保存选择；增加原因输入、真实服务回调、等待/成功/失败状态、重试与取消。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "原因纳入受控状态；长度限制、只读、异步超时、取消、失败重试和视觉更新保留任务通过。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "tour-spotlight",
+      "selector": ".g-tour",
+      "variants": [
+        "default",
+        "top",
+        "bottom"
+      ],
+      "finding": "原有引导缺少受控状态与可靠焦点；补齐受控步骤、定位回退、键盘关闭和焦点返回。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "目标留白、定位、关闭策略和进度可配置；步骤跳转、完成守卫及焦点返回通过。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-search",
+      "selector": ".g-help-search-composition",
+      "variants": [
+        "default",
+        "compact",
+        "categorized"
+      ],
+      "finding": "新增独立帮助检索组合，供帮助中心外的页面使用；支持分类、关键词、远程服务和取消。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "检索控件实际支持 28/32/36px；本地/异步服务、取消和超时通过。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    },
+    {
+      "name": "help-glossary",
+      "selector": ".g-help-glossary",
+      "variants": [
+        "default",
+        "compact",
+        "grouped"
+      ],
+      "finding": "新增可搜索术语表，补足单条 definition-help 无法承担的多概念检索与分组展示。",
+      "releaseReview": {
+        "result": "已验证",
+        "finding": "术语检索、分组、远程结果校验和可聚焦滚动视区通过。",
+        "variants": 3,
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ]
+      }
+    }
+  ]
+}

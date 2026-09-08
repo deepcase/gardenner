@@ -1,0 +1,22 @@
+@page "/carousel"
+@using System.Text.Json
+@using Gardenerim.Blazor.Models
+<PageTitle>GCarousel · Blazor</PageTitle>
+<h1>GCarousel 轮播</h1>
+<p>与 CSS、Vue、React、AngularJS 共用参数、样式和媒体运行时。</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap;margin:16px 0">
+<label>动画 <select @bind="Animation"><option>slide</option><option>fade</option><option>card</option></select></label>
+<label>指示器 <select @bind="Indicator"><option>dot</option><option>line</option><option>slider</option><option>never</option></select></label>
+<label><input type="checkbox" @bind="Vertical"/>垂直</label>
+<label><input type="checkbox" @bind="Auto"/>自动播放</label>
+</div>
+<GCarousel Id="blazor-carousel" Config="CarouselConfig" EventNames="Events" OnEvent="Changed" />
+<output id="carousel-state">当前第 @Current 项</output>
+@code {
+ private string Animation="slide", Indicator="dot";
+ private bool Vertical, Auto;
+ private int Current=1;
+ private readonly string[] Events=["gardener:change"];
+ private IReadOnlyDictionary<string,object?> CarouselConfig => new Dictionary<string,object?> { ["mediaOptions"]=JsonSerializer.Serialize(new {kind="carousel",current=Current,animationName=Animation,indicatorType=Indicator,direction=Vertical?"vertical":"horizontal",autoPlay=Auto,showRotation=Auto,fit="cover",height=320,items=new[]{new{id="mountain",src="media-assets/mountain.svg",alt="山谷日出"},new{id="sea",src="media-assets/sea.svg",alt="碧海晴空"},new{id="sunset",src="media-assets/sunset.svg",alt="群山晚霞"}}}) };
+ private void Changed(GardenerimEventArgs args){var detail=JsonSerializer.SerializeToElement(args.Detail);Current=detail.GetProperty("current").GetInt32();}
+}

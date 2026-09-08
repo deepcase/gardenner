@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0] - 2026-09-08
+
+- Consolidate the full component expansion into one synchronized CSS, Vue, React, AngularJS and Blazor release: 575 components and 96 shared behaviors.
+- Expand data, forms, navigation, overlays and application compositions with configurable variants, controlled state, keyboard interaction and lifecycle handling.
+- Add twelve Arco-inspired foundations while retaining Gardenerim tokens and design language; synchronize interactive demos, public types, catalogs and localized website documentation.
+- Preserve published compatibility contracts and gate the release with reproducible builds, isolated package consumers, browser, accessibility and size checks. Local verification evidence: repository `docs/release-2.2/`. Registry publication is a separate step.
+
 ## [2.1.0] - 2026-09-01
 
 - Consume the shared Arco-aligned 28/32/36px Gardenerim control scale and 14px control typography.

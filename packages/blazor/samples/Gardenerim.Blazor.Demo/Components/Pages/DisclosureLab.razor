@@ -1,0 +1,26 @@
+@page "/disclosure"
+@using System.Text.Json
+<PageTitle>展开收起 · Blazor</PageTitle>
+<h1>展开收起 · Blazor</h1>
+<div style="max-width:760px;display:grid;gap:16px">
+ <label>组件<select id="disclosure-kind" class="g-select" @bind="Name" @bind:after="Reset"><option>accordion</option><option>collapse</option><option>read-more</option></select></label>
+ <label><input id="disclosure-multiple" type="checkbox" @bind="Multiple" />同时展开多项</label>
+ <button id="disclosure-resize" type="button" class="g-btn" @onclick="ToggleSize">切换尺寸</button>
+ <GardenerimComponent @key="Name" Name="@Name" Config="Options" EventNames="@(new[]{"change"})" OnEvent="Changed" id="disclosure-root">
+ @if(Name=="read-more") { <div class="g-read-more-preview"></div> }
+ <button type="button" class="@(Name=="accordion"?"g-accordion-trigger":"g-disclosure-trigger")" data-g-disclosure-key="a"><span data-g-disclosure-label>展开内容</span></button>
+ <div id="blazor-disclosure-panel" class="@(Name=="accordion"?"g-accordion-panel":"g-disclosure-panel")" hidden><p>同一套受控参数与交互在 Blazor 中保持一致。展开后可以编辑，切换尺寸不会重置。</p><input class="g-input" id="disclosure-input" @bind="Draft" @bind:event="oninput" aria-label="项目名称" /></div>
+ </GardenerimComponent>
+ <output id="disclosure-state">@Keys</output>
+</div>
+@code {
+ private string Name {get;set;}="accordion";
+ private string Keys {get;set;}="[]";
+ private string Draft {get;set;}="Draft";
+ private string Size {get;set;}="small";
+ private bool Multiple {get;set;}
+ private IReadOnlyDictionary<string,object?> Options => new Dictionary<string,object?>{["disclosureValue"]=Keys,["disclosureMultiple"]=Multiple,["disclosureSize"]=Size,["disclosureCollapsible"]=true,["disclosureExpandLabel"]="展开内容",["disclosureCollapseLabel"]="收起内容"};
+ private void ToggleSize(){Size=Size=="small"?"large":"small";}
+ private void Reset(){Keys="[]";Draft="Draft";}
+ private void Changed(Gardenerim.Blazor.Models.GardenerimEventArgs args){if(args.Detail is IReadOnlyDictionary<string,object?> values && values.TryGetValue("keys",out var keys))Keys=JsonSerializer.Serialize(keys);}
+}

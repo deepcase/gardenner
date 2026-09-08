@@ -1,0 +1,108 @@
+{
+  "version": "2.2.0",
+  "completedAt": "2026-09-08T08:55:05.198Z",
+  "status": "local-release-candidate",
+  "published": false,
+  "sourceHead": "852ad832c97e60299cc71b57e0b842e78dbdbd31",
+  "includesUncommittedChanges": true,
+  "packages": {
+    "css": {
+      "passed": true,
+      "steps": 19,
+      "evidence": "css-checks.json"
+    },
+    "vue": {
+      "passed": true,
+      "steps": 11,
+      "evidence": "vue-checks.json"
+    },
+    "react": {
+      "passed": true,
+      "steps": 11,
+      "evidence": "react-checks.json"
+    },
+    "angularjs": {
+      "passed": true,
+      "steps": 11,
+      "evidence": "angularjs-checks.json"
+    },
+    "blazor": {
+      "passed": true,
+      "steps": 8,
+      "evidence": "blazor-checks.json"
+    }
+  },
+  "repository": {
+    "version": "2.2.0",
+    "finishedAt": "2026-09-08T08:53:17.0935438Z",
+    "exitCode": 0
+  },
+  "cssBrowser": {
+    "passed": true,
+    "tests": 443,
+    "projects": {
+      "desktop-chromium": 86,
+      "desktop-firefox": 86,
+      "desktop-webkit": 86,
+      "mobile-chromium": 62,
+      "mobile-webkit": 62,
+      "accessibility-chromium": 61
+    }
+  },
+  "demo": {
+    "passed": true,
+    "components": 575,
+    "checks": 1150,
+    "widths": [
+      1280,
+      390
+    ],
+    "scope": "catalog and first preview; not every business scenario"
+  },
+  "arco": {
+    "chromium": {
+      "passed": true,
+      "evidence": "arco-chromium.json"
+    },
+    "firefox": {
+      "passed": true,
+      "evidence": "arco-firefox.json"
+    },
+    "webkit": {
+      "passed": true,
+      "evidence": "arco-webkit.json"
+    },
+    "hosts": {
+      "passed": true,
+      "evidence": "arco-hosts.json"
+    }
+  },
+  "regressions": {
+    "cms-window-targets": {
+      "passed": true,
+      "checks": 6,
+      "evidence": "cms-window-targets.json"
+    },
+    "website-link-targets": {
+      "passed": true,
+      "checks": 6,
+      "evidence": "website-link-targets.json"
+    },
+    "websiteAccessibility": {
+      "passed": true,
+      "checks": 2,
+      "evidence": "website-final-a11y.log"
+    }
+  },
+  "artifacts": {
+    "verified": true,
+    "count": 6,
+    "evidence": "artifacts.json"
+  },
+  "limitations": [
+    "AngularJS upstream security advisories remain; exact advisory allowlist enforced.",
+    "Component evidence audit retains medium/small findings; automated passing checks do not certify every variant or subjective visual quality.",
+    ".NET 11 consumption verified with preview SDK; .NET 10 is the stable build target."
+  ],
+  "passed": true
+}

@@ -1,0 +1,588 @@
+[
+  {
+    "name": "authentication-shell",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-auth-shell",
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "auth-centered",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-auth-centered",
+    "parts": [
+      "g-auth-container",
+      "g-auth-panel",
+      "g-auth-brand-row",
+      "g-auth-header",
+      "g-auth-form",
+      "g-auth-footer"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "auth-split",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-auth-split",
+    "parts": [
+      "g-auth-split-aside",
+      "g-auth-split-main",
+      "g-auth-container",
+      "g-auth-panel"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "sign-in-composition",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-sign-in",
+    "parts": [
+      "g-sign-in-options",
+      "g-auth-provider-list",
+      "g-auth-divider"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "registration-composition",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-registration",
+    "parts": [
+      "g-registration-terms",
+      "g-password-strength"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "password-recovery",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-password-recovery",
+    "parts": [
+      "g-password-recovery-methods",
+      "g-auth-method"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "password-reset",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-password-reset",
+    "parts": [
+      "g-password-strength",
+      "g-password-rules"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "email-verification",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-email-verification",
+    "parts": [
+      "g-verification-icon",
+      "g-verification-address",
+      "g-auth-timer"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "phone-verification",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-phone-verification",
+    "parts": [
+      "g-verification-icon",
+      "g-verification-address",
+      "g-otp-input"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "mfa-challenge",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-mfa-challenge",
+    "parts": [
+      "g-mfa-methods",
+      "g-otp-input",
+      "g-trusted-device"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "otp-input",
+    "category": "auth",
+    "type": "interactive",
+    "selector": "[data-g-otp-input].g-otp-input",
+    "cssSelector": ".g-otp-input",
+    "parts": [
+      "g-otp-cell"
+    ],
+    "states": [
+      "complete",
+      "invalid"
+    ],
+    "accessibility": {
+      "keyboard": [
+        "ArrowLeft",
+        "ArrowRight",
+        "Home",
+        "End",
+        "Backspace",
+        "Paste"
+      ]
+    },
+    "behaviors": [
+      "otp-input"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "passkey-composition",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-passkey",
+    "parts": [
+      "g-passkey-graphic",
+      "g-passkey-device"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "sso-composition",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-sso",
+    "parts": [
+      "g-auth-provider-list",
+      "g-auth-provider",
+      "g-auth-provider-icon"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "qr-login",
+    "category": "auth",
+    "type": "interactive",
+    "selector": "[data-g-auth-timer].g-qr-login",
+    "cssSelector": ".g-qr-login",
+    "parts": [
+      "g-qr-login-layout",
+      "g-qr-code",
+      "g-auth-timer"
+    ],
+    "behaviors": [
+      "auth-timer"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "magic-link",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-magic-link",
+    "parts": [
+      "g-verification-icon",
+      "g-verification-address"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "invitation-composition",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-invitation",
+    "parts": [
+      "g-invitation-details",
+      "g-invitation-row",
+      "g-invitation-label"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "first-time-setup",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-first-time-setup",
+    "parts": [
+      "g-profile-setup",
+      "g-password-strength"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "lock-screen",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-lock-screen",
+    "parts": [
+      "g-lock-screen-panel",
+      "g-lock-screen-time",
+      "g-auth-user"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "session-expired",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-session-expired",
+    "parts": [
+      "g-session-expired-panel",
+      "g-auth-notice"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "account-chooser",
+    "category": "auth",
+    "type": "interactive",
+    "selector": "[data-g-saved-choice].g-account-chooser",
+    "cssSelector": ".g-account-chooser",
+    "parts": [
+      "g-auth-choice-list",
+      "g-auth-choice",
+      "g-auth-avatar"
+    ],
+    "behaviors": [
+      "saved-choice"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "tenant-chooser",
+    "category": "auth",
+    "type": "interactive",
+    "selector": "[data-g-saved-choice].g-tenant-chooser",
+    "cssSelector": ".g-tenant-chooser",
+    "parts": [
+      "g-auth-choice-list",
+      "g-auth-choice"
+    ],
+    "behaviors": [
+      "saved-choice"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "identity-switcher",
+    "category": "auth",
+    "type": "interactive",
+    "selector": "[data-g-dropdown].g-identity-switcher",
+    "cssSelector": ".g-identity-switcher",
+    "parts": [
+      "g-identity-switcher-trigger",
+      "g-identity-switcher-menu",
+      "g-auth-choice"
+    ],
+    "behaviors": [
+      "dropdown"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "profile-setup",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-profile-setup",
+    "parts": [
+      "g-auth-avatar",
+      "g-auth-form",
+      "g-auth-actions"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "account-security",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-account-security",
+    "parts": [
+      "g-security-section",
+      "g-security-section-header"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "device-management",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-device-management",
+    "parts": [
+      "g-device-item",
+      "g-device-icon",
+      "g-device-main",
+      "g-device-current"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "login-activity",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-login-activity",
+    "parts": [
+      "g-login-event",
+      "g-login-event-icon",
+      "g-login-event-main"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "security-alert",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-security-alert",
+    "parts": [
+      "g-security-alert-icon",
+      "g-security-alert-actions"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "recovery-codes",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-recovery-codes",
+    "parts": [
+      "g-recovery-code-grid",
+      "g-recovery-code"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "trusted-device",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-trusted-device",
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "connected-accounts",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-connected-accounts",
+    "parts": [
+      "g-connected-account",
+      "g-connected-account-icon",
+      "g-connected-account-main"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "password-strength",
+    "category": "auth",
+    "type": "interactive",
+    "selector": "[data-g-password-strength].g-password-strength",
+    "cssSelector": ".g-password-strength",
+    "parts": [
+      "g-password-strength-header",
+      "g-password-strength-meter",
+      "g-password-strength-value",
+      "g-password-rules",
+      "g-password-rule"
+    ],
+    "behaviors": [
+      "password-strength"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "auth-consent",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-auth-consent",
+    "parts": [
+      "g-auth-consent-scopes",
+      "g-auth-consent-scope"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "auth-result",
+    "category": "auth",
+    "type": "css",
+    "selector": ".g-auth-result",
+    "parts": [
+      "g-auth-result-icon",
+      "g-auth-status"
+    ],
+    "states": [
+      "success",
+      "error",
+      "pending"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  }
+]

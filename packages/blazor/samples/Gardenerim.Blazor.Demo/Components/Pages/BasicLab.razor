@@ -1,0 +1,22 @@
+@page "/basic"
+<PageTitle>基础组件参数演示</PageTitle>
+<h1>基础组件 · Blazor</h1>
+<p>与 CSS、Vue、React、AngularJS 共用 Arco 比例基准和基础交互。</p>
+<div class="g-stack" style="gap:24px" id="basic-lab">
+ <section id="sizes"><h2>按钮尺寸</h2>@foreach(var size in new[]{"mini","small","medium","large"}){<GButton Variants="@(new[]{"primary",size})" data-size="@size">Button</GButton>}</section>
+ <section><h2>按钮组</h2><GButtonGroup Variant="primary" State="@(Disabled ? "disabled" : null)"><GButton>One</GButton><GButton>Two</GButton><GButton>Three</GButton></GButtonGroup></section>
+ <section id="cards"><h2>卡片</h2>@foreach(var size in new[]{"small","medium"}){<GCard Variant="@size" style="width:300px;max-width:100%;margin-block:12px"><div class="g-card-header"><h3 class="g-card-title">Card title</h3></div><div class="g-card-body">Card content</div></GCard>}</section>
+ <section id="badges"><h2>徽标计数</h2><GBadge Config="@(new Dictionary<string,object?> { ["basicCount"]=Count,["basicMax"]=99,["basicShowZero"]=true })"><span class="g-badge-value"></span></GBadge><button class="g-btn" @onclick="()=>Count=Count==128?0:128">切换计数</button></section>
+ <section id="tags"><h2>标签与 Chip</h2>@foreach(var size in new[]{"small","medium","large"}){<GTag Variant="@size">Tag</GTag><GChip Variant="@size">Chip</GChip>}</section>
+ <section><GTag id="controlled-tag" As="button" Variant="checkable" State="@(Disabled ? "disabled" : null)" @bind-Value="Selected" aria-pressed="@Selected?.ToString()?.ToLowerInvariant()" Config="@(new Dictionary<string,object?> { ["basicToggle"]=true,["basicControlled"]=true })">可选标签</GTag><output id="basic-value">@Selected</output></section>
+ <section><h2>头像与头像组</h2><GAvatar id="fallback-avatar"><img src="data:image/png;base64,broken" alt="成员"/><span class="g-avatar-fallback">A</span></GAvatar><GAvatarGroup id="limited-avatars" Config="@(new Dictionary<string,object?> { ["basicMax"]=Maximum })">@foreach(var name in new[]{"A","B","C","D","E"}){<GAvatar><span class="g-avatar-text">@name</span></GAvatar>}<GAvatar class="g-avatar-overflow" /></GAvatarGroup><button class="g-btn" @onclick="()=>Maximum=Maximum==3?5:3">切换数量上限</button></section>
+ <section><h2>分割线</h2><GDividerWithText><span class="g-divider-text">Text</span></GDividerWithText></section>
+ <section><h2>旧入口</h2><GBadgeTagChip>Legacy</GBadgeTagChip><p>兼容旧名称，新代码请选择 Badge、Tag 或 Chip。</p></section>
+ <section><button class="g-btn" @onclick="()=>Disabled=!Disabled">切换禁用</button><GButton id="loading-button" State="loading">Button</GButton></section>
+</div>
+@code {
+ private object? Selected {get;set;}=false;
+ private bool Disabled {get;set;}
+ private int Count {get;set;}=128;
+ private int Maximum {get;set;}=3;
+}

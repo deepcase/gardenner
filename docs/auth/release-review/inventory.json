@@ -1,0 +1,1260 @@
+{
+  "components": 33,
+  "variants": 99,
+  "items": [
+    {
+      "name": "authentication-shell",
+      "title": "认证页面",
+      "variants": [
+        "centered",
+        "split",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "居中/分栏/紧凑外壳、可配置认证流程",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "auth-centered",
+      "title": "居中认证",
+      "variants": [
+        "default",
+        "card",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "居中卡片、宽度上限、边框与品牌",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "auth-split",
+      "title": "分栏认证",
+      "variants": [
+        "default",
+        "reversed",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "分栏/反向分栏、窄容器重排",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "sign-in-composition",
+      "title": "登录",
+      "variants": [
+        "password",
+        "code",
+        "providers"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "密码/验证码/第三方登录、凭据隔离与提交",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "registration-composition",
+      "title": "注册",
+      "variants": [
+        "default",
+        "minimal",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "确认密码、条款错误、私有输入保留",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "password-recovery",
+      "title": "找回账户",
+      "variants": [
+        "email",
+        "phone",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "邮箱/电话恢复、宿主确认与重发限制",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "password-reset",
+      "title": "重置密码",
+      "variants": [
+        "default",
+        "rules",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "规则显示开关、长度/确认校验",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "email-verification",
+      "title": "邮箱验证",
+      "variants": [
+        "code",
+        "link",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "验证码/链接确认、过期与重发",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "phone-verification",
+      "title": "手机验证",
+      "variants": [
+        "numeric",
+        "alphanumeric",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "数字/字母数字代码、粘贴与规范化",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "mfa-challenge",
+      "title": "多因素验证",
+      "variants": [
+        "authenticator",
+        "recovery",
+        "setup"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "验证器/恢复码/设置、可信设备和二维码",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "otp-input",
+      "title": "一次性验证码",
+      "variants": [
+        "numeric",
+        "alphanumeric",
+        "grouped"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "代码长度/类型、分组样式与私有输入",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "passkey-composition",
+      "title": "通行密钥",
+      "variants": [
+        "sign-in",
+        "register",
+        "manage"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "创建/读取/管理、原生 Credential 与宿主确认",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "sso-composition",
+      "title": "单点登录",
+      "variants": [
+        "providers",
+        "domain",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "提供者/组织域名、说明开关",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "qr-login",
+      "title": "扫码登录",
+      "variants": [
+        "waiting",
+        "scanned",
+        "expired"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "等待/已扫描/过期、二维码尺寸与刷新",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "magic-link",
+      "title": "免密链接",
+      "variants": [
+        "email",
+        "sent",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "输入/已发送、过期请求与重发间隔",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "invitation-composition",
+      "title": "邀请加入",
+      "variants": [
+        "default",
+        "expired",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "邀请展示、接受/拒绝、过期刷新",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "first-time-setup",
+      "title": "首次设置",
+      "variants": [
+        "profile",
+        "security",
+        "steps"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "资料/安全/分步，服务确认后推进",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "lock-screen",
+      "title": "锁屏解锁",
+      "variants": [
+        "password",
+        "pin",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "密码/PIN、账户信息与私有值",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "session-expired",
+      "title": "会话过期",
+      "variants": [
+        "expired",
+        "warning",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "会话说明、重新认证、退出确认",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "account-chooser",
+      "title": "选择账号",
+      "variants": [
+        "cards",
+        "list",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "搜索、头像、受控选择、其他账户",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "tenant-chooser",
+      "title": "选择组织",
+      "variants": [
+        "cards",
+        "list",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "组织搜索、禁用项、确认选中组织",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "identity-switcher",
+      "title": "切换身份",
+      "variants": [
+        "default",
+        "expanded",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "展开/收起、当前选择和身份切换清理",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "profile-setup",
+      "title": "个人资料",
+      "variants": [
+        "default",
+        "avatar",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "资料输入、受控 Enter、头像变体",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "account-security",
+      "title": "账户安全",
+      "variants": [
+        "default",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "安全设置项目、修改入口",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "device-management",
+      "title": "设备与会话",
+      "variants": [
+        "list",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "设备搜索、当前设备保护、撤销确认",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "login-activity",
+      "title": "登录活动",
+      "variants": [
+        "list",
+        "table",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "列表/表格、时间/状态、窄容器滚动",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "security-alert",
+      "title": "安全提醒",
+      "variants": [
+        "warning",
+        "error",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "警告/错误、详情与安全处理入口",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "recovery-codes",
+      "title": "恢复码",
+      "variants": [
+        "hidden",
+        "grid",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "显式显示/隐藏、下载、重新生成确认",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "trusted-device",
+      "title": "信任设备",
+      "variants": [
+        "default",
+        "card",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "受控勾选、卡片布局与宽度",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "connected-accounts",
+      "title": "关联账户",
+      "variants": [
+        "list",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "关联/解绑、危险操作确认",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "password-strength",
+      "title": "密码规则检查",
+      "variants": [
+        "rules",
+        "meter",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "可配置长度说明与仪表，不替代后端强度评估",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "auth-consent",
+      "title": "授权确认",
+      "variants": [
+        "default",
+        "scopes",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "必需/禁用权限、授权改变使旧请求失效",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    },
+    {
+      "name": "auth-result",
+      "title": "认证结果",
+      "variants": [
+        "success",
+        "error",
+        "pending"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "implementation": "shared auth controller",
+      "review": "成功/失败/等待状态与重试",
+      "sharedParameters": [
+        "size",
+        "bordered",
+        "direction",
+        "disabled",
+        "readonly",
+        "showHeader",
+        "showBrand",
+        "showStatus",
+        "labels",
+        "requestTimeout"
+      ],
+      "verification": [
+        "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+        "3 variants × 320px container × 3 engines",
+        "empty/loading/error/readonly × 3 engines",
+        "light and dark RTL accessibility",
+        "3 CSS variants and 3 Blazor variants",
+        "shared styles/runtime, catalog and adapter contracts"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+var e=`<script setup lang="ts">
+import {computed,ref,onMounted,onBeforeUnmount} from 'vue';
+import {gardenerimComponents,GDialog,GButton,GInput,type GardenerimComponentDefinition} from '@gardenerim/vue';
+const props=defineProps<{definition:GardenerimComponentDefinition}>();
+const name=computed(()=>props.definition.name),floating=computed(()=>['tooltip','popover','popconfirm'].includes(name.value)),tooltip=computed(()=>name.value==='tooltip'),confirmation=computed(()=>name.value.includes('confirm')),drawer=computed(()=>name.value==='drawer');
+const component=computed(()=>(gardenerimComponents as Record<string,any>)[props.definition.exportName]);
+const instance=ref<any>(),nested=ref<any>(),visible=ref(false),nestedOpen=ref(false),size=ref('medium'),width=ref(''),placement=ref(tooltip.value?'top':'bottom-start'),side=ref('end'),trigger=ref(tooltip.value?'hover focus':'click'),keyboard=ref(true),outside=ref(true),disabled=ref(false),arrow=ref(true),controlled=ref(true),modal=ref(true),asyncConfirm=ref(confirmation.value),fail=ref(false),long=ref(false),scenario=ref('standard'),value=ref('季度产品发布'),status=ref('尚未操作'),framework=ref('Vue');
+let timer:ReturnType<typeof setTimeout>|undefined;
+const selectedVariant=ref(new URLSearchParams(location.search).get('variant')||''),height=ref(''),maxHeight=ref(''),density=ref('default'),showClose=ref(true),lockScroll=ref(true),autofocus=ref(true),restoreFocus=ref(true),topLayer=ref(true),offset=ref(8),boundary=ref(8),openDelay=ref(100),closeDelay=ref(160);
+const labels:Record<string,string>={dialog:'对话框',drawer:'抽屉',popover:'气泡卡片',tooltip:'文字提示',popconfirm:'气泡确认','confirm-dialog':'确认对话框'};
+const config=computed(()=>({overlayControlled:controlled.value,overlayOpen:visible.value,overlayKeyboard:keyboard.value,overlayMaskClosable:outside.value,overlayOutsideClosable:outside.value,overlayDisabled:disabled.value,overlayPlacement:tooltip.value&&selectedVariant.value?({'start-aligned':'top-start',centered:'top','end-aligned':'top-end'} as Record<string,string>)[selectedVariant.value]||selectedVariant.value:placement.value,overlayTrigger:trigger.value,overlayArrow:arrow.value,overlayWidth:width.value||undefined,overlayHeight:height.value||undefined,overlayMaxHeight:maxHeight.value||undefined,overlayDensity:density.value,overlayShowClose:showClose.value,overlayLockScroll:lockScroll.value,overlayAutofocus:autofocus.value,overlayRestoreFocus:restoreFocus.value,overlayTopLayer:topLayer.value,overlayOffset:offset.value,overlayBoundary:boundary.value,overlayModal:modal.value,overlayAsync:asyncConfirm.value,overlayOpenDelay:openDelay.value,overlayCloseDelay:closeDelay.value}));
+const variant=computed(()=>selectedVariant.value||(floating.value?size.value==='large'?'wide':size.value==='small'?'compact':undefined:size.value));
+const api=()=>instance.value?.getInstance?.(floating.value?tooltip.value?'tooltip':'popover':drawer.value?'drawer':'dialog') as any;
+function open(event:MouseEvent){api()?.open(event.currentTarget);}
+function action(event:CustomEvent){if(event.detail.action!=='confirm'){status.value='已取消';return;}status.value=asyncConfirm.value?'处理中…':'已确认';if(asyncConfirm.value){timer=setTimeout(()=>{const success=!fail.value;api()?.complete(success,success?'':'本次操作未完成，内容已保留，请重试。');status.value=success?'已确认完成':'操作失败，可重试';fail.value=false;},700);}}
+function change(event:CustomEvent){if(event.target!==instance.value?.element)return;visible.value=Boolean(event.detail.value);}
+const snippets=computed(()=>({Vue:\`<\${props.definition.exportName} :config="options" v-model="open">\\n  <!-- \${floating.value?'触发器和 data-g-'+(tooltip.value?'tooltip':'popover')+'-content':'标题、正文与操作区'} -->\\n</\${props.definition.exportName}>\`,React:\`<\${props.definition.exportName} config={options} valueEvent="change" valueKey="value" onValueChange={setOpen}>\\n  {/* 标题、内容及操作按钮 */}\\n</\${props.definition.exportName}>\`,AngularJS:\`<div g-\${name.value} gardener-config="options" ng-model="open" gardener-value-event="change">…</div>\`,Blazor:\`<\${props.definition.exportName} Config="Options" @bind-Value="Open" ValueEvent="change" ValueKey="value">…</\${props.definition.exportName}>\`,CSS:\`<div \${floating.value?'data-g-'+(tooltip.value?'tooltip':'popover'):'data-g-'+(drawer.value?'drawer':'dialog')} data-g-overlay-keyboard="true" data-g-overlay-width="520">…</div>\\n// init(root); getInstance(root).open(); close(); complete(success, message);\`}));
+onMounted(()=>{document.documentElement.dataset.demoReady='true';});onBeforeUnmount(()=>clearTimeout(timer));
+<\/script>
+<template>
+<article :id="'component-'+name" class="component-doc overlay-showcase" :data-overlay-demo="name">
+ <header><h2>{{labels[name]}} <small>{{definition.exportName}}</small></h2><p>{{confirmation?'确认前保留上下文，支持取消、异步处理中、失败重试和受控关闭。':tooltip?'支持鼠标、键盘与触屏点击；长文字、方向、延迟和边缘避让可配置。':'支持实际编辑、嵌套、长内容滚动、焦点恢复和可配置关闭策略。'}}</p></header>
+ <div class="overlay-settings">
+  <label>组件变体<select v-model="selectedVariant" aria-label="组件变体"><option value="">默认</option><option v-for="v in definition.variants" :key="v">{{v}}</option></select></label>
+  <label v-if="!tooltip">尺寸<select v-model="size"><option>small</option><option>medium</option><option>large</option><option v-if="!floating">xl</option><option v-if="name==='dialog'">fullscreen</option></select></label>
+  <label>自定义宽度<input v-model="width" placeholder="如 480、80vw" aria-label="自定义宽度"></label>
+  <label>自定义高度<input v-model="height" placeholder="如 400、60vh" aria-label="自定义高度"></label>
+  <label>最大高度<input v-model="maxHeight" placeholder="如 480、75vh" aria-label="最大高度"></label>
+  <label v-if="!tooltip">内容密度<select v-model="density" aria-label="内容密度"><option>compact</option><option>default</option><option>comfortable</option></select></label>
+  <label v-if="floating">弹出位置<select v-model="placement"><option v-for="p in ['top','top-start','top-end','bottom','bottom-start','bottom-end','left','left-start','left-end','right','right-start','right-end']" :key="p">{{p}}</option></select></label>
+  <label v-if="floating">触发方式<select v-model="trigger" aria-label="触发方式"><option>click</option><option>hover focus</option><option>focus</option><option>contextmenu</option><option>manual</option></select></label>
+  <label v-if="drawer">抽屉方向<select v-model="side"><option>start</option><option>end</option><option>top</option><option>bottom</option></select></label>
+  <label><input v-model="controlled" type="checkbox">受控状态</label><label><input v-model="disabled" type="checkbox">禁用</label><label><input v-model="keyboard" type="checkbox">Escape 关闭</label><label><input v-model="outside" type="checkbox">点击外部关闭</label>
+  <label v-if="floating"><input v-model="arrow" type="checkbox">箭头</label><label v-else><input v-model="modal" type="checkbox">模态与背景锁定</label>
+  <template v-if="floating"><label>锚点间距<input v-model.number="offset" type="number" min="0" max="100"></label><label>边界间距<input v-model.number="boundary" type="number" min="0" max="100"></label><label>打开延迟<input v-model.number="openDelay" type="number" min="0" step="100"></label><label>关闭延迟<input v-model.number="closeDelay" type="number" min="0" step="100"></label></template>
+  <template v-else><label><input v-model="showClose" type="checkbox">显示关闭按钮</label><label><input v-model="lockScroll" type="checkbox">锁定背景滚动</label></template>
+  <label v-if="!tooltip"><input v-model="autofocus" type="checkbox">自动聚焦</label><label v-if="!tooltip"><input v-model="restoreFocus" type="checkbox">恢复焦点</label><label><input v-model="topLayer" type="checkbox">浏览器顶层</label>
+  <label><input v-model="long" type="checkbox">长内容</label><label v-if="confirmation"><input v-model="asyncConfirm" type="checkbox">异步确认</label><label v-if="confirmation"><input v-model="fail" type="checkbox">下次模拟失败</label>
+ </div>
+ <div class="overlay-stage">
+  <GButton v-if="!floating" class="overlay-launch" :disabled="disabled" @click="open">打开{{labels[name]}}</GButton>
+  <component :is="component" ref="instance" :config="config" :variant="variant" :data-g-side="drawer?side:undefined" @gardener:change="change" @gardener:action="action">
+   <template v-if="floating">
+    <GButton :disabled="disabled" :data-g-tooltip-trigger="tooltip?'':undefined" :data-g-popover-trigger="!tooltip?'':undefined" class="overlay-launch">{{tooltip?'查看使用提示':confirmation?'移除项目':'编辑项目'}} </GButton>
+    <div :data-g-tooltip-content="tooltip?'':undefined" :data-g-popover-content="!tooltip?'':undefined" hidden>
+     <template v-if="tooltip">{{long?'可以使用键盘 Tab 聚焦触发器，再按 Escape 关闭。内容在窗口边缘自动避让，滚动或改变尺寸后会重新定位。':'修改后会自动保存到当前草稿。'}}</template>
+     <template v-else><div v-if="confirmation" class="g-popconfirm-icon" aria-hidden="true">!</div><h3 :class="confirmation?'g-popconfirm-title':'g-popover-title'">{{confirmation?'确认移除这个项目？':'项目设置'}}</h3><div class="g-popover-content"><p>{{confirmation?'此演示只修改本地状态。操作失败时保留浮层，允许重试。':'在气泡中编辑内容，点击内部输入不会关闭浮层。'}}</p><label v-if="!confirmation">项目名称<GInput v-model="value" aria-label="浮层项目名称"/></label><GButton class="overlay-resize" @click="width=width==='640'?'360':'640'">切换宽度</GButton><p v-if="long" v-for="n in 12" :key="n">内容 {{n}}：浮层保留当前页面上下文，长内容可滚动查看。</p></div><p data-g-overlay-error role="status"/><div :class="confirmation?'g-popconfirm-actions':'g-popover-footer'"><GButton data-g-overlay-cancel>取消</GButton><GButton variant="primary" data-g-overlay-confirm>{{confirmation?'确认移除':'保存'}}</GButton></div></template>
+    </div>
+   </template>
+   <section v-else :class="drawer?'g-drawer':'g-dialog'" :aria-label="labels[name]+'示例'">
+    <header :class="drawer?'g-drawer-header':'g-dialog-header'"><h3 :class="drawer?'g-drawer-title':'g-dialog-title'">{{confirmation?'确认发布项目？':'编辑项目信息'}}</h3><button class="g-dialog-close" data-g-close aria-label="关闭浮层">×</button></header>
+    <div :class="drawer?'g-drawer-body':'g-dialog-body'"><div v-if="confirmation" class="g-confirm-dialog-icon" aria-hidden="true">!</div><p>{{confirmation?'请检查项目内容后确认。异步失败会保留输入，重试成功后关闭。':'所有表单内容由 Vue 管理，浮层参数更新时保留输入。'}}</p><label>项目名称<GInput v-model="value" aria-label="浮层项目名称"/></label><p><GButton class="overlay-resize" @click="width=width==='640'?'360':'640'">切换宽度</GButton></p><p><GButton class="overlay-nested-launch" @click="nested?.getInstance('dialog')?.open($event.currentTarget)">打开嵌套确认</GButton></p><p v-if="long" v-for="n in 22" :key="n">第 {{n}} 项检查：正文独立滚动，标题和操作区保持可用。</p><p data-g-overlay-error role="status"/></div>
+    <footer :class="drawer?'g-drawer-footer':'g-dialog-footer'"><GButton data-g-overlay-cancel>取消</GButton><GButton variant="primary" data-g-overlay-confirm>{{confirmation?'确认发布':'保存'}}</GButton></footer>
+    <GDialog ref="nested" :config="{overlayWidth:360}" hidden class="overlay-nested"><section class="g-dialog" aria-label="嵌套确认"><header class="g-dialog-header"><h3 class="g-dialog-title">保留草稿？</h3></header><div class="g-dialog-body">按 Escape 只关闭这一层，焦点返回父层按钮。</div><footer class="g-dialog-footer"><GButton data-g-close>返回父层</GButton></footer></section></GDialog>
+   </section>
+  </component>
+  <GButton v-if="floating" @click="api()?.open()" :disabled="disabled">程序打开</GButton><GButton @click="api()?.close()">程序关闭</GButton>
+  <output class="overlay-result" aria-live="polite">{{status}} · {{visible?'打开':'关闭'}} · {{value}}</output>
+ </div>
+ <details class="overlay-code"><summary>参数与五端写法</summary><p>共用 overlayOpen、overlayControlled、overlayTrigger、overlayPlacement、overlayKeyboard、overlayMaskClosable、overlayOutsideClosable、overlayDisabled、overlayWidth、overlayAsync 参数。false 在五端均明确生效。</p><label>框架<select v-model="framework"><option v-for="f in ['Vue','React','AngularJS','CSS','Blazor']" :key="f">{{f}}</option></select></label><pre>{{snippets[framework as keyof typeof snippets]}}</pre><p>完整参数、结构与异步协议见项目 docs/overlay。模拟确认不调用外部接口。</p></details>
+</article>
+</template>
+<style scoped>
+.overlay-showcase{min-width:0;padding-block:24px}.overlay-showcase h2{font-size:28px;margin:0 0 12px}.overlay-showcase h2 small{font-size:18px;font-weight:400;color:var(--g-color-text-muted)}.overlay-showcase>header p{line-height:1.7;color:var(--g-color-text-muted)}.overlay-settings{display:flex;flex-wrap:wrap;gap:14px;padding:20px 0}.overlay-settings label{display:flex;align-items:center;gap:6px;font-size:13px}.overlay-settings select,.overlay-settings input:not([type=checkbox]),.overlay-code select{font:inherit;max-width:150px;padding:5px;border:1px solid var(--g-color-border);border-radius:2px;color:var(--g-color-text);background:var(--g-color-surface)}.overlay-stage{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-height:120px;padding:24px;border:1px solid var(--g-color-border);border-radius:4px;background:var(--g-color-surface)}.overlay-result{width:100%;font-size:13px;color:var(--g-color-text-muted)}.overlay-code{margin-block:20px;font-size:13px;line-height:1.7}.overlay-code pre{padding:16px;background:var(--g-color-surface-subtle);white-space:pre-wrap;overflow-wrap:anywhere}.g-dialog-body label,.g-drawer-body label,.g-popover-content label{display:grid;gap:8px}.g-dialog-body p,.g-drawer-body p{margin-block:12px}@media(max-width:575px){.overlay-stage{padding:16px}.overlay-showcase h2{font-size:24px}.overlay-showcase h2 small{display:block}}
+</style>\r
+`;export{e as default};

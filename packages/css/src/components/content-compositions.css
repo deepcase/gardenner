@@ -1,11 +1,17 @@
 @layer gardener.components {
   /* Category 10: files, uploads, viewers and reusable content-authoring compositions. */
   .g-content-container { container-type: inline-size; min-inline-size: 0; }
-  .g-file-drop { display: grid; min-height: var(--g-file-drop-min-height, var(--g-state-min-height)); place-items: center; gap: var(--g-space-2); padding: var(--g-file-drop-padding, var(--g-component-padding)); border: 1px dashed var(--g-color-border-strong); border-radius: var(--g-radius-md); background: var(--g-color-surface); color: var(--g-color-text-muted); text-align: center; cursor: pointer; }
-  .g-file-drop:is(:hover, :focus-visible, .is-dragging) { border-color: var(--g-color-primary); background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
-  .g-file-drop-icon { display: grid; width: 3rem; height: 3rem; place-items: center; border-radius: var(--g-radius-md); background: var(--g-color-surface-subtle); font-size: var(--g-font-size-xl); }
-  .g-file-drop-title { color: var(--g-color-text); font-weight: 700; }
-  .g-file-drop-rules { font-size: var(--g-font-size-xs); }
+  .g-file-drop { position: relative; display: grid; min-inline-size: 0; min-height: var(--g-file-drop-min-height, var(--g-state-min-height)); align-content: center; justify-items: center; gap: var(--g-space-2); padding: var(--g-file-drop-padding, var(--g-component-padding)); overflow: hidden; border: 1px dashed var(--g-color-border-strong); border-radius: var(--g-radius-lg); outline: 0; background: var(--g-color-surface-subtle); color: var(--g-color-text-muted); text-align: center; cursor: pointer; transition: border-color var(--g-duration-fast), background-color var(--g-duration-fast), box-shadow var(--g-duration-fast); }
+  .g-file-drop:is(:hover, :focus-visible, :focus-within) { border-color: color-mix(in srgb, var(--g-color-primary) 68%, var(--g-color-border)); background: color-mix(in srgb, var(--g-color-primary-soft) 58%, var(--g-color-surface)); }
+  .g-file-drop:is(:focus-visible, :focus-within) { box-shadow: 0 0 0 var(--g-focus-ring-width) var(--g-focus-ring); }
+  .g-file-drop:is(.is-dragging, [data-g-state="dragging"]) { border-color: var(--g-color-primary); border-style: solid; background: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
+  .g-file-drop-input { position: absolute; inline-size: 1px; block-size: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .g-file-drop-content { display: grid; max-inline-size: 34rem; justify-items: center; gap: var(--g-space-2); pointer-events: none; }
+  .g-file-drop-icon { display: grid; width: 3.5rem; height: 3.5rem; place-items: center; border-radius: var(--g-radius-lg); background: var(--g-color-primary-soft); color: var(--g-color-primary-text); font-size: var(--g-font-size-xl); }
+  .g-file-drop-title { color: var(--g-color-text); font-size: var(--g-font-size-md); font-weight: 700; }
+  .g-file-drop-description { color: var(--g-color-text-muted); font-size: var(--g-font-size-sm); line-height: 1.55; }
+  .g-file-drop-rules { color: var(--g-color-text-subtle); font-size: var(--g-font-size-xs); }
+  .g-file-drop-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--g-space-2); margin-block-start: var(--g-space-2); pointer-events: auto; }
 
   .g-file-list, .g-upload-queue { display: grid; gap: 1px; overflow: hidden; border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-border); }
   .g-file-list-header, .g-upload-queue-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--g-space-2); padding: var(--g-space-3); background: var(--g-color-surface-subtle); }
@@ -17,13 +23,38 @@
   .g-file-meta { display: flex; flex-wrap: wrap; gap: var(--g-space-2); color: var(--g-color-text-muted); font-size: var(--g-font-size-xs); }
   .g-file-actions, .g-upload-actions { display: flex; align-items: center; gap: var(--g-space-1); }
 
-  .g-upload-summary { display: flex; flex-wrap: wrap; gap: var(--g-space-3); color: var(--g-color-text-muted); font-size: var(--g-font-size-sm); font-variant-numeric: tabular-nums; }
-  .g-upload-item { grid-template-columns: auto minmax(0, 1fr) minmax(7rem, 20%) auto; }
-  .g-upload-item[data-g-status="error"] { box-shadow: inset 0.2rem 0 var(--g-color-danger); }
+  .g-upload-queue { --g-upload-item-padding-block: var(--g-space-3); --g-upload-item-padding-inline: var(--g-space-4); gap: 0; min-inline-size: 0; background: var(--g-color-surface); }
+  .g-upload-queue.g-upload-queue-flat { border-color: transparent; }
+  .g-upload-queue.g-upload-queue-compact { --g-upload-item-padding-block: var(--g-space-2); --g-upload-item-padding-inline: var(--g-space-3); }
+  .g-upload-queue.g-upload-queue-spacious { --g-upload-item-padding-block: var(--g-space-4); --g-upload-item-padding-inline: var(--g-space-5); }
+  .g-upload-queue-header { min-inline-size: 0; padding: var(--g-upload-item-padding-block) var(--g-upload-item-padding-inline); border-block-end: 1px solid var(--g-color-border); background: var(--g-color-surface-subtle); }
+  .g-upload-queue-title { min-inline-size: 0; color: var(--g-color-text); font-size: var(--g-font-size-md); font-weight: 700; }
+  .g-upload-summary { display: flex; flex-wrap: wrap; align-items: center; gap: var(--g-space-2); color: var(--g-color-text-muted); font-size: var(--g-font-size-xs); font-variant-numeric: tabular-nums; }
+  .g-upload-summary > * { display: inline-flex; min-height: 1.625rem; align-items: center; gap: var(--g-space-1); padding-inline: var(--g-space-2); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-full); background: var(--g-color-surface); }
+  .g-upload-summary b { color: var(--g-color-text); }
+  .g-upload-input { position: absolute; inline-size: 1px; block-size: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .g-upload-list { display: grid; min-inline-size: 0; }
+  .g-upload-empty { display: grid; min-height: 8rem; place-items: center; gap: var(--g-space-2); padding: var(--g-space-5); background: var(--g-color-surface); color: var(--g-color-text-muted); text-align: center; }
+  .g-upload-empty[hidden] { display: none; }
+  .g-upload-item { grid-template-columns: auto minmax(0, 1fr) minmax(7rem, 22%) auto; min-height: 4.5rem; padding: var(--g-upload-item-padding-block) var(--g-upload-item-padding-inline); border-block-end: 1px solid var(--g-color-border); background: var(--g-color-surface); box-shadow: none; transition: background-color var(--g-duration-fast), box-shadow var(--g-duration-fast); }
+  .g-upload-item:last-child { border-block-end: 0; }
+  .g-upload-item:is(:hover, :focus-within) { background: var(--g-color-surface-subtle); }
+  .g-upload-item[data-g-status="queued"] { box-shadow: inset 0.2rem 0 var(--g-color-border-strong); }
+  .g-upload-item[data-g-status="uploading"] { box-shadow: inset 0.2rem 0 var(--g-color-primary); }
+  .g-upload-item[data-g-status="paused"] { box-shadow: inset 0.2rem 0 var(--g-color-warning); }
+  .g-upload-item[data-g-status="error"] { background: color-mix(in srgb, var(--g-color-danger-soft) 48%, var(--g-color-surface)); box-shadow: inset 0.2rem 0 var(--g-color-danger); }
   .g-upload-item[data-g-status="success"] { box-shadow: inset 0.2rem 0 var(--g-color-success); }
-  .g-upload-progress, .g-storage-track { position: relative; height: 0.4rem; overflow: hidden; border-radius: var(--g-radius-sm); background: var(--g-color-surface-sunken); }
-  .g-upload-progress-bar, .g-storage-value { display: block; width: var(--g-progress, 0%); height: 100%; background: var(--g-color-primary); transition: width var(--g-duration-normal) var(--g-ease-standard); }
-  .g-upload-status { color: var(--g-color-text-muted); font-size: var(--g-font-size-xs); }
+  .g-upload-item[data-g-status="success"] .g-file-icon { background: var(--g-color-success-soft); color: var(--g-color-success); }
+  .g-upload-item[data-g-status="error"] .g-file-icon { background: var(--g-color-danger-soft); color: var(--g-color-danger); }
+  .g-upload-progress, .g-storage-track { position: relative; height: 0.5rem; overflow: hidden; border-radius: var(--g-radius-full); background: var(--g-color-surface-sunken); }
+  .g-upload-progress-bar, .g-storage-value { display: block; width: var(--g-progress, 0%); height: 100%; border-radius: inherit; background: var(--g-color-primary); transition: width var(--g-duration-normal) var(--g-ease-standard); }
+  .g-upload-item[data-g-status="success"] .g-upload-progress-bar { background: var(--g-color-success); }
+  .g-upload-item[data-g-status="error"] .g-upload-progress-bar { background: var(--g-color-danger); }
+  .g-upload-item[data-g-status="paused"] .g-upload-progress-bar { background: var(--g-color-warning); }
+  .g-upload-status { display: block; margin-block-start: var(--g-space-1); color: var(--g-color-text-muted); font-size: var(--g-font-size-xs); }
+  .g-upload-actions { justify-content: flex-end; }
+  .g-upload-queue:is(.is-disabled, [aria-disabled="true"], [data-g-disabled]) { opacity: var(--g-opacity-disabled, 0.55); }
+  .g-upload-queue:is(.is-disabled, [aria-disabled="true"], [data-g-disabled]) .g-upload-actions { pointer-events: none; }
   .g-failed-upload :is(.g-file-meta, .g-upload-status) { color: var(--g-color-text); }
   .g-chunk-upload { display: grid; gap: var(--g-space-3); padding: var(--g-space-3); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface); }
   .g-chunk-map { display: grid; grid-template-columns: repeat(auto-fit, minmax(0.5rem, 1fr)); gap: 2px; }
@@ -181,8 +212,12 @@
   }
 
   @media (max-width: 40rem) {
-    .g-upload-item { grid-template-columns: auto minmax(0, 1fr) auto; }
-    .g-upload-item > .g-upload-progress { grid-column: 2 / -1; width: 100%; }
+    .g-file-properties { gap: var(--g-space-1); }
+    .g-upload-queue-header { align-items: flex-start; }
+    .g-upload-summary { flex-basis: 100%; }
+    .g-upload-item { grid-template-columns: auto minmax(0, 1fr); align-items: start; }
+    .g-upload-item > .g-upload-progress { grid-column: 1 / -1; width: 100%; }
+    .g-upload-item > .g-upload-actions { grid-column: 1 / -1; justify-content: flex-end; }
     .g-file-row { grid-template-columns: auto minmax(0, 1fr); }
     .g-file-row > .g-file-actions { grid-column: 1 / -1; justify-content: flex-end; }
     .g-audio-player { grid-template-columns: auto minmax(0, 1fr); }
@@ -191,6 +226,9 @@
     .g-revision-panel + .g-revision-panel { border-block-start: 1px solid var(--g-color-border); border-inline-start: 0; }
   }
 
+  [dir="rtl"] .g-upload-item[data-g-status="queued"] { box-shadow: inset -0.2rem 0 var(--g-color-border-strong); }
+  [dir="rtl"] .g-upload-item[data-g-status="uploading"] { box-shadow: inset -0.2rem 0 var(--g-color-primary); }
+  [dir="rtl"] .g-upload-item[data-g-status="paused"] { box-shadow: inset -0.2rem 0 var(--g-color-warning); }
   [dir="rtl"] .g-upload-item[data-g-status="error"] { box-shadow: inset -0.2rem 0 var(--g-color-danger); }
   [dir="rtl"] .g-upload-item[data-g-status="success"] { box-shadow: inset -0.2rem 0 var(--g-color-success); }
   [dir="rtl"] .g-block:is(:hover, :focus-within, [aria-selected="true"]) { box-shadow: inset -0.2rem 0 var(--g-color-primary); }
@@ -199,6 +237,7 @@
   @media (forced-colors: active) {
     .g-file-drop, .g-file-card, .g-media-item, .g-crop-frame, .g-document-page, .g-comment-body { forced-color-adjust: auto; }
     .g-upload-progress-bar, .g-storage-value, .g-version-dot, .g-autosave-dot { background: Highlight; }
+    .g-upload-item[data-g-status] { border-inline-start: 0.2rem solid Highlight; box-shadow: none; }
   }
   @media print {
     .g-file-drop, .g-upload-actions, .g-file-actions, .g-file-browser-tree, .g-editor-toolbar, .g-viewer-toolbar, .g-media-controls, .g-image-tools, .g-image-inspector, .g-find-replace { display: none !important; }
@@ -209,3 +248,7 @@
     .g-revision-panel { break-inside: avoid; border: 1px solid #999 !important; }
   }
 }
+
+@layer gardener.components { @media(max-width:44rem) { .g-media-details { max-inline-size:100%; border-inline-start:0; border-block-start:1px solid var(--g-color-border); } } }
+
+@layer gardener.components { .g-upload-queue.g-upload-queue-bordered { border-color:var(--g-color-border); border-width:1px; } }

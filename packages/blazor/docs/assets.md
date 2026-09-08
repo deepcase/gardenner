@@ -1,6 +1,6 @@
 # 静态资源完整目录
 
-共 45 个公开静态资源：全量 CSS、Blazor/runtime/桌面适配 JS、对应 source map、5 个平台包与 28 个组件域包，无省略。C# 应用也可通过 `GardenerimAssets` 查询路径。
+共 76 个公开静态资源：全量 CSS、Blazor/runtime/桌面适配 JS、对应 source map、5 个平台包与 28 个组件域包，无省略。C# 应用也可通过 `GardenerimAssets` 查询路径。
 
 | 包内路径 | 应用 URL |
 | --- | --- |
@@ -49,3 +49,34 @@
 | `components/ai.min.css` | `_content/Gardenerim.Blazor/components/ai.min.css` |
 | `components/ai-extended.min.css` | `_content/Gardenerim.Blazor/components/ai-extended.min.css` |
 | `components/ai-compositions.min.css` | `_content/Gardenerim.Blazor/components/ai-compositions.min.css` |
+| `foundation.js` | `_content/Gardenerim.Blazor/foundation.js` |
+| `tree.js` | `_content/Gardenerim.Blazor/tree.js` |
+| `timeline.js` | `_content/Gardenerim.Blazor/timeline.js` |
+| `tag.js` | `_content/Gardenerim.Blazor/tag.js` |
+| `tabs.js` | `_content/Gardenerim.Blazor/tabs.js` |
+| `statistic.js` | `_content/Gardenerim.Blazor/statistic.js` |
+| `list.js` | `_content/Gardenerim.Blazor/list.js` |
+| `image.js` | `_content/Gardenerim.Blazor/image.js` |
+| `descriptions.js` | `_content/Gardenerim.Blazor/descriptions.js` |
+| `table.js` | `_content/Gardenerim.Blazor/table.js` |
+| `solution.js` | `_content/Gardenerim.Blazor/solution.js` |
+| `legal.js` | `_content/Gardenerim.Blazor/legal.js` |
+| `communication.js` | `_content/Gardenerim.Blazor/communication.js` |
+| `workflow.js` | `_content/Gardenerim.Blazor/workflow.js` |
+| `desktop.js` | `_content/Gardenerim.Blazor/desktop.js` |
+| `enterprise.js` | `_content/Gardenerim.Blazor/enterprise.js` |
+| `marketing.js` | `_content/Gardenerim.Blazor/marketing.js` |
+| `cms.js` | `_content/Gardenerim.Blazor/cms.js` |
+| `mobile.js` | `_content/Gardenerim.Blazor/mobile.js` |
+| `auth.js` | `_content/Gardenerim.Blazor/auth.js` |
+| `commerce.js` | `_content/Gardenerim.Blazor/commerce.js` |
+| `media.js` | `_content/Gardenerim.Blazor/media.js` |
+| `ai.js` | `_content/Gardenerim.Blazor/ai.js` |
+| `help.js` | `_content/Gardenerim.Blazor/help.js` |
+| `layout.js` | `_content/Gardenerim.Blazor/layout.js` |
+| `content.js` | `_content/Gardenerim.Blazor/content.js` |
+| `navigation.js` | `_content/Gardenerim.Blazor/navigation.js` |
+| `navigation-catalog.js` | `_content/Gardenerim.Blazor/navigation-catalog.js` |
+| `data-display.js` | `_content/Gardenerim.Blazor/data-display.js` |
+| `dashboard.js` | `_content/Gardenerim.Blazor/dashboard.js` |
+| `interaction.js` | `_content/Gardenerim.Blazor/interaction.js` |

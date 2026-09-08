@@ -1,0 +1,115 @@
+{
+  "verifiedAt": "2026-09-07T00:07:36.108Z",
+  "status": "passed",
+  "components": 8,
+  "variants": 32,
+  "newComponents": [
+    "workflow-checklist",
+    "workflow-approval",
+    "workflow-builder",
+    "workflow-run-history",
+    "workflow-run-detail",
+    "workflow-trigger"
+  ],
+  "parity": {
+    "components": 8,
+    "variants": 32,
+    "frameworks": [
+      "css",
+      "vue",
+      "react",
+      "angularjs",
+      "blazor"
+    ],
+    "sharedCss": true,
+    "sharedRuntime": true,
+    "identicalBlazorAssets": true,
+    "examples": true
+  },
+  "browsers": [
+    {
+      "engine": "chromium",
+      "layouts": 64,
+      "states": 32,
+      "a11y": 40,
+      "interactions": 18
+    },
+    {
+      "engine": "firefox",
+      "layouts": 64,
+      "states": 32,
+      "a11y": 0,
+      "interactions": 18
+    },
+    {
+      "engine": "webkit",
+      "layouts": 64,
+      "states": 32,
+      "a11y": 0,
+      "interactions": 18
+    }
+  ],
+  "blazor": {
+    "variants": 32,
+    "controlledInteractions": 8,
+    "errors": []
+  },
+  "static": {
+    "staticVariants": 32,
+    "catalogComponents": 8,
+    "errors": []
+  },
+  "tests": {
+    "cssRuntime": 497,
+    "workflow": 27,
+    "cssSchema": 48,
+    "cssBuild": 11,
+    "html": 41,
+    "vue": 137,
+    "react": 86,
+    "angularjs": 74
+  },
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "rootCheck": "passed",
+  "limitations": [
+    "演示使用内存数据和模拟业务服务。",
+    "实际审批权限、持久化、调度与执行、Webhook 签名、重试幂等性和服务端版本控制由业务服务实现。",
+    "分支 condition 为宿主解释的文本，不在浏览器执行代码。"
+  ]
+}

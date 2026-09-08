@@ -1,0 +1,1 @@
+import fs from 'node:fs';for(const p of ['packages/css/examples/auth-lab.html','scripts/build-auth-examples.mjs'])fs.writeFileSync(p,fs.readFileSync(p,'utf8').replaceAll('../dist/gardener.min.css','../dist/gardener.css'));

@@ -927,11 +927,13 @@
         },
         {
           "id": "form-actions",
-          "selector": ".g-form-actions"
+          "selector": ".g-form-actions",
+          "purpose": "Groups secondary and primary form commands with submission feedback, responsive stacking, logical alignment and safe-area-aware sticky placement."
         },
         {
           "id": "autosave-status",
-          "selector": ".g-autosave-status"
+          "selector": ".g-autosave-status",
+          "purpose": "Communicates dirty, saving, saved, failed, offline and disabled autosave states with debounced persistence, timestamps and retry recovery."
         },
         {
           "id": "form-progress",
@@ -1029,7 +1031,10 @@
       "patterns": [
         {
           "id": "navbar",
-          "selector": ".g-navbar"
+          "selector": ".g-navbar",
+          "behaviors": [
+            "nav-toggle"
+          ]
         },
         {
           "id": "primary-navigation",
@@ -1045,7 +1050,11 @@
         },
         {
           "id": "sidebar-navigation",
-          "selector": ".g-sidebar"
+          "selector": ".g-sidebar",
+          "behaviors": [
+            "nav-toggle",
+            "roving-nav"
+          ]
         },
         {
           "id": "collapsible-navigation",

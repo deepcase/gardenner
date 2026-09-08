@@ -3,24 +3,128 @@
   "$id": "https://gardener.dev/schema/react/public-api-1.json",
   "type": "object",
   "additionalProperties": false,
-  "required": ["$schema", "schemaVersion", "version", "status", "cssVersion", "react", "components", "behaviors", "componentExports", "moduleExports", "typeExports", "packageEntrypoints", "hooks", "componentProps", "componentHandleMembers", "themeAxes", "provider"],
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "version",
+    "status",
+    "cssVersion",
+    "react",
+    "components",
+    "behaviors",
+    "componentExports",
+    "moduleExports",
+    "typeExports",
+    "packageEntrypoints",
+    "hooks",
+    "componentProps",
+    "componentHandleMembers",
+    "themeAxes",
+    "provider"
+  ],
   "properties": {
-    "$schema": { "const": "./public-api.schema.json" },
-    "schemaVersion": { "const": 1 },
-    "version": { "const": "2.1.0" },
-    "status": { "const": "stable" },
-    "cssVersion": { "const": "2.1.0" },
-    "react": { "type": "string", "minLength": 1 },
-    "components": { "const": 506 },
-    "behaviors": { "const": 72 },
-    "componentExports": { "type": "array", "minItems": 506, "maxItems": 506, "uniqueItems": true, "items": { "type": "string", "pattern": "^G[A-Z][A-Za-z0-9]*$" } },
-    "moduleExports": { "type": "array", "minItems": 546, "maxItems": 546, "uniqueItems": true, "items": { "type": "string" } },
-    "typeExports": { "type": "array", "minItems": 22, "maxItems": 22, "uniqueItems": true, "items": { "type": "string" } },
-    "packageEntrypoints": { "type": "array", "minItems": 30, "maxItems": 30, "uniqueItems": true, "items": { "type": "string", "pattern": "^\\." } },
-    "hooks": { "type": "array", "minItems": 8, "maxItems": 8, "uniqueItems": true, "items": { "type": "string", "pattern": "^use[A-Z]" } },
-    "componentProps": { "type": "array", "minItems": 10, "maxItems": 10, "uniqueItems": true, "items": { "type": "string" } },
-    "componentHandleMembers": { "type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true, "items": { "type": "string" } },
-    "themeAxes": { "type": "array", "minItems": 10, "maxItems": 10, "uniqueItems": true, "items": { "type": "string" } },
-    "provider": { "const": "GardenerimProvider" }
+    "$schema": {
+      "const": "./public-api.schema.json"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "version": {
+      "const": "2.2.0"
+    },
+    "status": {
+      "const": "stable"
+    },
+    "cssVersion": {
+      "const": "2.2.0"
+    },
+    "react": {
+      "type": "string",
+      "minLength": 1
+    },
+    "components": {
+      "const": 575
+    },
+    "behaviors": {
+      "const": 96
+    },
+    "componentExports": {
+      "type": "array",
+      "minItems": 575,
+      "maxItems": 575,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^G[A-Z][A-Za-z0-9]*$"
+      }
+    },
+    "moduleExports": {
+      "type": "array",
+      "minItems": 615,
+      "maxItems": 615,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "typeExports": {
+      "type": "array",
+      "minItems": 32,
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "packageEntrypoints": {
+      "type": "array",
+      "minItems": 30,
+      "maxItems": 30,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^\\."
+      }
+    },
+    "hooks": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^use[A-Z]"
+      }
+    },
+    "componentProps": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "componentHandleMembers": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "themeAxes": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "provider": {
+      "const": "GardenerimProvider"
+    }
   }
 }

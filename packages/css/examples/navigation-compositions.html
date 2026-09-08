@@ -74,14 +74,30 @@
       <div class="g-navbar-start">
         <a class="g-navbar-brand" href="#">Gardenerim</a>
       </div>
-      <nav class="g-primary-nav" aria-label="主导航">
-        <a class="g-primary-nav-link" href="#global" aria-current="page">产品</a
-        ><a class="g-primary-nav-link" href="#hierarchy">解决方案</a
-        ><a class="g-primary-nav-link" href="#mobile">资源</a>
+      <nav class="g-primary-nav g-primary-nav-underline" aria-label="主导航">
+        <ul class="g-primary-nav-list">
+          <li class="g-primary-nav-item">
+            <a class="g-primary-nav-link" href="#global" aria-current="page"><span class="g-primary-nav-icon" aria-hidden="true">◇</span><span class="g-primary-nav-label">产品</span><span class="g-primary-nav-indicator" aria-hidden="true"></span></a>
+          </li>
+          <li class="g-primary-nav-item">
+            <a class="g-primary-nav-link" href="#hierarchy"><span class="g-primary-nav-label">解决方案</span><span class="g-primary-nav-badge" aria-label="6 个方案">6</span></a>
+          </li>
+          <li class="g-primary-nav-item"><a class="g-primary-nav-link" href="#mobile"><span class="g-primary-nav-label">资源</span></a></li>
+          <li class="g-primary-nav-item"><a class="g-primary-nav-link" href="#global" aria-disabled="true"><span class="g-primary-nav-label">企业版</span></a></li>
+        </ul>
       </nav>
-      <nav class="g-utility-nav" aria-label="辅助导航">
-        <a class="g-utility-nav-link" href="#identity">支持</a
-        ><a class="g-utility-nav-link" href="#identity">登录</a>
+      <nav class="g-utility-nav g-utility-nav-compact" aria-label="辅助导航">
+        <ul class="g-utility-nav-list">
+          <li class="g-utility-nav-item">
+            <a class="g-utility-nav-link" href="#identity"><span class="g-utility-nav-icon" aria-hidden="true">?</span><span class="g-utility-nav-label">帮助</span></a>
+          </li>
+          <li class="g-utility-nav-item">
+            <a class="g-utility-nav-link" href="#identity"><span class="g-utility-nav-label">通知</span><span class="g-utility-nav-badge" aria-label="3 条未读通知">3</span></a>
+          </li>
+          <li class="g-utility-nav-item">
+            <a class="g-utility-nav-link" href="#identity" aria-current="page"><span class="g-utility-nav-label">账户</span></a>
+          </li>
+        </ul>
       </nav>
       <div class="g-navbar-end">
         <button
@@ -95,11 +111,14 @@
         </button>
       </div>
     </header>
-    <nav class="g-subnav" aria-label="二级导航">
-      <a class="g-subnav-link" href="#global" aria-current="page">概览</a
-      ><a class="g-subnav-link" href="#selection">选中导航</a
-      ><a class="g-subnav-link" href="#continuation">流程导航</a
-      ><a class="g-subnav-link" href="#mobile">移动端</a>
+    <nav class="g-subnav g-subnav-underline g-subnav-responsive" aria-label="二级导航">
+      <ul class="g-subnav-list">
+        <li class="g-subnav-item"><a class="g-subnav-link" href="#global" aria-current="page"><span class="g-subnav-icon" aria-hidden="true">⌂</span><span class="g-subnav-label">概览</span><span class="g-subnav-indicator" aria-hidden="true"></span></a></li>
+        <li class="g-subnav-item"><a class="g-subnav-link" href="#selection"><span class="g-subnav-label">选中导航</span><span class="g-subnav-badge" aria-label="4 个示例">4</span></a></li>
+        <li class="g-subnav-item"><a class="g-subnav-link" href="#continuation"><span class="g-subnav-label">流程导航</span></a></li>
+        <li class="g-subnav-item"><a class="g-subnav-link" href="#mobile"><span class="g-subnav-label">移动端</span></a></li>
+        <li class="g-subnav-item"><a class="g-subnav-link" href="#disabled" aria-disabled="true"><span class="g-subnav-label">高级设置</span></a></li>
+      </ul>
     </nav>
     <aside class="g-drawer-nav" id="demo-drawer" hidden>
       <header class="g-drawer-nav-header">
@@ -165,19 +184,30 @@
           </article>
           <article class="demo-card">
             <h3>Menubar / Activity Bar</h3>
-            <div
-              class="g-menubar"
-              style="height: 2.25rem; border: 1px solid var(--g-color-border)"
-            >
-              <button type="button" class="g-menubar-item">文件</button
-              ><button type="button" class="g-menubar-item">编辑</button
-              ><button type="button" class="g-menubar-item">视图</button>
-            </div>
-            <div class="g-activitybar g-mt-3" style="height: 10rem">
-              <a class="g-activitybar-item" href="#" aria-current="page">EX</a
-              ><a class="g-activitybar-item" href="#">SR</a
-              ><a class="g-activitybar-item" href="#">AI</a>
-            </div>
+            <nav class="g-menubar g-menubar-bordered" data-g-roving-nav role="menubar" aria-label="应用菜单">
+              <div class="g-menubar-start">
+                <strong class="g-menubar-brand">Gardenerim Studio</strong>
+                <ul class="g-menubar-list" role="none">
+                  <li role="none"><div class="g-menubar-menu g-dropdown" data-g-dropdown><button type="button" class="g-menubar-item" role="menuitem" data-g-dropdown-trigger><span class="g-menubar-item-label">文件</span><span class="g-menubar-item-caret" aria-hidden="true"></span></button><ul class="g-menubar-menu-panel g-dropdown-menu g-menu" data-g-dropdown-menu hidden><li><button class="g-menubar-menu-item g-menu-item" type="button" role="menuitem"><span class="g-menubar-menu-item-icon" aria-hidden="true">＋</span><span class="g-menubar-menu-item-label">新建文件</span><kbd class="g-menubar-menu-item-shortcut">Ctrl N</kbd></button></li><li><button class="g-menubar-menu-item g-menu-item" type="button" role="menuitem"><span class="g-menubar-menu-item-label">打开工作区…</span><kbd class="g-menubar-menu-item-shortcut">Ctrl O</kbd></button></li><li role="separator" class="g-menubar-separator"></li><li><button class="g-menubar-menu-item g-menu-item" type="button" role="menuitem" aria-disabled="true"><span class="g-menubar-menu-item-label">另存为…</span></button></li></ul></div></li>
+                  <li role="none"><div class="g-menubar-menu g-dropdown" data-g-dropdown><button type="button" class="g-menubar-item" role="menuitem" data-g-dropdown-trigger><span class="g-menubar-item-label">编辑</span><span class="g-menubar-item-caret" aria-hidden="true"></span></button><ul class="g-menubar-menu-panel g-dropdown-menu g-menu" data-g-dropdown-menu hidden><li><button class="g-menubar-menu-item g-menu-item" type="button" role="menuitem"><span class="g-menubar-menu-item-label">撤销</span><kbd class="g-menubar-menu-item-shortcut">Ctrl Z</kbd></button></li><li><button class="g-menubar-menu-item g-menu-item" type="button" role="menuitem"><span class="g-menubar-menu-item-label">查找</span><kbd class="g-menubar-menu-item-shortcut">Ctrl F</kbd></button></li></ul></div></li>
+                  <li role="none"><button type="button" class="g-menubar-item" role="menuitem">帮助</button></li>
+                </ul>
+              </div>
+
+            </nav>
+              <div class="g-menubar-end"><span class="g-menubar-status" role="status">● 已保存</span></div>
+            <nav class="g-activitybar g-activitybar-dark g-activitybar-floating g-mt-3" data-g-roving-nav data-g-orientation="vertical" aria-label="工作台活动" style="height: 18rem">
+              <header class="g-activitybar-header"><a class="g-activitybar-brand" href="#hierarchy" aria-label="Gardenerim 工作台">G</a></header>
+              <div class="g-activitybar-group">
+                <ul class="g-activitybar-list">
+                  <li><a class="g-activitybar-item" href="#hierarchy" aria-current="page" title="资源管理器"><span class="g-activitybar-icon" aria-hidden="true">▱</span><span class="g-activitybar-label">资源管理器</span></a></li>
+                  <li><a class="g-activitybar-item" href="#patterns" title="搜索"><span class="g-activitybar-icon" aria-hidden="true">⌕</span><span class="g-activitybar-label">搜索</span></a></li>
+                  <li><a class="g-activitybar-item" href="#pagination" title="源代码管理"><span class="g-activitybar-icon" aria-hidden="true">⑂</span><span class="g-activitybar-label">源代码管理</span><span class="g-activitybar-badge" role="status" aria-label="3 个变更">3</span></a></li>
+                  <li><a class="g-activitybar-item" href="#disabled" aria-disabled="true" tabindex="-1" title="远程连接不可用"><span class="g-activitybar-icon" aria-hidden="true">⇄</span><span class="g-activitybar-label">远程连接不可用</span></a></li>
+                </ul>
+              </div>
+              <footer class="g-activitybar-footer"><a class="g-activitybar-action" href="#account" title="账户"><span class="g-activitybar-icon" aria-hidden="true">◎</span><span class="g-activitybar-label">账户</span><span class="g-activitybar-status" role="status" aria-label="已在线"></span></a></footer>
+            </nav>
           </article>
         </div>
       </section>
@@ -185,19 +215,23 @@
       <section class="demo-section" id="hierarchy">
         <h2>Sidebar / Rail / Hierarchy</h2>
         <div class="demo-shell">
-          <nav
-            class="g-nav-rail"
-            data-g-roving-nav
-            data-g-orientation="vertical"
-            aria-label="功能导航"
-          >
-            <a class="g-nav-rail-item" href="#" aria-current="page"
-              ><span class="g-nav-icon">⌂</span><span>首页</span></a
-            ><a class="g-nav-rail-item" href="#"
-              ><span class="g-nav-icon">▤</span><span>内容</span></a
-            ><a class="g-nav-rail-item" href="#"
-              ><span class="g-nav-icon">⚙</span><span>设置</span></a
-            >
+          <nav class="g-nav-rail g-nav-rail-floating" data-g-roving-nav data-g-orientation="vertical" aria-label="工作区快捷导航">
+            <header class="g-nav-rail-header">
+              <a class="g-nav-rail-brand" href="#global" aria-label="Gardenerim 首页"><span class="g-nav-rail-brand-mark" aria-hidden="true">G</span></a>
+              <button class="g-nav-rail-primary-action" type="button" aria-label="新建项目"><span class="g-nav-rail-icon" aria-hidden="true">＋</span></button>
+            </header>
+            <div class="g-nav-rail-group">
+              <span class="g-nav-rail-group-label">工作区</span>
+              <ul class="g-nav-rail-list">
+                <li><a class="g-nav-rail-item" href="#global" aria-current="page"><span class="g-nav-rail-indicator" aria-hidden="true"></span><span class="g-nav-rail-icon" aria-hidden="true">⌂</span><span class="g-nav-rail-label">概览</span></a></li>
+                <li><a class="g-nav-rail-item" href="#selection"><span class="g-nav-rail-icon" aria-hidden="true">◇</span><span class="g-nav-rail-label">项目</span><span class="g-nav-rail-badge" aria-label="8 个待处理项目">8</span></a></li>
+                <li><a class="g-nav-rail-item" href="#disclosure"><span class="g-nav-rail-icon" aria-hidden="true">✓</span><span class="g-nav-rail-label">任务</span></a></li>
+                <li><a class="g-nav-rail-item" href="#disabled" aria-disabled="true" tabindex="-1"><span class="g-nav-rail-icon" aria-hidden="true">♙</span><span class="g-nav-rail-label">管理</span></a></li>
+              </ul>
+            </div>
+            <footer class="g-nav-rail-footer">
+              <a class="g-nav-rail-action" href="#global" aria-label="账户设置"><span class="g-nav-rail-icon" aria-hidden="true">林</span><span class="g-nav-rail-label">账户</span></a>
+            </footer>
           </nav>
           <div class="demo-content">
             <aside class="g-sidebar">
@@ -208,26 +242,33 @@
                 ><a class="g-sidebar-link" href="#">页面</a>
               </nav>
             </aside>
-            <section class="g-collapsible-nav g-mt-3">
+            <section class="g-collapsible-nav g-collapsible-nav-bordered g-mt-3" data-g-nav-toggle aria-label="项目导航分组">
               <header class="g-collapsible-nav-header">
-                <strong>可折叠分组</strong
-                ><button
-                  class="g-btn g-btn-ghost g-btn-sm"
+                <div class="g-collapsible-nav-heading">
+                  <strong class="g-collapsible-nav-title" id="demo-collapsible-title">项目空间</strong>
+                  <span class="g-collapsible-nav-description">快速访问最近项目和团队资源</span>
+                </div>
+                <button
+                  class="g-collapsible-nav-trigger"
                   type="button"
-                  data-g-nav-toggle="collapse-body"
+                  data-g-collapsible-trigger
+                  data-g-open-label="展开项目导航"
+                  data-g-close-label="收起项目导航"
+                  aria-label="收起项目导航"
                 >
-                  切换
+                  <span class="g-collapsible-nav-trigger-label" data-g-when-expanded>收起</span><span class="g-collapsible-nav-trigger-label" data-g-when-collapsed>展开</span><span class="g-collapsible-nav-trigger-icon" aria-hidden="true">⌃</span>
                 </button>
               </header>
-              <div class="g-collapsible-nav-body" id="collapse-body">
-                <div class="g-nav-group">
-                  <span class="g-nav-group-title">项目</span
-                  ><a class="g-nav-item" href="#"
-                    ><span class="g-nav-icon">◆</span
-                    ><span class="g-nav-label">企业官网</span
-                    ><span class="g-nav-badge">12</span></a
-                  >
-                </div>
+              <div class="g-collapsible-nav-body" aria-labelledby="demo-collapsible-title">
+                <nav class="g-collapsible-nav-group" aria-label="最近项目">
+                  <span class="g-nav-group-title">最近项目</span>
+                  <ul class="g-collapsible-nav-list">
+                    <li class="g-collapsible-nav-item"><a class="g-collapsible-nav-link" href="#global" aria-current="page"><span class="g-collapsible-nav-icon" aria-hidden="true">◆</span><span class="g-collapsible-nav-label">企业官网</span><span class="g-collapsible-nav-badge" aria-label="12 项待处理">12</span></a></li>
+                    <li class="g-collapsible-nav-item"><a class="g-collapsible-nav-link" href="#selection"><span class="g-collapsible-nav-icon" aria-hidden="true">◇</span><span class="g-collapsible-nav-label">设计系统</span></a></li>
+                    <li class="g-collapsible-nav-item"><a class="g-collapsible-nav-link" href="#disabled" aria-disabled="true" tabindex="-1"><span class="g-collapsible-nav-icon" aria-hidden="true">◇</span><span class="g-collapsible-nav-label">归档项目</span></a></li>
+                  </ul>
+                </nav>
+                <footer class="g-collapsible-nav-footer"><span class="g-collapsible-nav-status">3 个项目</span><a href="#global">查看全部</a></footer>
               </div>
             </section>
           </div>
@@ -263,29 +304,66 @@
               ><a class="g-anchor-link" href="#selection">选择</a>
             </nav>
           </article>
+          <article class="demo-card">
+            <h3>Pagination</h3>
+            <nav class="g-pagination g-pagination-bordered g-pagination-responsive" aria-label="项目分页">
+              <span class="g-pagination-total">共 236 条</span>
+              <ol class="g-pagination-list">
+                <li class="g-pagination-item"><span class="g-page-link g-page-previous" aria-disabled="true"><span class="g-page-icon" aria-hidden="true">‹</span><span class="g-page-label">上一页</span></span></li>
+                <li class="g-pagination-item"><a class="g-page-link g-page-number" href="#pagination-page-1" aria-label="第 1 页" aria-current="page">1</a></li>
+                <li class="g-pagination-item"><a class="g-page-link g-page-number" href="#pagination-page-2" aria-label="第 2 页">2</a></li>
+                <li class="g-pagination-item g-page-distant"><a class="g-page-link g-page-number" href="#pagination-page-3" aria-label="第 3 页">3</a></li>
+                <li class="g-pagination-item g-page-distant"><span class="g-page-ellipsis" aria-hidden="true">…</span></li>
+                <li class="g-pagination-item"><a class="g-page-link g-page-number" href="#pagination-page-12" aria-label="第 12 页">12</a></li>
+                <li class="g-pagination-item"><a class="g-page-link g-page-next" href="#pagination-page-2" rel="next" aria-label="下一页"><span class="g-page-label">下一页</span><span class="g-page-icon" aria-hidden="true">›</span></a></li>
+              </ol>
+              <label class="g-pagination-size-label">每页
+                <select class="g-select g-pagination-size" name="pageSize" aria-label="每页条数"><option>10 条</option><option selected>20 条</option><option>50 条</option></select>
+              </label>
+              <form class="g-pagination-jumper" action="#pagination-page" method="get" aria-label="跳转页码">
+                <label class="g-pagination-jumper-label" for="pagination-jump">前往</label>
+                <input class="g-input g-page-jumper" id="pagination-jump" name="page" type="number" min="1" max="12" value="1" inputmode="numeric" />
+                <button class="g-btn g-btn-outline g-btn-sm g-pagination-submit" type="submit">跳转</button>
+              </form>
+              <span class="g-pagination-status" role="status" aria-live="polite">第 1 / 12 页</span>
+            </nav>
+          </article>
         </div>
       </section>
 
       <section class="demo-section" id="selection">
         <h2>Selection Navigation</h2>
-        <div class="g-tabs" data-g-tabs>
-          <div class="g-tab-list" role="tablist">
-            <button type="button"
-              class="g-tab"
-              role="tab"
-              aria-controls="tab-overview"
-              aria-selected="true"
-            >
-              概览</button
-            ><button type="button" class="g-tab" role="tab" aria-controls="tab-history">
-              历史
-            </button>
+        <div class="g-tabs g-tabs-contained g-tabs-scrollable" data-g-tabs>
+          <div class="g-tabs-header">
+            <div class="g-tab-list" role="tablist" aria-label="项目详情">
+              <button id="tab-overview-trigger" type="button" class="g-tab" role="tab" aria-controls="tab-overview" aria-selected="true">
+                <span class="g-tab-icon" aria-hidden="true">◇</span><span class="g-tab-label">概览</span>
+              </button>
+              <button id="tab-activity-trigger" type="button" class="g-tab" role="tab" aria-controls="tab-activity">
+                <span class="g-tab-label">动态</span><span class="g-tab-badge">8</span>
+              </button>
+              <button id="tab-team-trigger" type="button" class="g-tab" role="tab" aria-controls="tab-team">
+                <span class="g-tab-label">团队</span>
+              </button>
+              <button type="button" class="g-tab" role="tab" aria-disabled="true">
+                <span class="g-tab-label">审计日志</span>
+              </button>
+            </div>
+            <div class="g-tabs-actions"><button type="button" class="g-btn g-btn-outline g-btn-sm">管理成员</button></div>
           </div>
-          <div class="g-tab-panel" id="tab-overview" role="tabpanel">
-            水平 Tabs 内容
-          </div>
-          <div class="g-tab-panel" id="tab-history" role="tabpanel" hidden>
-            历史内容
+          <div class="g-tab-panels">
+            <section class="g-tab-panel" id="tab-overview" role="tabpanel" aria-labelledby="tab-overview-trigger">
+              <div class="g-tab-panel-header"><strong>项目概览</strong><span class="g-badge g-badge-success">运行正常</span></div>
+              <p class="g-text-muted">12 个活跃任务，最近一次发布于今天 09:42。</p>
+            </section>
+            <section class="g-tab-panel" id="tab-activity" role="tabpanel" aria-labelledby="tab-activity-trigger" hidden>
+              <div class="g-tab-panel-header"><strong>最近动态</strong><span class="g-text-muted">共 8 条</span></div>
+              <p>林予更新了组件导航规范。</p>
+            </section>
+            <section class="g-tab-panel" id="tab-team" role="tabpanel" aria-labelledby="tab-team-trigger" hidden>
+              <div class="g-tab-panel-header"><strong>项目成员</strong><span class="g-text-muted">4 人</span></div>
+              <p>设计、前端和质量团队共同维护此项目。</p>
+            </section>
           </div>
         </div>
         <div class="demo-grid g-mt-4">
@@ -332,11 +410,12 @@
             </div>
           </article>
           <article class="demo-card">
-            <div class="g-segmented">
-              <button type="button" class="g-segmented-item" aria-pressed="true">列表</button
-              ><button type="button" class="g-segmented-item" aria-pressed="false">
-                网格
-              </button>
+            <div class="g-segmented g-segmented-block" data-g-data-view data-g-current-view="list" aria-label="内容布局">
+              <button type="button" class="g-segmented-item" data-g-view="list" aria-checked="true"><span class="g-segmented-icon" aria-hidden="true">☷</span><span class="g-segmented-label">列表</span></button
+              ><button type="button" class="g-segmented-item" data-g-view="board"><span class="g-segmented-icon" aria-hidden="true">▤</span><span class="g-segmented-label">看板</span><span class="g-segmented-badge">6</span></button
+              ><button type="button" class="g-segmented-item" data-g-view="calendar"><span class="g-segmented-icon" aria-hidden="true">□</span><span class="g-segmented-label">日历</span></button
+              ><button type="button" class="g-segmented-item" data-g-view="map" aria-disabled="true"><span class="g-segmented-label">地图</span></button>
+              <input class="g-segmented-input" data-g-segmented-input type="hidden" name="layout" value="list" />
             </div>
             <nav class="g-pill-nav g-mt-4">
               <a class="g-pill-nav-link" href="#" aria-current="page">全部</a
@@ -351,21 +430,18 @@
         <h2>Dropdown / Context / Command</h2>
         <div class="demo-grid">
           <article class="demo-card">
-            <div class="g-dropdown" data-g-dropdown>
-              <button
-                class="g-btn g-btn-outline"
-                type="button"
-                data-g-dropdown-trigger
-              >
-                操作菜单
+            <div class="g-dropdown g-dropdown-end g-dropdown-scrollable" data-g-dropdown>
+              <button class="g-btn g-btn-outline g-dropdown-trigger" type="button" data-g-dropdown-trigger>
+                <span class="g-dropdown-trigger-label">项目操作</span><span class="g-dropdown-trigger-icon" aria-hidden="true">⌄</span>
               </button>
               <ul class="g-menu g-dropdown-menu" data-g-dropdown-menu hidden>
-                <li>
-                  <button type="button" class="g-menu-item" role="menuitem">重命名</button>
-                </li>
-                <li>
-                  <button type="button" class="g-menu-item" role="menuitem">复制</button>
-                </li>
+                <li class="g-dropdown-header" role="presentation"><strong class="g-dropdown-title">设计系统项目</strong><div class="g-dropdown-description">最近更新于今天 17:42</div></li>
+                <li role="presentation"><button type="button" class="g-menu-item" data-g-value="open"><span class="g-menu-item-icon" aria-hidden="true">↗</span><span class="g-menu-item-content"><span class="g-menu-item-label">打开项目</span><span class="g-menu-item-description">在当前工作区查看详情</span></span><kbd class="g-menu-shortcut">Enter</kbd></button></li>
+                <li role="presentation"><button type="button" class="g-menu-item" role="menuitemcheckbox" aria-checked="false" data-g-value="hidden-files" data-g-keep-open="true"><span class="g-menu-item-check" aria-hidden="true">✓</span><span class="g-menu-item-label">显示隐藏文件</span></button></li>
+                <li class="g-menu-divider" role="separator"></li>
+                <li role="presentation"><button type="button" class="g-menu-item" aria-disabled="true"><span class="g-menu-item-icon" aria-hidden="true">⧉</span><span class="g-menu-item-label">复制到组织</span><span class="g-menu-badge">无权限</span></button></li>
+                <li role="presentation"><button type="button" class="g-menu-item g-menu-item-danger" data-g-value="delete"><span class="g-menu-item-icon" aria-hidden="true">×</span><span class="g-menu-item-label">删除项目</span></button></li>
+                <li class="g-dropdown-footer" role="presentation"><span class="g-text-muted">使用 ↑ ↓ 移动，Esc 关闭</span></li>
               </ul>
             </div>
             <div class="g-locale-nav g-dropdown g-mt-3" data-g-dropdown>
@@ -389,16 +465,31 @@
               </ul>
             </div>
           </article>
-          <article class="demo-card" data-g-context-menu>
-            <div class="demo-context-target" data-g-context-target tabindex="0">
-              在此右键或按 Shift+F10
+          <article class="demo-card">
+            <div class="g-context-menu g-context-menu-bordered" data-g-context-menu data-g-long-press>
+              <div class="g-context-menu-target" data-g-context-target tabindex="0" aria-label="品牌规范文件">
+                <span class="g-context-menu-target-icon" aria-hidden="true">PDF</span>
+                <span class="g-context-menu-target-content">
+                  <strong class="g-context-menu-target-title">品牌规范.pdf</strong>
+                  <span class="g-context-menu-target-description">右键、按 Shift+F10，或在触屏上长按</span>
+                  <span class="g-context-menu-target-meta">4.8 MB · 今天 17:42 更新</span>
+                </span>
+              </div>
+              <ul class="g-context-menu-panel" data-g-context-menu-panel hidden aria-label="文件操作">
+                <li class="g-context-menu-group" role="group" aria-label="打开">
+                  <button type="button" class="g-context-menu-item" role="menuitem" data-g-value="open"><span class="g-context-menu-item-icon" aria-hidden="true">↗</span><span class="g-context-menu-item-label">打开</span><kbd class="g-context-menu-item-shortcut">Enter</kbd></button>
+                  <button type="button" class="g-context-menu-item" role="menuitem" data-g-value="new-window"><span class="g-context-menu-item-icon" aria-hidden="true">□</span><span class="g-context-menu-item-label">在新窗口中打开</span><kbd class="g-context-menu-item-shortcut">Ctrl Enter</kbd></button>
+                </li>
+                <li class="g-context-menu-separator" role="separator"></li>
+                <li class="g-context-menu-group" role="group" aria-label="显示选项">
+                  <button type="button" class="g-context-menu-item" role="menuitemcheckbox" aria-checked="true" data-g-value="favorite" data-g-keep-open="true"><span class="g-context-menu-item-check" aria-hidden="true">✓</span><span class="g-context-menu-item-label">固定到收藏夹</span></button>
+                  <button type="button" class="g-context-menu-item" role="menuitem" aria-disabled="true"><span class="g-context-menu-item-icon" aria-hidden="true">↺</span><span class="g-context-menu-item-label">恢复旧版本</span></button>
+                </li>
+                <li class="g-context-menu-separator" role="separator"></li>
+                <li><button type="button" class="g-context-menu-item is-danger" role="menuitem" data-g-value="delete"><span class="g-context-menu-item-icon" aria-hidden="true">×</span><span class="g-context-menu-item-label">移到回收站</span><kbd class="g-context-menu-item-shortcut">Delete</kbd></button></li>
+              </ul>
+              <span class="g-context-menu-status" role="status">尚未执行操作</span>
             </div>
-            <ul class="g-context-menu" data-g-context-menu-panel hidden>
-              <li><button type="button" class="g-menu-item" role="menuitem">打开</button></li>
-              <li>
-                <button type="button" class="g-menu-item" role="menuitem">新窗口打开</button>
-              </li>
-            </ul>
           </article>
           <article class="demo-card">
             <button type="button"
@@ -425,30 +516,51 @@
         </div>
       </section>
       <div
+        class="g-command-palette-overlay g-command-palette-overlay-responsive"
         data-g-command-palette
+        data-g-shortcut="mod+k"
         id="demo-command"
         hidden
-        style="
-          position: fixed;
-          inset: 0;
-          z-index: 1000;
-          display: grid;
-          place-items: start center;
-          padding-top: 10vh;
-          background: rgb(15 23 42 / 0.2);
-        "
+        aria-label="快速命令"
       >
-        <div class="g-command-palette">
-          <input
-            class="g-command-input"
-            aria-label="搜索命令"
-            placeholder="输入命令"
-          />
-          <div class="g-command-results">
-            <button type="button" class="g-menu-item">新建页面</button
-            ><button type="button" class="g-menu-item">打开设置</button>
+        <section class="g-command-palette">
+          <header class="g-command-header">
+            <div class="g-command-search">
+              <span class="g-command-search-icon" aria-hidden="true">⌕</span>
+              <input class="g-command-input" aria-label="搜索命令" placeholder="搜索页面、项目和操作" />
+              <button class="g-command-clear" type="button" aria-label="清除搜索" data-g-command-clear>×</button>
+            </div>
+          </header>
+          <div class="g-command-results" data-g-command-results>
+            <section class="g-command-group" data-g-command-group>
+              <h2 class="g-command-group-label">快速创建</h2>
+              <div class="g-command-list">
+                <button type="button" class="g-command-item" data-g-command-item data-g-value="new-page" data-g-keywords="create document">
+                  <span class="g-command-item-icon" aria-hidden="true">＋</span><span class="g-command-item-content"><span class="g-command-item-title">新建页面</span><span class="g-command-item-description">在当前工作区创建空白页面</span></span><kbd class="g-command-item-shortcut">N</kbd>
+                </button>
+                <button type="button" class="g-command-item" data-g-command-item data-g-value="new-project" data-g-keywords="create workspace">
+                  <span class="g-command-item-icon" aria-hidden="true">◇</span><span class="g-command-item-content"><span class="g-command-item-title">新建项目</span><span class="g-command-item-description">创建项目并邀请团队成员</span></span><kbd class="g-command-item-shortcut">P</kbd>
+                </button>
+              </div>
+            </section>
+            <section class="g-command-group" data-g-command-group>
+              <h2 class="g-command-group-label">导航</h2>
+              <div class="g-command-list">
+                <button type="button" class="g-command-item" data-g-command-item data-g-value="search" data-g-keywords="find content">
+                  <span class="g-command-item-icon" aria-hidden="true">⌕</span><span class="g-command-item-content"><span class="g-command-item-title">全局搜索</span><span class="g-command-item-description">查找页面、任务和团队成员</span></span><kbd class="g-command-item-shortcut">/</kbd>
+                </button>
+                <button type="button" class="g-command-item" data-g-command-item data-g-value="settings" data-g-keywords="preferences account">
+                  <span class="g-command-item-icon" aria-hidden="true">⚙</span><span class="g-command-item-content"><span class="g-command-item-title">打开设置</span><span class="g-command-item-description">管理主题、通知和权限</span></span><kbd class="g-command-item-shortcut">G S</kbd>
+                </button>
+                <button type="button" class="g-command-item" data-g-command-item data-g-value="admin" disabled>
+                  <span class="g-command-item-icon" aria-hidden="true">♙</span><span class="g-command-item-content"><span class="g-command-item-title">管理员控制台</span><span class="g-command-item-description">当前账户没有访问权限</span></span>
+                </button>
+              </div>
+            </section>
+            <div class="g-command-empty" data-g-command-empty hidden role="status">没有找到匹配的命令</div>
           </div>
-        </div>
+          <footer class="g-command-footer"><span class="g-command-hint"><kbd>↑↓</kbd> 移动</span><span class="g-command-hint"><kbd>Enter</kbd> 执行</span><span class="g-command-hint"><kbd>Esc</kbd> 关闭</span><span class="g-command-count"><b data-g-command-count>5</b> 项命令</span></footer>
+        </section>
       </div>
 
       <section class="demo-section" id="continuation">
@@ -491,14 +603,19 @@
             </div>
           </article>
           <article class="demo-card">
-            <ol class="g-stepper">
-              <li class="g-step is-complete">
-                <span class="g-step-label">账户</span>
+            <ol class="g-stepper g-stepper-navigation g-stepper-responsive" data-g-stepper data-g-auto-complete="true" aria-label="账户设置进度">
+              <li class="g-step is-complete" data-g-value="account">
+                <button class="g-step-action" type="button"><span class="g-step-indicator" aria-hidden="true">✓</span><span class="g-step-content"><span class="g-step-title">创建账户</span><span class="g-step-description">邮箱与登录方式已确认</span><span class="g-step-status">已完成</span></span></button>
               </li>
-              <li class="g-step is-active">
-                <span class="g-step-label">资料</span>
+              <li class="g-step is-active" data-g-value="profile">
+                <button class="g-step-action" type="button"><span class="g-step-indicator" aria-hidden="true">2</span><span class="g-step-content"><span class="g-step-title">完善资料</span><span class="g-step-description">填写团队和项目偏好</span><span class="g-step-status">当前步骤</span></span></button>
               </li>
-              <li class="g-step"><span class="g-step-label">完成</span></li>
+              <li class="g-step is-error" data-g-value="security">
+                <button class="g-step-action" type="button"><span class="g-step-indicator" aria-hidden="true">!</span><span class="g-step-content"><span class="g-step-title">安全设置</span><span class="g-step-description">需要重新确认恢复邮箱</span><span class="g-step-status">需要处理</span></span></button>
+              </li>
+              <li class="g-step is-disabled" data-g-value="complete" aria-disabled="true">
+                <button class="g-step-action" type="button"><span class="g-step-indicator" aria-hidden="true">4</span><span class="g-step-content"><span class="g-step-title">完成</span><span class="g-step-description">保存配置并进入工作区</span><span class="g-step-status">尚未开放</span></span></button>
+              </li>
             </ol>
             <div class="g-wizard-nav g-mt-5">
               <ol class="g-wizard-nav-steps">

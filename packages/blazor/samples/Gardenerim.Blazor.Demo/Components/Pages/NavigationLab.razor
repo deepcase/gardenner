@@ -1,0 +1,82 @@
+@page "/navigation/{ComponentName}"
+@using System.Text.Json
+@using Gardenerim.Blazor.Models
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment Environment
+<PageTitle>导航参数演示</PageTitle>
+<h1>@ComponentName · Blazor 参数演示</h1>
+<p>与 CSS、Vue、React、AngularJS 共用相同的组件参数与运行时。</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin:16px 0">
+<label>场景 <select aria-label="场景" @onchange="ChangeScenario">@foreach(var scenario in Scenarios){<option value="@scenario">@scenario</option>}</select></label>
+<label>变体 <select aria-label="变体" @onchange="ChangeVariant"><option value="">自定义参数</option>@foreach(var variant in Variants){<option value="@variant">@variant</option>}</select></label>
+<label>外观 <select aria-label="外观" @bind="Options.Appearance"><option>default</option><option>line</option><option>pill</option><option>card</option><option>contained</option></select></label>
+<label>方向 <select aria-label="方向" @bind="Options.Orientation"><option value="horizontal">横向</option><option value="vertical">纵向</option></select></label>
+<label><input type="checkbox" @bind="Rtl" />RTL</label>
+</div>
+<details><summary>显示、布局与关闭策略</summary><div style="display:flex;gap:12px;flex-wrap:wrap;padding:16px 0"><label>显示图标 <input aria-label="显示图标" type="checkbox" checked="@(Options.ShowIcons??true)" @onchange="e=>Options.ShowIcons=(bool?)e.Value" /></label>
+<label>显示徽标 <input aria-label="显示徽标" type="checkbox" checked="@(Options.ShowBadges??true)" @onchange="e=>Options.ShowBadges=(bool?)e.Value" /></label>
+<label>显示说明 <input aria-label="显示说明" type="checkbox" checked="@(Options.ShowDescriptions??true)" @onchange="e=>Options.ShowDescriptions=(bool?)e.Value" /></label>
+<label>显示快捷键 <input aria-label="显示快捷键" type="checkbox" checked="@(Options.ShowShortcuts??true)" @onchange="e=>Options.ShowShortcuts=(bool?)e.Value" /></label>
+<label>显示分组 <input aria-label="显示分组" type="checkbox" checked="@(Options.ShowGroups??true)" @onchange="e=>Options.ShowGroups=(bool?)e.Value" /></label>
+<label>显示标题 <input aria-label="显示标题" type="checkbox" checked="@(Options.ShowHeader??true)" @onchange="e=>Options.ShowHeader=(bool?)e.Value" /></label>
+<label>显示附加操作 <input aria-label="显示附加操作" type="checkbox" checked="@(Options.ShowActions??true)" @onchange="e=>Options.ShowActions=(bool?)e.Value" /></label>
+<label>显示内容面板 <input aria-label="显示内容面板" type="checkbox" checked="@(Options.ShowPanel??true)" @onchange="e=>Options.ShowPanel=(bool?)e.Value" /></label>
+<label>显示边框 <input aria-label="显示边框" type="checkbox" checked="@(Options.Bordered??true)" @onchange="e=>Options.Bordered=(bool?)e.Value" /></label>
+<label>最大高度 <input aria-label="最大高度" type="number" min="0" max="5000" style="width:90px" value="@Options.MaxHeight" @onchange="e=>Options.MaxHeight=Bounded(e,0,5000,0)" /></label>
+<label>弹出宽度 <input aria-label="弹出宽度" type="number" min="160" max="1600" style="width:90px" value="@Options.PopupWidth" @onchange="e=>Options.PopupWidth=Bounded(e,160,1600,360)" /></label>
+<label>弹出最大高度 <input aria-label="弹出最大高度" type="number" min="120" max="1600" style="width:90px" value="@Options.PopupMaxHeight" @onchange="e=>Options.PopupMaxHeight=Bounded(e,120,1600,480)" /></label>
+<label>条目间距 <input aria-label="条目间距" type="number" min="0" max="48" style="width:90px" value="@Options.ItemGap" @onchange="e=>Options.ItemGap=Bounded(e,0,48,8)" /></label>
+<label>层级缩进 <input aria-label="层级缩进" type="number" min="0" max="64" style="width:90px" value="@Options.Indent" @onchange="e=>Options.Indent=Bounded(e,0,64,16)" /></label>
+<label>校验超时 <input aria-label="校验超时" type="number" min="0" max="300000" style="width:90px" value="@Options.SelectionTimeout" @onchange="e=>Options.SelectionTimeout=Bounded(e,0,300000,30000)" /></label>
+<label>Escape 关闭 <input aria-label="Escape 关闭" type="checkbox" checked="@(Options.CloseOnEscape??true)" @onchange="e=>Options.CloseOnEscape=(bool?)e.Value" /></label>
+<label>外部点击关闭 <input aria-label="外部点击关闭" type="checkbox" checked="@(Options.CloseOnOutside??true)" @onchange="e=>Options.CloseOnOutside=(bool?)e.Value" /></label></div><p>长度单位为像素；超时为毫秒，0 表示不限制。</p></details>
+<div dir="@(Rtl?"rtl":"ltr")"><GardenerimComponent @key="ComponentName+Scenario" Name="@ComponentName" Navigation="Options" @bind-Value="Selected" OnEvent="HandleEvent" /></div>
+<section id="navigation-scroll-area" tabindex="0" aria-label="示例正文滚动区" style="height:220px;overflow:auto;margin:16px 0"><article id="nav-section-intro" tabindex="-1" style="min-height:280px"><h2>概览</h2></article><article id="nav-section-usage" tabindex="-1" style="min-height:280px"><h2>使用方式</h2></article><article id="nav-section-api" tabindex="-1" style="min-height:280px"><h2>参数说明</h2></article></section>
+<output id="navigation-value" aria-live="polite">@Selected</output>
+<p id="navigation-event">@LastEvent</p>
+<button class="g-btn g-btn-outline" @onclick="ToggleSize">切换尺寸</button>
+<button class="g-btn g-btn-outline" @onclick="ToggleDisabled">切换禁用</button>
+@code {
+ [Parameter] public string ComponentName { get; set; } = "tabs";
+ private GardenerimNavigationOptions Options { get; set; } = new();
+ private object? Selected { get; set; }
+ private string LastEvent { get; set; } = "尚未操作";
+ private static int Bounded(ChangeEventArgs e,int min,int max,int fallback)=>Math.Clamp(int.TryParse(e.Value?.ToString(),out var value)?value:fallback,min,max);
+ private string Scenario=""; private bool Rtl; private string[] Scenarios=[]; private string[] Variants=[];
+ private void ChangeScenario(ChangeEventArgs e){Scenario=e.Value?.ToString()??"";LoadOptions();}
+ private void ChangeVariant(ChangeEventArgs e){Options.Variant=e.Value?.ToString();Options.Size=null;Options.Appearance=null;}
+ protected override void OnParametersSet() {Scenario="";LoadOptions();}
+ private void LoadOptions() {
+  var file = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.ContentRootPath,"../../../../css/metadata/navigation-examples.json"));
+  // Source sample is runnable from this repository; published applications supply their own options.
+  if (!System.IO.File.Exists(file)) file=System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.ContentRootPath,"../../../css/metadata/navigation-examples.json"));
+  using var json=JsonDocument.Parse(System.IO.File.ReadAllText(file));
+  var rows=json.RootElement.GetProperty(ComponentName).GetProperty("scenarios");
+  Scenarios=rows.EnumerateArray().Select(s=>s.GetProperty("id").GetString()!).ToArray();
+  if(string.IsNullOrEmpty(Scenario))Scenario=Scenarios[0];
+  Options=rows.EnumerateArray().First(s=>s.GetProperty("id").GetString()==Scenario).GetProperty("options").Deserialize<GardenerimNavigationOptions>(new JsonSerializerOptions(JsonSerializerDefaults.Web))!;
+  using var metadata=JsonDocument.Parse(System.IO.File.ReadAllText(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(file)!,"components.json")));
+  var definition=metadata.RootElement.GetProperty("components").EnumerateArray().First(c=>c.GetProperty("name").GetString()==ComponentName);
+  Variants=definition.TryGetProperty("variants",out var variants)?variants.EnumerateArray().Select(v=>v.GetString()!).ToArray():[];
+  Options.ShowIcons??=true;
+  Options.ShowBadges??=true;
+  Options.ShowDescriptions??=true;
+  Options.ShowShortcuts??=true;
+  Options.ShowGroups??=true;
+  Options.ShowHeader??=true;
+  Options.ShowActions??=true;
+  Options.ShowPanel??=true;
+  Options.Bordered??=true;
+  Options.MaxHeight??=0;
+  Options.PopupWidth??=360;
+  Options.PopupMaxHeight??=480;
+  Options.ItemGap??=8;
+  Options.Indent??=16;
+  Options.SelectionTimeout??=30000;
+  Options.CloseOnEscape??=true;
+  Options.CloseOnOutside??=true;
+  Selected=Options.DefaultValue;
+ }
+ private Task HandleEvent(GardenerimEventArgs args){LastEvent=args.EventName;return Task.CompletedTask;}
+ private void ToggleSize(){Options.Size=Options.Size=="large"?"small":"large";}
+ private void ToggleDisabled(){Options.Disabled=Options.Disabled!=true;}
+}

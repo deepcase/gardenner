@@ -1,0 +1,1852 @@
+{
+  "originalComponents": 33,
+  "newComponents": 0,
+  "components": 33,
+  "variants": 99,
+  "decision": "现有 33 个组件覆盖认证与账户安全；通行密钥注册、MFA 设置和会话撤销并入现有变体，不新增重复组件。",
+  "items": [
+    {
+      "name": "authentication-shell",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-auth-shell",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-auth-shell",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "centered",
+        "split",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "authentication-shell",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-auth-shell",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "auth-centered",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-auth-centered",
+      "parts": [
+        "g-auth-container",
+        "g-auth-panel",
+        "g-auth-brand-row",
+        "g-auth-header",
+        "g-auth-form",
+        "g-auth-footer"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-auth-centered",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "default",
+        "card",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "auth-centered",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-auth-centered",
+        "parts": [
+          "g-auth-container",
+          "g-auth-panel",
+          "g-auth-brand-row",
+          "g-auth-header",
+          "g-auth-form",
+          "g-auth-footer"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "auth-split",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-auth-split",
+      "parts": [
+        "g-auth-split-aside",
+        "g-auth-split-main",
+        "g-auth-container",
+        "g-auth-panel"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-auth-split",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "default",
+        "reversed",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "auth-split",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-auth-split",
+        "parts": [
+          "g-auth-split-aside",
+          "g-auth-split-main",
+          "g-auth-container",
+          "g-auth-panel"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "sign-in-composition",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-sign-in",
+      "parts": [
+        "g-sign-in-options",
+        "g-auth-provider-list",
+        "g-auth-divider"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-sign-in",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "password",
+        "code",
+        "providers"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "sign-in-composition",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-sign-in",
+        "parts": [
+          "g-sign-in-options",
+          "g-auth-provider-list",
+          "g-auth-divider"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "registration-composition",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-registration",
+      "parts": [
+        "g-registration-terms",
+        "g-password-strength"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-registration",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "default",
+        "minimal",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "registration-composition",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-registration",
+        "parts": [
+          "g-registration-terms",
+          "g-password-strength"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "password-recovery",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-password-recovery",
+      "parts": [
+        "g-password-recovery-methods",
+        "g-auth-method"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-password-recovery",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "email",
+        "phone",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "password-recovery",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-password-recovery",
+        "parts": [
+          "g-password-recovery-methods",
+          "g-auth-method"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "password-reset",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-password-reset",
+      "parts": [
+        "g-password-strength",
+        "g-password-rules"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-password-reset",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "default",
+        "rules",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "password-reset",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-password-reset",
+        "parts": [
+          "g-password-strength",
+          "g-password-rules"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "email-verification",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-email-verification",
+      "parts": [
+        "g-verification-icon",
+        "g-verification-address",
+        "g-auth-timer"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-email-verification",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "code",
+        "link",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "email-verification",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-email-verification",
+        "parts": [
+          "g-verification-icon",
+          "g-verification-address",
+          "g-auth-timer"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "phone-verification",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-phone-verification",
+      "parts": [
+        "g-verification-icon",
+        "g-verification-address",
+        "g-otp-input"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-phone-verification",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "numeric",
+        "alphanumeric",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "phone-verification",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-phone-verification",
+        "parts": [
+          "g-verification-icon",
+          "g-verification-address",
+          "g-otp-input"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "mfa-challenge",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-mfa-challenge",
+      "parts": [
+        "g-mfa-methods",
+        "g-otp-input",
+        "g-trusted-device"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-mfa-challenge",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "authenticator",
+        "recovery",
+        "setup"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "mfa-challenge",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-mfa-challenge",
+        "parts": [
+          "g-mfa-methods",
+          "g-otp-input",
+          "g-trusted-device"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "otp-input",
+      "category": "auth",
+      "type": "interactive",
+      "selector": "[data-g-otp-input].g-otp-input",
+      "cssSelector": ".g-otp-input",
+      "parts": [
+        "g-otp-cell"
+      ],
+      "states": [
+        "complete",
+        "invalid",
+        "disabled"
+      ],
+      "accessibility": {
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Home",
+          "End",
+          "Backspace",
+          "Paste"
+        ]
+      },
+      "behaviors": [
+        "otp-input",
+        "auth"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "variants": [
+        "numeric",
+        "alphanumeric",
+        "grouped"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "otp-input",
+        "category": "auth",
+        "type": "interactive",
+        "selector": "[data-g-otp-input].g-otp-input",
+        "cssSelector": ".g-otp-input",
+        "parts": [
+          "g-otp-cell"
+        ],
+        "states": [
+          "complete",
+          "invalid"
+        ],
+        "accessibility": {
+          "keyboard": [
+            "ArrowLeft",
+            "ArrowRight",
+            "Home",
+            "End",
+            "Backspace",
+            "Paste"
+          ]
+        },
+        "behaviors": [
+          "otp-input"
+        ],
+        "status": "runtime-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来仅提供局部交互。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "passkey-composition",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-passkey",
+      "parts": [
+        "g-passkey-graphic",
+        "g-passkey-device"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-passkey",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "sign-in",
+        "register",
+        "manage"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "passkey-composition",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-passkey",
+        "parts": [
+          "g-passkey-graphic",
+          "g-passkey-device"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "sso-composition",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-sso",
+      "parts": [
+        "g-auth-provider-list",
+        "g-auth-provider",
+        "g-auth-provider-icon"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-sso",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "providers",
+        "domain",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "sso-composition",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-sso",
+        "parts": [
+          "g-auth-provider-list",
+          "g-auth-provider",
+          "g-auth-provider-icon"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "qr-login",
+      "category": "auth",
+      "type": "interactive",
+      "selector": "[data-g-auth-timer].g-qr-login",
+      "cssSelector": ".g-qr-login",
+      "parts": [
+        "g-qr-login-layout",
+        "g-qr-code",
+        "g-auth-timer"
+      ],
+      "behaviors": [
+        "auth-timer",
+        "auth"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "variants": [
+        "waiting",
+        "scanned",
+        "expired"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "qr-login",
+        "category": "auth",
+        "type": "interactive",
+        "selector": "[data-g-auth-timer].g-qr-login",
+        "cssSelector": ".g-qr-login",
+        "parts": [
+          "g-qr-login-layout",
+          "g-qr-code",
+          "g-auth-timer"
+        ],
+        "behaviors": [
+          "auth-timer"
+        ],
+        "status": "runtime-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来仅提供局部交互。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "magic-link",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-magic-link",
+      "parts": [
+        "g-verification-icon",
+        "g-verification-address"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-magic-link",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "email",
+        "sent",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "magic-link",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-magic-link",
+        "parts": [
+          "g-verification-icon",
+          "g-verification-address"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "invitation-composition",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-invitation",
+      "parts": [
+        "g-invitation-details",
+        "g-invitation-row",
+        "g-invitation-label"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-invitation",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "default",
+        "expired",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "invitation-composition",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-invitation",
+        "parts": [
+          "g-invitation-details",
+          "g-invitation-row",
+          "g-invitation-label"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "first-time-setup",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-first-time-setup",
+      "parts": [
+        "g-profile-setup",
+        "g-password-strength"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-first-time-setup",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "profile",
+        "security",
+        "steps"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "first-time-setup",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-first-time-setup",
+        "parts": [
+          "g-profile-setup",
+          "g-password-strength"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "lock-screen",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-lock-screen",
+      "parts": [
+        "g-lock-screen-panel",
+        "g-lock-screen-time",
+        "g-auth-user"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-lock-screen",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "password",
+        "pin",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "lock-screen",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-lock-screen",
+        "parts": [
+          "g-lock-screen-panel",
+          "g-lock-screen-time",
+          "g-auth-user"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "session-expired",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-session-expired",
+      "parts": [
+        "g-session-expired-panel",
+        "g-auth-notice"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-session-expired",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "expired",
+        "warning",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "session-expired",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-session-expired",
+        "parts": [
+          "g-session-expired-panel",
+          "g-auth-notice"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "account-chooser",
+      "category": "auth",
+      "type": "interactive",
+      "selector": "[data-g-saved-choice].g-account-chooser",
+      "cssSelector": ".g-account-chooser",
+      "parts": [
+        "g-auth-choice-list",
+        "g-auth-choice",
+        "g-auth-avatar"
+      ],
+      "behaviors": [
+        "saved-choice",
+        "auth"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "variants": [
+        "cards",
+        "list",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "account-chooser",
+        "category": "auth",
+        "type": "interactive",
+        "selector": "[data-g-saved-choice].g-account-chooser",
+        "cssSelector": ".g-account-chooser",
+        "parts": [
+          "g-auth-choice-list",
+          "g-auth-choice",
+          "g-auth-avatar"
+        ],
+        "behaviors": [
+          "saved-choice"
+        ],
+        "status": "runtime-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来仅提供局部交互。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "tenant-chooser",
+      "category": "auth",
+      "type": "interactive",
+      "selector": "[data-g-saved-choice].g-tenant-chooser",
+      "cssSelector": ".g-tenant-chooser",
+      "parts": [
+        "g-auth-choice-list",
+        "g-auth-choice"
+      ],
+      "behaviors": [
+        "saved-choice",
+        "auth"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "variants": [
+        "cards",
+        "list",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "tenant-chooser",
+        "category": "auth",
+        "type": "interactive",
+        "selector": "[data-g-saved-choice].g-tenant-chooser",
+        "cssSelector": ".g-tenant-chooser",
+        "parts": [
+          "g-auth-choice-list",
+          "g-auth-choice"
+        ],
+        "behaviors": [
+          "saved-choice"
+        ],
+        "status": "runtime-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来仅提供局部交互。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "identity-switcher",
+      "category": "auth",
+      "type": "interactive",
+      "selector": "[data-g-dropdown].g-identity-switcher",
+      "cssSelector": ".g-identity-switcher",
+      "parts": [
+        "g-identity-switcher-trigger",
+        "g-identity-switcher-menu",
+        "g-auth-choice"
+      ],
+      "behaviors": [
+        "dropdown",
+        "auth"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "variants": [
+        "default",
+        "expanded",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "identity-switcher",
+        "category": "auth",
+        "type": "interactive",
+        "selector": "[data-g-dropdown].g-identity-switcher",
+        "cssSelector": ".g-identity-switcher",
+        "parts": [
+          "g-identity-switcher-trigger",
+          "g-identity-switcher-menu",
+          "g-auth-choice"
+        ],
+        "behaviors": [
+          "dropdown"
+        ],
+        "status": "runtime-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来仅提供局部交互。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "profile-setup",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-profile-setup",
+      "parts": [
+        "g-auth-avatar",
+        "g-auth-form",
+        "g-auth-actions"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-profile-setup",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "default",
+        "avatar",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "profile-setup",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-profile-setup",
+        "parts": [
+          "g-auth-avatar",
+          "g-auth-form",
+          "g-auth-actions"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "account-security",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-account-security",
+      "parts": [
+        "g-security-section",
+        "g-security-section-header"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-account-security",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "default",
+        "cards",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "account-security",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-account-security",
+        "parts": [
+          "g-security-section",
+          "g-security-section-header"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "device-management",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-device-management",
+      "parts": [
+        "g-device-item",
+        "g-device-icon",
+        "g-device-main",
+        "g-device-current"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-device-management",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "list",
+        "cards",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "device-management",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-device-management",
+        "parts": [
+          "g-device-item",
+          "g-device-icon",
+          "g-device-main",
+          "g-device-current"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "login-activity",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-login-activity",
+      "parts": [
+        "g-login-event",
+        "g-login-event-icon",
+        "g-login-event-main"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-login-activity",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "list",
+        "table",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "login-activity",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-login-activity",
+        "parts": [
+          "g-login-event",
+          "g-login-event-icon",
+          "g-login-event-main"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "security-alert",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-security-alert",
+      "parts": [
+        "g-security-alert-icon",
+        "g-security-alert-actions"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-security-alert",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "warning",
+        "error",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "security-alert",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-security-alert",
+        "parts": [
+          "g-security-alert-icon",
+          "g-security-alert-actions"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "recovery-codes",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-recovery-codes",
+      "parts": [
+        "g-recovery-code-grid",
+        "g-recovery-code"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-recovery-codes",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "hidden",
+        "grid",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "recovery-codes",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-recovery-codes",
+        "parts": [
+          "g-recovery-code-grid",
+          "g-recovery-code"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "trusted-device",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-trusted-device",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-trusted-device",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "default",
+        "card",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "trusted-device",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-trusted-device",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "connected-accounts",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-connected-accounts",
+      "parts": [
+        "g-connected-account",
+        "g-connected-account-icon",
+        "g-connected-account-main"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-connected-accounts",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "list",
+        "cards",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "connected-accounts",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-connected-accounts",
+        "parts": [
+          "g-connected-account",
+          "g-connected-account-icon",
+          "g-connected-account-main"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "password-strength",
+      "category": "auth",
+      "type": "interactive",
+      "selector": "[data-g-password-strength].g-password-strength",
+      "cssSelector": ".g-password-strength",
+      "parts": [
+        "g-password-strength-header",
+        "g-password-strength-meter",
+        "g-password-strength-value",
+        "g-password-rules",
+        "g-password-rule"
+      ],
+      "behaviors": [
+        "password-strength",
+        "auth"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "variants": [
+        "rules",
+        "meter",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "password-strength",
+        "category": "auth",
+        "type": "interactive",
+        "selector": "[data-g-password-strength].g-password-strength",
+        "cssSelector": ".g-password-strength",
+        "parts": [
+          "g-password-strength-header",
+          "g-password-strength-meter",
+          "g-password-strength-value",
+          "g-password-rules",
+          "g-password-rule"
+        ],
+        "behaviors": [
+          "password-strength"
+        ],
+        "status": "runtime-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来仅提供局部交互。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "auth-consent",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-auth-consent",
+      "parts": [
+        "g-auth-consent-scopes",
+        "g-auth-consent-scope"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-auth-consent",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "default",
+        "scopes",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "auth-consent",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-auth-consent",
+        "parts": [
+          "g-auth-consent-scopes",
+          "g-auth-consent-scope"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    },
+    {
+      "name": "auth-result",
+      "category": "auth",
+      "type": "interactive",
+      "selector": ".g-auth-result",
+      "parts": [
+        "g-auth-result-icon",
+        "g-auth-status"
+      ],
+      "states": [
+        "success",
+        "error",
+        "pending",
+        "disabled"
+      ],
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-auth-result",
+      "behaviors": [
+        "auth"
+      ],
+      "variants": [
+        "success",
+        "error",
+        "pending"
+      ],
+      "features": [
+        "controlled-state",
+        "parameter-update",
+        "keyboard",
+        "responsive",
+        "ephemeral-credentials",
+        "host-confirmed-actions"
+      ],
+      "before": {
+        "name": "auth-result",
+        "category": "auth",
+        "type": "css",
+        "selector": ".g-auth-result",
+        "parts": [
+          "g-auth-result-icon",
+          "g-auth-status"
+        ],
+        "states": [
+          "success",
+          "error",
+          "pending"
+        ],
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来主要提供静态布局。本次补齐参数、数据、三种变体、受控状态、异步请求与完整演示。"
+    }
+  ]
+}

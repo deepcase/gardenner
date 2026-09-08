@@ -1,0 +1,101 @@
+
+> gardenerim-monorepo@2.1.0 check
+> npm run check:repository && npm run check:packages && npm run check:website && npm run verify:exports && npm run check:solutions && npm run check:disclosure && npm run check:data && npm run check:dashboard && npm run check:interaction && npm run check:content && npm run check:layout
+
+
+> gardenerim-monorepo@2.1.0 check:repository
+> node scripts/check-repository.mjs && node --test scripts/fs-retry.test.mjs
+
+Repository check passed: 25 root contracts and 5 packages.
+✔ temporary Windows locks are retried without hiding persistent failures (766.5996ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 882.7364
+
+> gardenerim-monorepo@2.1.0 check:packages
+> npm --prefix packages/css run check && npm --prefix packages/vue run check && npm --prefix packages/react run check && npm --prefix packages/angularjs run check && npm --prefix packages/blazor run check
+
+
+> @gardenerim/css@2.1.0 check
+> node scripts/check.mjs
+
+Checks passed: 42 themes and 521 component definitions.
+
+> @gardenerim/vue@2.1.0 check
+> node scripts/check.mjs
+
+Checks passed: 521 Vue components, 80 behaviors, 30 package entrypoints.
+
+> @gardenerim/react@2.1.0 check
+> node scripts/check.mjs
+
+Checks passed: 521 React components, 80 behaviors, 30 package entrypoints.
+
+> @gardenerim/angularjs@2.1.0 check
+> node scripts/check.mjs
+
+Checks passed: 521 AngularJS directives, 80 behaviors, 30 package entrypoints.
+
+> @gardenerim/blazor-workspace@2.1.0 check
+> node scripts/check.mjs
+
+Gardenerim.Blazor API/schema/docs/assets checks passed: 521 components, 80 behaviors, 102 events, 42 themes, 52 assets.
+
+> gardenerim-monorepo@2.1.0 check:website
+> node website/scripts/build-css-catalog.mjs && node website/scripts/build-localized-pages.mjs --check && node website/scripts/check.mjs && node website/scripts/check-coverage.mjs
+
+CSS catalog built: 50 modules, 18034 classes, 497 custom properties, 8759 selectors.
+Verified 14 localized pages across 7 locales.
+en: 3235 messages
+ja: 3235 messages
+ko: 3235 messages
+es: 3235 messages
+fr: 3235 messages
+de: 3235 messages
+Website check passed: 2 pages, 521 components, 11498 utilities, 52 recipes.
+Documentation coverage passed: 50 CSS modules, 18034 classes (11498 utilities + 6536 semantic), 497 tokens, 521 CSS components, 80 behaviors, 52 recipes, 521 Vue components, 521 React components, 521 AngularJS components, 521 Blazor components.
+
+> gardenerim-monorepo@2.1.0 verify:exports
+> node scripts/verify-exports.mjs
+
+Verified 5083 public exports across all JavaScript entrypoints: Gardenerim branding only.
+
+> gardenerim-monorepo@2.1.0 check:solutions
+> node scripts/check-solutions.mjs
+
+Solution parity: 32 components / 224 variants in five packages; shared CSS and Blazor assets match.
+
+> gardenerim-monorepo@2.1.0 check:disclosure
+> node scripts/check-disclosure.mjs
+
+Disclosure parity: 3 components / 19 variants, shared behaviors and identical CSS across five packages.
+
+> gardenerim-monorepo@2.1.0 check:data
+> node scripts/check-data.mjs
+
+Data parity: 52 components / 252 variants, five packages share CSS and runtime; Blazor module dependencies verified.
+
+> gardenerim-monorepo@2.1.0 check:dashboard
+> node scripts/check-dashboard.mjs
+
+Dashboard parity: 7 components, 39 variants, five implementations and identical Blazor assets.
+
+> gardenerim-monorepo@2.1.0 check:interaction
+> node scripts/check-interaction.mjs
+
+Interaction parity passed: 35 components, 239 variants and five implementations.
+
+> gardenerim-monorepo@2.1.0 check:content
+> node scripts/check-content.mjs
+
+Content parity passed: 39 components, 234 variants and five implementations.
+
+> gardenerim-monorepo@2.1.0 check:layout
+> node scripts/check-layout.mjs
+
+Layout parity passed: 11 components, 89 modes and five implementations.

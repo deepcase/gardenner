@@ -31,6 +31,9 @@ public sealed class GardenerimRuntime(GardenerimJsModule module)
     internal async ValueTask MountAsync(ElementReference element, bool initialize, string valueEvent, string valueKey, bool listenForValue, IReadOnlyList<string> eventNames, IReadOnlyList<string> preventDefaultEvents, object? receiver, CancellationToken cancellationToken = default) =>
         await (await module.GetAsync()).InvokeVoidAsync("mount", cancellationToken, element, initialize, valueEvent, valueKey, listenForValue, eventNames, preventDefaultEvents, receiver);
 
+    internal async ValueTask MountNavigationAsync(ElementReference element, string component, Gardenerim.Blazor.Models.GardenerimNavigationOptions options, object? value, bool controlled, bool guard, object receiver, CancellationToken cancellationToken = default) =>
+        await (await module.GetAsync()).InvokeVoidAsync("mountNavigation", cancellationToken, element, component, options, value, controlled, guard, receiver);
+
     internal async ValueTask UnmountAsync(ElementReference element, CancellationToken cancellationToken = default) =>
         await (await module.GetAsync()).InvokeVoidAsync("unmount", cancellationToken, element);
 }

@@ -1,0 +1,5371 @@
+{
+  "verifiedAt": "2026-09-07T07:18:56.999Z",
+  "passed": true,
+  "components": 38,
+  "variants": 119,
+  "newComponents": 0,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "addedParameters": [
+    "showHeader",
+    "showStatus",
+    "showAuthor",
+    "showCount",
+    "showCopy",
+    "showFeedback",
+    "showPause",
+    "clearOnSend",
+    "composerRows",
+    "resize",
+    "messageGap",
+    "sidebarWidth",
+    "treeIndent",
+    "codeHeight",
+    "imageRatio",
+    "imageFit",
+    "serviceTimeout",
+    "maxReasonLength"
+  ],
+  "inventory": {
+    "originalComponents": 36,
+    "newComponents": 2,
+    "components": 38,
+    "variants": 119,
+    "items": [
+      {
+        "name": "chat",
+        "selector": ".g-chat",
+        "variants": [
+          "default",
+          "compact",
+          "bubbles",
+          "readonly"
+        ],
+        "states": [
+          "empty",
+          "loading",
+          "streaming",
+          "complete",
+          "error",
+          "disabled"
+        ],
+        "finding": "从静态消息补齐受控会话、流式生成、滚动位置与草稿保留",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "新增消息作者/复制/评价/字数开关、输入行数、消息间距和保留草稿；修复取消、超时、只读取消和消息身份。",
+          "validation": {
+            "variants": 4,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "message",
+        "selector": ".g-message",
+        "variants": [
+          "assistant",
+          "user",
+          "system",
+          "compact",
+          "plain"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "补齐角色、Markdown / 纯文本、复制与反馈请求",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "显式格式优先；作者与复制可配置，代码高度可配置。",
+          "validation": {
+            "variants": 5,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "prompt-composer",
+        "selector": ".g-composer",
+        "variants": [
+          "default",
+          "compact",
+          "multiline",
+          "attachments"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "补齐中文输入法、快捷提交、附件限制和生成生命周期",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "输入行数/resize/字数/清空可配置，附件单选限制、取消超时和只读正确。",
+          "validation": {
+            "variants": 4,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "attachment",
+        "selector": ".g-attachment",
+        "variants": [
+          "default",
+          "compact",
+          "list"
+        ],
+        "states": [
+          "uploading",
+          "ready",
+          "error",
+          "disabled"
+        ],
+        "finding": "补齐文件信息、预览、下载和移除请求",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "附件条目、状态、操作与单列/网格变体通过；通用标题与状态参数统一。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "thinking",
+        "selector": ".g-thinking",
+        "variants": [
+          "default",
+          "expanded",
+          "compact"
+        ],
+        "states": [
+          "collapsed",
+          "expanded",
+          "streaming",
+          "disabled"
+        ],
+        "finding": "可展开的公开执行摘要、进度与状态；不展示模型私有推理",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "公开摘要展开收起与状态通过；通用紧凑尺寸统一。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "tool-call",
+        "selector": ".g-tool-call",
+        "variants": [
+          "default",
+          "expanded",
+          "compact"
+        ],
+        "states": [
+          "queued",
+          "running",
+          "success",
+          "error",
+          "stopped",
+          "disabled"
+        ],
+        "finding": "参数与结果可展开，执行状态由应用提供",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "代码高度可配置，显式状态优先，展开收起和进度通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "tool-approval",
+        "selector": ".g-approval",
+        "variants": [
+          "default",
+          "detailed",
+          "compact"
+        ],
+        "states": [
+          "pending",
+          "approved",
+          "rejected",
+          "cancelled",
+          "expired",
+          "disabled"
+        ],
+        "finding": "补齐允许 / 拒绝 / 取消、权限范围、过期和异步确认",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "异步确认取消与超时；拒绝未决定及过期重试，决定状态始终可见。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "agent-status",
+        "selector": ".g-agent-status",
+        "variants": [
+          "default",
+          "compact",
+          "detailed"
+        ],
+        "states": [
+          "idle",
+          "working",
+          "waiting",
+          "blocked",
+          "complete",
+          "failed",
+          "disabled"
+        ],
+        "finding": "状态徽标与执行明细",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "agent-plan",
+        "selector": ".g-plan",
+        "variants": [
+          "default",
+          "compact",
+          "checkable"
+        ],
+        "states": [
+          "pending",
+          "active",
+          "complete",
+          "failed",
+          "disabled"
+        ],
+        "finding": "任务状态与可勾选计划",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "sources-citations",
+        "selector": ".g-sources",
+        "variants": [
+          "default",
+          "list",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "来源检索、引用摘要与安全链接",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "拒绝带凭据 URL；搜索、引用和来源链接通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "artifact-panel",
+        "selector": ".g-artifact-panel",
+        "variants": [
+          "default",
+          "code",
+          "markdown",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "可键盘切换的代码 / Markdown 产物面板",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "复制遵循显示参数，代码视区可配置；键盘切换保留焦点。",
+          "validation": {
+            "variants": 4,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "model-selector",
+        "selector": ".g-model-selector",
+        "variants": [
+          "default",
+          "detailed",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "模型描述、禁用选项与受控选择",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "选择同时更新 model 和 selected，禁用项不可选。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "context-meter",
+        "selector": ".g-context-meter",
+        "variants": [
+          "default",
+          "compact",
+          "detailed"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "实际占用、容量、比例与超限提醒",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "voice-state",
+        "selector": ".g-voice-state",
+        "variants": [
+          "default",
+          "compact",
+          "transcript"
+        ],
+        "states": [
+          "idle",
+          "listening",
+          "processing",
+          "speaking",
+          "error",
+          "disabled"
+        ],
+        "finding": "转录、音量级别与录音请求；媒体权限由应用处理",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "波形边界校验、语音回调超时/取消及专用重试；本地演示服务已补齐。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "generation-placeholder",
+        "selector": ".g-generation-placeholder",
+        "variants": [
+          "default",
+          "compact",
+          "progress"
+        ],
+        "states": [
+          "queued",
+          "generating",
+          "partial",
+          "complete",
+          "failed",
+          "disabled"
+        ],
+        "finding": "内容占位、进度与状态",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "ai-workspace",
+        "selector": ".g-ai-shell",
+        "variants": [
+          "default",
+          "compact",
+          "sidebar"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "侧栏会话切换、消息、草稿和流式生成",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "可配侧栏、消息间距和输入区；取消被拒绝的切换保留当前流；窄容器收为单列。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "prompt-starter",
+        "selector": ".g-prompt-starter",
+        "variants": [
+          "default",
+          "list",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "提示选择与提示正文",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "ai-command-menu",
+        "selector": ".g-ai-command-menu",
+        "variants": [
+          "default",
+          "grouped",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "分组搜索、命令选择和禁用项",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "streaming-response",
+        "selector": ".g-streaming-response",
+        "variants": [
+          "default",
+          "compact",
+          "plain"
+        ],
+        "states": [
+          "streaming",
+          "paused",
+          "stopped",
+          "complete",
+          "error",
+          "disabled"
+        ],
+        "finding": "真实异步迭代、暂停、继续、取消、重试和复制",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "可配暂停/复制入口；永不返回的服务和迭代器可取消，超时重试有效。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "multi-agent-board",
+        "selector": ".g-agent-board",
+        "variants": [
+          "default",
+          "list",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "多代理工作状态与列表 / 网格",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "agent-handoff",
+        "selector": ".g-agent-handoff",
+        "variants": [
+          "default",
+          "detailed",
+          "compact"
+        ],
+        "states": [
+          "proposed",
+          "accepted",
+          "declined",
+          "complete",
+          "disabled"
+        ],
+        "finding": "交接上下文、接受和拒绝",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "artifact-workspace",
+        "selector": ".g-artifact-layout",
+        "variants": [
+          "default",
+          "code",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "产物选择、预览与复制",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "复制遵循显示参数，代码视区可配置；键盘切换保留焦点。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "generation-gallery",
+        "selector": ".g-generation-grid",
+        "variants": [
+          "default",
+          "list",
+          "compact"
+        ],
+        "states": [
+          "queued",
+          "generating",
+          "partial",
+          "complete",
+          "failed",
+          "disabled"
+        ],
+        "finding": "图片预览、状态、网格和列表",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "预览比例和 fit 可配置，网格按容器收为单列。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "ai-context-manager",
+        "selector": ".g-ai-context-manager",
+        "variants": [
+          "default",
+          "compact",
+          "readonly"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "检索、勾选、移除请求和 token 总量",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "ai-usage-panel",
+        "selector": ".g-ai-usage-panel",
+        "variants": [
+          "default",
+          "compact",
+          "detailed"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "实际调用用量、成本和明细",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "ai-safety-notice",
+        "selector": ".g-ai-safety-notice",
+        "variants": [
+          "default",
+          "compact",
+          "dismissible"
+        ],
+        "states": [
+          "info",
+          "warning",
+          "blocked",
+          "review-required",
+          "disabled"
+        ],
+        "finding": "提示内容、状态、可关闭与操作请求",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "ai-feedback",
+        "selector": ".g-ai-feedback",
+        "variants": [
+          "default",
+          "detailed",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "评价、原因、服务提交、失败与重试",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "原因字数上限与只读一致；异步超时取消可重试。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "conversation-list",
+        "selector": ".g-conversation-list",
+        "variants": [
+          "default",
+          "grouped",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "分组、检索、分页和会话选择",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "prompt-library",
+        "selector": ".g-prompt-library",
+        "variants": [
+          "default",
+          "grouped",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "分类、检索、提示选择和分页",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "mention-slash-command",
+        "selector": ".g-mention",
+        "variants": [
+          "default",
+          "mentions",
+          "commands"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "提及与命令过滤、选择和禁用",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "generation-card",
+        "selector": ".g-generation-card",
+        "variants": [
+          "default",
+          "compact",
+          "progress"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "产物内容、进度与操作",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "预览比例和 fit 可配置，进度与状态可独立展示。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "file-tree",
+        "selector": ".g-file-tree",
+        "variants": [
+          "default",
+          "expanded",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "父子关系、展开与选择、代码预览，拒绝循环树",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "缩进和代码高度可配置；孤立与循环目录被拒绝，展开预览可用。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "version-history",
+        "selector": ".g-version-list",
+        "variants": [
+          "default",
+          "compact",
+          "detailed"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "版本选择与详情",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "permission-scope",
+        "selector": ".g-permission-scope",
+        "variants": [
+          "default",
+          "checkable",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "权限说明、勾选与只读",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "cost-rate-limit",
+        "selector": ".g-cost",
+        "variants": [
+          "default",
+          "compact",
+          "detailed"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "明确单位的成本、速率及额度",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "privacy-notice",
+        "selector": ".g-privacy-notice",
+        "variants": [
+          "default",
+          "compact",
+          "dismissible"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "隐私说明、链接与关闭",
+        "diagnosis": "组件能力和演示均需补齐",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "ai-run-timeline",
+        "selector": ".g-ai-run-timeline",
+        "variants": [
+          "default",
+          "compact",
+          "detailed"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "新增：跨工具与代理的公开运行步骤和时间线",
+        "diagnosis": "缺少独立组件",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "已核对全部变体、受控状态及适用操作；新增标题/状态开关与统一密度，空态、禁用、只读、RTL、暗色和窄容器通过。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      },
+      {
+        "name": "ai-structured-output",
+        "selector": ".g-ai-structured-output",
+        "variants": [
+          "default",
+          "tree",
+          "compact"
+        ],
+        "states": [
+          "disabled"
+        ],
+        "finding": "新增：JSON 校验、格式化与有界树形展示",
+        "diagnosis": "缺少独立组件",
+        "releaseReview": {
+          "scope": "运行时、参数、变体、CSS、五端、演示和文档",
+          "result": "已修复并纳入全部变体浏览器验证",
+          "newComponentNeeded": false,
+          "finding": "复制开关生效；代码高度可配置；JSON 树和错误均保持文本安全。",
+          "validation": {
+            "variants": 3,
+            "browserEngines": [
+              "chromium",
+              "firefox",
+              "webkit"
+            ],
+            "frameworks": [
+              "css",
+              "vue",
+              "react",
+              "angularjs",
+              "blazor"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "tests": {
+    "ai": 36,
+    "runtime": 749,
+    "schema": 48,
+    "html": 43,
+    "build": 11
+  },
+  "browsers": [
+    {
+      "components": 38,
+      "variants": 119,
+      "layouts": 238,
+      "rtl": 38,
+      "a11y": [
+        "chat",
+        "message",
+        "prompt-composer",
+        "attachment",
+        "thinking",
+        "tool-call",
+        "tool-approval",
+        "agent-status",
+        "agent-plan",
+        "sources-citations",
+        "artifact-panel",
+        "model-selector",
+        "context-meter",
+        "voice-state",
+        "generation-placeholder",
+        "ai-workspace",
+        "prompt-starter",
+        "ai-command-menu",
+        "streaming-response",
+        "multi-agent-board",
+        "agent-handoff",
+        "artifact-workspace",
+        "generation-gallery",
+        "ai-context-manager",
+        "ai-usage-panel",
+        "ai-safety-notice",
+        "ai-feedback",
+        "conversation-list",
+        "prompt-library",
+        "mention-slash-command",
+        "generation-card",
+        "file-tree",
+        "version-history",
+        "permission-scope",
+        "cost-rate-limit",
+        "privacy-notice",
+        "ai-run-timeline",
+        "ai-structured-output"
+      ],
+      "streaming": true,
+      "cancel": true,
+      "pause": true,
+      "retry": true,
+      "approval": true,
+      "feedback": true,
+      "keyboard": true,
+      "errors": [],
+      "results": [
+        {
+          "kind": "chat",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "chat",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "chat",
+          "mode": "bubbles",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "bubbles",
+          "width": 1100
+        },
+        {
+          "kind": "chat",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "assistant",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "assistant",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "user",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "user",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "system",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "system",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "plain",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "plain",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "multiline",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "multiline",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "attachments",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "attachments",
+          "width": 1100
+        },
+        {
+          "kind": "attachment",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "attachment",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "attachment",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "attachment",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "attachment",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "attachment",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "thinking",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "thinking",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "thinking",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "thinking",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "thinking",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "thinking",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "tool-call",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "tool-call",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "tool-call",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "tool-call",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "tool-call",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "tool-call",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-status",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "agent-status",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "agent-status",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "agent-status",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-status",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "agent-status",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "checkable",
+          "width": 360
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "checkable",
+          "width": 1100
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "code",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "code",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "markdown",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "markdown",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "model-selector",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "model-selector",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "model-selector",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "model-selector",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "model-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "model-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "context-meter",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "context-meter",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "context-meter",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "context-meter",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "context-meter",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "context-meter",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "voice-state",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "voice-state",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "voice-state",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "voice-state",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "voice-state",
+          "mode": "transcript",
+          "width": 360
+        },
+        {
+          "kind": "voice-state",
+          "mode": "transcript",
+          "width": 1100
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "progress",
+          "width": 360
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "progress",
+          "width": 1100
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "sidebar",
+          "width": 360
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "sidebar",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "plain",
+          "width": 360
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "plain",
+          "width": 1100
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "code",
+          "width": 360
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "code",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "dismissible",
+          "width": 360
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "dismissible",
+          "width": 1100
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "mentions",
+          "width": 360
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "mentions",
+          "width": 1100
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "commands",
+          "width": 360
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "commands",
+          "width": 1100
+        },
+        {
+          "kind": "generation-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "generation-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "generation-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "generation-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "generation-card",
+          "mode": "progress",
+          "width": 360
+        },
+        {
+          "kind": "generation-card",
+          "mode": "progress",
+          "width": 1100
+        },
+        {
+          "kind": "file-tree",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "file-tree",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "file-tree",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "file-tree",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "file-tree",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "file-tree",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "version-history",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "version-history",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "version-history",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "version-history",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "version-history",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "version-history",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "checkable",
+          "width": 360
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "checkable",
+          "width": 1100
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "dismissible",
+          "width": 360
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "dismissible",
+          "width": 1100
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "tree",
+          "width": 360
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "tree",
+          "width": 1100
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "compact",
+          "width": 1100
+        }
+      ]
+    },
+    {
+      "components": 38,
+      "variants": 119,
+      "layouts": 238,
+      "rtl": 38,
+      "a11y": [],
+      "streaming": true,
+      "cancel": true,
+      "pause": true,
+      "retry": true,
+      "approval": true,
+      "feedback": true,
+      "keyboard": true,
+      "errors": [],
+      "results": [
+        {
+          "kind": "chat",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "chat",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "chat",
+          "mode": "bubbles",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "bubbles",
+          "width": 1100
+        },
+        {
+          "kind": "chat",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "assistant",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "assistant",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "user",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "user",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "system",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "system",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "plain",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "plain",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "multiline",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "multiline",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "attachments",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "attachments",
+          "width": 1100
+        },
+        {
+          "kind": "attachment",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "attachment",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "attachment",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "attachment",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "attachment",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "attachment",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "thinking",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "thinking",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "thinking",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "thinking",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "thinking",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "thinking",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "tool-call",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "tool-call",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "tool-call",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "tool-call",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "tool-call",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "tool-call",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-status",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "agent-status",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "agent-status",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "agent-status",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-status",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "agent-status",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "checkable",
+          "width": 360
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "checkable",
+          "width": 1100
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "code",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "code",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "markdown",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "markdown",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "model-selector",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "model-selector",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "model-selector",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "model-selector",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "model-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "model-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "context-meter",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "context-meter",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "context-meter",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "context-meter",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "context-meter",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "context-meter",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "voice-state",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "voice-state",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "voice-state",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "voice-state",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "voice-state",
+          "mode": "transcript",
+          "width": 360
+        },
+        {
+          "kind": "voice-state",
+          "mode": "transcript",
+          "width": 1100
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "progress",
+          "width": 360
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "progress",
+          "width": 1100
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "sidebar",
+          "width": 360
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "sidebar",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "plain",
+          "width": 360
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "plain",
+          "width": 1100
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "code",
+          "width": 360
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "code",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "dismissible",
+          "width": 360
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "dismissible",
+          "width": 1100
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "mentions",
+          "width": 360
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "mentions",
+          "width": 1100
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "commands",
+          "width": 360
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "commands",
+          "width": 1100
+        },
+        {
+          "kind": "generation-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "generation-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "generation-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "generation-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "generation-card",
+          "mode": "progress",
+          "width": 360
+        },
+        {
+          "kind": "generation-card",
+          "mode": "progress",
+          "width": 1100
+        },
+        {
+          "kind": "file-tree",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "file-tree",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "file-tree",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "file-tree",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "file-tree",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "file-tree",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "version-history",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "version-history",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "version-history",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "version-history",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "version-history",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "version-history",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "checkable",
+          "width": 360
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "checkable",
+          "width": 1100
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "dismissible",
+          "width": 360
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "dismissible",
+          "width": 1100
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "tree",
+          "width": 360
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "tree",
+          "width": 1100
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "compact",
+          "width": 1100
+        }
+      ]
+    },
+    {
+      "components": 38,
+      "variants": 119,
+      "layouts": 238,
+      "rtl": 38,
+      "a11y": [],
+      "streaming": true,
+      "cancel": true,
+      "pause": true,
+      "retry": true,
+      "approval": true,
+      "feedback": true,
+      "keyboard": true,
+      "errors": [],
+      "results": [
+        {
+          "kind": "chat",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "chat",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "chat",
+          "mode": "bubbles",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "bubbles",
+          "width": 1100
+        },
+        {
+          "kind": "chat",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "chat",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "assistant",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "assistant",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "user",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "user",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "system",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "system",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "message",
+          "mode": "plain",
+          "width": 360
+        },
+        {
+          "kind": "message",
+          "mode": "plain",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "multiline",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "multiline",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "attachments",
+          "width": 360
+        },
+        {
+          "kind": "prompt-composer",
+          "mode": "attachments",
+          "width": 1100
+        },
+        {
+          "kind": "attachment",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "attachment",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "attachment",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "attachment",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "attachment",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "attachment",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "thinking",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "thinking",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "thinking",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "thinking",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "thinking",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "thinking",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "tool-call",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "tool-call",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "tool-call",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "tool-call",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "tool-call",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "tool-call",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "tool-approval",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-status",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "agent-status",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "agent-status",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "agent-status",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-status",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "agent-status",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "checkable",
+          "width": 360
+        },
+        {
+          "kind": "agent-plan",
+          "mode": "checkable",
+          "width": 1100
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "sources-citations",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "code",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "code",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "markdown",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "markdown",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "artifact-panel",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "model-selector",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "model-selector",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "model-selector",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "model-selector",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "model-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "model-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "context-meter",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "context-meter",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "context-meter",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "context-meter",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "context-meter",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "context-meter",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "voice-state",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "voice-state",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "voice-state",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "voice-state",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "voice-state",
+          "mode": "transcript",
+          "width": 360
+        },
+        {
+          "kind": "voice-state",
+          "mode": "transcript",
+          "width": 1100
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "progress",
+          "width": 360
+        },
+        {
+          "kind": "generation-placeholder",
+          "mode": "progress",
+          "width": 1100
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "sidebar",
+          "width": 360
+        },
+        {
+          "kind": "ai-workspace",
+          "mode": "sidebar",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "prompt-starter",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-command-menu",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "plain",
+          "width": 360
+        },
+        {
+          "kind": "streaming-response",
+          "mode": "plain",
+          "width": 1100
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "multi-agent-board",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "agent-handoff",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "code",
+          "width": 360
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "code",
+          "width": 1100
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "artifact-workspace",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "generation-gallery",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "ai-context-manager",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "ai-usage-panel",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "dismissible",
+          "width": 360
+        },
+        {
+          "kind": "ai-safety-notice",
+          "mode": "dismissible",
+          "width": 1100
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-feedback",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "conversation-list",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "prompt-library",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "mentions",
+          "width": 360
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "mentions",
+          "width": 1100
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "commands",
+          "width": 360
+        },
+        {
+          "kind": "mention-slash-command",
+          "mode": "commands",
+          "width": 1100
+        },
+        {
+          "kind": "generation-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "generation-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "generation-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "generation-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "generation-card",
+          "mode": "progress",
+          "width": 360
+        },
+        {
+          "kind": "generation-card",
+          "mode": "progress",
+          "width": 1100
+        },
+        {
+          "kind": "file-tree",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "file-tree",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "file-tree",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "file-tree",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "file-tree",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "file-tree",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "version-history",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "version-history",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "version-history",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "version-history",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "version-history",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "version-history",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "checkable",
+          "width": 360
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "checkable",
+          "width": 1100
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "permission-scope",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "cost-rate-limit",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "dismissible",
+          "width": 360
+        },
+        {
+          "kind": "privacy-notice",
+          "mode": "dismissible",
+          "width": 1100
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "ai-run-timeline",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "tree",
+          "width": 360
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "tree",
+          "width": 1100
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "ai-structured-output",
+          "mode": "compact",
+          "width": 1100
+        }
+      ]
+    }
+  ],
+  "extensions": [
+    {
+      "states": 114,
+      "parameters": 18,
+      "densities": 3,
+      "touchTarget": true,
+      "narrowContainer": true,
+      "timeoutRetry": true,
+      "cancellationSettles": true,
+      "missingService": true,
+      "errors": []
+    },
+    {
+      "states": 114,
+      "parameters": 18,
+      "densities": 3,
+      "touchTarget": true,
+      "narrowContainer": true,
+      "timeoutRetry": true,
+      "cancellationSettles": true,
+      "missingService": true,
+      "errors": []
+    },
+    {
+      "states": 114,
+      "parameters": 18,
+      "densities": 3,
+      "touchTarget": true,
+      "narrowContainer": true,
+      "timeoutRetry": true,
+      "cancellationSettles": true,
+      "missingService": true,
+      "errors": []
+    }
+  ],
+  "presets": [
+    {
+      "presets": 97,
+      "errors": []
+    },
+    {
+      "presets": 97,
+      "errors": []
+    },
+    {
+      "presets": 97,
+      "errors": []
+    }
+  ],
+  "finals": [
+    {
+      "components": 38,
+      "narrowDark": true,
+      "darkA11y": 38,
+      "attachments": true,
+      "contextTotals": true,
+      "contextRemoval": true,
+      "standaloneCSS": 38,
+      "errors": []
+    },
+    {
+      "components": 38,
+      "narrowDark": true,
+      "darkA11y": 0,
+      "attachments": true,
+      "contextTotals": true,
+      "contextRemoval": true,
+      "standaloneCSS": 38,
+      "errors": []
+    },
+    {
+      "components": 38,
+      "narrowDark": true,
+      "darkA11y": 0,
+      "attachments": true,
+      "contextTotals": true,
+      "contextRemoval": true,
+      "standaloneCSS": 38,
+      "errors": []
+    }
+  ],
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 141
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 90
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 78
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "blazor": {
+    "components": 38,
+    "variants": 119,
+    "controlledChat": true,
+    "parameterUpdate": true,
+    "approval": true,
+    "cancellation": true,
+    "errors": []
+  },
+  "standalone": {
+    "components": 38,
+    "variants": 119,
+    "narrowWidth": 320,
+    "errors": []
+  },
+  "smoke": {
+    "passed": true,
+    "catalogNewControls": true,
+    "website": true,
+    "blazorNewOptions": true,
+    "blazorInstancePreserved": true,
+    "errors": []
+  },
+  "sharedAssets": {
+    "gardener.css": "c5a5afc3eeec4670350cb0f1bf49fad49f0eee9f51422949b08f2f97160bef96",
+    "gardener.min.css": "3c4e51e7f7bcaea1258b47d252b29b4312e6f3709c143306913ff230e386b3fe",
+    "gardener.runtime.min.js": "461d27374275659b682141a5df436e4cac24c7439e689d7795d50ca14a159f23",
+    "ai.js": "a1a02d2bee51ae2661e27cbea9ee75182796ef7480e55e66bb06935a9806a721",
+    "components/ai.min.css": "b7cf3aca3f70890eb9f3e8ec91f8e949cbcfb06b7612cee209edec09790b6287"
+  },
+  "website": {
+    "components": 559,
+    "behaviors": 94,
+    "events": 104,
+    "locales": 7,
+    "pages": 14,
+    "messagesPerTranslatedLocale": 3320
+  },
+  "budgetReview": {
+    "reason": "AI configurable presentation and lifecycle validation; package/source sizes remain bounded. Only two compressed platform caps require an increase after selector simplification.",
+    "module": {
+      "beforeLimit": 48000,
+      "afterLimit": 54000,
+      "actual": 49758
+    },
+    "platforms": [
+      {
+        "artifact": "platforms/gardener.web.min.css",
+        "metric": "gzip",
+        "before": 246000,
+        "after": 247000,
+        "actual": 246058
+      },
+      {
+        "artifact": "platforms/gardener.desktop.min.css",
+        "metric": "brotli",
+        "before": 143000,
+        "after": 144000,
+        "actual": 143277
+      }
+    ],
+    "otherAbsoluteAndRelativeCaps": "unchanged",
+    "package": {
+      "measurement": "self-report-conservative-upper-bound",
+      "rounding": {
+        "packedQuantum": 4096,
+        "unpackedQuantum": 65536
+      },
+      "limits": {
+        "packed": 4000000,
+        "unpacked": 28700000,
+        "files": 115
+      },
+      "actual": {
+        "packed": 3977216,
+        "unpacked": 28114944,
+        "files": 115
+      },
+      "pass": true
+    }
+  },
+  "limitations": [
+    "演示播放预录文本和本地模拟回调；真实模型、录音、上传与工具执行由应用服务接入。",
+    "权限展示和工具确认不是服务端授权机制，应用须执行实际权限与有效期校验。",
+    "自动无障碍扫描不能代替人工辅助技术验收。"
+  ]
+}

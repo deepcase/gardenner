@@ -1,0 +1,11 @@
+export function installAuthDemo(root,getInstance,service='success'){
+ const api=getInstance(root,'auth');if(!api||root.dataset.authDemoInstalled)return;root.dataset.authDemoInstalled='true';root.__authApi=api;
+ const options=JSON.parse(root.getAttribute('data-g-auth-options')||'{}');
+ for(const input of root.querySelectorAll('[data-au-field]')){const key=input.dataset.auField;if(['password','confirmPassword'].includes(key))input.value='Demo passphrase 2026!';else if(key==='code')input.value=((options.codeType|| (options.mode==='alphanumeric'?'alphanumeric':'numeric'))==='alphanumeric'?'AB12CD34EF56':'123456789012').slice(0,options.codeLength||6);else if(key==='recoveryCode')input.value='DEMO-12AB-34CD';else continue;input.dispatchEvent(new Event('input',{bubbles:true}));}
+ root.addEventListener('gardener:action',e=>{const d=e.detail;if(e.target!==root||d.behavior!=='auth'||d.phase==='result'||!d.requestId)return;const credential=api.takeCredentials(d.requestId);const valid=service!=='error'&&(!credential?.password||credential.password==='Demo passphrase 2026!')&&(!credential?.code||credential.code===((options.codeType||(options.mode==='alphanumeric'?'alphanumeric':'numeric'))==='alphanumeric'?'AB12CD34EF56':'123456789012').slice(0,options.codeLength||6));if(credential)for(const key of Object.keys(credential))credential[key]='';
+ if(service==='timeout')return;setTimeout(()=>{if(!root.isConnected)return;const accepted=api.resolve(d.requestId,{status:valid?'success':'error',message:valid?'本地模拟服务已确认（未建立真实认证会话）':'本地模拟验证失败，请重试'});if(!accepted||!valid)return;
+ if(['revoke','unlink'].includes(d.action)){const items=options.items.filter(i=>i.id!==d.key);options.items=items;api.setOptions({items});}
+ if(d.action==='link'){options.items=options.items.map(i=>i.id===d.key?{...i,connected:true}:i);api.setOptions({items:options.items});}
+ if(d.action==='refresh'&&['qr-login','invitation-composition'].includes(options.kind))api.setOptions({mode:options.kind==='qr-login'?'waiting':'default',status:'idle',expiresAt:Date.now()+30000});
+ },250);});
+}

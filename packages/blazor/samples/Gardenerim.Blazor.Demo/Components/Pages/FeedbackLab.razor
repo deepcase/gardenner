@@ -1,0 +1,27 @@
+@page "/feedback"
+<PageTitle>反馈组件参数演示</PageTitle>
+<h1>反馈组件 · Blazor</h1>
+<p>9 个入口共用同一尺寸与运行时；数值、加载与关闭可通过参数调整。</p>
+<div id="feedback-lab" style="display:grid;gap:24px;max-width:720px">
+ <GAlert id="feedback-alert" Variant="with-title" @bind-Value="Reason" ValueEvent="dismiss" ValueKey="reason" Config="@(new Dictionary<string,object?> { ["feedbackControlled"]=true })"><div class="g-alert-body"><div class="g-alert-title">Feedback title</div><div class="g-alert-content">Feedback message</div></div><button type="button" class="g-alert-close" data-g-feedback-dismiss aria-label="关闭反馈">×</button></GAlert><output id="feedback-reason">@Reason</output>
+ <section id="feedback-lines">@foreach(var size in new[]{"small","medium","large"}){<GProgressMeter Variants="@(new[]{"line",size})" Config="Progress" aria-label="任务进度" style="margin-block:16px"><span class="g-progress-bar"></span></GProgressMeter>}</section>
+ <GProgressMeter id="feedback-circle" Variant="circle" Config="Progress" aria-label="圆形进度"><span class="g-progress-text" data-g-feedback-value-text></span></GProgressMeter>
+ <button class="g-btn" @onclick="()=>Value=Value==35?150:35">切换进度</button>
+ <GSpinnerSkeleton id="feedback-spinner" Variant="overlay" Config="@(new Dictionary<string,object?> { ["feedback"]=true,["feedbackLoading"]=Loading,["feedbackDelay"]=50 })" aria-label="区域加载"><div class="g-spinner-content" style="padding:24px"><button id="feedback-content-action" class="g-btn" @onclick="()=>Clicks++">内容操作</button><output>@Clicks</output></div></GSpinnerSkeleton><button class="g-btn" @onclick="()=>Loading=!Loading">切换加载</button>
+ <GSpinnerSkeleton Variant="skeleton"><div class="g-skeleton-paragraph"><span class="g-skeleton-row"></span><span class="g-skeleton-row"></span><span class="g-skeleton-row" style="width:60%"></span></div></GSpinnerSkeleton>
+ <GEmptyState><div class="g-empty-visual"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="12" width="32" height="24"/></svg></div><div class="g-empty-description">No data</div></GEmptyState>
+ @if (ToastVisible) { <GToast id="feedback-toast" ValueEvent="dismiss" ValueKey="reason" OnValueChange="@(_ => ToastVisible = false)" Config="@(new Dictionary<string,object?> { ["persistent"]=true, ["feedbackControlled"]=true })"><div class="g-toast-content"><div class="g-toast-message">Feedback message</div></div><button class="g-toast-close" data-g-dismiss aria-label="关闭消息">×</button></GToast> }
+ <GContextBar id="feedback-context" State="@(Disabled?"disabled":null)" Config="Progress"><div class="g-context-bar-body"><div class="g-context-bar-content">任务上下文</div></div><button class="g-context-bar-action">Retry</button><div class="g-context-bar-progress" aria-label="上下文进度"></div></GContextBar>
+ <GStatusBar State="@(Disabled?"disabled":null)" Config="Progress"><span class="g-status-bar-item">Ready</span><button class="g-status-bar-item">Refresh</button><span class="g-status-bar-progress" aria-label="状态栏进度"></span></GStatusBar><button class="g-btn" @onclick="()=>Disabled=!Disabled">切换禁用</button>
+ <GPageLoading><div class="g-page-loading-content"><span class="g-page-loading-description">Loading</span></div></GPageLoading>
+ <GPageStateSystem id="feedback-result" Variant="success"><div class="g-page-state-content"><div class="g-page-state-visual"></div><div class="g-page-state-body"><div class="g-page-state-title">Result title</div><div class="g-page-state-description">Result description</div></div></div></GPageStateSystem>
+</div>
+@code {
+ private int Value {get;set;}=35;
+ private object? Reason {get;set;}
+ private bool Loading {get;set;}
+ private bool Disabled {get;set;}
+ private bool ToastVisible {get;set;}=true;
+ private int Clicks {get;set;}
+ private IReadOnlyDictionary<string,object?> Progress => new Dictionary<string,object?> { ["feedbackValue"]=Value };
+}

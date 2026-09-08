@@ -1,0 +1,3077 @@
+{
+  "reason": "32 existing pages gain shared solution runtime, typed config and 8 configurable section types; no component count growth.",
+  "before": {
+    "css": {
+      "$schema": "../metadata/performance-budgets.schema.json",
+      "schemaVersion": 1,
+      "version": "2.1.0",
+      "compression": {
+        "gzipLevel": 9,
+        "brotliQuality": 11
+      },
+      "packageMeasurement": {
+        "packedQuantum": 4096,
+        "unpackedQuantum": 65536
+      },
+      "baseline": {
+        "version": "2.0.0",
+        "artifactAliases": {},
+        "artifacts": {
+          "gardener.min.css": {
+            "raw": 1006431,
+            "gzip": 139263,
+            "brotli": 61068
+          },
+          "gardener.core.min.css": {
+            "raw": 60152,
+            "gzip": 7711,
+            "brotli": 5245
+          },
+          "gardener.themes.min.css": {
+            "raw": 56292,
+            "gzip": 6269,
+            "brotli": 4056
+          },
+          "gardener.utilities.min.css": {
+            "raw": 533948,
+            "gzip": 76718,
+            "brotli": 14675
+          },
+          "gardener.components.min.css": {
+            "raw": 387326,
+            "gzip": 52395,
+            "brotli": 38359
+          },
+          "gardener.ai.min.css": {
+            "raw": 25598,
+            "gzip": 4356,
+            "brotli": 3831
+          },
+          "gardener.runtime.min.js": {
+            "raw": 105542,
+            "gzip": 29289,
+            "brotli": 25286
+          },
+          "gardener.tauri.min.js": {
+            "raw": 907,
+            "gzip": 516,
+            "brotli": 438
+          },
+          "gardener.electron.min.js": {
+            "raw": 635,
+            "gzip": 423,
+            "brotli": 348
+          },
+          "platforms/gardener.web.min.css": {
+            "raw": 963611,
+            "gzip": 133328,
+            "brotli": 56114
+          },
+          "platforms/gardener.mobile.min.css": {
+            "raw": 983596,
+            "gzip": 136189,
+            "brotli": 59317
+          },
+          "platforms/gardener.desktop.min.css": {
+            "raw": 986401,
+            "gzip": 136511,
+            "brotli": 58966
+          },
+          "platforms/gardener.tauri.min.css": {
+            "raw": 69,
+            "gzip": 84,
+            "brotli": 73
+          },
+          "platforms/gardener.electron.min.css": {
+            "raw": 69,
+            "gzip": 84,
+            "brotli": 73
+          },
+          "components/layouts.min.css": {
+            "raw": 3176,
+            "gzip": 972,
+            "brotli": 822
+          },
+          "components/regions.min.css": {
+            "raw": 9445,
+            "gzip": 1886,
+            "brotli": 1670
+          },
+          "components/primitives.min.css": {
+            "raw": 9290,
+            "gzip": 2247,
+            "brotli": 2008
+          },
+          "components/grid.min.css": {
+            "raw": 72407,
+            "gzip": 6885,
+            "brotli": 2402
+          },
+          "components/basic.min.css": {
+            "raw": 8570,
+            "gzip": 2054,
+            "brotli": 1776
+          },
+          "components/forms.min.css": {
+            "raw": 5372,
+            "gzip": 1480,
+            "brotli": 1276
+          },
+          "components/form-compositions.min.css": {
+            "raw": 13976,
+            "gzip": 2888,
+            "brotli": 2525
+          },
+          "components/navigation.min.css": {
+            "raw": 7279,
+            "gzip": 1560,
+            "brotli": 1322
+          },
+          "components/navigation-compositions.min.css": {
+            "raw": 17042,
+            "gzip": 3120,
+            "brotli": 2755
+          },
+          "components/feedback.min.css": {
+            "raw": 5516,
+            "gzip": 1455,
+            "brotli": 1249
+          },
+          "components/data.min.css": {
+            "raw": 7978,
+            "gzip": 1803,
+            "brotli": 1560
+          },
+          "components/data-compositions.min.css": {
+            "raw": 20997,
+            "gzip": 3781,
+            "brotli": 3340
+          },
+          "components/selection-compositions.min.css": {
+            "raw": 15576,
+            "gzip": 2714,
+            "brotli": 2382
+          },
+          "components/content-compositions.min.css": {
+            "raw": 24320,
+            "gzip": 4141,
+            "brotli": 3669
+          },
+          "components/auth-compositions.min.css": {
+            "raw": 15642,
+            "gzip": 3107,
+            "brotli": 2700
+          },
+          "components/commerce-compositions.min.css": {
+            "raw": 18628,
+            "gzip": 3542,
+            "brotli": 3079
+          },
+          "components/mobile-compositions.min.css": {
+            "raw": 20128,
+            "gzip": 3694,
+            "brotli": 3292
+          },
+          "components/extended.min.css": {
+            "raw": 11715,
+            "gzip": 2770,
+            "brotli": 2408
+          },
+          "components/page.min.css": {
+            "raw": 15128,
+            "gzip": 2801,
+            "brotli": 2464
+          },
+          "components/help.min.css": {
+            "raw": 16780,
+            "gzip": 3123,
+            "brotli": 2750
+          },
+          "components/recipes.min.css": {
+            "raw": 16878,
+            "gzip": 3418,
+            "brotli": 3021
+          },
+          "components/desktop.min.css": {
+            "raw": 5681,
+            "gzip": 1475,
+            "brotli": 1253
+          },
+          "components/desktop-compositions.min.css": {
+            "raw": 17395,
+            "gzip": 3213,
+            "brotli": 2819
+          },
+          "components/solution-compositions.min.css": {
+            "raw": 21727,
+            "gzip": 3582,
+            "brotli": 3044
+          },
+          "components/catalog.min.css": {
+            "raw": 10056,
+            "gzip": 2062,
+            "brotli": 1783
+          },
+          "components/ai.min.css": {
+            "raw": 11019,
+            "gzip": 2364,
+            "brotli": 2047
+          },
+          "components/ai-extended.min.css": {
+            "raw": 3006,
+            "gzip": 951,
+            "brotli": 775
+          },
+          "components/ai-compositions.min.css": {
+            "raw": 11811,
+            "gzip": 2327,
+            "brotli": 1994
+          }
+        },
+        "package": {
+          "packed": 1925120,
+          "unpacked": 15335424,
+          "files": 92
+        },
+        "maxGrowthPercent": {
+          "artifactOverrides": {
+            "gardener.min.css": {
+              "raw": 87,
+              "gzip": 87,
+              "brotli": 141
+            },
+            "gardener.core.min.css": {
+              "raw": 9,
+              "gzip": 17,
+              "brotli": 15
+            },
+            "gardener.themes.min.css": {
+              "raw": 7,
+              "gzip": 20,
+              "brotli": 24
+            },
+            "gardener.runtime.min.js": {
+              "raw": 141,
+              "gzip": 145,
+              "brotli": 142
+            },
+            "gardener.components.min.css": {
+              "raw": 221,
+              "gzip": 225,
+              "brotli": 224
+            },
+            "platforms/gardener.web.min.css": {
+              "raw": 85,
+              "gzip": 85,
+              "brotli": 146
+            },
+            "platforms/gardener.mobile.min.css": {
+              "raw": 85,
+              "gzip": 86,
+              "brotli": 138
+            },
+            "platforms/gardener.desktop.min.css": {
+              "raw": 86,
+              "gzip": 87,
+              "brotli": 141
+            },
+            "components/basic.min.css": {
+              "raw": 682,
+              "gzip": 485,
+              "brotli": 520
+            },
+            "components/forms.min.css": {
+              "raw": 1799,
+              "gzip": 779,
+              "brotli": 841
+            },
+            "components/navigation.min.css": {
+              "raw": 903,
+              "gzip": 606,
+              "brotli": 657
+            },
+            "components/feedback.min.css": {
+              "raw": 390,
+              "gzip": 265,
+              "brotli": 277
+            },
+            "components/data.min.css": {
+              "raw": 477,
+              "gzip": 372,
+              "brotli": 382
+            },
+            "components/data-compositions.min.css": {
+              "raw": 16,
+              "gzip": 9,
+              "brotli": 11
+            },
+            "components/extended.min.css": {
+              "raw": 353,
+              "gzip": 233,
+              "brotli": 245
+            },
+            "components/desktop-compositions.min.css": {
+              "raw": 171,
+              "gzip": 137,
+              "brotli": 142
+            },
+            "components/auth-compositions.min.css": {
+              "raw": 111,
+              "gzip": 103,
+              "brotli": 108
+            },
+            "components/solution-compositions.min.css": {
+              "raw": 112,
+              "gzip": 68,
+              "brotli": 65
+            },
+            "components/form-compositions.min.css": {
+              "raw": 1167,
+              "gzip": 697,
+              "brotli": 653
+            },
+            "components/mobile-compositions.min.css": {
+              "raw": 124,
+              "gzip": 131,
+              "brotli": 128
+            },
+            "components/catalog.min.css": {
+              "raw": 318,
+              "gzip": 264,
+              "brotli": 282
+            },
+            "components/navigation-compositions.min.css": {
+              "raw": 194,
+              "gzip": 125,
+              "brotli": 155
+            },
+            "components/selection-compositions.min.css": {
+              "raw": 248,
+              "gzip": 195,
+              "brotli": 195
+            },
+            "components/content-compositions.min.css": {
+              "raw": 172,
+              "gzip": 142,
+              "brotli": 140
+            },
+            "components/page.min.css": {
+              "raw": 297,
+              "gzip": 258,
+              "brotli": 266
+            },
+            "components/desktop.min.css": {
+              "raw": 217,
+              "gzip": 172,
+              "brotli": 220
+            },
+            "components/layouts.min.css": {
+              "raw": 814,
+              "gzip": 394,
+              "brotli": 411
+            },
+            "components/help.min.css": {
+              "raw": 91,
+              "gzip": 80,
+              "brotli": 79
+            },
+            "gardener.ai.min.css": {
+              "raw": 68,
+              "gzip": 63,
+              "brotli": 65
+            },
+            "components/ai.min.css": {
+              "raw": 155,
+              "gzip": 120,
+              "brotli": 125
+            },
+            "components/commerce-compositions.min.css": {
+              "raw": 115,
+              "gzip": 92,
+              "brotli": 95
+            },
+            "components/recipes.min.css": {
+              "raw": 215,
+              "gzip": 164,
+              "brotli": 165
+            },
+            "gardener.tauri.min.js": {
+              "raw": 88,
+              "gzip": 75,
+              "brotli": 83
+            },
+            "gardener.electron.min.js": {
+              "raw": 121,
+              "gzip": 90,
+              "brotli": 102
+            }
+          },
+          "artifacts": {
+            "raw": 2,
+            "gzip": 3,
+            "brotli": 3
+          },
+          "package": {
+            "packed": 106,
+            "unpacked": 88,
+            "files": 24
+          }
+        }
+      },
+      "artifacts": {
+        "gardener.min.css": {
+          "raw": 1875000,
+          "gzip": 260000,
+          "brotli": 147000
+        },
+        "gardener.core.min.css": {
+          "raw": 65000,
+          "gzip": 9000,
+          "brotli": 6000
+        },
+        "gardener.themes.min.css": {
+          "raw": 60000,
+          "gzip": 7500,
+          "brotli": 5000
+        },
+        "gardener.utilities.min.css": {
+          "raw": 550000,
+          "gzip": 80000,
+          "brotli": 18000
+        },
+        "gardener.components.min.css": {
+          "raw": 1240000,
+          "gzip": 170000,
+          "brotli": 124000
+        },
+        "gardener.ai.min.css": {
+          "raw": 43000,
+          "gzip": 7100,
+          "brotli": 6300
+        },
+        "gardener.runtime.min.js": {
+          "raw": 254000,
+          "gzip": 71500,
+          "brotli": 61000
+        },
+        "gardener.tauri.min.js": {
+          "raw": 1700,
+          "gzip": 900,
+          "brotli": 800
+        },
+        "gardener.electron.min.js": {
+          "raw": 1400,
+          "gzip": 800,
+          "brotli": 700
+        },
+        "platforms/gardener.web.min.css": {
+          "raw": 1780000,
+          "gzip": 246000,
+          "brotli": 138000
+        },
+        "platforms/gardener.mobile.min.css": {
+          "raw": 1815000,
+          "gzip": 252000,
+          "brotli": 141000
+        },
+        "platforms/gardener.desktop.min.css": {
+          "raw": 1830000,
+          "gzip": 254000,
+          "brotli": 142000
+        },
+        "platforms/gardener.tauri.min.css": {
+          "raw": 256,
+          "gzip": 256,
+          "brotli": 256
+        },
+        "platforms/gardener.electron.min.css": {
+          "raw": 256,
+          "gzip": 256,
+          "brotli": 256
+        },
+        "components/layouts.min.css": {
+          "raw": 29000,
+          "gzip": 4800,
+          "brotli": 4200
+        },
+        "components/regions.min.css": {
+          "raw": 11000,
+          "gzip": 2300,
+          "brotli": 2000
+        },
+        "components/primitives.min.css": {
+          "raw": 11000,
+          "gzip": 2700,
+          "brotli": 2400
+        },
+        "components/grid.min.css": {
+          "raw": 80000,
+          "gzip": 8000,
+          "brotli": 3000
+        },
+        "components/basic.min.css": {
+          "raw": 67000,
+          "gzip": 12000,
+          "brotli": 11000
+        },
+        "components/forms.min.css": {
+          "raw": 102000,
+          "gzip": 13000,
+          "brotli": 12000
+        },
+        "components/form-compositions.min.css": {
+          "raw": 177000,
+          "gzip": 23000,
+          "brotli": 19000
+        },
+        "components/navigation.min.css": {
+          "raw": 73000,
+          "gzip": 11000,
+          "brotli": 10000
+        },
+        "components/navigation-compositions.min.css": {
+          "raw": 50000,
+          "gzip": 7000,
+          "brotli": 7000
+        },
+        "components/feedback.min.css": {
+          "raw": 27000,
+          "gzip": 5300,
+          "brotli": 4700
+        },
+        "components/data.min.css": {
+          "raw": 46000,
+          "gzip": 8500,
+          "brotli": 7500
+        },
+        "components/data-compositions.min.css": {
+          "raw": 24500,
+          "gzip": 4500,
+          "brotli": 4000
+        },
+        "components/selection-compositions.min.css": {
+          "raw": 54000,
+          "gzip": 8000,
+          "brotli": 7000
+        },
+        "components/content-compositions.min.css": {
+          "raw": 66000,
+          "gzip": 10000,
+          "brotli": 8800
+        },
+        "components/auth-compositions.min.css": {
+          "raw": 33000,
+          "gzip": 6300,
+          "brotli": 5600
+        },
+        "components/commerce-compositions.min.css": {
+          "raw": 40000,
+          "gzip": 6800,
+          "brotli": 6000
+        },
+        "components/mobile-compositions.min.css": {
+          "raw": 45000,
+          "gzip": 8500,
+          "brotli": 7500
+        },
+        "components/extended.min.css": {
+          "raw": 53000,
+          "gzip": 9200,
+          "brotli": 8300
+        },
+        "components/page.min.css": {
+          "raw": 60000,
+          "gzip": 10000,
+          "brotli": 9000
+        },
+        "components/help.min.css": {
+          "raw": 32000,
+          "gzip": 5600,
+          "brotli": 4900
+        },
+        "components/recipes.min.css": {
+          "raw": 53000,
+          "gzip": 9000,
+          "brotli": 8000
+        },
+        "components/desktop.min.css": {
+          "raw": 18000,
+          "gzip": 4000,
+          "brotli": 4000
+        },
+        "components/desktop-compositions.min.css": {
+          "raw": 47000,
+          "gzip": 7600,
+          "brotli": 6800
+        },
+        "components/solution-compositions.min.css": {
+          "raw": 46000,
+          "gzip": 6000,
+          "brotli": 5000
+        },
+        "components/catalog.min.css": {
+          "raw": 42000,
+          "gzip": 7500,
+          "brotli": 6800
+        },
+        "components/ai.min.css": {
+          "raw": 28000,
+          "gzip": 5200,
+          "brotli": 4600
+        },
+        "components/ai-extended.min.css": {
+          "raw": 4000,
+          "gzip": 1200,
+          "brotli": 1000
+        },
+        "components/ai-compositions.min.css": {
+          "raw": 14000,
+          "gzip": 2900,
+          "brotli": 2400
+        }
+      },
+      "ratios": {
+        "gardener.min.css": {
+          "source": "gardener.css",
+          "max": 0.96
+        },
+        "gardener.runtime.min.js": {
+          "source": "gardener.runtime.js",
+          "max": 0.7
+        }
+      },
+      "package": {
+        "packed": 3950000,
+        "unpacked": 28700000,
+        "files": 114
+      }
+    },
+    "vue": {
+      "schemaVersion": 1,
+      "version": "2.1.0",
+      "bundle": {
+        "raw": 545000,
+        "gzip": 100000,
+        "brotli": 90000
+      },
+      "package": {
+        "packed": 1000000,
+        "unpacked": 5250000,
+        "files": 113
+      }
+    },
+    "react": {
+      "bundle": {
+        "raw": 541000,
+        "gzip": 82000,
+        "brotli": 40500
+      },
+      "treeShaken": {
+        "bytes": 20000
+      },
+      "package": {
+        "packed": 450000,
+        "unpacked": 5200000,
+        "files": 110
+      }
+    },
+    "angularjs": {
+      "version": "2.1.0",
+      "artifact": "gardener-angularjs.min.js",
+      "limits": {
+        "raw": 630000,
+        "gzip": 92000,
+        "brotli": 44000
+      },
+      "treeShakenDirective": 12000,
+      "package": {
+        "packed": 500000,
+        "unpacked": 5000000,
+        "files": 130
+      }
+    },
+    "blazor": {
+      "$schema": "../metadata/performance-budgets.schema.json",
+      "schemaVersion": 1,
+      "version": "2.1.0",
+      "assembly": {
+        "bytes": 1200000
+      },
+      "staticAssets": {
+        "bytes": 15900000
+      },
+      "entrypoints": {
+        "css": {
+          "bytes": 1875000,
+          "gzipBytes": 260000
+        },
+        "runtime": {
+          "bytes": 254000,
+          "gzipBytes": 71500
+        },
+        "blazor": {
+          "bytes": 12000,
+          "gzipBytes": 4000
+        }
+      },
+      "package": {
+        "bytes": 6000000,
+        "files": 180
+      },
+      "generatedSource": {
+        "bytes": 900000
+      }
+    }
+  },
+  "after": {
+    "css": {
+      "$schema": "../metadata/performance-budgets.schema.json",
+      "schemaVersion": 1,
+      "version": "2.1.0",
+      "compression": {
+        "gzipLevel": 9,
+        "brotliQuality": 11
+      },
+      "packageMeasurement": {
+        "packedQuantum": 4096,
+        "unpackedQuantum": 65536
+      },
+      "baseline": {
+        "version": "2.0.0",
+        "artifactAliases": {},
+        "artifacts": {
+          "gardener.min.css": {
+            "raw": 1006431,
+            "gzip": 139263,
+            "brotli": 61068
+          },
+          "gardener.core.min.css": {
+            "raw": 60152,
+            "gzip": 7711,
+            "brotli": 5245
+          },
+          "gardener.themes.min.css": {
+            "raw": 56292,
+            "gzip": 6269,
+            "brotli": 4056
+          },
+          "gardener.utilities.min.css": {
+            "raw": 533948,
+            "gzip": 76718,
+            "brotli": 14675
+          },
+          "gardener.components.min.css": {
+            "raw": 387326,
+            "gzip": 52395,
+            "brotli": 38359
+          },
+          "gardener.ai.min.css": {
+            "raw": 25598,
+            "gzip": 4356,
+            "brotli": 3831
+          },
+          "gardener.runtime.min.js": {
+            "raw": 105542,
+            "gzip": 29289,
+            "brotli": 25286
+          },
+          "gardener.tauri.min.js": {
+            "raw": 907,
+            "gzip": 516,
+            "brotli": 438
+          },
+          "gardener.electron.min.js": {
+            "raw": 635,
+            "gzip": 423,
+            "brotli": 348
+          },
+          "platforms/gardener.web.min.css": {
+            "raw": 963611,
+            "gzip": 133328,
+            "brotli": 56114
+          },
+          "platforms/gardener.mobile.min.css": {
+            "raw": 983596,
+            "gzip": 136189,
+            "brotli": 59317
+          },
+          "platforms/gardener.desktop.min.css": {
+            "raw": 986401,
+            "gzip": 136511,
+            "brotli": 58966
+          },
+          "platforms/gardener.tauri.min.css": {
+            "raw": 69,
+            "gzip": 84,
+            "brotli": 73
+          },
+          "platforms/gardener.electron.min.css": {
+            "raw": 69,
+            "gzip": 84,
+            "brotli": 73
+          },
+          "components/layouts.min.css": {
+            "raw": 3176,
+            "gzip": 972,
+            "brotli": 822
+          },
+          "components/regions.min.css": {
+            "raw": 9445,
+            "gzip": 1886,
+            "brotli": 1670
+          },
+          "components/primitives.min.css": {
+            "raw": 9290,
+            "gzip": 2247,
+            "brotli": 2008
+          },
+          "components/grid.min.css": {
+            "raw": 72407,
+            "gzip": 6885,
+            "brotli": 2402
+          },
+          "components/basic.min.css": {
+            "raw": 8570,
+            "gzip": 2054,
+            "brotli": 1776
+          },
+          "components/forms.min.css": {
+            "raw": 5372,
+            "gzip": 1480,
+            "brotli": 1276
+          },
+          "components/form-compositions.min.css": {
+            "raw": 13976,
+            "gzip": 2888,
+            "brotli": 2525
+          },
+          "components/navigation.min.css": {
+            "raw": 7279,
+            "gzip": 1560,
+            "brotli": 1322
+          },
+          "components/navigation-compositions.min.css": {
+            "raw": 17042,
+            "gzip": 3120,
+            "brotli": 2755
+          },
+          "components/feedback.min.css": {
+            "raw": 5516,
+            "gzip": 1455,
+            "brotli": 1249
+          },
+          "components/data.min.css": {
+            "raw": 7978,
+            "gzip": 1803,
+            "brotli": 1560
+          },
+          "components/data-compositions.min.css": {
+            "raw": 20997,
+            "gzip": 3781,
+            "brotli": 3340
+          },
+          "components/selection-compositions.min.css": {
+            "raw": 15576,
+            "gzip": 2714,
+            "brotli": 2382
+          },
+          "components/content-compositions.min.css": {
+            "raw": 24320,
+            "gzip": 4141,
+            "brotli": 3669
+          },
+          "components/auth-compositions.min.css": {
+            "raw": 15642,
+            "gzip": 3107,
+            "brotli": 2700
+          },
+          "components/commerce-compositions.min.css": {
+            "raw": 18628,
+            "gzip": 3542,
+            "brotli": 3079
+          },
+          "components/mobile-compositions.min.css": {
+            "raw": 20128,
+            "gzip": 3694,
+            "brotli": 3292
+          },
+          "components/extended.min.css": {
+            "raw": 11715,
+            "gzip": 2770,
+            "brotli": 2408
+          },
+          "components/page.min.css": {
+            "raw": 15128,
+            "gzip": 2801,
+            "brotli": 2464
+          },
+          "components/help.min.css": {
+            "raw": 16780,
+            "gzip": 3123,
+            "brotli": 2750
+          },
+          "components/recipes.min.css": {
+            "raw": 16878,
+            "gzip": 3418,
+            "brotli": 3021
+          },
+          "components/desktop.min.css": {
+            "raw": 5681,
+            "gzip": 1475,
+            "brotli": 1253
+          },
+          "components/desktop-compositions.min.css": {
+            "raw": 17395,
+            "gzip": 3213,
+            "brotli": 2819
+          },
+          "components/solution-compositions.min.css": {
+            "raw": 21727,
+            "gzip": 3582,
+            "brotli": 3044
+          },
+          "components/catalog.min.css": {
+            "raw": 10056,
+            "gzip": 2062,
+            "brotli": 1783
+          },
+          "components/ai.min.css": {
+            "raw": 11019,
+            "gzip": 2364,
+            "brotli": 2047
+          },
+          "components/ai-extended.min.css": {
+            "raw": 3006,
+            "gzip": 951,
+            "brotli": 775
+          },
+          "components/ai-compositions.min.css": {
+            "raw": 11811,
+            "gzip": 2327,
+            "brotli": 1994
+          }
+        },
+        "package": {
+          "packed": 1925120,
+          "unpacked": 15335424,
+          "files": 92
+        },
+        "maxGrowthPercent": {
+          "artifactOverrides": {
+            "gardener.min.css": {
+              "raw": 87,
+              "gzip": 87,
+              "brotli": 141
+            },
+            "gardener.core.min.css": {
+              "raw": 9,
+              "gzip": 17,
+              "brotli": 15
+            },
+            "gardener.themes.min.css": {
+              "raw": 7,
+              "gzip": 20,
+              "brotli": 24
+            },
+            "gardener.runtime.min.js": {
+              "raw": 141,
+              "gzip": 145,
+              "brotli": 142
+            },
+            "gardener.components.min.css": {
+              "raw": 221,
+              "gzip": 225,
+              "brotli": 224
+            },
+            "platforms/gardener.web.min.css": {
+              "raw": 85,
+              "gzip": 85,
+              "brotli": 146
+            },
+            "platforms/gardener.mobile.min.css": {
+              "raw": 85,
+              "gzip": 86,
+              "brotli": 138
+            },
+            "platforms/gardener.desktop.min.css": {
+              "raw": 87,
+              "gzip": 87,
+              "brotli": 141
+            },
+            "components/basic.min.css": {
+              "raw": 682,
+              "gzip": 485,
+              "brotli": 520
+            },
+            "components/forms.min.css": {
+              "raw": 1799,
+              "gzip": 779,
+              "brotli": 841
+            },
+            "components/navigation.min.css": {
+              "raw": 903,
+              "gzip": 606,
+              "brotli": 657
+            },
+            "components/feedback.min.css": {
+              "raw": 390,
+              "gzip": 265,
+              "brotli": 277
+            },
+            "components/data.min.css": {
+              "raw": 477,
+              "gzip": 372,
+              "brotli": 382
+            },
+            "components/data-compositions.min.css": {
+              "raw": 16,
+              "gzip": 9,
+              "brotli": 11
+            },
+            "components/extended.min.css": {
+              "raw": 353,
+              "gzip": 233,
+              "brotli": 245
+            },
+            "components/desktop-compositions.min.css": {
+              "raw": 171,
+              "gzip": 137,
+              "brotli": 142
+            },
+            "components/auth-compositions.min.css": {
+              "raw": 111,
+              "gzip": 103,
+              "brotli": 108
+            },
+            "components/solution-compositions.min.css": {
+              "raw": 140,
+              "gzip": 102,
+              "brotli": 91
+            },
+            "components/form-compositions.min.css": {
+              "raw": 1167,
+              "gzip": 697,
+              "brotli": 653
+            },
+            "components/mobile-compositions.min.css": {
+              "raw": 124,
+              "gzip": 131,
+              "brotli": 128
+            },
+            "components/catalog.min.css": {
+              "raw": 318,
+              "gzip": 264,
+              "brotli": 282
+            },
+            "components/navigation-compositions.min.css": {
+              "raw": 194,
+              "gzip": 125,
+              "brotli": 155
+            },
+            "components/selection-compositions.min.css": {
+              "raw": 248,
+              "gzip": 195,
+              "brotli": 195
+            },
+            "components/content-compositions.min.css": {
+              "raw": 172,
+              "gzip": 142,
+              "brotli": 140
+            },
+            "components/page.min.css": {
+              "raw": 297,
+              "gzip": 258,
+              "brotli": 266
+            },
+            "components/desktop.min.css": {
+              "raw": 217,
+              "gzip": 172,
+              "brotli": 220
+            },
+            "components/layouts.min.css": {
+              "raw": 814,
+              "gzip": 394,
+              "brotli": 411
+            },
+            "components/help.min.css": {
+              "raw": 91,
+              "gzip": 80,
+              "brotli": 79
+            },
+            "gardener.ai.min.css": {
+              "raw": 68,
+              "gzip": 63,
+              "brotli": 65
+            },
+            "components/ai.min.css": {
+              "raw": 155,
+              "gzip": 120,
+              "brotli": 125
+            },
+            "components/commerce-compositions.min.css": {
+              "raw": 115,
+              "gzip": 92,
+              "brotli": 95
+            },
+            "components/recipes.min.css": {
+              "raw": 215,
+              "gzip": 164,
+              "brotli": 165
+            },
+            "gardener.tauri.min.js": {
+              "raw": 88,
+              "gzip": 75,
+              "brotli": 83
+            },
+            "gardener.electron.min.js": {
+              "raw": 121,
+              "gzip": 90,
+              "brotli": 102
+            }
+          },
+          "artifacts": {
+            "raw": 2,
+            "gzip": 3,
+            "brotli": 3
+          },
+          "package": {
+            "packed": 108,
+            "unpacked": 88,
+            "files": 25
+          }
+        }
+      },
+      "artifacts": {
+        "gardener.min.css": {
+          "raw": 1875000,
+          "gzip": 260000,
+          "brotli": 147000
+        },
+        "gardener.core.min.css": {
+          "raw": 65000,
+          "gzip": 9000,
+          "brotli": 6000
+        },
+        "gardener.themes.min.css": {
+          "raw": 60000,
+          "gzip": 7500,
+          "brotli": 5000
+        },
+        "gardener.utilities.min.css": {
+          "raw": 550000,
+          "gzip": 80000,
+          "brotli": 18000
+        },
+        "gardener.components.min.css": {
+          "raw": 1240000,
+          "gzip": 170000,
+          "brotli": 124000
+        },
+        "gardener.ai.min.css": {
+          "raw": 43000,
+          "gzip": 7100,
+          "brotli": 6300
+        },
+        "gardener.runtime.min.js": {
+          "raw": 254000,
+          "gzip": 71500,
+          "brotli": 61000
+        },
+        "gardener.tauri.min.js": {
+          "raw": 1700,
+          "gzip": 900,
+          "brotli": 800
+        },
+        "gardener.electron.min.js": {
+          "raw": 1400,
+          "gzip": 800,
+          "brotli": 700
+        },
+        "platforms/gardener.web.min.css": {
+          "raw": 1780000,
+          "gzip": 246000,
+          "brotli": 138000
+        },
+        "platforms/gardener.mobile.min.css": {
+          "raw": 1815000,
+          "gzip": 252000,
+          "brotli": 141000
+        },
+        "platforms/gardener.desktop.min.css": {
+          "raw": 1840000,
+          "gzip": 254000,
+          "brotli": 142000
+        },
+        "platforms/gardener.tauri.min.css": {
+          "raw": 256,
+          "gzip": 256,
+          "brotli": 256
+        },
+        "platforms/gardener.electron.min.css": {
+          "raw": 256,
+          "gzip": 256,
+          "brotli": 256
+        },
+        "components/layouts.min.css": {
+          "raw": 29000,
+          "gzip": 4800,
+          "brotli": 4200
+        },
+        "components/regions.min.css": {
+          "raw": 11000,
+          "gzip": 2300,
+          "brotli": 2000
+        },
+        "components/primitives.min.css": {
+          "raw": 11000,
+          "gzip": 2700,
+          "brotli": 2400
+        },
+        "components/grid.min.css": {
+          "raw": 80000,
+          "gzip": 8000,
+          "brotli": 3000
+        },
+        "components/basic.min.css": {
+          "raw": 67000,
+          "gzip": 12000,
+          "brotli": 11000
+        },
+        "components/forms.min.css": {
+          "raw": 102000,
+          "gzip": 13000,
+          "brotli": 12000
+        },
+        "components/form-compositions.min.css": {
+          "raw": 177000,
+          "gzip": 23000,
+          "brotli": 19000
+        },
+        "components/navigation.min.css": {
+          "raw": 73000,
+          "gzip": 11000,
+          "brotli": 10000
+        },
+        "components/navigation-compositions.min.css": {
+          "raw": 50000,
+          "gzip": 7000,
+          "brotli": 7000
+        },
+        "components/feedback.min.css": {
+          "raw": 27000,
+          "gzip": 5300,
+          "brotli": 4700
+        },
+        "components/data.min.css": {
+          "raw": 46000,
+          "gzip": 8500,
+          "brotli": 7500
+        },
+        "components/data-compositions.min.css": {
+          "raw": 24500,
+          "gzip": 4500,
+          "brotli": 4000
+        },
+        "components/selection-compositions.min.css": {
+          "raw": 54000,
+          "gzip": 8000,
+          "brotli": 7000
+        },
+        "components/content-compositions.min.css": {
+          "raw": 66000,
+          "gzip": 10000,
+          "brotli": 8800
+        },
+        "components/auth-compositions.min.css": {
+          "raw": 33000,
+          "gzip": 6300,
+          "brotli": 5600
+        },
+        "components/commerce-compositions.min.css": {
+          "raw": 40000,
+          "gzip": 6800,
+          "brotli": 6000
+        },
+        "components/mobile-compositions.min.css": {
+          "raw": 45000,
+          "gzip": 8500,
+          "brotli": 7500
+        },
+        "components/extended.min.css": {
+          "raw": 53000,
+          "gzip": 9200,
+          "brotli": 8300
+        },
+        "components/page.min.css": {
+          "raw": 60000,
+          "gzip": 10000,
+          "brotli": 9000
+        },
+        "components/help.min.css": {
+          "raw": 32000,
+          "gzip": 5600,
+          "brotli": 4900
+        },
+        "components/recipes.min.css": {
+          "raw": 53000,
+          "gzip": 9000,
+          "brotli": 8000
+        },
+        "components/desktop.min.css": {
+          "raw": 18000,
+          "gzip": 4000,
+          "brotli": 4000
+        },
+        "components/desktop-compositions.min.css": {
+          "raw": 47000,
+          "gzip": 7600,
+          "brotli": 6800
+        },
+        "components/solution-compositions.min.css": {
+          "raw": 52000,
+          "gzip": 7200,
+          "brotli": 5800
+        },
+        "components/catalog.min.css": {
+          "raw": 42000,
+          "gzip": 7500,
+          "brotli": 6800
+        },
+        "components/ai.min.css": {
+          "raw": 28000,
+          "gzip": 5200,
+          "brotli": 4600
+        },
+        "components/ai-extended.min.css": {
+          "raw": 4000,
+          "gzip": 1200,
+          "brotli": 1000
+        },
+        "components/ai-compositions.min.css": {
+          "raw": 14000,
+          "gzip": 2900,
+          "brotli": 2400
+        }
+      },
+      "ratios": {
+        "gardener.min.css": {
+          "source": "gardener.css",
+          "max": 0.96
+        },
+        "gardener.runtime.min.js": {
+          "source": "gardener.runtime.js",
+          "max": 0.7
+        }
+      },
+      "package": {
+        "packed": 4000000,
+        "unpacked": 28700000,
+        "files": 115
+      }
+    },
+    "vue": {
+      "schemaVersion": 1,
+      "version": "2.1.0",
+      "bundle": {
+        "raw": 552000,
+        "gzip": 100000,
+        "brotli": 90000
+      },
+      "package": {
+        "packed": 1000000,
+        "unpacked": 5250000,
+        "files": 113
+      }
+    },
+    "react": {
+      "bundle": {
+        "raw": 548000,
+        "gzip": 82000,
+        "brotli": 40500
+      },
+      "treeShaken": {
+        "bytes": 20000
+      },
+      "package": {
+        "packed": 450000,
+        "unpacked": 5200000,
+        "files": 110
+      }
+    },
+    "angularjs": {
+      "version": "2.1.0",
+      "artifact": "gardener-angularjs.min.js",
+      "limits": {
+        "raw": 630000,
+        "gzip": 92000,
+        "brotli": 44000
+      },
+      "treeShakenDirective": 12000,
+      "package": {
+        "packed": 500000,
+        "unpacked": 5000000,
+        "files": 130
+      }
+    },
+    "blazor": {
+      "$schema": "../metadata/performance-budgets.schema.json",
+      "schemaVersion": 1,
+      "version": "2.1.0",
+      "assembly": {
+        "bytes": 1200000
+      },
+      "staticAssets": {
+        "bytes": 15900000
+      },
+      "entrypoints": {
+        "css": {
+          "bytes": 1875000,
+          "gzipBytes": 260000
+        },
+        "runtime": {
+          "bytes": 254000,
+          "gzipBytes": 71500
+        },
+        "blazor": {
+          "bytes": 12000,
+          "gzipBytes": 4000
+        }
+      },
+      "package": {
+        "bytes": 6000000,
+        "files": 180
+      },
+      "generatedSource": {
+        "bytes": 900000
+      }
+    }
+  },
+  "measurement": {
+    "$schema": "../metadata/performance-report.schema.json",
+    "schemaVersion": 1,
+    "version": "2.1.0",
+    "generatedAt": "2026-09-07T01:34:39.273Z",
+    "status": "failed",
+    "compression": {
+      "gzipLevel": 9,
+      "brotliQuality": 11
+    },
+    "artifacts": {
+      "gardener.min.css": {
+        "limits": {
+          "raw": 1875000,
+          "gzip": 260000,
+          "brotli": 147000
+        },
+        "actual": {
+          "raw": 1870647,
+          "gzip": 258437,
+          "brotli": 145454
+        },
+        "pass": true
+      },
+      "gardener.core.min.css": {
+        "limits": {
+          "raw": 65000,
+          "gzip": 9000,
+          "brotli": 6000
+        },
+        "actual": {
+          "raw": 63616,
+          "gzip": 8334,
+          "brotli": 5762
+        },
+        "pass": true
+      },
+      "gardener.themes.min.css": {
+        "limits": {
+          "raw": 60000,
+          "gzip": 7500,
+          "brotli": 5000
+        },
+        "actual": {
+          "raw": 59577,
+          "gzip": 6844,
+          "brotli": 4539
+        },
+        "pass": true
+      },
+      "gardener.utilities.min.css": {
+        "limits": {
+          "raw": 550000,
+          "gzip": 80000,
+          "brotli": 18000
+        },
+        "actual": {
+          "raw": 533948,
+          "gzip": 76718,
+          "brotli": 14675
+        },
+        "pass": true
+      },
+      "gardener.components.min.css": {
+        "limits": {
+          "raw": 1240000,
+          "gzip": 170000,
+          "brotli": 124000
+        },
+        "actual": {
+          "raw": 1233023,
+          "gzip": 169042,
+          "brotli": 122280
+        },
+        "pass": true
+      },
+      "gardener.ai.min.css": {
+        "limits": {
+          "raw": 43000,
+          "gzip": 7100,
+          "brotli": 6300
+        },
+        "actual": {
+          "raw": 40653,
+          "gzip": 6621,
+          "brotli": 5846
+        },
+        "pass": true
+      },
+      "gardener.runtime.min.js": {
+        "limits": {
+          "raw": 254000,
+          "gzip": 71500,
+          "brotli": 61000
+        },
+        "actual": {
+          "raw": 253919,
+          "gzip": 70730,
+          "brotli": 59253
+        },
+        "pass": true
+      },
+      "gardener.tauri.min.js": {
+        "limits": {
+          "raw": 1700,
+          "gzip": 900,
+          "brotli": 800
+        },
+        "actual": {
+          "raw": 1421,
+          "gzip": 737,
+          "brotli": 613
+        },
+        "pass": true
+      },
+      "gardener.electron.min.js": {
+        "limits": {
+          "raw": 1400,
+          "gzip": 800,
+          "brotli": 700
+        },
+        "actual": {
+          "raw": 1059,
+          "gzip": 580,
+          "brotli": 479
+        },
+        "pass": true
+      },
+      "platforms/gardener.web.min.css": {
+        "limits": {
+          "raw": 1780000,
+          "gzip": 246000,
+          "brotli": 138000
+        },
+        "actual": {
+          "raw": 1776124,
+          "gzip": 245626,
+          "brotli": 137309
+        },
+        "pass": true
+      },
+      "platforms/gardener.mobile.min.css": {
+        "limits": {
+          "raw": 1815000,
+          "gzip": 252000,
+          "brotli": 141000
+        },
+        "actual": {
+          "raw": 1812499,
+          "gzip": 250709,
+          "brotli": 140236
+        },
+        "pass": true
+      },
+      "platforms/gardener.desktop.min.css": {
+        "limits": {
+          "raw": 1830000,
+          "gzip": 254000,
+          "brotli": 142000
+        },
+        "actual": {
+          "raw": 1834227,
+          "gzip": 253325,
+          "brotli": 141850
+        },
+        "pass": false
+      },
+      "platforms/gardener.tauri.min.css": {
+        "limits": {
+          "raw": 256,
+          "gzip": 256,
+          "brotli": 256
+        },
+        "actual": {
+          "raw": 69,
+          "gzip": 84,
+          "brotli": 73
+        },
+        "pass": true
+      },
+      "platforms/gardener.electron.min.css": {
+        "limits": {
+          "raw": 256,
+          "gzip": 256,
+          "brotli": 256
+        },
+        "actual": {
+          "raw": 69,
+          "gzip": 84,
+          "brotli": 73
+        },
+        "pass": true
+      },
+      "components/layouts.min.css": {
+        "limits": {
+          "raw": 29000,
+          "gzip": 4800,
+          "brotli": 4200
+        },
+        "actual": {
+          "raw": 26659,
+          "gzip": 4255,
+          "brotli": 3767
+        },
+        "pass": true
+      },
+      "components/regions.min.css": {
+        "limits": {
+          "raw": 11000,
+          "gzip": 2300,
+          "brotli": 2000
+        },
+        "actual": {
+          "raw": 9445,
+          "gzip": 1886,
+          "brotli": 1670
+        },
+        "pass": true
+      },
+      "components/primitives.min.css": {
+        "limits": {
+          "raw": 11000,
+          "gzip": 2700,
+          "brotli": 2400
+        },
+        "actual": {
+          "raw": 9290,
+          "gzip": 2247,
+          "brotli": 2008
+        },
+        "pass": true
+      },
+      "components/grid.min.css": {
+        "limits": {
+          "raw": 80000,
+          "gzip": 8000,
+          "brotli": 3000
+        },
+        "actual": {
+          "raw": 72407,
+          "gzip": 6885,
+          "brotli": 2402
+        },
+        "pass": true
+      },
+      "components/basic.min.css": {
+        "limits": {
+          "raw": 67000,
+          "gzip": 12000,
+          "brotli": 11000
+        },
+        "actual": {
+          "raw": 64488,
+          "gzip": 11106,
+          "brotli": 9807
+        },
+        "pass": true
+      },
+      "components/forms.min.css": {
+        "limits": {
+          "raw": 102000,
+          "gzip": 13000,
+          "brotli": 12000
+        },
+        "actual": {
+          "raw": 98120,
+          "gzip": 12540,
+          "brotli": 10733
+        },
+        "pass": true
+      },
+      "components/form-compositions.min.css": {
+        "limits": {
+          "raw": 177000,
+          "gzip": 23000,
+          "brotli": 19000
+        },
+        "actual": {
+          "raw": 171349,
+          "gzip": 21831,
+          "brotli": 17745
+        },
+        "pass": true
+      },
+      "components/navigation.min.css": {
+        "limits": {
+          "raw": 73000,
+          "gzip": 11000,
+          "brotli": 10000
+        },
+        "actual": {
+          "raw": 70213,
+          "gzip": 10401,
+          "brotli": 9161
+        },
+        "pass": true
+      },
+      "components/navigation-compositions.min.css": {
+        "limits": {
+          "raw": 50000,
+          "gzip": 7000,
+          "brotli": 7000
+        },
+        "actual": {
+          "raw": 47989,
+          "gzip": 6608,
+          "brotli": 5869
+        },
+        "pass": true
+      },
+      "components/feedback.min.css": {
+        "limits": {
+          "raw": 27000,
+          "gzip": 5300,
+          "brotli": 4700
+        },
+        "actual": {
+          "raw": 25485,
+          "gzip": 5028,
+          "brotli": 4459
+        },
+        "pass": true
+      },
+      "components/data.min.css": {
+        "limits": {
+          "raw": 46000,
+          "gzip": 8500,
+          "brotli": 7500
+        },
+        "actual": {
+          "raw": 44316,
+          "gzip": 8177,
+          "brotli": 7055
+        },
+        "pass": true
+      },
+      "components/data-compositions.min.css": {
+        "limits": {
+          "raw": 24500,
+          "gzip": 4500,
+          "brotli": 4000
+        },
+        "actual": {
+          "raw": 24097,
+          "gzip": 4116,
+          "brotli": 3659
+        },
+        "pass": true
+      },
+      "components/selection-compositions.min.css": {
+        "limits": {
+          "raw": 54000,
+          "gzip": 8000,
+          "brotli": 7000
+        },
+        "actual": {
+          "raw": 52075,
+          "gzip": 7129,
+          "brotli": 6301
+        },
+        "pass": true
+      },
+      "components/content-compositions.min.css": {
+        "limits": {
+          "raw": 66000,
+          "gzip": 10000,
+          "brotli": 8800
+        },
+        "actual": {
+          "raw": 63962,
+          "gzip": 9529,
+          "brotli": 8354
+        },
+        "pass": true
+      },
+      "components/auth-compositions.min.css": {
+        "limits": {
+          "raw": 33000,
+          "gzip": 6300,
+          "brotli": 5600
+        },
+        "actual": {
+          "raw": 30518,
+          "gzip": 5708,
+          "brotli": 5024
+        },
+        "pass": true
+      },
+      "components/commerce-compositions.min.css": {
+        "limits": {
+          "raw": 40000,
+          "gzip": 6800,
+          "brotli": 6000
+        },
+        "actual": {
+          "raw": 35457,
+          "gzip": 5916,
+          "brotli": 5247
+        },
+        "pass": true
+      },
+      "components/mobile-compositions.min.css": {
+        "limits": {
+          "raw": 45000,
+          "gzip": 8500,
+          "brotli": 7500
+        },
+        "actual": {
+          "raw": 36518,
+          "gzip": 6235,
+          "brotli": 5585
+        },
+        "pass": true
+      },
+      "components/extended.min.css": {
+        "limits": {
+          "raw": 53000,
+          "gzip": 9200,
+          "brotli": 8300
+        },
+        "actual": {
+          "raw": 49832,
+          "gzip": 8514,
+          "brotli": 7601
+        },
+        "pass": true
+      },
+      "components/page.min.css": {
+        "limits": {
+          "raw": 60000,
+          "gzip": 10000,
+          "brotli": 9000
+        },
+        "actual": {
+          "raw": 58089,
+          "gzip": 9133,
+          "brotli": 7924
+        },
+        "pass": true
+      },
+      "components/help.min.css": {
+        "limits": {
+          "raw": 32000,
+          "gzip": 5600,
+          "brotli": 4900
+        },
+        "actual": {
+          "raw": 29201,
+          "gzip": 5024,
+          "brotli": 4430
+        },
+        "pass": true
+      },
+      "components/recipes.min.css": {
+        "limits": {
+          "raw": 53000,
+          "gzip": 9000,
+          "brotli": 8000
+        },
+        "actual": {
+          "raw": 50706,
+          "gzip": 8231,
+          "brotli": 7327
+        },
+        "pass": true
+      },
+      "components/desktop.min.css": {
+        "limits": {
+          "raw": 18000,
+          "gzip": 4000,
+          "brotli": 4000
+        },
+        "actual": {
+          "raw": 17334,
+          "gzip": 3518,
+          "brotli": 3111
+        },
+        "pass": true
+      },
+      "components/desktop-compositions.min.css": {
+        "limits": {
+          "raw": 47000,
+          "gzip": 7600,
+          "brotli": 6800
+        },
+        "actual": {
+          "raw": 41055,
+          "gzip": 6523,
+          "brotli": 5740
+        },
+        "pass": true
+      },
+      "components/solution-compositions.min.css": {
+        "limits": {
+          "raw": 46000,
+          "gzip": 6000,
+          "brotli": 5000
+        },
+        "actual": {
+          "raw": 50843,
+          "gzip": 6897,
+          "brotli": 5591
+        },
+        "pass": false
+      },
+      "components/catalog.min.css": {
+        "limits": {
+          "raw": 42000,
+          "gzip": 7500,
+          "brotli": 6800
+        },
+        "actual": {
+          "raw": 40924,
+          "gzip": 7077,
+          "brotli": 6288
+        },
+        "pass": true
+      },
+      "components/ai.min.css": {
+        "limits": {
+          "raw": 28000,
+          "gzip": 5200,
+          "brotli": 4600
+        },
+        "actual": {
+          "raw": 26057,
+          "gzip": 4795,
+          "brotli": 4195
+        },
+        "pass": true
+      },
+      "components/ai-extended.min.css": {
+        "limits": {
+          "raw": 4000,
+          "gzip": 1200,
+          "brotli": 1000
+        },
+        "actual": {
+          "raw": 3006,
+          "gzip": 950,
+          "brotli": 773
+        },
+        "pass": true
+      },
+      "components/ai-compositions.min.css": {
+        "limits": {
+          "raw": 14000,
+          "gzip": 2900,
+          "brotli": 2400
+        },
+        "actual": {
+          "raw": 11828,
+          "gzip": 2320,
+          "brotli": 1989
+        },
+        "pass": true
+      }
+    },
+    "ratios": {
+      "gardener.min.css": {
+        "source": "gardener.css",
+        "max": 0.96,
+        "actual": 0.9366737151604038,
+        "pass": true
+      },
+      "gardener.runtime.min.js": {
+        "source": "gardener.runtime.js",
+        "max": 0.7,
+        "actual": 0.6202934875278794,
+        "pass": true
+      }
+    },
+    "package": {
+      "measurement": "self-report-conservative-upper-bound",
+      "rounding": {
+        "packedQuantum": 4096,
+        "unpackedQuantum": 65536
+      },
+      "limits": {
+        "packed": 3950000,
+        "unpacked": 28700000,
+        "files": 114
+      },
+      "actual": {
+        "packed": 3956736,
+        "unpacked": 28049408,
+        "files": 115
+      },
+      "pass": false
+    },
+    "regressions": {
+      "baselineVersion": "2.0.0",
+      "artifacts": {
+        "gardener.min.css": {
+          "baselineArtifact": "gardener.min.css",
+          "baseline": {
+            "raw": 1006431,
+            "gzip": 139263,
+            "brotli": 61068
+          },
+          "actual": {
+            "raw": 1870647,
+            "gzip": 258437,
+            "brotli": 145454
+          },
+          "growthPercent": {
+            "raw": 85.86937405544941,
+            "gzip": 85.57477578394835,
+            "brotli": 138.1836641121373
+          },
+          "limits": {
+            "raw": 87,
+            "gzip": 87,
+            "brotli": 141
+          },
+          "pass": true
+        },
+        "gardener.core.min.css": {
+          "baselineArtifact": "gardener.core.min.css",
+          "baseline": {
+            "raw": 60152,
+            "gzip": 7711,
+            "brotli": 5245
+          },
+          "actual": {
+            "raw": 63616,
+            "gzip": 8334,
+            "brotli": 5762
+          },
+          "growthPercent": {
+            "raw": 5.758744513898124,
+            "gzip": 8.079367137855012,
+            "brotli": 9.857006673021926
+          },
+          "limits": {
+            "raw": 9,
+            "gzip": 17,
+            "brotli": 15
+          },
+          "pass": true
+        },
+        "gardener.themes.min.css": {
+          "baselineArtifact": "gardener.themes.min.css",
+          "baseline": {
+            "raw": 56292,
+            "gzip": 6269,
+            "brotli": 4056
+          },
+          "actual": {
+            "raw": 59577,
+            "gzip": 6844,
+            "brotli": 4539
+          },
+          "growthPercent": {
+            "raw": 5.8356427201023235,
+            "gzip": 9.172116765034295,
+            "brotli": 11.908284023668639
+          },
+          "limits": {
+            "raw": 7,
+            "gzip": 20,
+            "brotli": 24
+          },
+          "pass": true
+        },
+        "gardener.utilities.min.css": {
+          "baselineArtifact": "gardener.utilities.min.css",
+          "baseline": {
+            "raw": 533948,
+            "gzip": 76718,
+            "brotli": 14675
+          },
+          "actual": {
+            "raw": 533948,
+            "gzip": 76718,
+            "brotli": 14675
+          },
+          "growthPercent": {
+            "raw": 0,
+            "gzip": 0,
+            "brotli": 0
+          },
+          "limits": {
+            "raw": 2,
+            "gzip": 3,
+            "brotli": 3
+          },
+          "pass": true
+        },
+        "gardener.components.min.css": {
+          "baselineArtifact": "gardener.components.min.css",
+          "baseline": {
+            "raw": 387326,
+            "gzip": 52395,
+            "brotli": 38359
+          },
+          "actual": {
+            "raw": 1233023,
+            "gzip": 169042,
+            "brotli": 122280
+          },
+          "growthPercent": {
+            "raw": 218.34242989109947,
+            "gzip": 222.63002194865922,
+            "brotli": 218.77786177950415
+          },
+          "limits": {
+            "raw": 221,
+            "gzip": 225,
+            "brotli": 224
+          },
+          "pass": true
+        },
+        "gardener.ai.min.css": {
+          "baselineArtifact": "gardener.ai.min.css",
+          "baseline": {
+            "raw": 25598,
+            "gzip": 4356,
+            "brotli": 3831
+          },
+          "actual": {
+            "raw": 40653,
+            "gzip": 6621,
+            "brotli": 5846
+          },
+          "growthPercent": {
+            "raw": 58.81318853035393,
+            "gzip": 51.997245179063356,
+            "brotli": 52.59723309840773
+          },
+          "limits": {
+            "raw": 68,
+            "gzip": 63,
+            "brotli": 65
+          },
+          "pass": true
+        },
+        "gardener.runtime.min.js": {
+          "baselineArtifact": "gardener.runtime.min.js",
+          "baseline": {
+            "raw": 105542,
+            "gzip": 29289,
+            "brotli": 25286
+          },
+          "actual": {
+            "raw": 253919,
+            "gzip": 70730,
+            "brotli": 59253
+          },
+          "growthPercent": {
+            "raw": 140.58573837903396,
+            "gzip": 141.48997917306838,
+            "brotli": 134.3312504943447
+          },
+          "limits": {
+            "raw": 141,
+            "gzip": 145,
+            "brotli": 142
+          },
+          "pass": true
+        },
+        "gardener.tauri.min.js": {
+          "baselineArtifact": "gardener.tauri.min.js",
+          "baseline": {
+            "raw": 907,
+            "gzip": 516,
+            "brotli": 438
+          },
+          "actual": {
+            "raw": 1421,
+            "gzip": 737,
+            "brotli": 613
+          },
+          "growthPercent": {
+            "raw": 56.67034178610805,
+            "gzip": 42.82945736434108,
+            "brotli": 39.95433789954338
+          },
+          "limits": {
+            "raw": 88,
+            "gzip": 75,
+            "brotli": 83
+          },
+          "pass": true
+        },
+        "gardener.electron.min.js": {
+          "baselineArtifact": "gardener.electron.min.js",
+          "baseline": {
+            "raw": 635,
+            "gzip": 423,
+            "brotli": 348
+          },
+          "actual": {
+            "raw": 1059,
+            "gzip": 580,
+            "brotli": 479
+          },
+          "growthPercent": {
+            "raw": 66.77165354330708,
+            "gzip": 37.11583924349882,
+            "brotli": 37.64367816091954
+          },
+          "limits": {
+            "raw": 121,
+            "gzip": 90,
+            "brotli": 102
+          },
+          "pass": true
+        },
+        "platforms/gardener.web.min.css": {
+          "baselineArtifact": "platforms/gardener.web.min.css",
+          "baseline": {
+            "raw": 963611,
+            "gzip": 133328,
+            "brotli": 56114
+          },
+          "actual": {
+            "raw": 1776124,
+            "gzip": 245626,
+            "brotli": 137309
+          },
+          "growthPercent": {
+            "raw": 84.31960614812408,
+            "gzip": 84.22686907476299,
+            "brotli": 144.69651067469792
+          },
+          "limits": {
+            "raw": 85,
+            "gzip": 85,
+            "brotli": 146
+          },
+          "pass": true
+        },
+        "platforms/gardener.mobile.min.css": {
+          "baselineArtifact": "platforms/gardener.mobile.min.css",
+          "baseline": {
+            "raw": 983596,
+            "gzip": 136189,
+            "brotli": 59317
+          },
+          "actual": {
+            "raw": 1812499,
+            "gzip": 250709,
+            "brotli": 140236
+          },
+          "growthPercent": {
+            "raw": 84.27270952708226,
+            "gzip": 84.08902334256071,
+            "brotli": 136.4178903181213
+          },
+          "limits": {
+            "raw": 85,
+            "gzip": 86,
+            "brotli": 138
+          },
+          "pass": true
+        },
+        "platforms/gardener.desktop.min.css": {
+          "baselineArtifact": "platforms/gardener.desktop.min.css",
+          "baseline": {
+            "raw": 986401,
+            "gzip": 136511,
+            "brotli": 58966
+          },
+          "actual": {
+            "raw": 1834227,
+            "gzip": 253325,
+            "brotli": 141850
+          },
+          "growthPercent": {
+            "raw": 85.95145382050505,
+            "gzip": 85.57112613635532,
+            "brotli": 140.56235796899907
+          },
+          "limits": {
+            "raw": 86,
+            "gzip": 87,
+            "brotli": 141
+          },
+          "pass": true
+        },
+        "platforms/gardener.tauri.min.css": {
+          "baselineArtifact": "platforms/gardener.tauri.min.css",
+          "baseline": {
+            "raw": 69,
+            "gzip": 84,
+            "brotli": 73
+          },
+          "actual": {
+            "raw": 69,
+            "gzip": 84,
+            "brotli": 73
+          },
+          "growthPercent": {
+            "raw": 0,
+            "gzip": 0,
+            "brotli": 0
+          },
+          "limits": {
+            "raw": 2,
+            "gzip": 3,
+            "brotli": 3
+          },
+          "pass": true
+        },
+        "platforms/gardener.electron.min.css": {
+          "baselineArtifact": "platforms/gardener.electron.min.css",
+          "baseline": {
+            "raw": 69,
+            "gzip": 84,
+            "brotli": 73
+          },
+          "actual": {
+            "raw": 69,
+            "gzip": 84,
+            "brotli": 73
+          },
+          "growthPercent": {
+            "raw": 0,
+            "gzip": 0,
+            "brotli": 0
+          },
+          "limits": {
+            "raw": 2,
+            "gzip": 3,
+            "brotli": 3
+          },
+          "pass": true
+        },
+        "components/layouts.min.css": {
+          "baselineArtifact": "components/layouts.min.css",
+          "baseline": {
+            "raw": 3176,
+            "gzip": 972,
+            "brotli": 822
+          },
+          "actual": {
+            "raw": 26659,
+            "gzip": 4255,
+            "brotli": 3767
+          },
+          "growthPercent": {
+            "raw": 739.3891687657431,
+            "gzip": 337.75720164609055,
+            "brotli": 358.27250608272504
+          },
+          "limits": {
+            "raw": 814,
+            "gzip": 394,
+            "brotli": 411
+          },
+          "pass": true
+        },
+        "components/regions.min.css": {
+          "baselineArtifact": "components/regions.min.css",
+          "baseline": {
+            "raw": 9445,
+            "gzip": 1886,
+            "brotli": 1670
+          },
+          "actual": {
+            "raw": 9445,
+            "gzip": 1886,
+            "brotli": 1670
+          },
+          "growthPercent": {
+            "raw": 0,
+            "gzip": 0,
+            "brotli": 0
+          },
+          "limits": {
+            "raw": 2,
+            "gzip": 3,
+            "brotli": 3
+          },
+          "pass": true
+        },
+        "components/primitives.min.css": {
+          "baselineArtifact": "components/primitives.min.css",
+          "baseline": {
+            "raw": 9290,
+            "gzip": 2247,
+            "brotli": 2008
+          },
+          "actual": {
+            "raw": 9290,
+            "gzip": 2247,
+            "brotli": 2008
+          },
+          "growthPercent": {
+            "raw": 0,
+            "gzip": 0,
+            "brotli": 0
+          },
+          "limits": {
+            "raw": 2,
+            "gzip": 3,
+            "brotli": 3
+          },
+          "pass": true
+        },
+        "components/grid.min.css": {
+          "baselineArtifact": "components/grid.min.css",
+          "baseline": {
+            "raw": 72407,
+            "gzip": 6885,
+            "brotli": 2402
+          },
+          "actual": {
+            "raw": 72407,
+            "gzip": 6885,
+            "brotli": 2402
+          },
+          "growthPercent": {
+            "raw": 0,
+            "gzip": 0,
+            "brotli": 0
+          },
+          "limits": {
+            "raw": 2,
+            "gzip": 3,
+            "brotli": 3
+          },
+          "pass": true
+        },
+        "components/basic.min.css": {
+          "baselineArtifact": "components/basic.min.css",
+          "baseline": {
+            "raw": 8570,
+            "gzip": 2054,
+            "brotli": 1776
+          },
+          "actual": {
+            "raw": 64488,
+            "gzip": 11106,
+            "brotli": 9807
+          },
+          "growthPercent": {
+            "raw": 652.485414235706,
+            "gzip": 440.7010710808179,
+            "brotli": 452.19594594594594
+          },
+          "limits": {
+            "raw": 682,
+            "gzip": 485,
+            "brotli": 520
+          },
+          "pass": true
+        },
+        "components/forms.min.css": {
+          "baselineArtifact": "components/forms.min.css",
+          "baseline": {
+            "raw": 5372,
+            "gzip": 1480,
+            "brotli": 1276
+          },
+          "actual": {
+            "raw": 98120,
+            "gzip": 12540,
+            "brotli": 10733
+          },
+          "growthPercent": {
+            "raw": 1726.5078183172004,
+            "gzip": 747.2972972972973,
+            "brotli": 741.1442006269592
+          },
+          "limits": {
+            "raw": 1799,
+            "gzip": 779,
+            "brotli": 841
+          },
+          "pass": true
+        },
+        "components/form-compositions.min.css": {
+          "baselineArtifact": "components/form-compositions.min.css",
+          "baseline": {
+            "raw": 13976,
+            "gzip": 2888,
+            "brotli": 2525
+          },
+          "actual": {
+            "raw": 171349,
+            "gzip": 21831,
+            "brotli": 17745
+          },
+          "growthPercent": {
+            "raw": 1126.0231825987407,
+            "gzip": 655.921052631579,
+            "brotli": 602.7722772277227
+          },
+          "limits": {
+            "raw": 1167,
+            "gzip": 697,
+            "brotli": 653
+          },
+          "pass": true
+        },
+        "components/navigation.min.css": {
+          "baselineArtifact": "components/navigation.min.css",
+          "baseline": {
+            "raw": 7279,
+            "gzip": 1560,
+            "brotli": 1322
+          },
+          "actual": {
+            "raw": 70213,
+            "gzip": 10401,
+            "brotli": 9161
+          },
+          "growthPercent": {
+            "raw": 864.5967852727022,
+            "gzip": 566.7307692307692,
+            "brotli": 592.965204236006
+          },
+          "limits": {
+            "raw": 903,
+            "gzip": 606,
+            "brotli": 657
+          },
+          "pass": true
+        },
+        "components/navigation-compositions.min.css": {
+          "baselineArtifact": "components/navigation-compositions.min.css",
+          "baseline": {
+            "raw": 17042,
+            "gzip": 3120,
+            "brotli": 2755
+          },
+          "actual": {
+            "raw": 47989,
+            "gzip": 6608,
+            "brotli": 5869
+          },
+          "growthPercent": {
+            "raw": 181.5925360873137,
+            "gzip": 111.7948717948718,
+            "brotli": 113.03085299455535
+          },
+          "limits": {
+            "raw": 194,
+            "gzip": 125,
+            "brotli": 155
+          },
+          "pass": true
+        },
+        "components/feedback.min.css": {
+          "baselineArtifact": "components/feedback.min.css",
+          "baseline": {
+            "raw": 5516,
+            "gzip": 1455,
+            "brotli": 1249
+          },
+          "actual": {
+            "raw": 25485,
+            "gzip": 5028,
+            "brotli": 4459
+          },
+          "growthPercent": {
+            "raw": 362.01957940536624,
+            "gzip": 245.56701030927837,
+            "brotli": 257.00560448358686
+          },
+          "limits": {
+            "raw": 390,
+            "gzip": 265,
+            "brotli": 277
+          },
+          "pass": true
+        },
+        "components/data.min.css": {
+          "baselineArtifact": "components/data.min.css",
+          "baseline": {
+            "raw": 7978,
+            "gzip": 1803,
+            "brotli": 1560
+          },
+          "actual": {
+            "raw": 44316,
+            "gzip": 8177,
+            "brotli": 7055
+          },
+          "growthPercent": {
+            "raw": 455.4775632990724,
+            "gzip": 353.5219079312257,
+            "brotli": 352.2435897435897
+          },
+          "limits": {
+            "raw": 477,
+            "gzip": 372,
+            "brotli": 382
+          },
+          "pass": true
+        },
+        "components/data-compositions.min.css": {
+          "baselineArtifact": "components/data-compositions.min.css",
+          "baseline": {
+            "raw": 20997,
+            "gzip": 3781,
+            "brotli": 3340
+          },
+          "actual": {
+            "raw": 24097,
+            "gzip": 4116,
+            "brotli": 3659
+          },
+          "growthPercent": {
+            "raw": 14.764013906748582,
+            "gzip": 8.860089923300714,
+            "brotli": 9.550898203592814
+          },
+          "limits": {
+            "raw": 16,
+            "gzip": 9,
+            "brotli": 11
+          },
+          "pass": true
+        },
+        "components/selection-compositions.min.css": {
+          "baselineArtifact": "components/selection-compositions.min.css",
+          "baseline": {
+            "raw": 15576,
+            "gzip": 2714,
+            "brotli": 2382
+          },
+          "actual": {
+            "raw": 52075,
+            "gzip": 7129,
+            "brotli": 6301
+          },
+          "growthPercent": {
+            "raw": 234.32845403184385,
+            "gzip": 162.6750184229919,
+            "brotli": 164.52560873215785
+          },
+          "limits": {
+            "raw": 248,
+            "gzip": 195,
+            "brotli": 195
+          },
+          "pass": true
+        },
+        "components/content-compositions.min.css": {
+          "baselineArtifact": "components/content-compositions.min.css",
+          "baseline": {
+            "raw": 24320,
+            "gzip": 4141,
+            "brotli": 3669
+          },
+          "actual": {
+            "raw": 63962,
+            "gzip": 9529,
+            "brotli": 8354
+          },
+          "growthPercent": {
+            "raw": 163.0016447368421,
+            "gzip": 130.11349915479354,
+            "brotli": 127.69146906514037
+          },
+          "limits": {
+            "raw": 172,
+            "gzip": 142,
+            "brotli": 140
+          },
+          "pass": true
+        },
+        "components/auth-compositions.min.css": {
+          "baselineArtifact": "components/auth-compositions.min.css",
+          "baseline": {
+            "raw": 15642,
+            "gzip": 3107,
+            "brotli": 2700
+          },
+          "actual": {
+            "raw": 30518,
+            "gzip": 5708,
+            "brotli": 5024
+          },
+          "growthPercent": {
+            "raw": 95.10292801432043,
+            "gzip": 83.71419375603476,
+            "brotli": 86.07407407407408
+          },
+          "limits": {
+            "raw": 111,
+            "gzip": 103,
+            "brotli": 108
+          },
+          "pass": true
+        },
+        "components/commerce-compositions.min.css": {
+          "baselineArtifact": "components/commerce-compositions.min.css",
+          "baseline": {
+            "raw": 18628,
+            "gzip": 3542,
+            "brotli": 3079
+          },
+          "actual": {
+            "raw": 35457,
+            "gzip": 5916,
+            "brotli": 5247
+          },
+          "growthPercent": {
+            "raw": 90.34249516856346,
+            "gzip": 67.02428006775833,
+            "brotli": 70.41247158168237
+          },
+          "limits": {
+            "raw": 115,
+            "gzip": 92,
+            "brotli": 95
+          },
+          "pass": true
+        },
+        "components/mobile-compositions.min.css": {
+          "baselineArtifact": "components/mobile-compositions.min.css",
+          "baseline": {
+            "raw": 20128,
+            "gzip": 3694,
+            "brotli": 3292
+          },
+          "actual": {
+            "raw": 36518,
+            "gzip": 6235,
+            "brotli": 5585
+          },
+          "growthPercent": {
+            "raw": 81.42885532591416,
+            "gzip": 68.78722252301029,
+            "brotli": 69.65370595382745
+          },
+          "limits": {
+            "raw": 124,
+            "gzip": 131,
+            "brotli": 128
+          },
+          "pass": true
+        },
+        "components/extended.min.css": {
+          "baselineArtifact": "components/extended.min.css",
+          "baseline": {
+            "raw": 11715,
+            "gzip": 2770,
+            "brotli": 2408
+          },
+          "actual": {
+            "raw": 49832,
+            "gzip": 8514,
+            "brotli": 7601
+          },
+          "growthPercent": {
+            "raw": 325.36918480580454,
+            "gzip": 207.36462093862818,
+            "brotli": 215.656146179402
+          },
+          "limits": {
+            "raw": 353,
+            "gzip": 233,
+            "brotli": 245
+          },
+          "pass": true
+        },
+        "components/page.min.css": {
+          "baselineArtifact": "components/page.min.css",
+          "baseline": {
+            "raw": 15128,
+            "gzip": 2801,
+            "brotli": 2464
+          },
+          "actual": {
+            "raw": 58089,
+            "gzip": 9133,
+            "brotli": 7924
+          },
+          "growthPercent": {
+            "raw": 283.98334214701214,
+            "gzip": 226.06212067118884,
+            "brotli": 221.5909090909091
+          },
+          "limits": {
+            "raw": 297,
+            "gzip": 258,
+            "brotli": 266
+          },
+          "pass": true
+        },
+        "components/help.min.css": {
+          "baselineArtifact": "components/help.min.css",
+          "baseline": {
+            "raw": 16780,
+            "gzip": 3123,
+            "brotli": 2750
+          },
+          "actual": {
+            "raw": 29201,
+            "gzip": 5024,
+            "brotli": 4430
+          },
+          "growthPercent": {
+            "raw": 74.02264600715137,
+            "gzip": 60.870957412744154,
+            "brotli": 61.09090909090909
+          },
+          "limits": {
+            "raw": 91,
+            "gzip": 80,
+            "brotli": 79
+          },
+          "pass": true
+        },
+        "components/recipes.min.css": {
+          "baselineArtifact": "components/recipes.min.css",
+          "baseline": {
+            "raw": 16878,
+            "gzip": 3418,
+            "brotli": 3021
+          },
+          "actual": {
+            "raw": 50706,
+            "gzip": 8231,
+            "brotli": 7327
+          },
+          "growthPercent": {
+            "raw": 200.4265908282972,
+            "gzip": 140.81334113516678,
+            "brotli": 142.53558424362794
+          },
+          "limits": {
+            "raw": 215,
+            "gzip": 164,
+            "brotli": 165
+          },
+          "pass": true
+        },
+        "components/desktop.min.css": {
+          "baselineArtifact": "components/desktop.min.css",
+          "baseline": {
+            "raw": 5681,
+            "gzip": 1475,
+            "brotli": 1253
+          },
+          "actual": {
+            "raw": 17334,
+            "gzip": 3518,
+            "brotli": 3111
+          },
+          "growthPercent": {
+            "raw": 205.1223376166168,
+            "gzip": 138.50847457627117,
+            "brotli": 148.28411811652035
+          },
+          "limits": {
+            "raw": 217,
+            "gzip": 172,
+            "brotli": 220
+          },
+          "pass": true
+        },
+        "components/desktop-compositions.min.css": {
+          "baselineArtifact": "components/desktop-compositions.min.css",
+          "baseline": {
+            "raw": 17395,
+            "gzip": 3213,
+            "brotli": 2819
+          },
+          "actual": {
+            "raw": 41055,
+            "gzip": 6523,
+            "brotli": 5740
+          },
+          "growthPercent": {
+            "raw": 136.01609657947685,
+            "gzip": 103.01898537192655,
+            "brotli": 103.61830436324936
+          },
+          "limits": {
+            "raw": 171,
+            "gzip": 137,
+            "brotli": 142
+          },
+          "pass": true
+        },
+        "components/solution-compositions.min.css": {
+          "baselineArtifact": "components/solution-compositions.min.css",
+          "baseline": {
+            "raw": 21727,
+            "gzip": 3582,
+            "brotli": 3044
+          },
+          "actual": {
+            "raw": 50843,
+            "gzip": 6897,
+            "brotli": 5591
+          },
+          "growthPercent": {
+            "raw": 134.0083766741842,
+            "gzip": 92.5460636515913,
+            "brotli": 83.67279894875165
+          },
+          "limits": {
+            "raw": 112,
+            "gzip": 68,
+            "brotli": 65
+          },
+          "pass": false
+        },
+        "components/catalog.min.css": {
+          "baselineArtifact": "components/catalog.min.css",
+          "baseline": {
+            "raw": 10056,
+            "gzip": 2062,
+            "brotli": 1783
+          },
+          "actual": {
+            "raw": 40924,
+            "gzip": 7077,
+            "brotli": 6288
+          },
+          "growthPercent": {
+            "raw": 306.96101829753377,
+            "gzip": 243.21047526673132,
+            "brotli": 252.6640493550196
+          },
+          "limits": {
+            "raw": 318,
+            "gzip": 264,
+            "brotli": 282
+          },
+          "pass": true
+        },
+        "components/ai.min.css": {
+          "baselineArtifact": "components/ai.min.css",
+          "baseline": {
+            "raw": 11019,
+            "gzip": 2364,
+            "brotli": 2047
+          },
+          "actual": {
+            "raw": 26057,
+            "gzip": 4795,
+            "brotli": 4195
+          },
+          "growthPercent": {
+            "raw": 136.47336418912786,
+            "gzip": 102.834179357022,
+            "brotli": 104.93404982901808
+          },
+          "limits": {
+            "raw": 155,
+            "gzip": 120,
+            "brotli": 125
+          },
+          "pass": true
+        },
+        "components/ai-extended.min.css": {
+          "baselineArtifact": "components/ai-extended.min.css",
+          "baseline": {
+            "raw": 3006,
+            "gzip": 951,
+            "brotli": 775
+          },
+          "actual": {
+            "raw": 3006,
+            "gzip": 950,
+            "brotli": 773
+          },
+          "growthPercent": {
+            "raw": 0,
+            "gzip": -0.10515247108307045,
+            "brotli": -0.25806451612903225
+          },
+          "limits": {
+            "raw": 2,
+            "gzip": 3,
+            "brotli": 3
+          },
+          "pass": true
+        },
+        "components/ai-compositions.min.css": {
+          "baselineArtifact": "components/ai-compositions.min.css",
+          "baseline": {
+            "raw": 11811,
+            "gzip": 2327,
+            "brotli": 1994
+          },
+          "actual": {
+            "raw": 11828,
+            "gzip": 2320,
+            "brotli": 1989
+          },
+          "growthPercent": {
+            "raw": 0.14393362120057573,
+            "gzip": -0.30081650193382037,
+            "brotli": -0.25075225677031093
+          },
+          "limits": {
+            "raw": 2,
+            "gzip": 3,
+            "brotli": 3
+          },
+          "pass": true
+        }
+      },
+      "package": {
+        "baseline": {
+          "packed": 1925120,
+          "unpacked": 15335424,
+          "files": 92
+        },
+        "actual": {
+          "packed": 3956736,
+          "unpacked": 28049408,
+          "files": 115
+        },
+        "growthPercent": {
+          "packed": 105.53191489361701,
+          "unpacked": 82.90598290598291,
+          "files": 25
+        },
+        "limits": {
+          "packed": 106,
+          "unpacked": 88,
+          "files": 24
+        },
+        "pass": false
+      },
+      "pass": false
+    }
+  }
+}

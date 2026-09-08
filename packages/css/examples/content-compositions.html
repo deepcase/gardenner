@@ -129,16 +129,26 @@
               </div>
             </div>
           </div>
-          <div class="g-upload-queue" data-g-upload-manager>
+          <div class="g-upload-queue g-upload-queue-bordered" data-g-upload-manager aria-labelledby="upload-queue-title">
             <header class="g-upload-queue-header">
-              <strong>上传队列</strong
-              ><span class="g-upload-summary"
+              <div>
+                <strong id="upload-queue-title" class="g-upload-queue-title">上传队列</strong>
+                <span class="g-upload-summary"
                 ><span>共 <b data-g-upload-count="total">0</b></span
                 ><span>完成 <b data-g-upload-count="success">0</b></span
-                ><span>失败 <b data-g-upload-count="error">0</b></span></span
-              >
+                ><span>失败 <b data-g-upload-count="error">0</b></span></span>
+              </div>
+              <span class="g-upload-actions">
+                <label class="g-btn g-btn-primary g-btn-sm">选择文件<input class="g-upload-input" type="file" multiple data-g-upload-input /></label>
+                <button class="g-btn g-btn-ghost g-btn-sm" type="button" data-g-upload-action="clear">清空</button>
+              </span>
             </header>
-            <div data-g-upload-list>
+            <span class="g-sr-only" data-g-upload-live></span>
+            <div class="g-upload-list" data-g-upload-list>
+              <div class="g-upload-empty" data-g-upload-empty hidden>
+                <strong>暂无待上传文件</strong>
+                <span>选择文件后可在这里查看进度和处理失败项。</span>
+              </div>
               <div
                 class="g-upload-item"
                 data-g-upload-item
@@ -702,6 +712,7 @@
               class="g-autosave-indicator"
               data-g-autosave
               data-g-autosave-delay="500"
+              data-g-autosave-auto-complete="true"
               data-g-autosave-state="saved"
             >
               <i class="g-autosave-dot"></i

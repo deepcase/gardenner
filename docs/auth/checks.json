@@ -1,0 +1,62 @@
+[
+  {
+    "pkg": "css",
+    "task": "test:schema",
+    "code": 0,
+    "tail": "sted contract fields (2.0304ms)\r\n✔ JSON Schema 2020-12: compatibility rejects missing nested contract fields (0.9591ms)\r\n✔ JSON Schema 2020-12: public API rejects invalid JavaScript identifiers (10.0227ms)\r\n✔ JSON Schema 2020-12: deprecated component schema alias remains resolvable (36.1784ms)\r\n✔ JSON Schema 2020-12: cross-schema manifest references reject an invalid component (38.746ms)\r\n✔ JSON Schema 2020-12: public API requires event payload contracts (8.5441ms)\r\n✔ JSON Schema 2020-12: build integrity rejects malformed SHA-256 digests (4.6402ms)\r\n✔ JSON Schema 2020-12: passed reports reject failed baseline regressions (2.3828ms)\r\nℹ tests 48\r\nℹ suites 0\r\nℹ pass 48\r\nℹ fail 0\r\nℹ cancelled 0\r\nℹ skipped 0\r\nℹ todo 0\r\nℹ duration_ms 13209.6207\r\n"
+  },
+  {
+    "pkg": "css",
+    "task": "test:types",
+    "code": 0,
+    "tail": "\n> @gardenerim/css@2.1.0 test:types\n> tsc -p tsconfig.types.json\n\n"
+  },
+  {
+    "pkg": "css",
+    "task": "test:html",
+    "code": 0,
+    "tail": "onforming HTML structure and references (21.2201ms)\n✔ examples/runtime-lab.html has conforming HTML structure and references (25.3323ms)\n✔ examples/selection-compositions.html has conforming HTML structure and references (95.8792ms)\n✔ examples/showcase.html has conforming HTML structure and references (3.8209ms)\n✔ examples/solution-compositions.html has conforming HTML structure and references (4.8238ms)\n✔ website/index.html has conforming HTML structure and references (43.7373ms)\n✔ website/docs.html has conforming HTML structure and references (210.4735ms)\n✔ HTML release inventory covers every example and both documentation pages (1.2164ms)\nℹ tests 35\nℹ suites 0\nℹ pass 35\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1856.7113\n"
+  },
+  {
+    "pkg": "css",
+    "task": "test:build",
+    "code": 0,
+    "tail": "g (342.2917ms)\r\n✔ every component pack artifact exists and stays within its recorded budget metrics (949.216ms)\r\n✔ custom component and platform builds resolve ownership, adapters, and schema (27704.7372ms)\r\n✔ custom builds reject unknown components without emitting output (615.2864ms)\r\n✔ published raw, gzip, brotli, ratio, and package budgets all pass (4.6233ms)\r\n✔ consecutive formal builds are byte-for-byte reproducible (23617.8558ms)\r\n✔ release metadata, declarations, support policy, and compatibility baseline are complete (15.1581ms)\r\n✔ the packed npm artifact installs and resolves every targeted public entrypoint (7838.8905ms)\r\nℹ tests 11\r\nℹ suites 0\r\nℹ pass 11\r\nℹ fail 0\r\nℹ cancelled 0\r\nℹ skipped 0\r\nℹ todo 0\r\nℹ duration_ms 61491.5825\r\n"
+  },
+  {
+    "pkg": "css",
+    "task": "budget",
+    "code": 0,
+    "tail": "\r\n> @gardenerim/css@2.1.0 budget\r\n> node scripts/budget.mjs\r\n\r\nPerformance budget passed: 42 artifacts; package 3661824 packed / 26345472 unpacked bytes.\r\n"
+  },
+  {
+    "pkg": "blazor",
+    "task": "test:contracts",
+    "code": 0,
+    "tail": "\n> @gardenerim/blazor-workspace@2.1.0 test:contracts\n> dotnet run --project tests/Gardenerim.Blazor.Tests/Gardenerim.Blazor.Tests.csproj -c Release --no-build\n\nGardenerim.Blazor contracts passed: 527 SSR renders, 85 behaviors, 103 events, 42 themes, DI, forms, handles, metadata, net10/net11 boundary.\r\n"
+  },
+  {
+    "pkg": "blazor",
+    "task": "budget",
+    "code": 0,
+    "tail": "\n> @gardenerim/blazor-workspace@2.1.0 budget\n> node scripts/budget.mjs\n\nPerformance budgets passed: assembly 501248 B; static 14658949 B; CSS gzip 243195 B; runtime gzip 69878 B.\n"
+  },
+  {
+    "pkg": "vue",
+    "task": "budget",
+    "code": 0,
+    "tail": "\n> @gardenerim/vue@2.1.0 budget\n> node scripts/budget.mjs\n\nPerformance budget passed: 506032 raw / 77648 gzip / 38139 brotli bytes.\n"
+  },
+  {
+    "pkg": "react",
+    "task": "budget",
+    "code": 0,
+    "tail": "\n> @gardenerim/react@2.1.0 budget\n> node scripts/budget.mjs\n\nPerformance budget passed: 502184 raw / 75339 gzip / 36926 brotli bytes.\n"
+  },
+  {
+    "pkg": "angularjs",
+    "task": "budget",
+    "code": 0,
+    "tail": "\n> @gardenerim/angularjs@2.1.0 budget\n> node scripts/budget.mjs\n\nPerformance budget passed: 582372 raw / 85183 gzip / 40347 brotli bytes.\n"
+  }
+]

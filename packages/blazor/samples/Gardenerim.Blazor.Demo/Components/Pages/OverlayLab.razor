@@ -1,0 +1,49 @@
+@page "/overlay"
+<PageTitle>浮层组件 · Blazor</PageTitle>
+<h1>六项浮层 · Blazor</h1>
+<div style="max-width:760px;display:grid;gap:20px">
+ <label>组件<select id="overlay-kind" class="g-select" @bind="Name" @bind:after="Reset">@foreach(var item in Names){<option value="@item">@item</option>}</select></label>
+ <label>变体<select id="overlay-variant" @bind="Variant"><option value="">默认</option>@foreach(var item in Variants[Name]){<option>@item</option>}</select></label>
+ <div style="display:flex;flex-wrap:wrap;gap:12px">
+ <label>密度<select id="overlay-density" @bind="Density"><option>default</option><option>compact</option><option>comfortable</option></select></label>
+ <label>高度<input id="overlay-height" @bind="Height" placeholder="320、60vh"/></label><label>最大高度<input id="overlay-max-height" @bind="MaxHeight" placeholder="480、70vh"/></label>
+ <label>定位<select id="overlay-placement" @bind="Placement">@foreach(var item in new[]{"top","top-start","top-end","bottom","bottom-start","bottom-end","left","left-start","left-end","right","right-start","right-end"}){<option>@item</option>}</select></label>
+ <label>抽屉方向<select id="overlay-side" @bind="Side"><option>start</option><option>end</option><option>top</option><option>bottom</option></select></label>
+ <label><input type="checkbox" id="overlay-show-close" @bind="ShowClose"/>关闭按钮</label><label><input type="checkbox" id="overlay-fail" @bind="Fail"/>下次确认失败</label>
+ </div>
+ <div><button id="overlay-open" class="g-btn" @onclick="OpenOverlay">打开浮层</button><button id="overlay-width" class="g-btn" @onclick="()=>Width=480">宽度 480</button><label><input id="overlay-keyboard" type="checkbox" @bind="Keyboard"/>Escape 关闭</label></div>
+ <GardenerimComponent @key="Name" Name="@Name" Variant="@Variant" @ref="Instance" Config="Options" @bind-Value="Opened" ValueEvent="change" ValueKey="value" EventNames="@(new[]{"action"})" OnEvent="Action" data-g-side="@Side" id="overlay-root">
+ @if(Floating){
+  @if(Name=="tooltip") { <button data-g-tooltip-trigger class="g-btn">提示触发器</button><div data-g-tooltip-content hidden>键盘、点击、边缘避让与受控状态。</div> }
+  else { <button data-g-popover-trigger class="g-btn">气泡触发器</button><div data-g-popover-content hidden><h3 class="g-popover-title">@(Name=="popconfirm"?"确认保存？":"编辑草稿")</h3><div class="g-popover-content"><input class="g-input" id="overlay-input" @bind="Draft" @bind:event="oninput" aria-label="草稿"/><button class="g-btn" @onclick="()=>Width=480">内部调整宽度</button></div><p data-g-overlay-error role="status"></p><div class="g-popconfirm-actions"><button class="g-btn" data-g-overlay-cancel>取消</button><button class="g-btn g-btn-primary" data-g-overlay-confirm>确认</button></div></div> }
+ }else{
+  <section class="@(Name=="drawer"?"g-drawer":"g-dialog")" aria-label="Blazor 浮层"><header class="g-dialog-header"><h3 class="g-dialog-title">编辑项目</h3><button class="g-dialog-close" data-g-close aria-label="关闭">×</button></header><div class="g-dialog-body"><input id="overlay-input" class="g-input" @bind="Draft" @bind:event="oninput" aria-label="草稿"/><button class="g-btn" @onclick="()=>Width=480">内部调整宽度</button><p data-g-overlay-error role="status"></p></div><footer class="g-dialog-footer"><button class="g-btn" data-g-overlay-cancel>取消</button><button class="g-btn g-btn-primary" data-g-overlay-confirm>确认</button></footer></section>
+ }
+ </GardenerimComponent>
+ <output id="overlay-status">@Status</output><output id="overlay-value">@Draft</output><output id="overlay-open-state">@Opened</output>
+</div>
+@code {
+ private string[] Names = ["dialog","drawer","popover","tooltip","popconfirm","confirm-dialog"];
+ private string Name {get;set;}="dialog";
+ private string Variant {get;set;}="";
+ private string Density {get;set;}="default";
+ private string Height {get;set;}="";
+ private string MaxHeight {get;set;}="";
+ private string Side {get;set;}="end";
+ private string Placement {get;set;}="bottom-start";
+ private bool ShowClose {get;set;}=true;
+ private bool Fail {get;set;}
+ private static readonly Dictionary<string,string[]> Variants=new(){["dialog"]=["small","medium","large","xl","centered","fullscreen","top"],["drawer"]=["small","medium","large","xl"],["popover"]=["compact","wide"],["tooltip"]=["top","bottom","start","end","start-aligned","centered","end-aligned"],["popconfirm"]=["compact","wide","danger"],["confirm-dialog"]=["small","medium","large","danger","centered"]};
+ private object? Opened {get;set;}=false;
+ private string Draft {get;set;}="Draft";
+ private int Width {get;set;}=360;
+ private bool Keyboard {get;set;}=true;
+ private string Status {get;set;}="Ready";
+ private GardenerimComponent? Instance;
+ private bool Floating => Name is "popover" or "tooltip" or "popconfirm";
+ private string Behavior => Floating ? Name=="tooltip"?"tooltip":"popover" : Name=="drawer"?"drawer":"dialog";
+ private IReadOnlyDictionary<string,object?> Options => new Dictionary<string,object?>{["overlayControlled"]=true,["overlayOpen"]=Equals(Opened,true),["overlayWidth"]=Variant==""?Width:null,["overlayHeight"]=Height,["overlayMaxHeight"]=MaxHeight,["overlayDensity"]=Density,["overlayShowClose"]=ShowClose,["overlayPlacement"]=Name=="tooltip"&&Variant!=""?null:Placement,["overlayKeyboard"]=Keyboard,["overlayTrigger"]="click",["overlayAsync"]=true};
+ private void Reset(){Opened=false;Width=360;Draft="Draft";Status="Ready";Variant="";Height="";MaxHeight="";Density="default";ShowClose=true;Fail=false;}
+ private async Task OpenOverlay(){if(Instance is not null)await Instance.InvokeBehaviorAsync<object>(Behavior,"open");}
+ private async Task Action(Gardenerim.Blazor.Models.GardenerimEventArgs args){if(args.Detail is IReadOnlyDictionary<string,object?> values && values.TryGetValue("action",out var action) && Equals(action,"cancel"))return;Status="Pending";var target=Instance;var behavior=Behavior;var success=!Fail;Fail=false;await Task.Delay(150);if(target is not null && ReferenceEquals(target,Instance)){await target.InvokeBehaviorAsync<object>(behavior,"complete",[success,success?"":"本地模拟失败，请重试。"]);Status=success?"Completed":"Error";}}
+}

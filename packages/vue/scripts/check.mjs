@@ -13,16 +13,16 @@ const catalog = await import(pathToFileURL(resolve(root, "dist", "generated", "c
 const components = await import(pathToFileURL(resolve(root, "dist", "generated", "components.js")).href);
 const module = await import(pathToFileURL(resolve(root, "dist", "index.js")).href);
 const errors = [];
-if (pkg.version !== "2.1.0" || api.version !== pkg.version || api.status !== "stable") errors.push("version/status is not Stable 2.1.0");
-if (catalog.componentCatalog.length !== css.components.length || css.components.length !== 506) errors.push("component catalog is incomplete");
+if (pkg.version !== "2.2.0" || api.version !== pkg.version || api.status !== "stable") errors.push("version/status is not Stable 2.2.0");
+if (catalog.componentCatalog.length !== css.components.length || css.components.length !== 575) errors.push("component catalog is incomplete");
 if (Object.keys(components.gardenerimComponents).length !== css.components.length) errors.push("generated component registry is incomplete");
-if (api.behaviors !== runtime.javascript.behaviors.length || api.behaviors !== 72) errors.push("runtime behavior coverage is incomplete");
+if (api.behaviors !== runtime.javascript.behaviors.length || api.behaviors !== 96) errors.push("runtime behavior coverage is incomplete");
 if (JSON.stringify(api.packageEntrypoints) !== JSON.stringify(Object.keys(pkg.exports))) errors.push("package exports differ from the public API");
 if (JSON.stringify(compatibility.baseline.packageEntrypoints) !== JSON.stringify(Object.keys(pkg.exports))) errors.push("package exports differ from the compatibility baseline");
 if (JSON.stringify(api.moduleExports) !== JSON.stringify(Object.keys(module).sort())) errors.push("root module exports differ from the public API");
 if (JSON.stringify(compatibility.baseline.moduleExports) !== JSON.stringify(Object.keys(module).sort())) errors.push("root module exports differ from the compatibility baseline");
-if (compatibility.baseline.componentNames.length !== 506 || compatibility.baseline.componentExports.length !== 506) errors.push("compatibility baseline is incomplete");
-if ((componentDocs.match(/^\| `G[^`]+` \|/gmu) ?? []).length !== 506) errors.push("component documentation is incomplete");
+if (compatibility.baseline.componentNames.length !== 575 || compatibility.baseline.componentExports.length !== 575) errors.push("compatibility baseline is incomplete");
+if ((componentDocs.match(/^\| `G[^`]+` \|/gmu) ?? []).length !== 575) errors.push("component documentation is incomplete");
 for (const definition of catalog.componentCatalog) {
   if (!components.gardenerimComponents[definition.exportName]) errors.push(`missing component export: ${definition.exportName}`);
   for (const behavior of definition.behaviors) if (!runtime.javascript.behaviors.includes(behavior)) errors.push(`unknown component behavior: ${definition.name}/${behavior}`);

@@ -1,0 +1,1775 @@
+{
+  "verifiedAt": "2026-09-07T03:57:23.429Z",
+  "passed": true,
+  "components": 8,
+  "variants": 32,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "newComponents": 0,
+  "addedParameters": [
+    "showSearch",
+    "showFilter",
+    "showBatch",
+    "showReset",
+    "showStatus",
+    "showDetails",
+    "editorRows",
+    "detailMaxHeight"
+  ],
+  "addedFieldOptions": [
+    "placeholder",
+    "autocomplete",
+    "minLength",
+    "maxLength",
+    "rows",
+    "step"
+  ],
+  "inventory": [
+    {
+      "name": "enterprise-settings",
+      "title": "企业设置",
+      "origin": "原有静态组件",
+      "variants": [
+        "sidebar",
+        "tabs",
+        "stacked",
+        "compact"
+      ],
+      "diagnosis": "原实现只有 CSS 结构，无参数化运行时和完整演示。",
+      "implementation": "共享 CSS / enterprise.js；四个框架适配同一契约。",
+      "review": "字段类型、长度、步长、编辑器行数；准确的等待与重置状态",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "permission-matrix",
+      "title": "权限矩阵",
+      "origin": "原有静态组件",
+      "variants": [
+        "matrix",
+        "grouped",
+        "stacked",
+        "compact"
+      ],
+      "diagnosis": "原实现只有 CSS 结构，无参数化运行时和完整演示。",
+      "implementation": "共享 CSS / enterprise.js；四个框架适配同一契约。",
+      "review": "分组连续性、批量显示参数、紧凑表格",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "audit-log",
+      "title": "审计日志",
+      "origin": "原有静态组件",
+      "variants": [
+        "table",
+        "timeline",
+        "inspector",
+        "compact"
+      ],
+      "diagnosis": "原实现只有 CSS 结构，无参数化运行时和完整演示。",
+      "implementation": "共享 CSS / enterprise.js；四个框架适配同一契约。",
+      "review": "详情开关与高度、搜索筛选、错误状态",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "member-management",
+      "title": "成员管理",
+      "origin": "新增组件",
+      "variants": [
+        "table",
+        "cards",
+        "inspector",
+        "compact"
+      ],
+      "diagnosis": "企业管理缺少独立可组合组件。",
+      "implementation": "共享 CSS / enterprise.js；四个框架适配同一契约。",
+      "review": "批量所有者保护、状态回执校验、多选与详情显示",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "invitation-manager",
+      "title": "邀请管理",
+      "origin": "新增组件",
+      "variants": [
+        "table",
+        "cards",
+        "inline",
+        "compact"
+      ],
+      "diagnosis": "企业管理缺少独立可组合组件。",
+      "implementation": "共享 CSS / enterprise.js；四个框架适配同一契约。",
+      "review": "创建记录及重发/撤销状态确认、编辑器配置",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "role-manager",
+      "title": "角色管理",
+      "origin": "新增组件",
+      "variants": [
+        "split",
+        "cards",
+        "list",
+        "compact"
+      ],
+      "diagnosis": "企业管理缺少独立可组合组件。",
+      "implementation": "共享 CSS / enterprise.js；四个框架适配同一契约。",
+      "review": "创建回执、受控输入去重、详情与窄容器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "team-management",
+      "title": "团队管理",
+      "origin": "新增组件",
+      "variants": [
+        "tree",
+        "cards",
+        "list",
+        "compact"
+      ],
+      "diagnosis": "企业管理缺少独立可组合组件。",
+      "implementation": "共享 CSS / enterprise.js；四个框架适配同一契约。",
+      "review": "成员 ID 归档保护、创建与归档回执、窄容器",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "enterprise-integrations",
+      "title": "集成管理",
+      "origin": "新增组件",
+      "variants": [
+        "catalog",
+        "connected",
+        "list",
+        "compact"
+      ],
+      "diagnosis": "企业管理缺少独立可组合组件。",
+      "implementation": "共享 CSS / enterprise.js；四个框架适配同一契约。",
+      "review": "连接/断开状态确认、异常回包释放等待",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    }
+  ],
+  "tests": {
+    "enterprise": 31,
+    "runtime": 649,
+    "schema": 48,
+    "html": 43,
+    "build": 11
+  },
+  "browsers": [
+    {
+      "engine": "chromium",
+      "layouts": [
+        {
+          "kind": "enterprise-settings",
+          "mode": "sidebar",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "sidebar",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "tabs",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "tabs",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "matrix",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "matrix",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "timeline",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "timeline",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "tree",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "tree",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "catalog",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "catalog",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "connected",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "connected",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "compact",
+          "width": 1100
+        }
+      ],
+      "a11y": [
+        "enterprise-settings/sidebar",
+        "enterprise-settings/tabs",
+        "enterprise-settings/stacked",
+        "enterprise-settings/compact",
+        "enterprise-settings/dark",
+        "permission-matrix/matrix",
+        "permission-matrix/grouped",
+        "permission-matrix/stacked",
+        "permission-matrix/compact",
+        "permission-matrix/dark",
+        "audit-log/table",
+        "audit-log/timeline",
+        "audit-log/inspector",
+        "audit-log/compact",
+        "audit-log/dark",
+        "member-management/table",
+        "member-management/cards",
+        "member-management/inspector",
+        "member-management/compact",
+        "member-management/dark",
+        "invitation-manager/table",
+        "invitation-manager/cards",
+        "invitation-manager/inline",
+        "invitation-manager/compact",
+        "invitation-manager/dark",
+        "role-manager/split",
+        "role-manager/cards",
+        "role-manager/list",
+        "role-manager/compact",
+        "role-manager/dark",
+        "team-management/tree",
+        "team-management/cards",
+        "team-management/list",
+        "team-management/compact",
+        "team-management/dark",
+        "enterprise-integrations/catalog",
+        "enterprise-integrations/connected",
+        "enterprise-integrations/list",
+        "enterprise-integrations/compact",
+        "enterprise-integrations/dark"
+      ],
+      "interactions": 11,
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "layouts": [
+        {
+          "kind": "enterprise-settings",
+          "mode": "sidebar",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "sidebar",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "tabs",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "tabs",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "matrix",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "matrix",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "timeline",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "timeline",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "tree",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "tree",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "catalog",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "catalog",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "connected",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "connected",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "compact",
+          "width": 1100
+        }
+      ],
+      "a11y": [],
+      "interactions": 11,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "layouts": [
+        {
+          "kind": "enterprise-settings",
+          "mode": "sidebar",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "sidebar",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "tabs",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "tabs",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-settings",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "matrix",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "matrix",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "grouped",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "grouped",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "permission-matrix",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "timeline",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "timeline",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "audit-log",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "audit-log",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "member-management",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "member-management",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "invitation-manager",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "role-manager",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "role-manager",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "tree",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "tree",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "team-management",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "team-management",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "catalog",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "catalog",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "connected",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "connected",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "enterprise-integrations",
+          "mode": "compact",
+          "width": 1100
+        }
+      ],
+      "a11y": [],
+      "interactions": 11,
+      "errors": []
+    }
+  ],
+  "extensions": [
+    {
+      "engine": "chromium",
+      "checks": 8,
+      "states": [
+        {
+          "kind": "enterprise-settings",
+          "state": "empty"
+        },
+        {
+          "kind": "enterprise-settings",
+          "state": "loading"
+        },
+        {
+          "kind": "enterprise-settings",
+          "state": "error"
+        },
+        {
+          "kind": "enterprise-settings",
+          "state": "readonly"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "empty"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "loading"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "error"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "readonly"
+        },
+        {
+          "kind": "audit-log",
+          "state": "empty"
+        },
+        {
+          "kind": "audit-log",
+          "state": "loading"
+        },
+        {
+          "kind": "audit-log",
+          "state": "error"
+        },
+        {
+          "kind": "audit-log",
+          "state": "readonly"
+        },
+        {
+          "kind": "member-management",
+          "state": "empty"
+        },
+        {
+          "kind": "member-management",
+          "state": "loading"
+        },
+        {
+          "kind": "member-management",
+          "state": "error"
+        },
+        {
+          "kind": "member-management",
+          "state": "readonly"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "empty"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "loading"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "error"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "readonly"
+        },
+        {
+          "kind": "role-manager",
+          "state": "empty"
+        },
+        {
+          "kind": "role-manager",
+          "state": "loading"
+        },
+        {
+          "kind": "role-manager",
+          "state": "error"
+        },
+        {
+          "kind": "role-manager",
+          "state": "readonly"
+        },
+        {
+          "kind": "team-management",
+          "state": "empty"
+        },
+        {
+          "kind": "team-management",
+          "state": "loading"
+        },
+        {
+          "kind": "team-management",
+          "state": "error"
+        },
+        {
+          "kind": "team-management",
+          "state": "readonly"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "empty"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "loading"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "error"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "readonly"
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "checks": 8,
+      "states": [
+        {
+          "kind": "enterprise-settings",
+          "state": "empty"
+        },
+        {
+          "kind": "enterprise-settings",
+          "state": "loading"
+        },
+        {
+          "kind": "enterprise-settings",
+          "state": "error"
+        },
+        {
+          "kind": "enterprise-settings",
+          "state": "readonly"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "empty"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "loading"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "error"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "readonly"
+        },
+        {
+          "kind": "audit-log",
+          "state": "empty"
+        },
+        {
+          "kind": "audit-log",
+          "state": "loading"
+        },
+        {
+          "kind": "audit-log",
+          "state": "error"
+        },
+        {
+          "kind": "audit-log",
+          "state": "readonly"
+        },
+        {
+          "kind": "member-management",
+          "state": "empty"
+        },
+        {
+          "kind": "member-management",
+          "state": "loading"
+        },
+        {
+          "kind": "member-management",
+          "state": "error"
+        },
+        {
+          "kind": "member-management",
+          "state": "readonly"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "empty"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "loading"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "error"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "readonly"
+        },
+        {
+          "kind": "role-manager",
+          "state": "empty"
+        },
+        {
+          "kind": "role-manager",
+          "state": "loading"
+        },
+        {
+          "kind": "role-manager",
+          "state": "error"
+        },
+        {
+          "kind": "role-manager",
+          "state": "readonly"
+        },
+        {
+          "kind": "team-management",
+          "state": "empty"
+        },
+        {
+          "kind": "team-management",
+          "state": "loading"
+        },
+        {
+          "kind": "team-management",
+          "state": "error"
+        },
+        {
+          "kind": "team-management",
+          "state": "readonly"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "empty"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "loading"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "error"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "readonly"
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "checks": 8,
+      "states": [
+        {
+          "kind": "enterprise-settings",
+          "state": "empty"
+        },
+        {
+          "kind": "enterprise-settings",
+          "state": "loading"
+        },
+        {
+          "kind": "enterprise-settings",
+          "state": "error"
+        },
+        {
+          "kind": "enterprise-settings",
+          "state": "readonly"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "empty"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "loading"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "error"
+        },
+        {
+          "kind": "permission-matrix",
+          "state": "readonly"
+        },
+        {
+          "kind": "audit-log",
+          "state": "empty"
+        },
+        {
+          "kind": "audit-log",
+          "state": "loading"
+        },
+        {
+          "kind": "audit-log",
+          "state": "error"
+        },
+        {
+          "kind": "audit-log",
+          "state": "readonly"
+        },
+        {
+          "kind": "member-management",
+          "state": "empty"
+        },
+        {
+          "kind": "member-management",
+          "state": "loading"
+        },
+        {
+          "kind": "member-management",
+          "state": "error"
+        },
+        {
+          "kind": "member-management",
+          "state": "readonly"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "empty"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "loading"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "error"
+        },
+        {
+          "kind": "invitation-manager",
+          "state": "readonly"
+        },
+        {
+          "kind": "role-manager",
+          "state": "empty"
+        },
+        {
+          "kind": "role-manager",
+          "state": "loading"
+        },
+        {
+          "kind": "role-manager",
+          "state": "error"
+        },
+        {
+          "kind": "role-manager",
+          "state": "readonly"
+        },
+        {
+          "kind": "team-management",
+          "state": "empty"
+        },
+        {
+          "kind": "team-management",
+          "state": "loading"
+        },
+        {
+          "kind": "team-management",
+          "state": "error"
+        },
+        {
+          "kind": "team-management",
+          "state": "readonly"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "empty"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "loading"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "error"
+        },
+        {
+          "kind": "enterprise-integrations",
+          "state": "readonly"
+        }
+      ],
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "blazor": {
+    "variants": 32,
+    "controlledInteractions": 8
+  },
+  "staticDemo": {
+    "staticVariants": 32,
+    "catalogComponents": 8,
+    "errors": []
+  },
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 140
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 89
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 77
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "sharedAssets": {
+    "gardener.css": "f5fc47dea5f0054d7c6cf05ac898d450883a167baf28f47222ccccda1c4c9120",
+    "gardener.min.css": "42d62a479a60a41301695f83c31e6603a94e37d0c390a93332a89e4c65cedf6a",
+    "gardener.runtime.min.js": "461d27374275659b682141a5df436e4cac24c7439e689d7795d50ca14a159f23",
+    "enterprise.js": "f64d32f3126862c2574d40e710376d6c9cae4620c7d5580d06cb21e7777b38f2",
+    "components/recipes.min.css": "f1323fa809e7143016a7591304965bb44a0a197cf4b5d2e934b329da859d5285"
+  },
+  "website": {
+    "components": 559,
+    "behaviors": 94,
+    "events": 104,
+    "locales": 7,
+    "pages": 14,
+    "messagesPerTranslatedLocale": 3313
+  },
+  "budgets": "Existing limits passed without increases.",
+  "limitations": [
+    "所有演示为本地模拟服务，不发送邀请、不连接真实系统。",
+    "真实身份、权限、完整所有者约束、并发控制与持久化由宿主服务实现并验收。",
+    "前端保护仅依据当前提供的数据，不替代服务端校验。"
+  ]
+}

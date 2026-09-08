@@ -41,7 +41,9 @@ for (const file of componentFiles) if (!imports.includes(`./components/${file}`)
 const packedComponentFiles = Object.values(componentPacks).flat().filter((file) => file.startsWith("components/")).map((file) => file.slice("components/".length));
 for (const file of componentFiles) {
   const assignments = packedComponentFiles.filter((candidate) => candidate === file).length;
-  if (assignments !== 1) errors.push(`Component source must belong to exactly one build pack: ${file} (${assignments})`);
+  // Foundations intentionally serve four packs; aggregate builders deduplicate files.
+  const expectedAssignments = file === "foundation.css" ? 4 : 1;
+  if (assignments !== expectedAssignments) errors.push(`Component source has unexpected pack ownership: ${file} (${assignments}, expected ${expectedAssignments})`);
 }
 for (const file of packedComponentFiles) if (!componentFiles.includes(file)) errors.push(`Component pack references an unknown source file: ${file}`);
 for (const [profileName, profile] of Object.entries(platformProfiles)) {
@@ -51,8 +53,8 @@ for (const [profileName, profile] of Object.entries(platformProfiles)) {
 if (/@import\s/.test(css)) errors.push("Built gardener.css still contains @import rules");
 if (!css.includes("@layer gardener.reset, gardener.tokens, gardener.base, gardener.components, gardener.utilities, gardener.overrides;")) errors.push("Canonical CSS layer order is missing");
 
-const definitions = new Set([...css.matchAll(/(--g-[a-z0-9-]+)\s*:/g)].map((match) => match[1]));
-for (const match of css.matchAll(/var\(\s*(--g-[a-z0-9-]+)([^)]*)\)/g)) {
+const definitions = new Set([...css.matchAll(/(--g-[a-zA-Z0-9-]+)\s*:/g)].map((match) => match[1]));
+for (const match of css.matchAll(/var\(\s*(--g-[a-zA-Z0-9-]+)([^)]*)\)/g)) {
   if (!definitions.has(match[1]) && !match[2].trimStart().startsWith(",")) errors.push(`Undefined custom property without fallback: ${match[1]}`);
 }
 
@@ -110,7 +112,7 @@ if (/\.g-btn\s*\{/.test(bundles.utilities)) errors.push("Utilities bundle leaks 
 if (!bundles.ai.includes(".g-chat") || bundles.ai.includes(".g-cms-shell")) errors.push("AI bundle boundary is incorrect");
 if (!bundles.components.includes(".g-grid-24") || !bundles.components.includes(".g-print-col-24")) errors.push("Components bundle is missing the complete grid system");
 
-if (buildCatalog.version !== pkg.version || buildCatalog.platforms.length !== 5 || buildCatalog.componentPacks.length !== 28) errors.push("2.1.0 targeted build catalog is incomplete");
+if (buildCatalog.version !== pkg.version || buildCatalog.platforms.length !== 5 || buildCatalog.componentPacks.length !== 28) errors.push("2.2.0 targeted build catalog is incomplete");
 if (Object.keys(buildCatalog.componentOwnership).length !== componentMetadata.components.length) errors.push("Every component must resolve to an owning build pack");
 if (Object.keys(buildCatalog.componentSignatures || {}).length !== componentMetadata.components.length) errors.push("Every component must expose selector signatures for auditable pack ownership");
 if (performanceReport.version !== pkg.version || performanceReport.status !== "passed" || !performanceReport.regressions?.pass) errors.push("Published performance report is missing or failed");

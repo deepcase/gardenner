@@ -4,10 +4,12 @@
   lang="en"
   data-g-theme="garden"
   data-g-mode="light"
+  data-g-typography="cjk"
   data-g-neutral="cool"
-  data-g-shape="small"
+  data-g-shape="medium"
  data-locale="en">
   <head>
+    <meta name="gardenerim-version" content="2.2.0" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -15,7 +17,7 @@
     />
     <meta
       name="description"
-      content="Gardenerim complete documentation: CSS, Vue 3, React, AngularJS, Blazor, theme, Token, tool class, 506 components, runtime, complete page, AI page generation and desktop adaptation."
+      content="Gardenerim complete documentation: CSS, Vue 3, React, AngularJS, Blazor, theme, Token, tool class, 575 components, runtime, complete page, AI page generation and desktop adaptation."
     />
     <meta name="theme-color" content="#ffffff" />
     <meta
@@ -33,8 +35,9 @@
     <link rel="alternate" hreflang="fr" href="../fr/docs.html" />
     <link rel="alternate" hreflang="de" href="../de/docs.html" />
     <link rel="alternate" hreflang="x-default" href="../docs.html" />
-    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=afe73d14" />
-    <link rel="stylesheet" href="../assets/site.css?v=hero-balance-3" />
+    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=2.2.0-89f744a56e" />
+    <link rel="stylesheet" href="../assets/site.css?v=2.2.0-999db7025a" />
+    <link rel="stylesheet" href="../assets/docs-gallery.css?v=2.2.0-3b2ec2c26b" />
   </head>
   <body>
     <a class="g-skip-link" href="#docs-main">Skip to document text</a>
@@ -44,8 +47,10 @@
           ><span class="site-brand-mark" aria-hidden="true">G</span
           ><span>Gardenerim</span></a
         >
-        <span class="g-badge">Docs 2.1.0</span>
+        <span class="g-badge site-version" data-site-version>v2.2.0</span>
         <div class="site-nav-links" id="site-menu">
+          <a class="site-nav-link" href="./components.html">Component</a>
+          <a class="site-nav-link" href="./docs.html" aria-current="page">Documentation</a>
           <a class="site-nav-link" href="./index.html">Home page</a>
           <details class="site-nav-dropdown">
             <summary class="site-nav-trigger">Frameworks</summary>
@@ -71,7 +76,6 @@
             <div class="site-nav-dropdown-menu">
               <a class="site-nav-link" href="#public-api">API Contract</a>
               <a class="site-nav-link" href="#targeted-builds">Build</a>
-              <a class="site-nav-link" href="#components">Component</a>
               <a class="site-nav-link" href="#utilities">Tools</a>
               <a class="site-nav-link" href="#runtime">Runtime</a>
               <a class="site-nav-link" href="#recipes">Recipe</a>
@@ -112,7 +116,7 @@
         <div class="docs-mobile-jump">
           <label class="g-label" for="docs-jump">Jump to chapter</label
           ><select class="g-select g-select-sm" id="docs-jump">
-            <option value="#quick-start">Quick Start</option>
+            <option value="#quick-start">Quick Start</option><option value="#component-demos">Component demos</option>
             <option value="#installation">Installation and Packages</option>
             <option value="#vue">Vue 3 project</option>
             <option value="#react">React project</option>
@@ -152,11 +156,12 @@
             <option value="#customization">Customization and publishing</option>
           </select>
         </div>
+        <details class="docs-category-navigation" open><summary>Component categories</summary><nav data-demo-category-navigation aria-label="Component categories"></nav></details>
         <section class="docs-sidebar-section">
           <h2 class="docs-sidebar-title">Overview</h2>
           <ul class="docs-sidebar-list">
             <li>
-              <a class="docs-sidebar-link" href="#quick-start">Quick Start</a>
+              <a class="docs-sidebar-link" href="#quick-start">Quick Start</a><a class="docs-sidebar-link" href="#component-demos">Component demos</a>
             </li>
             <li>
               <a class="docs-sidebar-link" href="#installation">Installation and Packages</a>
@@ -179,7 +184,7 @@
           </ul>
         </section>
         <section class="docs-sidebar-section">
-          <h2 class="docs-sidebar-title">Basics</h2>
+          <h2 class="docs-sidebar-title">Basic</h2>
           <ul class="docs-sidebar-list">
             <li><a class="docs-sidebar-link" href="#themes">Theme system</a></li>
             <li><a class="docs-sidebar-link" href="#tokens">Design Token</a></li>
@@ -319,9 +324,9 @@
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-6">
               <span class="g-badge">42 themes</span
-              ><span class="g-badge">506 components</span
+              ><span class="g-badge">575 components</span
               ><span class="g-badge">11,498 utilities</span
-              ><span class="g-badge">72 behaviors</span
+              ><span class="g-badge">96 behaviors</span
               ><span class="g-badge">52 recipes</span>
             </div>
           </header>
@@ -367,6 +372,25 @@
             </ol>
           </section>
 
+          <section class="docs-section" id="component-demos">
+            <h2>Component demos</h2>
+            <p>Try components, adjust parameters, explore variants and view demo source. Powered by the same examples as GardenerDemo.</p>
+            <div id="docs-live-gallery" class="docs-live-gallery">
+              <div class="docs-catalog-toolbar docs-demo-filters">
+                <label>Search components<input class="g-input" type="search" data-demo-search placeholder="GTable / GButton" /></label>
+                <label>Category<select class="g-select" data-demo-category><option value="">All categories</option></select></label>
+                <label>Component<select class="g-select" data-demo-picker></select></label>
+              </div>
+              <p class="docs-catalog-meta" data-demo-count aria-live="polite"></p>
+              <div class="docs-demo-toolbar">
+                <span>GardenerDemo · Vue</span>
+                <label>Preview width<select class="g-select g-select-sm" data-demo-width><option value="auto">Auto</option><option value="768">768px</option><option value="390">390px</option></select></label>
+                <button class="g-btn g-btn-outline g-btn-sm" type="button" data-demo-reset>Reset demo</button>
+                <a class="g-btn g-btn-ghost g-btn-sm" data-demo-external target="_blank" rel="noopener">Open separately</a>
+              </div>
+              <div class="docs-demo-viewport"><div class="docs-demo-stage" data-demo-stage></div></div>
+            </div>
+          </section>
           <section class="docs-section" id="installation">
             <h2>Installation and Packages</h2>
             <p>
@@ -498,14 +522,14 @@ import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
           <section class="docs-section" id="vue">
             <h2>Gardenerim Vue 3 Project</h2>
             <p>
-              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> is the official Vue 3 adaptation layer of Gardenerim CSS 2.1.0, the current version is
-              <strong>2.1.0 Stable</strong>, supports Vue
+              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> is the official Vue 3 adaptation layer of Gardenerim CSS 2.2.0, the current version is
+              <strong>2.2.0 Stable</strong>, supports Vue
               <code>&gt;=3.4.0 &lt;4.0.0</code> with Node.js
-              <code>&gt;=18.18</code>. It maps all 506 CSS components and 72 DOM behaviors on an item-by-item basis, while providing 546 root runtime exports, 21 TypeScript type exports, 30 package entry points, and 28 component CSS package proxies.
+              <code>&gt;=18.18</code>. It maps all 575 CSS components and 96 DOM behaviors on an item-by-item basis, while providing 615 root runtime exports, 31 TypeScript type exports, 30 package entry points, and 28 component CSS package proxies.
             </p>
             <div class="docs-api-stats" aria-label="Vue project public API scale">
-              <div><strong>506</strong><span>Named G* component</span></div>
-              <div><strong>546</strong><span>Root runtime export</span></div>
+              <div><strong>575</strong><span>Named G* component</span></div>
+              <div><strong>615</strong><span>Root runtime export</span></div>
               <div><strong>30</strong><span>Public package entry</span></div>
               <div><strong>28</strong><span>Component CSS package</span></div>
             </div>
@@ -646,7 +670,7 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               40 non-component runtimes exported as:<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createGardenerimComponent</code>、<code>createGardenerimVue</code>、<code>default</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimLocale</code>、<code>useGardenerimTheme</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>、<code>vGardenerim</code>。
             </p>
             <p>
-              21 types exported as:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentPublicInstance</code>、<code>GardenerimConfigValue</code>、<code>GardenerimDirectiveOptions</code>、<code>GardenerimDirectiveValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimVueComponentName</code>、<code>GardenerimVueOptions</code>。
+              31 types exported as:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentPublicInstance</code>、<code>GardenerimConfigValue</code>、<code>GardenerimDirectiveOptions</code>、<code>GardenerimDirectiveValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimVueComponentName</code>、<code>GardenerimVueOptions</code>。
             </p>
 
             <h3>Public Schema, Metadata, and Publishing Access</h3>
@@ -654,8 +678,8 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <a href="../../packages/vue/metadata/public-api.json">Public API</a>、<a href="../../packages/vue/metadata/compatibility.json">Compatibility</a>
               and <a href="../../packages/vue/dist/gardener-vue.performance.json">Performance</a>
               Both have JSON Schemas that turn off unknown fields;<a href="../../packages/vue/dist/catalog.json">Component Catalog JSON</a>
-              Readable directly by AI, code generators, and documentation tools. The budget for the full compressed package is 330,691 B raw, 52,236 B gzip, 27,220 B Brotli; single
-              <code>GButton</code> The actual tree shaking result is 3,894 B. Deterministic build covers 91 files, npm package checks 102 files, 295,992 B packed, 3,859,549 B unpacked.
+              Readable directly by AI, code generators, and documentation tools. The actual measurement of the full compressed package is 561,983 B raw, 85,726 B gzip, 41,537 B Brotli; single
+              <code>GButton</code> The actual tree shaking result is 3,894 B. Deterministic build covers 91 files, npm package checks 105 files, 295,992 B packed, 3,859,549 B unpacked.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd vue
@@ -666,11 +690,11 @@ npm run release:verify
 # Tree shaking, reproducible builds, performance budgeting, npm packaging and publint</code></pre>
             </div>
 
-            <h3>All 506 Vue components</h3>
+            <h3>All 575 Vue components</h3>
             <p>
               The following directories are merged directly
               <a href="../../packages/vue/metadata/public-api.json">Vue public API</a> and
-              <a href="../../packages/vue/dist/catalog.json">Component metadata</a>, itemizes Vue export names, CSS names, categories, types, selectors, variants, states, widgets, behaviors, and platforms. It is not a featured sample; all 506 items are in the same searchable directory.
+              <a href="../../packages/vue/dist/catalog.json">Component metadata</a>, itemizes Vue export names, CSS names, categories, types, selectors, variants, states, widgets, behaviors, and platforms. It is not a curated sample; all 575 items are in the same searchable catalog.
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="vue-component-search">Search for Vue components</label>
@@ -682,19 +706,287 @@ npm run release:verify
             </div>
             <div class="docs-catalog-meta" id="vue-component-meta">Reading Vue component manifest...</div>
             <div class="docs-catalog" id="vue-component-catalog" aria-live="polite"></div>
-          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- generated-adapter-options --><p>Navigation and component extension API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTableInstance</code>、<code>GardenerimTableState</code>、<code>GardenerimTableChange</code>、<code>GardenerimTableKey</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimNavigationChange</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationInstance</code>、<code>navigation</code>、<code>items</code>、<code>columns</code>. For complete types and instructions for use, see <a href="../../packages/vue/docs/API.md">Vue API</a>。</p><!-- /generated-adapter-options -->
+</section>
 
           <section class="docs-section" id="react">
             <h2>Gardenerim React Project</h2>
             <p>
-              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> is the official React adaptation layer of Gardenerim CSS 2.1.0, the current version is
-              <strong>2.1.0 Stable</strong>, supports React
+              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> is the official React adaptation layer of Gardenerim CSS 2.2.0, the current version is
+              <strong>2.2.0 Stable</strong>, supports React
               <code>&gt;=18.3.0 &lt;20.0.0</code> with Node.js
-              <code>&gt;=18.18</code>. It maps all 506 CSS components and 72 DOM behaviors on an item-by-item basis, while providing 546 root runtime exports, 22 TypeScript type exports, 30 public package entry points, and 28 component CSS package proxies.
+              <code>&gt;=18.18</code>. It maps all 575 CSS components and 96 DOM behaviors on an item-by-item basis, while providing 615 root runtime exports, 32 TypeScript type exports, 30 public package entry points, and 28 component CSS package proxies.
             </p>
             <div class="docs-api-stats" aria-label="React project public API scale">
-              <div><strong>506</strong><span>Named G* component</span></div>
-              <div><strong>546</strong><span>Root runtime export</span></div>
+              <div><strong>575</strong><span>Named G* component</span></div>
+              <div><strong>615</strong><span>Root runtime export</span></div>
               <div><strong>30</strong><span>Public package entry</span></div>
               <div><strong>28</strong><span>Component CSS package</span></div>
             </div>
@@ -788,7 +1080,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 /&gt;</code></pre>
             </div>
             <p>
-              <code>useGardenerimBehavior</code> Bind 72 behaviors to an element, Document or component Handle and destroy them on unload;<code>initialize</code> Automatic component initialization can be turned off to facilitate unified takeover by the page-level runtime. The behavior of explicitly passing in a data attribute takes precedence over generating a default value.
+              <code>useGardenerimBehavior</code> Bind 96 behaviors to an element, Document or component Handle and destroy them on unload;<code>initialize</code> Automatic component initialization can be turned off to facilitate unified takeover by the page-level runtime. The behavior of explicitly passing in a data attribute takes precedence over generating a default value.
             </p>
 
             <h3>All 8 Hooks</h3>
@@ -822,7 +1114,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 
             <h3>SSR, Hydration and Desktop Bridging</h3>
             <div class="docs-callout">
-              The package entry can be safely imported on the server side. All 506 components have gone through item-by-item SSR, and the behavior is only initialized during the Effect life cycle; the server-side mark Hydration does not generate recoverable errors and is compatible with StrictMode. Tauri and Electron are used respectively
+              The package entry can be safely imported on the server side. All 575 components have gone through item-by-item SSR, and the behavior is only initialized during the Effect life cycle; the server-side mark Hydration does not generate recoverable errors and is compatible with StrictMode. Tauri and Electron are used respectively
               <code>@gardenerim/react/tauri</code> and
               <code>@gardenerim/react/electron</code> Independent portals so that neither portal accidentally exports another platform's bridging API.
             </div>
@@ -847,7 +1139,7 @@ function WindowChrome() {
               40 non-component runtimes exported as:<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createGardenerimComponent</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>resolveGardenerimTarget</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimLocale</code>、<code>useGardenerimTheme</code>、<code>useGardenerimThemeContext</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>。
             </p>
             <p>
-              22 types exported as:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentProps</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimGeneratedComponent</code>、<code>GardenerimOwnProps</code>、<code>GardenerimPlatform</code>、<code>GardenerimReactComponentName</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChange</code>。
+              32 types exported as:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentProps</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimGeneratedComponent</code>、<code>GardenerimOwnProps</code>、<code>GardenerimPlatform</code>、<code>GardenerimReactComponentName</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChange</code>。
             </p>
 
             <h3>Public Schema, Performance and Release Access</h3>
@@ -855,23 +1147,23 @@ function WindowChrome() {
               <a href="../../packages/react/metadata/public-api.json">Public API</a>、<a href="../../packages/react/metadata/compatibility.json">Compatibility</a>
               and <a href="../../packages/react/dist/gardener-react.performance.json">Performance</a>
               Both validated by JSON Schema with unknown fields turned off;<a href="../../packages/react/dist/catalog.json">Component Catalog JSON</a>
-              Readable directly by AI, code generators, and documentation tools. The actual measurement of the full compressed package is 328,129 B raw, 50,581 B gzip, 26,733 B Brotli; single
-              <code>GButton</code> The actual tree shaking result is 2,685 B. The deterministic build covered 91 files, the npm package checked 102 files, 273,601 B packed, 2,563,603 B unpacked, and the production dependency security audit was 0 vulnerabilities.
+              Readable directly by AI, code generators, and documentation tools. The actual measurement of the full compressed package is 557,236 B raw, 83,043 B gzip, 40,488 B Brotli; single
+              <code>GButton</code> The actual tree shaking result is 2,685 B. The deterministic build covered 91 files, the npm package checked 105 files, 273,601 B packed, 2,579,603 B unpacked, and the production dependency security audit was 0 vulnerabilities.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd react
 npm run release:verify
 
-# Build and Public API, Schema, TypeScript, 506 Component SSR, Hydration, DOM Lifecycle、
+# Build and Public API, Schema, TypeScript, 575 Component SSR, Hydration, DOM Lifecycle、
 # Chromium / WebKit / Firefox / Pixel 7 / iPhone 13、WCAG A/AA、
 # Tree shaking, reproducible builds, performance budgeting, npm packaging and publint</code></pre>
             </div>
 
-            <h3>All 506 React components</h3>
+            <h3>All 575 React components</h3>
             <p>
               The following directories are merged directly
               <a href="../../packages/react/metadata/public-api.json">React Public API</a> and
-              <a href="../../packages/react/dist/catalog.json">Component metadata</a>, itemizing React export names, CSS names, categories, types, default tags, selectors, variants, states, widgets, behaviors, and platforms. It is not a featured sample; all 506 items are in the same searchable directory.
+              <a href="../../packages/react/dist/catalog.json">Component metadata</a>, itemizing React export names, CSS names, categories, types, default tags, selectors, variants, states, widgets, behaviors, and platforms. It is not a curated sample; all 575 items are in the same searchable catalog.
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="react-component-search">Search for React components</label>
@@ -883,16 +1175,284 @@ npm run release:verify
             </div>
             <div class="docs-catalog-meta" id="react-component-meta">Reading React component manifest...</div>
             <div class="docs-catalog" id="react-component-catalog" aria-live="polite"></div>
-          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- generated-adapter-options --><p>Navigation and component extension API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTableInstance</code>、<code>GardenerimTableState</code>、<code>GardenerimTableChange</code>、<code>GardenerimTableKey</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimNavigationChange</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationInstance</code>、<code>navigation</code>、<code>items</code>、<code>columns</code>. For complete types and instructions for use, see <a href="../../packages/react/docs/API.md">React API</a>。</p><!-- /generated-adapter-options -->
+</section>
 
           <section class="docs-section" id="angular">
             <h2>Gardenerim AngularJS Project</h2>
             <p>
               <a href="../../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
-              is the official AngularJS 1.x legacy system adaptation layer for Gardenerim CSS 2.1.0, the current version is
-              <strong>2.1.0 Stable</strong>. It validates AngularJS
+              is the official AngularJS 1.x legacy system adaptation layer for Gardenerim CSS 2.2.0, the current version is
+              <strong>2.2.0 Stable</strong>. It validates AngularJS
               <code>&gt;=1.8.2 &lt;1.9.0</code> with Node.js
-              <code>&gt;=18.18</code>, item-by-item mapping of all 506 CSS components and 72 DOM behaviors, and provides 542 root runtime exports, 24 TypeScript type exports, 30 public package entry points, and 28 component CSS package proxies.
+              <code>&gt;=18.18</code>, item-by-item mapping of all 575 CSS components and 96 DOM behaviors, and provides 611 root runtime exports, 28 TypeScript type exports, 30 public package entry points, and 28 component CSS package proxies.
             </p>
             <div class="docs-warning docs-callout">
               <strong>Legacy system boundaries:</strong>AngularJS has ended official support and there are no known security advisories for the framework itself that have no upstream fixes. This adaptation layer will
@@ -900,8 +1460,8 @@ npm run release:verify
               <a href="../../packages/angularjs/docs/security.md">AngularJS Security Baseline</a>。
             </div>
             <div class="docs-api-stats" aria-label="AngularJS project public API scale">
-              <div><strong>506</strong><span>Generate component instructions</span></div>
-              <div><strong>542</strong><span>Root runtime export</span></div>
+              <div><strong>575</strong><span>Generate component instructions</span></div>
+              <div><strong>611</strong><span>Root runtime export</span></div>
               <div><strong>30</strong><span>Public package entry</span></div>
               <div><strong>28</strong><span>Component CSS package</span></div>
             </div>
@@ -935,7 +1495,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
 });</code></pre>
             </div>
             <p>
-              <code>components</code> Accepts a component name, AngularJS directive name, or ESM export name, constrained by 506 union types; unknown names will immediately throw an error. Repeated installations of the same AngularJS instance, module name, and equivalent options are idempotent. When different component subsets, dependencies, or initialization options use modules with the same name, an error will be explicitly reported to prevent silently obtaining semi-registered modules.
+              <code>components</code> Accepts a component name, AngularJS directive name, or ESM export name, constrained by 575 union types; unknown names will immediately throw an error. Repeated installations of the same AngularJS instance, module name, and equivalent options are idempotent. When different component subsets, dependencies, or initialization options use modules with the same name, an error will be explicitly reported to prevent silently obtaining semi-registered modules.
             </p>
 
             <h3>Element directives, attribute directives and semantics</h3>
@@ -1046,7 +1606,7 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               36 non-component runtimes exported as:<code>GARDENERIM_ANGULARJS_MODULE</code>、<code>Gardenerim</code>、<code>GardenerimRuntimeFactory</code>、<code>GardenerimThemeFactory</code>、<code>GardenerimToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createElectronWindowService</code>、<code>createGardenerimAngularJS</code>、<code>createGardenerimComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimBehaviorDirective</code>、<code>gardenerimDirectives</code>、<code>gardenerimProviderDirective</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
             </p>
             <p>
-              24 types exported as:<code>GardenerimAngularJSComponentExportName</code>、<code>GardenerimAngularJSComponentName</code>、<code>GardenerimAngularJSDirectiveFactory</code>、<code>GardenerimAngularJSDirectiveName</code>、<code>GardenerimAngularJSModule</code>、<code>GardenerimAngularJSOptions</code>、<code>GardenerimAngularJSStatic</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimRuntimeService</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeAxis</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChangeLocals</code>。
+              34 types exported as:<code>GardenerimAngularJSComponentExportName</code>、<code>GardenerimAngularJSComponentName</code>、<code>GardenerimAngularJSDirectiveFactory</code>、<code>GardenerimAngularJSDirectiveName</code>、<code>GardenerimAngularJSModule</code>、<code>GardenerimAngularJSOptions</code>、<code>GardenerimAngularJSStatic</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimRuntimeService</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeAxis</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChangeLocals</code>。
             </p>
 
             <h3>Public Schema, Compatibility, Performance and Release Access</h3>
@@ -1054,15 +1614,15 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               <a href="../../packages/angularjs/metadata/public-api.json">Public API</a>、<a href="../../packages/angularjs/metadata/compatibility.json">Compatibility</a> and
               <a href="../../packages/angularjs/dist/gardener-angularjs.performance.json">Performance</a>
               Both are validated by JSON Schema with unknown fields turned off; AngularJS support ranges are also written to the machine-readable compatibility baseline.<a href="../../packages/angularjs/dist/catalog.json">Component Catalog JSON</a>
-              Readable directly by AI, code generators, and documentation tools. The actual measurement of the full compressed package is 405,932 B raw, 59,850 B gzip, 30,016 B Brotli; single
-              <code>GButtonDirective</code> is 4,519 B. Deterministic build covered 87 files, npm package check 99 files, 335,530 B packed, 3,059,384 B unpacked, Gardenerim's own production load audit was 0 vulnerabilities.
+              Readable directly by AI, code generators, and documentation tools. The actual measurement of the full compressed package is 644,355 B raw, 93,476 B gzip, 44,085 B Brotli; single
+              <code>GButtonDirective</code> is 4,534 B. Deterministic build covered 88 files, npm package check 99 files, 335,530 B packed, 3,059,384 B unpacked, Gardenerim's own production load audit was 0 vulnerabilities.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
 npm run release:verify
 
 # Generate and Public API, 3 sets of Schemas, TypeScript, AngularJS 1.8.2 / 1.8.3、
-# 506 Directive registration, ngModel and DOM life cycle, Chromium / WebKit / Firefox、
+# 584 Directive registration, ngModel and DOM life cycle, Chromium / WebKit / Firefox、
 # Pixel 7 / iPhone 13、WCAG A/AA、Tree shaking, reproducible builds, performance, packetization and publint</code></pre>
             </div>
             <p>
@@ -1070,11 +1630,11 @@ npm run release:verify
               <code>npm audit</code> Known advisories for the AngularJS ontology will still be shown faithfully; this is a legacy risk that must be isolated, accepted, or migrated, and cannot be marked as fixed.
             </p>
 
-            <h3>All 506 AngularJS components</h3>
+            <h3>All 575 AngularJS components</h3>
             <p>
               The following directories are merged directly
               <a href="../../packages/angularjs/metadata/public-api.json">AngularJS Public API</a> and
-              <a href="../../packages/angularjs/dist/catalog.json">Component metadata</a>, itemizes the ESM directive factory export name, CSS name, category, type, default tag, selector, variant, state, widget, behavior, and platform. It is not a featured sample; all 506 items are in the same searchable directory.
+              <a href="../../packages/angularjs/dist/catalog.json">Component metadata</a>, itemizes the ESM directive factory export name, CSS name, category, type, default tag, selector, variant, state, widget, behavior, and platform. It is not a curated sample; all 575 items are in the same searchable catalog.
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="angular-component-search">Search AngularJS components</label>
@@ -1086,27 +1646,295 @@ npm run release:verify
             </div>
             <div class="docs-catalog-meta" id="angular-component-meta">Reading AngularJS component manifest…</div>
             <div class="docs-catalog" id="angular-component-catalog" aria-live="polite"></div>
-          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- generated-adapter-options --><p>Navigation and component extension API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTableInstance</code>、<code>GardenerimTableState</code>、<code>GardenerimTableChange</code>、<code>GardenerimTableKey</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimNavigationChange</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationInstance</code>、<code>gardenerNavigation</code>、<code>gardenerTable</code>、<code>gardenerOnChange</code>. For complete types and instructions for use, see <a href="../../packages/angularjs/docs/API.md">AngularJS API</a>。</p><!-- /generated-adapter-options -->
+</section>
 
           <section class="docs-section" id="blazor">
             <h2>Gardenerim Blazor Project</h2>
             <p>
               <a href="../../packages/blazor/README.md"><code>Gardenerim.Blazor</code></a>
-              is the official Razor Class Library for Gardenerim CSS 2.1.0, the current version is
-              <strong>2.1.0 Stable</strong>. stabilize assets to <code>net10.0</code>
+              is the official Razor Class Library for Gardenerim CSS 2.2.0, the current version is
+              <strong>2.2.0 Stable</strong>. stabilize assets to <code>net10.0</code>
               Compiled and verified with an independent NuGet consumer <code>net11.0</code>;Applies to Blazor Web App Static SSR, Interactive Server, Interactive WebAssembly, Auto, Standalone WebAssembly, Hybrid, and Desktop WebView.
             </p>
             <div class="docs-api-stats" aria-label="Blazor Project Public API Scale">
-              <span><strong>506</strong> Razor components</span>
-              <span><strong>72</strong> DOM behavior</span>
-              <span><strong>79</strong> Runtime events</span>
+              <span><strong>575</strong> Razor components</span>
+              <span><strong>96</strong> DOM behavior</span>
+              <span><strong>105</strong> Runtime events</span>
               <span><strong>31</strong> Frame type</span>
-              <span><strong>45</strong> Static resources</span>
+              <span><strong>76</strong> Static resources</span>
             </div>
 
             <h3>Installation, registration and static resources</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.1.0&quot; /&gt;</code></pre>
+              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.2.0&quot; /&gt;</code></pre>
               <pre class="site-code"><code>builder.Services.AddGardenerimBlazor();
 
 var app = builder.Build();
@@ -1145,7 +1973,7 @@ app.MapStaticAssets();</code></pre>
 
             <h3>Common parameters, refnums, and forms</h3>
             <p>
-              All generated components share 20 parameters:<code>As</code>、<code>Id</code>、<code>Class</code>、<code>Style</code>、<code>Variant</code>、<code>Variants</code>、<code>State</code>、<code>States</code>、<code>Config</code>、<code>Initialize</code>、<code>Value</code>、<code>ValueChanged</code>、<code>ValueEvent</code>、<code>ValueKey</code>、<code>OnValueChange</code>、<code>EventNames</code>、<code>PreventDefaultEvents</code>、<code>OnEvent</code>、<code>ChildContent</code>、<code>AdditionalAttributes</code>。
+              All generated components share 23 parameters:<code>As</code>、<code>Id</code>、<code>Class</code>、<code>Style</code>、<code>Variant</code>、<code>Variants</code>、<code>State</code>、<code>States</code>、<code>Config</code>、<code>Initialize</code>、<code>Value</code>、<code>ValueChanged</code>、<code>ValueEvent</code>、<code>ValueKey</code>、<code>OnValueChange</code>、<code>EventNames</code>、<code>PreventDefaultEvents</code>、<code>OnEvent</code>、<code>ChildContent</code>、<code>AdditionalAttributes</code>。
             </p>
             <p>
               The component reference provides 6 instance members:<code>Element</code>、<code>RefreshAsync</code>、<code>DestroyAsync</code>、<code>FocusAsync</code>、<code>GetBehaviorMembersAsync</code>、<code>InvokeBehaviorAsync</code>。
@@ -1153,7 +1981,7 @@ app.MapStaticAssets();</code></pre>
               <code>EditForm</code>、<code>EditContext</code>, DataAnnotations, validation status, input, select and textarea.
             </p>
 
-            <h3>Value binding, 79 events, and 7 sync guards</h3>
+            <h3>Value binding, 105 events and 8 sync guards</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;GCard Value=&quot;@selection&quot;
        ValueChanged=&quot;@(value =&gt; selection = value)&quot;
@@ -1174,8 +2002,8 @@ app.MapStaticAssets();</code></pre>
             <p>
               <code>Value/ValueChanged</code> Handle native input/change,<code>ValueEvent</code> and
               <code>ValueKey</code> Handling complex CustomEvents. Values ​​are converted to .NET strings, Boolean, numbers, arrays, or dictionaries; DOM, File, BigInt, functions, and circular references are serialized safely.
-              <code>GardenerimEvents.All</code> Expose all 79 events,<code>GardenerimEvents.Guards</code>
-              Exposed beforeapproval, beforeclose, beforefilepicker, beforeopen, beforepromptstop, beforepromptsubmit, beforetabclose 7 guard events that must be blocked synchronously before JS/.NET asynchronous boundaries. Behavior members and event detail contracts are available from
+              <code>GardenerimEvents.All</code> Expose all 105 events,<code>GardenerimEvents.Guards</code>
+              Exposed beforeapproval, beforechange, beforeclose, beforefilepicker, beforeopen, beforepromptstop, beforepromptsubmit, beforetabclose 8 guard events that must be blocked synchronously before JS/.NET async boundaries. Behavior members and event detail contracts are available from
               <code>GardenerimRuntimeCatalog</code> Query.
             </p>
 
@@ -1186,18 +2014,18 @@ app.MapStaticAssets();</code></pre>
 
             <h3>Complete public types and machine-readable contracts</h3>
             <p>
-              The 31 frame types are:<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimLocalizationOptions</code>、<code>GardenerimLocalizationService</code>、<code>GardenerimLocalizationState</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
+              The 37 frame types are:<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimLocalizationOptions</code>、<code>GardenerimLocalizationService</code>、<code>GardenerimLocalizationState</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
             </p>
             <p>
               <a href="../../packages/blazor/metadata/public-api.json">Blazor Public API</a>、<a href="../../packages/blazor/metadata/components.json">Component metadata</a>、<a href="../../packages/blazor/metadata/compatibility.json">Compatibility</a>、<a href="../../packages/blazor/artifacts/gardener-blazor.performance.json">Performance</a>
               Both have closed JSON Schema. Readable documentation also includes
-              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">72 behaviors</a>、<a href="../../packages/blazor/docs/events.md">79 events</a>、<a href="../../packages/blazor/docs/assets.md">45 static resources</a>、<a href="../../packages/blazor/docs/runtime.md">Runtime</a>、<a href="../../packages/blazor/docs/accessibility.md">Accessibility and SSR</a> and
+              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">96 behaviors</a>、<a href="../../packages/blazor/docs/events.md">105 events</a>、<a href="../../packages/blazor/docs/assets.md">76 static resources</a>、<a href="../../packages/blazor/docs/runtime.md">Runtime</a>、<a href="../../packages/blazor/docs/accessibility.md">Accessibility and SSR</a> and
               <a href="../../packages/blazor/docs/release.md">Release access control</a>。
             </p>
 
-            <h3>2.1.0 Release Quality</h3>
+            <h3>2.2.0 Release Quality</h3>
             <p>
-              Release build with 0 warnings, 0 errors; 506 components all passed true static SSR. Browser Matrix covers Chromium, Firefox, WebKit, desktop and mobile viewports, keyboard, and Ax WCAG A/AA; CI mandates Firefox. NuGet uses an isolated cache to actually publish consumer applications and validate static Web Assets endpoint manifests; there is also a standalone .NET 11 Preview package consumer. The measured assembly is 350,208 B, 45 static resources total 7,820,065 B, CSS gzip 140,386 B, runtime gzip 33,149 B, Blazor bridge gzip 2,097 B, nupkg about 1.27 MiB, below the 6,000,000 B hard limit; all below the hard budget and DLL/XML Reproducible.
+              Release build with 0 warnings, 0 errors; 575 components all passed true static SSR. Browser Matrix covers Chromium, Firefox, WebKit, desktop and mobile viewports, keyboard, and Ax WCAG A/AA; CI mandates Firefox. NuGet uses an isolated cache to actually publish consumer applications and validate static Web Assets endpoint manifests; there is also a standalone .NET 11 Preview package consumer. The measured assembly size is 549,376 B, 76 static resources total 16,966,238 B, CSS gzip 274,562 B, runtime gzip 77,417 B, Blazor bridge gzip 3,189 B, nupkg is about 2.91 MiB, lower than the 6,000,000 B hard limit; DLL/XML Build reproducibly.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd blazor
@@ -1205,11 +2033,11 @@ npm run release:verify
 npm run test:net11</code></pre>
             </div>
 
-            <h3>All 506 Blazor components</h3>
+            <h3>All 575 Blazor components</h3>
             <p>
               The following directories are merged directly
               <a href="../../packages/blazor/metadata/public-api.json">Blazor Public API</a> and
-              <a href="../../packages/blazor/metadata/components.json">Component metadata</a>, itemizing Razor types, CSS names, categories, types, default tags, selectors, states, variants, widgets, behaviors, platforms, and accessibility contracts. It is not a featured sample; all 506 items are in the same searchable directory.
+              <a href="../../packages/blazor/metadata/components.json">Component metadata</a>, itemizing Razor types, CSS names, categories, types, default tags, selectors, states, variants, widgets, behaviors, platforms, and accessibility contracts. It is not a curated sample; all 575 items are in the same searchable catalog.
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="blazor-component-search">Search for Blazor components</label>
@@ -1221,7 +2049,7 @@ npm run test:net11</code></pre>
             </div>
             <div class="docs-catalog-meta" id="blazor-component-meta">Reading Blazor component manifest...</div>
             <div class="docs-catalog" id="blazor-component-catalog" aria-live="polite"></div>
-          </section>
+          <!-- generated-blazor-options --><p>Extended API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTablePagination</code>、<code>GardenerimTableScroll</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimField<TValue></code>、<code>Navigation</code>、<code>BeforeNavigationChange</code>、<code>Table</code>. See <a href="../../packages/blazor/docs/api.md">Complete Blazor API</a>。</p><!-- /generated-blazor-options --></section>
 
           <section class="docs-section" id="principles">
             <h2>Design Principles</h2>
@@ -1649,7 +2477,25 @@ npm run test:net11</code></pre>
             </button>
           </section>
 
-          <section class="docs-section" id="layouts">
+          <section id="solution-enhancements" class="docs-section"><p>Solution release review: 32 pages offer configurable headers, status hints, details, pagination, billing, editor rows, form columns and detail height. Table actions, field validation, disabled and controlled behavior are consistent across five implementations.</p><h2>Solutions: 32 configurable pages</h2><p>224 layout variants with article, card, table, metric, form, timeline, pricing and board sections for public sites, workspaces and industry portals.</p><p>All five implementations share solutionOptions, solutionValue and the runtime, including navigation, search, filters, sorting, pagination, validation, receipts, cancellation and controlled state.</p><p><a href="../../packages/css/examples/solution-compositions.html">Complete solution examples</a> · <a href="../../docs/solution/README.md">Solution parameters and component audit</a></p></section>
+<section id="legal-enhancements" class="docs-section"><p>Legal component release review: configurable search and filters, full or filtered exports, banner dismissal and closing after consent, native form submission, and narrow-container layouts. Dismissing a banner does not grant consent; business actions still require a service receipt.</p><h2>Legal: documents, consent and privacy requests</h2><p>8 legal components offer 32 variants for cookie consent, preferences, documents, agreements, consent history, privacy requests, request progress and policy updates.</p><p>All five implementations share legalOptions, legalValue and the legal runtime, with version confirmation, exact choice snapshots, async receipts, withdrawal, cancellation, request validation, controlled state and accessible interactions.</p><p><a href="../../packages/css/examples/legal-lab.html">Complete legal component examples</a></p><p><a href="../../docs/legal/README.md">Legal parameters and component audit</a></p></section>
+<section id="communication-enhancements" class="docs-section"><p>Communication component release review: independent search and filter controls, configurable subject, recipients and editor rows, complete boolean preference snapshots, all delivery-state filters, and narrow-container layouts.</p><h2>Communication: notifications, messages and collaboration</h2><p>8 communication components offer 32 variants for notifications, inboxes, comments, activity feeds, message composition, contacts, notification preferences and delivery status.</p><p>All five implementations share communicationOptions, communicationValue and the communication runtime, with controlled state, async confirmation, replies, editing, attachment validation, notification policies, retries and accessible interactions.</p><p><a href="../../packages/css/examples/communication-lab.html">Complete communication examples</a></p><p><a href="../../docs/communication/README.md">Communication parameters and component audit</a></p></section>
+<section id="workflow-enhancements" class="docs-section"><p>Workflow release review: independent search, filter, progress, log, save and zoom controls; configurable editor rows, log height and field constraints; validated approval and run results, with shared compact sizing and accessible interactions across five frameworks.</p><h2>Workflow: onboarding, approvals and runs</h2><p>8 workflow components provide 32 variants for onboarding, wizards, task dependencies, approvals, flow editing, run history, run details and triggers.</p><p>All five implementations share workflowOptions, workflowValue and the workflow runtime, with conditional steps, async confirmation, sequential or parallel approvals, graph validation, controlled state and accessible interactions.</p><p><a href="../../packages/css/examples/workflow-lab.html">Complete workflow examples</a></p><p><a href="../../docs/workflow/README.md">Workflow parameters and component audit</a></p></section>
+<section id="desktop-enhancements" class="docs-section"><p>Desktop release review: 38 components share compact sizing and narrow-container layouts, configurable filters, progress, ready hints, reset, pinning, window actions and editors, with validated host responses, disabled menus and keyboard behavior.</p><h2>Desktop: workspaces and native hosts</h2><p>38 desktop components offer 152 variants for windows, workbenches, menus, documents, panels, tasks, notifications, files, updates, recovery, preferences, sessions and diagnostics.</p><p>All five implementations share desktopOptions, desktopValue and the desktop runtime, with controlled state, keyboard and drag interaction, asynchronous host confirmation and explicit Tauri / Electron window interfaces.</p><p><a href="../../packages/css/examples/desktop-lab.html">Complete desktop examples</a></p><p><a href="../../docs/desktop/README.md">Desktop parameters and component audit</a></p></section>
+<section id="enterprise-enhancements" class="docs-section"><p>Enterprise release review: eight components share compact sizing and configurable search, filters, bulk actions, reset, status, details and editors. Owner protection, field validation, service responses and controlled behavior are consistent across five implementations.</p><h2>Enterprise: organization settings and team management</h2><p>8 enterprise components offer 32 variants for settings, permissions, audits, members, invitations, roles, teams and integrations.</p><p>All five implementations share enterpriseOptions, enterpriseValue and the enterprise runtime, supporting controlled state, permission restrictions, asynchronous confirmation and responsive layouts.</p><p><a href="../../packages/css/examples/enterprise-lab.html">Complete enterprise examples</a></p><p><a href="../../docs/enterprise/README.md">Enterprise parameters and component audit</a></p></section>
+<section id="marketing-enhancements" class="docs-section"><p>Marketing release review: billing, quantity, feature, filter and status visibility; image fit and height; email placeholder and length. Unified 28/32/36px controls, narrow containers, and fixes for controlled input, malformed responses, expired links and variant changes.</p><h2>Marketing: brand presentation, pricing and conversion</h2><p>10 marketing components offer 40 variants for navigation, heroes, pricing, features, logos, testimonials, calls to action, newsletters, announcements and footers.</p><p>All five implementations share marketingOptions, marketingValue and the marketing runtime, with exact amounts, controlled state, cancellable requests and responsive layouts.</p><p><a href="../../packages/css/examples/marketing-lab.html">Complete marketing examples</a></p><p><a href="../../docs/marketing/README.md">Marketing parameters and audit for five implementations</a></p></section>
+<section id="cms-enhancements" class="docs-section"><p>CMS release review: visibility for search, filters, metadata, history, uploads, selection and status; block types, editor rows, preview limits and thumbnails. Unified 28/32/36px controls with fixes for revision confirmation, review permissions, controlled input and undo boundaries.</p><h2>CMS: editing, review and localization</h2><p>6 CMS components offer 24 variants for structured blocks, SEO, media selection, revision restoration, publishing reviews and localization.</p><p>All five implementations share cmsOptions, cmsValue and the CMS runtime, with configurable permissions, controlled state and cancellable asynchronous requests.</p><p><a href="../../packages/css/examples/cms-lab.html">Complete CMS examples</a></p><p><a href="../../docs/cms/README.md">CMS parameters and audit for five implementations</a></p></section>
+<section id="mobile-enhancements" class="docs-section"><p>The mobile release review adds 11 configuration parameters and 7 field options, aligning sizing, controlled input, validation, asynchronous recovery and examples across all five implementations.</p><h2>Mobile: touch, sheets and application views</h2><p>33 mobile components offer 99 variants for safe areas, bottom sheets, refresh and loading, gestures, pickers, keyboard avoidance and application views.</p><p>All five implementations share mobileOptions, mobileValue and the mobile runtime, with controlled state, touch and keyboard input, asynchronous results, and shared authentication and checkout.</p><p><a href="../../packages/css/examples/mobile-lab.html">Complete mobile examples</a></p><p><a href="../../docs/mobile/README.md">Mobile parameters and audit for five implementations</a></p></section>
+<section id="auth-enhancements" class="docs-section"><p>The authentication release review adds 12 display and layout parameters, aligning sizing, controlled input, credential isolation, error recovery and expiry across five implementations and complete examples.</p><h2>Authentication and account security</h2><p>33 components offer 99 variants for sign-in, registration, recovery, verification codes, passkeys, organization selection, consent and device management.</p><p>All five implementations share authOptions, authValue and the authentication runtime, with controlled state, private credential transfer, expiry and asynchronous results. Examples use a local mock service.</p><p><a href="../../packages/css/examples/auth-lab.html">Complete authentication examples</a></p><p><a href="../../docs/auth/README.md">Authentication parameters and audit for five implementations</a></p></section>
+<section id="commerce-enhancements" class="docs-section"><h2>Commerce: products, checkout and subscriptions</h2><p>37 components provide 111 variants for product options, carts, shipping, invoices, payments, orders and subscriptions.</p><p>All five implementations share commerceOptions, commerceValue and the commerce runtime, with precise sizing, controlled state, stock constraints, integer amounts and asynchronous results.</p><p><a href="../../packages/css/examples/commerce-lab.html">Complete commerce examples</a></p><p><a href="../../docs/commerce/README.md">Commerce parameters and component audit for five implementations</a></p><p>The commerce release review adds 14 presentation options for headers, status, images, descriptions, saved items, stock, original prices, coupons, summaries, thumbnails, billing cycles, and image and list dimensions. Controls use 28/32/36px sizing. Controlled input, malformed results, coupon quotes, out-of-stock selection and subscription pricing are improved.</p></section>
+<section id="media-enhancements" class="docs-section"><h2>Media: playback, image previews and cropping</h2><p>8 components provide 34 variants for carousels, lightboxes, audio and video, documents, cropping, responsive images and image comparison.</p><p>All five implementations share mediaOptions, mediaValue and the native media runtime, with compact sizing, controlled parameters, keyboard access, loading retries and real image export.</p><p><a href="../../packages/css/examples/media-lab.html">Complete media examples</a></p><p><a href="../../docs/media/README.md">Media parameters and component audit for five implementations</a></p><p>The media release review adds 18 options for navigation, toolbars, captions, viewport dimensions, thumbnails, playlists, playback rates and timeouts. Controls use 28/32/36px sizing. Initial selection, playback cancellation and stale crop results are fixed across all five implementations and demos.</p><div class="docs-callout" id="image-media-mode"><h3>GImage</h3><p>GImage · fit · footerPosition · fallback · previewVisible · previewProps · items · templates</p><p><a href="../../packages/css/examples/image.html">GImage Demo</a> · <a href="../../docs/image.md">GImage API</a> · <a href="https://arco.design/vue/component/image">Arco Image</a></p><iframe src="../../packages/css/examples/image.html" title="GImage Demo" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="carousel-media-mode"><h3>GCarousel</h3><p>GCarousel · slide / fade / card · current · autoPlay · indicatorType · indicatorPosition · direction · thumbnails</p><p><a href="../../packages/css/examples/carousel.html">GCarousel Demo</a> · <a href="../../docs/carousel.md">GCarousel API</a> · <a href="https://arco.design/vue/component/carousel">Arco Carousel</a></p><iframe src="../../packages/css/examples/carousel.html" title="GCarousel Demo" loading="lazy" style="width:100%;height:720px;border:1px solid var(--g-color-border)"></iframe></div></section>
+<section id="ai-enhancements" class="docs-section"><h2>AI: conversations, tool collaboration and generated artifacts</h2><p>38 components offer 119 variants for messages, input, streaming, tool approval, context, usage, artifacts, run timelines and structured output.</p><p>All five implementations share aiOptions, aiValue and asynchronous services, with compact sizing, controlled state, keyboard access, pause, cancellation and retries. Examples use local prerecorded text.</p><p><a href="../../packages/css/examples/ai-lab.html">Complete AI examples</a></p><p><a href="../../docs/ai/README.md">AI parameters and component audit for five implementations</a></p><p>The AI release review adds 18 options for message actions, composers, layouts, image previews, service timeouts and feedback limits. Controls use 28/32/36px sizing. Cancellation, controlled conversation switching and model selection are fixed across all five implementations and demos.</p></section>
+<section id="form-release" class="docs-section"><h2>Forms: precise layout and composable options</h2><p>51 form components and 550 named variants share styles and behavior across CSS, Vue, React, AngularJS and Blazor.</p><p>Nine new options control field, label and column spacing, label and control widths, help text, colons and required marks. Four control sizes remain 24/28/32/36px. Supports dynamic read-only and disabled states, native reset, composition input, automatic height, date/time ranges and responsive layouts.</p><p><a href="../../docs/form/parameters.md">Form options and behavior across five frameworks</a></p><p><a href="../../packages/css/examples/form-compositions.html#form-config-lab">Configurable form examples</a></p></section>
+<section id="navigation-release" class="docs-section"><h2>Navigation: precise sizes and composable options</h2><p>41 components, 174 named variants and 123 scenarios. CSS, Vue, React, AngularJS and Blazor share navigation styles and runtime.</p><p>17 new options control icons, badges, descriptions, shortcuts, groups, headings, actions, panels, borders, height limits, popup dimensions, spacing, indentation, selection timeouts and closing policies. Standard rows are 28/32/36px, text 14px/22px and radius 4px. Supports controlled values, composition input, keyboard operation, native modal focus and asynchronous cancellation.</p><p><a href="../../docs/navigation/README.md">Navigation options and behavior across frameworks</a></p><p><a href="../../packages/css/examples/navigation-lab.html">All navigation variants and configurable examples</a></p></section>
+<section id="popover-reference" class="docs-section"><h2>GPopover</h2><p>GPopover · overlay-options · title · content · position · trigger · popupVisible · contentStyle · arrowStyle</p><p><a href="../../docs/popover.md">GPopover API</a> · <a href="../../packages/css/examples/popover.html">GPopover Demo</a> · <a href="https://arco.design/vue/component/popover">Arco Popover</a></p><iframe title="GPopover Demo" src="../../packages/css/examples/popover.html" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></section><section id="overlay-release" class="docs-section"><h2>Overlays: dimensions, density and interaction</h2><p>6 components, 28 variants and 26 shared settings. Dialog, Drawer, Popover, Tooltip, Popconfirm and ConfirmDialog share styles and runtime across CSS, Vue, React, AngularJS and Blazor.</p><p>overlayWidth, overlayHeight and overlayMaxHeight control dimensions and scrolling. overlayDensity supports compact / default / comfortable; overlayShowClose controls the close button. Controlled state, four drawer sides, twelve floating placements, delayed triggers, boundary avoidance, focus restoration, nesting and async retries are supported. Body: 14px / 22px; titles: 16px / 24px; radius: 4px; touch close target: at least 44px.</p><p><a href="../../docs/overlay/README.md">Parameters and cross-framework protocol</a> · <a href="../../packages/css/examples/overlay-compositions.html">All variants and parameter examples</a></p></section>
+<section id="help-enhancements" class="docs-section"><h2>Help: search, contextual tips and guided steps</h2><p>29 components provide 99 variants for explanations, FAQs, shortcuts, help centers, glossaries, checklists, feedback and tours.</p><p>All five implementations share helpOptions, helpValue and asynchronous services, with compact sizing, controlled state, keyboard access, retries and cancellation.</p><p><a href="../../packages/css/examples/help-lab.html">Complete help examples</a></p><p><a href="../../docs/help/README.md">Help parameters and component audit for five implementations</a></p><p>The help release review adds 18 options for content visibility, popup dismissal, tour spacing, service timeouts and feedback limits. Links, Chinese input, asynchronous cancellation and controlled feedback are fixed with consistent compact sizing across all five implementations and demos.</p></section>
+<section id="layout-enhancements" class="docs-section"><h2>Layout: containers, regions and page structure</h2><p>11 components provide 89 layout modes for grids, primitives, regions, headers, footers, application shells and responsive containers.</p><p>All five implementations share layoutOptions, layoutValue and layoutDisabled; configure gaps, widths, breakpoints and direction while preserving application children and controlled sidebar collapse.</p><p>The layout release review adds 10 options for logical padding, maximum height, grid row height, narrow columns, content and item alignment, Escape collapse, collapse controls and focus. Parameter precedence, narrow spacing and state retention are fixed across 11 components, 89 modes and all five implementations and demos.</p><p><a href="../../packages/css/examples/layout-lab.html">Complete layout examples</a></p><p><a href="../../docs/layout/README.md">Layout parameters and component audit for five implementations</a></p></section>
+<section class="docs-section" id="layouts">
             <h2>Layout system</h2>
             <p>
               The base layout is responsible for containers and grids, and the application shell is responsible for fixed areas, scrolling boundaries, and end-fitting. For complex pages, do not start directly with a large number of positioning tool classes.
@@ -2000,7 +2846,9 @@ npm run test:net11</code></pre>
             <div class="g-region-frame docs-region-demo">
               <header class="g-region-top">Top</header>
               <aside class="g-region-start">Start</aside>
-              <main class="g-region-main">Main workspace</main>
+              <main class="g-region-main">Main workspace<section id="content-components"><h2>Content: editing, files and reading</h2><p>39 components and 234 variants cover code, articles, files, uploads, previews, media, editing, comments and version history.</p><p>Shared parameters: contentOptions, contentValue, contentSize, contentBordered and contentDisabled. Five implementations share controlled state, cancellable events and asynchronous service interfaces.</p><p>The content release review adds 20 options for visibility, sizing, pagination, image previews and service timeouts. Draft resets, Chinese input, asynchronous cancellation and image coordinates are fixed across 39 components, 234 variants and all five implementations and demos.</p><a href="../../packages/css/examples/content-lab.html">Complete content examples</a><a href="../../docs/content/README.md">Content parameters and component audit for five implementations</a></section>
+<section id="interaction-components"><h2>Interactions: parameters, state and consistency across five implementations</h2><p>35 components and 239 variants. Selection, transfer, rules, ranges, split panes, batch processing, copy, fullscreen and undo/redo share the same data and style contracts.</p><p>Shared parameters: interactionOptions, interactionValue, interactionSize, interactionBordered, interactionDisabled, interactionOrientation and interactionLimit. Sizes: 28 / 32 / 36px. Controlled state, cancellable events, async cancellation and error feedback.</p><a href="../../packages/css/examples/interaction-compositions.html">Complete interaction examples</a><a href="../../docs/interaction/README.md">Parameters and component audit for five implementations</a><p>The interaction release review adds 17 options for visibility, columns, heights and service timeouts. All 35 components and 239 variants are synchronized across five implementations and demos, with fixes for state resets, Chinese input, cancellation and retries.</p></section>
+<section id="dashboard-components" class="docs-section"><h2>Dashboard: data, state and consistency across five implementations</h2><p>7 components and 39 variants: GKpiStat, GFilterBar, GChartContainer, GKpiGroup, GDashboardWidget, GGoalTracker and GGaugeChart. New metric groups, collapsible widgets, goal tracking and range gauges reuse the existing Dashboard / DashboardGrid layouts.</p><p>Shared parameters: dashboardOptions, dashboardValue, dashboardSize, dashboardBordered, dashboardColumns, dashboardChartType, dashboardHeight and dashboardDisabled. Currency and percentage formats, real SVG charts, apply/reset filters, controlled state, cancellable events, empty, loading, error and disabled states. Main numbers: 24 / 30 / 36px; gaps: 8 / 12 / 16px. Parameter updates preserve runtime instances; collapsing preserves content.</p><p>Vue / React use config, AngularJS uses gardener-config, Blazor uses Config, and CSS uses data-g-dashboard-* attributes. Charts support keyboard operation, data tables, CSV and series toggles. 23 new options: size, bordered, columns, showHeader, showLegend, showGrid, showAxisLabels, showMarkers, tableVisible, showTrend, showDescription, showTarget, showRemaining, showRange, showValue, showApply, showReset, maxHeight, tableHeight, pointRadius, lineWidth, donutWidth, serviceTimeout. 28 / 32 / 36px; IME, load / cancel.</p><p><a href="../../packages/css/examples/dashboard-compositions.html">Complete dashboard and linked examples</a> · <a href="../../docs/dashboard/README.md">Parameters and data API for five implementations</a></p></section><section id="arco-foundations"><h2>Arco component mapping and foundation extensions</h2><p>Mapping 74 top-level Arco Design Vue 2.58.0 components, reusing existing components and filling 12 gaps. Gardenerim themes, typography, proportions, semantic colors and focus styles remain consistent. CSS, Vue, React, AngularJS and Blazor share foundation-options.</p><p>New number, tag and color inputs, affix, resize box, scrollbar, space, watermark, overflow list, link, typography and icon components support configurable variants, controlled values, disabled states, keyboards and narrow screens where applicable. See the API for supported parameters.</p><p><a href="../../docs/arco/coverage.md">74-component mapping</a> · <a href="../../docs/arco/README.md">Five-framework usage and differences</a> · <a href="../../packages/css/examples/arco-foundations.html">Open interactive demo</a></p><iframe src="../../packages/css/examples/arco-foundations.html" title="Interactive demo of new Gardenerim components" loading="lazy" style="width:100%;height:720px;border:1px solid var(--g-color-border);border-radius:4px"></iframe></section></main>
               <aside class="g-region-end">End</aside>
               <footer class="g-region-bottom">Bottom</footer>
             </div>
@@ -3020,7 +3868,9 @@ npm run test:net11</code></pre>
             </div>
           </section>
 
-          <section class="docs-section" id="form-compositions">
+          <section class="docs-section" id="data-display"><h2>Data display</h2><p>54 components, 265 variants, providing unified density, borders, layout and data parameters. 15 managed components support real-world data manipulation: virtual lists, dashboards, calendars, schedules, file browsing, filter rules, pivot summaries, time bars, coordinate markers, CSV export, structure checking and legend selection.</p><p>CSS: data-g-data-*; Vue / React: config; AngularJS: gardener-config; Blazor: Config. dataOptions / gridOptions: JSON; dataValue: selected keys. Data display: 24 new managed options: size, bordered, layout, showHeader, showSearch, showDescriptions, showLaneCount, showMoveControls, showCalendarEvents, showToday, showBreadcrumbs, showFileMeta, showResults, showPreview, showModeSwitch, showZoomControls, maxHeight, tableHeight, laneWidth, calendarDayHeight, mapHeight, maxRules, exportPreviewRows, serviceTimeout. 28 / 32 / 36px; IME, load / cancel.</p><div class="docs-callout"><a href="../../docs/data/README.md">All components, parameters and five-terminal examples</a> · <a href="../../packages/css/examples/data-compositions.html">Full interactive demonstration</a></div><p>MapShell provides a coordinate canvas interface, FileManager browses application data, and GanttShell displays time bars; online basemaps, file services, and scheduling engines are accessed by the business.</p></section>
+<section class="docs-section" id="disclosure"><h2>Disclosure</h2><p>Accordion is used for grouped content, Collapse is used for independent regions, and ReadMore is used for summary and full content. The three share accordion behavior, providing 19 composable variants; supporting single or multiple expansion, controlled value, retaining one item, disabling, nesting, dynamic panels, keyboard navigation and focus restoration.</p><p>The size follows the single-line title ratio of small 32px, medium 40px, large 48px, and the minimum touch screen size is 44px. Use semantic colors, support dark colors, RTL, reduced dynamic effects and printing.</p><div class="docs-callout">Parameters, five-terminal syntax and examples:<a href="../../docs/disclosure/README.md">ExpandCollapse full document</a> · <a href="../../packages/css/examples/disclosure-compositions.html">Interactive demonstration</a></div><p><code>disclosureMultiple</code>、<code>disclosureCollapsible</code>、<code>disclosureSize</code>、<code>disclosureIcon</code>、<code>disclosureKeyboard</code>、<code>disclosureDefaultValue</code>、<code>disclosureValue</code>、<code>disclosureLines</code>、<code>disclosureLength</code>、<code>disclosureExpandLabel</code>、<code>disclosureCollapseLabel</code> Consistent across CSS, Vue, React, AngularJS, Blazor.</p><p>Controlled values passed in a JSON array string of stable keys. change returns keys, which are written back by the application to disclosureValue; beforeopen / beforeclose can cancel switching. Collapse retains content and form values, complete content only enters the keyboard sequence when expanded, and prints to display the full text.</p><div class="docs-callout" id="collapse-disclosure-mode"><h3>GCollapse</h3><p>GCollapse · activeKey · accordion · bordered · expandIconPosition · destroyOnHide · extra</p><p><a href="../../packages/css/examples/collapse.html">GCollapse Demo</a> · <a href="../../docs/collapse.md">GCollapse API</a> · <a href="https://arco.design/vue/component/collapse">Arco Collapse</a></p><iframe title="GCollapse Demo" src="../../packages/css/examples/collapse.html" loading="lazy" style="width:100%;height:680px;border:1px solid var(--g-color-border)"></iframe></div></section>
+<section class="docs-section" id="form-compositions">
             <h2>Form traditional combination</h2>
             <p>
               Category 6 capabilities elevate the basic controls to 37 stable form structures, covering regular web pages, mobile forms, Dashboard settings pages, CMS editors, and Tauri/Electron inspectors. There are clear interfaces for field labels, descriptions, verification, business grouping, dynamic additions and deletions, and final submission.
@@ -3608,7 +4458,7 @@ npm run test:net11</code></pre>
                     <td>Repeated navigation skipped for keyboard users</td>
                   </tr>
                   <tr>
-                    <td rowspan="4">Mobile terminal</td>
+                    <td rowspan="4">Mobile</td>
                     <td>Mobile Top <code>g-mobile-top-nav</code></td>
                     <td>Return, title and tail actions</td>
                   </tr>
@@ -3705,6 +4555,17 @@ npm run test:net11</code></pre>
 
           <section class="docs-section" id="data-compositions">
             <h2>Data display and operation combination</h2>
+
+<div class="docs-callout" id="calendar-data-mode"><h3>GCalendar calendar</h3>
+            <p>Inspired by Arco Calendar: month and year views, compact panels, controlled selection and visible pages, configurable headers, week and multiple-date selection, date restrictions, custom content and asynchronous events.</p>
+            <p>CSS, Vue, React, AngularJS and Blazor share dataOptions, styles and interactions, with keyboard navigation, light and dark themes and responsive year layouts.</p>
+            <p><a href="../../packages/css/examples/calendar.html">Interactive calendar example</a> · <a href="../../docs/calendar.md">Calendar options and integration</a> · <a href="https://arco.design/vue/component/calendar">Arco Calendar reference</a></p>
+            <iframe src="../../packages/css/examples/calendar.html" title="GCalendar calendar demo" loading="lazy" style="width:100%;height:720px;border:1px solid var(--g-color-border);border-radius:8px"></iframe></div>
+            <div class="docs-callout" id="table-data-mode"><h3>GTable data table</h3>
+            <p>Inspired by Arco Design Vue Table, GTable offers four densities, columns/data configuration, sorting and filtering, controlled selection, pagination, grouped headers, fixed columns, tree rows and expandable details, merged cells, summaries, editing, column resizing, row reordering, fixed-height virtualization and server loading.</p>
+            <p>CSS uses createTable; Vue and React use the table prop; AngularJS uses gardener-table; Blazor uses the Table parameter. All five share styles and a controller. Static tables remain supported.</p>
+            <p><a href="../../packages/css/examples/table.html">Interactive CSS example</a> · <a href="../../docs/table.md">Full options and compatibility boundaries</a> · <a href="https://arco.design/vue/component/table">Arco reference</a></p>
+            <iframe title="GTable data table demo" src="../../packages/css/examples/table.html" loading="lazy" style="width:100%;height:480px;border:1px solid var(--g-color-border);border-radius:2px"></iframe></div>
             <p>
               Category 8 capabilities provide 48 stable data modes, treating "data display" and "data manipulation" as the same set of contracts. Ordinary website, Dashboard, super CMS, mobile list, analysis report and Tauri/Electron high-density workbench, all can directly select tables, records, lists, hierarchies, flows, indicators, visualizations, plans, spaces or operation modes.
             </p>
@@ -4041,7 +4902,7 @@ npm run test:net11</code></pre>
                 >Independent data example</a
               >Sorting, selection, expansion, column visibility, search, view switching, moving stacked tables, and keyboard grid can be directly tested.
             </div>
-          </section>
+          <div class="docs-callout" id="tree-data-mode"><h3>GTree</h3><p>GTree · data · size · checkable · checkedStrategy · selectedKeys · expandedKeys · loadMore · draggable · virtualListProps</p><p><a href="../../docs/tree.md">GTree API</a> · <a href="../../packages/css/examples/tree.html">GTree Demo</a> · <a href="https://arco.design/vue/component/tree">Arco Tree</a></p><iframe title="GTree Demo" src="../../packages/css/examples/tree.html" loading="lazy" style="width:100%;height:420px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="tooltip-options-mode"><h3>GTooltip</h3><p>GTooltip · content · position · mini · backgroundColor · popupVisible · trigger</p><p><a href="../../docs/tooltip.md">GTooltip API</a> · <a href="../../packages/css/examples/tooltip.html">GTooltip Demo</a> · <a href="https://arco.design/vue/component/tooltip">Arco Tooltip</a></p><iframe title="GTooltip Demo" src="../../packages/css/examples/tooltip.html" loading="lazy" style="width:100%;height:380px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="timeline-data-mode"><h3>GTimeline</h3><p>GTimeline · direction · mode · labelPosition · reverse · pending · dotType · lineType · templates</p><p><a href="../../docs/timeline.md">GTimeline API</a> · <a href="../../packages/css/examples/timeline.html">GTimeline Demo</a> · <a href="https://arco.design/vue/component/timeline">Arco Timeline</a></p><iframe title="GTimeline Demo" src="../../packages/css/examples/timeline.html" loading="lazy" style="width:100%;height:480px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="tag-options-mode"><h3>GTag</h3><p>GTag · size · color · checked · visible · closable · loading · templates</p><p><a href="../../docs/tag.md">GTag API</a> · <a href="../../packages/css/examples/tag.html">GTag Demo</a> · <a href="https://arco.design/vue/component/tag">Arco Tag</a></p><iframe title="GTag Demo" src="../../packages/css/examples/tag.html" loading="lazy" style="width:100%;height:300px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="tabs-options-mode"><h3>GTabs</h3><p>GTabs · type · size · position · activeKey · editable · lazyLoad · destroyOnHide</p><p><a href="../../docs/tabs.md">GTabs API</a> · <a href="../../packages/css/examples/tabs.html">GTabs Demo</a> · <a href="https://arco.design/vue/component/tabs">Arco Tabs</a></p><iframe title="GTabs Demo" src="../../packages/css/examples/tabs.html" loading="lazy" style="width:100%;height:min(560px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="statistic-data-mode"><h3>GStatistic</h3><p>GStatistic · precision · showGroupSeparator · prefix · suffix · animation · countdown · templates</p><p><a href="../../docs/statistic.md">GStatistic API</a> · <a href="../../packages/css/examples/statistic.html">GStatistic Demo</a> · <a href="https://arco.design/vue/component/statistic">Arco Statistic</a></p><iframe title="GStatistic Demo" src="../../packages/css/examples/statistic.html" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="list-data-mode"><h3>GList</h3><p>GList · size · split · hoverable · paginationProps · gridProps · virtualListProps · templates</p><p><a href="../../packages/css/examples/list.html">GList Demo</a> · <a href="../../docs/list.md">GList API</a> · <a href="https://arco.design/vue/component/list">Arco List</a></p><iframe title="GList Demo" src="../../packages/css/examples/list.html" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="descriptions-data-mode"><h3>GDescriptions</h3><p>GDescriptions · column · span · layout · align · size · bordered · templates</p><p><a href="../../packages/css/examples/descriptions.html">GDescriptions Demo</a> · <a href="../../docs/descriptions.md">GDescriptions API</a> · <a href="https://arco.design/vue/component/descriptions">Arco Descriptions</a></p><iframe title="GDescriptions Demo" src="../../packages/css/examples/descriptions.html" loading="lazy" style="width:100%;height:680px;border:1px solid var(--g-color-border)"></iframe></div></section>
 
           <section class="docs-section" id="selection-compositions">
             <h2>Selecting and batching components</h2>
@@ -7650,6 +8511,7 @@ npm run test:net11</code></pre>
             <p>
               Category 16 is the highest composition layer of Gardenerim: the first 15 categories provide layout, components, business chains and end-specific interactions, and this category solidifies them into 32 directly selectable full-page contracts. It covers individuals and enterprises, public websites and backends, general businesses and vertical industries, and is also suitable for browsers, mobile web pages, PWA, Tauri and Electron WebView. AI should first select the page root class and corresponding Recipe here, and then populate the components instead of organizing the entire page CSS from scratch.
             </p>
+<div class="g-card g-p-4"><h3>32 Solutions: Variants and Parameters</h3><p>All page combinations support compact, comfortable, boxed, wide, fluid, flat, outlined variants. Configure density, page width, number of card columns, sidebar and first screen arrangement through solutionDensity, solutionWidth, solutionSurface, solutionColumns, solutionSidebar, solutionHero, solutionSticky. CSS uses data-g-solution-* attributes; Vue/React uses config; AngularJS uses gardener-config; Blazor uses Config. For exact dimensions use the --g-solution-* custom attributes.</p><p>Compact card padding 12px, default text 14px / 22px, first screen title 28–48px; narrow screen reflows in a single column and retains navigation and auxiliary content. The order, login and industry business interfaces are accessed by the application.</p><p><a href="../../docs/solution/README.md">Complete parameters and five-terminal example</a> · <a href="../../docs/solution/inventory.json">32-item itemized list</a> · <a href="../../docs/overlay/README.md">Six floating layer parameters and asynchronous confirmation</a></p></div>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-4">
               <span class="g-badge">32 complete pages</span
               ><span class="g-badge">52 total recipes</span
@@ -7682,7 +8544,9 @@ npm run test:net11</code></pre>
                     <span class="g-solution-stat-label">Site</span
                     ><strong class="g-solution-stat-value">28,640</strong
                     ><small class="g-text-success">↑ 12.4%</small>
-                  </section>
+
+
+</section>
                   <section class="g-dashboard-panel g-solution-stat">
                     <span class="g-solution-stat-label">page</span
                     ><strong class="g-solution-stat-value">486k</strong
@@ -8135,11 +8999,11 @@ npm run test:net11</code></pre>
               >
               Continue to perform fifteen sets of negative contract testing and verify cross-manifest references, source code and build artifact consistency, selectors, real component attribution, SHA-256/SRI integrity, reproducible build commands, module types/parameters/signatures, instance members, data attributes, event payloads, adapters, types and release scripts, compatibility baselines, build archives, 42 absolute and relative budget artifacts, budget results, versions and full package exports.
             </p>
-            <h3>All 16 modules exported</h3>
+            <h3>All 19 modules exported</h3>
             <div class="docs-runtime-grid" id="public-module-grid">
               <span class="docs-status">Reading module interface...</span>
             </div>
-            <h3>All 72 behaviors and instance members</h3>
+            <h3>All 96 behaviors and instance members</h3>
             <p>
               Each item lists declarative initialization properties, and
               <code>getInstance()</code> Returns all members of the object that are allowed to be called.
@@ -8147,7 +9011,7 @@ npm run test:net11</code></pre>
             <div class="docs-runtime-grid" id="public-behavior-grid">
               <span class="docs-status">Reading behavior contract...</span>
             </div>
-            <h3>All 79 events and payloads</h3>
+            <h3>All 105 events and payloads</h3>
             <p>
               List each item in full
               <code>CustomEvent.detail</code> ; events bubble up and can be canceled to
@@ -8159,7 +9023,7 @@ npm run test:net11</code></pre>
             </div>
             <h3>All runtime data attributes</h3>
             <p>
-              The 331 properties available to the author are divided into 72 behavior entries in the behavior contract above, 178 structure/action selectors, and 81 additional configuration properties; there are also 29 state properties maintained by the runtime. Status properties may be read simultaneously as initial configuration, but the first three sets available to the author are mutually exclusive and are not double-counted.
+              The 896 properties available to the author include 96 behavior entries, 578 structure/action selectors, and 230 additional configuration properties; there are also 230 state properties maintained by the runtime. The first three groups are mutually exclusive and will not be counted twice.
             </p>
             <h4>Structure and Action Selector</h4>
             <div class="docs-runtime-grid" id="public-selector-attribute-grid">
@@ -8185,7 +9049,7 @@ npm run test:net11</code></pre>
               The specification field for the Manifest is <code>behaviors</code>. old field
               <code>runtimeBehaviors</code> Throughout
               <code>0.x</code> Version line reserved as read-only compatible alias; old
-              <code>metadata/schema.json</code> Continue pointing to the new Components Schema. 2.1.0 promotes the public contract to Stable, and uses a machine-readable Compatibility baseline to save all public entries, layers, themes, runtimes, components and recipes of 0.9.0; 1.x must provide change records and migration instructions before deleting any compatible entries, and must go through the deprecation period of at least two minor versions. Actual removal can only occur in a new major version.
+              <code>metadata/schema.json</code> continues to reference Components Schema. 2.2.0 retains Stable contracts and the 0.9.0 baseline. Removals require migration, two minor releases of deprecation and a new major version.
             </p>
           </section>
 
@@ -8198,14 +9062,14 @@ npm run test:net11</code></pre>
               >, contains categories, types, states, selectors, variants, widgets, functions, platforms, behaviors, adapters, and accessibility contracts. The dynamic below displays all entries and all metadata, rather than a curated list.
             </p>
             <div class="docs-catalog-toolbar">
-              <label class="g-sr-only" for="component-search">Search component</label
+              <label class="g-sr-only" for="component-search">Search components</label
               ><input
                 class="g-input"
                 id="component-search"
                 type="search"
                 placeholder="Search name, category, selector, part, status, or platform"
               /><label class="g-sr-only" for="component-category"
-                >Component Category</label
+                >Category</label
               ><select class="g-select g-w-auto" id="component-category">
                 <option value="">All categories</option>
               </select>
@@ -8320,7 +9184,7 @@ Gardenerim.toast({
             </p>
             <h3>Test access control at runtime (since 0.4.0)</h3>
             <p>
-              <code>npm run test:runtime</code> Use Node.js built-in test runner and Happy DOM to bidirectionally compare real instance members for all 72 behaviors in the public list, and verify initialization, idempotence, destruction and re-initialization; while covering MutationObserver's dynamic nodes, dynamic properties, subtree removal, scope destruction, multi-behavior coexistence, global destruction and initialization event bubbling.
+              <code>npm run test:runtime</code> Use Node.js built-in test runner and Happy DOM to bidirectionally compare real instance members for all 96 behaviors in the public list, and verify initialization, idempotence, destruction and re-initialization; while covering MutationObserver's dynamic nodes, dynamic properties, subtree removal, scope destruction, multi-behavior coexistence, global destruction and initialization event bubbling.
             </p>
             <div class="docs-callout">
               When a runtime behavior is added or renamed, the public API, sample/supplemental fixtures, and per-behavior tests must be synchronized, otherwise the tests will fail due to missing fixtures, instances, or members.
@@ -8431,20 +9295,20 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
           <section class="docs-section" id="targeted-builds">
             <h2>On-demand builds, types, cross-version compatibility and release access</h2>
             <p>
-              <code>2.1.0</code> Roll five platforms, 28 component packages, formal compression and performance budgets to the previous version's measured baseline, and upgrade the public contract to Stable, continuing to retain types, cross-version compatibility, and real npm release package access.<a
+              <code>2.2.0</code> keeps five platforms, 28 packs and performance budgets against the frozen historical baseline, with Stable contracts, types, compatibility and npm package verification.<a
                 href="../../packages/css/dist/gardener.builds.json"
                 ><code>gardener.builds.json</code></a
-              >Registered all 5 platform profiles, 28 component packages, 506 component mappings to one or more real owning packages, selector signatures, browser targets, builder parameters, and SHA-256/SRI for all 42 production artifacts;<a
+              >Registered all 5 platform profiles, 28 component packages, 575 component mappings to one or more real owning packages, selector signatures, browser targets, builder parameters, and SHA-256/SRI for all 42 production artifacts;<a
                 href="../../packages/css/dist/gardener.performance.json"
                 ><code>gardener.performance.json</code></a
               >Save the raw, gzip, Brotli, compression ratio and npm package volume results of each official build.
             </p>
             <h3>TypeScript is cross-version compatible</h3>
             <p>
-              Builds are automatically generated from the Public API <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> and <code>gardener.electron.d.ts</code>. 72 behaviors and 79 events form a complete literal union type;<code>npm run test:types</code> Compile real consumers using TypeScript strict mode, covering default and named exports, behavior factories, toasts, instance queries, and two types of desktop bridges.
+              Builds are automatically generated from the Public API <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> and <code>gardener.electron.d.ts</code>. 96 behaviors and 105 events form a complete literal union type;<code>npm run test:types</code> Compile real consumers using TypeScript strict mode, covering default and named exports, behavior factories, toasts, instance queries, and two types of desktop bridges.
             </p>
             <p>
-              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> Solidified 1,145 contracts inherited from 0.9.0, including all 47 package entries, CSS layers, themes, runtimes, data properties, adapters, 506 components, and 52 recipes.<code>npm run verify:compatibility</code> Allow subsequent 1.x additions and prohibit deletions without migration paths; at the 2.1.0 stable cut-off point, existing entries will also be reversely checked to see if they are missing. Deprecated entries remain in at least two minor versions and can only be removed in a new major version. Its closed structure consists of <a href="../../packages/css/metadata/compatibility.schema.json">Compatibility Schema</a> Constraints.
+              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> preserves 1,145 contracts from 0.9.0: 47 package entries, CSS layers, themes, runtime, attributes, adapters, 506 historical components and 52 recipes.<code>npm run verify:compatibility</code> allows compatible additions. 2.2.0 also compares contracts against published v2.1.0. Removals require migration, two minor releases of deprecation and a new major version. Structure defined by <a href="../../packages/css/metadata/compatibility.schema.json">Compatibility Schema</a> Constraints.
             </p>
             <p>
               Package explicitly supports Node.js &gt;=18.18, Chrome/Edge/Firefox 100+, Safari/iOS 15.4+, and ESM; main portal and desktop adapter provide conditions <code>types</code> Export. Runtime automatic initialization is marked as <code>sideEffects</code>to avoid accidental deletion by the packager.<code>npm run verify:package</code> Will check the real npm package whitelist, each export target, type file, development directory leaks and Publint;<code>prepublishOnly</code> Enforce complete <code>release:verify</code>, and enable public packages and npm Provenance.
@@ -8477,7 +9341,7 @@ npm run build:platform -- --platform tauri --out dist/custom/tauri-app</code></p
               <code>layouts</code>、<code>regions</code>、<code>primitives</code>、<code>grid</code>、<code>basic</code>、<code>forms</code>、<code>form-compositions</code>、<code>navigation</code>、<code>navigation-compositions</code>、<code>feedback</code>、<code>data</code>、<code>data-compositions</code>、<code>selection-compositions</code>、<code>content-compositions</code>、<code>auth-compositions</code>、<code>commerce-compositions</code>、<code>mobile-compositions</code>、<code>extended</code>、<code>page</code>、<code>help</code>、<code>recipes</code>、<code>desktop</code>、<code>desktop-compositions</code>、<code>solution-compositions</code>、<code>catalog</code>、<code>ai</code>、<code>ai-extended</code>、<code>ai-compositions</code>。
             </div>
             <p>
-              <code>./component/*.css</code> Standardize the export of all the above official compressed packages,<code>./component/*</code> Reserved as a compatible alias. When building by component name, the builder depends on the class selector and <code>data-g-*</code> Real source code hits for properties, resolving 506 components into one or more complete belonging packages instead of truncating individual selectors, so pseudo-classes, states, animations, sub-parts, container queries and dependency rules are not lost.
+              <code>./component/*.css</code> Standardize the export of all the above official compressed packages,<code>./component/*</code> Reserved as a compatible alias. When building by component name, the builder depends on the class selector and <code>data-g-*</code> True source code hits for properties, resolving 575 components into one or more complete belonging packages instead of truncating individual selectors, so pseudo-classes, states, animations, sub-parts, container queries and dependency rules are not lost.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>npm run build:custom -- --components button,card,dialog --out dist/custom/account-ui
@@ -8496,22 +9360,22 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
             </p>
             <h3>Formal Compression and Performance Budgeting</h3>
             <p>
-              Formal CSS and JavaScript use esbuild for syntax-level compression without using regular replacement; the main compression entry and each custom build generate a traceable external Source Map. Compressed CSS uses a stable MIT banner that does not change with versions to avoid pure version text from disturbing the Brotli baseline. Uncompressed CSS and runtime still provide accurate versions.<code>npm run budget</code> Using gzip level 9 and Brotli quality 11, simultaneously calculate raw, gzip and Brotli for all 42 official compression products, and check the compression ratio of full CSS, Runtime, and <code>npm pack --dry-run</code> Number of packed, unpacked, and files returned. 2.1.0 uses the actual measurement results of the sealed version 2.0.0 as the immediate baseline, limiting each product's raw growth to no more than 2%, gzip/Brotli to no more than 3%, npm package packed to no more than 3%, unpacked to no more than 2%, and the number of files to no more than 10%; the five platform products all have direct historical baselines. Inclusion volume measurements are rounded up to 4 KiB packed and 64 KiB unpacked, forming a deterministic upper bound that does not underestimate the true inclusion volume and is not affected by the self-contained compaction cycle of the performance report. Failure of either absolute cap or relative cap will block release.
+              Formal CSS and JavaScript use esbuild for syntax-level compression without using regular replacement; the main compression entry and each custom build generate a traceable external Source Map. Compressed CSS uses a stable MIT banner that does not change with versions to avoid pure version text from disturbing the Brotli baseline. Uncompressed CSS and runtime still provide accurate versions.<code>npm run budget</code> Using gzip level 9 and Brotli quality 11, simultaneously calculate raw, gzip and Brotli for all 42 official compression products, and check the compression ratio of full CSS, Runtime, and <code>npm pack --dry-run</code> Number of packed, unpacked, and files returned. 2.2.0 takes the actual measurement results of the closed version 2.0.0 as the immediate baseline. The default strategy is that the growth of raw does not exceed 2% and that of gzip/Brotli does not exceed 3%. The fixed exceptions and measurement basis for this component expansion are documented in <a href="../../docs/solution/budget-review.json">budget-review.json</a>; Exceptions are still subject to product-by-product absolute and relative caps, and construction will not automatically increase the budget; all five platform products have direct historical baselines. Inclusion volume measurements are rounded up to 4 KiB packed and 64 KiB unpacked, forming a deterministic upper bound that does not underestimate the true inclusion volume and is not affected by the self-contained compaction cycle of the performance report. Failure of either absolute cap or relative cap will block release.
             </p>
             <div class="docs-table-wrap">
               <table class="docs-table">
                 <thead><tr><th>Controlled product</th><th>raw upper limit</th><th>gzip upper limit</th><th>Brotli upper limit</th></tr></thead>
                 <tbody>
-                  <tr><td>gardener.min.css</td><td>1,050,000 B</td><td>145,000 B</td><td>65,000B</td></tr>
+                  <tr><td>gardener.min.css</td><td>1,969,000B</td><td>275,000B</td><td>160,000B</td></tr>
                   <tr><td>gardener.core.min.css</td><td>65,000B</td><td>9,000B</td><td>6,000B</td></tr>
                   <tr><td>gardener.themes.min.css</td><td>60,000B</td><td>7,500 B</td><td>5,000B</td></tr>
                   <tr><td>gardener.utilities.min.css</td><td>550,000B</td><td>80,000B</td><td>18,000B</td></tr>
-                  <tr><td>gardener.components.min.css</td><td>400,000B</td><td>55,000B</td><td>42,000B</td></tr>
-                  <tr><td>gardener.ai.min.css</td><td>30,000B</td><td>6,000B</td><td>5,000B</td></tr>
-                  <tr><td>gardener.runtime.min.js</td><td>120,000 B</td><td>34,000B</td><td>30,000B</td></tr>
-                  <tr><td>platform/web.min.css</td><td>1,000,000 B</td><td>140,000B</td><td>60,000B</td></tr>
-                  <tr><td>platform/mobile.min.css</td><td>1,020,000 B</td><td>142,000 B</td><td>62,000B</td></tr>
-                  <tr><td>platform/desktop.min.css</td><td>1,030,000 B</td><td>143,000 B</td><td>63,000B</td></tr>
+                  <tr><td>gardener.components.min.css</td><td>1,332,000B</td><td>185,200B</td><td>135,000B</td></tr>
+                  <tr><td>gardener.ai.min.css</td><td>43,000B</td><td>7,100B</td><td>6,300B</td></tr>
+                  <tr><td>gardener.runtime.min.js</td><td>276,000B</td><td>77,500B</td><td>66,000B</td></tr>
+                  <tr><td>platform/web.min.css</td><td>1,873,000B</td><td>262,000B</td><td>149,000B</td></tr>
+                  <tr><td>platform/mobile.min.css</td><td>1,910,000B</td><td>267,000B</td><td>154,000B</td></tr>
+                  <tr><td>platform/desktop.min.css</td><td>1,932,000B</td><td>270,000B</td><td>154,000B</td></tr>
                   <tr><td>platform/tauri.min.css</td><td>256 B</td><td>256 B</td><td>256 B</td></tr>
                   <tr><td>platform/electron.min.css</td><td>256 B</td><td>256 B</td><td>256 B</td></tr>
                 </tbody>
@@ -8521,7 +9385,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
               The above table lists 12 major CSS/Runtime entries; the budget document also itemizes coverage of 2 desktop adapters, 28 component packages, and a total of 42 officially compressed products, without using a general sharing cap to replace single product inspections.
             </p>
             <p>
-              npm package budget is 2,050,000 B packed, 16,500,000 B unpacked, up to 93 files. budget source <a href="../../packages/css/config/performance-budgets.json"><code>performance-budgets.json</code></a> Management and separately subject to <a href="../../packages/css/metadata/performance-budgets.schema.json">Budgets Schema</a> and <a href="../../packages/css/metadata/performance-report.schema.json">Report Schema</a> Protection.
+              npm package budget is 4,350,000 B packed, 30,000,000 B unpacked, up to 127 files. budget source <a href="../../packages/css/config/performance-budgets.json"><code>performance-budgets.json</code></a> Management and separately subject to <a href="../../packages/css/metadata/performance-budgets.schema.json">Budgets Schema</a> and <a href="../../packages/css/metadata/performance-report.schema.json">Report Schema</a> Protection.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>npm run build       # Full, tiered, 28 component packages and 5 platform files
@@ -8530,7 +9394,7 @@ npm run budget      # 42 Absolute/relative budget gatekeeping for production + n
 npm run verify:compatibility # 1,145 Item 0.9.0 Public Contract
 npm run test:types # TypeScript Strict Consumer Verification
 npm run verify:package # npm Whitelists, Export Targets, and Publint
-npm run test:build  # 10 Build, Compatibility, Type, Release and Failure Path use cases</code></pre>
+npm run test:build  # 11 Build, Compatibility, Type, Release and Failure Path use cases</code></pre>
             </div>
           </section>
 
@@ -8589,12 +9453,12 @@ npm run test:build  # 10 Build, Compatibility, Type, Release and Failure Path us
               </li>
               <li>Mobile touch targets use a touch density of at least approximately 44px.</li>
             </ul>
-            <h3>2.1.0 Automated Test Matrix</h3>
+            <h3>2.2.0 Automated Test Matrix</h3>
             <div
               class="g-table-wrap"
               tabindex="0"
               role="region"
-              aria-label="2.1.0 Automated Test Matrix"
+              aria-label="2.2.0 Automated Test Matrix"
             >
               <table class="g-table">
                 <thead>
@@ -8609,21 +9473,21 @@ npm run test:build  # 10 Build, Compatibility, Type, Release and Failure Path us
                   <tr>
                     <td><code>test:build</code></td>
                     <td>Node.js + esbuild + Ajv</td>
-                    <td>10</td>
+                    <td>11</td>
                     <td>Platform boundaries, real component ownership, formal compression, Source Map, SHA-256/SRI, reproducible builds, absolute/relative budgets, types, compatibility baselines, support policies, custom builds, failure paths, and npm package installation resolution</td>
                   </tr>
                   <tr>
                     <td><code>test:browser</code></td>
                     <td>Desktop Chromium + WebKit</td>
-                    <td>48</td>
+                    <td>172</td>
                     <td>
-                      All 21 examples, Home landing page and documentation, console, request, style, horizontal overflow, Dialog keyboard and focus life cycle
+                      All 56 examples, Home landing page and documentation, console, request, style, horizontal overflow, Dialog keyboard and focus life cycle
                     </td>
                   </tr>
                   <tr>
                     <td><code>test:browser:firefox</code></td>
                     <td>Desktop Firefox</td>
-                    <td>24</td>
+                    <td>86</td>
                     <td>
                       Same as desktop default access; executed on host or CI with Playwright Firefox system runtime
                     </td>
@@ -8631,25 +9495,25 @@ npm run test:build  # 10 Build, Compatibility, Type, Release and Failure Path us
                   <tr>
                     <td><code>test:mobile</code></td>
                     <td>Pixel 7 Chromium + iPhone 13 WebKit</td>
-                    <td>52</td>
+                    <td>124</td>
                     <td>
-                      All 21 examples, Home landing page and documentation, reflow, 44px touch target, Bottom Sheet, 320px narrow screen and landscape screen
+                      All 56 examples, Home landing page and documentation, reflow, 44px touch target, Bottom Sheet, 320px narrow screen and landscape screen
                     </td>
                   </tr>
                   <tr>
                     <td><code>test:a11y</code></td>
                     <td>Chromium+Axe</td>
-                    <td>25</td>
+                    <td>61</td>
                     <td>
-                      21 examples and Home two pages of WCAG 2 A/AA, 2.1 A/AA, 2.2 AA, plus Keyboard, Focus, RTL, Reduced Motion, Forced Colors
+                      56 examples and Home two pages of WCAG 2 A/AA, 2.1 A/AA, 2.2 AA, plus Keyboard, Focus, RTL, Reduced Motion, Forced Colors
                     </td>
                   </tr>
                   <tr>
                     <td><code>test:html</code></td>
                     <td>parse5</td>
-                    <td>24</td>
+                    <td>59</td>
                     <td>
-                      21 Examples, Home and Document Parsing, Duplicate IDs, ARIA References, Languages, Titles, Viewports and Lists
+                      56 Examples, Home and Document Parsing, Duplicate IDs, ARIA References, Languages, Titles, Viewports and Lists
                     </td>
                   </tr>
                 </tbody>
@@ -8658,17 +9522,17 @@ npm run test:build  # 10 Build, Compatibility, Type, Release and Failure Path us
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>npm run test:html             # 24 HTML structure use cases
-npm run test:browser          # Chromium + WebKit，48 Desktop use cases
-npm run test:browser:firefox  # Firefox Standalone Access Control, 24 Desktop Use Cases
-npm run test:browser:all      # Chromium + Firefox + WebKit，72 Desktop use cases
-npm run test:mobile           # Pixel 7 + iPhone 13，52 mobile use cases
-npm run test:a11y             # Axe、Keyboard and Environment Matrix, 25 use cases
+              ><code>npm run test:html             # 59 HTML structure use cases
+npm run test:browser          # Chromium + WebKit，172 Desktop use cases
+npm run test:browser:firefox  # Firefox Standalone Access Control, 86 Desktop Use Cases
+npm run test:browser:all      # Chromium + Firefox + WebKit，258 Desktop use cases
+npm run test:mobile           # Pixel 7 + iPhone 13，124 mobile use cases
+npm run test:a11y             # Axe、Keyboard and Environment Matrix, 61 use cases
 npm run test:e2e              # Default 125 real browser use cases
 npm run test:types            # TypeScript Strict consumer access control
 npm run verify:compatibility  # 1,145 Item 0.9.0 Compatible Baseline
 npm run verify:package        # npm Files, Exports, and Publint
-npm test                      # 311 Default automation use cases and all static, contract, type, compatible, release, reproducible and budget gates</code></pre>
+npm test                      # All automated tests and static, contract, type, compatibility, package, reproducibility and budget gates</code></pre>
             </div>
             <div class="docs-callout">
               Axe Gate blocks all violations detected by the selected WCAG A/AA rules, passes them without downgrade by impact, and outputs the rule, node selector, HTML, and remediation summary. Automation cannot replace human screen reader testing; production products should still use NVDA/JAWS/VoiceOver for mission-critical walkthroughs.
@@ -8732,9 +9596,9 @@ npm run verify:compatibility # 0.9.0 Cross-version public contract baseline
 npm run test:types # TypeScript Strict Consumer Verification
 npm run verify:package # npm Files, Export Targets, and Publint
 npm run test:schema # Ajv 2020-12 Verify eleven sets of Schema
-npm run test:build # 10 Build, type, compatibility, release and failure path use cases
+npm run test:build # 11 Build, type, compatibility, release and failure path use cases
 npm run contracts  # Schema、Public API, naming, and cross-manifest contracts
-npm run test:runtime # 72 Behavior and DOM life cycle
+npm run test:runtime # 96 Behavior and DOM life cycle
 npm run test:html   # Example and HTML structure of Home
 npm run check      # Theme, Component, Runtime, and Manifest Consistency
 npm run audit      # Token、Contrast, Packet Boundaries, Export and Version
@@ -8772,7 +9636,7 @@ node website/scripts/check-coverage.mjs  # Document zero omission verification</
       <aside class="docs-toc" aria-label="Table of contents on this page">
         <strong>Table of contents on this page</strong>
         <nav>
-          <a href="#quick-start">Quick Start</a><a href="#installation">Installation and Packages</a
+          <a href="#quick-start">Quick Start</a><a href="#component-demos">Component demos</a><a href="#installation">Installation and Packages</a
           ><a href="#vue">Vue 3 project</a
           ><a href="#react">React project</a
           ><a href="#angular">AngularJS Project</a
@@ -8808,12 +9672,12 @@ node website/scripts/check-coverage.mjs  # Document zero omission verification</
     <footer class="site-footer">
       <div class="site-container">
         <div class="site-footer-bottom">
-          <span>Gardenerim v2.1.0 · MIT License</span
+          <span>Gardenerim v2.2.0 · MIT License</span
           ><a href="./index.html">Return to home page</a>
         </div>
       </div>
     </footer>
     <script src="../assets/file-i18n.js"></script>
-    <script type="module" src="../assets/site.js?v=2.1.0"></script>
+    <script type="module" src="../assets/site.js?v=2.2.0-f3c9a03abf"></script>
   </body>
 </html>

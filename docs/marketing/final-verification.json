@@ -1,0 +1,2721 @@
+{
+  "verifiedAt": "2026-09-07T04:19:03.980Z",
+  "passed": true,
+  "components": 10,
+  "variants": 40,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "newComponents": 0,
+  "addedParameters": [
+    "showBilling",
+    "showQuantity",
+    "showFeatures",
+    "showFilters",
+    "showStatus",
+    "imageFit",
+    "imageMaxHeight",
+    "emailPlaceholder",
+    "emailMaxLength"
+  ],
+  "inventory": [
+    {
+      "name": "site-header",
+      "variants": [
+        "standard",
+        "centered",
+        "compact",
+        "sticky"
+      ],
+      "finding": "检查全部导航变体；修复显式 mode 优先级、停用链接与窄容器菜单布局，统一尺寸。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "hero",
+      "variants": [
+        "split",
+        "centered",
+        "compact",
+        "media"
+      ],
+      "finding": "补齐图片适配和高度上限；禁止凭据 URL，修复失败回包与等待清理，窄容器自动分栏重排。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "pricing",
+      "variants": [
+        "cards",
+        "comparison",
+        "compact",
+        "enterprise"
+      ],
+      "finding": "补齐计费/席位/功能显隐，保留外部计价状态；严格金额与功能数值验证，修复模式切换与异常回包。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "feature-grid",
+      "variants": [
+        "cards",
+        "alternating",
+        "compact",
+        "tabs"
+      ],
+      "finding": "补齐筛选显隐和图片参数；禁止选中禁用分类，增加容器响应式。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "logo-cloud",
+      "variants": [
+        "grid",
+        "strip",
+        "compact",
+        "monochrome"
+      ],
+      "finding": "检查四种布局与图片/链接规则；保留品牌图片比例，统一容器与尺寸。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "testimonial",
+      "variants": [
+        "cards",
+        "carousel",
+        "compact",
+        "featured"
+      ],
+      "finding": "检查卡片/轮播/紧凑/精选；保留暂停、键盘与减少动态效果，限制轮播方法适用范围。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "cta-section",
+      "variants": [
+        "inline",
+        "centered",
+        "split",
+        "subtle"
+      ],
+      "finding": "检查全部行动布局；修复异常回包、过期/停用链接，窄容器下分栏重排。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "newsletter",
+      "variants": [
+        "inline",
+        "card",
+        "split",
+        "minimal"
+      ],
+      "finding": "补齐邮箱提示/长度参数与原生提交；修复受控重复事件、验证残留及误报无效邮箱，正确标记并聚焦缺失的同意项，反馈可保留无障碍但视觉隐藏。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "announcement-bar",
+      "variants": [
+        "inline",
+        "sticky",
+        "countdown",
+        "subtle"
+      ],
+      "finding": "修复过期链接仍可通过浏览器菜单打开、状态切换残留；验证倒计时、取消和关闭。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "site-footer",
+      "variants": [
+        "columns",
+        "simple",
+        "centered",
+        "compact"
+      ],
+      "finding": "修复禁用分组子链接仍活动，检查四种布局、RTL 与窄容器。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    }
+  ],
+  "tests": {
+    "marketing": 29,
+    "runtime": 664,
+    "schema": 48,
+    "html": 43,
+    "build": 11
+  },
+  "browsers": [
+    {
+      "engine": "chromium",
+      "layouts": [
+        {
+          "kind": "site-header",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "site-header",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "site-header",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "site-header",
+          "mode": "sticky",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "sticky",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "media",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "media",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "comparison",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "comparison",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "enterprise",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "enterprise",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "alternating",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "alternating",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "tabs",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "tabs",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "strip",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "strip",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "monochrome",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "monochrome",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "carousel",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "carousel",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "featured",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "featured",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "subtle",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "subtle",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "card",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "card",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "minimal",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "minimal",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "sticky",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "sticky",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "countdown",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "countdown",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "subtle",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "subtle",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "columns",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "columns",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "simple",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "simple",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "compact",
+          "width": 1100
+        }
+      ],
+      "a11y": [
+        "site-header/standard",
+        "site-header/centered",
+        "site-header/compact",
+        "site-header/sticky",
+        "site-header/dark",
+        "hero/split",
+        "hero/centered",
+        "hero/compact",
+        "hero/media",
+        "hero/dark",
+        "pricing/cards",
+        "pricing/comparison",
+        "pricing/compact",
+        "pricing/enterprise",
+        "pricing/dark",
+        "feature-grid/cards",
+        "feature-grid/alternating",
+        "feature-grid/compact",
+        "feature-grid/tabs",
+        "feature-grid/dark",
+        "logo-cloud/grid",
+        "logo-cloud/strip",
+        "logo-cloud/compact",
+        "logo-cloud/monochrome",
+        "logo-cloud/dark",
+        "testimonial/cards",
+        "testimonial/carousel",
+        "testimonial/compact",
+        "testimonial/featured",
+        "testimonial/dark",
+        "cta-section/inline",
+        "cta-section/centered",
+        "cta-section/split",
+        "cta-section/subtle",
+        "cta-section/dark",
+        "newsletter/inline",
+        "newsletter/card",
+        "newsletter/split",
+        "newsletter/minimal",
+        "newsletter/dark",
+        "announcement-bar/inline",
+        "announcement-bar/sticky",
+        "announcement-bar/countdown",
+        "announcement-bar/subtle",
+        "announcement-bar/dark",
+        "site-footer/columns",
+        "site-footer/simple",
+        "site-footer/centered",
+        "site-footer/compact",
+        "site-footer/dark"
+      ],
+      "interactions": 9,
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "layouts": [
+        {
+          "kind": "site-header",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "site-header",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "site-header",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "site-header",
+          "mode": "sticky",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "sticky",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "media",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "media",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "comparison",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "comparison",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "enterprise",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "enterprise",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "alternating",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "alternating",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "tabs",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "tabs",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "strip",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "strip",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "monochrome",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "monochrome",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "carousel",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "carousel",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "featured",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "featured",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "subtle",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "subtle",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "card",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "card",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "minimal",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "minimal",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "sticky",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "sticky",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "countdown",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "countdown",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "subtle",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "subtle",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "columns",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "columns",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "simple",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "simple",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "compact",
+          "width": 1100
+        }
+      ],
+      "a11y": [],
+      "interactions": 9,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "layouts": [
+        {
+          "kind": "site-header",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "site-header",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "site-header",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "site-header",
+          "mode": "sticky",
+          "width": 360
+        },
+        {
+          "kind": "site-header",
+          "mode": "sticky",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "hero",
+          "mode": "media",
+          "width": 360
+        },
+        {
+          "kind": "hero",
+          "mode": "media",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "comparison",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "comparison",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "pricing",
+          "mode": "enterprise",
+          "width": 360
+        },
+        {
+          "kind": "pricing",
+          "mode": "enterprise",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "alternating",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "alternating",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "tabs",
+          "width": 360
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "tabs",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "strip",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "strip",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "monochrome",
+          "width": 360
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "monochrome",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "carousel",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "carousel",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "testimonial",
+          "mode": "featured",
+          "width": 360
+        },
+        {
+          "kind": "testimonial",
+          "mode": "featured",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "cta-section",
+          "mode": "subtle",
+          "width": 360
+        },
+        {
+          "kind": "cta-section",
+          "mode": "subtle",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "card",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "card",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "newsletter",
+          "mode": "minimal",
+          "width": 360
+        },
+        {
+          "kind": "newsletter",
+          "mode": "minimal",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "sticky",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "sticky",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "countdown",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "countdown",
+          "width": 1100
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "subtle",
+          "width": 360
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "subtle",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "columns",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "columns",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "simple",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "simple",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "centered",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "centered",
+          "width": 1100
+        },
+        {
+          "kind": "site-footer",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "site-footer",
+          "mode": "compact",
+          "width": 1100
+        }
+      ],
+      "a11y": [],
+      "interactions": 9,
+      "errors": []
+    }
+  ],
+  "extensions": [
+    {
+      "engine": "chromium",
+      "checks": 9,
+      "states": [
+        {
+          "kind": "site-header",
+          "state": "empty"
+        },
+        {
+          "kind": "site-header",
+          "state": "loading"
+        },
+        {
+          "kind": "site-header",
+          "state": "error"
+        },
+        {
+          "kind": "site-header",
+          "state": "readonly"
+        },
+        {
+          "kind": "hero",
+          "state": "empty"
+        },
+        {
+          "kind": "hero",
+          "state": "loading"
+        },
+        {
+          "kind": "hero",
+          "state": "error"
+        },
+        {
+          "kind": "hero",
+          "state": "readonly"
+        },
+        {
+          "kind": "pricing",
+          "state": "empty"
+        },
+        {
+          "kind": "pricing",
+          "state": "loading"
+        },
+        {
+          "kind": "pricing",
+          "state": "error"
+        },
+        {
+          "kind": "pricing",
+          "state": "readonly"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "empty"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "loading"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "error"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "readonly"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "empty"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "loading"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "error"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "readonly"
+        },
+        {
+          "kind": "testimonial",
+          "state": "empty"
+        },
+        {
+          "kind": "testimonial",
+          "state": "loading"
+        },
+        {
+          "kind": "testimonial",
+          "state": "error"
+        },
+        {
+          "kind": "testimonial",
+          "state": "readonly"
+        },
+        {
+          "kind": "cta-section",
+          "state": "empty"
+        },
+        {
+          "kind": "cta-section",
+          "state": "loading"
+        },
+        {
+          "kind": "cta-section",
+          "state": "error"
+        },
+        {
+          "kind": "cta-section",
+          "state": "readonly"
+        },
+        {
+          "kind": "newsletter",
+          "state": "empty"
+        },
+        {
+          "kind": "newsletter",
+          "state": "loading"
+        },
+        {
+          "kind": "newsletter",
+          "state": "error"
+        },
+        {
+          "kind": "newsletter",
+          "state": "readonly"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "empty"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "loading"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "error"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "readonly"
+        },
+        {
+          "kind": "site-footer",
+          "state": "empty"
+        },
+        {
+          "kind": "site-footer",
+          "state": "loading"
+        },
+        {
+          "kind": "site-footer",
+          "state": "error"
+        },
+        {
+          "kind": "site-footer",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "site-header",
+          "mode": "standard",
+          "width": 340
+        },
+        {
+          "kind": "site-header",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "site-header",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "site-header",
+          "mode": "sticky",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "media",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "comparison",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "enterprise",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "alternating",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "tabs",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "grid",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "strip",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "monochrome",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "carousel",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "featured",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "inline",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "subtle",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "inline",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "card",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "minimal",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "inline",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "sticky",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "countdown",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "subtle",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "columns",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "simple",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "compact",
+          "width": 340
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "checks": 9,
+      "states": [
+        {
+          "kind": "site-header",
+          "state": "empty"
+        },
+        {
+          "kind": "site-header",
+          "state": "loading"
+        },
+        {
+          "kind": "site-header",
+          "state": "error"
+        },
+        {
+          "kind": "site-header",
+          "state": "readonly"
+        },
+        {
+          "kind": "hero",
+          "state": "empty"
+        },
+        {
+          "kind": "hero",
+          "state": "loading"
+        },
+        {
+          "kind": "hero",
+          "state": "error"
+        },
+        {
+          "kind": "hero",
+          "state": "readonly"
+        },
+        {
+          "kind": "pricing",
+          "state": "empty"
+        },
+        {
+          "kind": "pricing",
+          "state": "loading"
+        },
+        {
+          "kind": "pricing",
+          "state": "error"
+        },
+        {
+          "kind": "pricing",
+          "state": "readonly"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "empty"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "loading"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "error"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "readonly"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "empty"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "loading"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "error"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "readonly"
+        },
+        {
+          "kind": "testimonial",
+          "state": "empty"
+        },
+        {
+          "kind": "testimonial",
+          "state": "loading"
+        },
+        {
+          "kind": "testimonial",
+          "state": "error"
+        },
+        {
+          "kind": "testimonial",
+          "state": "readonly"
+        },
+        {
+          "kind": "cta-section",
+          "state": "empty"
+        },
+        {
+          "kind": "cta-section",
+          "state": "loading"
+        },
+        {
+          "kind": "cta-section",
+          "state": "error"
+        },
+        {
+          "kind": "cta-section",
+          "state": "readonly"
+        },
+        {
+          "kind": "newsletter",
+          "state": "empty"
+        },
+        {
+          "kind": "newsletter",
+          "state": "loading"
+        },
+        {
+          "kind": "newsletter",
+          "state": "error"
+        },
+        {
+          "kind": "newsletter",
+          "state": "readonly"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "empty"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "loading"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "error"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "readonly"
+        },
+        {
+          "kind": "site-footer",
+          "state": "empty"
+        },
+        {
+          "kind": "site-footer",
+          "state": "loading"
+        },
+        {
+          "kind": "site-footer",
+          "state": "error"
+        },
+        {
+          "kind": "site-footer",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "site-header",
+          "mode": "standard",
+          "width": 340
+        },
+        {
+          "kind": "site-header",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "site-header",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "site-header",
+          "mode": "sticky",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "media",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "comparison",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "enterprise",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "alternating",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "tabs",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "grid",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "strip",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "monochrome",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "carousel",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "featured",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "inline",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "subtle",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "inline",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "card",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "minimal",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "inline",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "sticky",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "countdown",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "subtle",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "columns",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "simple",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "compact",
+          "width": 340
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "checks": 9,
+      "states": [
+        {
+          "kind": "site-header",
+          "state": "empty"
+        },
+        {
+          "kind": "site-header",
+          "state": "loading"
+        },
+        {
+          "kind": "site-header",
+          "state": "error"
+        },
+        {
+          "kind": "site-header",
+          "state": "readonly"
+        },
+        {
+          "kind": "hero",
+          "state": "empty"
+        },
+        {
+          "kind": "hero",
+          "state": "loading"
+        },
+        {
+          "kind": "hero",
+          "state": "error"
+        },
+        {
+          "kind": "hero",
+          "state": "readonly"
+        },
+        {
+          "kind": "pricing",
+          "state": "empty"
+        },
+        {
+          "kind": "pricing",
+          "state": "loading"
+        },
+        {
+          "kind": "pricing",
+          "state": "error"
+        },
+        {
+          "kind": "pricing",
+          "state": "readonly"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "empty"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "loading"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "error"
+        },
+        {
+          "kind": "feature-grid",
+          "state": "readonly"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "empty"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "loading"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "error"
+        },
+        {
+          "kind": "logo-cloud",
+          "state": "readonly"
+        },
+        {
+          "kind": "testimonial",
+          "state": "empty"
+        },
+        {
+          "kind": "testimonial",
+          "state": "loading"
+        },
+        {
+          "kind": "testimonial",
+          "state": "error"
+        },
+        {
+          "kind": "testimonial",
+          "state": "readonly"
+        },
+        {
+          "kind": "cta-section",
+          "state": "empty"
+        },
+        {
+          "kind": "cta-section",
+          "state": "loading"
+        },
+        {
+          "kind": "cta-section",
+          "state": "error"
+        },
+        {
+          "kind": "cta-section",
+          "state": "readonly"
+        },
+        {
+          "kind": "newsletter",
+          "state": "empty"
+        },
+        {
+          "kind": "newsletter",
+          "state": "loading"
+        },
+        {
+          "kind": "newsletter",
+          "state": "error"
+        },
+        {
+          "kind": "newsletter",
+          "state": "readonly"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "empty"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "loading"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "error"
+        },
+        {
+          "kind": "announcement-bar",
+          "state": "readonly"
+        },
+        {
+          "kind": "site-footer",
+          "state": "empty"
+        },
+        {
+          "kind": "site-footer",
+          "state": "loading"
+        },
+        {
+          "kind": "site-footer",
+          "state": "error"
+        },
+        {
+          "kind": "site-footer",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "site-header",
+          "mode": "standard",
+          "width": 340
+        },
+        {
+          "kind": "site-header",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "site-header",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "site-header",
+          "mode": "sticky",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "hero",
+          "mode": "media",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "comparison",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "pricing",
+          "mode": "enterprise",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "alternating",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "feature-grid",
+          "mode": "tabs",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "grid",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "strip",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "logo-cloud",
+          "mode": "monochrome",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "carousel",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "testimonial",
+          "mode": "featured",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "inline",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "cta-section",
+          "mode": "subtle",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "inline",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "card",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "newsletter",
+          "mode": "minimal",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "inline",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "sticky",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "countdown",
+          "width": 340
+        },
+        {
+          "kind": "announcement-bar",
+          "mode": "subtle",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "columns",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "simple",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "centered",
+          "width": 340
+        },
+        {
+          "kind": "site-footer",
+          "mode": "compact",
+          "width": 340
+        }
+      ],
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "blazor": {
+    "variants": 40,
+    "controlledInteractions": 5
+  },
+  "staticDemo": {
+    "staticVariants": 40,
+    "catalogComponents": 10,
+    "errors": []
+  },
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 140
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 89
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 77
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "sharedAssets": {
+    "gardener.css": "48b378efc281bf154c4629e267da6fb0e6ea34e468e9ea718b4946421912bb0a",
+    "gardener.min.css": "16baa65c2eac6932233a6add4ea3cb8af21915afe6eaf099c23b92144cb693ed",
+    "gardener.runtime.min.js": "461d27374275659b682141a5df436e4cac24c7439e689d7795d50ca14a159f23",
+    "marketing.js": "8f7e32149b26a523e8608f5c202f8aea6971a1edacccb6b286b50223b261c1d0",
+    "components/recipes.min.css": "a5c3e2f80bca0d4f6007e236c37f90e2bb5728ca14f22bce965ad54a20fff847"
+  },
+  "website": {
+    "components": 559,
+    "behaviors": 94,
+    "events": 104,
+    "locales": 7,
+    "pages": 14,
+    "messagesPerTranslatedLocale": 3314
+  },
+  "budgets": "Existing limits passed without increases.",
+  "limitations": [
+    "演示使用本地模拟服务，不发送邮件、不保存订阅、不创建订单。",
+    "实际订阅、退订、计价、支付和持久化由宿主服务实现并验收。"
+  ]
+}

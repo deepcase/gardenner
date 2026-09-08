@@ -1,4 +1,5 @@
-import { mkdir, readdir, readFile, stat, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, stat } from "node:fs/promises";
+import { writeFile } from "../../../scripts/fs-retry.mjs";
 import { resolve } from "node:path";
 import { gzipSync } from "node:zlib";
 
@@ -19,7 +20,7 @@ const entrypoints = Object.fromEntries(await Promise.all(Object.entries(entrypoi
   return [name, { bytes: content.length, gzipBytes: gzipSync(content, { level: 9 }).length, budget: budgets.entrypoints[name].bytes, gzipBudget: budgets.entrypoints[name].gzipBytes }];
 })));
 const report = {
-  version: "2.1.0",
+  version: "2.2.0",
   measuredAt: new Date().toISOString(),
   assembly: { bytes: (await stat(assemblyPath)).size, budget: budgets.assembly.bytes },
   staticAssets: { bytes: await total(assetPaths), files: assetPaths.length, budget: budgets.staticAssets.bytes },

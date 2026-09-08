@@ -78,3 +78,6 @@ export interface GardenerimRuntimeService {
 }
 
 export type GardenerimValueChangeLocals = { $value: unknown; $event: Event };
+export type { GardenerimNavigationOptions, GardenerimNavigationItem, GardenerimNavigationChange, GardenerimNavigationInstance } from '@gardenerim/css/runtime';
+
+export type {GardenerimTableOptions,GardenerimTableColumn,GardenerimTableInstance,GardenerimTableState,GardenerimTableChange,GardenerimTableKey} from '@gardenerim/css/runtime';

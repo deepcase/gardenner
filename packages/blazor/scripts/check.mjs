@@ -36,7 +36,7 @@ assert(ajv.validate(apiSchema, api), `public-api.json schema errors: ${ajv.error
 assert(ajv.validate(compatibilitySchema, compatibility), `compatibility.json schema errors: ${ajv.errorsText()}`);
 assert(ajv.validate(componentsSchema, components), `components.json schema errors: ${ajv.errorsText()}`);
 assert(ajv.validate(budgetSchema, budgets), `performance-budgets.json schema errors: ${ajv.errorsText()}`);
-assert(api.version === "2.1.0" && api.status === "stable" && api.cssVersion === "2.1.0", "Versions/status must be stable 2.1.0.");
+assert(api.version === "2.2.0" && api.status === "stable" && api.cssVersion === "2.2.0", "Versions/status must be stable 2.2.0.");
 for (const property of ["PackageId", "AssemblyName", "RootNamespace"]) {
   assert(project.includes(`<${property}>${api.packageId}</${property}>`), `${property} must match the public NuGet package identity ${api.packageId}.`);
 }
@@ -45,19 +45,19 @@ assert(api.targetFramework === "net10.0" && api.compatibleFrameworks.includes("n
 assert(project.includes("<TargetFramework>net10.0</TargetFramework>") && !project.includes("net11.0"), "Published project must target stable net10.0 only.");
 assert(consumer.includes("<TargetFramework>net11.0</TargetFramework>"), "Dedicated net11.0 consumer project is missing.");
 assert(consumer.includes("<PackageReference Include=\"Gardenerim.Blazor\"") && !consumer.includes("ProjectReference"), "net11.0 must validate the packed NuGet rather than a source reference.");
-assert(api.components === 506 && api.componentNames.length === 506 && api.componentTypes.length === 506, "Exactly 506 component APIs are required.");
-assert(new Set(api.componentNames).size === 506 && new Set(api.componentTypes).size === 506, "Component names/types must be unique.");
+assert(api.components === 575 && api.componentNames.length === 575 && api.componentTypes.length === 575, "Exactly 575 component APIs are required.");
+assert(new Set(api.componentNames).size === 575 && new Set(api.componentTypes).size === 575, "Component names/types must be unique.");
 assert(cssComponents.components.length === api.components, "Blazor/CSS component counts differ.");
 assert(cssComponents.components.every((item) => api.componentNames.includes(item.name)), "A CSS component is missing from Blazor metadata.");
-assert(cssApi.javascript.behaviors.length === api.behaviors && api.behaviors === 72 && JSON.stringify(cssApi.javascript.behaviors) === JSON.stringify(api.behaviorNames), "Exactly 72 ordered runtime behaviors are required.");
+assert(cssApi.javascript.behaviors.length === api.behaviors && api.behaviors === 96 && JSON.stringify(cssApi.javascript.behaviors) === JSON.stringify(api.behaviorNames), "Exactly 96 ordered runtime behaviors are required.");
 assert(JSON.stringify(cssApi.javascript.behaviorContracts) === JSON.stringify(api.behaviorContracts), "Behavior member contracts differ from CSS runtime metadata.");
-assert(cssApi.javascript.events.length === api.events && api.events === 79 && JSON.stringify(cssApi.javascript.events) === JSON.stringify(api.eventNames), "Exactly 79 ordered runtime events are required.");
+assert(cssApi.javascript.events.length === api.events && api.events === 105 && JSON.stringify(cssApi.javascript.events) === JSON.stringify(api.eventNames), "Exactly 105 ordered runtime events are required.");
 assert(JSON.stringify(cssApi.javascript.eventContracts) === JSON.stringify(api.eventContracts) && JSON.stringify(cssApi.javascript.guardEvents) === JSON.stringify(api.guardEvents), "Event/guard contracts differ from CSS runtime metadata.");
-assert(components.count === 506 && JSON.stringify(components.components.map((item) => item.name)) === JSON.stringify(api.componentNames), "Full component catalog differs from public API.");
+assert(components.count === 575 && JSON.stringify(components.components.map((item) => item.name)) === JSON.stringify(api.componentNames), "Full component catalog differs from public API.");
 assert(cssComponents.components.every((item, index) => components.components[index].status === (item.status ?? null) && JSON.stringify(components.components[index].accessibility) === JSON.stringify(item.accessibility ? { roles: item.accessibility.roles ?? [], keyboard: item.accessibility.keyboard ?? [], focusTrap: Boolean(item.accessibility.focusTrap), attributes: item.accessibility.attributes ?? [] } : null)), "Component status/accessibility metadata was not preserved.");
 assert(api.themeCount === 42 && api.themes.length === 42 && new Set(api.themes).size === 42, "All 42 color themes are required.");
-assert((generated.match(/public sealed class G/g) ?? []).length === 506, "Generated source does not contain 506 components.");
-assert((catalog.match(/public static readonly GardenerimComponentDefinition G/g) ?? []).length === 506, "Generated catalog does not contain 506 definitions.");
+assert((generated.match(/public sealed class G/g) ?? []).length === 575, "Generated source does not contain 575 components.");
+assert((catalog.match(/public static readonly GardenerimComponentDefinition G/g) ?? []).length === 575, "Generated catalog does not contain 575 definitions.");
 assert(api.componentTypes.every((name) => componentDocs.includes(`\`${name}\``)), "The component documentation omits a generated type.");
 assert(api.behaviorNames.every((name) => behaviorDocs.includes(`\`${name}\``)), "The behavior documentation omits a runtime behavior.");
 assert(api.eventNames.every((name) => eventDocs.includes(`\`${name}\``)), "The event documentation omits a runtime event.");

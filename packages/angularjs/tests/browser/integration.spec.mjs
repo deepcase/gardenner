@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+const expectedCount = JSON.parse(readFileSync(new URL('../../metadata/public-api.json', import.meta.url), 'utf8')).components;
 import { test, expect } from "@playwright/test";
 
 test("AngularJS example loads all contracts without console or layout failures", async ({ page }) => {
@@ -7,7 +9,7 @@ test("AngularJS example loads all contracts without console or layout failures",
   await page.goto("/examples/");
   await expect(page.getByRole("heading", { name: "Gardenerim AngularJS" })).toBeVisible();
   await expect.poll(() => page.evaluate(() => window.__GARDENER_ANGULARJS_EXAMPLE__?.ready)).toBe(true);
-  expect(await page.evaluate(() => window.__GARDENER_ANGULARJS_EXAMPLE__.components)).toBe(506);
+  expect(await page.evaluate(() => window.__GARDENER_ANGULARJS_EXAMPLE__.components)).toBe(expectedCount);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   expect(errors).toEqual([]);
 });

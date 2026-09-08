@@ -37,7 +37,7 @@ let output = "";
 server.stdout.on("data", (chunk) => { output += chunk; });
 server.stderr.on("data", (chunk) => { output += chunk; });
 const waitForServer = async () => {
-  for (let attempt = 0; attempt < 80; attempt++) {
+  for (let attempt = 0; attempt < 88; attempt++) {
     try { if ((await fetch(url)).ok) return; } catch {}
     await new Promise((accept) => setTimeout(accept, 250));
   }
@@ -112,7 +112,7 @@ try {
     if (engine === "chromium") {
       const page = await browser.newPage();
       await page.goto(`${url}/catalog`, { waitUntil: "networkidle" });
-      if ((await page.locator(".demo-catalog-item").count()) !== 506) throw new Error("Catalog does not render all 506 components.");
+      if ((await page.locator(".demo-catalog-item").count()) !== 575) throw new Error("Catalog does not render all 575 components.");
       await page.getByLabel("筛选组件").fill("button");
       if ((await page.locator(".demo-catalog-item").count()) < 1) throw new Error("Interactive catalog filtering failed.");
       await page.close();
@@ -120,7 +120,7 @@ try {
     await browser.close();
     running.splice(running.indexOf(browser), 1);
   }
-  console.log("Browser checks passed: SSR, Chromium, WebKit, mobile, keyboard, WCAG A/AA, safe custom events, guards, 506-item catalog; Firefox is mandatory in CI.");
+  console.log("Browser checks passed: SSR, Chromium, WebKit, mobile, keyboard, WCAG A/AA, safe custom events, guards, 575-item catalog; Firefox is mandatory in CI.");
 } finally {
   await Promise.allSettled(running.map((browser) => browser.close()));
   server.kill();

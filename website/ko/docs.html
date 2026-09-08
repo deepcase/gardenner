@@ -4,10 +4,12 @@
   lang="ko"
   data-g-theme="garden"
   data-g-mode="light"
+  data-g-typography="cjk"
   data-g-neutral="cool"
-  data-g-shape="small"
+  data-g-shape="medium"
  data-locale="ko">
   <head>
+    <meta name="gardenerim-version" content="2.2.0" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -15,7 +17,7 @@
     />
     <meta
       name="description"
-      content="Gardenerim 전체 문서: CSS, Vue 3, React, AngularJS, Blazor, 테마, 토큰, 도구 클래스, 506 구성 요소, 실행 시간, 완전한 페이지, AI 페이지 생성 및 데스크탑 적응."
+      content="Gardenerim 전체 문서: CSS, Vue 3, React, AngularJS, Blazor, 테마, 토큰, 도구 클래스, 575 구성 요소, 실행 시간, 완전한 페이지, AI 페이지 생성 및 데스크탑 적응."
     />
     <meta name="theme-color" content="#ffffff" />
     <meta
@@ -33,8 +35,9 @@
     <link rel="alternate" hreflang="fr" href="../fr/docs.html" />
     <link rel="alternate" hreflang="de" href="../de/docs.html" />
     <link rel="alternate" hreflang="x-default" href="../docs.html" />
-    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=afe73d14" />
-    <link rel="stylesheet" href="../assets/site.css?v=hero-balance-3" />
+    <link rel="stylesheet" href="../../packages/css/dist/gardener.css?v=2.2.0-89f744a56e" />
+    <link rel="stylesheet" href="../assets/site.css?v=2.2.0-999db7025a" />
+    <link rel="stylesheet" href="../assets/docs-gallery.css?v=2.2.0-3b2ec2c26b" />
   </head>
   <body>
     <a class="g-skip-link" href="#docs-main">문서 텍스트로 건너뛰기</a>
@@ -44,8 +47,10 @@
           ><span class="site-brand-mark" aria-hidden="true">지</span
           ><span>Gardenerim</span></a
         >
-        <span class="g-badge">문서 2.1.0</span>
+        <span class="g-badge site-version" data-site-version>v2.2.0</span>
         <div class="site-nav-links" id="site-menu">
+          <a class="site-nav-link" href="./components.html">구성요소</a>
+          <a class="site-nav-link" href="./docs.html" aria-current="page">문서</a>
           <a class="site-nav-link" href="./index.html">홈페이지</a>
           <details class="site-nav-dropdown">
             <summary class="site-nav-trigger">프레임워크</summary>
@@ -71,7 +76,6 @@
             <div class="site-nav-dropdown-menu">
               <a class="site-nav-link" href="#public-api">API 계약</a>
               <a class="site-nav-link" href="#targeted-builds">빌드</a>
-              <a class="site-nav-link" href="#components">구성요소</a>
               <a class="site-nav-link" href="#utilities">도구</a>
               <a class="site-nav-link" href="#runtime">런타임</a>
               <a class="site-nav-link" href="#recipes">레시피</a>
@@ -112,7 +116,7 @@
         <div class="docs-mobile-jump">
           <label class="g-label" for="docs-jump">장으로 이동</label
           ><select class="g-select g-select-sm" id="docs-jump">
-            <option value="#quick-start">빠른 시작</option>
+            <option value="#quick-start">빠른 시작</option><option value="#component-demos">컴포넌트 데모</option>
             <option value="#installation">설치 및 패키지</option>
             <option value="#vue">Vue 3 프로젝트</option>
             <option value="#react">React 프로젝트</option>
@@ -152,11 +156,12 @@
             <option value="#customization">맞춤화 및 게시</option>
           </select>
         </div>
+        <details class="docs-category-navigation" open><summary>컴포넌트 카테고리</summary><nav data-demo-category-navigation aria-label="컴포넌트 카테고리"></nav></details>
         <section class="docs-sidebar-section">
           <h2 class="docs-sidebar-title">개요</h2>
           <ul class="docs-sidebar-list">
             <li>
-              <a class="docs-sidebar-link" href="#quick-start">빠른 시작</a>
+              <a class="docs-sidebar-link" href="#quick-start">빠른 시작</a><a class="docs-sidebar-link" href="#component-demos">컴포넌트 데모</a>
             </li>
             <li>
               <a class="docs-sidebar-link" href="#installation">설치 및 패키지</a>
@@ -319,7 +324,7 @@
             </p>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-6">
               <span class="g-badge">테마 42개</span
-              ><span class="g-badge">506개 부품</span
+              ><span class="g-badge">575개 부품</span
               ><span class="g-badge">유틸리티 11,498개</span
               ><span class="g-badge">72가지 행동</span
               ><span class="g-badge">레시피 52개</span>
@@ -367,6 +372,25 @@
             </ol>
           </section>
 
+          <section class="docs-section" id="component-demos">
+            <h2>컴포넌트 데모</h2>
+            <p>컴포넌트를 조작하고 매개변수, 변형 및 데모 소스를 확인하세요. GardenerDemo와 동일한 예제를 사용합니다.</p>
+            <div id="docs-live-gallery" class="docs-live-gallery">
+              <div class="docs-catalog-toolbar docs-demo-filters">
+                <label>컴포넌트 검색<input class="g-input" type="search" data-demo-search placeholder="GTable / GButton" /></label>
+                <label>카테고리<select class="g-select" data-demo-category><option value="">모든 카테고리</option></select></label>
+                <label>컴포넌트 선택<select class="g-select" data-demo-picker></select></label>
+              </div>
+              <p class="docs-catalog-meta" data-demo-count aria-live="polite"></p>
+              <div class="docs-demo-toolbar">
+                <span>GardenerDemo · Vue</span>
+                <label>미리보기 너비<select class="g-select g-select-sm" data-demo-width><option value="auto">자동</option><option value="768">768px</option><option value="390">390px</option></select></label>
+                <button class="g-btn g-btn-outline g-btn-sm" type="button" data-demo-reset>데모 초기화</button>
+                <a class="g-btn g-btn-ghost g-btn-sm" data-demo-external target="_blank" rel="noopener">별도로 열기</a>
+              </div>
+              <div class="docs-demo-viewport"><div class="docs-demo-stage" data-demo-stage></div></div>
+            </div>
+          </section>
           <section class="docs-section" id="installation">
             <h2>설치 및 패키지</h2>
             <p>
@@ -391,7 +415,7 @@
                 <thead>
                   <tr>
                     <th>내보내기</th>
-                    <th>내용</th>
+                    <th>콘텐츠</th>
                     <th>사용 시나리오</th>
                   </tr>
                 </thead>
@@ -498,14 +522,14 @@ import &quot;@gardenerim/css/utilities.css&quot;;</code></pre>
           <section class="docs-section" id="vue">
             <h2>Gardenerim Vue 3 프로젝트</h2>
             <p>
-              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> 는 Gardenerim CSS 2.1.0의 공식 Vue 3 적응 레이어이며, 현재 버전은 다음과 같습니다.
-              <strong>2.1.0 안정</strong>, Vue 지원
+              <a href="../../packages/vue/README.md"><code>@gardenerim/vue</code></a> 는 Gardenerim CSS 2.2.0의 공식 Vue 3 적응 레이어이며, 현재 버전은 다음과 같습니다.
+              <strong>2.2.0 안정</strong>, Vue 지원
               <code>&gt;=3.4.0 &lt;4.0.0</code> Node.js 사용
-              <code>&gt;=18.18</code>. 506개의 CSS 구성 요소와 72개의 DOM 동작을 항목별로 매핑하는 동시에 546개의 루트 런타임 내보내기, 21개의 TypeScript 유형 내보내기, 30개의 패키지 진입점 및 28개의 구성 요소 CSS 패키지 프록시를 제공합니다.
+              <code>&gt;=18.18</code>. 575개의 CSS 구성 요소와 96개의 DOM 동작을 항목별로 매핑하는 동시에 615개의 루트 런타임 내보내기, 31개의 TypeScript 유형 내보내기, 30개의 패키지 진입점 및 28개의 구성 요소 CSS 패키지 프록시를 제공합니다.
             </p>
             <div class="docs-api-stats" aria-label="Vue 프로젝트 공개 API 규모">
-              <div><strong>506</strong><span>명명된 G* 구성 요소</span></div>
-              <div><strong>546</strong><span>루트 런타임 내보내기</span></div>
+              <div><strong>575</strong><span>명명된 G* 구성 요소</span></div>
+              <div><strong>615</strong><span>루트 런타임 내보내기</span></div>
               <div><strong>30</strong><span>공개 패키지 항목</span></div>
               <div><strong>28</strong><span>구성요소 CSS 패키지</span></div>
             </div>
@@ -618,7 +642,7 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
             <h3>웹, 모바일, 데스크탑 스타일 입구</h3>
             <div class="docs-table-wrap">
               <table class="docs-table">
-                <thead><tr><th>입구</th><th>내용</th><th>적용 가능한 시나리오</th></tr></thead>
+                <thead><tr><th>입구</th><th>콘텐츠</th><th>적용 가능한 시나리오</th></tr></thead>
                 <tbody>
                   <tr><td><code>@gardenerim/vue/style.css</code></td><td>Gardenerim 스타일 완료</td><td>즉시 사용 가능한 제품 및 프로토타입</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>레이어드 스타일 항목</td><td>커스텀 빌드</td></tr>
@@ -646,7 +670,7 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               40개의 비구성요소 런타임을 다음으로 내보냈습니다.<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimVue</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createGardenerimComponent</code>、<code>createGardenerimVue</code>、<code>default</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimLocale</code>、<code>useGardenerimTheme</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>、<code>vGardenerim</code>。
             </p>
             <p>
-              21가지 유형으로 내보냄:<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentPublicInstance</code>、<code>GardenerimConfigValue</code>、<code>GardenerimDirectiveOptions</code>、<code>GardenerimDirectiveValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimVueComponentName</code>、<code>GardenerimVueOptions</code>。
+              31가지 유형이 다음과 같이 내보내졌습니다.<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentPublicInstance</code>、<code>GardenerimConfigValue</code>、<code>GardenerimDirectiveOptions</code>、<code>GardenerimDirectiveValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimVueComponentName</code>、<code>GardenerimVueOptions</code>。
             </p>
 
             <h3>공개 스키마, 메타데이터 및 게시 액세스</h3>
@@ -654,8 +678,8 @@ import &quot;@gardenerim/vue/platform/web.css&quot;;
               <a href="../../packages/vue/metadata/public-api.json">공개 API</a>、<a href="../../packages/vue/metadata/compatibility.json">호환성</a>
               그리고 <a href="../../packages/vue/dist/gardener-vue.performance.json">성능</a>
               둘 다 알 수 없는 필드를 끄는 JSON 스키마를 가지고 있습니다.<a href="../../packages/vue/dist/catalog.json">구성요소 카탈로그 JSON</a>
-              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 예산은 330,691 B raw, 52,236 B gzip, 27,220 B Brotli입니다. 싱글
-              <code>GButton</code> 에 대한 실제 트리 쉐이킹 결과는 3,724B입니다. 결정적 빌드는 91개 파일을 다루고, npm 패키지는 102개 파일을 확인하며, 284,418B는 압축, 3,737,323B는 압축을 푼 상태입니다.
+              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 실제 측정값은 561,983 B raw, 85,726 B gzip, 41,537 B Brotli입니다. 싱글
+              <code>GButton</code> 에 대한 실제 트리 쉐이킹 결과는 3,724B입니다. 결정적 빌드는 91개 파일을 다루고, npm 패키지는 105개 파일을 확인하며, 284,418B는 압축, 3,737,323B는 압축을 푼 상태입니다.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd vue
@@ -666,11 +690,11 @@ npm run release:verify
 # 트리 쉐이킹, 재현 가능한 빌드, 성능 예산 책정, npm 패키징 및 퍼블리트</code></pre>
             </div>
 
-            <h3>모든 506 Vue 구성 요소</h3>
+            <h3>모든 575 Vue 구성 요소</h3>
             <p>
               다음 디렉터리는 직접 병합됩니다.
               <a href="../../packages/vue/metadata/public-api.json">Vue 공개 API</a> 그리고
-              <a href="../../packages/vue/dist/catalog.json">구성요소 메타데이터</a>은 Vue 내보내기 이름, CSS 이름, 카테고리, 유형, 선택기, 변형, 상태, 위젯, 동작 및 플랫폼을 항목화합니다. 이는 주요 샘플이 아닙니다. 506개 항목은 모두 검색 가능한 동일한 디렉터리에 있습니다.
+              <a href="../../packages/vue/dist/catalog.json">구성요소 메타데이터</a>은 Vue 내보내기 이름, CSS 이름, 카테고리, 유형, 선택기, 변형, 상태, 위젯, 동작 및 플랫폼을 항목화합니다. 이는 주요 샘플이 아닙니다. 575개 항목은 모두 검색 가능한 동일한 디렉터리에 있습니다.
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="vue-component-search">Vue 구성 요소 검색</label>
@@ -682,19 +706,287 @@ npm run release:verify
             </div>
             <div class="docs-catalog-meta" id="vue-component-meta">Vue 구성 요소 매니페스트를 읽는 중...</div>
             <div class="docs-catalog" id="vue-component-catalog" aria-live="polite"></div>
-          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- generated-adapter-options --><p>탐색 및 구성요소 확장 API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTableInstance</code>、<code>GardenerimTableState</code>、<code>GardenerimTableChange</code>、<code>GardenerimTableKey</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimNavigationChange</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationInstance</code>、<code>navigation</code>、<code>items</code>、<code>columns</code>. 전체 유형 및 사용 지침은 다음을 참조하세요. <a href="../../packages/vue/docs/API.md">뷰 API</a>。</p><!-- /generated-adapter-options -->
+</section>
 
           <section class="docs-section" id="react">
             <h2>Gardenerim React Project</h2>
             <p>
-              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> 는 Gardenerim CSS 2.1.0의 공식 React 적응 레이어이며, 현재 버전은 다음과 같습니다.
-              <strong>2.1.0 안정</strong>, React 지원
+              <a href="../../packages/react/README.md"><code>@gardenerim/react</code></a> 는 Gardenerim CSS 2.2.0의 공식 React 적응 레이어이며, 현재 버전은 다음과 같습니다.
+              <strong>2.2.0 안정</strong>, React 지원
               <code>&gt;=18.3.0 &lt;20.0.0</code> Node.js 사용
-              <code>&gt;=18.18</code>. 506개의 CSS 구성 요소와 72개의 DOM 동작을 항목별로 매핑하는 동시에 546개의 루트 런타임 내보내기, 22개의 TypeScript 유형 내보내기, 30개의 공개 패키지 진입점 및 28개의 구성 요소 CSS 패키지 프록시를 제공합니다.
+              <code>&gt;=18.18</code>. 575개의 CSS 구성 요소와 96개의 DOM 동작을 항목별로 매핑하는 동시에 615개의 루트 런타임 내보내기, 32개의 TypeScript 유형 내보내기, 30개의 공개 패키지 진입점 및 28개의 구성 요소 CSS 패키지 프록시를 제공합니다.
             </p>
             <div class="docs-api-stats" aria-label="React 프로젝트 공개 API 규모">
-              <div><strong>506</strong><span>명명된 G* 구성 요소</span></div>
-              <div><strong>546</strong><span>루트 런타임 내보내기</span></div>
+              <div><strong>575</strong><span>명명된 G* 구성 요소</span></div>
+              <div><strong>615</strong><span>루트 런타임 내보내기</span></div>
               <div><strong>30</strong><span>공개 패키지 항목</span></div>
               <div><strong>28</strong><span>구성요소 CSS 패키지</span></div>
             </div>
@@ -788,7 +1080,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 /&gt;</code></pre>
             </div>
             <p>
-              <code>useGardenerimBehavior</code> 72개의 동작을 요소, 문서 또는 구성 요소 핸들에 바인딩하고 언로드 시 제거합니다.<code>initialize</code> 페이지 수준 런타임에 의한 통합 인계를 용이하게 하기 위해 자동 구성요소 초기화를 끌 수 있습니다. 데이터 속성을 명시적으로 전달하는 동작은 기본값 생성보다 우선합니다.
+              <code>useGardenerimBehavior</code> 96개의 동작을 요소, 문서 또는 구성 요소 핸들에 바인딩하고 언로드 시 파기합니다.<code>initialize</code> 페이지 수준 런타임에 의한 통합 인계를 용이하게 하기 위해 자동 구성요소 초기화를 끌 수 있습니다. 데이터 속성을 명시적으로 전달하는 동작은 기본값 생성보다 우선합니다.
             </p>
 
             <h3>후크 8개 모두</h3>
@@ -806,7 +1098,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
             <h3>웹, 모바일, 데스크탑 스타일 입구</h3>
             <div class="docs-table-wrap">
               <table class="docs-table">
-                <thead><tr><th>입구</th><th>내용</th><th>적용 가능한 시나리오</th></tr></thead>
+                <thead><tr><th>입구</th><th>콘텐츠</th><th>적용 가능한 시나리오</th></tr></thead>
                 <tbody>
                   <tr><td><code>@gardenerim/react/style.css</code></td><td>Gardenerim 스타일 완료</td><td>즉시 사용 가능한 제품 및 프로토타입</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>레이어드 스타일 항목</td><td>커스텀 빌드</td></tr>
@@ -822,7 +1114,7 @@ createRoot(document.getElementById(&quot;root&quot;)!).render(
 
             <h3>SSR, 수화 및 데스크탑 브리징</h3>
             <div class="docs-callout">
-              패키지 항목을 서버 측에서 안전하게 가져올 수 있습니다. 506개의 모든 구성 요소는 항목별 SSR을 거쳤으며 동작은 효과 수명 주기 동안에만 초기화됩니다. 서버 측 표시 Hydration은 복구 가능한 오류를 생성하지 않으며 StrictMode와 호환됩니다. Tauri와 Electron이 각각 사용됩니다.
+              패키지 항목을 서버 측에서 안전하게 가져올 수 있습니다. 575개의 모든 구성 요소는 항목별 SSR을 거쳤으며 동작은 효과 수명 주기 동안에만 초기화됩니다. 서버 측 표시 Hydration은 복구 가능한 오류를 생성하지 않으며 StrictMode와 호환됩니다. Tauri와 Electron이 각각 사용됩니다.
               <code>@gardenerim/react/tauri</code> 그리고
               <code>@gardenerim/react/electron</code> 포털이 실수로 다른 플랫폼의 브리징 API를 내보내지 않도록 하는 독립 포털입니다.
             </div>
@@ -847,7 +1139,7 @@ function WindowChrome() {
               40개의 비구성요소 런타임을 다음으로 내보냈습니다.<code>Gardenerim</code>、<code>GardenerimComponent</code>、<code>GardenerimPart</code>、<code>GardenerimProvider</code>、<code>GardenerimThemeContext</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createGardenerimComponent</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimComponents</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>resolveGardenerimTarget</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>、<code>useElectronWindowControls</code>、<code>useGardenerim</code>、<code>useGardenerimBehavior</code>、<code>useGardenerimEvent</code>、<code>useGardenerimLocale</code>、<code>useGardenerimTheme</code>、<code>useGardenerimThemeContext</code>、<code>useGardenerimToast</code>、<code>useTauriWindowControls</code>。
             </p>
             <p>
-              22가지 유형이 다음과 같이 내보내집니다.<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentProps</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimGeneratedComponent</code>、<code>GardenerimOwnProps</code>、<code>GardenerimPlatform</code>、<code>GardenerimReactComponentName</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChange</code>。
+              32가지 유형이 다음과 같이 내보내졌습니다.<code>GardenerimAs</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimComponentProps</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimElementTarget</code>、<code>GardenerimEventHandler</code>、<code>GardenerimEventName</code>、<code>GardenerimGeneratedComponent</code>、<code>GardenerimOwnProps</code>、<code>GardenerimPlatform</code>、<code>GardenerimReactComponentName</code>、<code>GardenerimTargetValue</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChange</code>。
             </p>
 
             <h3>공개 스키마, 성능 및 릴리스 액세스</h3>
@@ -855,23 +1147,23 @@ function WindowChrome() {
               <a href="../../packages/react/metadata/public-api.json">공개 API</a>、<a href="../../packages/react/metadata/compatibility.json">호환성</a>
               그리고 <a href="../../packages/react/dist/gardener-react.performance.json">성능</a>
               둘 다 알 수 없는 필드가 꺼진 JSON 스키마로 검증되었습니다.<a href="../../packages/react/dist/catalog.json">구성요소 카탈로그 JSON</a>
-              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 실제 측정값은 328,129 B raw, 50,581 B gzip, 26,733 B Brotli입니다. 싱글
-              <code>GButton</code> 에 대한 실제 트리 쉐이킹 결과는 2,601B입니다. 결정론적 빌드는 91개 파일을 다루었고, npm 패키지는 102개 파일을 검사했으며, 263,011B는 압축, 2,445,217B는 압축을 풀었고, 프로덕션 종속성 보안 감사에서는 취약점이 0이었습니다.
+              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 실제 측정값은 557,236 B raw, 83,043 B gzip, 40,488 B Brotli입니다. 싱글
+              <code>GButton</code> 에 대한 실제 트리 쉐이킹 결과는 2,601B입니다. 결정론적 빌드는 91개 파일을 다루었고, npm 패키지는 105개 파일을 검사했으며, 263,011B는 압축, 2,445,217B는 압축을 풀었고, 프로덕션 종속성 보안 감사에서는 취약점이 0이었습니다.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd react
 npm run release:verify
 
-# 빌드 및 공개 API, 스키마, TypeScript, 506 구성 요소 SSR, 하이드레이션, DOM 수명 주기、
+# 빌드 및 공개 API, 스키마, TypeScript, 575 구성 요소 SSR, 하이드레이션, DOM 수명 주기、
 # Chromium / WebKit / Firefox / Pixel 7 / iPhone 13、WCAG A/AA、
 # 트리 쉐이킹, 재현 가능한 빌드, 성능 예산 책정, npm 패키징 및 퍼블리트</code></pre>
             </div>
 
-            <h3>506개의 React 컴포넌트 전체</h3>
+            <h3>575개의 React 컴포넌트 전체</h3>
             <p>
               다음 디렉터리는 직접 병합됩니다.
               <a href="../../packages/react/metadata/public-api.json">React 공개 API</a> 그리고
-              <a href="../../packages/react/dist/catalog.json">구성요소 메타데이터</a>, React 내보내기 이름, CSS 이름, 카테고리, 유형, 기본 태그, 선택기, 변형, 상태, 위젯, 동작 및 플랫폼을 항목화합니다. 이는 주요 샘플이 아닙니다. 506개 항목은 모두 검색 가능한 동일한 디렉터리에 있습니다.
+              <a href="../../packages/react/dist/catalog.json">구성요소 메타데이터</a>, React 내보내기 이름, CSS 이름, 카테고리, 유형, 기본 태그, 선택기, 변형, 상태, 위젯, 동작 및 플랫폼을 항목화합니다. 이는 주요 샘플이 아닙니다. 575개 항목은 모두 검색 가능한 동일한 디렉터리에 있습니다.
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="react-component-search">React 구성요소 검색</label>
@@ -883,16 +1175,284 @@ npm run release:verify
             </div>
             <div class="docs-catalog-meta" id="react-component-meta">React 구성요소 매니페스트를 읽는 중...</div>
             <div class="docs-catalog" id="react-component-catalog" aria-live="polite"></div>
-          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- generated-adapter-options --><p>탐색 및 구성요소 확장 API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTableInstance</code>、<code>GardenerimTableState</code>、<code>GardenerimTableChange</code>、<code>GardenerimTableKey</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimNavigationChange</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationInstance</code>、<code>navigation</code>、<code>items</code>、<code>columns</code>. 전체 유형 및 사용 지침은 다음을 참조하세요. <a href="../../packages/react/docs/API.md">리액트 API</a>。</p><!-- /generated-adapter-options -->
+</section>
 
           <section class="docs-section" id="angular">
             <h2>Gardenerim AngularJS Project</h2>
             <p>
               <a href="../../packages/angularjs/README.md"><code>@gardenerim/angularjs</code></a>
-              는 Gardenerim CSS 2.1.0에 대한 공식 AngularJS 1.x 레거시 시스템 적응 레이어이며, 현재 버전은 다음과 같습니다.
-              <strong>2.1.0 안정</strong>. AngularJS의 유효성을 검사합니다.
+              는 Gardenerim CSS 2.2.0에 대한 공식 AngularJS 1.x 레거시 시스템 적응 레이어이며, 현재 버전은 다음과 같습니다.
+              <strong>2.2.0 안정</strong>. AngularJS의 유효성을 검사합니다.
               <code>&gt;=1.8.2 &lt;1.9.0</code> Node.js 사용
-              <code>&gt;=18.18</code>, 모든 506개의 CSS 구성 요소와 72개의 DOM 동작을 항목별로 매핑하고 542개의 루트 런타임 내보내기, 24개의 TypeScript 유형 내보내기, 30개의 공개 패키지 진입점 및 28개의 구성 요소 CSS 패키지 프록시를 제공합니다.
+              <code>&gt;=18.18</code>, 모든 575개의 CSS 구성 요소와 96개의 DOM 동작을 항목별로 매핑하고 611개의 루트 런타임 내보내기, 28개의 TypeScript 유형 내보내기, 30개의 공개 패키지 진입점 및 28개의 구성 요소 CSS 패키지 프록시를 제공합니다.
             </p>
             <div class="docs-warning docs-callout">
               <strong>레거시 시스템 경계:</strong>AngularJS는 공식 지원을 종료했으며 업스트림 수정 사항이 없는 프레임워크 자체에 대해 알려진 보안 권고는 없습니다. 이 적응 레이어는
@@ -900,8 +1460,8 @@ npm run release:verify
               <a href="../../packages/angularjs/docs/security.md">AngularJS 보안 기준선</a>。
             </div>
             <div class="docs-api-stats" aria-label="AngularJS 프로젝트 공개 API 규모">
-              <div><strong>506</strong><span>구성요소 명령어 생성</span></div>
-              <div><strong>542</strong><span>루트 런타임 내보내기</span></div>
+              <div><strong>575</strong><span>구성요소 명령어 생성</span></div>
+              <div><strong>611</strong><span>루트 런타임 내보내기</span></div>
               <div><strong>30</strong><span>공개 패키지 항목</span></div>
               <div><strong>28</strong><span>구성요소 CSS 패키지</span></div>
             </div>
@@ -935,7 +1495,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
 });</code></pre>
             </div>
             <p>
-              <code>components</code> 506개의 통합 유형으로 제한된 구성 요소 이름, AngularJS 지시문 이름 또는 ESM 내보내기 이름을 허용합니다. 알 수 없는 이름은 즉시 오류를 발생시킵니다. 동일한 AngularJS 인스턴스, 모듈 이름 및 동등한 옵션의 반복 설치는 멱등성을 갖습니다. 서로 다른 구성 요소 하위 집합, 종속성 또는 초기화 옵션이 동일한 이름의 모듈을 사용하는 경우 반등록된 모듈을 자동으로 가져오는 것을 방지하기 위해 오류가 명시적으로 보고됩니다.
+              <code>components</code> 575개의 통합 유형으로 제한된 구성 요소 이름, AngularJS 지시문 이름 또는 ESM 내보내기 이름을 허용합니다. 알 수 없는 이름은 즉시 오류를 발생시킵니다. 동일한 AngularJS 인스턴스, 모듈 이름 및 동등한 옵션의 반복 설치는 멱등성을 갖습니다. 서로 다른 구성 요소 하위 집합, 종속성 또는 초기화 옵션이 동일한 이름의 모듈을 사용하는 경우 반등록된 모듈을 자동으로 가져오는 것을 방지하기 위해 오류가 명시적으로 보고됩니다.
             </p>
 
             <h3>요소 지시어, 속성 지시어 및 의미론</h3>
@@ -1014,7 +1574,7 @@ window.angular.module(&quot;app&quot;, [gardenerModule]);</code></pre>
             <h3>웹, 모바일, 데스크톱 및 도메인별 스타일</h3>
             <div class="docs-table-wrap">
               <table class="docs-table">
-                <thead><tr><th>입구</th><th>내용</th><th>적용 가능한 시나리오</th></tr></thead>
+                <thead><tr><th>입구</th><th>콘텐츠</th><th>적용 가능한 시나리오</th></tr></thead>
                 <tbody>
                   <tr><td><code>@gardenerim/angularjs/style.css</code></td><td>Gardenerim 스타일 완료</td><td>기존 시스템에 즉시 사용 가능하고 점진적인 통합</td></tr>
                   <tr><td><code>core.css</code> / <code>themes.css</code> / <code>utilities.css</code> / <code>components.css</code> / <code>ai.css</code></td><td>레이어드 스타일 항목</td><td>커스텀 빌드</td></tr>
@@ -1046,7 +1606,7 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               36개의 비구성요소 런타임을 다음으로 내보냈습니다.<code>GARDENERIM_ANGULARJS_MODULE</code>、<code>Gardenerim</code>、<code>GardenerimRuntimeFactory</code>、<code>GardenerimThemeFactory</code>、<code>GardenerimToastFactory</code>、<code>behaviorAttributes</code>、<code>bindElectronWindowControls</code>、<code>bindTauriWindowControls</code>、<code>componentByDirectiveName</code>、<code>componentByExportName</code>、<code>componentByName</code>、<code>componentCatalog</code>、<code>configAttributes</code>、<code>configure</code>、<code>createElectronWindowService</code>、<code>createGardenerimAngularJS</code>、<code>createGardenerimComponent</code>、<code>createTauriWindowService</code>、<code>destroy</code>、<code>disconnect</code>、<code>emit</code>、<code>gardenerimBehaviorDirective</code>、<code>gardenerimDirectives</code>、<code>gardenerimProviderDirective</code>、<code>getConfiguration</code>、<code>getInstance</code>、<code>init</code>、<code>observe</code>、<code>refresh</code>、<code>register</code>、<code>start</code>、<code>stop</code>、<code>supportedLocales</code>、<code>themeAttributes</code>、<code>themeAxes</code>、<code>toast</code>。
             </p>
             <p>
-              24가지 유형이 다음으로 내보내집니다.<code>GardenerimAngularJSComponentExportName</code>、<code>GardenerimAngularJSComponentName</code>、<code>GardenerimAngularJSDirectiveFactory</code>、<code>GardenerimAngularJSDirectiveName</code>、<code>GardenerimAngularJSModule</code>、<code>GardenerimAngularJSOptions</code>、<code>GardenerimAngularJSStatic</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimRuntimeService</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeAxis</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChangeLocals</code>。
+              34가지 유형이 다음과 같이 내보내졌습니다.<code>GardenerimAngularJSComponentExportName</code>、<code>GardenerimAngularJSComponentName</code>、<code>GardenerimAngularJSDirectiveFactory</code>、<code>GardenerimAngularJSDirectiveName</code>、<code>GardenerimAngularJSModule</code>、<code>GardenerimAngularJSOptions</code>、<code>GardenerimAngularJSStatic</code>、<code>GardenerimBehaviorInstance</code>、<code>GardenerimBehaviorName</code>、<code>GardenerimComponentDefinition</code>、<code>GardenerimComponentHandle</code>、<code>GardenerimComponentKind</code>、<code>GardenerimConfigValue</code>、<code>GardenerimElectronBinding</code>、<code>GardenerimElectronBridge</code>、<code>GardenerimEventName</code>、<code>GardenerimPlatform</code>、<code>GardenerimRuntimeService</code>、<code>GardenerimTauriBinding</code>、<code>GardenerimTauriBridge</code>、<code>GardenerimThemeAxis</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimValueChangeLocals</code>。
             </p>
 
             <h3>공개 스키마, 호환성, 성능 및 릴리스 액세스</h3>
@@ -1054,15 +1614,15 @@ import { createElectronWindowService } from &quot;@gardenerim/angularjs/electron
               <a href="../../packages/angularjs/metadata/public-api.json">공개 API</a>、<a href="../../packages/angularjs/metadata/compatibility.json">호환성</a> 그리고
               <a href="../../packages/angularjs/dist/gardener-angularjs.performance.json">성능</a>
               둘 다 알 수 없는 필드가 꺼진 상태에서 JSON 스키마로 검증됩니다. AngularJS 지원 범위는 기계가 읽을 수 있는 호환성 기준에도 기록됩니다.<a href="../../packages/angularjs/dist/catalog.json">구성요소 카탈로그 JSON</a>
-              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 실제 측정값은 405,932 B raw, 59,850 B gzip, 30,016 B Brotli입니다. 싱글
-              <code>GButtonDirective</code> 에 대한 실제 트리 쉐이킹 결과는 4,519B입니다. 결정적 빌드에는 87개 파일, npm 패키지 확인 99개 파일, 326,015B 팩, 2,943,451B 언팩, Gardenerim의 자체 프로덕션 로드 감사에서는 취약점이 0이었습니다.
+              AI, 코드 생성기 및 문서 도구에서 직접 읽을 수 있습니다. 전체 압축 패키지의 실제 측정값은 644,355 B raw, 93,476 B gzip, 44,085 B Brotli입니다. 싱글
+              <code>GButtonDirective</code> 에 대한 실제 트리 쉐이킹 결과는 4,534B입니다. 결정적 빌드에는 88개 파일, npm 패키지 확인 99개 파일, 326,015B 팩, 2,943,451B 언팩, Gardenerim의 자체 프로덕션 로드 감사에서는 취약점이 0이었습니다.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd angular
 npm run release:verify
 
 # 생성 및 공개 API, 스키마 3세트, TypeScript, AngularJS 1.8.2 / 1.8.3、
-# 506 지시어 등록, ngModel 및 DOM 생명주기, Chromium / WebKit / Firefox、
+# 584 지시어 등록, ngModel 및 DOM 생명주기, Chromium / WebKit / Firefox、
 # Pixel 7 / iPhone 13、WCAG A/AA、트리 쉐이킹, 재현 가능한 빌드, 성능, 패킷화 및 공개</code></pre>
             </div>
             <p>
@@ -1070,11 +1630,11 @@ npm run release:verify
               <code>npm audit</code> AngularJS 온톨로지에 대해 알려진 권고 사항은 여전히 충실하게 표시됩니다. 이는 격리, 수용 또는 마이그레이션해야 하는 레거시 위험이며 수정된 것으로 표시할 수 없습니다.
             </p>
 
-            <h3>모든 506 AngularJS 구성 요소</h3>
+            <h3>모든 575 AngularJS 구성 요소</h3>
             <p>
               다음 디렉터리는 직접 병합됩니다.
               <a href="../../packages/angularjs/metadata/public-api.json">AngularJS 공개 API</a> 그리고
-              <a href="../../packages/angularjs/dist/catalog.json">구성요소 메타데이터</a>는 ESM 지시어 팩토리 내보내기 이름, CSS 이름, 카테고리, 유형, 기본 태그, 선택기, 변형, 상태, 위젯, 동작 및 플랫폼을 항목화합니다. 이는 주요 샘플이 아닙니다. 506개 항목은 모두 검색 가능한 동일한 디렉터리에 있습니다.
+              <a href="../../packages/angularjs/dist/catalog.json">구성요소 메타데이터</a>는 ESM 지시어 팩토리 내보내기 이름, CSS 이름, 카테고리, 유형, 기본 태그, 선택기, 변형, 상태, 위젯, 동작 및 플랫폼을 항목화합니다. 이는 주요 샘플이 아닙니다. 575개 항목은 모두 검색 가능한 동일한 디렉터리에 있습니다.
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="angular-component-search">AngularJS 구성 요소 검색</label>
@@ -1086,27 +1646,295 @@ npm run release:verify
             </div>
             <div class="docs-catalog-meta" id="angular-component-meta">AngularJS 구성 요소 매니페스트를 읽는 중…</div>
             <div class="docs-catalog" id="angular-component-catalog" aria-live="polite"></div>
-          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- generated-adapter-options --><p>탐색 및 구성요소 확장 API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTableInstance</code>、<code>GardenerimTableState</code>、<code>GardenerimTableChange</code>、<code>GardenerimTableKey</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimNavigationChange</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationInstance</code>、<code>gardenerNavigation</code>、<code>gardenerTable</code>、<code>gardenerOnChange</code>. 전체 유형 및 사용 지침은 다음을 참조하세요. <a href="../../packages/angularjs/docs/API.md">AngularJS API</a>。</p><!-- /generated-adapter-options -->
+</section>
 
           <section class="docs-section" id="blazor">
             <h2>Gardenerim Blazor Project</h2>
             <p>
               <a href="../../packages/blazor/README.md"><code>Gardenerim.Blazor</code></a>
-              은 Gardenerim CSS 2.1.0의 공식 Razor 클래스 라이브러리이며, 현재 버전은 다음과 같습니다.
-              <strong>2.1.0 안정</strong>. 자산을 안정시키다 <code>net10.0</code>
+              은 Gardenerim CSS 2.2.0의 공식 Razor 클래스 라이브러리이며, 현재 버전은 다음과 같습니다.
+              <strong>2.2.0 안정</strong>. 자산을 안정시키다 <code>net10.0</code>
               독립적인 NuGet 소비자로 컴파일 및 검증됨 <code>net11.0</code>;Blazor 웹 앱 정적 SSR, 대화형 서버, 대화형 WebAssembly, 자동, 독립 실행형 WebAssembly, 하이브리드 및 데스크톱 WebView에 적용됩니다.
             </p>
             <div class="docs-api-stats" aria-label="Blazor 프로젝트 공개 API 규모">
-              <span><strong>506</strong> 면도기 부품</span>
-              <span><strong>72</strong> DOM 동작</span>
-              <span><strong>79</strong> 런타임 이벤트</span>
+              <span><strong>575</strong> 면도기 부품</span>
+              <span><strong>96</strong> DOM 동작</span>
+              <span><strong>105</strong> 런타임 이벤트</span>
               <span><strong>31</strong> 프레임 종류</span>
-              <span><strong>45</strong> 정적 자원</span>
+              <span><strong>76</strong> 정적 자원</span>
             </div>
 
             <h3>설치, 등록 및 정적 리소스</h3>
             <div class="docs-code-wrap">
-              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.1.0&quot; /&gt;</code></pre>
+              <pre class="site-code"><code>&lt;PackageReference Include=&quot;Gardenerim.Blazor&quot; Version=&quot;2.2.0&quot; /&gt;</code></pre>
               <pre class="site-code"><code>builder.Services.AddGardenerimBlazor();
 
 var app = builder.Build();
@@ -1128,7 +1956,7 @@ app.MapStaticAssets();</code></pre>
 &lt;GardenerimProvider Theme=&quot;garden&quot; Mode=&quot;light&quot; Shape=&quot;small&quot;
                    Density=&quot;comfortable&quot; Platform=&quot;web&quot;&gt;
   &lt;GAppShell&gt;
-    &lt;GSidebar&gt;내비게이션&lt;/GSidebar&gt;
+    &lt;GSidebar&gt;탐색&lt;/GSidebar&gt;
     &lt;GMainRegion&gt;
       &lt;GCard&gt;
         &lt;GButton Variant=&quot;primary&quot; @onclick=&quot;Save&quot;&gt;저장&lt;/GButton&gt;
@@ -1145,7 +1973,7 @@ app.MapStaticAssets();</code></pre>
 
             <h3>공통 매개변수, 참조 번호 및 형식</h3>
             <p>
-              생성된 모든 구성요소는 20개의 매개변수를 공유합니다.<code>As</code>、<code>Id</code>、<code>Class</code>、<code>Style</code>、<code>Variant</code>、<code>Variants</code>、<code>State</code>、<code>States</code>、<code>Config</code>、<code>Initialize</code>、<code>Value</code>、<code>ValueChanged</code>、<code>ValueEvent</code>、<code>ValueKey</code>、<code>OnValueChange</code>、<code>EventNames</code>、<code>PreventDefaultEvents</code>、<code>OnEvent</code>、<code>ChildContent</code>、<code>AdditionalAttributes</code>。
+              생성된 모든 구성요소는 23개의 매개변수를 공유합니다.<code>As</code>、<code>Id</code>、<code>Class</code>、<code>Style</code>、<code>Variant</code>、<code>Variants</code>、<code>State</code>、<code>States</code>、<code>Config</code>、<code>Initialize</code>、<code>Value</code>、<code>ValueChanged</code>、<code>ValueEvent</code>、<code>ValueKey</code>、<code>OnValueChange</code>、<code>EventNames</code>、<code>PreventDefaultEvents</code>、<code>OnEvent</code>、<code>ChildContent</code>、<code>AdditionalAttributes</code>。
             </p>
             <p>
               구성요소 참조는 6개의 인스턴스 멤버를 제공합니다.<code>Element</code>、<code>RefreshAsync</code>、<code>DestroyAsync</code>、<code>FocusAsync</code>、<code>GetBehaviorMembersAsync</code>、<code>InvokeBehaviorAsync</code>。
@@ -1153,7 +1981,7 @@ app.MapStaticAssets();</code></pre>
               <code>EditForm</code>、<code>EditContext</code>, DataAnnotations, 유효성 검사 상태, 입력, 선택 및 텍스트 영역.
             </p>
 
-            <h3>값 바인딩, 이벤트 79개, 동기화 가드 7개</h3>
+            <h3>값 바인딩, 105개의 이벤트 및 8개의 동기화 가드</h3>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>&lt;GCard Value=&quot;@selection&quot;
        ValueChanged=&quot;@(value =&gt; selection = value)&quot;
@@ -1174,8 +2002,8 @@ app.MapStaticAssets();</code></pre>
             <p>
               <code>Value/ValueChanged</code> 기본 입력/변경을 처리합니다.<code>ValueEvent</code> 그리고
               <code>ValueKey</code> 복잡한 CustomEvent를 처리합니다. 값은 .NET 문자열, 부울, 숫자, 배열 또는 사전으로 변환됩니다. DOM, 파일, BigInt, 함수 및 순환 참조는 안전하게 직렬화됩니다.
-              <code>GardenerimEvents.All</code> 79개의 이벤트를 모두 노출하고,<code>GardenerimEvents.Guards</code>
-              beforeapproval, beforeclose, beforefilepicker, beforeopen, beforepromptstop, beforepromptsubmit, beforetabclose JS/.NET 비동기 경계 전에 동기적으로 차단되어야 하는 7개의 가드 이벤트가 노출됩니다. 행동 회원 및 이벤트 세부 계약은 다음에서 가능합니다.
+              <code>GardenerimEvents.All</code> 105개의 이벤트를 모두 노출하고,<code>GardenerimEvents.Guards</code>
+              beforeapproval, beforechange, beforeclose, beforefilepicker, beforeopen, beforepromptstop, beforepromptsubmit, beforetabclose JS/.NET 비동기 경계 전에 동기적으로 차단되어야 하는 8개의 가드 이벤트가 노출됩니다. 행동 회원 및 이벤트 세부 계약은 다음에서 가능합니다.
               <code>GardenerimRuntimeCatalog</code> 질의.
             </p>
 
@@ -1186,18 +2014,18 @@ app.MapStaticAssets();</code></pre>
 
             <h3>완전한 공개 유형 및 기계 판독 가능 계약</h3>
             <p>
-              31가지 프레임 유형은 다음과 같습니다.<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimLocalizationOptions</code>、<code>GardenerimLocalizationService</code>、<code>GardenerimLocalizationState</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
+              37가지 프레임 유형은 다음과 같습니다.<code>GardenerimAccessibilityDefinition</code>、<code>GardenerimAssets</code>、<code>GardenerimBehavior</code>、<code>GardenerimBehaviorDefinition</code>、<code>GardenerimBehaviors</code>、<code>GardenerimComponent</code>、<code>GardenerimComponentBase</code>、<code>GardenerimConstants</code>、<code>GardenerimElectronService</code>、<code>GardenerimEventArgs</code>、<code>GardenerimEventDefinition</code>、<code>GardenerimEvents</code>、<code>GardenerimField&lt;TValue&gt;</code>、<code>GardenerimJsModule</code>、<code>GardenerimLocalizationOptions</code>、<code>GardenerimLocalizationService</code>、<code>GardenerimLocalizationState</code>、<code>GardenerimOptions</code>、<code>GardenerimPart</code>、<code>GardenerimPlatform</code>、<code>GardenerimProvider</code>、<code>GardenerimRuntime</code>、<code>GardenerimServiceCollectionExtensions</code>、<code>GardenerimThemePresets</code>、<code>GardenerimRuntimeCatalog</code>、<code>GardenerimTauriService</code>、<code>GardenerimThemeService</code>、<code>GardenerimThemeState</code>、<code>GardenerimToastService</code>、<code>GardenerimValueChangedEventArgs</code>、<code>GardenerimComponentDefinition</code>。
             </p>
             <p>
               <a href="../../packages/blazor/metadata/public-api.json">Blazor 공개 API</a>、<a href="../../packages/blazor/metadata/components.json">구성요소 메타데이터</a>、<a href="../../packages/blazor/metadata/compatibility.json">호환성</a>、<a href="../../packages/blazor/artifacts/gardener-blazor.performance.json">성능</a>
               둘 다 JSON 스키마를 닫았습니다. 읽을 수 있는 문서에는 다음이 포함됩니다.
-              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">72가지 행동</a>、<a href="../../packages/blazor/docs/events.md">이벤트 79개</a>、<a href="../../packages/blazor/docs/assets.md">정적 자원 45개</a>、<a href="../../packages/blazor/docs/runtime.md">런타임</a>、<a href="../../packages/blazor/docs/accessibility.md">접근성 및 SSR</a> 그리고
+              <a href="../../packages/blazor/docs/api.md">API</a>、<a href="../../packages/blazor/docs/behaviors.md">96가지 행동</a>、<a href="../../packages/blazor/docs/events.md">이벤트 105개</a>、<a href="../../packages/blazor/docs/assets.md">정적 자원 76개</a>、<a href="../../packages/blazor/docs/runtime.md">런타임</a>、<a href="../../packages/blazor/docs/accessibility.md">접근성 및 SSR</a> 그리고
               <a href="../../packages/blazor/docs/release.md">접근통제 해제</a>。
             </p>
 
-            <h3>2.1.0 출시품질</h3>
+            <h3>2.2.0 출시품질</h3>
             <p>
-              경고 0개, 오류 0개로 릴리스 빌드; 506개의 구성 요소가 모두 진정한 정적 SSR을 통과했습니다. 브라우저 매트릭스에는 Chromium, Firefox, WebKit, 데스크톱 및 모바일 뷰포트, 키보드, Ax WCAG A/AA가 포함됩니다. CI는 Firefox를 의무화합니다. NuGet은 격리된 캐시를 사용하여 실제로 소비자 애플리케이션을 게시하고 정적 웹 자산 엔드포인트 매니페스트의 유효성을 검사합니다. 독립 실행형 .NET 11 Preview 패키지 소비자도 있습니다. 측정된 어셈블리는 350,208 B, 45개 정적 리소스 총 7,820,065 B, CSS gzip 140,386 B, 런타임 gzip 33,149 B, Blazor 브리지 gzip 2,097 B, nupkg 약 1.27 MiB, 6,000,000 B 하드 제한 미만입니다. 모두 하드 예산과 DLL/XML 재생산이 가능합니다.
+              경고 0개, 오류 0개로 릴리스 빌드; 575개의 구성 요소가 모두 진정한 정적 SSR을 통과했습니다. 브라우저 매트릭스에는 Chromium, Firefox, WebKit, 데스크톱 및 모바일 뷰포트, 키보드, Ax WCAG A/AA가 포함됩니다. CI는 Firefox를 의무화합니다. NuGet은 격리된 캐시를 사용하여 실제로 소비자 애플리케이션을 게시하고 정적 웹 자산 엔드포인트 매니페스트의 유효성을 검사합니다. 독립 실행형 .NET 11 Preview 패키지 소비자도 있습니다. 측정된 어셈블리 크기는 549,376B, 76개 정적 리소스 총 16,966,238B, CSS gzip 274,562B, 런타임 gzip 77,417B, Blazor 브리지 gzip 3,189B, nupkg는 약 2.91MiB로 하드 제한 6,000,000B보다 낮습니다. DLL/XML은 재현 가능하게 빌드됩니다.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>cd blazor
@@ -1205,11 +2033,11 @@ npm run release:verify
 npm run test:net11</code></pre>
             </div>
 
-            <h3>모든 506 Blazor 구성 요소</h3>
+            <h3>모든 575 Blazor 구성 요소</h3>
             <p>
               다음 디렉터리는 직접 병합됩니다.
               <a href="../../packages/blazor/metadata/public-api.json">Blazor 공개 API</a> 그리고
-              <a href="../../packages/blazor/metadata/components.json">구성요소 메타데이터</a>, Razor 유형, CSS 이름, 카테고리, 유형, 기본 태그, 선택기, 상태, 변형, 위젯, 동작, 플랫폼 및 접근성 계약을 항목화합니다. 이는 주요 샘플이 아닙니다. 506개 항목은 모두 검색 가능한 동일한 디렉터리에 있습니다.
+              <a href="../../packages/blazor/metadata/components.json">구성요소 메타데이터</a>, Razor 유형, CSS 이름, 카테고리, 유형, 기본 태그, 선택기, 상태, 변형, 위젯, 동작, 플랫폼 및 접근성 계약을 항목화합니다. 이는 주요 샘플이 아닙니다. 575개 항목은 모두 검색 가능한 동일한 디렉터리에 있습니다.
             </p>
             <div class="docs-catalog-toolbar">
               <label class="g-sr-only" for="blazor-component-search">Blazor 구성 요소 검색</label>
@@ -1221,7 +2049,7 @@ npm run test:net11</code></pre>
             </div>
             <div class="docs-catalog-meta" id="blazor-component-meta">Blazor 구성 요소 매니페스트를 읽는 중...</div>
             <div class="docs-catalog" id="blazor-component-catalog" aria-live="polite"></div>
-          </section>
+          <!-- generated-blazor-options --><p>확장된 API:<code>GardenerimTableOptions</code>、<code>GardenerimTableColumn</code>、<code>GardenerimTablePagination</code>、<code>GardenerimTableScroll</code>、<code>GardenerimNavigationOptions</code>、<code>GardenerimNavigationItem</code>、<code>GardenerimField<TValue></code>、<code>Navigation</code>、<code>BeforeNavigationChange</code>、<code>Table</code>. 참조 <a href="../../packages/blazor/docs/api.md">완전한 Blazor API</a>。</p><!-- /generated-blazor-options --></section>
 
           <section class="docs-section" id="principles">
             <h2>설계원리</h2>
@@ -1649,7 +2477,25 @@ npm run test:net11</code></pre>
             </button>
           </section>
 
-          <section class="docs-section" id="layouts">
+          <section id="solution-enhancements" class="docs-section"><p>솔루션 출시 검토: 32개 페이지에서 제목, 상태, 상세 정보, 페이지 나누기, 결제 주기, 편집기 행, 양식 열, 상세 높이를 설정합니다. 테이블 작업, 입력 검증, 비활성 및 제어 동작은 5개 구현에서 일관됩니다.</p><h2>솔루션: 구성 가능한 32개 페이지</h2><p>공개 사이트, 작업 공간 및 산업 포털을 위한 기사, 카드, 표, 지표, 양식, 타임라인, 요금 및 보드 섹션과 224개 레이아웃 변형을 제공합니다.</p><p>다섯 구현은 solutionOptions, solutionValue 및 런타임을 공유하며 탐색, 검색, 필터, 정렬, 페이지 이동, 검증, 영수증, 취소 및 제어 상태를 지원합니다.</p><p><a href="../../packages/css/examples/solution-compositions.html">전체 솔루션 예제</a> · <a href="../../docs/solution/README.md">솔루션 매개변수 및 검증</a></p></section>
+<section id="legal-enhancements" class="docs-section"><p>법률 구성 요소 출시 검토: 검색 및 필터 표시, 전체 또는 필터 결과 내보내기, 배너 닫기 및 동의 후 숨기기, 기본 양식 제출과 좁은 컨테이너 레이아웃을 지원합니다. 배너를 닫아도 동의한 것이 아니며 업무 작업에는 서비스 확인이 필요합니다.</p><h2>법률: 문서, 동의 및 개인정보 요청</h2><p>8개 구성 요소가 쿠키 동의, 설정, 문서, 약관 확인, 동의 기록, 개인정보 요청, 진행 상태 및 정책 업데이트를 위한 32개 변형을 제공합니다.</p><p>다섯 구현은 legalOptions, legalValue 및 런타임을 공유하며 버전 확인, 선택 스냅샷, 비동기 영수증, 철회, 취소, 요청 검증, 제어 상태 및 접근성을 지원합니다.</p><p><a href="../../packages/css/examples/legal-lab.html">법률 구성 요소 예제</a></p><p><a href="../../docs/legal/README.md">법률 매개변수 및 검증</a></p></section>
+<section id="communication-enhancements" class="docs-section"><p>커뮤니케이션 구성 요소 출시 검토: 검색과 필터의 개별 설정, 제목·수신자·편집기 행 수 설정, 완전한 알림 설정 불리언 스냅샷, 모든 전달 상태 필터 및 좁은 컨테이너 레이아웃을 지원합니다.</p><h2>소통: 알림, 메시지 및 협업</h2><p>8개 구성 요소가 알림, 받은 편지함, 댓글, 활동 피드, 메시지 작성, 연락처, 알림 설정 및 전송 상태를 위한 32개 변형을 제공합니다.</p><p>다섯 구현은 communicationOptions, communicationValue 및 런타임을 공유하며 제어 상태, 비동기 확인, 답장, 편집, 첨부 검증, 알림 정책, 재시도 및 접근성을 지원합니다.</p><p><a href="../../packages/css/examples/communication-lab.html">소통 예제</a></p><p><a href="../../docs/communication/README.md">소통 매개변수 및 검증</a></p></section>
+<section id="workflow-enhancements" class="docs-section"><p>워크플로 출시 검토: 검색, 필터, 진행률, 로그, 저장 및 확대 제어를 개별 설정하고 편집기 행 수, 로그 높이, 필드 제약을 지원합니다. 승인 및 실행 결과를 검증하며 다섯 구현에서 간결한 크기와 접근 가능한 상호작용을 공유합니다.</p><h2>워크플로: 안내, 승인 및 실행</h2><p>8개 구성 요소가 안내, 마법사, 작업 의존성, 승인, 흐름 편집, 실행 기록, 상세 정보 및 트리거를 위한 32개 변형을 제공합니다.</p><p>다섯 구현은 workflowOptions, workflowValue 및 런타임을 공유하며 조건부 단계, 비동기 확인, 순차 또는 병렬 승인, 그래프 검증, 제어 상태 및 접근성을 지원합니다.</p><p><a href="../../packages/css/examples/workflow-lab.html">워크플로 예제</a></p><p><a href="../../docs/workflow/README.md">워크플로 매개변수 및 검증</a></p></section>
+<section id="desktop-enhancements" class="docs-section"><p>데스크톱 출시 검토: 38개 구성 요소가 간결한 크기와 좁은 컨테이너 레이아웃을 공유합니다. 필터, 진행률, 준비 표시, 초기화, 고정, 창 작업, 편집기를 설정하고 호스트 응답, 비활성 메뉴, 키보드 동작을 검증했습니다.</p><h2>데스크톱: 작업 공간과 네이티브 호스트</h2><p>데스크톱 컴포넌트 38개와 변형 152개로 창, 작업 환경, 메뉴, 문서, 패널, 작업, 알림, 파일, 업데이트, 복구, 설정, 세션 및 진단을 지원합니다.</p><p>다섯 구현이 desktopOptions, desktopValue와 런타임을 공유하며 제어 상태, 키보드 및 드래그 조작, 비동기 호스트 확인, Tauri / Electron 창 인터페이스를 제공합니다.</p><p><a href="../../packages/css/examples/desktop-lab.html">전체 데스크톱 예제</a></p><p><a href="../../docs/desktop/README.md">데스크톱 매개변수 및 컴포넌트 검사</a></p></section>
+<section id="enterprise-enhancements" class="docs-section"><p>기업 구성 요소 검토: 8개 구성 요소가 간결한 크기와 검색, 필터, 일괄 작업, 초기화, 상태, 상세 및 편집 설정을 공유합니다. 소유자 보호, 입력 검증, 서비스 응답, 제어 동작을 5개 구현에서 개선했습니다.</p><h2>기업: 조직 설정 및 팀 관리</h2><p>기업 컴포넌트 8개와 변형 32개로 설정, 권한, 감사, 구성원, 초대, 역할, 팀 및 연동을 관리합니다.</p><p>다섯 구현은 enterpriseOptions, enterpriseValue와 런타임을 공유하며 제어 상태, 권한 제한, 비동기 확인 및 반응형 레이아웃을 지원합니다.</p><p><a href="../../packages/css/examples/enterprise-lab.html">전체 기업 예제</a></p><p><a href="../../docs/enterprise/README.md">기업 매개변수 및 컴포넌트 검사</a></p></section>
+<section id="marketing-enhancements" class="docs-section"><p>마케팅 출시 검토: 요금, 수량, 기능, 필터, 상태 표시와 이미지 맞춤 및 높이, 이메일 안내 및 길이를 설정합니다. 28/32/36px 컨트롤과 좁은 컨테이너를 통일하고 제어 입력, 잘못된 응답, 만료 링크, 변형 전환을 수정했습니다.</p><h2>마케팅: 브랜드 소개, 요금 및 전환</h2><p>마케팅 컴포넌트 10개와 변형 40개로 탐색, 히어로, 요금, 기능, 로고, 후기, 행동 유도, 구독, 공지 및 푸터를 지원합니다.</p><p>다섯 구현이 marketingOptions, marketingValue와 런타임을 공유하며 정확한 금액, 제어 상태, 취소 가능한 요청 및 반응형 레이아웃을 제공합니다.</p><p><a href="../../packages/css/examples/marketing-lab.html">전체 마케팅 예제</a></p><p><a href="../../docs/marketing/README.md">다섯 구현의 마케팅 매개변수와 검사</a></p></section>
+<section id="cms-enhancements" class="docs-section"><p>CMS 출시 검토: 검색, 필터, 메타데이터, 기록, 업로드, 선택 및 상태 표시와 블록 유형, 편집 줄 수, 미리보기 한도, 썸네일을 설정합니다. 28/32/36px 컨트롤을 통일하고 버전 확인, 검토 권한, 제어 입력, 실행 취소 범위를 수정했습니다.</p><h2>CMS: 편집, 검토 및 다국어 지원</h2><p>CMS 컴포넌트 6개와 변형 24개로 구조화 블록, SEO, 미디어 선택, 버전 복원, 게시 검토 및 다국어 편집을 지원합니다.</p><p>다섯 구현이 cmsOptions, cmsValue 및 CMS 런타임을 공유하며 권한 설정, 제어 상태 및 취소 가능한 비동기 요청을 지원합니다.</p><p><a href="../../packages/css/examples/cms-lab.html">전체 CMS 예제</a></p><p><a href="../../docs/cms/README.md">다섯 구현의 CMS 매개변수와 검사</a></p></section>
+<section id="mobile-enhancements" class="docs-section"><p>모바일 출시 검토에서 설정 매개변수 11개와 필드 옵션 7개를 추가하여 크기, 제어 입력, 검증, 비동기 복구 및 예제를 다섯 구현에서 통일했습니다.</p><h2>모바일: 터치, 패널 및 앱 화면</h2><p>모바일 컴포넌트 33개와 변형 99개로 안전 영역, 하단 패널, 새로 고침과 로딩, 제스처, 선택기, 키보드 회피 및 앱 화면을 지원합니다.</p><p>다섯 구현이 mobileOptions, mobileValue와 모바일 런타임을 공유하며 제어 상태, 터치와 키보드, 비동기 결과 및 인증과 결제를 지원합니다.</p><p><a href="../../packages/css/examples/mobile-lab.html">전체 모바일 예제</a></p><p><a href="../../docs/mobile/README.md">다섯 구현의 모바일 매개변수와 검사</a></p></section>
+<section id="auth-enhancements" class="docs-section"><p>인증 출시 검토에서 표시 및 레이아웃 매개변수 12개를 추가하여 크기, 제어 입력, 자격 증명 격리, 오류 복구 및 만료를 다섯 구현과 전체 예제에서 통일했습니다.</p><h2>인증 및 계정 보안</h2><p>컴포넌트 33개와 변형 99개로 로그인, 등록, 복구, 인증 코드, 패스키, 조직 선택, 동의 및 기기 관리를 지원합니다.</p><p>다섯 구현이 authOptions, authValue와 인증 런타임을 공유하며 제어 상태, 비공개 자격 증명 전달, 만료 및 비동기 결과를 지원합니다. 예제는 로컬 모의 서비스를 사용합니다.</p><p><a href="../../packages/css/examples/auth-lab.html">전체 인증 예제</a></p><p><a href="../../docs/auth/README.md">다섯 구현의 인증 매개변수와 검사</a></p></section>
+<section id="commerce-enhancements" class="docs-section"><h2>커머스: 상품, 결제 및 구독</h2><p>컴포넌트 37개와 변형 111개로 상품 옵션, 장바구니, 배송, 청구서, 결제, 주문 및 구독을 지원합니다.</p><p>다섯 구현이 commerceOptions, commerceValue와 런타임을 공유하며 크기 조정, 제어 상태, 재고 제한, 정수 금액 및 비동기 결과를 제공합니다.</p><p><a href="../../packages/css/examples/commerce-lab.html">전체 커머스 예제</a></p><p><a href="../../docs/commerce/README.md">다섯 구현의 커머스 매개변수와 검사</a></p><p>커머스 출시 점검에서 제목, 상태, 이미지, 설명, 즐겨찾기, 재고, 원가, 쿠폰, 요약, 썸네일, 구독 주기, 이미지와 목록 크기를 위한 표시 옵션 14개를 추가했습니다. 컨트롤은 28/32/36px로 통일하고 제어 입력, 잘못된 응답, 할인 견적, 품절 선택과 구독 가격을 개선했습니다.</p></section>
+<section id="media-enhancements" class="docs-section"><h2>미디어: 재생, 이미지 미리보기 및 자르기</h2><p>컴포넌트 8개와 변형 34개로 캐러셀, 라이트박스, 오디오와 비디오, 문서, 자르기, 반응형 이미지 및 이미지 비교를 제공합니다.</p><p>다섯 구현이 mediaOptions, mediaValue와 기본 미디어 런타임을 공유하며 작은 크기, 제어 매개변수, 키보드 접근, 로딩 재시도 및 이미지 내보내기를 지원합니다.</p><p><a href="../../packages/css/examples/media-lab.html">전체 미디어 예제</a></p><p><a href="../../docs/media/README.md">다섯 구현의 미디어 매개변수와 컴포넌트 검사</a></p><p>미디어 출시 점검에서 탐색, 도구 모음, 설명, 표시 크기, 썸네일, 재생 목록, 속도와 시간 제한을 위한 옵션 18개를 추가했습니다. 28/32/36px 컨트롤을 통일하고 초기 선택, 재생 취소와 오래된 자르기 결과를 다섯 구현 및 데모에서 수정했습니다.</p><div class="docs-callout" id="image-media-mode"><h3>GImage</h3><p>GImage · fit · footerPosition · fallback · previewVisible · previewProps · items · templates</p><p><a href="../../packages/css/examples/image.html">GImage Demo</a> · <a href="../../docs/image.md">GImage API</a> · <a href="https://arco.design/vue/component/image">Arco Image</a></p><iframe src="../../packages/css/examples/image.html" title="GImage Demo" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="carousel-media-mode"><h3>GCarousel</h3><p>GCarousel · slide / fade / card · current · autoPlay · indicatorType · indicatorPosition · direction · thumbnails</p><p><a href="../../packages/css/examples/carousel.html">GCarousel Demo</a> · <a href="../../docs/carousel.md">GCarousel API</a> · <a href="https://arco.design/vue/component/carousel">Arco Carousel</a></p><iframe src="../../packages/css/examples/carousel.html" title="GCarousel Demo" loading="lazy" style="width:100%;height:720px;border:1px solid var(--g-color-border)"></iframe></div></section>
+<section id="ai-enhancements" class="docs-section"><h2>AI: 대화, 도구 협업 및 생성 결과</h2><p>컴포넌트 38개와 변형 119개로 메시지, 입력, 스트리밍, 도구 승인, 컨텍스트, 사용량, 결과물, 실행 기록 및 구조화된 출력을 제공합니다.</p><p>다섯 구현이 aiOptions, aiValue와 비동기 서비스를 공유합니다. 작은 크기, 제어 상태, 키보드 접근, 일시 정지, 취소 및 재시도를 지원하며 예제는 미리 기록한 로컬 텍스트를 사용합니다.</p><p><a href="../../packages/css/examples/ai-lab.html">전체 AI 예제</a></p><p><a href="../../docs/ai/README.md">다섯 구현의 AI 매개변수와 컴포넌트 검사</a></p><p>AI 출시 점검에서 메시지 작업, 입력, 레이아웃, 이미지 미리 보기, 서비스 시간 제한과 피드백 길이를 위한 옵션 18개를 추가했습니다. 28/32/36px 컨트롤을 통일하고 취소, 제어 대화 전환과 모델 선택을 다섯 구현 및 데모에서 수정했습니다.</p></section>
+<section id="form-release" class="docs-section"><h2>폼: 정밀한 레이아웃과 조합 가능한 설정</h2><p>폼 구성 요소 51개와 이름이 있는 변형 550개가 CSS, Vue, React, AngularJS, Blazor에서 스타일과 동작을 공유합니다.</p><p>추가 설정 9개로 필드·레이블·열 간격, 레이블과 입력 너비, 도움말, 콜론, 필수 표시를 제어합니다. 입력 크기는24/28/32/36px입니다. 동적 읽기 전용과 비활성화, 기본 초기화, 조합 입력, 자동 높이, 날짜·시간 범위, 반응형 레이아웃을 지원합니다.</p><p><a href="../../docs/form/parameters.md">다섯 프레임워크의 폼 설정과 동작</a></p><p><a href="../../packages/css/examples/form-compositions.html#form-config-lab">설정 가능한 폼 예제</a></p></section>
+<section id="navigation-release" class="docs-section"><h2>탐색: 정밀한 크기와 조합 가능한 설정</h2><p>구성 요소 41개, 이름이 있는 변형 174개, 시나리오 123개. CSS, Vue, React, AngularJS, Blazor가 탐색 스타일과 런타임을 공유합니다.</p><p>추가 설정 17개로 아이콘, 배지, 설명, 단축키, 그룹, 제목, 작업, 패널, 테두리, 최대 높이, 팝업 크기, 간격, 들여쓰기, 선택 제한 시간 및 닫기 정책을 제어합니다. 기본 행은28/32/36px, 본문은14px/22px, 모서리는4px입니다. 제어 값, 조합 입력, 키보드 조작, 네이티브 모달 초점 및 비동기 취소를 지원합니다.</p><p><a href="../../docs/navigation/README.md">프레임워크별 설정과 동작</a></p><p><a href="../../packages/css/examples/navigation-lab.html">모든 탐색 변형과 설정 예제</a></p></section>
+<section id="popover-reference" class="docs-section"><h2>GPopover</h2><p>GPopover · overlay-options · title · content · position · trigger · popupVisible · contentStyle · arrowStyle</p><p><a href="../../docs/popover.md">GPopover API</a> · <a href="../../packages/css/examples/popover.html">GPopover Demo</a> · <a href="https://arco.design/vue/component/popover">Arco Popover</a></p><iframe title="GPopover Demo" src="../../packages/css/examples/popover.html" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></section><section id="overlay-release" class="docs-section"><h2>오버레이: 크기, 밀도 및 상호 작용</h2><p>컴포넌트 6개, 변형 28개, 공통 설정 26개. Dialog, Drawer, Popover, Tooltip, Popconfirm, ConfirmDialog는 CSS, Vue, React, AngularJS, Blazor에서 스타일과 런타임을 공유합니다.</p><p>overlayWidth, overlayHeight, overlayMaxHeight로 크기와 스크롤을 설정합니다. overlayDensity는 compact / default / comfortable을 지원하며 overlayShowClose는 닫기 버튼을 제어합니다. 제어 상태, 서랍 4방향, 팝업 위치 12개, 지연, 경계 회피, 초점 복원, 중첩 및 비동기 재시도를 지원합니다. 본문 14px / 22px, 제목 16px / 24px, 모서리 4px, 터치 닫기 버튼 최소 44px.</p><p><a href="../../docs/overlay/README.md">공통 매개변수와 동작 규약</a> · <a href="../../packages/css/examples/overlay-compositions.html">모든 변형 및 설정 예제</a></p></section>
+<section id="help-enhancements" class="docs-section"><h2>도움말: 검색, 상황별 안내 및 단계별 가이드</h2><p>컴포넌트 29개와 변형 99개로 설명, FAQ, 단축키, 도움말 센터, 용어집, 체크리스트, 피드백 및 투어를 제공합니다.</p><p>다섯 구현이 helpOptions, helpValue와 비동기 서비스를 공유하며 작은 크기, 제어 상태, 키보드 접근, 재시도 및 취소를 지원합니다.</p><p><a href="../../packages/css/examples/help-lab.html">전체 도움말 예제</a></p><p><a href="../../docs/help/README.md">다섯 구현의 도움말 매개변수와 컴포넌트 검사</a></p><p>도움말 출시 점검에서 표시, 팝업 닫기, 안내 간격, 서비스 시간 제한과 피드백 길이를 위한 옵션 18개를 추가했습니다. 링크, 중국어 입력, 비동기 취소와 제어 피드백을 수정하고 다섯 구현 및 데모의 크기를 통일했습니다.</p></section>
+<section id="layout-enhancements" class="docs-section"><h2>레이아웃: 컨테이너, 영역 및 페이지 구조</h2><p>컴포넌트 11개와 모드 89개로 그리드, 기본 조합, 영역, 머리글, 바닥글, 앱 셸 및 반응형 컨테이너를 제공합니다.</p><p>다섯 구현이 layoutOptions, layoutValue, layoutDisabled를 공유합니다. 간격, 너비, 중단점 및 방향을 설정하면서 하위 요소를 유지하고 사이드바 접기를 제어합니다.</p><p>레이아웃 출시 점검에서 논리 여백, 최대 높이, 행 높이, 좁은 화면 열 수, 정렬, Escape 접기, 접기 제어와 초점 등 옵션 10개를 추가했습니다. 우선순위, 좁은 간격과 상태 보존을 수정하고 구성 요소 11개, 모드 89개와 다섯 구현 및 데모를 동기화했습니다.</p><p><a href="../../packages/css/examples/layout-lab.html">전체 레이아웃 예제</a></p><p><a href="../../docs/layout/README.md">다섯 구현의 레이아웃 매개변수와 컴포넌트 검사</a></p></section>
+<section class="docs-section" id="layouts">
             <h2>레이아웃 시스템</h2>
             <p>
               기본 레이아웃은 컨테이너와 그리드를 담당하고 애플리케이션 셸은 고정 영역, 스크롤 경계 및 엔드 피팅을 담당합니다. 복잡한 페이지의 경우 많은 수의 위치 지정 도구 클래스로 직접 시작하지 마십시오.
@@ -2000,7 +2846,9 @@ npm run test:net11</code></pre>
             <div class="g-region-frame docs-region-demo">
               <header class="g-region-top">상의</header>
               <aside class="g-region-start">시작</aside>
-              <main class="g-region-main">메인 작업공간</main>
+              <main class="g-region-main">메인 작업공간<section id="content-components"><h2>콘텐츠: 편집, 파일 및 읽기</h2><p>컴포넌트 39개와 변형 234개로 코드, 문서, 파일, 업로드, 미리 보기, 미디어, 편집, 댓글 및 버전 기록을 제공합니다.</p><p>공통 매개변수: contentOptions, contentValue, contentSize, contentBordered, contentDisabled. 다섯 구현이 제어 상태, 취소 가능한 이벤트 및 비동기 서비스 인터페이스를 공유합니다.</p><p>콘텐츠 출시 점검에서 표시, 크기, 페이지 이동, 이미지 미리보기와 서비스 시간 제한을 위한 옵션 20개를 추가했습니다. 초안 초기화, 중국어 입력, 비동기 취소와 이미지 좌표를 수정하고 구성 요소 39개, 변형 234개와 다섯 구현 및 데모를 동기화했습니다.</p><a href="../../packages/css/examples/content-lab.html">전체 콘텐츠 예제</a><a href="../../docs/content/README.md">다섯 구현의 콘텐츠 매개변수와 컴포넌트 검사</a></section>
+<section id="interaction-components"><h2>상호작용: 매개변수, 상태 및 다섯 구현의 일관성</h2><p>컴포넌트 35개와 변형 239개. 선택, 전송, 규칙, 범위, 분할 패널, 일괄 처리, 복사, 전체 화면 및 실행 취소와 다시 실행이 데이터와 스타일 계약을 공유합니다.</p><p>공통 매개변수: interactionOptions, interactionValue, interactionSize, interactionBordered, interactionDisabled, interactionOrientation, interactionLimit. 크기: 28 / 32 / 36px. 제어 상태, 취소 가능한 이벤트, 비동기 취소 및 오류 표시를 지원합니다.</p><a href="../../packages/css/examples/interaction-compositions.html">전체 상호작용 예제</a><a href="../../docs/interaction/README.md">다섯 구현의 매개변수와 컴포넌트 검사</a><p>출시 검토에서 표시, 열 수, 높이, 서비스 시간 제한을 위한 옵션 17개를 추가했습니다. 컴포넌트 35개와 변형 239개를 다섯 구현 및 데모와 동기화하고 상태 초기화, 중국어 입력, 취소와 재시도를 수정했습니다.</p></section>
+<section id="dashboard-components" class="docs-section"><h2>대시보드: 데이터, 상태 및 다섯 구현의 일관성</h2><p>컴포넌트 7개, 변형 39개: GKpiStat, GFilterBar, GChartContainer, GKpiGroup, GDashboardWidget, GGoalTracker, GGaugeChart. 지표 그룹, 접이식 위젯, 목표 추적 및 범위 게이지를 추가하고 기존 Dashboard / DashboardGrid 레이아웃을 재사용합니다.</p><p>공통 매개변수: dashboardOptions, dashboardValue, dashboardSize, dashboardBordered, dashboardColumns, dashboardChartType, dashboardHeight, dashboardDisabled. 통화 및 백분율, 실제 SVG 차트, 필터 적용과 초기화, 제어 상태, 취소 가능한 이벤트, 빈 데이터, 로딩, 오류 및 비활성 상태를 지원합니다. 주요 숫자: 24 / 30 / 36px, 간격: 8 / 12 / 16px. 매개변수 변경 시 인스턴스를 유지하고 접을 때 내용을 보존합니다.</p><p>Vue / React는 config, AngularJS는 gardener-config, Blazor는 Config, CSS는 data-g-dashboard-* 속성을 사용합니다. 차트는 키보드 조작, 데이터 표, CSV 및 시리즈 전환을 지원합니다. 새 옵션 23개: size, bordered, columns, showHeader, showLegend, showGrid, showAxisLabels, showMarkers, tableVisible, showTrend, showDescription, showTarget, showRemaining, showRange, showValue, showApply, showReset, maxHeight, tableHeight, pointRadius, lineWidth, donutWidth, serviceTimeout. 28 / 32 / 36px; IME, load / cancel.</p><p><a href="../../packages/css/examples/dashboard-compositions.html">전체 대시보드 및 연동 예제</a> · <a href="../../docs/dashboard/README.md">다섯 구현의 매개변수와 데이터 API</a></p></section><section id="arco-foundations"><h2>Arco 구성 요소 대응 및 기반 기능 확장</h2><p>Arco Design Vue 2.58.0의 최상위 구성 요소 74개를 비교하고 기존 기능을 재사용하여 누락된 12개를 추가했습니다. Gardenerim 테마, 글꼴, 비율, 의미 색상 및 초점 스타일을 유지하며 CSS, Vue, React, AngularJS, Blazor는 foundation-options를 공유합니다.</p><p>숫자·태그·색상 입력, 고정, 크기 조절, 스크롤 영역, 간격, 워터마크, 넘침 목록, 링크, 타이포그래피 및 아이콘을 추가했습니다. 해당 기능은 매개변수, 제어 값, 비활성 상태, 키보드 및 좁은 화면을 지원합니다. 지원 범위는 API를 참조하세요.</p><p><a href="../../docs/arco/coverage.md">74개 대응 목록</a> · <a href="../../docs/arco/README.md">5개 프레임워크 사용법 및 차이</a> · <a href="../../packages/css/examples/arco-foundations.html">대화형 데모 열기</a></p><iframe src="../../packages/css/examples/arco-foundations.html" title="Gardenerim 신규 구성 요소 데모" loading="lazy" style="width:100%;height:720px;border:1px solid var(--g-color-border);border-radius:4px"></iframe></section></main>
               <aside class="g-region-end">종료</aside>
               <footer class="g-region-bottom">바닥</footer>
             </div>
@@ -3020,7 +3868,9 @@ npm run test:net11</code></pre>
             </div>
           </section>
 
-          <section class="docs-section" id="form-compositions">
+          <section class="docs-section" id="data-display"><h2>데이터 표시</h2><p>54개의 구성요소, 265개의 변형이 통합된 밀도, 경계선, 레이아웃 및 데이터 매개변수를 제공합니다. 15개의 관리 구성 요소는 가상 목록, 대시보드, 달력, 일정, 파일 탐색, 필터 규칙, 피벗 요약, 시간 표시줄, 좌표 표시, CSV 내보내기, 구조 확인 및 범례 선택 등 실제 데이터 조작을 지원합니다.</p><p>CSS: data-g-data-*; Vue / React: config; AngularJS: gardener-config; Blazor: Config. dataOptions / gridOptions: JSON; dataValue: selected keys. 데이터 표시: 관리 옵션 24개: size, bordered, layout, showHeader, showSearch, showDescriptions, showLaneCount, showMoveControls, showCalendarEvents, showToday, showBreadcrumbs, showFileMeta, showResults, showPreview, showModeSwitch, showZoomControls, maxHeight, tableHeight, laneWidth, calendarDayHeight, mapHeight, maxRules, exportPreviewRows, serviceTimeout. 28 / 32 / 36px; IME, load / cancel.</p><div class="docs-callout"><a href="../../docs/data/README.md">모든 구성요소, 매개변수 및 5단자 예시</a> · <a href="../../packages/css/examples/data-compositions.html">전체 대화형 데모</a></div><p>MapShell은 좌표 캔버스 인터페이스를 제공하고 FileManager는 응용 프로그램 데이터를 탐색하며 GanttShell은 시간 표시줄을 표시합니다. 온라인 베이스맵, 파일 서비스 및 일정 엔진은 기업에서 액세스합니다.</p></section>
+<section class="docs-section" id="disclosure"><h2>펼치기 및 접기</h2><p>그룹화된 콘텐츠에는 Accordion, 독립된 영역에는 Collapse, 요약 및 전체 콘텐츠에는 ReadMore가 사용됩니다. 세 가지 공유 아코디언 동작은 19개의 구성 가능한 변형을 제공합니다. 단일 또는 다중 확장 지원, 값 제어, 단일 항목 유지, 비활성화, 중첩, 동적 패널, 키보드 탐색 및 초점 복원.</p><p>크기는 소 32px, 중 40px, 대 48px의 한 줄 제목 비율을 따르며, 최소 터치스크린 크기는 44px입니다. 의미 있는 색상을 사용하고 어두운 색상, RTL, 동적 효과 감소 및 인쇄를 지원합니다.</p><div class="docs-callout">매개변수, 5단자 구문 및 예:<a href="../../docs/disclosure/README.md">펼치기전체 문서 접기</a> · <a href="../../packages/css/examples/disclosure-compositions.html">인터랙티브 데모</a></div><p><code>disclosureMultiple</code>、<code>disclosureCollapsible</code>、<code>disclosureSize</code>、<code>disclosureIcon</code>、<code>disclosureKeyboard</code>、<code>disclosureDefaultValue</code>、<code>disclosureValue</code>、<code>disclosureLines</code>、<code>disclosureLength</code>、<code>disclosureExpandLabel</code>、<code>disclosureCollapseLabel</code> CSS, Vue, React, AngularJS, Blazor에서 일관됩니다.</p><p>안정적인 키의 JSON 배열 문자열에 전달된 제어 값입니다. 변경은 애플리케이션에 의해 공개 값에 다시 기록된 키를 반환합니다. beforeopen / beforeclose는 전환을 취소할 수 있습니다. 축소는 콘텐츠와 양식 값을 유지하고 전체 콘텐츠는 확장 시 키보드 순서만 입력하며 인쇄하여 전체 텍스트를 표시합니다.</p><div class="docs-callout" id="collapse-disclosure-mode"><h3>GCollapse</h3><p>GCollapse · activeKey · accordion · bordered · expandIconPosition · destroyOnHide · extra</p><p><a href="../../packages/css/examples/collapse.html">GCollapse Demo</a> · <a href="../../docs/collapse.md">GCollapse API</a> · <a href="https://arco.design/vue/component/collapse">Arco Collapse</a></p><iframe title="GCollapse Demo" src="../../packages/css/examples/collapse.html" loading="lazy" style="width:100%;height:680px;border:1px solid var(--g-color-border)"></iframe></div></section>
+<section class="docs-section" id="form-compositions">
             <h2>전통적인 조합을 형성</h2>
             <p>
               카테고리 6 기능은 일반 웹 페이지, 모바일 양식, 대시보드 설정 페이지, CMS 편집기 및 Tauri/Electron 검사기를 포함하여 기본 컨트롤을 37개의 안정적인 양식 구조로 향상시킵니다. 필드 레이블, 설명, 확인, 비즈니스 그룹화, 동적 추가 및 삭제, 최종 제출을 위한 명확한 인터페이스가 있습니다.
@@ -3425,7 +4275,7 @@ npm run test:net11</code></pre>
                     class="g-primary-nav-link"
                     href="#navigation-compositions"
                     aria-current="page"
-                    >내용</a
+                    >콘텐츠</a
                   ><a class="g-primary-nav-link" href="#components">리소스</a
                   ><a class="g-primary-nav-link" href="#runtime">자동화</a>
                 </nav>
@@ -3608,7 +4458,7 @@ npm run test:net11</code></pre>
                     <td>키보드 사용자의 경우 반복 탐색을 건너뛰었습니다.</td>
                   </tr>
                   <tr>
-                    <td rowspan="4">모바일 단말기</td>
+                    <td rowspan="4">모바일</td>
                     <td>모바일탑 <code>g-mobile-top-nav</code></td>
                     <td>반환, 제목 및 꼬리 작업</td>
                   </tr>
@@ -3705,6 +4555,17 @@ npm run test:net11</code></pre>
 
           <section class="docs-section" id="data-compositions">
             <h2>데이터 표시 및 동작 조합</h2>
+
+<div class="docs-callout" id="calendar-data-mode"><h3>GCalendar 달력</h3>
+            <p>Arco Calendar를 참고하여 월과 연도 보기, 소형 패널, 선택 날짜와 표시 페이지 제어, 머리글 설정, 주 및 여러 날짜 선택, 날짜 제한, 사용자 콘텐츠와 비동기 일정을 지원합니다.</p>
+            <p>CSS, Vue, React, AngularJS, Blazor는 dataOptions, 스타일과 동작을 공유하며 키보드 탐색, 밝고 어두운 테마 및 반응형 연간 보기를 지원합니다.</p>
+            <p><a href="../../packages/css/examples/calendar.html">대화형 달력 예제</a> · <a href="../../docs/calendar.md">달력 옵션 및 통합</a> · <a href="https://arco.design/vue/component/calendar">Arco Calendar 참고</a></p>
+            <iframe src="../../packages/css/examples/calendar.html" title="GCalendar 달력 데모" loading="lazy" style="width:100%;height:720px;border:1px solid var(--g-color-border);border-radius:8px"></iframe></div>
+            <div class="docs-callout" id="table-data-mode"><h3>GTable 데이터 테이블</h3>
+            <p>Arco Design Vue Table을 참고하여 네 가지 밀도, columns/data 설정, 정렬과 필터, 제어형 선택, 페이지 나누기, 그룹 헤더, 고정 열, 트리 및 세부 정보 펼치기, 셀 병합, 합계, 편집, 열 너비 조절, 행 재정렬, 고정 높이 가상 스크롤 및 서버 로딩을 제공합니다.</p>
+            <p>CSS는 createTable, Vue와 React는 table 속성, AngularJS는 gardener-table, Blazor는 Table 매개변수를 사용합니다. 다섯 가지 구현이 스타일과 컨트롤러를 공유하며 정적 테이블도 지원합니다.</p>
+            <p><a href="../../packages/css/examples/table.html">대화형 CSS 예제</a> · <a href="../../docs/table.md">전체 옵션 및 호환성 범위</a> · <a href="https://arco.design/vue/component/table">Arco 참조</a></p>
+            <iframe title="GTable 데이터 테이블 데모" src="../../packages/css/examples/table.html" loading="lazy" style="width:100%;height:480px;border:1px solid var(--g-color-border);border-radius:2px"></iframe></div>
             <p>
               카테고리 8 기능은 "데이터 표시"와 "데이터 조작"을 동일한 계약 세트로 처리하는 48개의 안정적인 데이터 모드를 제공합니다. 일반 웹사이트, 대시보드, 슈퍼 CMS, 모바일 목록, 분석 보고서 및 Tauri/Electron 고밀도 워크벤치 등 모두 테이블, 레코드, 목록, 계층, 흐름, 표시기, 시각화, 계획, 공간 또는 작동 모드를 직접 선택할 수 있습니다.
             </p>
@@ -4041,7 +4902,7 @@ npm run test:net11</code></pre>
                 >독립 데이터 예시</a
               >정렬, 선택, 확장, 열 가시성, 검색, 보기 전환, 스택 테이블 이동, 키보드 그리드를 직접 테스트할 수 있습니다.
             </div>
-          </section>
+          <div class="docs-callout" id="tree-data-mode"><h3>GTree</h3><p>GTree · data · size · checkable · checkedStrategy · selectedKeys · expandedKeys · loadMore · draggable · virtualListProps</p><p><a href="../../docs/tree.md">GTree API</a> · <a href="../../packages/css/examples/tree.html">GTree Demo</a> · <a href="https://arco.design/vue/component/tree">Arco Tree</a></p><iframe title="GTree Demo" src="../../packages/css/examples/tree.html" loading="lazy" style="width:100%;height:420px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="tooltip-options-mode"><h3>GTooltip</h3><p>GTooltip · content · position · mini · backgroundColor · popupVisible · trigger</p><p><a href="../../docs/tooltip.md">GTooltip API</a> · <a href="../../packages/css/examples/tooltip.html">GTooltip Demo</a> · <a href="https://arco.design/vue/component/tooltip">Arco Tooltip</a></p><iframe title="GTooltip Demo" src="../../packages/css/examples/tooltip.html" loading="lazy" style="width:100%;height:380px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="timeline-data-mode"><h3>GTimeline</h3><p>GTimeline · direction · mode · labelPosition · reverse · pending · dotType · lineType · templates</p><p><a href="../../docs/timeline.md">GTimeline API</a> · <a href="../../packages/css/examples/timeline.html">GTimeline Demo</a> · <a href="https://arco.design/vue/component/timeline">Arco Timeline</a></p><iframe title="GTimeline Demo" src="../../packages/css/examples/timeline.html" loading="lazy" style="width:100%;height:480px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="tag-options-mode"><h3>GTag</h3><p>GTag · size · color · checked · visible · closable · loading · templates</p><p><a href="../../docs/tag.md">GTag API</a> · <a href="../../packages/css/examples/tag.html">GTag Demo</a> · <a href="https://arco.design/vue/component/tag">Arco Tag</a></p><iframe title="GTag Demo" src="../../packages/css/examples/tag.html" loading="lazy" style="width:100%;height:300px;border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="tabs-options-mode"><h3>GTabs</h3><p>GTabs · type · size · position · activeKey · editable · lazyLoad · destroyOnHide</p><p><a href="../../docs/tabs.md">GTabs API</a> · <a href="../../packages/css/examples/tabs.html">GTabs Demo</a> · <a href="https://arco.design/vue/component/tabs">Arco Tabs</a></p><iframe title="GTabs Demo" src="../../packages/css/examples/tabs.html" loading="lazy" style="width:100%;height:min(560px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="statistic-data-mode"><h3>GStatistic</h3><p>GStatistic · precision · showGroupSeparator · prefix · suffix · animation · countdown · templates</p><p><a href="../../docs/statistic.md">GStatistic API</a> · <a href="../../packages/css/examples/statistic.html">GStatistic Demo</a> · <a href="https://arco.design/vue/component/statistic">Arco Statistic</a></p><iframe title="GStatistic Demo" src="../../packages/css/examples/statistic.html" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="list-data-mode"><h3>GList</h3><p>GList · size · split · hoverable · paginationProps · gridProps · virtualListProps · templates</p><p><a href="../../packages/css/examples/list.html">GList Demo</a> · <a href="../../docs/list.md">GList API</a> · <a href="https://arco.design/vue/component/list">Arco List</a></p><iframe title="GList Demo" src="../../packages/css/examples/list.html" loading="lazy" style="width:100%;height:min(600px,65vh);border:1px solid var(--g-color-border)"></iframe></div><div class="docs-callout" id="descriptions-data-mode"><h3>GDescriptions</h3><p>GDescriptions · column · span · layout · align · size · bordered · templates</p><p><a href="../../packages/css/examples/descriptions.html">GDescriptions Demo</a> · <a href="../../docs/descriptions.md">GDescriptions API</a> · <a href="https://arco.design/vue/component/descriptions">Arco Descriptions</a></p><iframe title="GDescriptions Demo" src="../../packages/css/examples/descriptions.html" loading="lazy" style="width:100%;height:680px;border:1px solid var(--g-color-border)"></iframe></div></section>
 
           <section class="docs-section" id="selection-compositions">
             <h2>구성 요소 선택 및 일괄 처리</h2>
@@ -7650,6 +8511,7 @@ npm run test:net11</code></pre>
             <p>
               카테고리 16은 Gardenerim의 가장 높은 구성 계층입니다. 처음 15개 카테고리는 레이아웃, 구성 요소, 비즈니스 체인 및 최종 특정 상호 작용을 제공하며 이 카테고리는 이를 직접 선택할 수 있는 전체 페이지 계약 32개로 통합합니다. 개인 및 기업, 공공 웹사이트 및 백엔드, 일반 기업 및 수직 산업을 포괄하며 브라우저, 모바일 웹페이지, PWA, Tauri 및 Electron WebView에도 적합합니다. AI는 먼저 여기에서 페이지 루트 클래스와 해당 레시피를 선택한 다음 전체 페이지 CSS를 처음부터 구성하는 대신 구성 요소를 채워야 합니다.
             </p>
+<div class="g-card g-p-4"><h3>32 솔루션: 변형 및 매개변수</h3><p>모든 페이지 조합은 콤팩트하고, 편안하고, 박스형이고, 넓고, 유동적이며, 평면적이며 윤곽선이 있는 변형을 지원합니다. SolutionDensity,solutionWidth,solutionSurface,solutionColumns,solutionSidebar,solutionHero,solutionSticky를 통해 밀도, 페이지 너비, 카드 열 수, 사이드바 및 첫 번째 화면 배열을 구성합니다. CSS는 data-g-solution-* 속성을 사용합니다. Vue/React는 구성을 사용합니다. AngularJS는 gardener-config를 사용합니다. Blazor는 Config를 사용합니다. 정확한 치수를 보려면 --g-solution-* 사용자 정의 속성을 사용하십시오.</p><p>컴팩트 카드 패딩 12px, 기본 텍스트 14px / 22px, 첫 번째 화면 제목 28–48px; 좁은 화면은 단일 열로 리플로우되며 탐색 및 보조 콘텐츠를 유지합니다. 주문, 로그인 및 업계 비즈니스 인터페이스는 애플리케이션을 통해 액세스됩니다.</p><p><a href="../../docs/solution/README.md">전체 매개변수 및 5단자 예시</a> · <a href="../../docs/solution/inventory.json">32개 항목별 목록</a> · <a href="../../docs/overlay/README.md">6개의 부동 레이어 매개변수 및 비동기 확인</a></p></div>
             <div class="g-flex g-flex-wrap g-gap-2 g-mt-4">
               <span class="g-badge">32페이지 전체</span
               ><span class="g-badge">총 52가지 레시피</span
@@ -7682,7 +8544,9 @@ npm run test:net11</code></pre>
                     <span class="g-solution-stat-label">사이트</span
                     ><strong class="g-solution-stat-value">28,640</strong
                     ><small class="g-text-success">↑ 12.4%</small>
-                  </section>
+
+
+</section>
                   <section class="g-dashboard-panel g-solution-stat">
                     <span class="g-solution-stat-label">페이지</span
                     ><strong class="g-solution-stat-value">486k</strong
@@ -8135,11 +8999,11 @@ npm run test:net11</code></pre>
               >
               15개 세트의 부정적인 계약 테스트를 계속 수행하고 교차 매니페스트 참조, 소스 코드 및 빌드 아티팩트 일관성, 선택기, 실제 구성 요소 속성, SHA-256/SRI 무결성, 재현 가능한 빌드 명령, 모듈 유형/매개변수/서명, 인스턴스 멤버, 데이터 속성, 이벤트 페이로드, 어댑터, 유형 및 릴리스 스크립트, 호환성 기준, 빌드 아카이브, 42개의 절대 및 상대 예산 아티팩트, 예산 결과, 버전 및 전체 패키지를 확인합니다. 수출.
             </p>
-            <h3>모듈 16개 모두 내보내기</h3>
+            <h3>19개 모듈 모두 내보내기</h3>
             <div class="docs-runtime-grid" id="public-module-grid">
               <span class="docs-status">모듈 인터페이스 읽기...</span>
             </div>
-            <h3>모든 72개 동작 및 인스턴스 멤버</h3>
+            <h3>모든 96개 동작 및 인스턴스 멤버</h3>
             <p>
               각 항목에는 선언적 초기화 속성이 나열되어 있으며,
               <code>getInstance()</code> 호출이 허용된 개체의 모든 구성원을 반환합니다.
@@ -8147,7 +9011,7 @@ npm run test:net11</code></pre>
             <div class="docs-runtime-grid" id="public-behavior-grid">
               <span class="docs-status">행동계약 읽기...</span>
             </div>
-            <h3>전체 79개 이벤트 및 페이로드</h3>
+            <h3>전체 105개 이벤트 및 페이로드</h3>
             <p>
               각 항목 전체를 나열합니다.
               <code>CustomEvent.detail</code> ; 이벤트가 발생하고 취소될 수 있습니다.
@@ -8159,7 +9023,7 @@ npm run test:net11</code></pre>
             </div>
             <h3>모든 런타임 데이터 속성</h3>
             <p>
-              작성자가 사용할 수 있는 331개 속성은 위 동작 계약의 동작 항목 72개, 구조/동작 선택기 178개, 추가 구성 속성 81개로 나뉩니다. 런타임에 의해 유지되는 29개의 상태 속성도 있습니다. 상태 속성은 초기 구성과 동시에 읽을 수 있지만 작성자가 사용할 수 있는 처음 세 세트는 상호 배타적이며 이중으로 계산되지 않습니다.
+              작성자가 사용할 수 있는 896개의 속성에는 96개의 동작 항목, 578개의 구조/동작 선택기 및 230개의 추가 구성 속성이 포함됩니다. 런타임에 의해 유지되는 230개의 상태 속성도 있습니다. 처음 세 그룹은 상호 배타적이므로 두 번 계산되지 않습니다.
             </p>
             <h4>구조 및 동작 선택기</h4>
             <div class="docs-runtime-grid" id="public-selector-attribute-grid">
@@ -8185,7 +9049,7 @@ npm run test:net11</code></pre>
               매니페스트의 사양 필드는 다음과 같습니다. <code>behaviors</code>. 오래된 필드
               <code>runtimeBehaviors</code> 전반에 걸쳐
               <code>0.x</code> 읽기 전용 호환 별칭으로 예약된 버전 행입니다. 늙은
-              <code>metadata/schema.json</code> 계속해서 새 구성 요소 스키마를 가리킵니다. 2.1.0은 공개 계약을 Stable로 승격하고 기계가 읽을 수 있는 호환성 기준을 사용하여 0.9.0의 모든 공개 항목, 레이어, 테마, 런타임, 구성 요소 및 레시피를 저장합니다. 1.x는 호환되는 항목을 삭제하기 전에 변경 기록 및 마이그레이션 지침을 제공해야 하며 최소 두 개의 부 버전에 대한 지원 중단 기간을 거쳐야 합니다. 실제 제거는 새로운 주요 버전에서만 발생할 수 있습니다.
+              <code>metadata/schema.json</code> 은 Components Schema를 참조합니다. 2.2.0은 Stable 계약과 0.9.0 기준을 유지합니다. 삭제에는 마이그레이션, 두 마이너 버전의 예고 및 새 메이저 버전이 필요합니다.
             </p>
           </section>
 
@@ -8198,14 +9062,14 @@ npm run test:net11</code></pre>
               >에는 카테고리, 유형, 상태, 선택기, 변형, 위젯, 기능, 플랫폼, 동작, 어댑터 및 접근성 계약이 포함되어 있습니다. 아래의 동적은 선별된 목록이 아닌 모든 항목과 모든 메타데이터를 표시합니다.
             </p>
             <div class="docs-catalog-toolbar">
-              <label class="g-sr-only" for="component-search">검색 구성요소</label
+              <label class="g-sr-only" for="component-search">컴포넌트 검색</label
               ><input
                 class="g-input"
                 id="component-search"
                 type="search"
                 placeholder="이름, 카테고리, 선택기, 부품, 상태 또는 플랫폼 검색"
               /><label class="g-sr-only" for="component-category"
-                >구성요소 카테고리</label
+                >카테고리</label
               ><select class="g-select g-w-auto" id="component-category">
                 <option value="">모든 카테고리</option>
               </select>
@@ -8320,7 +9184,7 @@ Gardenerim.toast({
             </p>
             <h3>런타임 시 액세스 제어 테스트(0.4.0부터)</h3>
             <p>
-              <code>npm run test:runtime</code> Node.js 내장 테스트 실행기와 Happy DOM을 사용하여 공개 목록의 모든 72개 동작에 대해 실제 인스턴스 멤버를 양방향으로 비교하고 초기화, 멱등성, 파괴 및 재초기화를 확인합니다. MutationObserver의 동적 노드, 동적 속성, 하위 트리 제거, 범위 파괴, 다중 동작 공존, 전역 파괴 및 초기화 이벤트 버블링을 다룹니다.
+              <code>npm run test:runtime</code> Node.js 내장 테스트 실행기와 Happy DOM을 사용하여 공개 목록의 모든 96개 동작에 대해 실제 인스턴스 멤버를 양방향으로 비교하고 초기화, 멱등성, 파괴 및 재초기화를 확인합니다. MutationObserver의 동적 노드, 동적 속성, 하위 트리 제거, 범위 파괴, 다중 동작 공존, 전역 파괴 및 초기화 이벤트 버블링을 다룹니다.
             </p>
             <div class="docs-callout">
               런타임 동작이 추가되거나 이름이 바뀌면 공개 API, 샘플/보조 고정 장치 및 동작별 테스트를 동기화해야 합니다. 그렇지 않으면 고정 장치, 인스턴스 또는 멤버 누락으로 인해 테스트가 실패합니다.
@@ -8431,20 +9295,20 @@ contextBridge.exposeInMainWorld(&quot;gardenerDesktop&quot;, {
           <section class="docs-section" id="targeted-builds">
             <h2>주문형 빌드, 유형, 버전 간 호환성 및 릴리스 액세스</h2>
             <p>
-              <code>2.1.0</code> 5개의 플랫폼, 28개의 구성 요소 패키지, 공식 압축 및 성능 예산을 이전 버전의 측정된 기준으로 롤업하고 공개 계약을 Stable로 업그레이드하여 유형, 버전 간 호환성 및 실제 npm 릴리스 패키지 액세스를 계속 유지합니다.<a
+              <code>2.2.0</code> 은 5개 플랫폼, 28개 팩과 성능 예산을 고정된 과거 기준과 비교하며 Stable 계약, 타입, 호환성과 npm 패키지 검증을 유지합니다.<a
                 href="../../packages/css/dist/gardener.builds.json"
                 ><code>gardener.builds.json</code></a
-              >모든 42개 프로덕션 아티팩트에 대해 플랫폼 프로필 5개, 구성 요소 패키지 28개, 하나 이상의 실제 소유 패키지에 대한 구성 요소 매핑 506개, 선택기 서명, 브라우저 대상, 빌더 매개변수 및 SHA-256/SRI를 모두 등록했습니다.<a
+              >모든 42개 프로덕션 아티팩트에 대해 플랫폼 프로필 5개, 구성 요소 패키지 28개, 하나 이상의 실제 소유 패키지에 대한 구성 요소 매핑 575개, 선택기 서명, 브라우저 대상, 빌더 매개변수 및 SHA-256/SRI를 모두 등록했습니다.<a
                 href="../../packages/css/dist/gardener.performance.json"
                 ><code>gardener.performance.json</code></a
               >각 공식 빌드의 raw, gzip, Brotli, 압축 비율 및 npm 패키지 볼륨 결과를 저장합니다.
             </p>
             <h3>TypeScript는 버전 간 호환됩니다.</h3>
             <p>
-              빌드는 공개 API에서 자동으로 생성됩니다. <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> 그리고 <code>gardener.electron.d.ts</code>. 72개의 행동과 79개의 이벤트가 완전한 리터럴 결합 유형을 형성합니다.<code>npm run test:types</code> TypeScript 엄격 모드를 사용하여 기본 및 명명된 내보내기, 동작 팩토리, 알림, 인스턴스 쿼리 및 두 가지 유형의 데스크톱 브리지를 다루는 실제 소비자를 컴파일합니다.
+              빌드는 공개 API에서 자동으로 생성됩니다. <code>gardener.d.ts</code>、<code>gardener.tauri.d.ts</code> 그리고 <code>gardener.electron.d.ts</code>. 96개의 행동과 105개의 이벤트가 완전한 리터럴 결합 유형을 형성합니다.<code>npm run test:types</code> TypeScript 엄격 모드를 사용하여 기본 및 명명된 내보내기, 동작 팩토리, 알림, 인스턴스 쿼리 및 두 가지 유형의 데스크톱 브리지를 다루는 실제 소비자를 컴파일합니다.
             </p>
             <p>
-              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> 47개의 패키지 항목, CSS 레이어, 테마, 런타임, 데이터 속성, 어댑터, 506개의 구성 요소 및 52개의 레시피를 모두 포함하여 0.9.0에서 상속된 1,145개의 계약이 강화되었습니다.<code>npm run verify:compatibility</code> 마이그레이션 경로 없이 후속 1.x 추가를 허용하고 삭제를 금지합니다. 2.1.0 안정 컷오프 지점에서는 기존 항목도 역으로 검사되어 누락되었는지 확인합니다. 더 이상 사용되지 않는 항목은 두 개 이상의 부 버전에 남아 있으며 새 주요 버전에서만 제거할 수 있습니다. 닫힌 구조는 다음과 같이 구성됩니다. <a href="../../packages/css/metadata/compatibility.schema.json">호환성 스키마</a> 제약.
+              <a href="../../packages/css/dist/gardener.compatibility.json"><code>gardener.compatibility.json</code></a> 은 0.9.0의 1,145개 계약을 보존합니다. 진입점 47개, CSS 계층, 테마, 런타임, 속성, 어댑터, 기존 컴포넌트 506개와 레시피 52개를 포함합니다.<code>npm run verify:compatibility</code> 은 호환되는 추가를 허용합니다. 2.2.0은 배포된 v2.1.0과도 비교합니다. 삭제에는 마이그레이션, 두 마이너 버전의 예고 및 새 메이저 버전이 필요합니다. 구조 정의: <a href="../../packages/css/metadata/compatibility.schema.json">호환성 스키마</a> 제약.
             </p>
             <p>
               패키지는 Node.js &gt;=18.18, Chrome/Edge/Firefox 100+, Safari/iOS 15.4+ 및 ESM을 명시적으로 지원합니다. 메인 포털 및 데스크탑 어댑터는 조건을 제공합니다 <code>types</code> 내보내기. 런타임 자동 초기화는 다음과 같이 표시됩니다. <code>sideEffects</code>패키저에 의한 실수로 삭제되는 것을 방지합니다.<code>npm run verify:package</code> 실제 npm 패키지 화이트리스트, 각 내보내기 대상, 유형 파일, 개발 디렉터리 누출 및 Publint를 확인합니다.<code>prepublishOnly</code> 시행 완료 <code>release:verify</code>, 공개 패키지 및 npm 출처를 활성화합니다.
@@ -8477,7 +9341,7 @@ npm run build:platform -- --platform tauri --out dist/custom/tauri-app</code></p
               <code>layouts</code>、<code>regions</code>、<code>primitives</code>、<code>grid</code>、<code>basic</code>、<code>forms</code>、<code>form-compositions</code>、<code>navigation</code>、<code>navigation-compositions</code>、<code>feedback</code>、<code>data</code>、<code>data-compositions</code>、<code>selection-compositions</code>、<code>content-compositions</code>、<code>auth-compositions</code>、<code>commerce-compositions</code>、<code>mobile-compositions</code>、<code>extended</code>、<code>page</code>、<code>help</code>、<code>recipes</code>、<code>desktop</code>、<code>desktop-compositions</code>、<code>solution-compositions</code>、<code>catalog</code>、<code>ai</code>、<code>ai-extended</code>、<code>ai-compositions</code>。
             </div>
             <p>
-              <code>./component/*.css</code> 위의 모든 공식 압축 패키지 내보내기를 표준화하고,<code>./component/*</code> 호환 가능한 별칭으로 예약되어 있습니다. 구성 요소 이름으로 빌드하는 경우 빌더는 클래스 선택기에 따라 달라지며 <code>data-g-*</code> 속성에 대한 실제 소스 코드 적중은 개별 선택기를 자르는 대신 506개의 구성 요소를 하나 이상의 완전한 소속 패키지로 확인하므로 의사 클래스, 상태, 애니메이션, 하위 부분, 컨테이너 쿼리 및 종속성 규칙이 손실되지 않습니다.
+              <code>./component/*.css</code> 위의 모든 공식 압축 패키지 내보내기를 표준화하고,<code>./component/*</code> 호환 가능한 별칭으로 예약되어 있습니다. 구성 요소 이름으로 빌드하는 경우 빌더는 클래스 선택기에 따라 달라지며 <code>data-g-*</code> 속성에 대한 실제 소스 코드 적중은 개별 선택기를 자르는 대신 575개의 구성 요소를 하나 이상의 완전한 소속 패키지로 확인하므로 의사 클래스, 상태, 애니메이션, 하위 부분, 컨테이너 쿼리 및 종속성 규칙이 손실되지 않습니다.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>npm run build:custom -- --components button,card,dialog --out dist/custom/account-ui
@@ -8496,22 +9360,22 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
             </p>
             <h3>공식적인 압축 및 성과 예산</h3>
             <p>
-              정식 CSS 및 JavaScript는 일반 교체를 사용하지 않고 구문 수준 압축을 위해 esbuild를 사용합니다. 기본 압축 항목과 각 사용자 지정 빌드는 추적 가능한 외부 소스 맵을 생성합니다. 압축된 CSS는 순수한 버전 텍스트가 Brotli 기준을 방해하지 않도록 버전에 따라 변경되지 않는 안정적인 MIT 배너를 사용합니다. 압축되지 않은 CSS와 런타임은 여전히 ​​정확한 버전을 제공합니다.<code>npm run budget</code> gzip 레벨 9 및 Brotli 품질 11을 사용하여 42개 공식 압축 제품 전체에 대해 raw, gzip 및 Brotli를 동시에 계산하고 전체 CSS, Runtime 및 Brotli의 압축 비율을 확인합니다. <code>npm pack --dry-run</code> 압축, 압축 해제 및 반환된 파일 수입니다. 2.1.0은 봉인된 버전 2.0.0의 실제 측정 결과를 즉각적인 기준으로 사용하여 각 제품의 원시 성장을 2% 이하, gzip/Brotli를 3% 이하, npm 패키지를 3% 이하, 압축을 푼 경우 2% 이하, 파일 수를 10% 이하로 제한합니다. 5가지 플랫폼 제품은 모두 직접적인 역사적 기준을 가지고 있습니다. 포함 볼륨 측정값은 압축된 4KiB 및 압축되지 않은 64KiB로 반올림되어 실제 포함 볼륨을 과소평가하지 않고 성능 보고서의 자체 포함 압축 주기에 영향을 받지 않는 결정론적 상한을 형성합니다. 절대 한도 또는 상대적 한도가 실패하면 릴리스가 차단됩니다.
+              정식 CSS 및 JavaScript는 일반 교체를 사용하지 않고 구문 수준 압축을 위해 esbuild를 사용합니다. 기본 압축 항목과 각 사용자 지정 빌드는 추적 가능한 외부 소스 맵을 생성합니다. 압축된 CSS는 순수한 버전 텍스트가 Brotli 기준을 방해하지 않도록 버전에 따라 변경되지 않는 안정적인 MIT 배너를 사용합니다. 압축되지 않은 CSS와 런타임은 여전히 ​​정확한 버전을 제공합니다.<code>npm run budget</code> gzip 레벨 9 및 Brotli 품질 11을 사용하여 42개 공식 압축 제품 전체에 대해 raw, gzip 및 Brotli를 동시에 계산하고 전체 CSS, Runtime 및 Brotli의 압축 비율을 확인합니다. <code>npm pack --dry-run</code> 압축, 압축 해제 및 반환된 파일 수입니다. 2.2.0은 폐쇄 버전 2.0.0의 실제 측정 결과를 즉각적인 기준으로 삼습니다. 기본 전략은 raw의 성장이 2%를 초과하지 않고 gzip/Brotli의 성장이 3%를 초과하지 않는 것입니다. 이 구성요소 확장에 대한 고정된 예외 및 측정 기준은 다음 문서에 문서화되어 있습니다. <a href="../../docs/solution/budget-review.json">예산-검토.json</a>; 예외에는 여전히 제품별 절대 및 상대 한도가 적용되며, 건설로 인해 예산이 자동으로 증가하지 않습니다. 다섯 가지 플랫폼 제품 모두 직접적인 과거 기준선을 가지고 있습니다. 포함 볼륨 측정값은 압축된 4KiB 및 압축되지 않은 64KiB로 반올림되어 실제 포함 볼륨을 과소평가하지 않고 성능 보고서의 자체 포함 압축 주기에 영향을 받지 않는 결정론적 상한을 형성합니다. 절대 한도 또는 상대적 한도가 실패하면 릴리스가 차단됩니다.
             </p>
             <div class="docs-table-wrap">
               <table class="docs-table">
                 <thead><tr><th>통제 대상 제품</th><th>원시 상한</th><th>gzip 상한</th><th>브로틀리 상한</th></tr></thead>
                 <tbody>
-                  <tr><td>gardener.min.css</td><td>1,050,000B</td><td>145,000B</td><td>65,000B</td></tr>
+                  <tr><td>gardener.min.css</td><td>1,969,000B</td><td>275,000B</td><td>160,000B</td></tr>
                   <tr><td>gardener.core.min.css</td><td>65,000B</td><td>9,000B</td><td>6,000B</td></tr>
                   <tr><td>gardener.themes.min.css</td><td>60,000B</td><td>7,500B</td><td>5,000B</td></tr>
                   <tr><td>gardener.utilities.min.css</td><td>550,000B</td><td>80,000B</td><td>18,000B</td></tr>
-                  <tr><td>gardener.comComponents.min.css</td><td>400,000B</td><td>55,000B</td><td>42,000B</td></tr>
-                  <tr><td>gardener.ai.min.css</td><td>30,000B</td><td>6,000B</td><td>5,000B</td></tr>
-                  <tr><td>gardener.runtime.min.js</td><td>120,000B</td><td>34,000B</td><td>30,000B</td></tr>
-                  <tr><td>플랫폼/web.min.css</td><td>1,000,000B</td><td>140,000B</td><td>60,000B</td></tr>
-                  <tr><td>플랫폼/mobile.min.css</td><td>1,020,000B</td><td>142,000B</td><td>62,000B</td></tr>
-                  <tr><td>플랫폼/desktop.min.css</td><td>1,030,000B</td><td>143,000B</td><td>63,000B</td></tr>
+                  <tr><td>gardener.comComponents.min.css</td><td>1,332,000B</td><td>185,200B</td><td>135,000B</td></tr>
+                  <tr><td>gardener.ai.min.css</td><td>43,000B</td><td>7,100B</td><td>6,300B</td></tr>
+                  <tr><td>gardener.runtime.min.js</td><td>276,000B</td><td>77,500B</td><td>66,000B</td></tr>
+                  <tr><td>플랫폼/web.min.css</td><td>1,873,000B</td><td>262,000B</td><td>149,000B</td></tr>
+                  <tr><td>플랫폼/mobile.min.css</td><td>1,910,000B</td><td>267,000B</td><td>154,000B</td></tr>
+                  <tr><td>플랫폼/desktop.min.css</td><td>1,932,000B</td><td>270,000B</td><td>154,000B</td></tr>
                   <tr><td>플랫폼/tauri.min.css</td><td>256B</td><td>256B</td><td>256B</td></tr>
                   <tr><td>플랫폼/electron.min.css</td><td>256B</td><td>256B</td><td>256B</td></tr>
                 </tbody>
@@ -8521,7 +9385,7 @@ npm run build:custom -- --packs ai,ai-extended,ai-compositions --out dist/custom
               위 표에는 12개의 주요 CSS/런타임 항목이 나열되어 있습니다. 또한 예산 문서에는 단일 제품 검사를 대체하기 위한 일반 공유 한도를 사용하지 않고 데스크톱 어댑터 2개, 구성 요소 패키지 28개, 공식 압축 제품 총 42개에 대한 적용 범위가 항목화되어 있습니다.
             </p>
             <p>
-              npm 패키지 예산은 압축 시 2,050,000B, 압축 해제 시 16,500,000B, 최대 93개 파일입니다. 예산 출처 <a href="../../packages/css/config/performance-budgets.json"><code>performance-budgets.json</code></a> 관리 및 별도 적용 <a href="../../packages/css/metadata/performance-budgets.schema.json">예산 스키마</a> 그리고 <a href="../../packages/css/metadata/performance-report.schema.json">보고서 스키마</a> 보호.
+              npm 패키지 예산은 압축 시 4,350,000B, 압축 해제 시 30,000,000B, 최대 127개 파일입니다. 예산 출처 <a href="../../packages/css/config/performance-budgets.json"><code>performance-budgets.json</code></a> 관리 및 별도 적용 <a href="../../packages/css/metadata/performance-budgets.schema.json">예산 스키마</a> 그리고 <a href="../../packages/css/metadata/performance-report.schema.json">보고서 스키마</a> 보호.
             </p>
             <div class="docs-code-wrap">
               <pre class="site-code"><code>npm run build       # 전체 계층형 구성 요소 패키지 28개 및 플랫폼 파일 5개
@@ -8530,7 +9394,7 @@ npm run budget      # 42 프로덕션을 위한 절대/상대 예산 게이트�
 npm run verify:compatibility # 1,145 항목 0.9.0 공개 계약
 npm run test:types # TypeScript 엄격한 소비자 검증
 npm run verify:package # npm 화이트리스트, 내보내기 대상 및 Publint
-npm run test:build  # 10 빌드, 호환성, 유형, 릴리스 및 실패 경로 사용 사례</code></pre>
+npm run test:build  # 11 빌드, 호환성, 유형, 릴리스 및 실패 경로 사용 사례</code></pre>
             </div>
           </section>
 
@@ -8589,12 +9453,12 @@ npm run test:build  # 10 빌드, 호환성, 유형, 릴리스 및 실패 경로 
               </li>
               <li>모바일 터치 대상은 최소 약 44px의 터치 밀도를 사용합니다.</li>
             </ul>
-            <h3>2.1.0 자동화된 테스트 매트릭스</h3>
+            <h3>2.2.0 자동화된 테스트 매트릭스</h3>
             <div
               class="g-table-wrap"
               tabindex="0"
               role="region"
-              aria-label="2.1.0 자동화된 테스트 매트릭스"
+              aria-label="2.2.0 자동화된 테스트 매트릭스"
             >
               <table class="g-table">
                 <thead>
@@ -8609,21 +9473,21 @@ npm run test:build  # 10 빌드, 호환성, 유형, 릴리스 및 실패 경로 
                   <tr>
                     <td><code>test:build</code></td>
                     <td>Node.js + esbuild + Ajv</td>
-                    <td>10</td>
+                    <td>11</td>
                     <td>플랫폼 경계, 실제 구성요소 소유권, 공식 압축, 소스 맵, SHA-256/SRI, 재현 가능한 빌드, 절대/상대 예산, 유형, 호환성 기준, 지원 정책, 사용자 정의 빌드, 실패 경로 및 npm 패키지 설치 해결</td>
                   </tr>
                   <tr>
                     <td><code>test:browser</code></td>
                     <td>데스크탑 Chromium + WebKit</td>
-                    <td>48</td>
+                    <td>172</td>
                     <td>
-                      전체 21개 예, 홈 랜딩 페이지 및 문서, 콘솔, 요청, 스타일, 수평 오버플로, 대화 상자 키보드 및 포커스 수명 주기
+                      전체 56개 예, 홈 랜딩 페이지 및 문서, 콘솔, 요청, 스타일, 수평 오버플로, 대화 상자 키보드 및 포커스 수명 주기
                     </td>
                   </tr>
                   <tr>
                     <td><code>test:browser:firefox</code></td>
                     <td>데스크탑 Firefox</td>
-                    <td>24</td>
+                    <td>86</td>
                     <td>
                       데스크톱 기본 액세스와 동일합니다. Playwright Firefox 시스템 런타임을 사용하여 호스트 또는 CI에서 실행됨
                     </td>
@@ -8631,25 +9495,25 @@ npm run test:build  # 10 빌드, 호환성, 유형, 릴리스 및 실패 경로 
                   <tr>
                     <td><code>test:mobile</code></td>
                     <td>화소 7 Chromium + 아이폰 13 WebKit</td>
-                    <td>52</td>
+                    <td>124</td>
                     <td>
-                      전체 21개 예시, 홈 랜딩 페이지 및 설명서, 리플로우, 44px 터치 대상, 바텀 시트, 320px 좁은 화면 및 가로 화면
+                      전체 56개 예시, 홈 랜딩 페이지 및 설명서, 리플로우, 44px 터치 대상, 바텀 시트, 320px 좁은 화면 및 가로 화면
                     </td>
                   </tr>
                   <tr>
                     <td><code>test:a11y</code></td>
                     <td>Chromium+Axe</td>
-                    <td>25</td>
+                    <td>61</td>
                     <td>
-                      WCAG 2 A/AA, 2.1 A/AA, 2.2 AA, 키보드, 포커스, RTL, 감소된 동작, 강제 색상의 21개 예 및 홈 2페이지
+                      WCAG 2 A/AA, 2.1 A/AA, 2.2 AA, 키보드, 포커스, RTL, 감소된 동작, 강제 색상의 56개 예 및 홈 2페이지
                     </td>
                   </tr>
                   <tr>
                     <td><code>test:html</code></td>
                     <td>파싱5</td>
-                    <td>24</td>
+                    <td>59</td>
                     <td>
-                      21개 예, 홈 및 문서 구문 분석, 중복 ID, ARIA 참조, 언어, 제목, 뷰포트 및 목록
+                      56개 예, 홈 및 문서 구문 분석, 중복 ID, ARIA 참조, 언어, 제목, 뷰포트 및 목록
                     </td>
                   </tr>
                 </tbody>
@@ -8658,17 +9522,17 @@ npm run test:build  # 10 빌드, 호환성, 유형, 릴리스 및 실패 경로 
             <div class="docs-code-wrap">
               <pre
                 class="site-code"
-              ><code>npm run test:html             # 24 HTML 구조 사용 사례
-npm run test:browser          # Chromium + WebKit，48 데스크탑 사용 사례
-npm run test:browser:firefox  # Firefox 독립형 액세스 제어, 24가지 데스크탑 사용 사례
-npm run test:browser:all      # Chromium + Firefox + WebKit，72 데스크탑 사용 사례
-npm run test:mobile           # Pixel 7 + iPhone 13，52 모바일 사용 사례
-npm run test:a11y             # Axe、키보드 및 환경 매트릭스, 25가지 사용 사례
+              ><code>npm run test:html             # 59 HTML 구조 사용 사례
+npm run test:browser          # Chromium + WebKit，172 데스크탑 사용 사례
+npm run test:browser:firefox  # Firefox 독립형 액세스 제어, 86가지 데스크탑 사용 사례
+npm run test:browser:all      # Chromium + Firefox + WebKit，258 데스크탑 사용 사례
+npm run test:mobile           # Pixel 7 + iPhone 13，124 모바일 사용 사례
+npm run test:a11y             # Axe、키보드 및 환경 매트릭스, 61가지 사용 사례
 npm run test:e2e              # 기본 125개 실제 브라우저 사용 사례
 npm run test:types            # TypeScript 엄격한 소비자 접근 통제
 npm run verify:compatibility  # 1,145 항목 0.9.0 호환 기준선
 npm run verify:package        # npm 파일, 내보내기 및 공개
-npm test                      # 311 기본 자동화 사용 사례 및 모든 정적, 계약, 유형, 호환, 릴리스, 재현 가능 및 예산 게이트</code></pre>
+npm test                      # 모든 자동 테스트 및 정적 검사, 계약, 타입, 호환성, 패키지, 재현성, 예산 게이트</code></pre>
             </div>
             <div class="docs-callout">
               Axe Gate blocks all violations detected by the selected WCAG A/AA rules, passes them without downgrade by impact, and outputs the rule, node selector, HTML, and remediation summary. Automation cannot replace human screen reader testing; production products should still use NVDA/JAWS/VoiceOver for mission-critical walkthroughs.
@@ -8732,9 +9596,9 @@ npm run verify:compatibility # 0.9.0 버전 간 공개 계약 기준
 npm run test:types # TypeScript 엄격한 소비자 검증
 npm run verify:package # npm 파일, 내보내기 대상 및 공개
 npm run test:schema # Ajv 2020-12 11개의 스키마 세트 확인
-npm run test:build # 10 빌드, 유형, 호환성, 릴리스 및 실패 경로 사용 사례
+npm run test:build # 11 빌드, 유형, 호환성, 릴리스 및 실패 경로 사용 사례
 npm run contracts  # Schema、공개 API, 이름 지정 및 교차 매니페스트 계약
-npm run test:runtime # 72 동작 및 DOM 수명주기
+npm run test:runtime # 96 동작 및 DOM 수명주기
 npm run test:html   # 홈의 예시 및 HTML 구조
 npm run check      # 테마, 구성 요소, 런타임 및 매니페스트 일관성
 npm run audit      # Token、대비, 패킷 경계, 내보내기 및 버전
@@ -8772,7 +9636,7 @@ node website/scripts/check-coverage.mjs  # 문서 누락 제로 검증</code></p
       <aside class="docs-toc" aria-label="이 페이지의 목차">
         <strong>이 페이지의 목차</strong>
         <nav>
-          <a href="#quick-start">빠른 시작</a><a href="#installation">설치 및 패키지</a
+          <a href="#quick-start">빠른 시작</a><a href="#component-demos">컴포넌트 데모</a><a href="#installation">설치 및 패키지</a
           ><a href="#vue">Vue 3 프로젝트</a
           ><a href="#react">React 프로젝트</a
           ><a href="#angular">AngularJS 프로젝트</a
@@ -8808,12 +9672,12 @@ node website/scripts/check-coverage.mjs  # 문서 누락 제로 검증</code></p
     <footer class="site-footer">
       <div class="site-container">
         <div class="site-footer-bottom">
-          <span>Gardenerim v2.1.0 · MIT 라이센스</span
+          <span>Gardenerim v2.2.0 · MIT 라이센스</span
           ><a href="./index.html">홈페이지로 돌아가기</a>
         </div>
       </div>
     </footer>
     <script src="../assets/file-i18n.js"></script>
-    <script type="module" src="../assets/site.js?v=2.1.0"></script>
+    <script type="module" src="../assets/site.js?v=2.2.0-f3c9a03abf"></script>
   </body>
 </html>

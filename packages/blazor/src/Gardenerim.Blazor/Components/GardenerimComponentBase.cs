@@ -31,6 +31,10 @@ public abstract class GardenerimComponentBase : ComponentBase, IAsyncDisposable
     [Parameter] public IReadOnlyList<string>? States { get; set; }
     [Parameter] public IReadOnlyDictionary<string, object?>? Config { get; set; }
     [Parameter] public bool Initialize { get; set; } = true;
+    [Parameter] public GardenerimTableOptions? Table { get; set; }
+    private static readonly JsonSerializerOptions TableJson = new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase, DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull };
+    [Parameter] public GardenerimNavigationOptions? Navigation { get; set; }
+    [Parameter] public Func<JsonElement, Task<bool>>? BeforeNavigationChange { get; set; }
     [Parameter] public object? Value { get; set; }
     [Parameter] public EventCallback<object?> ValueChanged { get; set; }
     [Parameter] public string ValueEvent { get; set; } = "gardener:change";
@@ -54,62 +58,64 @@ public abstract class GardenerimComponentBase : ComponentBase, IAsyncDisposable
     protected override void BuildRenderTree(RenderTreeBuilder builder)
     {
         var definition = Definition;
-        var tag = string.IsNullOrWhiteSpace(As) ? definition.DefaultTag : As;
-        var sequence = 0;
-        builder.OpenElement(sequence++, tag!);
+        var tag = Navigation is not null || Table is not null ? "div" : string.IsNullOrWhiteSpace(As) ? definition.DefaultTag : As;
+        // Sequence numbers identify source locations and must not shift with optional attributes.
+        builder.OpenElement(0, tag!);
         if (AdditionalAttributes is not null)
         {
-            builder.AddMultipleAttributes(sequence++, AdditionalAttributes);
+            builder.AddMultipleAttributes(1, AdditionalAttributes);
         }
 
-        Add(builder, ref sequence, "id", Id);
-        Add(builder, ref sequence, "style", BuildStyle());
-        builder.AddAttribute(sequence++, "class", BuildClass(definition));
+        Add(builder, 2, "id", Id);
+        Add(builder, 3, "style", BuildStyle());
+        builder.AddAttribute(4, "class", Navigation is not null || Table is not null ? Class : BuildClass(definition));
 
-        if (Initialize)
+        if (Initialize && Navigation is null)
         {
             foreach (var behavior in RuntimeBehaviors)
             {
-                builder.AddAttribute(sequence++, $"data-g-{ToKebab(behavior)}", string.Empty);
+                builder.AddAttribute(5, $"data-g-{ToKebab(behavior)}", string.Empty);
             }
         }
 
         foreach (var pair in Config ?? EmptyConfig)
         {
-            if (pair.Value is null or false)
+            if (pair.Value is null || pair.Value is false && !DataAttributeName(pair.Key).StartsWith("data-g-form-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-overlay-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-disclosure-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-data-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-dashboard-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-interaction-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-content-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-layout-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-help-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-ai-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-media-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-auth-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-mobile-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-workflow-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-communication-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-solution-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-legal-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-desktop-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-enterprise-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-marketing-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-cms-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-commerce-", StringComparison.Ordinal))
             {
                 continue;
             }
 
-            builder.AddAttribute(sequence++, DataAttributeName(pair.Key), pair.Value is true ? string.Empty : FormatConfigValue(pair.Value));
+            builder.AddAttribute(6, DataAttributeName(pair.Key), pair.Value is true && !DataAttributeName(pair.Key).StartsWith("data-g-form-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-data-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-dashboard-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-interaction-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-content-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-layout-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-help-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-ai-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-media-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-auth-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-mobile-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-workflow-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-communication-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-solution-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-legal-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-desktop-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-enterprise-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-marketing-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-cms-", StringComparison.Ordinal) && !DataAttributeName(pair.Key).StartsWith("data-g-commerce-", StringComparison.Ordinal) ? string.Empty : FormatConfigValue(pair.Value));
         }
 
         var inputType = AttributeValue("type");
         if (string.Equals(tag, "button", StringComparison.OrdinalIgnoreCase) && inputType is null)
         {
-            builder.AddAttribute(sequence++, "type", "button");
+            builder.AddAttribute(7, "type", "button");
         }
 
         if (Value is not null)
         {
             if (string.Equals(tag, "input", StringComparison.OrdinalIgnoreCase) && string.Equals(inputType, "checkbox", StringComparison.OrdinalIgnoreCase) && Value is bool isChecked)
             {
-                builder.AddAttribute(sequence++, "checked", isChecked);
+                builder.AddAttribute(8, "checked", isChecked);
             }
             else
             {
-                builder.AddAttribute(sequence++, "value", Value);
+                builder.AddAttribute(8, "value", Value);
             }
         }
 
-        if (ValueChanged.HasDelegate || OnValueChange.HasDelegate)
+        if ((ValueChanged.HasDelegate || OnValueChange.HasDelegate) &&
+            (string.Equals(tag, "input", StringComparison.OrdinalIgnoreCase) || string.Equals(tag, "select", StringComparison.OrdinalIgnoreCase) || string.Equals(tag, "textarea", StringComparison.OrdinalIgnoreCase)))
         {
             var eventAttribute = UsesChangeEvent(tag, inputType) ? "onchange" : "oninput";
-            builder.AddAttribute(sequence++, eventAttribute, EventCallback.Factory.Create<ChangeEventArgs>(this, HandleNativeValueAsync));
+            builder.AddAttribute(9, eventAttribute, EventCallback.Factory.Create<ChangeEventArgs>(this, HandleNativeValueAsync));
         }
 
-        builder.AddElementReferenceCapture(sequence++, reference => Element = reference);
-        builder.AddContent(sequence++, ChildContent);
+        if (Table is not null && Initialize) builder.AddAttribute(12, "data-g-table-options", JsonSerializer.Serialize(Table, TableJson));
+        builder.AddElementReferenceCapture(10, reference => Element = reference);
+        if (Navigation is null && Table is null) builder.AddContent(11, ChildContent);
         builder.CloseElement();
     }
 
@@ -124,7 +130,10 @@ public abstract class GardenerimComponentBase : ComponentBase, IAsyncDisposable
         _receiver ??= DotNetObjectReference.Create(this);
         try
         {
-            await Runtime.MountAsync(Element, Initialize, NormalizeEvent(ValueEvent), ValueKey, ValueChanged.HasDelegate || OnValueChange.HasDelegate, EventNames ?? [], PreventDefaultEvents ?? [], ValueChanged.HasDelegate || OnValueChange.HasDelegate || OnEvent.HasDelegate ? _receiver : null);
+            if (Navigation is not null)
+                await Runtime.MountNavigationAsync(Element, Definition.Name, Navigation, Value, ValueChanged.HasDelegate || OnValueChange.HasDelegate, BeforeNavigationChange is not null, _receiver);
+            else
+                await Runtime.MountAsync(Element, Initialize, NormalizeEvent(ValueEvent), ValueKey, ValueChanged.HasDelegate || OnValueChange.HasDelegate, EventNames ?? [], PreventDefaultEvents ?? [], ValueChanged.HasDelegate || OnValueChange.HasDelegate || OnEvent.HasDelegate ? _receiver : null);
             _mounted = true;
             _mountedSignature = signature;
         }
@@ -136,6 +145,9 @@ public abstract class GardenerimComponentBase : ComponentBase, IAsyncDisposable
         {
         }
     }
+
+    [JSInvokable]
+    public Task<bool> CanNavigate(JsonElement change) => BeforeNavigationChange?.Invoke(change) ?? Task.FromResult(true);
 
     [JSInvokable]
     public async Task NotifyGardenerimValueChanged(JsonElement? value, string eventName, JsonElement? detail)
@@ -200,6 +212,7 @@ public abstract class GardenerimComponentBase : ComponentBase, IAsyncDisposable
     private string BuildMountSignature()
     {
         var signature = new StringBuilder()
+            .Append(JsonSerializer.Serialize(Table, TableJson)).Append('|').Append(JsonSerializer.Serialize(Navigation)).Append('|').Append(JsonSerializer.Serialize(Value)).Append('|').Append(BeforeNavigationChange is not null).Append('|')
             .Append(Initialize).Append('|')
             .Append(ValueEvent).Append('|')
             .Append(ValueKey).Append('|')
@@ -233,9 +246,9 @@ public abstract class GardenerimComponentBase : ComponentBase, IAsyncDisposable
     private static string NormalizeEvent(string? value) => string.IsNullOrWhiteSpace(value) ? "gardener:change" : value.StartsWith("gardener:", StringComparison.Ordinal) ? value : $"gardener:{value}";
     private static IEnumerable<string> Tokens(string? value) => (value ?? string.Empty).Split([' ', ','], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
     private static void AddTokens(List<string> target, string? value) => target.AddRange(Tokens(value));
-    private static void Add(RenderTreeBuilder builder, ref int sequence, string name, string? value)
+    private static void Add(RenderTreeBuilder builder, int sequence, string name, string? value)
     {
-        if (!string.IsNullOrWhiteSpace(value)) builder.AddAttribute(sequence++, name, value);
+        if (!string.IsNullOrWhiteSpace(value)) builder.AddAttribute(sequence, name, value);
     }
     private static string DataAttributeName(string value)
     {

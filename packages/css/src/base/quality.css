@@ -1,0 +1,212 @@
+@layer gardener.components {
+  /* Shared component language: predictable typography, clipping and state semantics. */
+  :where([class^="g-"], [class*=" g-"]) { min-inline-size: 0; }
+  :where([class^="g-"], [class*=" g-"]) :where(img, video, canvas) { max-inline-size: 100%; }
+  :where([class^="g-"], [class*=" g-"]):is(button, a, input, select, textarea, [role="button"], [role="option"], [role="menuitem"], [role="tab"]) { -webkit-tap-highlight-color: transparent; }
+  :where([class^="g-"], [class*=" g-"]):is(button, a, [role="button"], [role="option"], [role="menuitem"], [role="tab"]):not(:disabled, [aria-disabled="true"], .is-disabled) { cursor: pointer; }
+  :where([class^="g-"], [class*=" g-"]):is(.is-disabled, [aria-disabled="true"], :disabled) { cursor: not-allowed; }
+  :where([class^="g-"], [class*=" g-"]):is(.is-loading, [aria-busy="true"]) { cursor: progress; }
+
+  /* Surfaces use one elevation and border vocabulary across simple and composed components. */
+  :where(.g-card, .g-list-group, .g-table-wrap, .g-filter-bar, .g-chart, .g-kpi, .g-form-section, .g-form-review, .g-validation-summary, .g-upload-queue, .g-help-card, .g-help-panel, .g-callout, .g-note, .g-tip, .g-metric-card, .g-data-state, .g-data-inspector, .g-query-builder, .g-product-card, .g-address-card, .g-subscription-plan, .g-auth-card, .g-payment-sheet, .g-order-summary, .g-generation-card, .g-artifact-panel, .g-ai-usage-panel, .g-desktop-panel, .g-mobile-card) {
+    border-color: var(--g-color-border);
+    background-color: var(--g-color-surface);
+    color: var(--g-color-text);
+  }
+  :where(.g-card-interactive, .g-list-item-interactive, .g-kanban-card, .g-product-card, .g-commerce-product-card, .g-address-card, .g-subscription-plan, .g-generation-card, .g-help-card, .g-recent-document, .g-media-card) {
+    transition: border-color var(--g-duration-fast), background-color var(--g-duration-fast), box-shadow var(--g-duration-normal), transform var(--g-duration-normal) var(--g-ease-standard);
+  }
+  :where(.g-card, .g-card-interactive, .g-file-drop):is(.is-disabled, [aria-disabled="true"]) { border-color: var(--g-color-disabled-border); background: var(--g-color-disabled-bg); color: var(--g-color-disabled); box-shadow: none; opacity: .72; pointer-events: none; }
+  :where(.g-card-interactive, .g-kanban-card, .g-product-card, .g-commerce-product-card, .g-address-card, .g-subscription-plan, .g-generation-card, .g-help-card, .g-recent-document, .g-media-card):is(:hover, :focus-within) {
+    border-color: color-mix(in srgb, var(--g-color-primary) 44%, var(--g-color-border));
+    box-shadow: var(--g-shadow-sm);
+  }
+  :where(.g-kanban-card, .g-product-card, .g-commerce-product-card, .g-address-card, .g-generation-card):active { transform: translateY(1px); }
+
+  /* Popup surfaces share elevated background, clipping and viewport-safe bounds. */
+  :where(.g-menu, .g-combobox-list, .g-command-palette, .g-popover, .g-date-picker, .g-time-picker-panel, .g-help-popover, .g-tooltip-rich, .g-tour, .g-mini-cart, .g-identity-switcher-menu, .g-context-menu, .g-tray-menu) {
+    border-color: var(--g-color-border);
+    background-color: var(--g-color-surface-raised);
+    box-shadow: var(--g-shadow-popup);
+  }
+  :where(.g-menu, .g-combobox-list, .g-command-results, .g-context-menu, .g-tray-menu) { max-block-size: var(--g-popup-max-height); overscroll-behavior: contain; scrollbar-gutter: stable; }
+  :where(.g-dialog-backdrop, .g-drawer-backdrop, .g-lightbox) { backdrop-filter: blur(var(--g-backdrop-blur)); }
+  :where(.g-dialog, .g-mobile-fullscreen-dialog) { box-shadow: var(--g-shadow-dialog); }
+
+  /* Interactive collections: hover, focus, selection and destructive intent. */
+  :where(.g-menu-item, .g-combobox-option, .g-tree-item, .g-list-item-interactive, .g-command-item, .g-nav-link, .g-sidebar-link, .g-tab, .g-segmented-item, .g-page-link, .g-calendar-day, .g-picker-option, .g-transfer-item, .g-file-row, .g-toolbar-item, .g-activity-item, .g-command-nav-item) {
+    transition: background-color var(--g-duration-fast), border-color var(--g-duration-fast), color var(--g-duration-fast), box-shadow var(--g-duration-fast);
+  }
+  :where(.g-menu-item, .g-combobox-option, .g-tree-item, .g-list-item-interactive, .g-command-item, .g-picker-option, .g-transfer-item, .g-file-row, .g-toolbar-item, .g-activity-item, .g-command-nav-item):is(:hover, .is-hovered):not(.is-disabled, [aria-disabled="true"]) { background-color: var(--g-color-surface-hover); }
+  :where(.g-menu-item, .g-combobox-option, .g-tree-item, .g-command-item, .g-picker-option, .g-transfer-item, .g-file-row, .g-activity-item):is(.is-selected, [aria-selected="true"], [aria-current="true"]) { background-color: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
+  :where(.g-menu-item, .g-command-item, .g-list-item, .g-file-row).is-danger { color: var(--g-color-danger); }
+  :where(.g-menu-item, .g-command-item, .g-list-item, .g-file-row).is-danger:is(:hover, :focus-visible) { background-color: var(--g-color-danger-soft); }
+
+  /* Composition-level interactive rows follow the same collection contract. */
+  :where(
+    .g-prompt-card, .g-generation-card, .g-agent-card, .g-ai-memory-item,
+    .g-conversation-item, .g-file-tree-item, .g-plan-item, .g-device-item,
+    .g-notification-item, .g-inbox-item, .g-agenda-item, .g-upload-item,
+    .g-commerce-row, .g-mini-cart-item, .g-promotion-item, .g-billing-history-item,
+    .g-product-list-item, .g-commerce-cart-item, .g-order-timeline-item,
+    .g-file-row, .g-folder-tree-item, .g-media-item, .g-content-outline-item,
+    .g-find-replace-row, .g-version-item, .g-table-row, .g-editable-grid-row,
+    .g-tree-table-row, .g-table-group-row, .g-key-value-row, .g-media-list-item,
+    .g-dense-list-item, .g-ranking-item, .g-column-chooser-item,
+    .g-desktop-menubar-item, .g-desktop-activity-item, .g-desktop-command-item,
+    .g-desktop-menu-item, .g-desktop-document-tab, .g-desktop-window-item,
+    .g-choice-card, .g-repeatable-item, .g-help-card, .g-faq-item,
+    .g-whats-new-item, .g-help-checklist-item, .g-mobile-action-item,
+    .g-mobile-category-item, .g-mobile-picker-option, .g-mobile-wheel-option,
+    .g-mobile-feed-item, .g-nav-item, .g-nav-rail-item, .g-tree-nav-row,
+    .g-command-nav-item, .g-quick-nav-item, .g-selection-item, .g-picker-option,
+    .g-transfer-option, .g-icon-picker-item, .g-cascader-option,
+    .g-solution-item, .g-notification-row, .g-public-service-item
+  ) {
+    border-radius: var(--g-radius-md);
+    transition: background-color var(--g-duration-fast), border-color var(--g-duration-fast), color var(--g-duration-fast), box-shadow var(--g-duration-fast), transform var(--g-duration-fast);
+  }
+  :where(
+    .g-prompt-card, .g-generation-card, .g-agent-card, .g-ai-memory-item,
+    .g-conversation-item, .g-file-tree-item, .g-plan-item, .g-device-item,
+    .g-notification-item, .g-inbox-item, .g-agenda-item, .g-upload-item,
+    .g-commerce-row, .g-mini-cart-item, .g-promotion-item, .g-billing-history-item,
+    .g-product-list-item, .g-commerce-cart-item, .g-order-timeline-item,
+    .g-file-row, .g-folder-tree-item, .g-media-item, .g-content-outline-item,
+    .g-find-replace-row, .g-version-item, .g-table-row, .g-editable-grid-row,
+    .g-tree-table-row, .g-key-value-row, .g-media-list-item, .g-dense-list-item,
+    .g-ranking-item, .g-column-chooser-item, .g-desktop-menubar-item,
+    .g-desktop-activity-item, .g-desktop-command-item, .g-desktop-menu-item,
+    .g-desktop-document-tab, .g-desktop-window-item, .g-choice-card,
+    .g-repeatable-item, .g-help-card, .g-faq-item, .g-whats-new-item,
+    .g-help-checklist-item, .g-mobile-action-item, .g-mobile-category-item,
+    .g-mobile-picker-option, .g-mobile-wheel-option, .g-mobile-feed-item,
+    .g-nav-item, .g-nav-rail-item, .g-tree-nav-row, .g-command-nav-item,
+    .g-quick-nav-item, .g-selection-item, .g-picker-option, .g-transfer-option,
+    .g-icon-picker-item, .g-cascader-option, .g-solution-item,
+    .g-notification-row, .g-public-service-item
+  ):is(:hover, :focus-within):not(.is-disabled, [aria-disabled="true"]) { background-color: var(--g-color-surface-hover); }
+  :where(
+    .g-conversation-item, .g-file-tree-item, .g-notification-item, .g-inbox-item,
+    .g-file-row, .g-folder-tree-item, .g-media-item, .g-version-item,
+    .g-table-row, .g-tree-table-row, .g-desktop-document-tab,
+    .g-mobile-category-item, .g-mobile-picker-option, .g-nav-item,
+    .g-nav-rail-item, .g-tree-nav-row, .g-selection-item, .g-picker-option,
+    .g-transfer-option, .g-icon-picker-item, .g-cascader-option
+  ):is(.is-active, .is-selected, [aria-current="page"], [aria-selected="true"], [aria-checked="true"]) { background-color: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
+  :where(
+    .g-auth-choice, .g-ai-command-item, .g-model-option, .g-sku-option,
+    .g-shipping-option, .g-pickup-option, .g-payment-option, .g-saved-view,
+    .g-column-chooser-item, .g-desktop-menubar-item, .g-mobile-swipe-tab,
+    .g-mobile-segmented-item, .g-mobile-picker-option, .g-rating-item,
+    .g-calendar-day, .g-vertical-tab, .g-page-link, .g-step, .g-tab
+  ):is(.is-disabled, [aria-disabled="true"], :disabled) { color: var(--g-color-disabled); opacity: .55; pointer-events: none; cursor: not-allowed; }
+
+  :where(
+    .g-prompt-card, .g-generation-card, .g-agent-card, .g-auth-card,
+    .g-file-card, .g-metric-card, .g-product-card, .g-commerce-product-card,
+    .g-address-card, .g-choice-card, .g-help-card, .g-mobile-card,
+    .g-solution-card, .g-pricing-card, .g-pricing-page-card, .g-course-card,
+    .g-event-card, .g-marketplace-card, .g-community-card
+  ) {
+    transition: border-color var(--g-duration-fast), box-shadow var(--g-duration-normal), transform var(--g-duration-normal) var(--g-ease-standard);
+  }
+  :where(
+    .g-prompt-card, .g-generation-card, .g-agent-card, .g-file-card,
+    .g-metric-card, .g-product-card, .g-commerce-product-card, .g-address-card,
+    .g-choice-card, .g-help-card, .g-mobile-card, .g-solution-card,
+    .g-pricing-card, .g-pricing-page-card, .g-course-card, .g-event-card,
+    .g-marketplace-card, .g-community-card
+  ):is(:hover, :focus-within) { border-color: color-mix(in srgb, var(--g-color-primary) 40%, var(--g-color-border)); box-shadow: var(--g-shadow-sm); }
+
+  :where(
+    .g-search-field-action, .g-password-field-action, .g-clearable-field-action,
+    .g-key-value-action, .g-product-list-action, .g-quantity-button,
+    .g-data-view-button, .g-table-density-button, .g-desktop-window-button,
+    .g-window-button, .g-help-trigger, .g-mobile-action, .g-mobile-swipe-action,
+    .g-selection-control, .g-select-all-control, .g-invert-selection-control,
+    .g-range-selection-control, .g-picker-control, .g-action, .g-bulk-action,
+    .g-floating-action
+  ) {
+    transition: background-color var(--g-duration-fast), border-color var(--g-duration-fast), color var(--g-duration-fast), box-shadow var(--g-duration-fast);
+  }
+  :where(
+    .g-search-field-action, .g-password-field-action, .g-clearable-field-action,
+    .g-key-value-action, .g-product-list-action, .g-quantity-button,
+    .g-data-view-button, .g-table-density-button, .g-help-trigger,
+    .g-selection-control, .g-select-all-control, .g-invert-selection-control,
+    .g-range-selection-control, .g-picker-control
+  ):is(:hover, :focus-visible):not(:disabled, [aria-disabled="true"]) { border-color: var(--g-color-primary); background-color: var(--g-color-primary-soft); color: var(--g-color-primary-text); }
+
+  /* State contract shared by controls and stateful shells. */
+  :where(.g-input, .g-textarea, .g-select, .g-input-affix, .g-combobox-control, .g-date-input, .g-time-input):is(.is-success, [data-g-state="success"]) { border-color: var(--g-color-success); }
+  :where(.g-input, .g-textarea, .g-select, .g-input-affix, .g-combobox-control, .g-date-input, .g-time-input):is(.is-warning, [data-g-state="warning"]) { border-color: var(--g-color-warning); }
+  :where(.g-input, .g-textarea, .g-select, .g-input-affix, .g-combobox-control, .g-date-input, .g-time-input):is(.is-error, .is-danger, [aria-invalid="true"], [data-g-state="error"], [data-g-state="danger"]) { border-color: var(--g-color-danger); }
+  :where(.g-input, .g-textarea, .g-select, .g-input-affix, .g-combobox-control):is(.is-success, .is-warning, .is-error, .is-danger):focus-within { box-shadow: 0 0 0 var(--g-focus-ring-width) color-mix(in srgb, currentColor 16%, transparent); }
+  :where(.g-input, .g-textarea, .g-select, .g-input-affix, .g-combobox-control):is(:disabled, [aria-disabled="true"], .is-disabled) { border-color: var(--g-color-disabled-border); background: var(--g-color-disabled-bg); color: var(--g-color-disabled); opacity: 1; }
+  :where(.g-input, .g-textarea, .g-select):read-only { background-color: var(--g-color-surface-subtle); color: var(--g-color-text-muted); }
+
+  /* Generic semantic states remain available to advanced and business components. */
+  :where([class^="g-"], [class*=" g-"]).is-success { --g-state-color: var(--g-color-success); --g-state-soft: var(--g-color-success-soft); }
+  :where([class^="g-"], [class*=" g-"]).is-warning { --g-state-color: var(--g-color-warning); --g-state-soft: var(--g-color-warning-soft); }
+  :where([class^="g-"], [class*=" g-"]):is(.is-danger, .is-error) { --g-state-color: var(--g-color-danger); --g-state-soft: var(--g-color-danger-soft); }
+  :where([class^="g-"], [class*=" g-"]).is-info { --g-state-color: var(--g-color-info); --g-state-soft: var(--g-color-info-soft); }
+  :where(.g-status-bar, .g-context-bar, .g-data-state, .g-page-state, .g-mobile-state, .g-auth-result, .g-payment-result)[class*="is-"] { border-color: color-mix(in srgb, var(--g-state-color, var(--g-color-border)) 40%, var(--g-color-border)); }
+
+  /* Loading and empty states keep layout stable and communicate progress. */
+  :where(.g-card, .g-table-wrap, .g-data-grid, .g-list-group, .g-panel, .g-dialog).is-loading { position: relative; pointer-events: none; }
+  :where(.g-card, .g-table-wrap, .g-data-grid, .g-list-group, .g-panel, .g-dialog).is-loading::after { content: ""; position: absolute; z-index: 2; inset: 0; border-radius: inherit; background: color-mix(in srgb, var(--g-color-surface) 76%, transparent); cursor: progress; }
+  :where(
+    .g-conversation-list, .g-file-tree, .g-localization-grid,
+    .g-commerce-order-timeline, .g-commerce-product-list, .g-promotion-list,
+    .g-activity-feed, .g-file-list, .g-folder-tree, .g-media-grid,
+    .g-search-results, .g-chart, .g-agenda, .g-audit-log,
+    .g-comparison-table, .g-data-matrix, .g-dense-list,
+    .g-description-list, .g-editable-grid, .g-expandable-table,
+    .g-file-manager, .g-grouped-table, .g-heatmap, .g-kanban,
+    .g-map-shell, .g-media-list, .g-pivot, .g-responsive-table,
+    .g-stat-list, .g-timeline, .g-virtual-list, .g-permission-matrix,
+    .g-mobile-feed, .g-tree-nav, .g-admin-list-page, .g-search-results-page
+  ):is(.is-loading, [aria-busy="true"]) { opacity: .68; cursor: progress; pointer-events: none; }
+  :where(
+    .g-conversation-list, .g-file-tree, .g-localization-grid,
+    .g-commerce-order-timeline, .g-commerce-product-list, .g-promotion-list,
+    .g-activity-feed, .g-file-list, .g-folder-tree, .g-media-grid,
+    .g-search-results, .g-chart, .g-agenda, .g-audit-log,
+    .g-comparison-table, .g-data-matrix, .g-dense-list,
+    .g-description-list, .g-editable-grid, .g-expandable-table,
+    .g-file-manager, .g-grouped-table, .g-heatmap, .g-kanban,
+    .g-map-shell, .g-media-list, .g-pivot, .g-responsive-table,
+    .g-stat-list, .g-timeline, .g-virtual-list, .g-permission-matrix,
+    .g-mobile-feed, .g-tree-nav, .g-admin-list-page, .g-search-results-page
+  ) :where(.g-empty, .g-data-state, [data-g-empty]) { display: grid; min-block-size: var(--g-state-min-height, 8rem); place-items: center; padding: var(--g-space-5); color: var(--g-color-text-muted); text-align: center; }
+  :where(.g-empty, .g-data-state, .g-page-state, .g-mobile-state) > :where(svg, img):first-child { inline-size: clamp(3rem, 10vw, 6rem); block-size: auto; margin-block-end: var(--g-space-3); color: var(--g-color-text-subtle); }
+
+  /* Dense data views retain alignment, readable numbers and sticky context. */
+  :where(.g-table, [data-g-data-grid], .g-comparison-table, .g-tree-table, .g-grouped-table) { font-variant-numeric: tabular-nums; }
+  :where(.g-table, [data-g-data-grid]) :where(th, [role="columnheader"]) { color: var(--g-color-text-muted); font-weight: 650; text-align: start; }
+  :where(.g-table, [data-g-data-grid]) :where(td, th, [role="cell"], [role="gridcell"], [role="columnheader"]) { overflow-wrap: break-word; }
+  :where(.g-table, [data-g-data-grid]).is-sticky :where(thead, [role="rowgroup"]:first-child) { position: sticky; z-index: 2; inset-block-start: 0; background: var(--g-color-surface); box-shadow: 0 1px 0 var(--g-color-border); }
+  :where(.g-table, [data-g-data-grid]) :where(tr, [role="row"]).is-selected { background: var(--g-color-primary-soft); }
+
+  :where(.g-card-title, .g-dialog-title, .g-panel-title, .g-section-title, .g-item-title) { overflow-wrap: anywhere; }
+  :where(.g-card-subtitle, .g-item-meta, .g-help-text, .g-inline-hint, .g-field-help) { color: var(--g-color-text-muted); }
+  :where(.g-avatar, .g-gallery-item, .g-product-media, .g-file-preview, .g-media-card) > img { background: var(--g-color-surface-subtle); }
+
+  @media (max-width: 767.98px) {
+    :where(.g-dialog-footer, .g-form-actions, .g-page-actions, .g-batch-toolbar, .g-action-bar) { gap: var(--g-space-2); }
+    :where(.g-dialog-footer, .g-form-actions, .g-page-actions) > .g-btn { flex: 1 1 auto; }
+    :where(.g-table-wrap, .g-responsive-table, .g-comparison-table, .g-gantt, .g-data-matrix) { max-inline-size: 100%; overflow-x: auto; overscroll-behavior-inline: contain; }
+    :where(.g-popover, .g-command-palette, .g-date-picker, .g-tour) { max-inline-size: calc(100vw - 1rem); }
+  }
+
+  @media (prefers-contrast: more) {
+    :where(.g-card, .g-list-group, .g-table, .g-dialog, .g-drawer, .g-menu, .g-input, .g-select, .g-textarea) { border-color: var(--g-color-border-strong); }
+    :where(.g-btn, .g-page-link, .g-tab, .g-menu-item):focus-visible { outline-width: 3px; }
+  }
+
+  @media (forced-colors: active) {
+    :where(.g-progress-bar, .g-switch-track, .g-calendar-day[aria-selected="true"], .g-page-link[aria-current="page"]) { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+    :where(.g-spinner) { border-color: CanvasText; border-inline-end-color: Highlight; }
+  }
+}

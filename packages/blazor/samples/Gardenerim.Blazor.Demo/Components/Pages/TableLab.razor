@@ -1,0 +1,20 @@
+@page "/table"
+@using Gardenerim.Blazor.Models
+<PageTitle>GTable · Blazor</PageTitle>
+<h1>GTable 数据表格</h1>
+<p>四档尺寸、受控参数与相同的排序、选择、分页和编辑行为。</p>
+<div style="display:flex;gap:16px;margin-bottom:16px"><label>尺寸 <select @bind="Options.Size"><option>large</option><option>medium</option><option>small</option><option>mini</option></select></label><label><input type="checkbox" @bind="Options.Stripe"/>斑马纹</label></div>
+<GTable Table="Options" EventNames="Events" OnEvent="Changed" />
+<output>@Message</output>
+@code {
+ private string Message="选择行、排序或分页查看事件";
+ private readonly string[] Events=["gardener:change"];
+ private readonly GardenerimTableOptions Options=new() {
+  Caption="Blazor 项目成员", AriaLabel="Blazor 项目成员", Size="large", RowSelection=true, ColumnResizable=true,
+  Scroll=new(){X=760,Y=300}, Pagination=new GardenerimTablePagination{DefaultPageSize=5,PageSizeOptions=[5,10,20]},
+  Columns=[new(){DataIndex="name",Title="姓名",Width=170,Sortable=true,Fixed="left"},new(){DataIndex="team",Title="团队",Width=160,Filterable=new {filters=new[]{new{text="设计",value="设计"},new{text="工程",value="工程"}}}},new(){DataIndex="amount",Title="预算",Width=180,Type="number",Sortable=true,Editable=true}],
+  Data=Enumerable.Range(1,24).Select(i=>(IReadOnlyDictionary<string,object?>)new Dictionary<string,object?>{{"key",i},{"name","成员 "+i},{"team",i%2==0?"设计":"工程"},{"amount",1200+i*137}}).ToArray(),
+  Labels=new Dictionary<string,string>{{"selectAll","全选本页"},{"selectRow","选择行"},{"sort","排序"},{"filter","筛选"},{"all","全部"},{"previous","上一页"},{"next","下一页"},{"pageSize","每页条数"},{"page","第"},{"total","共"},{"selected","已选"},{"resize","调整列宽"}}
+ };
+ private void Changed(GardenerimEventArgs args) { var detail=System.Text.Json.JsonSerializer.SerializeToElement(args.Detail); Message=$"{detail.GetProperty("reason").GetString()} · 第 {detail.GetProperty("page").GetInt32()} 页 · 已选 {detail.GetProperty("selectedKeys").GetArrayLength()} 条"; }
+}

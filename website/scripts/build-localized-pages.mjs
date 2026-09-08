@@ -14,7 +14,7 @@ const nativeLanguageNames = Object.freeze({
   fr: "Français",
   de: "Deutsch",
 });
-const pages = ["index.html", "docs.html"];
+const pages = ["index.html", "docs.html", "components.html"];
 const checkOnly = process.argv.includes("--check");
 const codeTags = new Set(["code", "pre"]);
 const hardIgnoredTags = new Set(["script", "style"]);
@@ -193,7 +193,7 @@ function validateLocalizedPage(html, page, locale) {
     locale === "ja" &&
     /[这们为还没让该对从业务页组载软发现录览类择标签须复圆础层统钮宽边网档]/.test(html)
   )
-    failures.push("untranslated Simplified Chinese");
+    failures.push(`untranslated Simplified Chinese: ${[...html.matchAll(/[^<>]*[这们为还没让该对从业务页组载软发现录览类择标签须复圆础层统钮宽边网档][^<>]*/g)].slice(0, 5).map(match => normalize(match[0]).slice(0, 240)).join(' | ')}`);
   if (!new RegExp(`<html\\b[^>]*\\blang="${locale}"`, "i").test(html))
     failures.push("html lang");
   if (!new RegExp(`<html\\b[^>]*\\bdata-locale="${locale}"`, "i").test(html))

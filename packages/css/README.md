@@ -4,7 +4,7 @@ Gardenerim 是一套面向人类开发者与 AI 页面生成器的通用 CSS 和
 
 ## 当前版本
 
-- 当前包版本：`2.1.0`；公共契约状态为 Stable，1.x 中的删除必须先废弃、提供迁移说明，并延后到新的主版本
+- 当前包版本：`2.2.0`；公共契约状态为 Stable，2.x 中的删除必须先废弃、提供迁移说明，并延后到新的主版本
 - 42 套主色主题，并与中性色、字体、形状、密度、层次、动效、平台七类主题轴正交组合
 - Light、Dark、System、High Contrast 模式
 - 480、768、1024、1280、1536 五档响应式断点
@@ -14,15 +14,15 @@ Gardenerim 是一套面向人类开发者与 AI 页面生成器的通用 CSS 和
 - 基础、表单、导航、反馈、数据、媒体、商业、Dashboard 和 AI 组件
 - 32 种桌面端特有组合，覆盖窗口 Chrome、Dock 工作区、文档/文件、宿主系统状态、更新与恢复
 - 32 种完整页面与行业解决方案，覆盖个人、企业、内容、后台、业务工作台及医疗、金融、政务等门户
-- 66 类零依赖声明式运行时行为，覆盖浮层、导航、表单、数据、选择、内容、认证、商业、移动端、桌面端与 AI Composer/Prompt/Approval/Feedback
-- 66 个逐行为运行时单元测试，以及动态节点、动态属性、子树销毁、多行为共存和事件冒泡的 DOM 生命周期测试
+- 76 类零依赖声明式运行时行为，覆盖浮层、导航、表单、数据、选择、内容、认证、商业、移动端、桌面端与 AI Composer/Prompt/Approval/Feedback
+- 207 个共享运行时测试，以及动态节点、动态属性、子树销毁、多行为共存和事件冒泡的 DOM 生命周期测试
 - Chromium、Firefox、WebKit 三引擎桌面项目，Pixel 7 与 iPhone 13 移动设备项目，以及 Axe 无障碍项目
-- 125 个默认真实浏览器用例和 24 个 HTML 结构用例，覆盖 21 个示例、Home 落地页与文档、全量移动端回流、交互生命周期、320px 回流、触控目标、键盘焦点、RTL、Reduced Motion 与 Forced Colors
+- 239 个三引擎真实浏览器用例和 26 个 HTML 结构用例，覆盖 23 个示例、Home 落地页与文档、全量移动端回流、交互生命周期、320px 回流、触控目标、键盘焦点、RTL、Reduced Motion 与 Forced Colors
 - 登录、移动分类、CMS 构建器、媒体库、营销、文章、电商、企业管理和桌面工作台等成品配方
 - Tauri 与安全 Electron preload 桥接适配器
 - 面向 AI 的组件、工具类、配方与行业能力 Manifest，以及状态和环境矩阵
 - 公共 API 清单、完整 JSON Schema、跨清单引用校验与统一的 `behaviors` / `adapters` 命名
-- Web、Mobile、Desktop、Tauri、Electron 五个平台构建档案，28 个独立组件包，以及全部 506 个组件到一个或多个真实所属包的机器可读映射
+- Web、Mobile、Desktop、Tauri、Electron 五个平台构建档案，28 个独立组件包，以及全部 559 个组件到一个或多个真实所属包的机器可读映射
 - esbuild 语法级正式压缩、主入口与自定义构建 Source Map、法律声明保留，以及覆盖全部 42 个正式压缩产物的 raw / gzip / Brotli / 压缩比例 / npm 包体积性能预算
 - 全部 42 个正式产物的 SHA-256/SRI 完整性摘要、连续构建字节级可复现门禁，以及相对 2.0.0 基线的体积回归预算
 - 从 `0.9.0` 固化的 1,145 项跨版本兼容基线，覆盖全部 47 个包入口、CSS 层、主题、运行时、组件、事件、属性与配方，禁止 1.x 未声明删除
@@ -113,13 +113,13 @@ ai, ai-extended, ai-compositions
 
 `npm run build` 使用 esbuild 对 CSS 与 ESM 运行时进行语法级压缩，目标为 Chrome 100+、Firefox 100+、Safari 15.4+；主产物保留 MIT 法律声明。主压缩入口与每次自定义构建生成外部 Source Map，平台包和组件包保持可独立解析的稳定发布入口。正式入口包括 `min.css`、`core.min.css`、`themes.min.css`、`utilities.min.css`、`components.min.css`、`ai.min.css` 与 `runtime.min.js`。
 
-`npm run budget` 对全部 42 个正式压缩产物执行 raw、gzip、Brotli 绝对预算，范围包括 7 个主入口、2 个桌面适配器、5 个平台 CSS 和 28 个组件包；同时对完整 CSS/运行时检查压缩比例，并通过 `npm pack --dry-run` 阻断发布包 packed、unpacked 和文件数回归。2.1.0 以已发布的 2.0.0 实测结果为紧邻基线，对每个产物和 npm 包执行相对增长预算；五个平台产物都拥有自己的直接历史基线，不需要继承别名。包体使用 4 KiB packed、64 KiB unpacked 的确定性保守上界消除性能报告自包含产生的压缩循环；新增七语言目录文件后，文件数绝对上限为 93，仍受 10% 相对增长上限约束。压缩参数固定为 gzip level 9、Brotli quality 11，并同时记录在配置、构建清单和性能报告中。压缩 CSS 使用不随版本变化的稳定 MIT banner，避免纯版本文本扰动 Brotli 基线；未压缩 CSS 与 Runtime 仍提供精确版本信息。
+`npm run budget` 对全部 42 个正式压缩产物执行 raw、gzip、Brotli 绝对预算，范围包括 7 个主入口、2 个桌面适配器、5 个平台 CSS 和 28 个组件包；同时对完整 CSS/运行时检查压缩比例，并通过 `npm pack --dry-run` 阻断发布包 packed、unpacked 和文件数回归。2.2.0 以已发布的 2.0.0 实测结果为冻结历史基线，对每个产物和 npm 包执行相对增长预算；五个平台产物都拥有自己的直接历史基线，不需要继承别名。包体使用 4 KiB packed、64 KiB unpacked 的确定性保守上界消除性能报告自包含产生的压缩循环；新增七语言目录文件后，文件数绝对上限为 127；本次扩展的预算例外与实测值记录在仓库 docs/arco/budget-review.json。压缩参数固定为 gzip level 9、Brotli quality 11，并同时记录在配置、构建清单和性能报告中。压缩 CSS 使用不随版本变化的稳定 MIT banner，避免纯版本文本扰动 Brotli 基线；未压缩 CSS 与 Runtime 仍提供精确版本信息。
 
 `gardener.builds.json` 为 42 个正式产物登记 SHA-256 和 SRI；`npm run contracts` 会重新读取产物逐项复算。`npm run verify:reproducible` 连续重建并比较全部正式生成文件，发现任意 CSS、JavaScript、Source Map、元数据或构建清单发生非确定性变化即失败。自定义构建清单同样包含 CSS、压缩 CSS、Source Map 与适配器的完整性摘要。
 
 ## 发布与跨版本兼容
 
-`metadata/compatibility.json` 固化 `0.9.0` 的 1,145 项公共契约，包括全部 47 个包入口、CSS 层、主题属性、模块导出、Gardenerim 成员、66 种行为、75 种事件、运行时数据属性、桌面适配器、506 个组件、52 个配方、42 个主题和显示模式。`npm run verify:compatibility` 允许后续 1.x 新增能力，但会阻断任何未经过废弃流程的删除；在 2.1.0 稳定切点还会反向检查现有入口是否漏记。废弃入口至少保留两个次版本，并只能在新的主版本移除，现有兼容别名继续保留到 `2.1.0`。
+`metadata/compatibility.json` 固化 `0.9.0` 的 1,145 项公共契约，包括全部 47 个包入口、CSS 层、主题属性、模块导出、Gardenerim 成员、66 种行为、77 种事件、运行时数据属性、桌面适配器、506 个组件、52 个配方、42 个主题和显示模式。`npm run verify:compatibility` 允许后续兼容版本新增能力，但会阻断任何未经过废弃流程的删除；2.2.0 额外对照已发布 v2.1.0 的契约快照检查删除。废弃入口至少保留两个次版本，并只能在新的主版本移除，现有兼容别名在 `2.2.0` 中继续保留。
 
 构建会从 Public API 自动生成 `gardener.d.ts`、`gardener.tauri.d.ts` 和 `gardener.electron.d.ts`，其中行为名与事件名都是完整字面量联合类型。`npm run test:types` 使用 TypeScript 严格模式编译真实消费者夹具，覆盖默认/命名导出、Runtime API、Toast、行为工厂以及两种桌面桥接。
 
@@ -450,7 +450,7 @@ Tooltip、Popover 与 Tour 共用无依赖运行时。浮层支持八类逻辑�
 </main>
 ```
 
-本类同时把 32 种页面登记为 `solution.*` 机器可读配方，使配方总数达到 52。公共 `g-solution-*` 部件保证个人、企业和行业页面共享稳定语法；整页根类负责容器响应、移动折叠、RTL、Forced Colors 与打印，内部继续组合前 15 类组件。完整矩阵见 `website/docs.html#solution-compositions`，全模式示例见 `examples/solution-compositions.html`。
+本类同时把 32 种页面登记为 `solution.*` 机器可读配方，使配方总数达到 53。公共 `g-solution-*` 部件保证个人、企业和行业页面共享稳定语法；整页根类负责容器响应、移动折叠、RTL、Forced Colors 与打印，内部继续组合前 15 类组件。完整矩阵见 `website/docs.html#solution-compositions`，全模式示例见 `examples/solution-compositions.html`。
 
 ## JavaScript 组件
 
@@ -495,7 +495,7 @@ gardener:dismiss
 
 ## 公共 API 契约
 
-`metadata/public-api.json` 是 `0.3.0` 起的规范入口，清点 CSS 层、全部包入口、主题属性、9 个 JavaScript 模块导出及参数/返回值、66 种行为的实例成员、75 种事件及其 `detail` 字段、309 个作者可用运行时属性、27 个运行时维护状态属性、桌面适配器、命名约定和兼容字段。构建产物为 `gardener.public-api.json`。
+`metadata/public-api.json` 是 `0.3.0` 起的规范入口，清点 CSS 层、全部包入口、主题属性、9 个 JavaScript 模块导出及参数/返回值、66 种行为的实例成员、77 种事件及其 `detail` 字段、309 个作者可用运行时属性、27 个运行时维护状态属性、桌面适配器、命名约定和兼容字段。构建产物为 `gardener.public-api.json`。
 
 | 范围 | 规范 |
 |---|---|
@@ -525,21 +525,17 @@ gardener:dismiss
 
 ## 运行时测试
 
-`npm run test:runtime` 使用 Node.js 内置测试运行器和 Happy DOM。测试会从 21 个示例页面与补充夹具中为公共清单里的全部 66 种行为找到真实 DOM，逐项双向比对实例成员，并验证初始化、重复初始化幂等性、销毁和重新初始化；生命周期套件另外验证 MutationObserver 对新增节点、行为属性增删、子树移除、作用域销毁、多行为共存和 `gardener:init` 冒泡事件的处理。
+`npm run test:runtime` 使用 Node.js 内置测试运行器和 Happy DOM。测试会从 示例页面与补充夹具中为公共清单里的全部 96 种行为找到真实 DOM，逐项双向比对实例成员，并验证初始化、重复初始化幂等性、销毁和重新初始化；生命周期套件另外验证 MutationObserver 对新增节点、行为属性增删、子树移除、作用域销毁、多行为共存和 `gardener:init` 冒泡事件的处理。
 
 ## 多浏览器、移动端与无障碍测试
 
-0.5.0 建立四层浏览器发布门禁；2.1.0 的构建、兼容与发布专项保持 10 个顶层用例，并扩展五个平台的真实消费断言：
+2.2.0 使用完整发布命令 `npm run release:verify`。测试数量随目录扩展，由实际测试运行器统计；本次结果与日志位于仓库 `docs/release-2.2/`。
 
-- `npm run test:html`：24 个 parse5 结构测试，检查 21 个示例和 Home 两个页面的解析错误、重复 ID、ARIA 引用、语言、标题、Viewport 与清单完整性。
-- `npm run test:browser`：Chromium 与 WebKit 默认执行 48 个桌面用例，逐页检查 21 个示例和 Home 两个页面的控制台、请求失败、样式加载、横向溢出，并验证 Dialog 键盘和焦点生命周期。
-- `npm run test:mobile`：Pixel 7 Chromium 与 iPhone 13 WebKit 执行 52 个用例，检查全部 21 个示例及 Home 两页的回流，并覆盖 44px 触控目标、Bottom Sheet 生命周期、320px 窄屏和横屏。
-- `npm run test:a11y`：25 个 Chromium + Axe 用例，对 21 个示例和 Home 两页执行 WCAG 2 A/AA 与 2.1/2.2 AA 规则，阻断全部自动检测到的违规（不按 impact 降级放行），并覆盖键盘焦点、焦点恢复、Reduced Motion、Forced Colors、RTL 与 320px 回流。
-- `npm run test:build`：10 个构建专项用例，检查 5 个平台档案、28 个组件包、506 个真实组件归属、平台边界、正式压缩、Source Map、完整性摘要、可复现构建、绝对/相对预算、类型声明、支持策略、兼容基线、自定义构建、失败参数，以及实际打包安装后的全部入口解析。
-- `npm run test:types`：使用 TypeScript 严格模式编译真实消费者，验证 Runtime、事件/行为联合类型和桌面适配器声明。
-- `npm run verify:package`：核对实际 npm 包白名单、所有导出目标、类型文件、开发文件泄漏与 Publint。
-
-默认 `npm run test:e2e` 执行 125 个真实浏览器用例。Firefox 作为独立门禁使用 `npm run test:browser:firefox`；完整三引擎矩阵使用 `npm run test:browser:all`。浏览器项目和断言不是文档约定而已，`npm run contracts` 会检查其脚本、项目、全量移动页面清单、无障碍零违规策略和依赖不可被误删。
+- HTML 结构检查覆盖全部 56 个 CSS 示例及官网入口，检查重复 ID、ARIA 引用、语言、标题和 Viewport。
+- 桌面 Chromium、Firefox、WebKit 和 Pixel 7 / iPhone 13 移动档案验证真实行为、键盘、焦点恢复、回流及控制台错误。
+- Chromium + Axe 阻断全部自动检测到的 WCAG A/AA 违规；另含 Reduced Motion、Forced Colors、RTL 和窄屏检查。
+- 构建、类型、Schema、兼容性、包体预算、可复现构建和实际打包消费者检查覆盖 575 个组件、5 个平台和 28 个组件包。
+- 新增分类和 Arco 对照组件另有逐组件行为、五端一致性和参数变体回归。
 
 ## 发布文件
 
@@ -562,7 +558,7 @@ gardener:dismiss
 | `gardener.builds.json` | 平台档案、组件包、组件归属、压缩器、产物尺寸、SHA-256/SRI 与可复现构建契约 |
 | `gardener.performance.json` | raw/gzip/Brotli、压缩比例、npm 包绝对预算及相对 2.0.0 基线回归结果 |
 | `gardener.compatibility.json` | 0.9.0 公共 API 基线、Stable 废弃策略与 Node/浏览器支持矩阵 |
-| `gardener.d.ts` | Runtime API、66 种行为与 75 种事件的 TypeScript 声明 |
+| `gardener.d.ts` | Runtime API、96 种行为与 105 种事件的 TypeScript 声明 |
 | `gardener.tauri.d.ts` / `gardener.electron.d.ts` | 桌面窗口桥接类型声明 |
 | `platforms/gardener.*.min.css` | Web、Mobile、Desktop 平台正式构建 |
 | `components/*.min.css` | 28 个可组合组件包 |
@@ -592,6 +588,126 @@ gardener:dismiss
 
 Gardenerim 的核心框架位于 `packages/css/`，Vue、React、AngularJS 与 Blazor 适配器位于相邻的 `packages/` 子目录；根目录的 `website/` 是官网与完整文档站，不参与 npm 核心包的发布内容。
 
-## 2.1.0 运行时国际化与生命周期
+## 2.2.0 运行时国际化与生命周期
 
 运行时内置 `en`、`zh-CN`、`ja`、`ko`、`es`、`fr`、`de`。使用 `configure({ locale, messages })` 设置语言和覆盖文案，使用 `getConfiguration()` 读取解析结果。应用可通过 `data-g-runtime="manual"` 关闭自动启动，再用 `start(root)`、`stop()` 和 `observe(root).disconnect()` 管理局部生命周期。
+
+基础组件的 Arco 比例基准与五框架共用参数见 [基础组件协议](../../docs/basic/parameters.md)，逐项分析和真实对照见 [基础组件核对](../../docs/basic/README.md)。
+
+反馈组件的尺寸、加载/进度/关闭共用参数见 [反馈组件协议](../../docs/feedback/parameters.md)，九项分析与 55 组 Arco 实例对照见 [反馈组件核对](../../docs/feedback/README.md)。
+
+表单分类的 51 项分析、64 组 Arco 比例和共用状态/范围参数见 [表单核对](../../docs/form/README.md)与[表单参数协议](../../docs/form/parameters.md)。
+
+浮层目录已扩展为六项，包含 Popconfirm 与 ConfirmDialog。参见 [浮层参数与五端一致性](../../docs/overlay/README.md)。
+
+解决方案的 32 项变体、配置、尺寸变量与五端示例见[解决方案参数](../../docs/solution/README.md)。
+
+展开收起：Accordion / Collapse / ReadMore 的共享参数、受控状态和示例见 [完整文档](../../docs/disclosure/README.md)。
+
+数据展示扩展：52 个组件、252 个变体，五端共享尺寸、数据参数和交互。[完整文档](../../docs/data/README.md)。
+
+仪表盘：7 个组件、39 个变体；五端共享数据配置、受控状态、数字格式、真实图表及筛选联动。详见 [仪表盘指南](../../docs/dashboard/README.md)。
+
+
+## 交互组件
+
+35 个交互组件、239 个变体，共享受控状态与行为；发布复查新增 17 项显示、尺寸和超时配置。详见 [交互参数与完整演示](../../docs/interaction/README.md)。
+
+
+## 内容组件
+
+39 个内容组件、234 个变体采用一致的数据参数、受控状态和共享行为，新增 Markdown 阅读器。详见 [内容参数与完整演示](../../docs/content/README.md)。
+
+## 布局扩展
+
+11 个组件，89 个模式；五端共享尺寸、间距、响应断点和受控侧栏，保留应用插槽。详见 [布局参数与演示](../../docs/layout/README.md)。
+
+## 帮助扩展
+
+29 个组件、99 个变体；五端共享检索、受控状态、反馈服务和操作引导。详见 [帮助参数与演示](../../docs/help/README.md)。
+
+## AI 组件扩展
+
+38 个 AI 组件、119 个变体，统一 aiOptions / aiValue 和共享异步运行时。参数、服务接入、逐项修复及演示见 [AI 文档](../../docs/ai/README.md)。
+
+## 媒体组件扩展
+
+7 个组件、29 个变体；统一 mediaOptions / mediaValue、真实音视频、灯箱与裁剪导出。参阅 [五端参数与逐项检查](../../docs/media/README.md)。
+
+## 电商组件扩展
+
+37 个组件、111 个变体，统一 commerceOptions / commerceValue；商品规格与库存、整数金额、购物车、结算、订单和订阅。参阅 [五端参数与逐项清单](../../docs/commerce/README.md)。
+
+## 认证组件扩展
+
+33 个组件、99 个变体，统一 authOptions / authValue；密码、验证码、通行密钥、组织选择、授权及账户安全。参阅 [五端参数与逐项清单](../../docs/auth/README.md)。
+
+## 移动端组件扩展
+
+33 个组件、99 个变体，统一 mobileOptions / mobileValue；触摸与键盘、安全区、面板、选择器、异步状态及认证/结算复用。[参数与逐项清单](../../docs/mobile/README.md)。
+
+## CMS
+
+6 个 CMS 组件、24 种变体，支持结构化编辑、媒体选择、审核发布与多语言；五端共用样式和行为。[完整参数与演示](../../docs/cms/README.md)。
+
+## 营销
+
+10 个组件、40 种变体，包含品牌导航、Hero、定价、功能展示、标识、评价、行动引导、订阅、公告与页脚。[参数与完整演示](../../docs/marketing/README.md)。
+
+企业组件：8 个组件、32 个变体，参阅[五端企业参数与演示](../../docs/enterprise/README.md)。
+
+桌面端组件：38 个组件、152 个变体，参阅[五端参数与完整演示](../../docs/desktop/README.md)。
+
+<!-- solution-managed -->
+解决方案：32 个页面 / 224 个布局变体。通过 solutionOptions 配置区块、导航、数据和业务操作，solutionValue 开启受控状态；五端共享运行时、确认回执与样式。参见 [完整参数与逐项清单](../../docs/solution/README.md)。
+
+## GTable 数据模式
+
+GTable 新增统一的数据驱动表格：四档尺寸、排序筛选、受控选择、分页、固定列/表头、树形/展开行、合并、汇总、编辑、列宽调整、行排序与固定行高虚拟滚动。保留原有静态表格用法。入口、参数、异步与跨框架边界见 [GTable 文档](../../docs/table.md)。
+
+
+## GCalendar
+
+Calendar now supports month/year views, compact panels, controlled selection and visible pages, configurable headers, date restrictions, week/multiple selection and custom event content. All five packages use the same `dataOptions` configuration and `data-display` controller. See [calendar options and framework examples](../../docs/calendar.md) and the [interactive CSS example](../css/examples/calendar.html).
+
+
+## GCarousel
+
+Arco-inspired slide, fade and card animations, controlled current, autoplay, vertical/RTL navigation, touch gestures, indicators and thumbnails share `mediaOptions` across all five packages. See [options and integration](../../docs/carousel.md) and the [interactive example](../css/examples/carousel.html).
+
+
+## GCollapse
+
+Shared `disclosureOptions` supports Arco-inspired multiple/accordion panels, controlled keys, icon configuration, extra actions, nested templates and destroy-on-hide. See [API and framework examples](../../docs/collapse.md) and the [interactive example](../css/examples/collapse.html).
+
+### GDescriptions
+
+[参数、四种布局与五端用法](../../docs/descriptions.md)。现有 GDescriptionList 保持兼容。
+
+### GImage
+
+[图片加载、预览与五端用法](../../docs/image.md)。
+
+### GList
+
+[列表、分页、虚拟滚动与五端参数](../../docs/list.md)。
+
+### GPopover
+
+[Arco-inspired Popover: parameters, slots and five-framework usage](../../docs/popover.md).
+
+### GStatistic
+
+[Numeric precision, animation, dates and countdown in five frameworks](../../docs/statistic.md).
+
+GTabs: six styles, four sizes, controlled selection, editable requests and panel lifecycle. [Shared parameters and demos](../../docs/tabs.md).
+
+GTag: [shared options and examples](../../docs/tag.md) — controlled selection, cancellable close, sizes, colors and templates.
+
+GTimeline: [shared layout options and examples](../../docs/timeline.md) — direction, alternate, reverse, pending, labels and templates.
+
+GTooltip 参数、五端用法与演示见 [Tooltip API](../../docs/tooltip.md)。
+
+GTree 参数、受控状态、异步加载、拖拽和虚拟滚动见 [GTree API](../../docs/tree.md)。
+
+[Arco 对照：12 个新增组件的参数、五端用法与差异](../../docs/arco/README.md)。

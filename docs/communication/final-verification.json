@@ -1,0 +1,293 @@
+{
+  "status": "passed",
+  "generatedAt": "2026-09-07T02:31:41.348Z",
+  "components": 8,
+  "variants": 32,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "inventory": [
+    {
+      "name": "notification-center",
+      "variants": [
+        "list",
+        "grouped",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "读/归档/收藏与批量已读，新增工具栏开关"
+    },
+    {
+      "name": "inbox",
+      "variants": [
+        "split",
+        "list",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "主从详情与回复，窄容器单列，可选收件人仍可选择"
+    },
+    {
+      "name": "comment-thread",
+      "variants": [
+        "threaded",
+        "flat",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "树形评论、回复/编辑/删除、确认正文不可被完整列表丢弃；按讨论分页，成功发送定位新内容，回复编辑保留父子关联"
+    },
+    {
+      "name": "activity-feed",
+      "variants": [
+        "timeline",
+        "grouped",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "时间与分组浏览、工具栏开关、准确异常状态"
+    },
+    {
+      "name": "communication-composer",
+      "variants": [
+        "full",
+        "inline",
+        "reply",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "主题/收件人显示、编辑器行数、回包冲突保留草稿"
+    },
+    {
+      "name": "communication-contacts",
+      "variants": [
+        "list",
+        "grid",
+        "grouped",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "分组/在线筛选、选择与禁用状态、工具栏开关"
+    },
+    {
+      "name": "notification-preferences",
+      "variants": [
+        "matrix",
+        "grouped",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "缺省状态可配置，显示/提交完整布尔矩阵，旧键清理"
+    },
+    {
+      "name": "communication-delivery",
+      "variants": [
+        "table",
+        "timeline",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "全部送达状态筛选、确认重试与列表一致性"
+    }
+  ],
+  "extensions": [
+    {
+      "engine": "chromium",
+      "checks": 8,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "checks": 8,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "checks": 8,
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "addedParameters": [
+    "searchable",
+    "filterable",
+    "showRecipients",
+    "showSubject",
+    "defaultEnabled",
+    "editorRows"
+  ],
+  "unit": 39,
+  "runtimeRegression": 590,
+  "schema": 48,
+  "html": 43,
+  "build": 11,
+  "browsers": [
+    {
+      "engine": "chromium",
+      "layouts": 64,
+      "states": 32,
+      "interactions": 16,
+      "a11y": 40
+    },
+    {
+      "engine": "firefox",
+      "layouts": 64,
+      "states": 32,
+      "interactions": 16,
+      "a11y": 0
+    },
+    {
+      "engine": "webkit",
+      "layouts": 64,
+      "states": 32,
+      "interactions": 16,
+      "a11y": 0
+    }
+  ],
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 140
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 89
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 77
+        }
+      ]
+    }
+  ],
+  "blazor": {
+    "variants": 32,
+    "controlledInteractions": 8
+  },
+  "staticDemo": {
+    "staticVariants": 32,
+    "catalogComponents": 8,
+    "errors": []
+  },
+  "website": {
+    "locales": 7,
+    "pages": 14,
+    "components": 559,
+    "behaviors": 94,
+    "events": 104
+  },
+  "sharedAssets": {
+    "gardener.css": "afad51bfbcbb0024a66825d5d058f632e831db26bc0427785eae3bf5ee6ffa46",
+    "gardener.min.css": "f0c48bc3dd2b4ee270bbe774067a691fd1561c38f4b478671944612866608b5c",
+    "gardener.runtime.min.js": "461d27374275659b682141a5df436e4cac24c7439e689d7795d50ca14a159f23",
+    "communication.js": "6e62fd58663917c35b8ddd66abd24a39270f8b91456dcb899f5549a9eb23b8f6",
+    "components/content-compositions.min.css": "2ccbe17194dcb147cb0ab2d0959315dd1b23057209a6771dc927aeea23849b97"
+  },
+  "scope": "Local communication components, five framework adapters and mock-service demonstrations. Real delivery, storage, uploads, permissions and realtime subscriptions are supplied by the host application."
+}

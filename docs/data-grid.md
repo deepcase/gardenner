@@ -1,6 +1,6 @@
 # DataGrid 2.0 数据模式
 
-`GTable` 是语义表格样式；`GDataGrid` 默认仍是可访问的 DOM 网格行为。2.0 新增 **显式启用的数据模式**，不会接管已有表格插槽。数据模式的宿主是 region，内部语义 table 承担 grid 角色，分页按钮位于 grid 外部。
+`GTable` 支持静态语义表格与独立的[数据驱动表格模式](table.md)；`GDataGrid` 默认仍是可访问的 DOM 网格行为。2.0 新增 **显式启用的数据模式**，不会接管已有表格插槽。数据模式的宿主是 region，内部语义 table 承担 grid 角色，分页按钮位于 grid 外部。
 
 ```ts
 import { init, getInstance } from '@gardenerim/css/runtime';

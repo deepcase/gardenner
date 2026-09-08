@@ -1,0 +1,170 @@
+{
+  "date": "2026-09-07",
+  "components": 37,
+  "variants": 111,
+  "newComponents": 0,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "layouts": 666,
+  "browsers": [
+    {
+      "name": "chromium",
+      "layouts": 222,
+      "rtl": 37,
+      "a11y": [
+        "product-card",
+        "cart-item",
+        "price-quantity",
+        "product-detail",
+        "checkout",
+        "commerce-product-card",
+        "commerce-product-list",
+        "commerce-product-detail",
+        "commerce-product-gallery",
+        "sku-selector",
+        "commerce-quantity-stepper",
+        "price-display",
+        "commerce-cart-item",
+        "commerce-cart",
+        "mini-cart",
+        "cart-summary",
+        "commerce-checkout",
+        "commerce-checkout-steps",
+        "address-selector",
+        "address-card",
+        "shipping-method",
+        "pickup-selector",
+        "coupon",
+        "promotion-list",
+        "invoice-information",
+        "payment-method",
+        "payment-sheet",
+        "payment-result",
+        "commerce-order-summary",
+        "commerce-order-timeline",
+        "order-detail",
+        "subscription-plan",
+        "pricing-comparison",
+        "commerce-usage-meter",
+        "billing-history",
+        "refund-status",
+        "tax-summary"
+      ]
+    },
+    {
+      "name": "firefox",
+      "layouts": 222,
+      "rtl": 37,
+      "a11y": []
+    },
+    {
+      "name": "webkit",
+      "layouts": 222,
+      "rtl": 37,
+      "a11y": []
+    }
+  ],
+  "darkNarrowRTL": 37,
+  "darkAxe": 37,
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 130
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 79
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 67
+        }
+      ]
+    }
+  ],
+  "blazor": {
+    "components": 37,
+    "variants": 111,
+    "controlledQuantity": true,
+    "instancePreserved": true,
+    "coupon": true,
+    "checkout": true,
+    "errors": []
+  },
+  "parameters": {
+    "quantityBounds": true,
+    "explicitSizeOverridesCompact": true,
+    "allSoldOut": true,
+    "catalog": true,
+    "errors": []
+  },
+  "sharedRuntimeSHA256": "343df17d240a7667b7fb2f30f979560c0249138f6a645b19c0531d6866ca52a9",
+  "runtimeBytes": 39035,
+  "checks": {
+    "runtimeSuite": 361,
+    "finalCommerceUnit": 16,
+    "cssBuild": 11,
+    "cssSchema": 48,
+    "cssHtml": 34,
+    "types": true,
+    "demoBuild": true,
+    "rootCheck": true,
+    "parity": true
+  },
+  "limits": [
+    "演示服务返回本地模拟结果，不产生真实订单或付款。生产交易、库存锁定、权威报价与优惠核销由宿主服务完成。",
+    "浏览器支持原生表单操作；账单下载需要宿主提供可访问地址。",
+    "Demo 构建仍有既有的大型展示目录 chunk 提示；本次各包的固定体积预算均通过。"
+  ]
+}

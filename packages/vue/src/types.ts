@@ -1,4 +1,5 @@
 import type { Component, Ref } from "vue";
+export type { GardenerimNavigationItem, GardenerimNavigationChange, GardenerimNavigationOptions, GardenerimNavigationInstance } from './navigation-types.js';
 import type { GardenerimBehaviorInstance, GardenerimBehaviorName, GardenerimEventName } from "@gardenerim/css/runtime";
 
 export type GardenerimPlatform = "web" | "mobile" | "tablet" | "desktop" | "pwa" | "desktop-webview" | "tauri" | "electron" | "print";
@@ -52,3 +53,5 @@ export interface GardenerimDirectiveOptions {
 export type GardenerimDirectiveValue = GardenerimBehaviorName | string | readonly (GardenerimBehaviorName | string)[] | GardenerimDirectiveOptions;
 export type GardenerimAs = string | Component;
 export type { GardenerimBehaviorInstance, GardenerimBehaviorName, GardenerimEventName } from "@gardenerim/css/runtime";
+
+export type {GardenerimTableOptions,GardenerimTableColumn,GardenerimTableInstance,GardenerimTableState,GardenerimTableChange,GardenerimTableKey} from '@gardenerim/css/runtime';

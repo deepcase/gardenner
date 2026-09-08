@@ -1,0 +1,28 @@
+@page "/calendar"
+@using System.Text.Json
+@using Gardenerim.Blazor.Models
+<PageTitle>GCalendar · Blazor</PageTitle>
+<h1 style="font-size:28px">GCalendar 日历</h1>
+<p>月与年视图、卡片模式、受控日期与显示月份。配置与 CSS、Vue、React、AngularJS 一致。</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap;margin:16px 0">
+ <label>表头 <select @bind="Header"><option value="button">按钮</option><option value="select">下拉</option></select></label>
+ <label><input type="checkbox" @bind="Panel"/>卡片模式</label>
+ <label><input type="checkbox" @bind="ReadOnly"/>只读</label>
+ <button class="g-btn g-btn-outline" @onclick="Clear">清空选中</button>
+</div>
+<GCalendar Id="blazor-calendar" Config="CalendarConfig" EventNames="Events" OnEvent="Changed" />
+<output id="calendar-state">@Message</output>
+<h2 style="font-size:18px;margin-top:32px">整周选择</h2>
+<GCalendar Config="WeekConfig" />
+@code {
+ private string Header="button", Page="2026-09-01";
+ private string? Selected="2026-09-07";
+ private bool Panel, ReadOnly;
+ private string Message="选择日期、翻月或切换年视图";
+ private readonly string[] Events=["gardener:change"];
+ private static readonly Dictionary<string,string> Labels=new(){{"previous","上一页"},{"next","下一页"},{"today","今天"},{"month","月"},{"year","年"},{"view","日历视图"}};
+ private IReadOnlyDictionary<string,object?> CalendarConfig => new Dictionary<string,object?> { ["dataOptions"]=JsonSerializer.Serialize(new {modelValue=Selected,pageShowDate=Page,headerType=Header,panel=Panel,panelTodayBtn=true,allowSelect=!ReadOnly,locale="zh-CN",labels=Labels,label="Blazor 项目日历",items=new[]{new{id=1,date="2026-09-07",label="设计评审"},new{id=2,date="2026-09-14",label="版本发布"}}}) };
+ private IReadOnlyDictionary<string,object?> WeekConfig => new Dictionary<string,object?> { ["dataOptions"]=JsonSerializer.Serialize(new {defaultValue="2026-09-07",panel=true,isWeek=true,dayStartOfWeek=1,locale="zh-CN",labels=Labels,label="Blazor 整周选择"}) };
+ private void Clear(){Selected=null;Message="已清空选择";}
+ private void Changed(GardenerimEventArgs args){var detail=JsonSerializer.SerializeToElement(args.Detail);var reason=detail.GetProperty("reason").GetString();if(reason=="select")Selected=detail.GetProperty("modelValue").GetString();if(reason is "month" or "panel")Page=detail.GetProperty("pageShowDate").GetString()!;Message=$"{reason} · 选中 {Selected??"无"} · 当前页 {Page}";}
+}

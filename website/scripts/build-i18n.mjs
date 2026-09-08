@@ -15,6 +15,9 @@ const voidTags = new Set([
   "meta", "param", "source", "track", "wbr",
 ]);
 const manualMessages = [
+  "API 加载失败，请重试。",
+  "基础", "反馈", "表单", "导航", "浮层", "展开收起", "数据展示", "仪表盘", "交互", "内容", "布局", "帮助", "AI", "媒体", "电商", "认证", "移动端", "CMS", "营销", "企业", "桌面端", "工作流", "沟通", "法律", "解决方案",
+  "查看演示",
   "选择语言", "打开导航", "关闭导航", "已复制", "代码示例", "通用行为", "使用 {theme} 主题",
   "detail: 无字段", "可取消流程守卫", "显示 {shown} / {total} 个组件",
   "显示 {shown} / {total} 个 {framework} 组件 · {package} {version}",
@@ -47,11 +50,11 @@ const seededTranslations = {
     "Tauri / Electron 宿主契约": "Tauri / Electron ホスト契約",
     "Tauri 与 Electron 入口相互隔离，均返回带": "Tauri と Electron のエントリポイントは互いに分離され、どちらも",
     "Electron 使用": "Electron では",
-    "包入口可在服务端安全导入，全部 506 个组件均经过逐项 SSR，行为只在 Effect 生命周期内初始化；服务端标记 Hydration 不产生 recoverable error，并兼容 StrictMode。Tauri 与 Electron 分别使用": "パッケージのエントリポイントはサーバー側でも安全に import でき、506 個すべてのコンポーネントについて個別に SSR を検証しています。ビヘイビアは Effect のライフサイクル内でのみ初期化されます。サーバーで生成したマークアップの Hydration では recoverable error が発生せず、StrictMode にも対応します。Tauri と Electron はそれぞれ",
+    "包入口可在服务端安全导入，全部 510 个组件均经过逐项 SSR，行为只在 Effect 生命周期内初始化；服务端标记 Hydration 不产生 recoverable error，并兼容 StrictMode。Tauri 与 Electron 分别使用": "パッケージのエントリポイントはサーバー側でも安全に import でき、510 個すべてのコンポーネントについて個別に SSR を検証しています。ビヘイビアは Effect のライフサイクル内でのみ初期化されます。サーバーで生成したマークアップの Hydration では recoverable error が発生せず、StrictMode にも対応します。Tauri と Electron はそれぞれ",
     "Vue": "Vue",
     "当前门禁包含 17 项运行时/契约测试、3 项 Schema 测试、20 项五引擎与移动端浏览器集成测试，以及 1 项 Axe WCAG A/AA 自动审计。完整": "現在のゲートには、17 件のランタイム／契約テスト、3 件の Schema テスト、5 エンジンとモバイルブラウザを対象とした 20 件の統合テスト、および Axe による WCAG A/AA 自動監査 1 件が含まれます。",
     "Axe 门禁阻断所选 WCAG A/AA 规则检测到的全部违规，不按 impact 降级放行，并输出规则、节点选择器、HTML 与修复摘要。自动化不能代替人工屏幕阅读器测试；正式产品仍应使用 NVDA / JAWS / VoiceOver 完成关键任务走查。": "Axe ゲートは、対象の WCAG A/AA ルールで検出されたすべての違反を impact に関係なくブロックし、ルール、ノードセレクター、HTML、修正概要を出力します。自動化は人によるスクリーンリーダーテストの代わりにはならないため、正式製品では NVDA / JAWS / VoiceOver を使って重要な操作を確認する必要があります。",
-    "Release 构建为 0 警告、0 错误；506 个组件全部经过真实静态 SSR。浏览器矩阵覆盖 Chromium、Firefox、WebKit、桌面与移动视口、键盘和 Axe WCAG A/AA；CI 强制 Firefox。 NuGet 使用隔离缓存真实发布消费应用，并验证静态 Web Assets endpoint manifest；另有独立 .NET 11 Preview 包消费者。程序集实测 344,576 B，44 个静态资源共 7,701,545 B，CSS gzip 139,263 B，runtime gzip 29,289 B，Blazor bridge gzip 2,055 B，nupkg 约 1.22 MiB、低于 6,000,000 B 硬上限；全部低于硬预算且 DLL/XML 可复现。": "リリースビルドは警告 0 件、エラー 0 件で、506 個のコンポーネントすべてが実際の静的 SSR テストに合格しています。ブラウザマトリクスは Chromium、Firefox、WebKit、デスクトップ／モバイルのビューポート、キーボード操作、Axe による WCAG A/AA 監査を対象とし、CI では Firefox を必須としています。NuGet では分離キャッシュを使ってコンシューマーアプリを実際に publish し、Static Web Assets の endpoint manifest を検証します。さらに、独立した .NET 11 Preview パッケージコンシューマーも用意しています。実測値は、アセンブリ 344,576 B、静的アセット 43 ファイルで合計 7,701,545 B、CSS gzip 139,263 B、runtime gzip 29,289 B、Blazor bridge gzip 2,055 B です。nupkg は約 1.22 MiB で、6,000,000 B の厳格な上限を下回っています。DLL/XML の再現性も確認済みです。",
+    "Release 构建为 0 警告、0 错误；510 个组件全部经过真实静态 SSR。浏览器矩阵覆盖 Chromium、Firefox、WebKit、桌面与移动视口、键盘和 Axe WCAG A/AA；CI 强制 Firefox。 NuGet 使用隔离缓存真实发布消费应用，并验证静态 Web Assets endpoint manifest；另有独立 .NET 11 Preview 包消费者。程序集实测 398,848 B，45 个静态资源共 10,248,947 B，CSS gzip 182,045 B，runtime gzip 37,405 B，Blazor bridge gzip 2,131 B，nupkg 约 1.65 MiB、低于 6,000,000 B 硬上限；DLL/XML 构建可复现。": "リリースビルドは警告 0 件、エラー 0 件で、510 個のコンポーネントすべてが実際の静的 SSR テストに合格しています。ブラウザマトリクスは Chromium、Firefox、WebKit、デスクトップ／モバイルのビューポート、キーボード操作、Axe による WCAG A/AA 監査を対象とし、CI では Firefox を必須としています。NuGet は分離キャッシュから実際のコンシューマーアプリを publish し、Static Web Assets endpoint manifest を検証します。独立した .NET 11 Preview パッケージコンシューマーも用意しています。実測値はアセンブリ 398,848 B、静的アセット 45 ファイル合計 10,248,947 B、CSS gzip 182,045 B、runtime gzip 37,405 B、Blazor bridge gzip 2,131 B です。nupkg は約 1.65 MiB で 6,000,000 B の厳格な上限を下回り、DLL/XML の再現性も確認済みです。",
   },
   ko: { "使用 {theme} 主题": "{theme} 테마 사용" },
   es: { "使用 {theme} 主题": "Usar el tema {theme}" },
@@ -112,7 +115,7 @@ function extract(html) {
   return values.filter((value) => value && /[\p{L}\p{Script=Han}]/u.test(value));
 }
 
-const pages = await Promise.all(["index.html", "docs.html"].map((file) => readFile(resolve(home, file), "utf8")));
+const pages = await Promise.all(["index.html", "docs.html", "components.html"].map((file) => readFile(resolve(home, file), "utf8")));
 const messages = [...new Set([...pages.flatMap(extract), ...manualMessages])].sort((left, right) => left.localeCompare(right, "zh-CN"));
 await mkdir(output, { recursive: true });
 
@@ -166,6 +169,18 @@ for (const locale of locales) {
   let dictionary = {};
   try { dictionary = JSON.parse(await readFile(path, "utf8")); } catch { }
   Object.assign(dictionary, seededTranslations[locale]);
+  // Reuse reviewed translations when only generated inventory numbers change.
+  const numericPattern = /\d+(?:[,.]\d+)*/g;
+  const numericTemplates = new Map(Object.keys(dictionary).map(source => [source.replace(numericPattern, '#'), source]));
+  for (const source of messages) {
+    if (dictionary[source] && !isCorruptedTranslation(dictionary[source], source, locale)) continue;
+    const previous = numericTemplates.get(source.replace(numericPattern, '#'));
+    if (!previous || isCorruptedTranslation(dictionary[previous], previous, locale)) continue;
+    const before = previous.match(numericPattern) || [], after = source.match(numericPattern) || [];
+    const replacements = new Map(before.map((value, index) => [value, after[index]]));
+    if (before.some((value,index) => replacements.get(value) !== after[index])) continue;
+    dictionary[source] = dictionary[previous].replace(numericPattern, value => replacements.get(value) ?? value);
+  }
   for (const source of messages) {
     if (dictionary[source] && isCorruptedTranslation(dictionary[source], source, locale))
       delete dictionary[source];

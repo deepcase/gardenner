@@ -1,0 +1,5 @@
+@page "/list"
+@using System.Text.Json
+<PageTitle>GList</PageTitle>
+<section style="max-width:850px;margin:24px auto;padding:16px"><h1>GList</h1><label>尺寸 <select aria-label="尺寸" @bind="Size"><option>small</option><option>medium</option><option>large</option></select></label><label><input type="checkbox" @bind="Bordered" />边框</label><GList Config="Config" EventNames="@(new[]{"action"})" OnEvent="Changed" /><output>@Result</output></section>
+@code {private string Result="";private void Changed(Gardenerim.Blazor.Models.GardenerimEventArgs e){Result=JsonSerializer.Serialize(e.Detail);}private string Size="medium";private bool Bordered=true;private IReadOnlyDictionary<string,object?> Config=>new Dictionary<string,object?>{["data-options"]=JsonSerializer.Serialize(new{size=Size,bordered=Bordered,header="项目列表",data=Enumerable.Range(1,25).Select(i=>new{id=i,title="项目 "+i,description="五端共享列表布局与分页",actions=new[]{new{key="view",label="查看"}}}).ToArray(),paginationProps=new{defaultPageSize=5,pageSizeOptions=new[]{5,10,20},showPageSize=true,showTotal=true}})};}

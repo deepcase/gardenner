@@ -1,0 +1,89 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gardenerim Arco 对照组件</title><link rel="stylesheet" href="../dist/gardener.css"><style>body{margin:0;background:var(--g-color-background);color:var(--g-color-foreground);font:14px/1.5715 var(--g-font-sans)}main{max-width:1100px;margin:auto;padding:24px}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}section{min-width:0;border:1px solid var(--g-color-border);border-radius:var(--g-radius-md);padding:16px}h1{font-size:28px}h2{font-size:18px}.stage{min-height:110px;padding:12px}.sticky-stage{height:180px;overflow:auto;position:relative}.g-watermark{min-height:160px}pre,output{white-space:pre-wrap;overflow-wrap:anywhere}output{display:block;margin-block:16px}#foundation-documentation a{text-decoration:underline}</style></head><body><main><h1>Arco 对应组件 · Gardenerim</h1><p id="foundation-documentation">保留 Gardenerim 设计语言。<a style="text-decoration:underline!important" href="../../../docs/arco/README.md">参数与五端用法</a> · <a style="text-decoration:underline!important" href="../../../docs/arco/coverage.md">74 项对应清单</a></p><label>尺寸 <select id="foundation-size"><option>mini</option><option>small</option><option selected>medium</option><option>large</option></select></label> <label><input type="checkbox" id="foundation-disabled">禁用输入</label><output aria-live="polite">等待交互</output><div class="gallery"><section id="example-affix"><h2>GAffix</h2><div class="stage sticky-stage"><div style="height:40px">向下滚动</div><div class="g-affix" data-g-foundation data-g-foundation-options='{"offsetTop":8}'><button type="button" class="g-btn">随容器滚动固定</button></div><div style="height:300px">容器剩余内容</div></div><details><summary>参数</summary><pre>{
+  "offsetTop": 8
+}</pre></details></section><section id="example-resize-box"><h2>GResizeBox</h2><div class="stage "><div class="g-resize-box" data-g-foundation data-g-foundation-options='{"defaultWidth":280,"defaultHeight":160,"minWidth":120,"maxWidth":600,"minHeight":80,"maxHeight":320}'><p>拖动右侧或底部边缘调整大小，也可以聚焦边缘后使用方向键。</p></div></div><details><summary>参数</summary><pre>{
+  "defaultWidth": 280,
+  "defaultHeight": 160,
+  "minWidth": 120,
+  "maxWidth": 600,
+  "minHeight": 80,
+  "maxHeight": 320
+}</pre></details></section><section id="example-scrollbar"><h2>GScrollbar</h2><div class="stage "><div class="g-scrollbar" data-g-foundation data-g-foundation-options='{"height":160,"label":"资源列表"}'><p>资源 1</p><p>资源 2</p><p>资源 3</p><p>资源 4</p><p>资源 5</p><p>资源 6</p><p>资源 7</p><p>资源 8</p><p>资源 9</p><p>资源 10</p><p>资源 11</p><p>资源 12</p><p>资源 13</p><p>资源 14</p><p>资源 15</p><p>资源 16</p><p>资源 17</p><p>资源 18</p><p>资源 19</p><p>资源 20</p></div></div><details><summary>参数</summary><pre>{
+  "height": 160,
+  "label": "资源列表"
+}</pre></details></section><section id="example-space"><h2>GSpace</h2><div class="stage "><div class="g-space" data-g-foundation data-g-foundation-options='{"gap":12,"wrap":true}'><button type="button" class="g-btn">保存</button><button type="button" class="g-btn">取消</button></div></div><details><summary>参数</summary><pre>{
+  "gap": 12,
+  "wrap": true
+}</pre></details></section><section id="example-watermark"><h2>GWatermark</h2><div class="stage "><div class="g-watermark" data-g-foundation data-g-foundation-options='{"content":"Gardenerim\n内部资料"}'><p>水印不影响文字选择和交互</p><button type="button" class="g-btn">操作</button></div></div><details><summary>参数</summary><pre>{
+  "content": "Gardenerim\n内部资料"
+}</pre></details></section><section id="example-overflow-list"><h2>GOverflowList</h2><div class="stage "><div class="g-overflow-list" data-g-foundation data-g-foundation-options='{"items":[{"key":0,"label":"资源 1"},{"key":1,"label":"资源 2"},{"key":2,"label":"资源 3"},{"key":3,"label":"资源 4"},{"key":4,"label":"资源 5"},{"key":5,"label":"资源 6"},{"key":6,"label":"资源 7"},{"key":7,"label":"资源 8"}],"maxVisible":3}'></div></div><details><summary>参数</summary><pre>{
+  "items": [
+    {
+      "key": 0,
+      "label": "资源 1"
+    },
+    {
+      "key": 1,
+      "label": "资源 2"
+    },
+    {
+      "key": 2,
+      "label": "资源 3"
+    },
+    {
+      "key": 3,
+      "label": "资源 4"
+    },
+    {
+      "key": 4,
+      "label": "资源 5"
+    },
+    {
+      "key": 5,
+      "label": "资源 6"
+    },
+    {
+      "key": 6,
+      "label": "资源 7"
+    },
+    {
+      "key": 7,
+      "label": "资源 8"
+    }
+  ],
+  "maxVisible": 3
+}</pre></details></section><section id="example-input-number"><h2>GInputNumber</h2><div class="stage "><div class="g-input-number" data-g-foundation data-g-foundation-options='{"defaultValue":3,"min":0,"max":100,"step":0.5,"precision":1,"allowClear":true,"label":"数量"}'></div></div><details><summary>参数</summary><pre>{
+  "defaultValue": 3,
+  "min": 0,
+  "max": 100,
+  "step": 0.5,
+  "precision": 1,
+  "allowClear": true,
+  "label": "数量"
+}</pre></details></section><section id="example-input-tag"><h2>GInputTag</h2><div class="stage "><div class="g-input-tag" data-g-foundation data-g-foundation-options='{"defaultValue":["设计","开发"],"maxTagCount":5,"label":"标签"}'></div></div><details><summary>参数</summary><pre>{
+  "defaultValue": [
+    "设计",
+    "开发"
+  ],
+  "maxTagCount": 5,
+  "label": "标签"
+}</pre></details></section><section id="example-color-picker"><h2>GColorPicker</h2><div class="stage "><div class="g-color-picker" data-g-foundation data-g-foundation-options='{"defaultValue":"#19b27dcc","alpha":true,"presets":["#19b27d","#165dff","#722ed1"],"label":"主题色"}'></div></div><details><summary>参数</summary><pre>{
+  "defaultValue": "#19b27dcc",
+  "alpha": true,
+  "presets": [
+    "#19b27d",
+    "#165dff",
+    "#722ed1"
+  ],
+  "label": "主题色"
+}</pre></details></section><section id="example-link"><h2>GLink</h2><div class="stage "><a class="g-link" data-g-foundation data-g-foundation-options='{"href":"#foundation-documentation","underline":true}'>查看 API 文档</a></div><details><summary>参数</summary><pre>{
+  "href": "#foundation-documentation",
+  "underline": true
+}</pre></details></section><section id="example-typography"><h2>GTypography</h2><div class="stage "><div class="g-typography" data-g-foundation data-g-foundation-options='{"text":"Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。","ellipsis":2,"copyable":true}'></div></div><details><summary>参数</summary><pre>{
+  "text": "Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。Gardenerim 使用统一的颜色、字体和间距表达清晰的信息层级。",
+  "ellipsis": 2,
+  "copyable": true
+}</pre></details></section><section id="example-icon"><h2>GIcon</h2><div class="stage "><div class="g-icon" data-g-foundation data-g-foundation-options='{"icon":"✓","label":"完成","iconSize":24}'></div></div><details><summary>参数</summary><pre>{
+  "icon": "✓",
+  "label": "完成",
+  "iconSize": 24
+}</pre></details></section></div></main><script type="module">import{init,getInstance}from"../dist/gardener.runtime.js";init(document);document.querySelector("#foundation-size").onchange=e=>document.querySelectorAll("[data-g-foundation]").forEach(el=>getInstance(el,"foundation").setOptions({size:e.target.value}));document.querySelector("#foundation-disabled").onchange=e=>document.querySelectorAll(".g-input-number,.g-input-tag,.g-color-picker").forEach(el=>getInstance(el,"foundation").setOptions({disabled:e.target.checked}));document.addEventListener("gardener:change",e=>document.querySelector("output").textContent=JSON.stringify(e.detail));</script></body></html>

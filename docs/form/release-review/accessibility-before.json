@@ -1,0 +1,1386 @@
+[
+  {
+    "name": "input",
+    "violations": []
+  },
+  {
+    "name": "textarea",
+    "violations": []
+  },
+  {
+    "name": "select",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-picker-input"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-expanded=\"false\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "checkbox-radio",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".g-check-card.g-radio.g-check:nth-child(3) > .g-choice-content > .g-choice-description"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".g-choice-group-buttons.g-check-group > .g-check:nth-child(2) > .g-choice-content > .g-choice-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.79 (foreground color: #ffffff, background color: #21b072, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".g-radio.g-check:nth-child(3) > .g-choice-content > .g-choice-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.79 (foreground color: #ffffff, background color: #21b072, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".g-check-bordered.g-check-block.g-check-reverse:nth-child(1) > .g-choice-content > .g-choice-description"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "switch",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".g-switch-card > .g-switch-content > .g-switch-description"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".switch-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "range-color",
+    "violations": []
+  },
+  {
+    "name": "file-drop",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              "li[data-g-status=\"error\"] > .g-file-drop-file-icon[aria-hidden=\"true\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.13 (foreground color: #cf2e3d, background color: #f8e2e4, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".g-file-drop-retry"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.49 (foreground color: #667085, background color: #fff0f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "button[aria-label=\"移除 product-preview.mov\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.49 (foreground color: #667085, background color: #fff0f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".file-drop-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-file-drop-dragger > .g-file-drop-input[multiple=\"\"][type=\"file\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".g-file-drop-compact.g-file-drop-block.g-file-drop:nth-child(1) > .g-file-drop-input[multiple=\"\"][type=\"file\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".g-file-drop-button > .g-file-drop-input[type=\"file\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".g-file-drop-picture-card > .g-file-drop-input[accept=\"image/*\"][type=\"file\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".g-file-drop-avatar > .g-file-drop-input[accept=\"image/*\"][type=\"file\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[webkitdirectory=\"\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".is-disabled > .g-file-drop-input[type=\"file\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".g-file-drop-dragger"
+            ],
+            "summary": "Fix any of the following:\n  Element has focusable descendants"
+          },
+          {
+            "target": [
+              ".g-file-drop-compact.g-file-drop-block.g-file-drop:nth-child(1)"
+            ],
+            "summary": "Fix any of the following:\n  Element has focusable descendants"
+          },
+          {
+            "target": [
+              ".g-file-drop-button"
+            ],
+            "summary": "Fix any of the following:\n  Element has focusable descendants"
+          },
+          {
+            "target": [
+              ".g-file-drop-picture-card"
+            ],
+            "summary": "Fix any of the following:\n  Element has focusable descendants"
+          },
+          {
+            "target": [
+              ".g-file-drop-avatar"
+            ],
+            "summary": "Fix any of the following:\n  Element has focusable descendants"
+          },
+          {
+            "target": [
+              ".g-file-drop-directory"
+            ],
+            "summary": "Fix any of the following:\n  Element has focusable descendants"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "combobox",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".combobox-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              "input[aria-describedby=\"combo-error-help\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"由管理员锁定\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "form",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".form-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "form-section",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".form-section-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "field",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".is-read-only"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".field-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "fieldset",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".is-read-only"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".fieldset-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              "input[value=\"不可修改\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "form-row",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".is-read-only"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".form-row-note > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".form-row-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "form-grid",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".is-read-only"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".form-grid-preview > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.49 (foreground color: #667085, background color: #fff0f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".form-grid-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "horizontal-form",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-form-horizontal-compact"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".horizontal-form-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "inline-form",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-form-inline-field-sm"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".inline-form-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "compact-form",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-form-compact-two-columns"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".compact-form-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "input-group",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-input-group-borderless"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".input-group-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "input-affix",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".is-read-only"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".input-affix-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "search-field",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-search-field-borderless"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".search-field-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "password-field",
+    "violations": []
+  },
+  {
+    "name": "clearable-field",
+    "violations": []
+  },
+  {
+    "name": "character-counter",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              "div[data-g-character-count=\"100\"]"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".character-counter-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "validation-state",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".is-read-only"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".validation-state-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "checkbox-group",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".g-check-group-buttons > .is-selected.g-check[data-g-selectable-row=\"\"]:nth-child(2) > .g-choice-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.79 (foreground color: #ffffff, background color: #21b072, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".is-selected.g-check[data-g-selectable-row=\"\"]:nth-child(3) > .g-choice-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.79 (foreground color: #ffffff, background color: #21b072, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".g-check-group-cards > .is-selected.g-check[data-g-selectable-row=\"\"] > .g-choice-group-option-content.g-choice-content > .g-choice-description"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".checkbox-group-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "radio-group",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-radio-group-cards"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-required=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".g-radio.g-check:nth-child(3) > .g-choice-content > .g-choice-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.79 (foreground color: #ffffff, background color: #21b072, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".radio-group-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "switch-row",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".is-read-only"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".g-switch-row-card > .g-switch-row-content > .g-switch-row-description"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".g-switch-row-card > .g-switch-row-control > .g-switch-row-meta"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.49 (foreground color: #657080, background color: #e3f7ee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".is-read-only > .g-switch-row-content > .g-switch-row-description"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".is-read-only > .g-switch-row-control > .g-switch-row-status[role=\"status\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.49 (foreground color: #657080, background color: #e3f7ee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".switch-row-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "choice-card-group",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-choice-group-three"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-required=\"true\""
+          },
+          {
+            "target": [
+              ".g-choice-group-horizontal"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".g-choice-card:nth-child(1) > .g-choice-card-footer > .g-choice-card-meta"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.49 (foreground color: #657080, background color: #e3f7ee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".g-choice-card:nth-child(2) > .g-choice-card-footer > .g-choice-card-meta"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.49 (foreground color: #657080, background color: #e3f7ee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".choice-card-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "name-group",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-name-group-full"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-required=\"true\""
+          },
+          {
+            "target": [
+              ".g-name-group-western"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".name-group-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              "input[value=\"Ada\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"Lovelace\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"Ada Lovelace\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "fieldset[aria-describedby=\"name-error\"] > .g-name-family.g-name-field > .g-input"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "fieldset[aria-describedby=\"name-error\"] > .g-name-given.g-name-field > .g-input"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"张\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"海\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "address-group",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-address-group-domestic"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-required=\"true\""
+          },
+          {
+            "target": [
+              ".g-address-group-international"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".address-group-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              "input[value=\"Ada Lovelace\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"12 St James's Square\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"London\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"Greater London\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"SW1Y 4LB\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".g-address-group-spacious > .g-address-city.g-address-field > .g-input"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".g-address-group-spacious > .g-address-postal.g-address-field > .g-input"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "fieldset[aria-describedby=\"address-error\"] > .g-address-line-1.g-address-field > .g-input"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"来自企业通讯录\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "phone-group",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-phone-group-international"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-required=\"true\""
+          },
+          {
+            "target": [
+              ".g-phone-group-domestic"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".phone-group-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-phone-group-domestic > .g-phone-country-code.g-phone-field > .g-input[value=\"+86\"][readonly=\"\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"138 0013 8000\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"806\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".g-phone-group-spacious > .g-phone-national.g-phone-field > .g-input[type=\"tel\"][inputmode=\"tel\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"123\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"+86 10 5555 0188\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      },
+      {
+        "id": "select-name",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-phone-country-code.g-phone-field > .g-select"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "money-group",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-money-group-international"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-required=\"true\""
+          },
+          {
+            "target": [
+              ".g-money-group-card"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".money-group-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              "input[readonly=\"\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"88.00\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"-20\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"560.00\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      },
+      {
+        "id": "select-name",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-money-group-card > .g-money-currency.g-money-field > .g-select"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".g-money-group-spacious > .g-money-currency.g-money-field > .g-select"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "date-range-group",
+    "violations": [
+      {
+        "id": "aria-allowed-attr",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              ".g-date-range-group-datetime"
+            ],
+            "summary": "Fix all of the following:\n  ARIA attribute is not allowed: aria-readonly=\"true\""
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".date-range-guidance > span"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.45 (foreground color: #667085, background color: #e3f7ee, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              "input[value=\"2026-09-05T22:00\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"2026-09-06T02:00\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".g-date-range-group-spacious > .g-date-range-start.g-date-range-field > .g-input[type=\"date\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              ".g-date-range-group-spacious > .g-date-range-end.g-date-range-field > .g-input[type=\"date\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"2026-09-20\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"2026-09-10\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"2026-09-01\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": [
+              "input[value=\"2026-09-30\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "time-range-group",
+    "violations": []
+  },
+  {
+    "name": "unit-field",
+    "violations": [
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              "iframe",
+              "#storage-size"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "range-field",
+    "violations": [
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              "iframe",
+              "#quality-range"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "file-field",
+    "violations": []
+  },
+  {
+    "name": "repeatable-field",
+    "violations": []
+  },
+  {
+    "name": "conditional-field",
+    "violations": [
+      {
+        "id": "select-name",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": [
+              "iframe",
+              "#delivery-method"
+            ],
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "form-actions",
+    "violations": []
+  },
+  {
+    "name": "autosave-status",
+    "violations": []
+  },
+  {
+    "name": "form-progress",
+    "violations": []
+  },
+  {
+    "name": "form-review",
+    "violations": []
+  },
+  {
+    "name": "consent-group",
+    "violations": []
+  },
+  {
+    "name": "date-picker",
+    "violations": []
+  },
+  {
+    "name": "time-picker",
+    "violations": []
+  },
+  {
+    "name": "pin-input",
+    "violations": []
+  },
+  {
+    "name": "rating",
+    "violations": []
+  },
+  {
+    "name": "validation-summary",
+    "violations": []
+  },
+  {
+    "name": "upload-queue",
+    "violations": []
+  },
+  {
+    "name": "form-builder",
+    "violations": []
+  }
+]

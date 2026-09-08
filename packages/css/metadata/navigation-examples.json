@@ -1,0 +1,7276 @@
+{
+  "navbar": {
+    "name": "navbar",
+    "family": "links",
+    "exportName": "GNavbar",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "navbar 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "navbar 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "navbar 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "sidebar": {
+    "name": "sidebar",
+    "family": "links",
+    "exportName": "GSidebar",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "sidebar 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "sidebar 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": true,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "sidebar 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "breadcrumb": {
+    "name": "breadcrumb",
+    "family": "breadcrumb",
+    "exportName": "GBreadcrumb",
+    "summary": "表达当前位置和层级关系；长路径可折叠，中间路径仍可访问。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "maxVisibleItems",
+      "href"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "crumb-0",
+              "label": "工作区"
+            },
+            {
+              "id": "crumb-1",
+              "label": "团队空间"
+            },
+            {
+              "id": "crumb-2",
+              "label": "设计系统"
+            },
+            {
+              "id": "crumb-3",
+              "label": "组件库"
+            },
+            {
+              "id": "crumb-4",
+              "label": "导航"
+            },
+            {
+              "id": "crumb-5",
+              "label": "使用指南"
+            }
+          ],
+          "label": "breadcrumb 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "crumb-0"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "crumb-0",
+              "label": "工作区"
+            },
+            {
+              "id": "crumb-1",
+              "label": "团队空间"
+            },
+            {
+              "id": "crumb-2",
+              "label": "设计系统"
+            },
+            {
+              "id": "crumb-3",
+              "label": "组件库"
+            },
+            {
+              "id": "crumb-4",
+              "label": "导航"
+            },
+            {
+              "id": "crumb-5",
+              "label": "使用指南"
+            }
+          ],
+          "label": "breadcrumb 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "crumb-0",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "crumb-0",
+              "label": "工作区"
+            },
+            {
+              "id": "crumb-1",
+              "label": "团队空间"
+            },
+            {
+              "id": "crumb-2",
+              "label": "设计系统"
+            },
+            {
+              "id": "crumb-3",
+              "label": "组件库"
+            },
+            {
+              "id": "crumb-4",
+              "label": "导航"
+            },
+            {
+              "id": "crumb-5",
+              "label": "使用指南"
+            }
+          ],
+          "label": "breadcrumb 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "crumb-0",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "tabs": {
+    "name": "tabs",
+    "family": "tabs",
+    "exportName": "GTabs",
+    "summary": "用受控值切换内容；支持键盘、手动激活、禁用项与可关闭标签。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "activation",
+      "loop",
+      "closable",
+      "content",
+      "beforeChange"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "tabs 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。",
+              "closable": false
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。",
+              "closable": true
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。",
+              "closable": true
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。",
+              "closable": false
+            }
+          ],
+          "label": "tabs 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "line",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "tabs 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "segmented-control": {
+    "name": "segmented-control",
+    "family": "tabs",
+    "exportName": "GSegmentedControl",
+    "summary": "用受控值切换内容；支持键盘、手动激活、禁用项与可关闭标签。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "activation",
+      "loop",
+      "closable",
+      "content",
+      "beforeChange"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "segmented-control 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。",
+              "closable": false
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。",
+              "closable": true
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。",
+              "closable": true
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。",
+              "closable": false
+            }
+          ],
+          "label": "segmented-control 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "line",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "segmented-control 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "pagination": {
+    "name": "pagination",
+    "family": "pages",
+    "exportName": "GPagination",
+    "summary": "覆盖已知总数、游标与逐批加载，明确边界和异步状态。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "total",
+      "pageSize",
+      "siblingCount",
+      "showSizeChanger",
+      "showJumper",
+      "hasPrevious",
+      "hasNext"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [],
+          "label": "pagination 演示",
+          "brand": "G / Gardener",
+          "defaultValue": 1,
+          "total": 248,
+          "pageSize": 10,
+          "showSizeChanger": true,
+          "showJumper": true,
+          "hasPrevious": true,
+          "hasNext": true,
+          "description": "已加载 20 条记录 · 继续浏览下一批"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [],
+          "label": "pagination 演示",
+          "brand": "G / Gardener",
+          "defaultValue": 1,
+          "total": 248,
+          "pageSize": 10,
+          "showSizeChanger": true,
+          "showJumper": true,
+          "hasPrevious": true,
+          "hasNext": true,
+          "description": "已加载 20 条记录 · 继续浏览下一批",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [],
+          "label": "pagination 演示",
+          "brand": "G / Gardener",
+          "defaultValue": 1,
+          "total": 248,
+          "pageSize": 10,
+          "showSizeChanger": false,
+          "showJumper": false,
+          "hasPrevious": true,
+          "hasNext": true,
+          "description": "已加载 20 条记录 · 继续浏览下一批",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "horizontal",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3
+        }
+      }
+    ]
+  },
+  "menu-dropdown": {
+    "name": "menu-dropdown",
+    "family": "menus",
+    "exportName": "GMenuDropdown",
+    "summary": "支持分组、嵌套、勾选、搜索和焦点恢复；业务动作由事件接入。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "open",
+      "searchable",
+      "closeOnSelect",
+      "children",
+      "checkable",
+      "shortcut"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "menu-dropdown 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "menu-dropdown 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new",
+          "size": "large",
+          "appearance": "card",
+          "searchable": true,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "menu-dropdown 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "stepper": {
+    "name": "stepper",
+    "family": "steps",
+    "exportName": "GStepper",
+    "summary": "用受控步骤和切换前校验组织流程，可表达完成、错误与待处理状态。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "status",
+      "beforeChange",
+      "content"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "details",
+              "label": "基本信息",
+              "description": "填写名称与用途",
+              "content": "录入项目名称、描述与负责人。"
+            },
+            {
+              "id": "members",
+              "label": "邀请成员",
+              "description": "选择协作者",
+              "content": "为团队成员分配角色。"
+            },
+            {
+              "id": "review",
+              "label": "检查配置",
+              "description": "确认发布内容",
+              "content": "核对信息并完成项目创建。"
+            }
+          ],
+          "label": "stepper 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "details"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "details",
+              "label": "基本信息",
+              "description": "填写名称与用途",
+              "content": "录入项目名称、描述与负责人。"
+            },
+            {
+              "id": "members",
+              "label": "邀请成员",
+              "description": "选择协作者",
+              "content": "为团队成员分配角色。",
+              "status": "error"
+            },
+            {
+              "id": "review",
+              "label": "检查配置",
+              "description": "确认发布内容",
+              "content": "核对信息并完成项目创建。"
+            }
+          ],
+          "label": "stepper 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "details",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "details",
+              "label": "基本信息",
+              "description": "填写名称与用途",
+              "content": "录入项目名称、描述与负责人。"
+            },
+            {
+              "id": "members",
+              "label": "邀请成员",
+              "description": "选择协作者",
+              "content": "为团队成员分配角色。"
+            },
+            {
+              "id": "review",
+              "label": "检查配置",
+              "description": "确认发布内容",
+              "content": "核对信息并完成项目创建。"
+            }
+          ],
+          "label": "stepper 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "details",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "command-palette": {
+    "name": "command-palette",
+    "family": "menus",
+    "exportName": "GCommandPalette",
+    "summary": "支持分组、嵌套、勾选、搜索和焦点恢复；业务动作由事件接入。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "open",
+      "searchable",
+      "closeOnSelect",
+      "children",
+      "checkable",
+      "shortcut"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "command-palette 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "command-palette 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new",
+          "size": "large",
+          "appearance": "card",
+          "searchable": true,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "command-palette 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "primary-navigation": {
+    "name": "primary-navigation",
+    "family": "links",
+    "exportName": "GPrimaryNavigation",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "primary-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "primary-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "primary-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "utility-navigation": {
+    "name": "utility-navigation",
+    "family": "links",
+    "exportName": "GUtilityNavigation",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "utility-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "utility-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "utility-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "sub-navigation": {
+    "name": "sub-navigation",
+    "family": "links",
+    "exportName": "GSubNavigation",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "sub-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "sub-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "sub-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "collapsible-navigation": {
+    "name": "collapsible-navigation",
+    "family": "links",
+    "exportName": "GCollapsibleNavigation",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "collapsible-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "collapsible-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "collapsible-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "navigation-rail": {
+    "name": "navigation-rail",
+    "family": "links",
+    "exportName": "GNavigationRail",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "navigation-rail 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "navigation-rail 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "navigation-rail 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "activity-bar": {
+    "name": "activity-bar",
+    "family": "links",
+    "exportName": "GActivityBar",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "activity-bar 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "activity-bar 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "activity-bar 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "menu-bar": {
+    "name": "menu-bar",
+    "family": "menus",
+    "exportName": "GMenuBar",
+    "summary": "支持分组、嵌套、勾选、搜索和焦点恢复；业务动作由事件接入。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "open",
+      "searchable",
+      "closeOnSelect",
+      "children",
+      "checkable",
+      "shortcut"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "file",
+              "label": "文件",
+              "children": [
+                {
+                  "id": "new",
+                  "label": "新建项目",
+                  "icon": "＋",
+                  "shortcut": "Ctrl N",
+                  "group": "项目"
+                },
+                {
+                  "id": "save",
+                  "label": "保存",
+                  "icon": "✓",
+                  "shortcut": "Ctrl S",
+                  "group": "项目"
+                },
+                {
+                  "id": "export",
+                  "label": "导出",
+                  "icon": "↗",
+                  "group": "文件",
+                  "children": [
+                    {
+                      "id": "pdf",
+                      "label": "PDF 文档"
+                    },
+                    {
+                      "id": "csv",
+                      "label": "CSV 数据"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "edit",
+              "label": "编辑",
+              "children": [
+                {
+                  "id": "undo",
+                  "label": "撤销",
+                  "shortcut": "Ctrl Z"
+                },
+                {
+                  "id": "redo",
+                  "label": "重做",
+                  "disabled": true
+                }
+              ]
+            },
+            {
+              "id": "help",
+              "label": "帮助",
+              "children": [
+                {
+                  "id": "docs",
+                  "label": "使用文档"
+                },
+                {
+                  "id": "about",
+                  "label": "关于工作区"
+                }
+              ]
+            }
+          ],
+          "label": "menu-bar 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "file"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "file",
+              "label": "文件",
+              "children": [
+                {
+                  "id": "new",
+                  "label": "新建项目",
+                  "icon": "＋",
+                  "shortcut": "Ctrl N",
+                  "group": "项目"
+                },
+                {
+                  "id": "save",
+                  "label": "保存",
+                  "icon": "✓",
+                  "shortcut": "Ctrl S",
+                  "group": "项目"
+                },
+                {
+                  "id": "export",
+                  "label": "导出",
+                  "icon": "↗",
+                  "group": "文件",
+                  "children": [
+                    {
+                      "id": "pdf",
+                      "label": "PDF 文档"
+                    },
+                    {
+                      "id": "csv",
+                      "label": "CSV 数据"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "edit",
+              "label": "编辑",
+              "children": [
+                {
+                  "id": "undo",
+                  "label": "撤销",
+                  "shortcut": "Ctrl Z"
+                },
+                {
+                  "id": "redo",
+                  "label": "重做",
+                  "disabled": true
+                }
+              ]
+            },
+            {
+              "id": "help",
+              "label": "帮助",
+              "children": [
+                {
+                  "id": "docs",
+                  "label": "使用文档"
+                },
+                {
+                  "id": "about",
+                  "label": "关于工作区"
+                }
+              ]
+            }
+          ],
+          "label": "menu-bar 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "file",
+          "size": "large",
+          "appearance": "card",
+          "searchable": true,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "file",
+              "label": "文件",
+              "children": [
+                {
+                  "id": "new",
+                  "label": "新建项目",
+                  "icon": "＋",
+                  "shortcut": "Ctrl N",
+                  "group": "项目"
+                },
+                {
+                  "id": "save",
+                  "label": "保存",
+                  "icon": "✓",
+                  "shortcut": "Ctrl S",
+                  "group": "项目"
+                },
+                {
+                  "id": "export",
+                  "label": "导出",
+                  "icon": "↗",
+                  "group": "文件",
+                  "children": [
+                    {
+                      "id": "pdf",
+                      "label": "PDF 文档"
+                    },
+                    {
+                      "id": "csv",
+                      "label": "CSV 数据"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "edit",
+              "label": "编辑",
+              "children": [
+                {
+                  "id": "undo",
+                  "label": "撤销",
+                  "shortcut": "Ctrl Z"
+                },
+                {
+                  "id": "redo",
+                  "label": "重做",
+                  "disabled": true
+                }
+              ]
+            },
+            {
+              "id": "help",
+              "label": "帮助",
+              "children": [
+                {
+                  "id": "docs",
+                  "label": "使用文档"
+                },
+                {
+                  "id": "about",
+                  "label": "关于工作区"
+                }
+              ]
+            }
+          ],
+          "label": "menu-bar 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "file",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "context-menu": {
+    "name": "context-menu",
+    "family": "menus",
+    "exportName": "GContextMenu",
+    "summary": "支持分组、嵌套、勾选、搜索和焦点恢复；业务动作由事件接入。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "open",
+      "searchable",
+      "closeOnSelect",
+      "children",
+      "checkable",
+      "shortcut"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "context-menu 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "context-menu 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new",
+          "size": "large",
+          "appearance": "card",
+          "searchable": true,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "context-menu 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "tree-navigation": {
+    "name": "tree-navigation",
+    "family": "tree",
+    "exportName": "GTreeNavigation",
+    "summary": "通过嵌套数据表达层级，支持受控展开、方向键和禁用节点。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "children",
+      "expandedKeys",
+      "defaultExpandedKeys",
+      "searchable"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "workspace",
+              "label": "团队工作区",
+              "icon": "▣",
+              "children": [
+                {
+                  "id": "design",
+                  "label": "设计系统",
+                  "children": [
+                    {
+                      "id": "tokens",
+                      "label": "设计变量"
+                    },
+                    {
+                      "id": "components",
+                      "label": "组件规范"
+                    }
+                  ]
+                },
+                {
+                  "id": "docs",
+                  "label": "文档中心"
+                },
+                {
+                  "id": "archive",
+                  "label": "归档项目",
+                  "disabled": true
+                }
+              ]
+            },
+            {
+              "id": "personal",
+              "label": "个人空间",
+              "children": [
+                {
+                  "id": "drafts",
+                  "label": "草稿",
+                  "badge": 3
+                }
+              ]
+            }
+          ],
+          "label": "tree-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "workspace"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "workspace",
+              "label": "团队工作区",
+              "icon": "▣",
+              "children": [
+                {
+                  "id": "design",
+                  "label": "设计系统",
+                  "children": [
+                    {
+                      "id": "tokens",
+                      "label": "设计变量"
+                    },
+                    {
+                      "id": "components",
+                      "label": "组件规范"
+                    }
+                  ]
+                },
+                {
+                  "id": "docs",
+                  "label": "文档中心"
+                },
+                {
+                  "id": "archive",
+                  "label": "归档项目",
+                  "disabled": true
+                }
+              ]
+            },
+            {
+              "id": "personal",
+              "label": "个人空间",
+              "children": [
+                {
+                  "id": "drafts",
+                  "label": "草稿",
+                  "badge": 3
+                }
+              ]
+            }
+          ],
+          "label": "tree-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "workspace",
+          "size": "large",
+          "appearance": "card",
+          "searchable": true,
+          "defaultExpandedKeys": [
+            "workspace",
+            "design"
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "workspace",
+              "label": "团队工作区",
+              "icon": "▣",
+              "children": [
+                {
+                  "id": "design",
+                  "label": "设计系统",
+                  "children": [
+                    {
+                      "id": "tokens",
+                      "label": "设计变量"
+                    },
+                    {
+                      "id": "components",
+                      "label": "组件规范"
+                    }
+                  ]
+                },
+                {
+                  "id": "docs",
+                  "label": "文档中心"
+                },
+                {
+                  "id": "archive",
+                  "label": "归档项目",
+                  "disabled": true
+                }
+              ]
+            },
+            {
+              "id": "personal",
+              "label": "个人空间",
+              "children": [
+                {
+                  "id": "drafts",
+                  "label": "草稿",
+                  "badge": 3
+                }
+              ]
+            }
+          ],
+          "label": "tree-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "workspace",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "vertical-tabs": {
+    "name": "vertical-tabs",
+    "family": "tabs",
+    "exportName": "GVerticalTabs",
+    "summary": "用受控值切换内容；支持键盘、手动激活、禁用项与可关闭标签。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "activation",
+      "loop",
+      "closable",
+      "content",
+      "beforeChange"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "vertical-tabs 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。",
+              "closable": false
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。",
+              "closable": true
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。",
+              "closable": true
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。",
+              "closable": false
+            }
+          ],
+          "label": "vertical-tabs 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "line",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "vertical-tabs 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "pill-navigation": {
+    "name": "pill-navigation",
+    "family": "links",
+    "exportName": "GPillNavigation",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "pill-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "pill-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "pill-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "scrollspy-navigation": {
+    "name": "scrollspy-navigation",
+    "family": "location",
+    "exportName": "GScrollspyNavigation",
+    "summary": "在页面或指定滚动容器中定位，并支持滚动高亮与键盘跳转。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "href",
+      "scrollTarget",
+      "scrollOffset",
+      "threshold",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "scrollspy-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "scrollspy-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100,
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "scrollspy-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100,
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "cursor-pagination": {
+    "name": "cursor-pagination",
+    "family": "pages",
+    "exportName": "GCursorPagination",
+    "summary": "覆盖已知总数、游标与逐批加载，明确边界和异步状态。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "total",
+      "pageSize",
+      "siblingCount",
+      "showSizeChanger",
+      "showJumper",
+      "hasPrevious",
+      "hasNext"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [],
+          "label": "cursor-pagination 演示",
+          "brand": "G / Gardener",
+          "total": 248,
+          "pageSize": 10,
+          "showSizeChanger": true,
+          "showJumper": true,
+          "hasPrevious": true,
+          "hasNext": true,
+          "description": "已加载 20 条记录 · 继续浏览下一批"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [],
+          "label": "cursor-pagination 演示",
+          "brand": "G / Gardener",
+          "total": 248,
+          "pageSize": 10,
+          "showSizeChanger": true,
+          "showJumper": true,
+          "hasPrevious": true,
+          "hasNext": true,
+          "description": "已加载 20 条记录 · 继续浏览下一批",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [],
+          "label": "cursor-pagination 演示",
+          "brand": "G / Gardener",
+          "total": 248,
+          "pageSize": 10,
+          "showSizeChanger": false,
+          "showJumper": false,
+          "hasPrevious": true,
+          "hasNext": true,
+          "description": "已加载 20 条记录 · 继续浏览下一批",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "horizontal",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3
+        }
+      }
+    ]
+  },
+  "load-more-navigation": {
+    "name": "load-more-navigation",
+    "family": "pages",
+    "exportName": "GLoadMoreNavigation",
+    "summary": "覆盖已知总数、游标与逐批加载，明确边界和异步状态。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "total",
+      "pageSize",
+      "siblingCount",
+      "showSizeChanger",
+      "showJumper",
+      "hasPrevious",
+      "hasNext"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [],
+          "label": "load-more-navigation 演示",
+          "brand": "G / Gardener",
+          "total": 248,
+          "pageSize": 10,
+          "showSizeChanger": true,
+          "showJumper": true,
+          "hasPrevious": true,
+          "hasNext": true,
+          "description": "已加载 20 条记录 · 继续浏览下一批"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [],
+          "label": "load-more-navigation 演示",
+          "brand": "G / Gardener",
+          "total": 248,
+          "pageSize": 10,
+          "showSizeChanger": true,
+          "showJumper": true,
+          "hasPrevious": true,
+          "hasNext": true,
+          "description": "已加载 20 条记录 · 继续浏览下一批",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [],
+          "label": "load-more-navigation 演示",
+          "brand": "G / Gardener",
+          "total": 248,
+          "pageSize": 10,
+          "showSizeChanger": false,
+          "showJumper": false,
+          "hasPrevious": true,
+          "hasNext": true,
+          "description": "已加载 20 条记录 · 继续浏览下一批",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "horizontal",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3
+        }
+      }
+    ]
+  },
+  "wizard-navigation": {
+    "name": "wizard-navigation",
+    "family": "steps",
+    "exportName": "GWizardNavigation",
+    "summary": "用受控步骤和切换前校验组织流程，可表达完成、错误与待处理状态。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "status",
+      "beforeChange",
+      "content"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "details",
+              "label": "基本信息",
+              "description": "填写名称与用途",
+              "content": "录入项目名称、描述与负责人。"
+            },
+            {
+              "id": "members",
+              "label": "邀请成员",
+              "description": "选择协作者",
+              "content": "为团队成员分配角色。"
+            },
+            {
+              "id": "review",
+              "label": "检查配置",
+              "description": "确认发布内容",
+              "content": "核对信息并完成项目创建。"
+            }
+          ],
+          "label": "wizard-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "details"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "details",
+              "label": "基本信息",
+              "description": "填写名称与用途",
+              "content": "录入项目名称、描述与负责人。"
+            },
+            {
+              "id": "members",
+              "label": "邀请成员",
+              "description": "选择协作者",
+              "content": "为团队成员分配角色。",
+              "status": "error"
+            },
+            {
+              "id": "review",
+              "label": "检查配置",
+              "description": "确认发布内容",
+              "content": "核对信息并完成项目创建。"
+            }
+          ],
+          "label": "wizard-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "details",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "details",
+              "label": "基本信息",
+              "description": "填写名称与用途",
+              "content": "录入项目名称、描述与负责人。"
+            },
+            {
+              "id": "members",
+              "label": "邀请成员",
+              "description": "选择协作者",
+              "content": "为团队成员分配角色。"
+            },
+            {
+              "id": "review",
+              "label": "检查配置",
+              "description": "确认发布内容",
+              "content": "核对信息并完成项目创建。"
+            }
+          ],
+          "label": "wizard-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "details",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "back-navigation": {
+    "name": "back-navigation",
+    "family": "actions",
+    "exportName": "GBackNavigation",
+    "summary": "组织主次命令、上下文操作和返回路径，由调用方处理业务逻辑。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "previous",
+      "next",
+      "backHref",
+      "sticky"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "back-navigation 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          }
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "back-navigation 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          },
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "back-navigation 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          },
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "horizontal",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "previous-next-navigation": {
+    "name": "previous-next-navigation",
+    "family": "actions",
+    "exportName": "GPreviousNextNavigation",
+    "summary": "组织主次命令、上下文操作和返回路径，由调用方处理业务逻辑。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "previous",
+      "next",
+      "backHref",
+      "sticky"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "previous-next-navigation 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          }
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "previous-next-navigation 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          },
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "previous-next-navigation 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          },
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "horizontal",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "skip-navigation": {
+    "name": "skip-navigation",
+    "family": "location",
+    "exportName": "GSkipNavigation",
+    "summary": "在页面或指定滚动容器中定位，并支持滚动高亮与键盘跳转。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "href",
+      "scrollTarget",
+      "scrollOffset",
+      "threshold",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "skip-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "skip-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100,
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "skip-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100,
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "mobile-top-navigation": {
+    "name": "mobile-top-navigation",
+    "family": "actions",
+    "exportName": "GMobileTopNavigation",
+    "summary": "组织主次命令、上下文操作和返回路径，由调用方处理业务逻辑。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "previous",
+      "next",
+      "backHref",
+      "sticky"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "mobile-top-navigation 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          }
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "mobile-top-navigation 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          },
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "mobile-top-navigation 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          },
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "horizontal",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "bottom-navigation": {
+    "name": "bottom-navigation",
+    "family": "links",
+    "exportName": "GBottomNavigation",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "bottom-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "bottom-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "bottom-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "mobile-tab-bar": {
+    "name": "mobile-tab-bar",
+    "family": "tabs",
+    "exportName": "GMobileTabBar",
+    "summary": "用受控值切换内容；支持键盘、手动激活、禁用项与可关闭标签。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "activation",
+      "loop",
+      "closable",
+      "content",
+      "beforeChange"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "mobile-tab-bar 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。",
+              "closable": false
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。",
+              "closable": true
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。",
+              "closable": true
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。",
+              "closable": false
+            }
+          ],
+          "label": "mobile-tab-bar 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "line",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "mobile-tab-bar 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "drawer-navigation": {
+    "name": "drawer-navigation",
+    "family": "menus",
+    "exportName": "GDrawerNavigation",
+    "summary": "支持分组、嵌套、勾选、搜索和焦点恢复；业务动作由事件接入。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "open",
+      "searchable",
+      "closeOnSelect",
+      "children",
+      "checkable",
+      "shortcut"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "drawer-navigation 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "drawer-navigation 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": true,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "drawer-navigation 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "command-navigation": {
+    "name": "command-navigation",
+    "family": "links",
+    "exportName": "GCommandNavigation",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "command-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "command-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "command-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "jump-navigation": {
+    "name": "jump-navigation",
+    "family": "location",
+    "exportName": "GJumpNavigation",
+    "summary": "在页面或指定滚动容器中定位，并支持滚动高亮与键盘跳转。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "href",
+      "scrollTarget",
+      "scrollOffset",
+      "threshold",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "jump-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "jump-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100,
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "jump-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100,
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "quick-navigation": {
+    "name": "quick-navigation",
+    "family": "links",
+    "exportName": "GQuickNavigation",
+    "summary": "从网站入口到工作台导航，支持选中、图标、徽标、分组、方向与密度。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "brand",
+      "collapsed",
+      "searchable",
+      "sticky",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "quick-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "quick-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": [],
+          "actions": [
+            {
+              "id": "create",
+              "label": "新建",
+              "icon": "＋"
+            }
+          ]
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "quick-navigation 演示",
+          "title": "团队工作区",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "locale-navigation": {
+    "name": "locale-navigation",
+    "family": "menus",
+    "exportName": "GLocaleNavigation",
+    "summary": "支持分组、嵌套、勾选、搜索和焦点恢复；业务动作由事件接入。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "open",
+      "searchable",
+      "closeOnSelect",
+      "children",
+      "checkable",
+      "shortcut"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "zh-CN",
+              "label": "简体中文",
+              "description": "中国大陆"
+            },
+            {
+              "id": "en",
+              "label": "English",
+              "description": "United States"
+            },
+            {
+              "id": "ja",
+              "label": "日本語",
+              "description": "日本"
+            }
+          ],
+          "label": "locale-navigation 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "zh-CN"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "zh-CN",
+              "label": "简体中文",
+              "description": "中国大陆"
+            },
+            {
+              "id": "en",
+              "label": "English",
+              "description": "United States"
+            },
+            {
+              "id": "ja",
+              "label": "日本語",
+              "description": "日本"
+            }
+          ],
+          "label": "locale-navigation 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "zh-CN",
+          "size": "large",
+          "appearance": "card",
+          "searchable": true,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "zh-CN",
+              "label": "简体中文",
+              "description": "中国大陆"
+            },
+            {
+              "id": "en",
+              "label": "English",
+              "description": "United States"
+            },
+            {
+              "id": "ja",
+              "label": "日本語",
+              "description": "日本"
+            }
+          ],
+          "label": "locale-navigation 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "zh-CN",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "account-navigation": {
+    "name": "account-navigation",
+    "family": "menus",
+    "exportName": "GAccountNavigation",
+    "summary": "支持分组、嵌套、勾选、搜索和焦点恢复；业务动作由事件接入。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "open",
+      "searchable",
+      "closeOnSelect",
+      "children",
+      "checkable",
+      "shortcut"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "profile",
+              "label": "个人资料",
+              "icon": "◉",
+              "group": "林青 · 团队管理员"
+            },
+            {
+              "id": "security",
+              "label": "安全设置",
+              "icon": "◇"
+            },
+            {
+              "id": "billing",
+              "label": "订阅与账单",
+              "icon": "▤"
+            },
+            {
+              "id": "signout",
+              "label": "退出登录",
+              "group": "会话"
+            }
+          ],
+          "label": "account-navigation 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "profile"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "profile",
+              "label": "个人资料",
+              "icon": "◉",
+              "group": "林青 · 团队管理员"
+            },
+            {
+              "id": "security",
+              "label": "安全设置",
+              "icon": "◇"
+            },
+            {
+              "id": "billing",
+              "label": "订阅与账单",
+              "icon": "▤"
+            },
+            {
+              "id": "signout",
+              "label": "退出登录",
+              "group": "会话"
+            }
+          ],
+          "label": "account-navigation 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "profile",
+          "size": "large",
+          "appearance": "card",
+          "searchable": true,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "profile",
+              "label": "个人资料",
+              "icon": "◉",
+              "group": "林青 · 团队管理员"
+            },
+            {
+              "id": "security",
+              "label": "安全设置",
+              "icon": "◇"
+            },
+            {
+              "id": "billing",
+              "label": "订阅与账单",
+              "icon": "▤"
+            },
+            {
+              "id": "signout",
+              "label": "退出登录",
+              "group": "会话"
+            }
+          ],
+          "label": "account-navigation 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "profile",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "toolbar": {
+    "name": "toolbar",
+    "family": "actions",
+    "exportName": "GToolbar",
+    "summary": "组织主次命令、上下文操作和返回路径，由调用方处理业务逻辑。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "previous",
+      "next",
+      "backHref",
+      "sticky"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "toolbar 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          }
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "toolbar 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          },
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "toolbar 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          },
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "horizontal",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "command-bar": {
+    "name": "command-bar",
+    "family": "actions",
+    "exportName": "GCommandBar",
+    "summary": "组织主次命令、上下文操作和返回路径，由调用方处理业务逻辑。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "actions",
+      "previous",
+      "next",
+      "backHref",
+      "sticky"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "command-bar 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          }
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "command-bar 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          },
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "overview",
+              "label": "工作台",
+              "icon": "◈",
+              "content": "项目概览：12 个活跃项目，3 项待处理事项。"
+            },
+            {
+              "id": "projects",
+              "label": "项目",
+              "icon": "▦",
+              "badge": 12,
+              "content": "团队项目：设计系统、移动工作台与文档中心。"
+            },
+            {
+              "id": "reports",
+              "label": "报表",
+              "icon": "▥",
+              "content": "月度交付统计与团队活动记录。"
+            },
+            {
+              "id": "settings",
+              "label": "设置",
+              "icon": "⚙",
+              "disabled": true,
+              "content": "此项需要管理员权限。"
+            }
+          ],
+          "label": "command-bar 演示",
+          "title": "项目设置",
+          "brand": "G / Gardener",
+          "defaultValue": "overview",
+          "actions": [
+            {
+              "id": "help",
+              "label": "帮助"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓"
+            }
+          ],
+          "previous": {
+            "id": "prev",
+            "label": "上一章 · 表单组件",
+            "description": "返回前一个主题"
+          },
+          "next": {
+            "id": "next",
+            "label": "下一章 · 数据展示",
+            "description": "继续学习"
+          },
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "horizontal",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "mega-menu": {
+    "name": "mega-menu",
+    "family": "menus",
+    "exportName": "GMegaMenu",
+    "summary": "支持分组、嵌套、勾选、搜索和焦点恢复；业务动作由事件接入。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "open",
+      "searchable",
+      "closeOnSelect",
+      "children",
+      "checkable",
+      "shortcut"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "mega-menu 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new"
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "mega-menu 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new",
+          "size": "large",
+          "appearance": "card",
+          "searchable": true,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "new",
+              "label": "新建项目",
+              "icon": "＋",
+              "shortcut": "Ctrl N",
+              "group": "项目"
+            },
+            {
+              "id": "save",
+              "label": "保存",
+              "icon": "✓",
+              "shortcut": "Ctrl S",
+              "group": "项目"
+            },
+            {
+              "id": "export",
+              "label": "导出",
+              "icon": "↗",
+              "group": "文件",
+              "children": [
+                {
+                  "id": "pdf",
+                  "label": "PDF 文档"
+                },
+                {
+                  "id": "csv",
+                  "label": "CSV 数据"
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "label": "显示侧栏",
+              "checkable": true,
+              "checked": true,
+              "group": "视图"
+            },
+            {
+              "id": "delete",
+              "label": "删除项目",
+              "disabled": true,
+              "group": "危险操作"
+            }
+          ],
+          "label": "mega-menu 演示",
+          "title": "打开操作菜单",
+          "brand": "G / Gardener",
+          "defaultValue": "new",
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "anchor-navigation": {
+    "name": "anchor-navigation",
+    "family": "location",
+    "exportName": "GAnchorNavigation",
+    "summary": "在页面或指定滚动容器中定位，并支持滚动高亮与键盘跳转。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "href",
+      "scrollTarget",
+      "scrollOffset",
+      "threshold",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "anchor-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "anchor-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100,
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "anchor-navigation 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100,
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  },
+  "back-to-top": {
+    "name": "back-to-top",
+    "family": "location",
+    "exportName": "GBackToTop",
+    "summary": "在页面或指定滚动容器中定位，并支持滚动高亮与键盘跳转。",
+    "parameters": [
+      "showIcons",
+      "showBadges",
+      "showDescriptions",
+      "showShortcuts",
+      "showGroups",
+      "showHeader",
+      "showActions",
+      "showPanel",
+      "bordered",
+      "maxHeight",
+      "popupWidth",
+      "popupMaxHeight",
+      "itemGap",
+      "indent",
+      "selectionTimeout",
+      "closeOnEscape",
+      "closeOnOutside",
+      "items",
+      "value / v-model",
+      "size",
+      "appearance",
+      "orientation",
+      "disabled",
+      "loading",
+      "label",
+      "href",
+      "scrollTarget",
+      "scrollOffset",
+      "threshold",
+      "fixed"
+    ],
+    "scenarios": [
+      {
+        "id": "basic",
+        "title": "基本用法 · 数据与受控值",
+        "description": "通过 items 描述内容，选中值和业务回调由应用接管。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "back-to-top 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100
+        }
+      },
+      {
+        "id": "rich",
+        "title": "复杂场景 · 内容与操作",
+        "description": "展示描述、徽标、分组、嵌套或业务专用参数。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "back-to-top 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100,
+          "size": "large",
+          "appearance": "card",
+          "searchable": false,
+          "defaultExpandedKeys": []
+        }
+      },
+      {
+        "id": "compact",
+        "title": "紧凑场景 · 另一种布局",
+        "description": "调整尺寸、外观和方向，适应侧栏、工具面板与小屏幕。",
+        "options": {
+          "items": [
+            {
+              "id": "intro",
+              "label": "概览",
+              "href": "#nav-section-intro"
+            },
+            {
+              "id": "usage",
+              "label": "使用方式",
+              "href": "#nav-section-usage"
+            },
+            {
+              "id": "api",
+              "label": "参数说明",
+              "href": "#nav-section-api"
+            }
+          ],
+          "label": "back-to-top 演示",
+          "brand": "G / Gardener",
+          "defaultValue": "intro",
+          "scrollTarget": "navigation-scroll-area",
+          "scrollOffset": 16,
+          "threshold": 100,
+          "size": "small",
+          "appearance": "pill",
+          "orientation": "vertical",
+          "activation": "manual",
+          "closeOnSelect": false,
+          "maxVisibleItems": 3,
+          "showSizeChanger": false,
+          "showJumper": false
+        }
+      }
+    ]
+  }
+}

@@ -1,13 +1,25 @@
 import { expect, test } from "@playwright/test";
 import {
   collectPageFailures,
+  contentMediaFailures,
   exampleUrl,
   websitePages,
   mobilePages,
 } from "./pages.mjs";
 
+test("interactive tags, chips, and avatars provide touch-sized targets", async ({ page }) => {
+  await page.goto(exampleUrl("showcase.html"), { waitUntil: "networkidle" });
+  await page.locator("main").first().evaluate((main) => {
+    main.insertAdjacentHTML("afterbegin", '<button id="touch-tag" class="g-tag g-tag-checkable" type="button">标签</button><button id="touch-chip" class="g-chip g-chip-selectable" type="button">筛选</button><button id="touch-avatar" class="g-avatar g-avatar-xs g-avatar-interactive" type="button" aria-label="选择林默">林</button>');
+  });
+  for (const selector of ["#touch-tag", "#touch-chip", "#touch-avatar"]) {
+    const box = await page.locator(selector).boundingBox();
+    expect(box?.height).toBeGreaterThanOrEqual(44);
+  }
+});
+
 for (const name of mobilePages) {
-  test(`${name} reflows in a touch viewport`, async ({ page }) => {
+  test(`${name} reflows in a touch viewport`, async ({ page, browserName }) => {
     const failures = collectPageFailures(page);
     await page.goto(exampleUrl(name), { waitUntil: "networkidle" });
 
@@ -25,7 +37,7 @@ for (const name of mobilePages) {
     expect(state.hasViewportMeta).toBe(true);
     expect(state.hasHorizontalOverflow).toBe(false);
     expect(state.viewport.width).toBeLessThanOrEqual(430);
-    expect(failures).toEqual([]);
+    expect(['content-lab.html','media-lab.html'].includes(name) ? await contentMediaFailures(page, failures, browserName) : failures).toEqual([]);
   });
 }
 

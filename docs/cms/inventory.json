@@ -1,0 +1,285 @@
+{
+  "originalComponents": 6,
+  "newComponents": 0,
+  "components": 6,
+  "variants": 24,
+  "decision": "文件上传和版本对比已有独立组件；本次把 SEO、标签、审核、语言和资源选择纳入现有 CMS 组合的参数与区域，避免新增重复名称。",
+  "items": [
+    {
+      "name": "cms-shell",
+      "category": "cms",
+      "type": "interactive",
+      "selector": ".g-cms-shell",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-cms-shell",
+      "behaviors": [
+        "cms"
+      ],
+      "variants": [
+        "table",
+        "cards",
+        "compact",
+        "inspector"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "permissions",
+        "structured-content"
+      ],
+      "before": {
+        "name": "cms-shell",
+        "category": "cms",
+        "type": "css",
+        "selector": ".g-cms-shell",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "静态三栏高度强制占满视口，移动端隐藏信息且无内容操作。改为响应式表格/卡片/紧凑/检查器，支持搜索、分页、选择和元数据保存。"
+    },
+    {
+      "name": "visual-builder",
+      "category": "cms",
+      "type": "interactive",
+      "selector": ".g-cms-canvas",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-cms-canvas",
+      "behaviors": [
+        "cms"
+      ],
+      "variants": [
+        "desktop",
+        "tablet",
+        "mobile",
+        "outline"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "permissions",
+        "structured-content"
+      ],
+      "before": {
+        "name": "visual-builder",
+        "category": "cms",
+        "type": "css",
+        "selector": ".g-cms-canvas",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来只有点阵画布，没有构建行为。新增结构化区块的编辑、排序、复制、删除、撤销/重做与三种设备预览。"
+    },
+    {
+      "name": "rich-editor",
+      "category": "cms",
+      "type": "interactive",
+      "selector": ".g-editor",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-editor",
+      "behaviors": [
+        "cms"
+      ],
+      "variants": [
+        "document",
+        "split",
+        "minimal",
+        "seo"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "permissions",
+        "structured-content"
+      ],
+      "before": {
+        "name": "rich-editor",
+        "category": "cms",
+        "type": "css",
+        "selector": ".g-editor",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来只有编辑器外壳。新增标题/段落/引用/图片，粗体斜体、预览、SEO 字段及历史版本恢复请求。"
+    },
+    {
+      "name": "media-library",
+      "category": "cms",
+      "type": "interactive",
+      "selector": ".g-media-library",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-media-library",
+      "behaviors": [
+        "cms"
+      ],
+      "variants": [
+        "grid",
+        "list",
+        "multiple",
+        "inspector"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "permissions",
+        "structured-content"
+      ],
+      "before": {
+        "name": "media-library",
+        "category": "cms",
+        "type": "css",
+        "selector": ".g-media-library",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来只有静态网格。新增单/多选、文件限制、上传请求、替代文本、列表与检查器。"
+    },
+    {
+      "name": "content-workflow",
+      "category": "cms",
+      "type": "interactive",
+      "selector": ".g-workflow",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-workflow",
+      "behaviors": [
+        "cms"
+      ],
+      "variants": [
+        "board",
+        "list",
+        "approval",
+        "scheduled"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "permissions",
+        "structured-content"
+      ],
+      "before": {
+        "name": "content-workflow",
+        "category": "cms",
+        "type": "css",
+        "selector": ".g-workflow",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来只有流程列。新增审核状态机、按权限禁用操作、审核意见、定时发布、版本冲突与异步确认。"
+    },
+    {
+      "name": "localization-grid",
+      "category": "cms",
+      "type": "interactive",
+      "selector": ".g-localization-grid",
+      "status": "runtime-ready",
+      "platforms": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "cssSelector": ".g-localization-grid",
+      "behaviors": [
+        "cms"
+      ],
+      "variants": [
+        "matrix",
+        "stacked",
+        "missing",
+        "review"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "features": [
+        "controlled-state",
+        "keyboard",
+        "async-results",
+        "parameter-update",
+        "permissions",
+        "structured-content"
+      ],
+      "before": {
+        "name": "localization-grid",
+        "category": "cms",
+        "type": "css",
+        "selector": ".g-localization-grid",
+        "status": "css-ready",
+        "platforms": [
+          "web",
+          "mobile",
+          "desktop"
+        ]
+      },
+      "finding": "原来只有固定宽度网格。新增可编辑语言列、必填语言、语言只读、缺失过滤和逐语言方向。"
+    }
+  ]
+}

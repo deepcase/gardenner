@@ -34,4 +34,4 @@ export const GardenerimThemeFactory = (): GardenerimThemeService => {
   };
 };
 
-export const GardenerimToastFactory = () => ({ show: toast });
+export const GardenerimToastFactory = () => ({ show: toast, clear: toast.clear, config: toast.config });

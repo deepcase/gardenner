@@ -1,0 +1,245 @@
+[
+  {
+    "name": "dialog",
+    "category": "overlay",
+    "type": "interactive",
+    "selector": "[data-g-dialog]",
+    "variants": [
+      "small",
+      "medium",
+      "large",
+      "xl",
+      "centered",
+      "fullscreen",
+      "top"
+    ],
+    "states": [
+      "closed",
+      "open",
+      "loading"
+    ],
+    "accessibility": {
+      "roles": [
+        "dialog"
+      ],
+      "focusTrap": true,
+      "keyboard": [
+        "Escape",
+        "Tab"
+      ]
+    },
+    "behaviors": [
+      "dialog"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-dialog-backdrop",
+    "parts": [
+      "g-dialog",
+      "g-dialog-header",
+      "g-dialog-title",
+      "g-dialog-body",
+      "g-dialog-footer",
+      "g-dialog-close"
+    ]
+  },
+  {
+    "name": "drawer",
+    "category": "overlay",
+    "type": "interactive",
+    "selector": "[data-g-drawer]",
+    "variants": [
+      "small",
+      "medium",
+      "large",
+      "xl"
+    ],
+    "states": [
+      "closed",
+      "open",
+      "loading"
+    ],
+    "behaviors": [
+      "drawer"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-drawer-backdrop",
+    "parts": [
+      "g-drawer",
+      "g-drawer-header",
+      "g-drawer-title",
+      "g-drawer-body",
+      "g-drawer-footer"
+    ],
+    "accessibility": {
+      "roles": [
+        "dialog"
+      ],
+      "focusTrap": true,
+      "keyboard": [
+        "Escape",
+        "Tab"
+      ]
+    }
+  },
+  {
+    "name": "popover",
+    "category": "overlay",
+    "type": "interactive",
+    "selector": "[data-g-popover]",
+    "variants": [
+      "compact",
+      "wide"
+    ],
+    "states": [
+      "closed",
+      "open"
+    ],
+    "behaviors": [
+      "popover"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-popover",
+    "parts": [
+      "g-popover-title",
+      "g-popover-content",
+      "g-popover-footer"
+    ]
+  },
+  {
+    "name": "tooltip",
+    "category": "overlay",
+    "type": "interactive",
+    "selector": "[data-g-tooltip]",
+    "cssSelector": ".g-tooltip",
+    "variants": [
+      "top",
+      "bottom",
+      "start",
+      "end",
+      "start-aligned",
+      "centered",
+      "end-aligned"
+    ],
+    "accessibility": {
+      "roles": [
+        "tooltip"
+      ],
+      "keyboard": [
+        "Focus",
+        "Escape"
+      ]
+    },
+    "behaviors": [
+      "tooltip"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "category": "overlay",
+    "type": "interactive",
+    "states": [
+      "closed",
+      "open",
+      "loading",
+      "disabled"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "name": "popconfirm",
+    "selector": "[data-g-popover].g-popconfirm",
+    "cssSelector": ".g-popconfirm",
+    "variants": [
+      "compact",
+      "wide",
+      "danger"
+    ],
+    "parts": [
+      "g-popconfirm-title",
+      "g-popconfirm-description",
+      "g-popconfirm-icon",
+      "g-popconfirm-actions"
+    ],
+    "behaviors": [
+      "popover"
+    ],
+    "accessibility": {
+      "roles": [
+        "dialog"
+      ],
+      "keyboard": [
+        "Escape",
+        "Tab"
+      ]
+    }
+  },
+  {
+    "category": "overlay",
+    "type": "interactive",
+    "states": [
+      "closed",
+      "open",
+      "loading",
+      "disabled"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "name": "confirm-dialog",
+    "selector": "[data-g-dialog].g-confirm-dialog-backdrop",
+    "cssSelector": ".g-confirm-dialog-backdrop",
+    "variants": [
+      "small",
+      "medium",
+      "large",
+      "danger",
+      "centered"
+    ],
+    "parts": [
+      "g-dialog",
+      "g-dialog-title",
+      "g-dialog-body",
+      "g-dialog-footer",
+      "g-confirm-dialog-icon"
+    ],
+    "behaviors": [
+      "dialog"
+    ],
+    "accessibility": {
+      "roles": [
+        "alertdialog"
+      ],
+      "focusTrap": true,
+      "keyboard": [
+        "Escape",
+        "Tab"
+      ]
+    }
+  }
+]

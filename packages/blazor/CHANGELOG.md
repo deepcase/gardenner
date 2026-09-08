@@ -1,11 +1,18 @@
 # Changelog
 
+## [2.2.0] - 2026-09-08
+
+- Consolidate the full component expansion into one synchronized CSS, Vue, React, AngularJS and Blazor release: 575 components and 96 shared behaviors.
+- Expand data, forms, navigation, overlays and application compositions with configurable variants, controlled state, keyboard interaction and lifecycle handling.
+- Add twelve Arco-inspired foundations while retaining Gardenerim tokens and design language; synchronize interactive demos, public types, catalogs and localized website documentation.
+- Preserve published compatibility contracts and gate the release with reproducible builds, isolated package consumers, browser, accessibility and size checks. Local verification evidence: repository `docs/release-2.2/`. Registry publication is a separate step.
+
 ## [2.1.0] - 2026-09-01
 
 - Embed the shared Arco-aligned 28/32/36px Gardenerim control scale and 14px control typography in the Razor Class Library assets.
 - Add GardenerimLocalizationService and strongly typed localization options/state for the seven-locale runtime catalog.
 - Include locales.js in Razor Class Library static assets so the localized runtime resolves in published consumers.
-- Keep all 506 components, 72 behaviors, 79 events, .NET 10 target, and .NET 11 consumer compatibility.
+- Keep all 510 components, 75 behaviors, 88 events, .NET 10 target, and .NET 11 consumer compatibility.
 
 ## [2.0.0] - 2026-08-31
 

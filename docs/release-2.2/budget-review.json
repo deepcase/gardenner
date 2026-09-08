@@ -1,0 +1,197 @@
+{
+  "version": "2.2.0",
+  "adminCustomBuild": {
+    "previousLimits": {
+      "gzip": 116000,
+      "fullRatio": 0.54
+    },
+    "measured": {
+      "gzip": 151794,
+      "fullRatio": 0.5531730355750238
+    },
+    "limits": {
+      "gzip": 153000,
+      "fullRatio": 0.56
+    },
+    "reason": "Twelve selected components resolve to complete expanded forms, data, navigation and feedback packs. Shared modules are deduplicated and asserted unique. Retain a fixed ceiling with less than 1% gzip headroom; this is an explicit release scope change, not an automatic baseline reset."
+  },
+  "frozenPerformanceBaseline": "2.0.0",
+  "existingScopeReview": "../arco/budget-review.json",
+  "adapterPackages": {
+    "vue": {
+      "previous": {
+        "packed": 1000000,
+        "unpacked": 5250000,
+        "files": 113
+      },
+      "measured": {
+        "packed": 485540,
+        "unpacked": 6181557,
+        "files": 114
+      },
+      "limits": {
+        "packed": 500000,
+        "unpacked": 6250000,
+        "files": 114
+      },
+      "reason": "Expanded 575-component generated bindings, typed contracts, full component documentation and copied CSS. Package whitelist verified; no tests, sources or node_modules are included. Fixed caps retain bounded headroom; Vue packed cap is tightened from 1 MB."
+    },
+    "react": {
+      "previous": {
+        "packed": 450000,
+        "unpacked": 5200000,
+        "files": 110
+      },
+      "measured": {
+        "packed": 452199,
+        "unpacked": 4305701,
+        "files": 110
+      },
+      "limits": {
+        "packed": 460000,
+        "unpacked": 5200000,
+        "files": 110
+      },
+      "reason": "Expanded 575-component generated bindings, typed contracts, full component documentation and copied CSS. Package whitelist verified; no tests, sources or node_modules are included. Fixed caps retain bounded headroom; Vue packed cap is tightened from 1 MB."
+    },
+    "angularjs": {
+      "previous": {
+        "packed": 500000,
+        "unpacked": 5000000,
+        "files": 130
+      },
+      "measured": {
+        "packed": 519611,
+        "unpacked": 4857892,
+        "files": 99
+      },
+      "limits": {
+        "packed": 530000,
+        "unpacked": 5000000,
+        "files": 99
+      },
+      "reason": "575-component directive bundle and documentation. Retain unpacked ceiling and tighten file inventory; fixed packed ceiling adds 2% headroom."
+    }
+  },
+  "cssFallbackReview": {
+    "reason": "36 fallback variables across 15 component modules and bounded layouts restore valid CSS before JS initialization. Measured full minified CSS grows from 1967162 to 1968205 bytes (+0.053%); compression changes are measured separately. Fixed caps are adjusted only for these reviewed deltas. Frozen 2.0.0 measurements remain unchanged.",
+    "changes": [
+      {
+        "file": "gardener.min.css",
+        "metric": "raw",
+        "old": 1968000,
+        "limit": 1969000
+      },
+      {
+        "file": "gardener.min.css",
+        "metric": "brotli",
+        "old": 158000,
+        "limit": 160000
+      },
+      {
+        "file": "gardener.components.min.css",
+        "metric": "raw",
+        "old": 1331000,
+        "limit": 1332000
+      },
+      {
+        "file": "gardener.components.min.css",
+        "metric": "gzip",
+        "old": 185000,
+        "limit": 185200
+      },
+      {
+        "file": "platforms/gardener.mobile.min.css",
+        "metric": "brotli",
+        "old": 153000,
+        "limit": 154000
+      },
+      {
+        "file": "gardener.min.css",
+        "metric": "brotli growth %",
+        "old": 159,
+        "limit": 161
+      },
+      {
+        "file": "gardener.components.min.css",
+        "metric": "gzip growth %",
+        "old": 253,
+        "limit": 254
+      },
+      {
+        "file": "platforms/gardener.web.min.css",
+        "metric": "gzip growth %",
+        "old": 96,
+        "limit": 97
+      },
+      {
+        "file": "platforms/gardener.mobile.min.css",
+        "metric": "raw growth %",
+        "old": 94,
+        "limit": 95
+      },
+      {
+        "file": "platforms/gardener.mobile.min.css",
+        "metric": "brotli growth %",
+        "old": 158,
+        "limit": 159
+      },
+      {
+        "file": "components/layouts.min.css",
+        "metric": "raw growth %",
+        "old": 1060,
+        "limit": 1062
+      },
+      {
+        "file": "components/basic.min.css",
+        "metric": "raw growth %",
+        "old": 781,
+        "limit": 783
+      },
+      {
+        "file": "components/basic.min.css",
+        "metric": "gzip growth %",
+        "old": 535,
+        "limit": 536
+      },
+      {
+        "file": "components/forms.min.css",
+        "metric": "raw growth %",
+        "old": 1866,
+        "limit": 1868
+      },
+      {
+        "file": "components/data.min.css",
+        "metric": "raw growth %",
+        "old": 1107,
+        "limit": 1110
+      },
+      {
+        "file": "components/data.min.css",
+        "metric": "gzip growth %",
+        "old": 827,
+        "limit": 829
+      },
+      {
+        "file": "components/layouts.min.css",
+        "metric": "brotli growth %",
+        "old": 550,
+        "limit": 551,
+        "measured": 550.122
+      }
+    ]
+  },
+  "accessibility": {
+    "changes": [
+      "Carousel indicators: minimum 24px target with unchanged 6px dot",
+      "Managed tag close: 24px target with compensating margins to retain visual spacing",
+      "Example navigation links: minimum 24px height",
+      "Dashboard example: minmax(0,1fr) prevents stale intrinsic grid width after resize"
+    ],
+    "mobileRaw": {
+      "previousLimit": 1909000,
+      "measured": 1909011,
+      "limit": 1910000
+    }
+  }
+}

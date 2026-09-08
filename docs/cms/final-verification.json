@@ -1,0 +1,1723 @@
+{
+  "verifiedAt": "2026-09-07T04:41:34.470Z",
+  "passed": true,
+  "components": 6,
+  "variants": 24,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "newComponents": 0,
+  "addedParameters": [
+    "showSearch",
+    "showFilter",
+    "showHistory",
+    "showMetadata",
+    "showUpload",
+    "showChooser",
+    "showStatus",
+    "editorRows",
+    "previewMaxHeight",
+    "thumbnailFit",
+    "blockTypes"
+  ],
+  "inventory": [
+    {
+      "name": "cms-shell",
+      "variants": [
+        "table",
+        "cards",
+        "compact",
+        "inspector"
+      ],
+      "finding": "统一尺寸、容器布局和搜索/筛选/元数据参数；修复受控分页、文本重复事件及切换记录历史隔离。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "visual-builder",
+      "variants": [
+        "desktop",
+        "tablet",
+        "mobile",
+        "outline"
+      ],
+      "finding": "补齐可添加区块白名单、历史显隐、编辑行数和预览上限；修复关闭预览残留空列、撤销回退服务版本、图片无效格式操作。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "rich-editor",
+      "variants": [
+        "document",
+        "split",
+        "minimal",
+        "seo"
+      ],
+      "finding": "补齐元数据和历史区域参数；修复异常回包等待、版本恢复空确认、状态校验和受控编辑；完善 SEO/分栏/紧凑展示。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "media-library",
+      "variants": [
+        "grid",
+        "list",
+        "multiple",
+        "inspector"
+      ],
+      "finding": "补齐上传/选择入口显隐及图片适配；修复无编辑权限保存按钮和凭据 URL，验证上传一次性取件与选择。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "content-workflow",
+      "variants": [
+        "board",
+        "list",
+        "approval",
+        "scheduled"
+      ],
+      "finding": "修复错误目标状态仍被确认、缺少版本仍成功、审核者不能填写退回意见、空列表仍启用操作、错误状态仍可提交。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    },
+    {
+      "name": "localization-grid",
+      "variants": [
+        "matrix",
+        "stacked",
+        "missing",
+        "review"
+      ],
+      "finding": "补齐筛选/搜索显隐及编辑行数；严格翻译字典校验，保留必填、单语言只读、缺失筛选及多语言方向。",
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ]
+    }
+  ],
+  "tests": {
+    "cms": 29,
+    "runtime": 679,
+    "schema": 48,
+    "html": 43,
+    "build": 11
+  },
+  "browsers": [
+    {
+      "engine": "chromium",
+      "layouts": [
+        {
+          "kind": "cms-shell",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "desktop",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "desktop",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "tablet",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "tablet",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "mobile",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "mobile",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "outline",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "outline",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "document",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "document",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "minimal",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "minimal",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "seo",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "seo",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "board",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "board",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "approval",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "approval",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "scheduled",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "scheduled",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "matrix",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "matrix",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "missing",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "missing",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "review",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "review",
+          "width": 1100
+        }
+      ],
+      "a11y": [
+        "cms-shell/table",
+        "cms-shell/cards",
+        "cms-shell/compact",
+        "cms-shell/inspector",
+        "cms-shell/dark",
+        "visual-builder/desktop",
+        "visual-builder/tablet",
+        "visual-builder/mobile",
+        "visual-builder/outline",
+        "visual-builder/dark",
+        "rich-editor/document",
+        "rich-editor/split",
+        "rich-editor/minimal",
+        "rich-editor/seo",
+        "rich-editor/dark",
+        "media-library/grid",
+        "media-library/list",
+        "media-library/multiple",
+        "media-library/inspector",
+        "media-library/dark",
+        "content-workflow/board",
+        "content-workflow/list",
+        "content-workflow/approval",
+        "content-workflow/scheduled",
+        "content-workflow/dark",
+        "localization-grid/matrix",
+        "localization-grid/stacked",
+        "localization-grid/missing",
+        "localization-grid/review",
+        "localization-grid/dark"
+      ],
+      "interactionScenarios": 9,
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "layouts": [
+        {
+          "kind": "cms-shell",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "desktop",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "desktop",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "tablet",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "tablet",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "mobile",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "mobile",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "outline",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "outline",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "document",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "document",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "minimal",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "minimal",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "seo",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "seo",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "board",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "board",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "approval",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "approval",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "scheduled",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "scheduled",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "matrix",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "matrix",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "missing",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "missing",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "review",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "review",
+          "width": 1100
+        }
+      ],
+      "a11y": [],
+      "interactionScenarios": 9,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "layouts": [
+        {
+          "kind": "cms-shell",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "desktop",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "desktop",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "tablet",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "tablet",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "mobile",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "mobile",
+          "width": 1100
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "outline",
+          "width": 360
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "outline",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "document",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "document",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "minimal",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "minimal",
+          "width": 1100
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "seo",
+          "width": 360
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "seo",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "media-library",
+          "mode": "inspector",
+          "width": 360
+        },
+        {
+          "kind": "media-library",
+          "mode": "inspector",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "board",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "board",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "approval",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "approval",
+          "width": 1100
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "scheduled",
+          "width": 360
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "scheduled",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "matrix",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "matrix",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "missing",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "missing",
+          "width": 1100
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "review",
+          "width": 360
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "review",
+          "width": 1100
+        }
+      ],
+      "a11y": [],
+      "interactionScenarios": 9,
+      "errors": []
+    }
+  ],
+  "extensions": [
+    {
+      "engine": "chromium",
+      "checks": 12,
+      "states": [
+        {
+          "kind": "cms-shell",
+          "state": "empty"
+        },
+        {
+          "kind": "cms-shell",
+          "state": "loading"
+        },
+        {
+          "kind": "cms-shell",
+          "state": "error"
+        },
+        {
+          "kind": "cms-shell",
+          "state": "readonly"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "empty"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "loading"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "error"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "readonly"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "empty"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "loading"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "error"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "readonly"
+        },
+        {
+          "kind": "media-library",
+          "state": "empty"
+        },
+        {
+          "kind": "media-library",
+          "state": "loading"
+        },
+        {
+          "kind": "media-library",
+          "state": "error"
+        },
+        {
+          "kind": "media-library",
+          "state": "readonly"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "empty"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "loading"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "error"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "readonly"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "empty"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "loading"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "error"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "cms-shell",
+          "mode": "table",
+          "width": 340
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "inspector",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "desktop",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "tablet",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "mobile",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "outline",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "document",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "minimal",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "seo",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "grid",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "list",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "multiple",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "inspector",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "board",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "list",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "approval",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "scheduled",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "matrix",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "stacked",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "missing",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "review",
+          "width": 340
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "checks": 12,
+      "states": [
+        {
+          "kind": "cms-shell",
+          "state": "empty"
+        },
+        {
+          "kind": "cms-shell",
+          "state": "loading"
+        },
+        {
+          "kind": "cms-shell",
+          "state": "error"
+        },
+        {
+          "kind": "cms-shell",
+          "state": "readonly"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "empty"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "loading"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "error"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "readonly"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "empty"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "loading"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "error"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "readonly"
+        },
+        {
+          "kind": "media-library",
+          "state": "empty"
+        },
+        {
+          "kind": "media-library",
+          "state": "loading"
+        },
+        {
+          "kind": "media-library",
+          "state": "error"
+        },
+        {
+          "kind": "media-library",
+          "state": "readonly"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "empty"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "loading"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "error"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "readonly"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "empty"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "loading"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "error"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "cms-shell",
+          "mode": "table",
+          "width": 340
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "inspector",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "desktop",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "tablet",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "mobile",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "outline",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "document",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "minimal",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "seo",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "grid",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "list",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "multiple",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "inspector",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "board",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "list",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "approval",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "scheduled",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "matrix",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "stacked",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "missing",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "review",
+          "width": 340
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "checks": 12,
+      "states": [
+        {
+          "kind": "cms-shell",
+          "state": "empty"
+        },
+        {
+          "kind": "cms-shell",
+          "state": "loading"
+        },
+        {
+          "kind": "cms-shell",
+          "state": "error"
+        },
+        {
+          "kind": "cms-shell",
+          "state": "readonly"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "empty"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "loading"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "error"
+        },
+        {
+          "kind": "visual-builder",
+          "state": "readonly"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "empty"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "loading"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "error"
+        },
+        {
+          "kind": "rich-editor",
+          "state": "readonly"
+        },
+        {
+          "kind": "media-library",
+          "state": "empty"
+        },
+        {
+          "kind": "media-library",
+          "state": "loading"
+        },
+        {
+          "kind": "media-library",
+          "state": "error"
+        },
+        {
+          "kind": "media-library",
+          "state": "readonly"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "empty"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "loading"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "error"
+        },
+        {
+          "kind": "content-workflow",
+          "state": "readonly"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "empty"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "loading"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "error"
+        },
+        {
+          "kind": "localization-grid",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "cms-shell",
+          "mode": "table",
+          "width": 340
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "cards",
+          "width": 340
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "compact",
+          "width": 340
+        },
+        {
+          "kind": "cms-shell",
+          "mode": "inspector",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "desktop",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "tablet",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "mobile",
+          "width": 340
+        },
+        {
+          "kind": "visual-builder",
+          "mode": "outline",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "document",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "split",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "minimal",
+          "width": 340
+        },
+        {
+          "kind": "rich-editor",
+          "mode": "seo",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "grid",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "list",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "multiple",
+          "width": 340
+        },
+        {
+          "kind": "media-library",
+          "mode": "inspector",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "board",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "list",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "approval",
+          "width": 340
+        },
+        {
+          "kind": "content-workflow",
+          "mode": "scheduled",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "matrix",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "stacked",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "missing",
+          "width": 340
+        },
+        {
+          "kind": "localization-grid",
+          "mode": "review",
+          "width": 340
+        }
+      ],
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "blazor": {
+    "variants": 24,
+    "controlledInteractions": 4
+  },
+  "staticDemo": {
+    "staticVariants": 24,
+    "catalogComponents": 6,
+    "errors": []
+  },
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 140
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 89
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 77
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "sharedAssets": {
+    "gardener.css": "dd033cf31aabc4aeae2ec580e2a3e45e3ce7991c7a070a3701dc2a395044fa71",
+    "gardener.min.css": "a5fb2acdc405ef68cd820876774ab54695dd068edacfd5a56cee6766b6b04d09",
+    "gardener.runtime.min.js": "461d27374275659b682141a5df436e4cac24c7439e689d7795d50ca14a159f23",
+    "cms.js": "a634c79e896bfd0b25bc346799ad3938411a85672730eacd092f9bd03e83fb1d",
+    "components/recipes.min.css": "170d370230b52039cdc17a582fcd9d6a8acc5cd451331e3dd5e11fcbc883ac22"
+  },
+  "website": {
+    "components": 559,
+    "behaviors": 94,
+    "events": 104,
+    "locales": 7,
+    "pages": 14,
+    "messagesPerTranslatedLocale": 3315
+  },
+  "budgets": "Existing limits passed without increases.",
+  "limitations": [
+    "演示仅在本地模拟服务确认，不连接或修改真实 CMS。",
+    "真实身份、权限、内容持久化、文件上传、定时任务和服务端版本校验由宿主实现并验收。"
+  ]
+}

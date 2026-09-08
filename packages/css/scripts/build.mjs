@@ -421,7 +421,7 @@ function createUtilityManifest(css) {
 
 async function bundle(name, files, { emitUnminified = true, sourceMap = true } = {}) {
   const parts = [];
-  for (const file of files) parts.push(await inlineCss(join(sourceRoot, file)));
+  for (const file of unique(files)) parts.push(await inlineCss(join(sourceRoot, file)));
   const css = `${banner}${parts.join("\n")}`;
   const outputPath = join(distRoot, name);
   await mkdir(dirname(outputPath), { recursive: true });
@@ -449,14 +449,14 @@ await writeFile(join(generatedRoot, "themes.css"), themesCss);
 await writeFile(join(generatedRoot, "grid.css"), gridCss);
 await writeFile(join(generatedRoot, "utilities.css"), utilitiesCss);
 
-const componentFiles = Object.entries(componentPacks)
+const componentFiles = ["base/quality.css", ...Object.entries(componentPacks)
   .filter(([name]) => !name.startsWith("ai"))
-  .flatMap(([, files]) => files);
+  .flatMap(([, files]) => files)];
 await bundle("gardener.core.css", coreFiles);
 await bundle("gardener.themes.css", ["layers.css", "tokens/tokens.css", "generated/scales.css", "generated/themes.css", "themes/axes.css"]);
 await bundle("gardener.utilities.css", ["layers.css", "generated/utilities.css"]);
 await bundle("gardener.components.css", ["layers.css", ...componentFiles]);
-await bundle("gardener.ai.css", ["layers.css", "components/ai.css", "components/ai-extended.css", "components/ai-compositions.css"]);
+await bundle("gardener.ai.css", ["layers.css", "components/ai.css", "components/ai-extended.css", "components/ai-compositions.css", "components/ai-enhanced.css", "components/ai-variants.css"]);
 const fullCss = await bundle("gardener.css", ["gardener.css"]);
 for (const [name, files] of Object.entries(componentPacks)) {
   await bundle(`components/${name}.css`, ["layers.css", ...files], {
@@ -475,6 +475,7 @@ for (const [profileName, profile] of Object.entries(platformProfiles)) {
   const files = profile.packs.flatMap((pack) => componentPacks[pack]);
   await bundle(`platforms/gardener.${profileName}.css`, [
     ...coreFiles,
+    "base/quality.css",
     ...files,
     "generated/utilities.css",
   ], { emitUnminified: false, sourceMap: false });
@@ -484,6 +485,37 @@ const runtimeRegistry = runtime.match(/\[\s*\["dialog"[\s\S]*?\]\s*\.forEach\(\(
 const registeredBehaviors = [...runtimeRegistry.matchAll(/\["([a-z-]+)"\s*,/g)].map((match) => match[1]);
 await copyFile(join(sourceRoot, "js/index.js"), join(distRoot, "gardener.runtime.js"));
 await copyFile(join(sourceRoot, "js/locales.js"), join(distRoot, "locales.js"));
+await copyFile(join(sourceRoot, "js/commerce.js"), join(distRoot, "commerce.js"));
+await copyFile(join(sourceRoot, "js/cms.js"), join(distRoot, "cms.js"));
+await copyFile(join(sourceRoot, "js/marketing.js"), join(distRoot, "marketing.js"));
+await copyFile(join(sourceRoot, "js/enterprise.js"), join(distRoot, "enterprise.js"));
+await copyFile(join(sourceRoot, "js/solution.js"), join(distRoot, "solution.js"));
+await copyFile(join(sourceRoot, "js/legal.js"), join(distRoot, "legal.js"));
+await copyFile(join(sourceRoot, "js/communication.js"), join(distRoot, "communication.js"));
+await copyFile(join(sourceRoot, "js/workflow.js"), join(distRoot, "workflow.js"));
+await copyFile(join(sourceRoot, "js/desktop.js"), join(distRoot, "desktop.js"));
+await copyFile(join(sourceRoot, "js/mobile.js"), join(distRoot, "mobile.js"));
+await copyFile(join(sourceRoot, "js/auth.js"), join(distRoot, "auth.js"));
+await copyFile(join(sourceRoot, "js/media.js"), join(distRoot, "media.js"));
+await copyFile(join(sourceRoot, "js/image.js"), join(distRoot, "image.js"));
+await copyFile(join(sourceRoot, "js/ai.js"), join(distRoot, "ai.js"));
+await copyFile(join(sourceRoot, "js/help.js"), join(distRoot, "help.js"));
+await copyFile(join(sourceRoot, "js/layout.js"), join(distRoot, "layout.js"));
+await copyFile(join(sourceRoot, "js/content.js"), join(distRoot, "content.js"));
+await copyFile(join(sourceRoot, "js/interaction.js"), join(distRoot, "interaction.js"));
+await copyFile(join(sourceRoot, "js/dashboard.js"), join(distRoot, "dashboard.js"));
+await copyFile(join(sourceRoot, "js/data-display.js"), join(distRoot, "data-display.js"));
+await copyFile(join(sourceRoot, "js/tag.js"), join(distRoot, "tag.js"));
+await copyFile(join(sourceRoot, "js/tabs.js"), join(distRoot, "tabs.js"));
+await copyFile(join(sourceRoot, "js/timeline.js"), join(distRoot, "timeline.js"));
+await copyFile(join(sourceRoot, "js/foundation.js"), join(distRoot, "foundation.js"));
+await copyFile(join(sourceRoot, "js/tree.js"), join(distRoot, "tree.js"));
+await copyFile(join(sourceRoot, "js/statistic.js"), join(distRoot, "statistic.js"));
+await copyFile(join(sourceRoot, "js/list.js"), join(distRoot, "list.js"));
+await copyFile(join(sourceRoot, "js/descriptions.js"), join(distRoot, "descriptions.js"));
+await copyFile(join(sourceRoot, "js/table.js"), join(distRoot, "table.js"));
+await copyFile(join(sourceRoot, "js/navigation.js"), join(distRoot, "navigation.js"));
+await copyFile(join(sourceRoot, "js/navigation-catalog.js"), join(distRoot, "navigation-catalog.js"));
 await copyFile(join(sourceRoot, "js/tauri-adapter.js"), join(distRoot, "gardener.tauri.js"));
 await copyFile(join(sourceRoot, "js/electron-adapter.js"), join(distRoot, "gardener.electron.js"));
 for (const [sourceName, outputName] of [

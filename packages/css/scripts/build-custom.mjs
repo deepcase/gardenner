@@ -102,11 +102,12 @@ const outputBase = rawOutput.replace(/(?:\.min)?\.css$/u, "");
 const cssPath = `${outputBase}.css`;
 const minCssPath = `${outputBase}.min.css`;
 const manifestPath = `${outputBase}.json`;
-const files = [
+const files = unique([
   ...coreFiles,
+  "base/quality.css",
   ...resolvedPacks.flatMap((pack) => componentPacks[pack]),
   ...(includeUtilities ? ["generated/utilities.css"] : []),
-];
+]);
 const banner = `/* Gardenerim v${pkg.version} | MIT License | gardener.css */\n`;
 const css = await composeCss(sourceRoot, files, banner);
 const minified = await minifyCss(css, basename(cssPath), pkg.version);

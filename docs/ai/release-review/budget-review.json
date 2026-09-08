@@ -1,0 +1,43 @@
+{
+  "reason": "AI configurable presentation and lifecycle validation; package/source sizes remain bounded. Only two compressed platform caps require an increase after selector simplification.",
+  "module": {
+    "beforeLimit": 48000,
+    "afterLimit": 54000,
+    "actual": 49758
+  },
+  "platforms": [
+    {
+      "artifact": "platforms/gardener.web.min.css",
+      "metric": "gzip",
+      "before": 246000,
+      "after": 247000,
+      "actual": 246058
+    },
+    {
+      "artifact": "platforms/gardener.desktop.min.css",
+      "metric": "brotli",
+      "before": 143000,
+      "after": 144000,
+      "actual": 143277
+    }
+  ],
+  "otherAbsoluteAndRelativeCaps": "unchanged",
+  "package": {
+    "measurement": "self-report-conservative-upper-bound",
+    "rounding": {
+      "packedQuantum": 4096,
+      "unpackedQuantum": 65536
+    },
+    "limits": {
+      "packed": 4000000,
+      "unpacked": 28700000,
+      "files": 115
+    },
+    "actual": {
+      "packed": 3977216,
+      "unpacked": 28114944,
+      "files": 115
+    },
+    "pass": true
+  }
+}

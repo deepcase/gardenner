@@ -1,0 +1,10 @@
+@page "/tree"
+@using System.Text.Json
+<PageTitle>GTree</PageTitle>
+<section style="padding:24px"><h1>GTree</h1><label>尺寸 <select aria-label="尺寸" @bind="Size"><option>mini</option><option>small</option><option>medium</option><option>large</option></select></label><label><input type="checkbox" @bind="Line" />连接线</label><div style="margin-block:24px"><GTree id="tree" Config="Config" EventNames="@(new[]{"change"})" OnEvent="Handle" /></div><output aria-live="polite">@Result</output></section>
+@code {
+private string Size="medium",Result="尚未勾选";private bool Line;
+private static readonly object[] Data = new object[]{new {key="docs",title="项目文档",children=new[]{new{key="guide",title="使用指南"},new{key="api",title="API 参考"}}},new{key="design",title="设计资源"}};
+private IReadOnlyDictionary<string,object?> Config=>new Dictionary<string,object?>{["tree-options"]=JsonSerializer.Serialize(new{data=Data,checkable=true,size=Size,showLine=Line,label="项目资料"})};
+private void Handle(Gardenerim.Blazor.Models.GardenerimEventArgs e){if(e.Detail is IReadOnlyDictionary<string,object?> d&&d.TryGetValue("checkedKeys",out var keys))Result=JsonSerializer.Serialize(keys);}
+}

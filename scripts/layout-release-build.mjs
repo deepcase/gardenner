@@ -1,0 +1,2 @@
+import {spawn} from 'node:child_process';import {writeFile} from './fs-retry.mjs';
+const tasks=['vue','react','angularjs','blazor'];const results=await Promise.all(tasks.map(async p=>{const c=spawn('npm',['--prefix','packages/'+p,'run','build'],{shell:true,windowsHide:true});let s='';c.stdout.on('data',d=>s+=d);c.stderr.on('data',d=>s+=d);const code=await new Promise(r=>c.on('close',r));await writeFile('docs/layout/release-review/'+p+'-build.log',s);return {p,code,tail:s.slice(-1000)};}));console.log(JSON.stringify(results));if(results.some(r=>r.code))process.exitCode=1;

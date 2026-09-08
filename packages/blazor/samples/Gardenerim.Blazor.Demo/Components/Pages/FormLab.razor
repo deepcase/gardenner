@@ -1,0 +1,47 @@
+@page "/form"
+<PageTitle>表单组件 · Blazor</PageTitle>
+<h1>表单参数 · Blazor</h1>
+<div style="display:grid;gap:20px;max-width:720px">
+ <div><button class="g-btn" @onclick="ToggleSize">切换尺寸</button><button class="g-btn" @onclick="()=>Disabled=!Disabled">切换禁用</button><button class="g-btn" @onclick="()=>ReadOnly=!ReadOnly">切换只读</button></div>
+ <details><summary>间距、宽度与标签参数</summary><div style="display:flex;gap:12px;flex-wrap:wrap"><label>字段间距 <input type="number" aria-label="字段间距" min="0" max="80" style="width:80px" value="@FormFieldGap" @onchange="e=>FormFieldGap=Bounded(e,0,80,20)"/></label>
+<label>标签间距 <input type="number" aria-label="标签间距" min="0" max="80" style="width:80px" value="@FormLabelGap" @onchange="e=>FormLabelGap=Bounded(e,0,80,8)"/></label>
+<label>列间距 <input type="number" aria-label="列间距" min="0" max="80" style="width:80px" value="@FormColumnGap" @onchange="e=>FormColumnGap=Bounded(e,0,80,16)"/></label>
+<label>标签列宽 <input type="number" aria-label="标签列宽" min="0" max="600" style="width:80px" value="@FormLabelWidth" @onchange="e=>FormLabelWidth=Bounded(e,0,600,0)"/></label>
+<label>控件宽度 <input type="number" aria-label="控件宽度" min="0" max="1600" style="width:80px" value="@FormControlWidth" @onchange="e=>FormControlWidth=Bounded(e,0,1600,0)"/></label>
+<label>显示辅助说明 <input type="checkbox" aria-label="显示辅助说明" @bind="FormHelpVisible"/></label>
+<label>标签冒号 <input type="checkbox" aria-label="标签冒号" @bind="FormColon"/></label>
+<label>必填标记 <select aria-label="必填标记" @bind="FormRequiredMark"><option>none</option><option>auto</option></select></label>
+<label>标记位置 <select aria-label="标记位置" @bind="FormRequiredPosition"><option>start</option><option>end</option></select></label></div></details>
+ <GForm id="form-lab" Config="Options">
+  <GField><label class="g-field-label" for="form-name">Name</label><div class="g-field-control" style="display:grid;gap:4px"><GInput id="form-name" aria-describedby="form-name-help" @bind-Value="Name" name="name" required /><p id="form-name-help" class="g-field-help" style="margin:0">可修改的显示名称。</p></div></GField>
+  <GCheckboxRadio As="label"><input id="form-check" type="checkbox" checked name="check" /><span class="g-choice-label">Example</span></GCheckboxRadio>
+  <GSwitch As="label"><input type="checkbox" aria-label="Switch"/><span class="g-switch-track"></span></GSwitch>
+ </GForm><output id="form-name-output">@Name</output>
+ <section id="form-sizes">@foreach(var size in new[]{"mini","small","medium","large"}){<GInput Variant="@size" Value="@("Example")" aria-label="@size" style="margin-block:8px"/>}</section>
+ <GTimeRangeGroup id="form-time-range" Config="@(new Dictionary<string,object?> { ["formRange"]=true,["formAllowOvernight"]=Overnight })" @bind-Value="RangeValid" ValueEvent="rangechange" ValueKey="valid"><legend class="g-time-range-legend">Time range</legend><input class="g-input" type="time" value="23:00" data-g-form-range-start aria-label="Start"/><span class="g-range-separator">to</span><input class="g-input" type="time" value="01:00" data-g-form-range-end aria-label="End"/><div class="g-time-range-duration"><output data-g-form-range-output></output></div><p class="g-time-range-feedback" data-g-form-range-error></p></GTimeRangeGroup>
+ <button class="g-btn" @onclick="()=>Overnight=!Overnight">允许跨午夜</button><output id="form-range-valid">@RangeValid</output>
+ <GCharacterCounter Config="@(new Dictionary<string,object?> { ["characterCount"]=3,["characterHardLimit"]=true })"><GInput id="form-limit" @bind-Value="Limited" aria-label="字数限制示例"/><output data-g-character-output></output></GCharacterCounter><output id="form-limit-value">@Limited</output>
+ <button class="g-btn" @onclick="ClearLimited">程序清空备注</button>
+</div>
+@code {
+ private static int Bounded(ChangeEventArgs e,int min,int max,int fallback)=>Math.Clamp(int.TryParse(e.Value?.ToString(),out var n)?n:fallback,min,max);
+ private void ClearLimited()=>Limited="";
+ private int FormFieldGap=20;
+ private int FormLabelGap=8;
+ private int FormColumnGap=16;
+ private int FormLabelWidth=0;
+ private int FormControlWidth=0;
+ private bool FormHelpVisible=true;
+ private bool FormColon=false;
+ private string FormRequiredMark="none";
+ private string FormRequiredPosition="end";
+ private void ToggleSize() => Size = Size == "mini" ? "large" : "mini";
+ private string Size {get;set;}="mini";
+ private bool Disabled {get;set;}
+ private bool ReadOnly {get;set;}
+ private bool Overnight {get;set;}
+ private object? Name {get;set;}="Example";
+ private object? Limited {get;set;}
+ private object? RangeValid {get;set;}
+ private IReadOnlyDictionary<string,object?> Options => new Dictionary<string,object?> { ["formFieldGap"]=FormFieldGap,["formLabelGap"]=FormLabelGap,["formColumnGap"]=FormColumnGap,["formLabelWidth"]=FormLabelWidth,["formControlWidth"]=FormControlWidth,["formHelpVisible"]=FormHelpVisible,["formColon"]=FormColon,["formRequiredMark"]=FormRequiredMark,["formRequiredPosition"]=FormRequiredPosition,["formSize"]=Size,["formLayout"]="horizontal",["formDisabled"]=Disabled,["formReadOnly"]=ReadOnly };
+}

@@ -1,0 +1,348 @@
+{
+  "verifiedAt": "2026-09-07T02:49:05.177Z",
+  "status": "passed",
+  "components": 8,
+  "variants": 32,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "addedParameters": [
+    "searchable",
+    "filterable",
+    "showProgress",
+    "showLogs",
+    "showSave",
+    "showZoom",
+    "editorRows",
+    "logMaxHeight"
+  ],
+  "addedFieldOptions": [
+    "placeholder",
+    "autocomplete",
+    "minLength",
+    "maxLength",
+    "rows",
+    "step"
+  ],
+  "inventory": [
+    {
+      "name": "onboarding",
+      "variants": [
+        "guided",
+        "cards",
+        "checklist",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "必填与字段约束、条件步骤、跳过和完成一致性、焦点跟随、进度/保存开关"
+    },
+    {
+      "name": "wizard-layout",
+      "variants": [
+        "sidebar",
+        "top",
+        "vertical",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "线性/自由导航、受控回写、键盘导航、步骤焦点与窄容器排版"
+    },
+    {
+      "name": "workflow-checklist",
+      "variants": [
+        "list",
+        "grouped",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "依赖与撤销级联、禁用任务进度计算、进度开关"
+    },
+    {
+      "name": "workflow-approval",
+      "variants": [
+        "timeline",
+        "parallel",
+        "cards",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "顺序/并行审批、确认决定不可回退、错误保留意见、审批人动态更新"
+    },
+    {
+      "name": "workflow-builder",
+      "variants": [
+        "canvas",
+        "list",
+        "split",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "有向无环图、连线校验、删除选择清理、缩放/保存开关、文案覆盖"
+    },
+    {
+      "name": "workflow-run-history",
+      "variants": [
+        "table",
+        "cards",
+        "timeline",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "搜索/筛选独立开关、分页、重试/取消必须返回实际确认状态"
+    },
+    {
+      "name": "workflow-run-detail",
+      "variants": [
+        "timeline",
+        "steps",
+        "logs",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "可配置日志高度/显示、步骤与日志视图、禁用运行入口同步"
+    },
+    {
+      "name": "workflow-trigger",
+      "variants": [
+        "manual",
+        "schedule",
+        "webhook",
+        "compact"
+      ],
+      "frameworks": [
+        "css",
+        "vue",
+        "react",
+        "angularjs",
+        "blazor"
+      ],
+      "review": "Cron/事件校验、字段长度/步长/占位/行数、复选框单次提案"
+    }
+  ],
+  "browsers": [
+    {
+      "engine": "chromium",
+      "layouts": 64,
+      "states": 32,
+      "interactions": 18,
+      "a11y": 40
+    },
+    {
+      "engine": "firefox",
+      "layouts": 64,
+      "states": 32,
+      "interactions": 18,
+      "a11y": 0
+    },
+    {
+      "engine": "webkit",
+      "layouts": 64,
+      "states": 32,
+      "interactions": 18,
+      "a11y": 0
+    }
+  ],
+  "extensions": [
+    {
+      "engine": "chromium",
+      "checks": 11,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "checks": 11,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "checks": 11,
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "blazor": {
+    "variants": 32,
+    "controlledInteractions": 8
+  },
+  "staticDemo": {
+    "staticVariants": 32,
+    "catalogComponents": 8,
+    "errors": []
+  },
+  "tests": {
+    "workflow": 42,
+    "cssRuntime": 605,
+    "cssSchema": 48,
+    "cssBuild": 11,
+    "html": 43
+  },
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 140
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 89
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 77
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "sharedAssets": {
+    "gardener.css": "5afa1c412102da8c5b372a0f028a67affb75e5d4792ba9bd308120dfba6de9dd",
+    "gardener.min.css": "f2dd2c3d14a92ddc7baf7d08f5ea46ae52d12d9f90a5b785921f789acf269629",
+    "gardener.runtime.min.js": "461d27374275659b682141a5df436e4cac24c7439e689d7795d50ca14a159f23",
+    "workflow.js": "eb1a674a303f942c6a9e1cfe17b533c63016b2870869a23101c32ef5e0d577fb",
+    "components/catalog.min.css": "563ff1ee6916a237b9cf5d4b532bd97c50822af5543c201b4c82f9b4a810721d"
+  },
+  "website": {
+    "components": 559,
+    "behaviors": 94,
+    "events": 104,
+    "locales": 7,
+    "pages": 14,
+    "messagesPerTranslatedLocale": 3310
+  },
+  "budget": "Existing limits passed without increases.",
+  "limitations": [
+    "演示使用内存数据和模拟业务服务。",
+    "实际审批权限、持久化、调度、执行和 Webhook 签名由业务服务实现。",
+    "分支 condition 为宿主解释的文本，不在浏览器执行代码。"
+  ]
+}

@@ -1,0 +1,430 @@
+{
+  "verifiedAt": "2026-09-07T09:01:38.832Z",
+  "passed": true,
+  "scope": "content component release review; not whole-library publication",
+  "components": 39,
+  "variants": 234,
+  "newComponents": 0,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "addedParameters": [
+    "size",
+    "bordered",
+    "showHeader",
+    "showToolbar",
+    "showCount",
+    "showPagination",
+    "showMetadata",
+    "showDescriptions",
+    "showSort",
+    "showViewSwitcher",
+    "showUploadHints",
+    "showChunkDetails",
+    "showCopy",
+    "editorRows",
+    "maxHeight",
+    "previewHeight",
+    "columns",
+    "thumbnailSize",
+    "serviceTimeout",
+    "resize"
+  ],
+  "tests": {
+    "content": 42,
+    "runtime": 789,
+    "schema": 48,
+    "html": 43,
+    "build": 11
+  },
+  "browsers": [
+    {
+      "engine": "chromium",
+      "components": 39,
+      "layouts": 546,
+      "states": 195,
+      "actions": [
+        "controlled-file-selection",
+        "folder-navigation",
+        "literal-replacement",
+        "markdown-preview",
+        "rich-format",
+        "block-reorder",
+        "comment",
+        "document-page",
+        "annotation",
+        "chunk-upload",
+        "upload-retry",
+        "autosave",
+        "native-audio",
+        "native-video",
+        "real-pdf",
+        "canvas-crop",
+        "native-clipboard"
+      ],
+      "accessibility": 39,
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "components": 39,
+      "layouts": 546,
+      "states": 195,
+      "actions": [
+        "controlled-file-selection",
+        "folder-navigation",
+        "literal-replacement",
+        "markdown-preview",
+        "rich-format",
+        "block-reorder",
+        "comment",
+        "document-page",
+        "annotation",
+        "chunk-upload",
+        "upload-retry",
+        "autosave",
+        "native-audio",
+        "native-video",
+        "real-pdf",
+        "canvas-crop"
+      ],
+      "accessibility": 0,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "components": 39,
+      "layouts": 546,
+      "states": 195,
+      "actions": [
+        "controlled-file-selection",
+        "folder-navigation",
+        "literal-replacement",
+        "markdown-preview",
+        "rich-format",
+        "block-reorder",
+        "comment",
+        "document-page",
+        "annotation",
+        "chunk-upload",
+        "upload-retry",
+        "autosave",
+        "native-audio",
+        "native-video-unsupported-codec-feedback",
+        "real-pdf",
+        "canvas-crop"
+      ],
+      "accessibility": 0,
+      "errors": []
+    }
+  ],
+  "extensions": [
+    {
+      "engine": "chromium",
+      "parameters": 20,
+      "checks": [
+        "controlled draft, input identity, editor rows and presentation",
+        "IME survives configuration and controlled updates",
+        "file view override, columns, thumbnails and optional metadata",
+        "nested narrow container responds independently",
+        "real service timeout and upload display options",
+        "save fails truthfully and retries",
+        "crop geometry follows the rendered image",
+        "appearance updates preserve native playback"
+      ],
+      "dark": 39,
+      "a11y": 39,
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "parameters": 20,
+      "checks": [
+        "controlled draft, input identity, editor rows and presentation",
+        "IME survives configuration and controlled updates",
+        "file view override, columns, thumbnails and optional metadata",
+        "nested narrow container responds independently",
+        "real service timeout and upload display options",
+        "save fails truthfully and retries",
+        "crop geometry follows the rendered image",
+        "appearance updates preserve native playback"
+      ],
+      "dark": 39,
+      "a11y": 0,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "parameters": 20,
+      "checks": [
+        "controlled draft, input identity, editor rows and presentation",
+        "IME survives configuration and controlled updates",
+        "file view override, columns, thumbnails and optional metadata",
+        "nested narrow container responds independently",
+        "real service timeout and upload display options",
+        "save fails truthfully and retries",
+        "crop geometry follows the rendered image",
+        "appearance updates preserve native playback"
+      ],
+      "dark": 39,
+      "a11y": 0,
+      "errors": []
+    }
+  ],
+  "finals": [
+    {
+      "engine": "chromium",
+      "controlledRichLink": true,
+      "narrowAndWide": true,
+      "lazyMedia": true,
+      "video": {
+        "playing": true,
+        "source": "http://127.0.0.1:4180/content-assets/sample.mp4"
+      },
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "controlledRichLink": true,
+      "narrowAndWide": true,
+      "lazyMedia": true,
+      "video": {
+        "playing": true,
+        "source": "http://127.0.0.1:4180/content-assets/sample.mp4"
+      },
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "controlledRichLink": true,
+      "narrowAndWide": true,
+      "lazyMedia": true,
+      "video": {
+        "playing": false,
+        "error": "Unavailable codec"
+      },
+      "errors": []
+    }
+  ],
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 142
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 91
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 79
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "blazor": {
+    "components": 39,
+    "variants": 234,
+    "extensionControls": true,
+    "controlledEvents": true,
+    "parameterUpdates": true,
+    "asyncServices": true,
+    "results": [
+      "code-block",
+      "terminal",
+      "diff-viewer",
+      "article-layout",
+      "search-results",
+      "report-invoice",
+      "content-file-drop",
+      "content-file-list",
+      "content-upload-queue",
+      "chunk-upload",
+      "upload-progress-composition",
+      "failed-upload",
+      "file-card-composition",
+      "folder-tree-composition",
+      "file-browser-composition",
+      "file-preview-composition",
+      "media-library-composition",
+      "media-grid-composition",
+      "media-details-composition",
+      "image-crop-composition",
+      "image-annotation-composition",
+      "document-viewer-composition",
+      "pdf-viewer",
+      "video-player-shell",
+      "audio-player-shell",
+      "code-editor-shell",
+      "rich-text-editor-composition",
+      "markdown-editor",
+      "block-editor",
+      "revision-compare-composition",
+      "content-autosave-indicator",
+      "content-outline",
+      "editor-toolbar-composition",
+      "find-replace",
+      "comment-thread-composition",
+      "version-history-composition",
+      "file-properties",
+      "storage-meter",
+      "markdown-viewer"
+    ],
+    "errors": []
+  },
+  "standalone": {
+    "components": 39,
+    "variants": 234,
+    "width": 320,
+    "parameterControls": 18,
+    "errors": []
+  },
+  "catalog": {
+    "components": 39,
+    "parameterControls": true,
+    "controlledEditor": true,
+    "errors": []
+  },
+  "sharedAssets": {
+    "gardener.css": "50d5edf6fdbcaa1dbe611c32b4ebfc756a12ce818d4ce1c6561a1f8ba8ab18f5",
+    "gardener.min.css": "3a9c237512b7e756decd71df602e321ccc8e184e720f3c56f25f21e9e63b8150",
+    "gardener.runtime.min.js": "461d27374275659b682141a5df436e4cac24c7439e689d7795d50ca14a159f23",
+    "content.js": "d8600042e023a57cef50525d8733c66a8fca10eb7f756558e05ee9424e6ad533",
+    "components/content-compositions.min.css": "e31628e0a40c1a29382891aac8f3220667f3e871d35ec6e248383f53bd2b2c89"
+  },
+  "website": {
+    "locales": 7,
+    "pages": 14,
+    "messagesPerTranslatedLocale": 3324,
+    "browserVerified": true
+  },
+  "budgets": {
+    "status": "passed",
+    "module": {
+      "previousCap": 55000,
+      "cap": 65000,
+      "bytes": 59029
+    },
+    "css": {
+      "measurement": "self-report-conservative-upper-bound",
+      "rounding": {
+        "packedQuantum": 4096,
+        "unpackedQuantum": 65536
+      },
+      "limits": {
+        "packed": 4000000,
+        "unpacked": 28700000,
+        "files": 115
+      },
+      "actual": {
+        "packed": 3989504,
+        "unpacked": 28180480,
+        "files": 115
+      },
+      "pass": true
+    },
+    "changes": [
+      "Web CSS raw 1,780,000 → 1,785,000 bytes",
+      "Desktop CSS raw 1,840,000 → 1,845,000 bytes",
+      "Other package, compressed artifact and adapter caps unchanged"
+    ]
+  },
+  "limitations": [
+    "Upload/save examples use local callbacks; production transport and persistence belong to the application.",
+    "PDF uses the native browser viewer; support varies by browser.",
+    "Windows WebKit cannot decode the video fixture; the visible error path passed.",
+    "Markdown and rich editing use the documented safe subset, not a complete Markdown or office suite.",
+    "Cross-origin crop export requires readable image resources.",
+    "Automated accessibility checks do not replace manual assistive-technology acceptance."
+  ],
+  "warnings": [
+    "GardenerDemo builds successfully with the existing large-chunk advisory."
+  ]
+}

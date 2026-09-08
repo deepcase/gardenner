@@ -1,6 +1,7 @@
 import { brotliCompressSync, constants, gzipSync } from "node:zlib";
 import { createHash } from "node:crypto";
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
+import { writeFile } from '../../../../scripts/fs-retry.mjs';
 import { basename, dirname, resolve } from "node:path";
 import { transform, version as esbuildVersion } from "esbuild";
 import { browserTargets } from "../../config/builds.mjs";

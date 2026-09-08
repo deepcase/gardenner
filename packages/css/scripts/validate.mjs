@@ -6,6 +6,8 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const css = await readFile(join(root, "dist/gardener.css"), "utf8");
 const recipes = JSON.parse(await readFile(join(root, "metadata/recipes.json"), "utf8"));
 const known = new Set([...css.matchAll(/\.([a-zA-Z][\w-]*)/g)].map((match) => match[1]));
+const runtime = await readFile(join(root, "src/js/index.js"), "utf8");
+for (const match of runtime.matchAll(/\.classList\.(?:contains|add|toggle)\(["'](g-[\w-]+)["']/g)) known.add(match[1]);
 const errors = [];
 
 for (const recipe of recipes.recipes) {

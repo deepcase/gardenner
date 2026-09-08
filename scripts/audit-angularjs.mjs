@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { spawnSync } from "node:child_process";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -38,5 +39,11 @@ if (!vulnerabilities.angular) {
 }
 
 const advisories = vulnerabilities.angular.via.filter((item) => typeof item === "object").map((item) => item.url);
+const baseline = JSON.parse(readFileSync(new URL('./angularjs-security-baseline.json', import.meta.url), 'utf8'));
+const newAdvisories = advisories.filter(url => !baseline.advisories.includes(url));
+if (newAdvisories.length) {
+  console.error('New AngularJS advisories require review: ' + newAdvisories.join(', '));
+  process.exit(1);
+}
 console.warn(`Accepted upstream AngularJS EOL risk only (${advisories.length} advisories, no fix available).`);
 for (const advisory of advisories) console.warn(`- ${advisory}`);

@@ -1,6 +1,8 @@
 import { createElement, forwardRef, useEffect, useImperativeHandle, useMemo, useRef, type ElementType } from "react";
 import { destroy, getInstance, init } from "@gardenerim/css/runtime";
 import type { GardenerimComponentDefinition, GardenerimComponentHandle, GardenerimComponentProps, GardenerimConfigValue, GardenerimGeneratedComponent } from "./types.js";
+import { Table } from './table.js';
+import { Navigation } from './navigation.js';
 
 const list = (value: string | readonly string[] | undefined): string[] => value == null ? [] : Array.isArray(value) ? [...value] : [value as string];
 const kebab = (value: string): string => value.replace(/^data-g-/, "").replace(/([a-z0-9])([A-Z])/g, "$1-$2").replace(/[\s_]+/g, "-").toLowerCase();
@@ -8,8 +10,8 @@ const kebab = (value: string): string => value.replace(/^data-g-/, "").replace(/
 export const configAttributes = (config: Readonly<Record<string, GardenerimConfigValue>> | undefined): Record<string, string> => {
   const attributes: Record<string, string> = {};
   for (const [name, value] of Object.entries(config ?? {})) {
-    if (value === false || value == null) continue;
-    attributes[`data-g-${kebab(name)}`] = value === true ? "" : String(value);
+    if (value == null || value === false && !kebab(name).startsWith("form-") && !kebab(name).startsWith("overlay-") && !kebab(name).startsWith("disclosure-") && !kebab(name).startsWith("data-") && !kebab(name).startsWith("dashboard-") && !kebab(name).startsWith("interaction-") && !kebab(name).startsWith("content-") && !kebab(name).startsWith("layout-") && !kebab(name).startsWith("help-") && !kebab(name).startsWith("ai-") && !kebab(name).startsWith("media-") && !kebab(name).startsWith("auth-") && !kebab(name).startsWith("mobile-") && !kebab(name).startsWith("workflow-") && !kebab(name).startsWith("communication-") && !kebab(name).startsWith("solution-") && !kebab(name).startsWith("legal-") && !kebab(name).startsWith("desktop-") && !kebab(name).startsWith("enterprise-") && !kebab(name).startsWith("marketing-") && !kebab(name).startsWith("cms-") && !kebab(name).startsWith("commerce-")) continue;
+    attributes[`data-g-${kebab(name)}`] = value === true && !kebab(name).startsWith("form-") && !kebab(name).startsWith("data-") && !kebab(name).startsWith("dashboard-") && !kebab(name).startsWith("interaction-") && !kebab(name).startsWith("content-") && !kebab(name).startsWith("layout-") && !kebab(name).startsWith("help-") && !kebab(name).startsWith("ai-") && !kebab(name).startsWith("media-") && !kebab(name).startsWith("auth-") && !kebab(name).startsWith("mobile-") && !kebab(name).startsWith("workflow-") && !kebab(name).startsWith("communication-") && !kebab(name).startsWith("solution-") && !kebab(name).startsWith("legal-") && !kebab(name).startsWith("desktop-") && !kebab(name).startsWith("enterprise-") && !kebab(name).startsWith("marketing-") && !kebab(name).startsWith("cms-") && !kebab(name).startsWith("commerce-") ? "" : String(value);
   }
   return attributes;
 };
@@ -52,13 +54,14 @@ export const createGardenerimComponent = (definition: GardenerimComponentDefinit
       if (!element) return;
       if (initialize) init(element); else destroy(element);
       return () => destroy(element);
-    }, [initialize, configKey]);
+    }, [initialize, ((['tabs','tag'].includes(definition.name)||definition.behaviors.includes('foundation')) && Object.keys(config ?? {}).some(key => kebab(key) === `${definition.behaviors.includes('foundation')?'foundation':definition.name}-options`) || ["form", "overlay", "disclosure", "data", "dashboard"].includes(definition.category) || ["interaction", "content", "layout", "help", "ai", "media", "auth", "mobile", "workflow", "communication", "solution", "legal", "desktop", "enterprise", "marketing", "cms", "marketing", "commerce"].includes(definition.category) && Object.keys(config ?? {}).some(key => kebab(key) === `${definition.category}-options`)) ? "observed" : configKey]);
 
     useEffect(() => {
       const element = elementRef.current;
       if (!element || !valueEvent || !onValueChange) return;
       const eventName = valueEvent.startsWith("gardener:") ? valueEvent : `gardener:${valueEvent}`;
       const listener = (event: Event) => {
+        if ((["tabs","tag"].includes(definition.name) || ["overlay", "disclosure", "data", "dashboard", "interaction", "content", "layout", "help", "ai", "media", "auth", "mobile", "workflow", "communication", "solution", "legal", "desktop", "enterprise", "marketing", "cms", "marketing", "commerce"].includes(definition.category)) && event.target !== element) return;
         const detail = (event as CustomEvent<Record<string, unknown>>).detail ?? {};
         onValueChange(detail[valueKey] ?? detail.value ?? detail.values ?? detail.selected, event);
       };
@@ -66,6 +69,7 @@ export const createGardenerimComponent = (definition: GardenerimComponentDefinit
       return () => element.removeEventListener(eventName, listener);
     }, [onValueChange, valueEvent, valueKey]);
 
+    useEffect(() => { if (initialize && elementRef.current?.matches('input,textarea,select')) init(elementRef.current); }, [value, initialize]);
     const variants = list(variant).map((item) => definition.className ? `${definition.className}-${item}` : item);
     const states = list(state).map((item) => item.startsWith("is-") ? item : `is-${item}`);
     const tag = definition.tag;
@@ -90,7 +94,7 @@ export const createGardenerimComponent = (definition: GardenerimComponentDefinit
       ref: elementRef,
       className: classes(definition.className, variants, states, className),
     };
-    if (tag === "button" && attributes.type == null) attributes.type = "button";
+    if (As === "button" && attributes.type == null) attributes.type = "button";
     if (isNativeControl) {
       const type = String(attributes.type ?? "");
       if (value !== undefined) {
@@ -106,6 +110,16 @@ export const createGardenerimComponent = (definition: GardenerimComponentDefinit
     return createElement(As, attributes, tag === "input" ? undefined : children);
   });
   Component.displayName = definition.exportName;
+  if(definition.name==='table'){
+    const TableComponent=forwardRef<GardenerimComponentHandle,GardenerimComponentProps>((props,ref)=>props.table!==undefined||props.columns!==undefined?createElement(Table,{...props,ref}):createElement(Component,{...props,ref}));
+    TableComponent.displayName=definition.exportName;return TableComponent as GardenerimGeneratedComponent;
+  }
+  if(definition.category==='navigation'){
+    const NavigationComponent=forwardRef<GardenerimComponentHandle,GardenerimComponentProps>((props,ref)=>
+      props.items!==undefined||props.navigation!==undefined?createElement(Navigation,{...props,definition,ref}):createElement(Component,{...props,ref}));
+    NavigationComponent.displayName=definition.exportName;
+    return NavigationComponent as GardenerimGeneratedComponent;
+  }
   return Component as GardenerimGeneratedComponent;
 };
 

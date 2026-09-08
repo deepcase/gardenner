@@ -1,0 +1,97 @@
+/* Shared overlay surfaces. Roots keep their framework-owned children in place. */
+@layer gardener.components {
+  :is(.g-dialog-backdrop,.g-confirm-dialog-backdrop,.g-drawer-backdrop) { position:fixed; inset:0; z-index:var(--g-overlay-stack,1000); display:grid; inline-size:auto; block-size:auto; max-inline-size:none; max-block-size:none; margin:0; padding:24px; border:0; place-items:center; background:var(--g-color-overlay); color:var(--g-color-text); }
+  :is(.g-dialog-backdrop,.g-confirm-dialog-backdrop,.g-drawer-backdrop)[hidden] { display:none; }
+  :is(.g-dialog-backdrop,.g-confirm-dialog-backdrop,.g-drawer-backdrop)::backdrop { background:transparent; }
+  .g-confirm-dialog-backdrop { --g-dialog-width:416px; }
+  .g-dialog { inline-size:min(100%,var(--g-dialog-width,520px)); block-size:var(--g-dialog-height,auto); max-block-size:min(var(--g-overlay-max-height,100dvh),calc(100dvh - 48px)); min-inline-size:0; border-radius:4px; }
+  :is(.g-dialog-backdrop-small,.g-confirm-dialog-backdrop-small) { --g-dialog-width:360px; }
+  :is(.g-dialog-backdrop-medium,.g-confirm-dialog-backdrop-medium) { --g-dialog-width:520px; }
+  :is(.g-dialog-backdrop-large,.g-confirm-dialog-backdrop-large) { --g-dialog-width:800px; }
+  :is(.g-dialog-backdrop-xl,.g-confirm-dialog-backdrop-xl) { --g-dialog-width:1120px; }
+  :is(.g-dialog-backdrop.g-dialog-backdrop-fullscreen,.g-confirm-dialog-backdrop.g-confirm-dialog-backdrop-fullscreen) { padding:0; }
+  :is(.g-dialog-backdrop-fullscreen,.g-confirm-dialog-backdrop-fullscreen) > .g-dialog { inline-size:100vw; block-size:100dvh; max-block-size:none; border-radius:0; }
+  :is(.g-dialog-backdrop-top,.g-confirm-dialog-backdrop-top) { align-items:start; padding-block-start:min(12vh,100px); }
+  .g-dialog-header,.g-drawer-header { padding:16px; gap:16px; align-items:center; }
+  .g-dialog-title,.g-drawer-title { margin:0; font-size:16px; font-weight:500; line-height:24px; }
+  .g-dialog-body,.g-drawer-body { padding:16px; overscroll-behavior:contain; overflow:auto; min-block-size:0; flex:1 1 auto; }
+  .g-dialog-header,.g-drawer-header,.g-dialog-footer,.g-drawer-footer { flex-shrink:0; }
+  .g-dialog-footer,.g-drawer-footer { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; padding:16px; background:var(--g-color-surface); }
+  .g-dialog-close { min-inline-size:24px; inline-size:24px; min-block-size:24px; block-size:24px; margin:0; font-size:20px; }
+  .g-drawer-backdrop { padding:0; place-items:stretch start; }
+  .g-drawer { inline-size:min(100vw,var(--g-drawer-width,340px)); max-inline-size:100%; max-block-size:var(--g-overlay-max-height,100dvh); min-block-size:0; }
+  [data-g-overlay-height] > .g-drawer { block-size:var(--g-drawer-height); }
+  .g-drawer-backdrop-small { --g-drawer-width:280px; --g-drawer-height:240px; }
+  .g-drawer-backdrop-medium { --g-drawer-width:340px; --g-drawer-height:320px; }
+  .g-drawer-backdrop-large { --g-drawer-width:560px; --g-drawer-height:480px; }
+  .g-drawer-backdrop-xl { --g-drawer-width:800px; --g-drawer-height:640px; }
+  .g-drawer-backdrop[data-g-side=top] .g-drawer,.g-drawer-backdrop[data-g-side=bottom] .g-drawer { inline-size:100%; block-size:min(90dvh,var(--g-drawer-height,320px)); }
+  .g-drawer-backdrop.is-open[data-g-side] > .g-drawer,.g-drawer-backdrop.is-open > .g-drawer { transform:none; }
+  :is(.g-dialog-backdrop,.g-confirm-dialog-backdrop,.g-drawer-backdrop)[data-g-overlay-modal=false] { background:transparent; pointer-events:none; }
+  [data-g-overlay-modal=false] > :is(.g-dialog,.g-drawer) { pointer-events:auto; }
+  /* A wrapper is never a tooltip/popover surface (all adapters use this rule). */
+  :is([data-g-popover],[data-g-tooltip]):has(> [data-g-popover-content],> [data-g-tooltip-content]) { position:relative; display:inline-block; inline-size:auto; max-inline-size:100%; margin:0; padding:0; border:0; border-radius:0; background:transparent; color:inherit; box-shadow:none; font:inherit; pointer-events:auto; }
+  :is(.g-popover,.g-popconfirm,.g-tooltip)[data-g-popover-content],.g-tooltip[data-g-tooltip-content] { position:fixed; z-index:var(--g-overlay-stack,1200); box-sizing:border-box; margin:0; min-inline-size:0; max-inline-size:var(--g-overlay-viewport-width,calc(100vw - 16px)); max-block-size:calc(100dvh - 16px); overflow:auto; font-size:14px; line-height:22px; }
+  :is(.g-popover,.g-popconfirm)[data-g-popover-content] { inline-size:280px; padding:16px; border:1px solid var(--g-color-border); border-radius:4px; color:var(--g-color-text); background:var(--g-color-surface-raised); box-shadow:var(--g-shadow-lg); }
+  .g-tooltip[data-g-tooltip-content] { inline-size:max-content; max-inline-size:min(360px,var(--g-overlay-viewport-width,calc(100vw - 16px))); padding:8px 12px; border:0; border-radius:4px; color:#fff; background:#1d2129; pointer-events:auto; }
+  :is(.g-popover,.g-popconfirm,.g-tooltip)[hidden] { display:none; }
+  .g-popover-compact[data-g-popover-content],.g-popconfirm-compact[data-g-popover-content] { padding:12px; inline-size:224px; }
+  .g-popover-wide[data-g-popover-content],.g-popconfirm-wide[data-g-popover-content] { inline-size:400px; }
+  .g-popover-title,.g-popconfirm-title { margin:0 0 8px; font-size:14px; font-weight:500; line-height:22px; }
+  .g-popover-content,.g-popconfirm-description { color:var(--g-color-text-muted); font-size:14px; line-height:22px; }
+  .g-popover-footer,.g-popconfirm-actions { display:flex; justify-content:flex-end; flex-wrap:wrap; gap:8px; margin-block-start:16px; }
+  .g-popconfirm-icon,.g-confirm-dialog-icon { color:var(--g-color-warning); font-size:24px; line-height:1; margin-block-end:12px; }
+  .g-popconfirm-danger .g-popconfirm-icon,.g-confirm-dialog-backdrop-danger .g-confirm-dialog-icon { color:var(--g-color-danger); }
+  [data-g-overlay-error] { color:var(--g-color-danger); font-size:12px; line-height:20px; }
+  [data-g-overlay-error]:empty { display:none; }
+  [aria-busy=true] > :is(.g-dialog-footer,.g-popconfirm-actions)::before { content:''; align-self:center; inline-size:14px; block-size:14px; border:2px solid var(--g-color-border); border-top-color:var(--g-color-primary); border-radius:50%; animation:g-spin .8s linear infinite; }
+  [data-g-popover-content] { overflow:visible; }
+  .g-popover-content { max-block-size:calc(100dvh - 180px); overflow:auto; overscroll-behavior:contain; }
+  :is(.g-popover,.g-popconfirm)[data-g-popover-content] { display:flex; flex-direction:column; block-size:var(--g-overlay-height,auto); max-block-size:min(var(--g-overlay-max-height,100dvh),var(--g-overlay-viewport-height,calc(100dvh - 16px))); }
+  :is(.g-popover,.g-popconfirm)[data-g-popover-content][hidden] { display:none; }
+  [data-g-popover-content] > .g-popover-content { min-block-size:0; flex:1 1 auto; }
+  .g-tooltip[data-g-tooltip-content] { block-size:var(--g-overlay-height,auto); max-block-size:min(var(--g-overlay-max-height,100dvh),var(--g-overlay-viewport-height,calc(100dvh - 16px))); }
+  [data-g-overlay-density=compact] { --g-overlay-padding:12px; }
+  [data-g-overlay-density=comfortable] { --g-overlay-padding:24px; }
+  [data-g-overlay-density] :is(.g-dialog-header,.g-dialog-body,.g-dialog-footer,.g-drawer-header,.g-drawer-body,.g-drawer-footer),[data-g-overlay-density] > [data-g-popover-content] { padding:var(--g-overlay-padding,16px); }
+  [data-g-overlay-show-close=false] .g-dialog-close { display:none; }
+  @media(pointer:coarse) { .g-dialog-close { min-inline-size:44px; min-block-size:44px; } }
+  [data-g-overlay-arrow=true]::before { content:''; position:absolute; inline-size:8px; block-size:8px; background:inherit; transform:rotate(45deg); pointer-events:none; }
+  [data-g-overlay-arrow=true][data-g-placement^=bottom]::before { top:-5px; left:var(--g-floating-arrow-inline,16px); border-inline-start:1px solid var(--g-color-border);border-block-start:1px solid var(--g-color-border); }
+  [data-g-overlay-arrow=true][data-g-placement^=top]::before { bottom:-5px; left:var(--g-floating-arrow-inline,16px);border-inline-end:1px solid var(--g-color-border);border-block-end:1px solid var(--g-color-border); }
+  [data-g-overlay-arrow=true][data-g-placement^=left]::before { right:-5px;top:var(--g-floating-arrow-block,16px);border-inline-end:1px solid var(--g-color-border);border-block-start:1px solid var(--g-color-border); }
+  [data-g-overlay-arrow=true][data-g-placement^=right]::before { left:-5px;top:var(--g-floating-arrow-block,16px);border-inline-start:1px solid var(--g-color-border);border-block-end:1px solid var(--g-color-border); }
+  @media(max-width:575px) { :is(.g-dialog-backdrop,.g-confirm-dialog-backdrop){padding:16px} .g-dialog{max-block-size:min(var(--g-overlay-max-height,100dvh),calc(100dvh - 32px))} .g-dialog-header,.g-drawer-header{padding:16px} .g-dialog-body,.g-drawer-body{padding:16px} .g-dialog-footer,.g-drawer-footer{padding:12px 16px} }
+  @media(prefers-reduced-motion:reduce) { :is(.g-dialog,.g-drawer,.g-dialog-backdrop,.g-drawer-backdrop){transition:none;animation:none} }
+}
+
+@layer gardener.components { .g-popconfirm[aria-disabled="true"] > [data-g-popover-trigger], .g-popconfirm[data-g-overlay-disabled="true"] > [data-g-popover-trigger] { opacity:var(--g-disabled-opacity,.6); cursor:not-allowed; } .g-confirm-dialog-backdrop[aria-disabled="true"] .g-dialog { color:var(--g-color-text-subtle); } }
+
+/* Popover proportions follow Arco's 14px body / 16px title, with intrinsic width. */
+@layer gardener.components {
+  .g-popover:not(.g-popconfirm)[data-g-popover-content] { inline-size:max-content; max-inline-size:var(--g-overlay-viewport-width,calc(100vw - 16px)); padding:var(--g-overlay-padding,12px 16px); overflow:visible; font-size:14px; line-height:1.5715; border-radius:4px; box-shadow:0 4px 10px rgb(0 0 0 / 10%); }
+  .g-popover:not(.g-popconfirm) > .g-popover-title { margin:0; font-size:16px; line-height:1.5715; font-weight:500; flex:none; }
+  .g-popover:not(.g-popconfirm) > .g-popover-title + .g-popover-content { margin-block-start:4px; }
+  .g-popover:not(.g-popconfirm) > .g-popover-content { font-size:14px; line-height:1.5715; overflow:auto; overflow-wrap:anywhere; text-align:start; }
+  .g-popover-content > :first-child { margin-block-start:0; }
+  .g-popover-content > :last-child { margin-block-end:0; }
+  .g-popover:not(.g-popconfirm).g-popover-compact[data-g-popover-content] { padding:8px 12px; }
+  .g-popover:not(.g-popconfirm).g-popover-wide[data-g-popover-content] { inline-size:400px; }
+  .g-popover[data-g-overlay-custom-arrow]::before { display:none; }
+  .g-popover-arrow { position:absolute; inline-size:8px; block-size:8px; box-sizing:border-box; transform:rotate(45deg); background:inherit; pointer-events:none; border:0 solid var(--g-color-border); }
+  [data-g-overlay-arrow=false] > .g-popover-arrow { display:none; }
+  [data-g-placement^=bottom] > .g-popover-arrow { top:-5px; left:var(--g-floating-arrow-inline,16px); border-top-width:1px; border-left-width:1px; }
+  [data-g-placement^=top] > .g-popover-arrow { bottom:-5px; left:var(--g-floating-arrow-inline,16px); border-bottom-width:1px; border-right-width:1px; }
+  [data-g-placement^=left] > .g-popover-arrow { right:-5px; top:var(--g-floating-arrow-block,16px); border-top-width:1px; border-right-width:1px; }
+  [data-g-placement^=right] > .g-popover-arrow { left:-5px; top:var(--g-floating-arrow-block,16px); border-bottom-width:1px; border-left-width:1px; }
+}
+
+/* Tooltip uses Arco's 14px type, 350px content limit and 2px radius. */
+@layer gardener.components {
+ .g-tooltip[data-g-tooltip-content]{max-inline-size:min(350px,var(--g-overlay-viewport-width,calc(100vw - 16px)));max-width:350px;border-radius:2px;padding:8px 12px;font-size:14px;line-height:1.5715;overflow:visible;overflow-wrap:anywhere;text-align:start;display:flex;flex-direction:column;background:var(--g-tooltip-background,#373739);color:var(--g-tooltip-color,#fff);--g-tooltip-block-padding:16px;transition-property:opacity,background-color,color}
+ .g-tooltip[data-g-tooltip-content][hidden]{display:none}
+ .g-tooltip[data-g-tooltip-mini=true]{padding-block:4px;--g-tooltip-block-padding:8px}
+ .g-tooltip[data-g-tooltip-content]>.g-tooltip-content{min-block-size:0;overflow:auto;max-block-size:calc(min(var(--g-overlay-max-height,100dvh),var(--g-overlay-viewport-height,calc(100dvh - 16px))) - var(--g-tooltip-block-padding));font:inherit;color:inherit;overscroll-behavior:contain}
+ .g-tooltip[data-g-overlay-custom-arrow]::before,.g-tooltip[data-g-overlay-custom-arrow]::after{display:none}
+ .g-tooltip>.g-tooltip-arrow{border:0}
+}

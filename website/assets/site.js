@@ -8,6 +8,16 @@ if (!window.GardenerimFileI18nActive && (await initI18n()) === null) {
   await new Promise(() => {});
 }
 
+const demoCategories = await readJson(new URL('../showcase/categories.json', import.meta.url));
+if (document.documentElement.classList.contains('docs-page')) {
+  const presentation = await readJson(new URL('../showcase/presentation.json', import.meta.url));
+  for (const [axis, value] of Object.entries(presentation)) document.documentElement.setAttribute('data-g-' + axis, value);
+}
+const categoryLabel = id => translate(demoCategories.find(item => item.id === id)?.label || id);
+function populateCategories(select, components) {
+  for (const item of demoCategories) if (components.some(component => component.category === item.id)) select.add(new Option(categoryLabel(item.id), item.id));
+}
+
 const manifestUrl = new URL(
   "../../packages/css/dist/gardener.manifest.json",
   import.meta.url,
@@ -301,7 +311,8 @@ function renderPublicApi(api) {
 }
 
 function componentSearchText(component) {
-  return JSON.stringify(component).toLocaleLowerCase();
+  const category = demoCategories.find(item => item.id === component.category);
+  return (JSON.stringify(component) + ' ' + (category?.label || '') + ' ' + categoryLabel(component.category) + ' ' + (category?.aliases || []).join(' ')).toLocaleLowerCase();
 }
 
 function metadataRows(record, excluded = []) {
@@ -318,15 +329,138 @@ function metadataRows(record, excluded = []) {
     .join("");
 }
 
+function componentDemoAction(name) {
+  return `<div class="docs-component-actions"><button type="button" class="g-btn g-btn-outline g-btn-sm" data-component-demo="${escapeHtml(name)}">${escapeHtml(translate("查看演示"))} · Vue</button></div>`;
+}
+
+function setupLiveComponentGallery(components) {
+  const root = document.querySelector('#docs-live-gallery');
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = 'true';
+  const search = root.querySelector('[data-demo-search]');
+  const category = root.querySelector('[data-demo-category]');
+  const picker = root.querySelector('[data-demo-picker]');
+  const width = root.querySelector('[data-demo-width]');
+  const stage = root.querySelector('[data-demo-stage]');
+  const meta = root.querySelector('[data-demo-count]');
+  const link = root.querySelector('[data-demo-external]');
+  const apiPanel = document.querySelector('[data-component-api]');
+  const apiFramework = document.querySelector('[data-component-api-framework]');
+  const apiDocs = document.querySelector('[data-component-api-docs]');
+  const apiCatalogs = new Map();
+  let apiRevision = 0;
+  async function renderApi() {
+    if (!apiPanel) return;
+    const revision = ++apiRevision;
+    if (!current) { apiPanel.replaceChildren(); return; }
+    const framework = apiFramework.value;
+    try {
+      let component = components.find(item => item.name === current);
+      if (framework !== 'css') {
+        if (!apiCatalogs.has(framework)) apiCatalogs.set(framework, readJson({ vue: vueCatalogUrl, react: reactCatalogUrl, angularjs: angularCatalogUrl, blazor: blazorCatalogUrl }[framework]));
+        const catalog = await apiCatalogs.get(framework);
+        component = catalog.components.find(item => item.name === current);
+      }
+      if (revision !== apiRevision) return;
+      if (!component) throw new Error('Component is not registered');
+      const name = component.exportName || component.componentType || exportName(current);
+      const usage = framework === 'css' ? component.cssSelector || component.selector : framework === 'blazor' ? '<'+name+' />' : framework === 'angularjs' ? '<g-'+current+'></g-'+current+'>' : 'import { '+name+' } from "@gardenerim/'+framework+'";';
+      apiPanel.innerHTML = '<div class="docs-detail-card"><h3>'+escapeHtml(name)+'</h3><dl class="docs-metadata">'+metadataRows({usage,...component})+'</dl></div>';
+      const url = new URL('./docs.html', location.href); url.hash = {css:'components',vue:'vue',react:'react',angularjs:'angular',blazor:'blazor'}[framework]; apiDocs.href = url.href;
+    } catch (error) {
+      if (revision === apiRevision) apiPanel.textContent = translate('API 加载失败，请重试。');
+      apiCatalogs.delete(framework);
+    }
+  }
+  apiFramework?.addEventListener('change', renderApi);
+  let current = components.find(item => item.name === new URLSearchParams(location.search).get('demo'))?.name || 'table';
+  let frame;
+  let visible = false;
+  const exportName = name => `G${name.split('-').map(part => part[0].toUpperCase() + part.slice(1)).join('')}`;
+  populateCategories(category, components);
+  const requestedCategory = new URLSearchParams(location.search).get('category');
+  if (demoCategories.some(item => item.id === requestedCategory)) category.value = requestedCategory;
+  const categoryNavigation = document.querySelector('[data-demo-category-navigation]');
+  if (categoryNavigation) categoryNavigation.innerHTML = demoCategories.map(item => {
+    const members = components.filter(component => component.category === item.id);
+    const url = new URL(location.href); url.searchParams.set('category', item.id); url.searchParams.set('demo', members[0]?.name || 'table'); url.hash = 'component-demos';
+    return '<a href="'+escapeHtml(url.href)+'" data-demo-category-link="'+escapeHtml(item.id)+'"><span>'+escapeHtml(categoryLabel(item.id))+'</span><small>'+members.length+'</small></a>';
+  }).join('');
+  function renderPreview(force = false) {
+    renderApi();
+    if (!current) { stage.replaceChildren(); return; }
+    const url = new URL('../showcase/embed.html', import.meta.url);
+    url.searchParams.set('component', current);
+    link.href = url.href;
+    if (!visible) return;
+    if (!force && frame?.isConnected && frame.dataset.component === current) return;
+    frame?.remove();
+    frame = document.createElement('iframe');
+    frame.dataset.component = current;
+    frame.title = `${exportName(current)} · GardenerDemo · Vue`;
+    frame.allow = 'clipboard-write; fullscreen';
+    frame.src = url.href;
+    frame.style.height = '640px';
+    stage.replaceChildren(frame);
+  }
+  function filter() {
+    const query = search.value.trim().toLocaleLowerCase();
+    const matches = components.filter(item => (!category.value || item.category === category.value) && (!query || `${exportName(item.name)} ${componentSearchText(item)}`.toLocaleLowerCase().includes(query)));
+    picker.replaceChildren(...matches.map(item => new Option(`${exportName(item.name)} · ${item.name}`, item.name)));
+    if (!matches.some(item => item.name === current)) current = matches[0]?.name || '';
+    picker.value = current;
+    picker.disabled = !matches.length;
+    link.hidden = !matches.length;
+    meta.textContent = translateTemplate('显示 {shown} / {total} 个组件', { shown: formatNumber(matches.length), total: formatNumber(components.length) });
+    renderPreview();
+    document.querySelectorAll('[data-demo-category-link]').forEach(link => { if(link.dataset.demoCategoryLink === category.value) link.setAttribute('aria-current','true'); else link.removeAttribute('aria-current'); });
+    if (!matches.length) stage.textContent = translate('没有匹配的组件。');
+  }
+  search.addEventListener('input', debounce(filter));
+  category.addEventListener('change', () => { filter(); const url=new URL(location.href); if(category.value) url.searchParams.set('category',category.value); else url.searchParams.delete('category'); if(current) url.searchParams.set('demo',current); history.replaceState(null,'',url); });
+  picker.addEventListener('change', () => {
+    current = picker.value;
+    const url = new URL(location.href); url.searchParams.set('demo', current); history.replaceState(null, '', url);
+    renderPreview();
+  });
+  width.addEventListener('change', () => { stage.style.maxWidth = width.value === 'auto' ? '100%' : `${width.value}px`; });
+  root.querySelector('[data-demo-reset]').addEventListener('click', () => renderPreview(true));
+  document.addEventListener('click', event => {
+    const categoryLink = event.target.closest?.('[data-demo-category-link]');
+    if (categoryLink && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
+      event.preventDefault(); visible = true; search.value = ''; category.value = categoryLink.dataset.demoCategoryLink;
+      filter(); const url=new URL(categoryLink.href); if(current) url.searchParams.set('demo',current); history.replaceState(null,'',url);
+      document.querySelector('#component-demos').scrollIntoView({block:'start'}); setActiveDocsSection('component-demos'); picker.focus({preventScroll:true}); return;
+    }
+    const trigger = event.target.closest?.('[data-component-demo]');
+    if (!trigger || !components.some(item => item.name === trigger.dataset.componentDemo)) return;
+    search.value = ''; category.value = ''; current = trigger.dataset.componentDemo;
+    visible = true; filter();
+    const url = new URL(location.href); url.searchParams.set('demo', current); url.searchParams.delete('category'); url.hash = 'component-demos'; history.replaceState(null, '', url);
+    document.querySelector('#component-demos').scrollIntoView({ block: 'start' });
+    setActiveDocsSection('component-demos');
+    picker.focus({ preventScroll: true });
+  });
+  window.addEventListener('message', event => {
+    if (event.origin !== location.origin || event.source !== frame?.contentWindow || event.data?.type !== 'gardener-showcase-size' || event.data.component !== current) return;
+    const height = Number(event.data.height);
+    if (Number.isFinite(height) && height > 0) frame.style.height = `${Math.max(300, Math.min(24000, Math.ceil(height)))}px`;
+  });
+  const observer = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting)) { visible = true; renderPreview(); observer.disconnect(); }
+  }, { rootMargin: '300px' });
+  observer.observe(root);
+  filter();
+}
+
 function setupComponentCatalog(components) {
+  setupLiveComponentGallery(components);
   const container = document.querySelector("#component-catalog");
   const search = document.querySelector("#component-search");
   const category = document.querySelector("#component-category");
   const meta = document.querySelector("#component-meta");
   if (!container || !search || !category || !meta) return;
-  [...new Set(components.map((component) => component.category))]
-    .sort()
-    .forEach((name) => category.add(new Option(name, name)));
+  populateCategories(category, components);
   const render = () => {
     const query = search.value.trim().toLocaleLowerCase();
     const categoryValue = category.value;
@@ -344,7 +478,7 @@ function setupComponentCatalog(components) {
     container.innerHTML = matches
       .map(
         (component) =>
-          `<details class="docs-detail-card"><summary><span><strong>${escapeHtml(component.name)}</strong><small>${escapeHtml(component.category)} · ${escapeHtml(component.type)}</small></span><code>${escapeHtml(component.cssSelector || component.selector)}</code></summary><dl class="docs-metadata">${metadataRows(component, ["name", "category"])}</dl></details>`,
+          `<details class="docs-detail-card"><summary><span><strong>${escapeHtml(component.name)}</strong><small>${escapeHtml(categoryLabel(component.category))} · ${escapeHtml(component.type)}</small></span><code>${escapeHtml(component.cssSelector || component.selector)}</code></summary>${componentDemoAction(component.name)}<dl class="docs-metadata">${metadataRows(component, ["name", "category"])}</dl></details>`,
       )
       .join("");
   };
@@ -366,9 +500,7 @@ function setupFrameworkCatalog(api, catalog, framework, options = {}) {
     ...component,
     exportName: options.componentName?.(component, index) || api.componentExports[index],
   }));
-  [...new Set(components.map((component) => component.category))]
-    .sort()
-    .forEach((name) => category.add(new Option(name, name)));
+  populateCategories(category, components);
 
   const render = () => {
     const query = search.value.trim().toLocaleLowerCase();
@@ -387,7 +519,7 @@ function setupFrameworkCatalog(api, catalog, framework, options = {}) {
     container.innerHTML = matches
       .map(
         (component) =>
-          `<details class="docs-detail-card"><summary><span><strong>${escapeHtml(component.exportName)}</strong><small>${escapeHtml(component.name)} · ${escapeHtml(component.category)} · ${escapeHtml(component.type || component.kind)}</small></span><code>${escapeHtml(options.usage?.(component) || `import { ${component.exportName} } from &quot;${packageName}&quot;`)}</code></summary><dl class="docs-metadata">${metadataRows(component, ["exportName"])}</dl></details>`,
+          `<details class="docs-detail-card"><summary><span><strong>${escapeHtml(component.exportName)}</strong><small>${escapeHtml(component.name)} · ${escapeHtml(categoryLabel(component.category))} · ${escapeHtml(component.type || component.kind)}</small></span><code>${escapeHtml(options.usage?.(component) || `import { ${component.exportName} } from "${packageName}"`)}</code></summary>${componentDemoAction(component.name)}<dl class="docs-metadata">${metadataRows(component, ["exportName"])}</dl></details>`,
       )
       .join("");
   };
@@ -594,9 +726,12 @@ function setupSearchClear() {
 
 function setActiveDocsSection(id) {
   if (!id) return;
-  document.querySelectorAll(".docs-sidebar-link").forEach((link) =>
-    link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`),
-  );
+  document.querySelectorAll(".docs-sidebar-link").forEach((link) => {
+    const active = link.getAttribute("href") === `#${id}`;
+    link.classList.toggle("is-active", active);
+    if (active) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
   const select = document.querySelector("#docs-jump");
   if (select?.querySelector(`option[value="#${CSS.escape(id)}"]`)) {
     select.value = `#${id}`;
@@ -609,16 +744,18 @@ function setupDocsNavigation() {
     location.hash = select.value;
   });
   const links = [...document.querySelectorAll(".docs-sidebar-link")];
-  const sections = [...document.querySelectorAll(".docs-section")];
+  const sections = [...document.querySelectorAll(".docs-main > article > section[id]")];
   if (!links.length || !sections.length || !("IntersectionObserver" in window))
     return;
   const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-      if (!visible) return;
-      setActiveDocsSection(visible.target.id);
+    () => {
+      // A resized demo can move several sections together. Reconcile against
+      // the current layout rather than only the observer's changed entries.
+      const anchor = (document.querySelector(innerWidth <= 768 ? '.docs-sidebar' : '.site-header')?.getBoundingClientRect().bottom || 72) + 24;
+      const positions = sections.map(section => ({ section, rect: section.getBoundingClientRect() }));
+      const active = positions.find(item => item.rect.top <= anchor && item.rect.bottom > anchor)
+        || positions.find(item => item.rect.top > anchor);
+      if (active) setActiveDocsSection(active.section.id);
     },
     { rootMargin: "-20% 0px -70%", threshold: 0 },
   );
@@ -627,7 +764,7 @@ function setupDocsNavigation() {
 
 async function hydrateCatalogs() {
   const needsManifest = document.querySelector(
-    "#theme-swatches, #docs-theme-grid, #component-catalog, #runtime-grid",
+    "#theme-swatches, #docs-theme-grid, #component-catalog, #runtime-grid, #docs-live-gallery",
   );
   if (needsManifest) {
     try {
@@ -639,7 +776,7 @@ async function hydrateCatalogs() {
     } catch (error) {
       document
         .querySelectorAll(
-          "#theme-swatches, #docs-theme-grid, #component-catalog, #runtime-grid",
+          "#theme-swatches, #docs-theme-grid, #component-catalog, #runtime-grid, #docs-live-gallery",
         )
         .forEach((container) => {
           if (container)

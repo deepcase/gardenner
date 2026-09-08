@@ -12,7 +12,7 @@ test("keyboard focus enters the dialog and returns to the trigger", async ({ pag
   const trigger = page.getByRole("button", { name: "打开对话框" });
   await trigger.focus();
   await trigger.press("Enter");
-  await expect(page.getByRole("button", { name: "完成" })).toBeFocused();
+  await expect(page.locator("[data-g-dialog]").getByRole("button", { name: "完成", exact: true })).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(page.locator("[data-g-dialog]")).toBeHidden({ timeout: 1500 });
   await expect(trigger).toBeFocused();

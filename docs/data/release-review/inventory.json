@@ -1,0 +1,1576 @@
+[
+  {
+    "name": "table",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-table",
+    "variants": [
+      "striped",
+      "hover",
+      "bordered",
+      "compact",
+      "comfortable",
+      "relaxed",
+      "sticky",
+      "responsive-stack",
+      "borderless"
+    ],
+    "states": [
+      "normal",
+      "loading",
+      "empty",
+      "error"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-table",
+    "parts": [
+      "g-table-cell-actions",
+      "g-table-summary"
+    ]
+  },
+  {
+    "name": "data-grid",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-grid]",
+    "variants": [
+      "bordered",
+      "compact",
+      "comfortable",
+      "sticky",
+      "borderless"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error"
+    ],
+    "behaviors": [
+      "data-grid"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-data-grid",
+    "parts": [
+      "g-data-grid-toolbar",
+      "g-data-grid-body",
+      "g-data-grid-footer"
+    ]
+  },
+  {
+    "name": "description-list",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-description-list",
+    "variants": [
+      "horizontal",
+      "vertical",
+      "bordered",
+      "compact",
+      "comfortable",
+      "borderless"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-description-list",
+    "parts": [
+      "g-description-term",
+      "g-description-value"
+    ]
+  },
+  {
+    "name": "list-group",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-list-group",
+    "variants": [
+      "bordered",
+      "borderless",
+      "split",
+      "compact",
+      "comfortable"
+    ],
+    "states": [
+      "normal",
+      "loading",
+      "empty"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-list-group",
+    "parts": [
+      "g-list-item",
+      "g-list-item-content",
+      "g-list-item-title",
+      "g-list-item-meta"
+    ]
+  },
+  {
+    "name": "tree",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-tree]",
+    "variants": [
+      "default",
+      "line",
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "states": [
+      "normal",
+      "loading",
+      "empty"
+    ],
+    "behaviors": [
+      "tree"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-tree",
+    "parts": [
+      "g-tree-item",
+      "g-tree-label",
+      "g-tree-toggle"
+    ]
+  },
+  {
+    "name": "timeline",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-timeline",
+    "variants": [
+      "vertical",
+      "alternate",
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "horizontal"
+    ],
+    "states": [
+      "normal",
+      "pending"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-timeline",
+    "parts": [
+      "g-timeline-item",
+      "g-timeline-marker",
+      "g-timeline-time"
+    ]
+  },
+  {
+    "name": "responsive-table",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-table-scroll].g-responsive-table",
+    "cssSelector": ".g-responsive-table",
+    "parts": [
+      "g-table-caption",
+      "g-table-row",
+      "g-table-cell-primary",
+      "g-table-cell-secondary",
+      "g-table-cell-sticky-start",
+      "g-table-cell-sticky-end",
+      "g-table-checkbox"
+    ],
+    "variants": [
+      "scroll",
+      "stacked",
+      "sticky-columns",
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "behaviors": [
+      "table-scroll"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "table-sort",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-table-sort]",
+    "cssSelector": ".g-data-scope-table-sort",
+    "parts": [
+      "g-table-sort-indicator",
+      "g-sort-button"
+    ],
+    "accessibility": {
+      "attributes": [
+        "aria-sort"
+      ],
+      "keyboard": [
+        "Enter",
+        "Space"
+      ]
+    },
+    "behaviors": [
+      "table-sort"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "row-selection",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-row-select]",
+    "cssSelector": ".g-data-scope-row-selection",
+    "states": [
+      "none",
+      "partial",
+      "all"
+    ],
+    "accessibility": {
+      "attributes": [
+        "aria-selected"
+      ],
+      "keyboard": [
+        "Space",
+        "Shift+Click"
+      ]
+    },
+    "behaviors": [
+      "row-select"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "parts": [
+      "g-selection-summary"
+    ],
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "row-disclosure",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-row-disclosure]",
+    "cssSelector": ".g-data-scope-row-disclosure",
+    "accessibility": {
+      "attributes": [
+        "aria-controls",
+        "aria-expanded"
+      ],
+      "keyboard": [
+        "Enter",
+        "Space",
+        "Escape"
+      ]
+    },
+    "behaviors": [
+      "row-disclosure"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "parts": [
+      "g-row-disclosure"
+    ],
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "column-toggle",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-column-toggle]",
+    "cssSelector": ".g-data-scope-column-toggle",
+    "behaviors": [
+      "column-toggle"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "parts": [
+      "g-column-chooser"
+    ],
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "data-filter",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-filter]",
+    "cssSelector": ".g-data-scope-data-filter",
+    "states": [
+      "results",
+      "empty"
+    ],
+    "behaviors": [
+      "data-filter"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "parts": [
+      "g-data-toolbar"
+    ],
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "data-view",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-view]",
+    "cssSelector": ".g-data-scope-data-view",
+    "accessibility": {
+      "attributes": [
+        "aria-pressed"
+      ],
+      "keyboard": [
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowUp",
+        "ArrowDown",
+        "Home",
+        "End"
+      ]
+    },
+    "behaviors": [
+      "data-view"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "parts": [
+      "g-data-view-switcher"
+    ],
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "editable-grid",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-grid].g-editable-grid",
+    "cssSelector": ".g-editable-grid",
+    "parts": [
+      "g-editable-grid-row",
+      "g-editable-grid-cell"
+    ],
+    "states": [
+      "default",
+      "editing",
+      "invalid"
+    ],
+    "behaviors": [
+      "data-grid"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "tree-table",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-row-disclosure].g-tree-table",
+    "parts": [
+      "g-tree-table-row",
+      "g-tree-table-toggle"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-tree-table",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "behaviors": [
+      "row-disclosure"
+    ]
+  },
+  {
+    "name": "grouped-table",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-row-disclosure].g-grouped-table",
+    "parts": [
+      "g-table-group-row",
+      "g-table-group-title"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-grouped-table",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "behaviors": [
+      "row-disclosure"
+    ]
+  },
+  {
+    "name": "expandable-table",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-row-disclosure].g-expandable-table",
+    "parts": [
+      "g-expandable-table-detail",
+      "g-table-detail-content"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-expandable-table",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "behaviors": [
+      "row-disclosure"
+    ]
+  },
+  {
+    "name": "comparison-table",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-comparison-table",
+    "states": [
+      "highlighted"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-comparison-table",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "highlighted"
+    ],
+    "parts": [
+      "g-table"
+    ]
+  },
+  {
+    "name": "key-value",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-key-value",
+    "parts": [
+      "g-key-value-row",
+      "g-key-value-key",
+      "g-key-value-value",
+      "g-key-value-action"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-key-value",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "horizontal",
+      "vertical"
+    ]
+  },
+  {
+    "name": "record-detail",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-record-detail",
+    "parts": [
+      "g-record-detail-header",
+      "g-record-detail-main",
+      "g-record-detail-title",
+      "g-record-detail-sections",
+      "g-record-detail-section"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-record-detail",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "vertical"
+    ]
+  },
+  {
+    "name": "media-list",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-media-list",
+    "parts": [
+      "g-media-list-item",
+      "g-media-list-media",
+      "g-media-list-content"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-media-list",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "horizontal"
+    ]
+  },
+  {
+    "name": "dense-list",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-dense-list",
+    "parts": [
+      "g-dense-list-item"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-dense-list",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "audit-log-composition",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-audit-log",
+    "parts": [
+      "g-audit-log-date",
+      "g-audit-event"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-audit-log",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "stat-list",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-stat-list",
+    "parts": [
+      "g-stat",
+      "g-stat-value",
+      "g-stat-label"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-stat-list",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "flat",
+      "centered"
+    ]
+  },
+  {
+    "name": "metric-card",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-metric-card",
+    "parts": [
+      "g-metric-card-main",
+      "g-metric-card-label",
+      "g-metric-card-value",
+      "g-metric-card-trend"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-metric-card",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "flat",
+      "centered"
+    ]
+  },
+  {
+    "name": "sparkline",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-sparkline",
+    "parts": [
+      "g-sparkline-bar",
+      "g-sparkline-svg"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-sparkline",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "muted",
+      "contrast"
+    ]
+  },
+  {
+    "name": "progress-stats",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-progress-stats",
+    "parts": [
+      "g-progress-stat",
+      "g-progress-stat-label",
+      "g-progress-stat-track",
+      "g-progress-stat-value",
+      "g-progress-stat-number"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-progress-stats",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "data-legend",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-data-legend",
+    "parts": [
+      "g-data-legend-item",
+      "g-data-legend-swatch",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-data-legend",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "horizontal",
+      "vertical"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  },
+  {
+    "name": "ranking",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-ranking",
+    "parts": [
+      "g-ranking-item",
+      "g-ranking-value"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-ranking",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "ordered"
+    ]
+  },
+  {
+    "name": "status-summary",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-status-summary",
+    "parts": [
+      "g-status-summary-item",
+      "g-status-summary-value",
+      "g-status-summary-label"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-status-summary",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "flat",
+      "centered"
+    ]
+  },
+  {
+    "name": "data-matrix",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-data-matrix",
+    "parts": [
+      "g-data-matrix-grid",
+      "g-data-matrix-cell"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-data-matrix",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "muted",
+      "contrast"
+    ]
+  },
+  {
+    "name": "heatmap",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-heatmap",
+    "parts": [
+      "g-heatmap-cell"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-heatmap",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "muted",
+      "contrast"
+    ]
+  },
+  {
+    "name": "data-toolbar",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-data-toolbar",
+    "parts": [
+      "g-data-toolbar-start",
+      "g-data-toolbar-center",
+      "g-data-toolbar-end",
+      "g-data-toolbar-result"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-data-toolbar",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "column-chooser",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-column-chooser",
+    "parts": [
+      "g-column-chooser-item"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-column-chooser",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "export-panel",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-export-panel",
+    "parts": [
+      "g-export-panel-header",
+      "g-export-options",
+      "g-export-option",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-export-panel",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  },
+  {
+    "name": "data-state",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-data-state",
+    "parts": [
+      "g-data-state-visual",
+      "g-data-state-title",
+      "g-data-state-actions"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "offline"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-data-state",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "data-view-switcher",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-data-view-switcher",
+    "parts": [
+      "g-data-view-button"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-data-view-switcher",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "selection-summary",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-selection-summary",
+    "parts": [
+      "g-selection-summary-count",
+      "g-selection-summary-actions"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-selection-summary",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "table-density",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-table-density].g-table-density",
+    "cssSelector": ".g-table-density",
+    "parts": [
+      "g-table-density-button"
+    ],
+    "behaviors": [
+      "table-density"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "filter-summary",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-filter-summary].g-filter-summary",
+    "cssSelector": ".g-filter-summary",
+    "parts": [
+      "g-filter-summary-label",
+      "g-filter-summary-chip",
+      "g-filter-summary-clear"
+    ],
+    "behaviors": [
+      "filter-summary"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ]
+  },
+  {
+    "name": "data-inspector",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-data-inspector",
+    "parts": [
+      "g-data-inspector-header",
+      "g-data-inspector-body",
+      "g-data-inspector-footer",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "desktop",
+      "tauri",
+      "electron"
+    ],
+    "cssSelector": ".g-data-inspector",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "flat"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  },
+  {
+    "name": "virtual-list",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-virtual-list",
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-virtual-list",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "parts": [
+      "g-data-virtual-viewport",
+      "g-data-virtual-row",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  },
+  {
+    "name": "kanban",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-kanban",
+    "states": [
+      "default",
+      "dragging",
+      "drop-target",
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-kanban",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "parts": [
+      "g-data-kanban-board",
+      "g-kanban-column",
+      "g-kanban-header",
+      "g-kanban-card",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "behaviors": [
+      "data-display"
+    ]
+  },
+  {
+    "name": "gantt-shell",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-gantt",
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-gantt",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "parts": [
+      "g-data-gantt",
+      "g-gantt-row",
+      "g-gantt-label",
+      "g-gantt-track",
+      "g-gantt-bar",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  },
+  {
+    "name": "query-builder",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-query-builder",
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-query-builder",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "parts": [
+      "g-data-query-rule",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  },
+  {
+    "name": "calendar",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-calendar",
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-calendar",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "parts": [
+      "g-data-calendar-grid",
+      "g-data-calendar-day",
+      "g-data-calendar-weekday",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  },
+  {
+    "name": "agenda",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-agenda",
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-agenda",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "parts": [
+      "g-data-agenda-list",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  },
+  {
+    "name": "file-manager",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-file-manager",
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-file-manager",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless",
+      "grid",
+      "list"
+    ],
+    "parts": [
+      "g-data-files",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  },
+  {
+    "name": "filter-builder",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-filter-builder",
+    "variants": [
+      "flat",
+      "bordered",
+      "nested",
+      "compact",
+      "comfortable",
+      "borderless"
+    ],
+    "states": [
+      "normal",
+      "loading",
+      "empty",
+      "invalid",
+      "disabled",
+      "error"
+    ],
+    "parts": [
+      "g-filter-builder-header",
+      "g-filter-group",
+      "g-filter-group-header",
+      "g-filter-rule",
+      "g-filter-conjunction",
+      "g-filter-builder-empty",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-filter-builder",
+    "behaviors": [
+      "data-display"
+    ]
+  },
+  {
+    "name": "pivot-table",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-pivot",
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-pivot",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "parts": [
+      "g-data-managed-scroll",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  },
+  {
+    "name": "organization-chart",
+    "category": "data",
+    "type": "css",
+    "selector": ".g-org-chart",
+    "variants": [
+      "horizontal",
+      "vertical",
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "states": [
+      "normal",
+      "loading",
+      "empty",
+      "selected",
+      "collapsed"
+    ],
+    "parts": [
+      "g-org-level",
+      "g-org-children",
+      "g-org-branch",
+      "g-org-node",
+      "g-org-node-title",
+      "g-org-node-meta",
+      "g-org-chart-empty"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-org-chart"
+  },
+  {
+    "name": "map-shell",
+    "category": "data",
+    "type": "interactive",
+    "selector": "[data-g-data-display].g-map-shell",
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ],
+    "cssSelector": ".g-map-shell",
+    "variants": [
+      "compact",
+      "comfortable",
+      "bordered",
+      "borderless"
+    ],
+    "parts": [
+      "g-data-map-canvas",
+      "g-data-map-world",
+      "g-data-map-marker",
+      "g-data-managed-toolbar",
+      "g-data-managed-empty",
+      "g-data-managed-actions"
+    ],
+    "behaviors": [
+      "data-display"
+    ],
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "disabled"
+    ]
+  }
+]

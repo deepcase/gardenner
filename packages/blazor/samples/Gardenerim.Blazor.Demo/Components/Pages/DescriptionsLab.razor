@@ -1,0 +1,20 @@
+@page "/descriptions"
+@using System.Text.Json
+<PageTitle>GDescriptions</PageTitle>
+<main style="max-width:900px;margin:32px auto;padding:16px">
+ <h1>GDescriptions</h1>
+ <p>与 CSS、Vue、React、AngularJS 使用相同参数和布局。</p>
+ <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px">
+  <label>布局 <select @bind="Layout"><option>horizontal</option><option>vertical</option><option>inline-horizontal</option><option>inline-vertical</option></select></label>
+  <label>尺寸 <select @bind="Size"><option>mini</option><option>small</option><option>medium</option><option>large</option></select></label>
+  <label><input type="checkbox" @bind="Bordered" /> 边框</label>
+ </div>
+ <GDescriptions Config="Config" />
+</main>
+@code {
+ private string Layout="horizontal",Size="medium";
+ private bool Bordered=true;
+ private IReadOnlyDictionary<string,object?> Config => new Dictionary<string,object?> {
+  ["data-options"]=JsonSerializer.Serialize(new {title="项目资料",layout=Layout,size=Size,bordered=Bordered,column=new {xs=1,md=2,lg=3},data=new object[]{new{key="name",label="名称",value="Gardener"},new{key="version",label="版本",value="2.2.0"},new{key="owner",label="负责人",value="林晓"},new{key="description",label="说明",value="五端共享数据详情布局，支持跨列和响应式配置。",span=3}}})
+ };
+}

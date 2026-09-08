@@ -1,0 +1,604 @@
+{
+  "originalComponents": 36,
+  "newComponents": 2,
+  "components": 38,
+  "variants": 119,
+  "items": [
+    {
+      "name": "chat",
+      "selector": ".g-chat",
+      "variants": [
+        "default",
+        "compact",
+        "bubbles",
+        "readonly"
+      ],
+      "states": [
+        "empty",
+        "loading",
+        "streaming",
+        "complete",
+        "error",
+        "disabled"
+      ],
+      "finding": "从静态消息补齐受控会话、流式生成、滚动位置与草稿保留",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "message",
+      "selector": ".g-message",
+      "variants": [
+        "assistant",
+        "user",
+        "system",
+        "compact",
+        "plain"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "补齐角色、Markdown / 纯文本、复制与反馈请求",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "prompt-composer",
+      "selector": ".g-composer",
+      "variants": [
+        "default",
+        "compact",
+        "multiline",
+        "attachments"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "补齐中文输入法、快捷提交、附件限制和生成生命周期",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "attachment",
+      "selector": ".g-attachment",
+      "variants": [
+        "default",
+        "compact",
+        "list"
+      ],
+      "states": [
+        "uploading",
+        "ready",
+        "error",
+        "disabled"
+      ],
+      "finding": "补齐文件信息、预览、下载和移除请求",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "thinking",
+      "selector": ".g-thinking",
+      "variants": [
+        "default",
+        "expanded",
+        "compact"
+      ],
+      "states": [
+        "collapsed",
+        "expanded",
+        "streaming",
+        "disabled"
+      ],
+      "finding": "可展开的公开执行摘要、进度与状态；不展示模型私有推理",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "tool-call",
+      "selector": ".g-tool-call",
+      "variants": [
+        "default",
+        "expanded",
+        "compact"
+      ],
+      "states": [
+        "queued",
+        "running",
+        "success",
+        "error",
+        "stopped",
+        "disabled"
+      ],
+      "finding": "参数与结果可展开，执行状态由应用提供",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "tool-approval",
+      "selector": ".g-approval",
+      "variants": [
+        "default",
+        "detailed",
+        "compact"
+      ],
+      "states": [
+        "pending",
+        "approved",
+        "rejected",
+        "cancelled",
+        "expired",
+        "disabled"
+      ],
+      "finding": "补齐允许 / 拒绝 / 取消、权限范围、过期和异步确认",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "agent-status",
+      "selector": ".g-agent-status",
+      "variants": [
+        "default",
+        "compact",
+        "detailed"
+      ],
+      "states": [
+        "idle",
+        "working",
+        "waiting",
+        "blocked",
+        "complete",
+        "failed",
+        "disabled"
+      ],
+      "finding": "状态徽标与执行明细",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "agent-plan",
+      "selector": ".g-plan",
+      "variants": [
+        "default",
+        "compact",
+        "checkable"
+      ],
+      "states": [
+        "pending",
+        "active",
+        "complete",
+        "failed",
+        "disabled"
+      ],
+      "finding": "任务状态与可勾选计划",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "sources-citations",
+      "selector": ".g-sources",
+      "variants": [
+        "default",
+        "list",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "来源检索、引用摘要与安全链接",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "artifact-panel",
+      "selector": ".g-artifact-panel",
+      "variants": [
+        "default",
+        "code",
+        "markdown",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "可键盘切换的代码 / Markdown 产物面板",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "model-selector",
+      "selector": ".g-model-selector",
+      "variants": [
+        "default",
+        "detailed",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "模型描述、禁用选项与受控选择",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "context-meter",
+      "selector": ".g-context-meter",
+      "variants": [
+        "default",
+        "compact",
+        "detailed"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "实际占用、容量、比例与超限提醒",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "voice-state",
+      "selector": ".g-voice-state",
+      "variants": [
+        "default",
+        "compact",
+        "transcript"
+      ],
+      "states": [
+        "idle",
+        "listening",
+        "processing",
+        "speaking",
+        "error",
+        "disabled"
+      ],
+      "finding": "转录、音量级别与录音请求；媒体权限由应用处理",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "generation-placeholder",
+      "selector": ".g-generation-placeholder",
+      "variants": [
+        "default",
+        "compact",
+        "progress"
+      ],
+      "states": [
+        "queued",
+        "generating",
+        "partial",
+        "complete",
+        "failed",
+        "disabled"
+      ],
+      "finding": "内容占位、进度与状态",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "ai-workspace",
+      "selector": ".g-ai-shell",
+      "variants": [
+        "default",
+        "compact",
+        "sidebar"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "侧栏会话切换、消息、草稿和流式生成",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "prompt-starter",
+      "selector": ".g-prompt-starter",
+      "variants": [
+        "default",
+        "list",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "提示选择与提示正文",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "ai-command-menu",
+      "selector": ".g-ai-command-menu",
+      "variants": [
+        "default",
+        "grouped",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "分组搜索、命令选择和禁用项",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "streaming-response",
+      "selector": ".g-streaming-response",
+      "variants": [
+        "default",
+        "compact",
+        "plain"
+      ],
+      "states": [
+        "streaming",
+        "paused",
+        "stopped",
+        "complete",
+        "error",
+        "disabled"
+      ],
+      "finding": "真实异步迭代、暂停、继续、取消、重试和复制",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "multi-agent-board",
+      "selector": ".g-agent-board",
+      "variants": [
+        "default",
+        "list",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "多代理工作状态与列表 / 网格",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "agent-handoff",
+      "selector": ".g-agent-handoff",
+      "variants": [
+        "default",
+        "detailed",
+        "compact"
+      ],
+      "states": [
+        "proposed",
+        "accepted",
+        "declined",
+        "complete",
+        "disabled"
+      ],
+      "finding": "交接上下文、接受和拒绝",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "artifact-workspace",
+      "selector": ".g-artifact-layout",
+      "variants": [
+        "default",
+        "code",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "产物选择、预览与复制",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "generation-gallery",
+      "selector": ".g-generation-grid",
+      "variants": [
+        "default",
+        "list",
+        "compact"
+      ],
+      "states": [
+        "queued",
+        "generating",
+        "partial",
+        "complete",
+        "failed",
+        "disabled"
+      ],
+      "finding": "图片预览、状态、网格和列表",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "ai-context-manager",
+      "selector": ".g-ai-context-manager",
+      "variants": [
+        "default",
+        "compact",
+        "readonly"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "检索、勾选、移除请求和 token 总量",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "ai-usage-panel",
+      "selector": ".g-ai-usage-panel",
+      "variants": [
+        "default",
+        "compact",
+        "detailed"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "实际调用用量、成本和明细",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "ai-safety-notice",
+      "selector": ".g-ai-safety-notice",
+      "variants": [
+        "default",
+        "compact",
+        "dismissible"
+      ],
+      "states": [
+        "info",
+        "warning",
+        "blocked",
+        "review-required",
+        "disabled"
+      ],
+      "finding": "提示内容、状态、可关闭与操作请求",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "ai-feedback",
+      "selector": ".g-ai-feedback",
+      "variants": [
+        "default",
+        "detailed",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "评价、原因、服务提交、失败与重试",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "conversation-list",
+      "selector": ".g-conversation-list",
+      "variants": [
+        "default",
+        "grouped",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "分组、检索、分页和会话选择",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "prompt-library",
+      "selector": ".g-prompt-library",
+      "variants": [
+        "default",
+        "grouped",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "分类、检索、提示选择和分页",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "mention-slash-command",
+      "selector": ".g-mention",
+      "variants": [
+        "default",
+        "mentions",
+        "commands"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "提及与命令过滤、选择和禁用",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "generation-card",
+      "selector": ".g-generation-card",
+      "variants": [
+        "default",
+        "compact",
+        "progress"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "产物内容、进度与操作",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "file-tree",
+      "selector": ".g-file-tree",
+      "variants": [
+        "default",
+        "expanded",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "父子关系、展开与选择、代码预览，拒绝循环树",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "version-history",
+      "selector": ".g-version-list",
+      "variants": [
+        "default",
+        "compact",
+        "detailed"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "版本选择与详情",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "permission-scope",
+      "selector": ".g-permission-scope",
+      "variants": [
+        "default",
+        "checkable",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "权限说明、勾选与只读",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "cost-rate-limit",
+      "selector": ".g-cost",
+      "variants": [
+        "default",
+        "compact",
+        "detailed"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "明确单位的成本、速率及额度",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "privacy-notice",
+      "selector": ".g-privacy-notice",
+      "variants": [
+        "default",
+        "compact",
+        "dismissible"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "隐私说明、链接与关闭",
+      "diagnosis": "组件能力和演示均需补齐"
+    },
+    {
+      "name": "ai-run-timeline",
+      "selector": ".g-ai-run-timeline",
+      "variants": [
+        "default",
+        "compact",
+        "detailed"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "新增：跨工具与代理的公开运行步骤和时间线",
+      "diagnosis": "缺少独立组件"
+    },
+    {
+      "name": "ai-structured-output",
+      "selector": ".g-ai-structured-output",
+      "variants": [
+        "default",
+        "tree",
+        "compact"
+      ],
+      "states": [
+        "disabled"
+      ],
+      "finding": "新增：JSON 校验、格式化与有界树形展示",
+      "diagnosis": "缺少独立组件"
+    }
+  ]
+}

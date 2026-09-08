@@ -3,30 +3,154 @@
   "$id": "https://gardener.dev/schema/react/compatibility-1.json",
   "type": "object",
   "additionalProperties": false,
-  "required": ["$schema", "schemaVersion", "version", "baselineVersion", "policy", "baseline"],
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "version",
+    "baselineVersion",
+    "policy",
+    "baseline"
+  ],
   "properties": {
-    "$schema": { "const": "./compatibility.schema.json" },
-    "schemaVersion": { "const": 1 },
-    "version": { "const": "2.1.0" },
-    "baselineVersion": { "const": "2.1.0" },
+    "$schema": {
+      "const": "./compatibility.schema.json"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "version": {
+      "const": "2.2.0"
+    },
+    "baselineVersion": {
+      "const": "2.2.0"
+    },
     "policy": {
-      "type": "object", "additionalProperties": false, "required": ["stage", "additions", "removals"],
-      "properties": { "stage": { "const": "stable" }, "additions": { "const": "allowed" }, "removals": { "const": "deprecate-before-removal" } }
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stage",
+        "additions",
+        "removals"
+      ],
+      "properties": {
+        "stage": {
+          "const": "stable"
+        },
+        "additions": {
+          "const": "allowed"
+        },
+        "removals": {
+          "const": "deprecate-before-removal"
+        }
+      }
     },
     "baseline": {
-      "type": "object", "additionalProperties": false,
-      "required": ["packageEntrypoints", "componentNames", "componentExports", "moduleExports", "typeExports", "behaviors", "hooks", "componentProps", "componentHandleMembers", "themeAxes"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "packageEntrypoints",
+        "componentNames",
+        "componentExports",
+        "moduleExports",
+        "typeExports",
+        "behaviors",
+        "hooks",
+        "componentProps",
+        "componentHandleMembers",
+        "themeAxes"
+      ],
       "properties": {
-        "packageEntrypoints": { "type": "array", "minItems": 30, "maxItems": 30, "uniqueItems": true, "items": { "type": "string" } },
-        "componentNames": { "type": "array", "minItems": 506, "maxItems": 506, "uniqueItems": true, "items": { "type": "string" } },
-        "componentExports": { "type": "array", "minItems": 506, "maxItems": 506, "uniqueItems": true, "items": { "type": "string", "pattern": "^G" } },
-        "moduleExports": { "type": "array", "minItems": 546, "maxItems": 546, "uniqueItems": true, "items": { "type": "string" } },
-        "typeExports": { "type": "array", "minItems": 22, "maxItems": 22, "uniqueItems": true, "items": { "type": "string" } },
-        "behaviors": { "type": "array", "minItems": 72, "maxItems": 72, "uniqueItems": true, "items": { "type": "string" } },
-        "hooks": { "type": "array", "minItems": 8, "maxItems": 8, "uniqueItems": true, "items": { "type": "string" } },
-        "componentProps": { "type": "array", "minItems": 10, "maxItems": 10, "uniqueItems": true, "items": { "type": "string" } },
-        "componentHandleMembers": { "type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true, "items": { "type": "string" } },
-        "themeAxes": { "type": "array", "minItems": 10, "maxItems": 10, "uniqueItems": true, "items": { "type": "string" } }
+        "packageEntrypoints": {
+          "type": "array",
+          "minItems": 30,
+          "maxItems": 30,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "componentNames": {
+          "type": "array",
+          "minItems": 575,
+          "maxItems": 575,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "componentExports": {
+          "type": "array",
+          "minItems": 575,
+          "maxItems": 575,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^G"
+          }
+        },
+        "moduleExports": {
+          "type": "array",
+          "minItems": 615,
+          "maxItems": 615,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "typeExports": {
+          "type": "array",
+          "minItems": 32,
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "behaviors": {
+          "type": "array",
+          "minItems": 96,
+          "maxItems": 96,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "hooks": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "componentProps": {
+          "type": "array",
+          "minItems": 15,
+          "maxItems": 15,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "componentHandleMembers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "themeAxes": {
+          "type": "array",
+          "minItems": 10,
+          "maxItems": 10,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
       }
     }
   }

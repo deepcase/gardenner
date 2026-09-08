@@ -1,0 +1,7737 @@
+{
+  "verifiedAt": "2026-09-07T05:18:22.198Z",
+  "passed": true,
+  "components": 33,
+  "variants": 99,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "newComponents": 0,
+  "addedParameters": [
+    "showHeader",
+    "showStatus",
+    "showClear",
+    "showControls",
+    "showSelectionCount",
+    "editorRows",
+    "scrollMaxHeight",
+    "imageFit",
+    "sheetHeight",
+    "sheetMaxWidth",
+    "targetSize"
+  ],
+  "fieldOptions": [
+    "disabled",
+    "readonly",
+    "minLength",
+    "min",
+    "max",
+    "step",
+    "rows"
+  ],
+  "inventory": {
+    "components": 33,
+    "variants": 99,
+    "items": [
+      {
+        "name": "mobile-category",
+        "title": "移动分类",
+        "variants": [
+          "grid",
+          "list",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "分类切换、子项、网格/列表",
+        "relevantParameters": [
+          "items.children"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-safe-shell",
+        "title": "安全区外壳",
+        "variants": [
+          "contained",
+          "fullscreen",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "安全区、满屏外壳、应用导航",
+        "relevantParameters": [
+          "safeArea",
+          "position"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-app-bar",
+        "title": "应用标题栏",
+        "variants": [
+          "standard",
+          "large",
+          "search"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "返回/更多请求、搜索标题栏",
+        "relevantParameters": [
+          "showClear",
+          "position"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-bottom-navigation",
+        "title": "底部导航",
+        "variants": [
+          "labels",
+          "badges",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "选中状态、禁用项、徽标",
+        "relevantParameters": [
+          "items.badge",
+          "size"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-bottom-sheet",
+        "title": "底部面板",
+        "variants": [
+          "standard",
+          "snap",
+          "full"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "原生模态焦点、关闭返回、分段高度、拖动关闭",
+        "relevantParameters": [
+          "sheetHeight",
+          "sheetMaxWidth",
+          "snapPoints",
+          "dismissible"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-action-sheet",
+        "title": "操作面板",
+        "variants": [
+          "list",
+          "grid",
+          "destructive"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "列表/网格、危险操作确认、禁用操作",
+        "relevantParameters": [
+          "actions",
+          "confirmActions",
+          "sheetHeight",
+          "sheetMaxWidth"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-pull-refresh",
+        "title": "下拉刷新",
+        "variants": [
+          "standard",
+          "compact",
+          "manual"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "顶部触摸刷新、内部滚动、异步结果",
+        "relevantParameters": [
+          "scrollMaxHeight",
+          "threshold",
+          "allowSwipe"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-infinite-load",
+        "title": "无限加载",
+        "variants": [
+          "automatic",
+          "manual",
+          "finished"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "自动/手动加载、去重、结束与重试",
+        "relevantParameters": [
+          "hasMore",
+          "autoLoad",
+          "requestTimeout"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-swipe-actions",
+        "title": "滑动操作",
+        "variants": [
+          "end",
+          "both",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "方向手势、显式操作入口、危险操作确认",
+        "relevantParameters": [
+          "direction",
+          "allowSwipe",
+          "confirmActions"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-swipe-tabs",
+        "title": "滑动标签",
+        "variants": [
+          "line",
+          "pills",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "触摸与键盘切换、纵向页面滚动",
+        "relevantParameters": [
+          "items",
+          "threshold",
+          "allowSwipe"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-category-view",
+        "title": "分类视图",
+        "variants": [
+          "rail",
+          "grid",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "分类栏、子列表、紧凑视图",
+        "relevantParameters": [
+          "items.children"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-filter-sheet",
+        "title": "筛选面板",
+        "variants": [
+          "single",
+          "multiple",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "选择草稿、取消回退、确认回写、焦点返回",
+        "relevantParameters": [
+          "multiple",
+          "maxSelected",
+          "sheetMaxWidth"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-purchase-bar",
+        "title": "购买栏",
+        "variants": [
+          "standard",
+          "quantity",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "整数步长、数量边界、宿主购物请求",
+        "relevantParameters": [
+          "min",
+          "max",
+          "step",
+          "priceLabel"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-search",
+        "title": "移动搜索",
+        "variants": [
+          "suggestions",
+          "history",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "建议、受控输入、清除、Enter提交最新值",
+        "relevantParameters": [
+          "showClear",
+          "items"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-picker",
+        "title": "移动选择器",
+        "variants": [
+          "single",
+          "multiple",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "单/多选、禁用项、选择上限、计数",
+        "relevantParameters": [
+          "multiple",
+          "maxSelected",
+          "showSelectionCount"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-wheel-picker",
+        "title": "滚轮选择器",
+        "variants": [
+          "wheel",
+          "native",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "原生/滚轮、滚动定位、键盘跳过禁用项",
+        "relevantParameters": [
+          "columns"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-fab",
+        "title": "悬浮按钮",
+        "variants": [
+          "single",
+          "extended",
+          "menu"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "单操作、扩展按钮、菜单展开",
+        "relevantParameters": [
+          "actions",
+          "position"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-fullscreen-dialog",
+        "title": "全屏对话框",
+        "variants": [
+          "standard",
+          "form",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "全屏焦点管理、表单、关闭返回",
+        "relevantParameters": [
+          "fields",
+          "editorRows",
+          "dismissible"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-keyboard-avoidance",
+        "title": "键盘避让",
+        "variants": [
+          "form",
+          "chat",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "视口避让、表单/聊天、保留输入",
+        "relevantParameters": [
+          "fields",
+          "editorRows",
+          "safeArea"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-gesture-hint",
+        "title": "手势提示",
+        "variants": [
+          "swipe",
+          "pull",
+          "home"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "横向/下拉/底部提示、安全区",
+        "relevantParameters": [
+          "safeArea"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-offline-banner",
+        "title": "离线提示",
+        "variants": [
+          "automatic",
+          "offline",
+          "online"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "自动联网监听、显式在线/离线、重试",
+        "relevantParameters": [
+          "online"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-segmented-control",
+        "title": "分段选择",
+        "variants": [
+          "standard",
+          "icons",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "分段选中、图标、紧凑模式",
+        "relevantParameters": [
+          "items.icon"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-feed",
+        "title": "信息流",
+        "variants": [
+          "list",
+          "cards",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "图文列表/卡片、禁用项、空状态",
+        "relevantParameters": [
+          "items",
+          "imageFit"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-card-carousel",
+        "title": "卡片轮播",
+        "variants": [
+          "cards",
+          "dots",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "循环/边界、圆点、手势、按钮开关",
+        "relevantParameters": [
+          "loop",
+          "showControls",
+          "imageFit"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-form",
+        "title": "移动表单",
+        "variants": [
+          "stacked",
+          "inline",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "长度/数字/选项校验、IME、受控输入、请求恢复",
+        "relevantParameters": [
+          "fields",
+          "editorRows"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-auth",
+        "title": "移动认证",
+        "variants": [
+          "password",
+          "code",
+          "register"
+        ],
+        "implementation": "共享认证/结算控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "共享认证、注册/验证码、受控值、忙状态保留",
+        "relevantParameters": [
+          "auth",
+          "targetSize"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-checkout",
+        "title": "移动结算",
+        "variants": [
+          "standard",
+          "steps",
+          "compact"
+        ],
+        "implementation": "共享认证/结算控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "共享金额计算、地址/付款选择、条款、受控确认",
+        "relevantParameters": [
+          "commerce",
+          "targetSize"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-media-viewer",
+        "title": "媒体查看器",
+        "variants": [
+          "image",
+          "gallery",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "画廊翻页、缩放旋转、模态关闭",
+        "relevantParameters": [
+          "loop",
+          "imageFit",
+          "sheetMaxWidth"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-keyboard-toolbar",
+        "title": "键盘工具栏",
+        "variants": [
+          "navigation",
+          "actions",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "前后字段、完成、只读/禁用字段",
+        "relevantParameters": [
+          "fields",
+          "editorRows"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-selection-mode",
+        "title": "批量选择",
+        "variants": [
+          "standard",
+          "multiple",
+          "compact"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "批量选择、上限全选可清除、危险操作",
+        "relevantParameters": [
+          "multiple",
+          "maxSelected",
+          "showSelectionCount",
+          "actions"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-snackbar",
+        "title": "轻提示",
+        "variants": [
+          "standard",
+          "action",
+          "persistent"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "限时/持续、焦点/悬停暂停、关闭",
+        "relevantParameters": [
+          "duration",
+          "dismissible"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-permission-prompt",
+        "title": "权限说明",
+        "variants": [
+          "location",
+          "camera",
+          "notifications"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "位置/相机/通知说明、宿主确认和延后",
+        "relevantParameters": [
+          "actionLabel",
+          "labels"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      },
+      {
+        "name": "mobile-state",
+        "title": "移动状态",
+        "variants": [
+          "empty",
+          "error",
+          "loading"
+        ],
+        "implementation": "共享移动端控制器",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "review": "空/失败/加载、重试请求",
+        "relevantParameters": [
+          "mode",
+          "message"
+        ],
+        "sharedParameters": [
+          "size",
+          "direction",
+          "bordered",
+          "disabled",
+          "readonly",
+          "targetSize",
+          "labels",
+          "requestTimeout"
+        ],
+        "verification": [
+          "3 variants × 360px/1100px × Chromium/Firefox/WebKit",
+          "3 variants × 320px container × 3 engines",
+          "empty/loading/error/readonly × 3 engines",
+          "light + dark RTL Axe scans",
+          "CSS and Blazor 3 variants",
+          "shared runtime/assets and adapter contracts"
+        ]
+      }
+    ]
+  },
+  "tests": {
+    "mobile": 33,
+    "runtime": 694,
+    "schema": 48,
+    "html": 43,
+    "build": 11
+  },
+  "browsers": [
+    {
+      "components": 33,
+      "variants": 99,
+      "layouts": 198,
+      "rtl": 33,
+      "a11y": [
+        "mobile-category",
+        "mobile-safe-shell",
+        "mobile-app-bar",
+        "mobile-bottom-navigation",
+        "mobile-bottom-sheet",
+        "mobile-action-sheet",
+        "mobile-pull-refresh",
+        "mobile-infinite-load",
+        "mobile-swipe-actions",
+        "mobile-swipe-tabs",
+        "mobile-category-view",
+        "mobile-filter-sheet",
+        "mobile-purchase-bar",
+        "mobile-search",
+        "mobile-picker",
+        "mobile-wheel-picker",
+        "mobile-fab",
+        "mobile-fullscreen-dialog",
+        "mobile-keyboard-avoidance",
+        "mobile-gesture-hint",
+        "mobile-offline-banner",
+        "mobile-segmented-control",
+        "mobile-feed",
+        "mobile-card-carousel",
+        "mobile-form",
+        "mobile-auth",
+        "mobile-checkout",
+        "mobile-media-viewer",
+        "mobile-keyboard-toolbar",
+        "mobile-selection-mode",
+        "mobile-snackbar",
+        "mobile-permission-prompt",
+        "mobile-state"
+      ],
+      "controlled": true,
+      "filter": true,
+      "wheel": true,
+      "loading": true,
+      "carousel": true,
+      "viewer": true,
+      "auth": true,
+      "checkout": true,
+      "errors": [],
+      "results": [
+        {
+          "kind": "mobile-category",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "contained",
+          "width": 360
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "contained",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "fullscreen",
+          "width": 360
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "fullscreen",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "large",
+          "width": 360
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "large",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "search",
+          "width": 360
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "search",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "labels",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "labels",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "badges",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "badges",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "snap",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "snap",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "full",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "full",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "destructive",
+          "width": 360
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "destructive",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "manual",
+          "width": 360
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "manual",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "automatic",
+          "width": 360
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "automatic",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "manual",
+          "width": 360
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "manual",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "finished",
+          "width": 360
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "finished",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "end",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "end",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "both",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "both",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "line",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "line",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "pills",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "pills",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "rail",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "rail",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "single",
+          "width": 360
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "single",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "quantity",
+          "width": 360
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "quantity",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "suggestions",
+          "width": 360
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "suggestions",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "history",
+          "width": 360
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "history",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "single",
+          "width": 360
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "single",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "wheel",
+          "width": 360
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "wheel",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "native",
+          "width": 360
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "native",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "single",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "single",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "extended",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "extended",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "menu",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "menu",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "form",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "form",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "form",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "form",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "chat",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "chat",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "swipe",
+          "width": 360
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "swipe",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "pull",
+          "width": 360
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "pull",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "home",
+          "width": 360
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "home",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "automatic",
+          "width": 360
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "automatic",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "offline",
+          "width": 360
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "offline",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "online",
+          "width": 360
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "online",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "icons",
+          "width": 360
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "icons",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "dots",
+          "width": 360
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "dots",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "password",
+          "width": 360
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "password",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "code",
+          "width": 360
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "code",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "register",
+          "width": 360
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "register",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "steps",
+          "width": 360
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "steps",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "image",
+          "width": 360
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "image",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "gallery",
+          "width": 360
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "gallery",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "navigation",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "navigation",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "actions",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "actions",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "action",
+          "width": 360
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "action",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "persistent",
+          "width": 360
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "persistent",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "location",
+          "width": 360
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "location",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "camera",
+          "width": 360
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "camera",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "notifications",
+          "width": 360
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "notifications",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "empty",
+          "width": 360
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "empty",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "error",
+          "width": 360
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "error",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "loading",
+          "width": 360
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "loading",
+          "width": 1100
+        }
+      ]
+    },
+    {
+      "components": 33,
+      "variants": 99,
+      "layouts": 198,
+      "rtl": 33,
+      "a11y": [],
+      "controlled": true,
+      "filter": true,
+      "wheel": true,
+      "loading": true,
+      "carousel": true,
+      "viewer": true,
+      "auth": true,
+      "checkout": true,
+      "errors": [],
+      "results": [
+        {
+          "kind": "mobile-category",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "contained",
+          "width": 360
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "contained",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "fullscreen",
+          "width": 360
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "fullscreen",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "large",
+          "width": 360
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "large",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "search",
+          "width": 360
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "search",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "labels",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "labels",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "badges",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "badges",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "snap",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "snap",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "full",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "full",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "destructive",
+          "width": 360
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "destructive",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "manual",
+          "width": 360
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "manual",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "automatic",
+          "width": 360
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "automatic",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "manual",
+          "width": 360
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "manual",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "finished",
+          "width": 360
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "finished",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "end",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "end",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "both",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "both",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "line",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "line",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "pills",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "pills",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "rail",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "rail",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "single",
+          "width": 360
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "single",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "quantity",
+          "width": 360
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "quantity",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "suggestions",
+          "width": 360
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "suggestions",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "history",
+          "width": 360
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "history",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "single",
+          "width": 360
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "single",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "wheel",
+          "width": 360
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "wheel",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "native",
+          "width": 360
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "native",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "single",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "single",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "extended",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "extended",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "menu",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "menu",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "form",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "form",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "form",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "form",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "chat",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "chat",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "swipe",
+          "width": 360
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "swipe",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "pull",
+          "width": 360
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "pull",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "home",
+          "width": 360
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "home",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "automatic",
+          "width": 360
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "automatic",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "offline",
+          "width": 360
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "offline",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "online",
+          "width": 360
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "online",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "icons",
+          "width": 360
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "icons",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "dots",
+          "width": 360
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "dots",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "password",
+          "width": 360
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "password",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "code",
+          "width": 360
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "code",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "register",
+          "width": 360
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "register",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "steps",
+          "width": 360
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "steps",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "image",
+          "width": 360
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "image",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "gallery",
+          "width": 360
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "gallery",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "navigation",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "navigation",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "actions",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "actions",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "action",
+          "width": 360
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "action",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "persistent",
+          "width": 360
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "persistent",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "location",
+          "width": 360
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "location",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "camera",
+          "width": 360
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "camera",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "notifications",
+          "width": 360
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "notifications",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "empty",
+          "width": 360
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "empty",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "error",
+          "width": 360
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "error",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "loading",
+          "width": 360
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "loading",
+          "width": 1100
+        }
+      ]
+    },
+    {
+      "components": 33,
+      "variants": 99,
+      "layouts": 198,
+      "rtl": 33,
+      "a11y": [],
+      "controlled": true,
+      "filter": true,
+      "wheel": true,
+      "loading": true,
+      "carousel": true,
+      "viewer": true,
+      "auth": true,
+      "checkout": true,
+      "errors": [],
+      "results": [
+        {
+          "kind": "mobile-category",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "contained",
+          "width": 360
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "contained",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "fullscreen",
+          "width": 360
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "fullscreen",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "large",
+          "width": 360
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "large",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "search",
+          "width": 360
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "search",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "labels",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "labels",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "badges",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "badges",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "snap",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "snap",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "full",
+          "width": 360
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "full",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "destructive",
+          "width": 360
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "destructive",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "manual",
+          "width": 360
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "manual",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "automatic",
+          "width": 360
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "automatic",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "manual",
+          "width": 360
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "manual",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "finished",
+          "width": 360
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "finished",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "end",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "end",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "both",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "both",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "line",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "line",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "pills",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "pills",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "rail",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "rail",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "single",
+          "width": 360
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "single",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "quantity",
+          "width": 360
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "quantity",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "suggestions",
+          "width": 360
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "suggestions",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "history",
+          "width": 360
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "history",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "single",
+          "width": 360
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "single",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "wheel",
+          "width": 360
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "wheel",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "native",
+          "width": 360
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "native",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "single",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "single",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "extended",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "extended",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "menu",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "menu",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "form",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "form",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "form",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "form",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "chat",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "chat",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "swipe",
+          "width": 360
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "swipe",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "pull",
+          "width": 360
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "pull",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "home",
+          "width": 360
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "home",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "automatic",
+          "width": 360
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "automatic",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "offline",
+          "width": 360
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "offline",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "online",
+          "width": 360
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "online",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "icons",
+          "width": 360
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "icons",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "dots",
+          "width": 360
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "dots",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "stacked",
+          "width": 360
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "stacked",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "password",
+          "width": 360
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "password",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "code",
+          "width": 360
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "code",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "register",
+          "width": 360
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "register",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "steps",
+          "width": 360
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "steps",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "image",
+          "width": 360
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "image",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "gallery",
+          "width": 360
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "gallery",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "navigation",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "navigation",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "actions",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "actions",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "multiple",
+          "width": 360
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "multiple",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "standard",
+          "width": 360
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "standard",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "action",
+          "width": 360
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "action",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "persistent",
+          "width": 360
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "persistent",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "location",
+          "width": 360
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "location",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "camera",
+          "width": 360
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "camera",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "notifications",
+          "width": 360
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "notifications",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "empty",
+          "width": 360
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "empty",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "error",
+          "width": 360
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "error",
+          "width": 1100
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "loading",
+          "width": 360
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "loading",
+          "width": 1100
+        }
+      ]
+    }
+  ],
+  "extensions": [
+    {
+      "engine": "chromium",
+      "checks": 11,
+      "states": [
+        {
+          "kind": "mobile-category",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-category",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-category",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-category",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "mobile-category",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "contained",
+          "width": 320
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "fullscreen",
+          "width": 320
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "large",
+          "width": 320
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "search",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "labels",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "badges",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "snap",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "full",
+          "width": 320
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "destructive",
+          "width": 320
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "manual",
+          "width": 320
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "automatic",
+          "width": 320
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "manual",
+          "width": 320
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "finished",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "end",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "both",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "line",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "pills",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "rail",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "single",
+          "width": 320
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "multiple",
+          "width": 320
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "quantity",
+          "width": 320
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "suggestions",
+          "width": 320
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "history",
+          "width": 320
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "single",
+          "width": 320
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "multiple",
+          "width": 320
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "wheel",
+          "width": 320
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "native",
+          "width": 320
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "single",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "extended",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "menu",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "form",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "form",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "chat",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "swipe",
+          "width": 320
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "pull",
+          "width": 320
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "home",
+          "width": 320
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "automatic",
+          "width": 320
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "offline",
+          "width": 320
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "online",
+          "width": 320
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "icons",
+          "width": 320
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "dots",
+          "width": 320
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "stacked",
+          "width": 320
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "password",
+          "width": 320
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "code",
+          "width": 320
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "register",
+          "width": 320
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "steps",
+          "width": 320
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "image",
+          "width": 320
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "gallery",
+          "width": 320
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "navigation",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "actions",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "multiple",
+          "width": 320
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "action",
+          "width": 320
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "persistent",
+          "width": 320
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "location",
+          "width": 320
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "camera",
+          "width": 320
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "notifications",
+          "width": 320
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "empty",
+          "width": 320
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "error",
+          "width": 320
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "loading",
+          "width": 320
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "checks": 11,
+      "states": [
+        {
+          "kind": "mobile-category",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-category",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-category",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-category",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "mobile-category",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "contained",
+          "width": 320
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "fullscreen",
+          "width": 320
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "large",
+          "width": 320
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "search",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "labels",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "badges",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "snap",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "full",
+          "width": 320
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "destructive",
+          "width": 320
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "manual",
+          "width": 320
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "automatic",
+          "width": 320
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "manual",
+          "width": 320
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "finished",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "end",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "both",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "line",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "pills",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "rail",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "single",
+          "width": 320
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "multiple",
+          "width": 320
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "quantity",
+          "width": 320
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "suggestions",
+          "width": 320
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "history",
+          "width": 320
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "single",
+          "width": 320
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "multiple",
+          "width": 320
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "wheel",
+          "width": 320
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "native",
+          "width": 320
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "single",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "extended",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "menu",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "form",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "form",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "chat",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "swipe",
+          "width": 320
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "pull",
+          "width": 320
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "home",
+          "width": 320
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "automatic",
+          "width": 320
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "offline",
+          "width": 320
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "online",
+          "width": 320
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "icons",
+          "width": 320
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "dots",
+          "width": 320
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "stacked",
+          "width": 320
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "password",
+          "width": 320
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "code",
+          "width": 320
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "register",
+          "width": 320
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "steps",
+          "width": 320
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "image",
+          "width": 320
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "gallery",
+          "width": 320
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "navigation",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "actions",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "multiple",
+          "width": 320
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "action",
+          "width": 320
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "persistent",
+          "width": 320
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "location",
+          "width": 320
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "camera",
+          "width": 320
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "notifications",
+          "width": 320
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "empty",
+          "width": 320
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "error",
+          "width": 320
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "loading",
+          "width": 320
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "checks": 11,
+      "states": [
+        {
+          "kind": "mobile-category",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-category",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-category",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-category",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-app-bar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-category-view",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-search",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-picker",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-fab",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-feed",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-form",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-auth",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-checkout",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-snackbar",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "state": "readonly"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "empty"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "loading"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "error"
+        },
+        {
+          "kind": "mobile-state",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "mobile-category",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "contained",
+          "width": 320
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "fullscreen",
+          "width": 320
+        },
+        {
+          "kind": "mobile-safe-shell",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "large",
+          "width": 320
+        },
+        {
+          "kind": "mobile-app-bar",
+          "mode": "search",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "labels",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "badges",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-navigation",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "snap",
+          "width": 320
+        },
+        {
+          "kind": "mobile-bottom-sheet",
+          "mode": "full",
+          "width": 320
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "mobile-action-sheet",
+          "mode": "destructive",
+          "width": 320
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-pull-refresh",
+          "mode": "manual",
+          "width": 320
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "automatic",
+          "width": 320
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "manual",
+          "width": 320
+        },
+        {
+          "kind": "mobile-infinite-load",
+          "mode": "finished",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "end",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "both",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-actions",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "line",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "pills",
+          "width": 320
+        },
+        {
+          "kind": "mobile-swipe-tabs",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "rail",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "mobile-category-view",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "single",
+          "width": 320
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "multiple",
+          "width": 320
+        },
+        {
+          "kind": "mobile-filter-sheet",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "quantity",
+          "width": 320
+        },
+        {
+          "kind": "mobile-purchase-bar",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "suggestions",
+          "width": 320
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "history",
+          "width": 320
+        },
+        {
+          "kind": "mobile-search",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "single",
+          "width": 320
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "multiple",
+          "width": 320
+        },
+        {
+          "kind": "mobile-picker",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "wheel",
+          "width": 320
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "native",
+          "width": 320
+        },
+        {
+          "kind": "mobile-wheel-picker",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "single",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "extended",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fab",
+          "mode": "menu",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "form",
+          "width": 320
+        },
+        {
+          "kind": "mobile-fullscreen-dialog",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "form",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "chat",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-avoidance",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "swipe",
+          "width": 320
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "pull",
+          "width": 320
+        },
+        {
+          "kind": "mobile-gesture-hint",
+          "mode": "home",
+          "width": 320
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "automatic",
+          "width": 320
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "offline",
+          "width": 320
+        },
+        {
+          "kind": "mobile-offline-banner",
+          "mode": "online",
+          "width": 320
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "icons",
+          "width": 320
+        },
+        {
+          "kind": "mobile-segmented-control",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "mobile-feed",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "dots",
+          "width": 320
+        },
+        {
+          "kind": "mobile-card-carousel",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "stacked",
+          "width": 320
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "mobile-form",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "password",
+          "width": 320
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "code",
+          "width": 320
+        },
+        {
+          "kind": "mobile-auth",
+          "mode": "register",
+          "width": 320
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "steps",
+          "width": 320
+        },
+        {
+          "kind": "mobile-checkout",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "image",
+          "width": 320
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "gallery",
+          "width": 320
+        },
+        {
+          "kind": "mobile-media-viewer",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "navigation",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "actions",
+          "width": 320
+        },
+        {
+          "kind": "mobile-keyboard-toolbar",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "multiple",
+          "width": 320
+        },
+        {
+          "kind": "mobile-selection-mode",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "standard",
+          "width": 320
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "action",
+          "width": 320
+        },
+        {
+          "kind": "mobile-snackbar",
+          "mode": "persistent",
+          "width": 320
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "location",
+          "width": 320
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "camera",
+          "width": 320
+        },
+        {
+          "kind": "mobile-permission-prompt",
+          "mode": "notifications",
+          "width": 320
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "empty",
+          "width": 320
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "error",
+          "width": 320
+        },
+        {
+          "kind": "mobile-state",
+          "mode": "loading",
+          "width": 320
+        }
+      ],
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "native": {
+    "lightA11y": [
+      "mobile-category",
+      "mobile-safe-shell",
+      "mobile-app-bar",
+      "mobile-bottom-navigation",
+      "mobile-bottom-sheet",
+      "mobile-action-sheet",
+      "mobile-pull-refresh",
+      "mobile-infinite-load",
+      "mobile-swipe-actions",
+      "mobile-swipe-tabs",
+      "mobile-category-view",
+      "mobile-filter-sheet",
+      "mobile-purchase-bar",
+      "mobile-search",
+      "mobile-picker",
+      "mobile-wheel-picker",
+      "mobile-fab",
+      "mobile-fullscreen-dialog",
+      "mobile-keyboard-avoidance",
+      "mobile-gesture-hint",
+      "mobile-offline-banner",
+      "mobile-segmented-control",
+      "mobile-feed",
+      "mobile-card-carousel",
+      "mobile-form",
+      "mobile-auth",
+      "mobile-checkout",
+      "mobile-media-viewer",
+      "mobile-keyboard-toolbar",
+      "mobile-selection-mode",
+      "mobile-snackbar",
+      "mobile-permission-prompt",
+      "mobile-state"
+    ],
+    "nativeTouch": {
+      "tabs": true,
+      "verticalScrollPreserved": true,
+      "swipeActions": true,
+      "pullRefresh": true,
+      "sheetDismiss": true
+    },
+    "wheelScroll": true,
+    "snap": true,
+    "permissionHostRequest": true,
+    "standalone": 33,
+    "catalog": true,
+    "errors": []
+  },
+  "blazor": {
+    "components": 33,
+    "variants": 99,
+    "controlledSelection": true,
+    "filterDraft": true,
+    "auth": true,
+    "checkout": true,
+    "errors": []
+  },
+  "staticDemo": {
+    "components": 33,
+    "variants": 99,
+    "errors": [],
+    "passed": true
+  },
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 140
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 89
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 77
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "sharedAssets": {
+    "gardener.css": "ba8a527e5bfb98f7a55fc8589012e4f6954a047bde526d53c0bcf581107d8190",
+    "gardener.min.css": "0d9f51456b984597d8c20607fb6393a068fd1f0b96d1e504842c42899487f4e0",
+    "gardener.runtime.min.js": "461d27374275659b682141a5df436e4cac24c7439e689d7795d50ca14a159f23",
+    "mobile.js": "3fee51411dce587049497ebfcc4706c1efd67a78bb9c89a1c6f2e0566c2e63d2",
+    "components/mobile-compositions.min.css": "79d13f2c0e64e0c5cf7365f649f705e10f74a9d3c47ebe322719e59e6d60a591"
+  },
+  "website": {
+    "components": 559,
+    "behaviors": 94,
+    "events": 104,
+    "locales": 7,
+    "pages": 14,
+    "messagesPerTranslatedLocale": 3316
+  },
+  "budgets": {
+    "performance": "Existing CSS, package, adapter and Blazor limits passed without increases.",
+    "sourceModule": {
+      "scope": "Unminified mobile.js source only",
+      "previousCap": 45000,
+      "cap": 52000,
+      "measuredBytes": 50593,
+      "reason": "11 configurable options, 7 field options, strict value validation, controlled input/IME, stale response recovery and lifecycle fixes. Keep readable implementation; retain a fixed bound. No CSS, package, adapter or Blazor performance budgets changed.",
+      "overallBudgetLog": "css-budget.log",
+      "adapterBudgetResults": "checks.json"
+    }
+  },
+  "limitations": [
+    "演示服务为本地模拟，不执行真实认证、交易、系统权限申请或后端持久化。",
+    "触摸验证使用浏览器 CDP/触摸上下文；实体设备输入法、VisualViewport 和安全区需目标应用验收。"
+  ]
+}

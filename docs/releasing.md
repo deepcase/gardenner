@@ -1,8 +1,8 @@
 # Release process
 
-Gardenerim packages are versioned independently. Version 2.1.0 is the current release line: all four npm packages and the NuGet package are published and publicly verified. The [2.1.0 publication receipt](release-2.1-publication.json) records artifact hashes and registry verification. A release is complete only when source, generated output, metadata, docs, and package-manager artifacts agree.
+The current source release candidate is **2.2.0**, synchronized across CSS, Vue, React, AngularJS, Blazor and GardenerDemo. Local stabilization evidence is recorded in [the 2.2.0 verification report](release-2.2/README.md). This does not imply registry publication, a Git tag or deployment.
 
-The 2.1.0 release state passed the complete local release matrix. Results and measured artifacts are recorded in the [2.1.0 verification report](release-2.1-verification.md); registry publication details remain in the separate publication receipt.
+The last recorded published release is **2.1.0**. Its [publication receipt](release-2.1-publication.json) and [verification report](release-2.1-verification.md) are historical records and remain unchanged. A release is complete only when source, generated output, metadata, docs and package-manager artifacts agree.
 
 ## Brand and API rename
 

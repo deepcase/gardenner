@@ -1,0 +1,1 @@
+import fs from 'node:fs';const p='packages/css/src/js/mobile.js';let s=fs.readFileSync(p,'utf8').replace("items[0]?.click();},120)","if(items[0]?.getAttribute('aria-selected')!=='true')items[0]?.click();},120)");fs.writeFileSync(p,s);

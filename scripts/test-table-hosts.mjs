@@ -1,0 +1,14 @@
+import {chromium,expect} from '../packages/css/node_modules/@playwright/test/index.mjs';import AxeBuilder from '../packages/css/node_modules/@axe-core/playwright/dist/index.mjs';import {readFileSync} from 'node:fs';import {writeFile} from './fs-retry.mjs';
+const browser=await chromium.launch(),context=await browser.newContext(),results=[];
+try{for(const [framework,url]of [['css','http://127.0.0.1:4187/examples/table.html'],['blazor','http://127.0.0.1:5192/table']]){
+ console.log(framework,url);const page=await context.newPage(),errors=[];page.on('pageerror',e=>{errors.push(e.message);console.log(e.message);});page.on('console',m=>{if(m.type()==='error')console.log(m.text());});await page.goto(url);const host=page.locator('.g-table-view');await expect(host.locator('tbody tr')).toHaveCount(5);
+ await host.locator('tbody input[type=checkbox]').first().check();await expect(host.locator('tbody input[type=checkbox]').first()).toBeChecked();
+ const budget=host.getByRole('button',{name:framework==='css'?'Sort Budget':'排序 预算',exact:true});await budget.click();await budget.click();await expect(host.locator('tbody tr').first()).toHaveAttribute('data-row-key','24');
+ await page.getByRole('combobox',{name:framework==='css'?'Size':'尺寸',exact:true}).selectOption('small');await expect(host).toHaveAttribute('data-table-size','small');await expect(host.locator('tbody tr').first()).toHaveAttribute('data-row-key','24');await host.getByRole('button',{name:framework==='css'?'Next page':'下一页',exact:true}).click();await expect(host.locator('tbody tr').first()).toHaveAttribute('data-row-key','19');
+ if(framework==='blazor')await expect(page.locator('output')).toContainText('page');
+ const axe=await new AxeBuilder({page}).include('.g-table-view').analyze();expect(axe.violations.map(v=>v.id)).toEqual([]);expect(errors).toEqual([]);results.push({framework,sort:true,selection:true,updateRetainsState:true,page:true,axe:true});await page.close();
+ }
+ const page=await context.newPage();page.on('console',m=>{if(m.type()==='error')console.log(m.text());});page.on('response',r=>{if(r.status()>=400)console.log(r.status(),r.url());});await page.goto('http://127.0.0.1:4188/website/docs.html#table-data-mode');await expect(page.locator('#table-data-mode')).toBeVisible();await page.locator('#table-data-mode iframe').scrollIntoViewIfNeeded();await expect(page.frameLocator('#table-data-mode iframe').locator('tbody tr')).toHaveCount(5);results.push({website:true});
+ expect(readFileSync('packages/css/dist/table.js','utf8')).toBe(readFileSync('packages/css/src/js/table.js','utf8'));expect(readFileSync('packages/css/dist/table.js','utf8')).toBe(readFileSync('packages/blazor/src/Gardenerim.Blazor/wwwroot/table.js','utf8'));
+}finally{await browser.close();}
+await writeFile('docs/table/hosts.json',JSON.stringify(results,null,2));console.log('CSS, Blazor and Website table checks passed');

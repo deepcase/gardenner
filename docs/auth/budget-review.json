@@ -1,0 +1,98 @@
+{
+  "reason": "Adds one shared auth runtime module, 99 variant markers, compact forms, account/security views and responsive authentication styles. Fixed caps; released 2.0 baseline unchanged.",
+  "previous": {
+    "artifacts": {
+      "gardener.min.css": {
+        "raw": 1750000,
+        "gzip": 243000,
+        "brotli": 133000
+      },
+      "platforms/gardener.desktop.min.css": {
+        "raw": 1730000,
+        "gzip": 239000,
+        "brotli": 134000
+      },
+      "components/auth-compositions.min.css": {
+        "raw": 18500,
+        "gzip": 3800,
+        "brotli": 3300
+      }
+    },
+    "package": {
+      "packed": 3640000,
+      "unpacked": 26300000,
+      "files": 105
+    }
+  },
+  "approvedCaps": {
+    "gardener.min.css": {
+      "raw": 1780000,
+      "gzip": 245500,
+      "brotli": 136000
+    },
+    "platforms/gardener.desktop.min.css": {
+      "raw": 1760000,
+      "gzip": 243000,
+      "brotli": 136000
+    },
+    "components/auth-compositions.min.css": {
+      "raw": 33000,
+      "gzip": 6300,
+      "brotli": 5600
+    }
+  },
+  "package": {
+    "packed": 3700000,
+    "unpacked": 26600000,
+    "files": 106
+  },
+  "authModule": 45000,
+  "blazorStaticAssets": 14900000,
+  "adapters": {
+    "vue": {
+      "schemaVersion": 1,
+      "version": "2.1.0",
+      "bundle": {
+        "raw": 515000,
+        "gzip": 100000,
+        "brotli": 90000
+      },
+      "package": {
+        "packed": 1000000,
+        "unpacked": 5250000,
+        "files": 113
+      }
+    },
+    "react": {
+      "bundle": {
+        "raw": 515000,
+        "gzip": 78000,
+        "brotli": 39000
+      },
+      "treeShaken": {
+        "bytes": 20000
+      },
+      "package": {
+        "packed": 450000,
+        "unpacked": 5200000,
+        "files": 110
+      }
+    },
+    "angularjs": {
+      "version": "2.1.0",
+      "artifact": "gardener-angularjs.min.js",
+      "limits": {
+        "raw": 585000,
+        "gzip": 87000,
+        "brotli": 42000
+      },
+      "treeShakenDirective": 12000,
+      "package": {
+        "packed": 500000,
+        "unpacked": 5000000,
+        "files": 130
+      }
+    }
+  },
+  "measuredReason": "Auth catalog adds 99 variants and one behavior. Measured Vue 506032 raw, React 502184 raw / 75339 gzip, AngularJS 85183 gzip. CSS unpacked rounds to 26345472 bytes. Fixed caps include a small allowance; prior release baseline remains unchanged."
+}

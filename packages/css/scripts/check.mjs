@@ -112,7 +112,7 @@ if (formCompositionCapability.patterns.length !== 37) throw new Error(`Expected 
 for (const marker of formCompositionCapability.rootSelectors) {
   if (!css.includes(marker)) throw new Error(`Missing traditional form composition: ${marker}`);
 }
-for (const marker of [".g-form-section-header", ".g-field-header", ".g-field-meta", ".g-fieldset-legend", ".g-field-span-full", ".g-form-container", ".g-input-affix-start", ".g-search-field-action", ".g-password-field-action", ".g-clearable-field-action", ".g-character-count", ".g-validation-message", ".g-validation-summary-list", ".g-switch-row-content", ".g-choice-card", ".g-address-line", ".g-range-separator", ".g-range-field-output", ".g-file-field-name", ".g-repeatable-list", ".g-repeatable-item", ".g-form-progress-value", ".g-form-review-row", ".g-consent-group-title"]) {
+for (const marker of [".g-form-section-header", ".g-field-header", ".g-field-meta", ".g-fieldset-legend", ".g-field-span-full", ".g-form-container", ".g-input-affix-start", ".g-search-field-action", ".g-password-field-action", ".g-clearable-field-action", ".g-character-count", ".g-validation-message", ".g-validation-summary-list", ".g-switch-row-content", ".g-choice-card", ".g-address-line", ".g-range-separator", ".g-range-field-output", ".g-file-field-name", ".g-repeatable-list", ".g-repeatable-item", ".g-conditional-field-content", ".g-conditional-field-status", ".g-form-progress-value", ".g-form-review-row", ".g-consent-group-title"]) {
   if (!css.includes(marker)) throw new Error(`Missing traditional form composition contract: ${marker}`);
 }
 for (const behavior of ["password-toggle", "clear-input", "character-count", "conditional-field", "repeatable-field"]) {

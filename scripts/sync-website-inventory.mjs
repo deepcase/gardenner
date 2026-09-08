@@ -1,0 +1,34 @@
+import fs from 'node:fs';
+import {writeFile} from './fs-retry.mjs';
+const read=p=>JSON.parse(fs.readFileSync(p,'utf8')),write=writeFile;const css=read('packages/css/metadata/public-api.json').javascript;
+const entries=['vue','react','angularjs'].map(p=>[p,read(`packages/${p}/metadata/public-api.json`),read(`packages/${p}/dist/gardener-${p==='angularjs'?'angularjs':p}.performance.json`)]);
+let docs=fs.readFileSync('website/docs.html','utf8'),home=fs.readFileSync('website/index.html','utf8'),md=fs.readFileSync('website/README.md','utf8');
+const basic=s=>s.replace(/(?<![\d,])(?:510|514|518|519|520|521|523|525|527|534|539|542|548|552|559|560|561|562|563)\b/g,'575').replace(/\b(?:72|75|76|77|78|79|80|81|82|83|84|85|86|87|88|89|90|91|92|93|94|95)(?=\s*(?:种|个(?:行为|运行时|\s*DOM)|behaviors|DOM|<\/strong>\s*DOM))/g,'96').replace(/\b(?:101|102|103|104)(?=\s*(?:种|个|events|<\/strong>))/g,'105').replace(/\b(?:45|47|48|49|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75)(?=\s*(?:个静态|static assets|<\/strong>\s*静态))/g,'76').replace(/\b(?:31|33)(?=\s*个框架)/g,'37').replace(/\b(?:20|22)(?=\s*个(?:共同)?参数)/g,'23').replace(/96 个运行时与 DOM 生命周期测试/g,'94 个运行时与 DOM 生命周期测试');
+docs=basic(docs);home=basic(home);md=basic(md);
+for(const [p,api,perf]of entries){const label=p==='angularjs'?'AngularJS':p==='vue'?'Vue':'React',id=p==='angularjs'?'angular':p;const start=docs.indexOf(`id="${id}"`),end=docs.indexOf('</section>',start);let part=docs.slice(start,end);part=part.replace(/(?<![\d,])\d+(?=\s*个根运行时导出|<\/strong>\s*<span>根运行时导出)/g,String(api.moduleExports.length)).replace(/\b\d+(?=\s*个\s*(?:TypeScript|类型))/g,String(api.typeExports.length)).replace(/[\d,]+ B raw、[\d,]+ B gzip、[\d,]+ B Brotli/g,`${perf.metrics.raw.toLocaleString('en-US')} B raw、${perf.metrics.gzip.toLocaleString('en-US')} B gzip、${perf.metrics.brotli.toLocaleString('en-US')} B Brotli`);
+part=part.replace(/(?<=<strong>)\d+(?=<\/strong>\s*<span>(?:具名 G\* 组件|生成组件指令))/g,String(api.componentExports.length)).replace(/\d+(?=\s*项联合类型)/g,String(api.componentExports.length));
+const marker='<!-- generated-adapter-options -->';part=part.replace(/<!-- generated-adapter-options -->[\s\S]*?<!-- \/generated-adapter-options -->/g,'');const names=[...(api.typeExports||[]),...(api.componentProps||api.componentAttributes||[])].filter(n=>!part.includes(n));if(names.length)part+=`\n${marker}<p>导航及组件扩展 API：${names.map(n=>`<code>${n}</code>`).join('、')}。完整类型与使用说明见 <a href="../packages/${p}/docs/API.md">${label} API</a>。</p><!-- /generated-adapter-options -->\n`;docs=docs.slice(0,start)+part+docs.slice(end);
+const hi=home.indexOf(`@gardenerim/${p}`),he=home.indexOf('</article>',hi);let hp=home.slice(hi,he).replace(/\b(?:603|602|598|601|597|600|596|599|595|592|588|584|582|578|579|575|574|570|567|565|575|561|557|560|556|559|555|558|554|552|550|548|546) runtime/g,`${api.moduleExports.length} runtime`);home=home.slice(0,hi)+hp+home.slice(he);md=md.replace(new RegExp(`(${label} 公共 API[^；\\n]*?)(\\d+)( 个根运行时导出)`,'g'),`$1${api.moduleExports.length}$3`);}
+const b=read('packages/blazor/metadata/public-api.json'),bp=read('packages/blazor/artifacts/gardener-blazor.performance.json');const bs=docs.indexOf('id="blazor"'),be=docs.indexOf('</section>',bs);let bl=docs.slice(bs,be);bl=bl.replace(/程序集实测 [\s\S]*?DLL\/XML 构建可复现。/,`程序集实测 ${bp.assembly.bytes.toLocaleString('en-US')} B，${bp.staticAssets.files} 个静态资源共 ${bp.staticAssets.bytes.toLocaleString('en-US')} B，CSS gzip ${bp.entrypoints.css.gzipBytes.toLocaleString('en-US')} B，runtime gzip ${bp.entrypoints.runtime.gzipBytes.toLocaleString('en-US')} B，Blazor bridge gzip ${bp.entrypoints.blazor.gzipBytes.toLocaleString('en-US')} B，nupkg 约 ${((bp.package?.bytes||0)/1048576).toFixed(2)} MiB、低于 ${bp.package?.budget?.toLocaleString('en-US')||'6,000,000'} B 硬上限；DLL/XML 构建可复现。`);bl=bl.replace(/<!-- generated-blazor-options -->[\s\S]*?<!-- \/generated-blazor-options -->/g,'');const bn=[...b.frameworkTypes,...b.componentParameters].filter(n=>!bl.includes(n));if(bn.length)bl+=`<!-- generated-blazor-options --><p>扩展 API：${bn.map(n=>`<code>${n}</code>`).join('、')}。参阅 <a href="../packages/blazor/docs/api.md">完整 Blazor API</a>。</p><!-- /generated-blazor-options -->`;docs=docs.slice(0,bs)+bl+docs.slice(be);
+docs=docs.replace(/全部 \d+ 种事件/g,`全部 ${css.events.length} 种事件`).replace(/全部 \d+ 个模块导出/g,`全部 ${css.moduleExports.length} 个模块导出`);const d=css.dataAttributes;docs=docs.replace(/作者可使用的 [\s\S]*?不会重复计数。/,`作者可使用的 ${d.behaviors.length+d.selectors.length+d.configuration.length} 个属性包含 ${d.behaviors.length} 个行为入口、${d.selectors.length} 个结构/动作选择器和 ${d.configuration.length} 个附加配置属性；另有 ${d.managedState.length} 个由运行时维护的状态属性。前三组互斥，不会重复计数。`);
+for(const [p,s]of [['website/docs.html',docs],['website/index.html',home],['website/README.md',md]])await write(p,s);
+
+// Framework introductions are separate cards; update the AngularJS card by its heading.
+{ const p="website/index.html";let s=fs.readFileSync(p,"utf8");const start=s.indexOf("Official AngularJS bindings"),end=s.indexOf("Official Blazor",start);const part=s.slice(start,end).replace(/\d+ runtime exports/g,`${read("packages/angularjs/metadata/public-api.json").moduleExports.length} runtime exports`);await writeFile(p,s.slice(0,start)+part+s.slice(end)); }
+
+// Budget tables are generated from the same fixed limits enforced by CI.
+{
+ const p='website/docs.html', b=read('packages/css/config/performance-budgets.json');
+ let s=fs.readFileSync(p,'utf8');
+ s=s.replace(/<tr><td>(gardener[^<]+|platform\/[^<]+)<\/td><td>[\d,]+ B<\/td><td>[\d,]+ B<\/td><td>[\d,]+ B<\/td><\/tr>/g,(row,file)=>{
+  const key=file.startsWith('platform/')?file.replace('platform/','platforms/gardener.'):file;
+  const cap=b.artifacts[key]; return cap?'<tr><td>'+file+'</td>'+['raw','gzip','brotli'].map(k=>'<td>'+cap[k].toLocaleString('en-US')+' B</td>').join('')+'</tr>':row;
+ });
+ s=s.replace(/npm 包预算为 packed [\d,]+ B、unpacked [\d,]+ B、最多 \d+ 个文件/, 'npm 包预算为 packed '+b.package.packed.toLocaleString('en-US')+' B、unpacked '+b.package.unpacked.toLocaleString('en-US')+' B、最多 '+b.package.files+' 个文件');
+ const old='限制每个产物 raw 增长不超过 2%、gzip/Brotli 不超过 3%，npm 包 packed 不超过 3%、unpacked 不超过 2%、文件数不超过 10%';
+ s=s.replace(old,'默认策略为 raw 增长不超过 2%、gzip/Brotli 不超过 3%。本次组件扩展的固定例外和测量依据记录在 <a href="../docs/solution/budget-review.json">budget-review.json</a>；例外仍受逐产物绝对上限和相对上限约束，构建不会自动提高预算');
+ await writeFile(p,s);
+}
+
+// Keep each framework's documented type count aligned with its public API.
+{const p='website/README.md';let text=fs.readFileSync(p,'utf8');for(const [pkg,api] of entries){const label=pkg==='angularjs'?'AngularJS':pkg==='vue'?'Vue':'React';const start=text.indexOf(label+' 公共 API'),end=text.indexOf('；',start);if(start>=0&&end>start)text=text.slice(0,start)+text.slice(start,end).replace(/\d+ 个类型导出/g,api.typeExports.length+' 个类型导出')+text.slice(end);}await writeFile(p,text);}

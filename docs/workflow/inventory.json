@@ -1,0 +1,106 @@
+[
+  {
+    "name": "onboarding",
+    "title": "新手引导",
+    "variants": [
+      "guided",
+      "cards",
+      "checklist",
+      "compact"
+    ],
+    "new": false,
+    "diagnosis": "原有静态排版，缺少完整参数、状态、校验、服务交互及演示。",
+    "implemented": "必填与格式校验、可选跳过、条件步骤、返回修改、异步完成及状态恢复"
+  },
+  {
+    "name": "wizard-layout",
+    "title": "向导布局",
+    "variants": [
+      "sidebar",
+      "top",
+      "vertical",
+      "compact"
+    ],
+    "new": false,
+    "diagnosis": "原有静态排版，缺少完整参数、状态、校验、服务交互及演示。",
+    "implemented": "顶栏/侧栏/竖向布局，线性或自由导航，键盘及受控步骤"
+  },
+  {
+    "name": "workflow-checklist",
+    "title": "工作流任务清单",
+    "variants": [
+      "list",
+      "grouped",
+      "cards",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "补齐可复用的独立工作流场景。",
+    "implemented": "任务依赖、完成进度、撤销时失效下游任务、分组与卡片"
+  },
+  {
+    "name": "workflow-approval",
+    "title": "审批流程",
+    "variants": [
+      "timeline",
+      "parallel",
+      "cards",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "补齐可复用的独立工作流场景。",
+    "implemented": "顺序/并行审批、通过人数、意见必填、驳回确认及服务端结果"
+  },
+  {
+    "name": "workflow-builder",
+    "title": "流程编排",
+    "variants": [
+      "canvas",
+      "list",
+      "split",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "补齐可复用的独立工作流场景。",
+    "implemented": "节点创建/重命名/删除，连线与分支说明编辑、循环/重复校验、缩放与保存/运行"
+  },
+  {
+    "name": "workflow-run-history",
+    "title": "运行历史",
+    "variants": [
+      "table",
+      "cards",
+      "timeline",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "补齐可复用的独立工作流场景。",
+    "implemented": "状态筛选、搜索、分页、运行详情、失败重试和取消确认"
+  },
+  {
+    "name": "workflow-run-detail",
+    "title": "运行详情",
+    "variants": [
+      "timeline",
+      "steps",
+      "logs",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "补齐可复用的独立工作流场景。",
+    "implemented": "步骤状态、文本日志、失败重试与取消运行"
+  },
+  {
+    "name": "workflow-trigger",
+    "title": "触发配置",
+    "variants": [
+      "manual",
+      "schedule",
+      "webhook",
+      "compact"
+    ],
+    "new": true,
+    "diagnosis": "补齐可复用的独立工作流场景。",
+    "implemented": "手动/定时/事件触发，Cron 范围校验、时区、启用开关及环境字段"
+  }
+]

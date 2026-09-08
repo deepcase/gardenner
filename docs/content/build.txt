@@ -1,0 +1,91 @@
+
+> gardenerim-monorepo@2.1.0 build
+> npm run build:css && npm run build:vue && npm run build:react && npm run build:angularjs && npm run build:blazor
+
+
+> gardenerim-monorepo@2.1.0 build:css
+> npm --prefix packages/css run build
+
+
+> @gardenerim/css@2.1.0 build
+> node scripts/build.mjs
+
+Gardenerim built: 42 themes, 520 components, 28 component packs, 5 platform profiles.
+
+> gardenerim-monorepo@2.1.0 build:vue
+> npm --prefix packages/vue run build
+
+
+> @gardenerim/vue@2.1.0 build
+> npm run clean && npm run generate && tsc -p tsconfig.build.json && node scripts/postbuild.mjs
+
+
+> @gardenerim/vue@2.1.0 clean
+> node scripts/clean.mjs
+
+
+> @gardenerim/vue@2.1.0 generate
+> node scripts/generate.mjs
+
+Generated 520 Vue components and 79 behavior bindings.
+Vue bundle built: 477079 raw / 73667 gzip / 36619 brotli bytes.
+
+> gardenerim-monorepo@2.1.0 build:react
+> npm --prefix packages/react run build
+
+
+> @gardenerim/react@2.1.0 build
+> npm run clean && npm run generate && tsc -p tsconfig.build.json && node scripts/postbuild.mjs
+
+
+> @gardenerim/react@2.1.0 clean
+> node scripts/clean.mjs
+
+
+> @gardenerim/react@2.1.0 generate
+> node scripts/generate.mjs
+
+Generated 520 React components and 79 behavior bindings.
+React bundle built: 473231 raw / 71326 gzip / 35450 brotli bytes.
+
+> gardenerim-monorepo@2.1.0 build:angularjs
+> npm --prefix packages/angularjs run build
+
+
+> @gardenerim/angularjs@2.1.0 build
+> npm run clean && npm run generate && tsc -p tsconfig.build.json && node scripts/postbuild.mjs
+
+
+> @gardenerim/angularjs@2.1.0 clean
+> node scripts/clean.mjs
+
+
+> @gardenerim/angularjs@2.1.0 generate
+> node scripts/generate.mjs
+
+Generated 520 AngularJS directives and 79 behavior bindings.
+AngularJS bundle built: 552314 raw / 81152 gzip / 38672 brotli bytes.
+
+> gardenerim-monorepo@2.1.0 build:blazor
+> npm --prefix packages/blazor run build
+
+
+> @gardenerim/blazor-workspace@2.1.0 build
+> npm run generate && dotnet build Gardenerim.Blazor.slnx -c Release --nologo
+
+
+> @gardenerim/blazor-workspace@2.1.0 generate
+> node scripts/generate.mjs
+
+Generated 520 Blazor components, 33 framework types, and 51 static assets.
+  正在确定要还原的项目…
+  所有项目均是最新的，无法还原。
+  Gardenerim.Blazor -> D:\develop\Gardener\packages\blazor\src\Gardenerim.Blazor\bin\Release\net10.0\Gardenerim.Blazor.dll
+  Gardenerim.Blazor.Tests -> D:\develop\Gardener\packages\blazor\tests\Gardenerim.Blazor.Tests\bin\Release\net10.0\Gardenerim.Blazor.Tests.dll
+  Gardenerim.Blazor.Demo -> D:\develop\Gardener\packages\blazor\samples\Gardenerim.Blazor.Demo\bin\Release\net10.0\Gardenerim.Blazor.Demo.dll
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:05.82

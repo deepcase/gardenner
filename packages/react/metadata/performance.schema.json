@@ -3,16 +3,52 @@
   "$id": "https://gardener.dev/schema/react/performance-1.json",
   "type": "object",
   "additionalProperties": false,
-  "required": ["$schema", "schemaVersion", "version", "status", "artifact", "metrics"],
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "version",
+    "status",
+    "artifact",
+    "metrics"
+  ],
   "properties": {
-    "$schema": { "const": "../metadata/performance.schema.json" },
-    "schemaVersion": { "const": 1 },
-    "version": { "const": "2.1.0" },
-    "status": { "const": "passed" },
-    "artifact": { "const": "gardener-react.min.js" },
+    "$schema": {
+      "const": "../metadata/performance.schema.json"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "version": {
+      "const": "2.2.0"
+    },
+    "status": {
+      "const": "passed"
+    },
+    "artifact": {
+      "const": "gardener-react.min.js"
+    },
     "metrics": {
-      "type": "object", "additionalProperties": false, "required": ["raw", "gzip", "brotli"],
-      "properties": { "raw": { "type": "integer", "minimum": 1 }, "gzip": { "type": "integer", "minimum": 1 }, "brotli": { "type": "integer", "minimum": 1 } }
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "raw",
+        "gzip",
+        "brotli"
+      ],
+      "properties": {
+        "raw": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "gzip": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "brotli": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
     }
   }
 }

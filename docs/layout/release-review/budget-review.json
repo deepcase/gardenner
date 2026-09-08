@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "module": {
+    "previousCap": 13000,
+    "cap": 16000,
+    "bytes": 14188
+  },
+  "css": {
+    "measurement": "self-report-conservative-upper-bound",
+    "rounding": {
+      "packedQuantum": 4096,
+      "unpackedQuantum": 65536
+    },
+    "limits": {
+      "packed": 4000000,
+      "unpacked": 28700000,
+      "files": 115
+    },
+    "actual": {
+      "packed": 3985408,
+      "unpacked": 28180480,
+      "files": 115
+    },
+    "pass": true
+  },
+  "artifacts": {
+    "gardener.min.css": {
+      "limits": {
+        "raw": 1880000,
+        "gzip": 260000,
+        "brotli": 147000
+      },
+      "actual": {
+        "raw": 1875359,
+        "gzip": 259196,
+        "brotli": 145954
+      },
+      "pass": true
+    },
+    "platforms/gardener.mobile.min.css": {
+      "limits": {
+        "raw": 1818000,
+        "gzip": 252000,
+        "brotli": 143000
+      },
+      "actual": {
+        "raw": 1816319,
+        "gzip": 251462,
+        "brotli": 141689
+      },
+      "pass": true
+    },
+    "platforms/gardener.desktop.min.css": {
+      "limits": {
+        "raw": 1840000,
+        "gzip": 255000,
+        "brotli": 144000
+      },
+      "actual": {
+        "raw": 1838929,
+        "gzip": 254065,
+        "brotli": 142419
+      },
+      "pass": true
+    },
+    "components/layouts.min.css": {
+      "limits": {
+        "raw": 31000,
+        "gzip": 4800,
+        "brotli": 4200
+      },
+      "actual": {
+        "raw": 29272,
+        "gzip": 4497,
+        "brotli": 4011
+      },
+      "pass": true
+    }
+  },
+  "changes": [
+    "Full CSS raw 1,875,000 → 1,880,000 (CSS and Blazor)",
+    "Mobile CSS raw 1,815,000 → 1,818,000; Brotli 141,000 → 143,000; relative Brotli 138% → 141%",
+    "Desktop CSS gzip 254,000 → 255,000",
+    "Layouts CSS raw 29,000 → 31,000; relative raw 814% → 880%"
+  ]
+}

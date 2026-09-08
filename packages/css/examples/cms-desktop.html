@@ -15,13 +15,16 @@
     <main class="g-desktop-shell">
       <header class="g-titlebar">
         <div class="g-titlebar-start">
-          <nav class="g-menubar">
-            <button type="button" class="g-menubar-item">文件</button
-            ><button type="button" class="g-menubar-item">编辑</button>
+          <nav class="g-menubar g-menubar-integrated" data-g-roving-nav role="menubar" aria-label="应用菜单">
+            <ul class="g-menubar-list" role="none">
+              <li role="none"><div class="g-menubar-menu g-dropdown" data-g-dropdown><button type="button" class="g-menubar-item" role="menuitem" data-g-dropdown-trigger>文件<span class="g-menubar-item-caret" aria-hidden="true"></span></button><ul class="g-menubar-menu-panel g-dropdown-menu g-menu" data-g-dropdown-menu hidden><li><button type="button" class="g-menubar-menu-item g-menu-item" role="menuitem">新建页面<kbd class="g-menubar-menu-item-shortcut">Ctrl N</kbd></button></li><li><button type="button" class="g-menubar-menu-item g-menu-item" role="menuitem">保存<kbd class="g-menubar-menu-item-shortcut">Ctrl S</kbd></button></li></ul></div></li>
+              <li role="none"><div class="g-menubar-menu g-dropdown" data-g-dropdown><button type="button" class="g-menubar-item" role="menuitem" data-g-dropdown-trigger>编辑<span class="g-menubar-item-caret" aria-hidden="true"></span></button><ul class="g-menubar-menu-panel g-dropdown-menu g-menu" data-g-dropdown-menu hidden><li><button type="button" class="g-menubar-menu-item g-menu-item" role="menuitem">撤销<kbd class="g-menubar-menu-item-shortcut">Ctrl Z</kbd></button></li><li><button type="button" class="g-menubar-menu-item g-menu-item" role="menuitem">重做<kbd class="g-menubar-menu-item-shortcut">Ctrl Shift Z</kbd></button></li></ul></div></li>
+            </ul>
           </nav>
         </div>
         <div class="g-titlebar-title">Gardenerim Studio — 企业官网</div>
         <div class="g-titlebar-end">
+          <a class="g-btn g-btn-ghost" href="cms-lab.html">CMS 完整交互演示</a>
           <div class="g-window-controls">
             <button type="button"
               class="g-window-button"
@@ -45,13 +48,18 @@
           </div>
         </div>
       </header>
-      <nav class="g-activitybar" aria-label="主工具">
-        <button type="button" class="g-activitybar-item is-active" aria-label="页面">
-          页</button
-        ><button type="button" class="g-activitybar-item" aria-label="媒体">图</button
-        ><button type="button" class="g-activitybar-item" aria-label="设置">设</button>
+      <nav class="g-activitybar" data-g-roving-nav data-g-orientation="vertical" aria-label="主工具">
+        <header class="g-activitybar-header"><a class="g-activitybar-brand" href="#cms-workbench" aria-label="Gardenerim CMS">G</a></header>
+        <div class="g-activitybar-group">
+          <ul class="g-activitybar-list">
+            <li><button type="button" class="g-activitybar-item is-active" aria-current="page" title="页面"><span class="g-activitybar-icon" aria-hidden="true">页</span><span class="g-activitybar-label">页面</span></button></li>
+            <li><button type="button" class="g-activitybar-item" title="媒体"><span class="g-activitybar-icon" aria-hidden="true">图</span><span class="g-activitybar-label">媒体</span><span class="g-activitybar-badge" role="status" aria-label="2 个媒体任务">2</span></button></li>
+            <li><button type="button" class="g-activitybar-item" aria-disabled="true" title="扩展不可用"><span class="g-activitybar-icon" aria-hidden="true">◇</span><span class="g-activitybar-label">扩展不可用</span></button></li>
+          </ul>
+        </div>
+        <footer class="g-activitybar-footer"><button type="button" class="g-activitybar-action" title="设置"><span class="g-activitybar-icon" aria-hidden="true">设</span><span class="g-activitybar-label">设置</span></button></footer>
       </nav>
-      <section class="g-workbench">
+      <section id="cms-workbench" class="g-workbench">
         <aside class="g-workbench-sidebar">
           <header class="g-cms-panel-header">
             <strong>页面树</strong
@@ -106,7 +114,7 @@
       </aside>
       <footer class="g-desktop-statusbar">
         <div class="g-desktop-status-group">
-          <span class="g-desktop-status-item">已连接</span>
+          <span class="g-desktop-status-item">本地桌面布局演示</span>
         </div>
         <div class="g-desktop-status-group">
           <span class="g-desktop-status-item">zh-CN</span

@@ -1,4 +1,6 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
+import type { GardenerimNavigationOptions, GardenerimNavigationItem } from '@gardenerim/css/runtime';
+export type { GardenerimNavigationOptions, GardenerimNavigationItem, GardenerimNavigationChange, GardenerimNavigationInstance } from '@gardenerim/css/runtime';
 import type { GardenerimBehaviorInstance as RuntimeBehaviorInstance, GardenerimBehaviorName as RuntimeBehaviorName, GardenerimEventName as RuntimeEventName } from "@gardenerim/css/runtime";
 
 export type GardenerimAs = ElementType;
@@ -33,6 +35,11 @@ export interface GardenerimComponentHandle {
 }
 
 export interface GardenerimOwnProps {
+  table?:import("@gardenerim/css/runtime").GardenerimTableOptions;
+  columns?:import("@gardenerim/css/runtime").GardenerimTableColumn[];
+  data?:Record<string,unknown>[];
+  navigation?: GardenerimNavigationOptions;
+  items?: readonly GardenerimNavigationItem[];
   as?: GardenerimAs;
   variant?: string | readonly string[];
   state?: string | readonly string[];
@@ -69,3 +76,5 @@ export interface GardenerimThemeState {
 export type GardenerimTargetValue = Element | Document | GardenerimComponentHandle;
 export type GardenerimElementTarget = GardenerimTargetValue | React.RefObject<GardenerimTargetValue | null> | null | undefined;
 export type GardenerimEventHandler<T = Record<string, unknown>> = (event: CustomEvent<T>) => void;
+
+export type {GardenerimTableOptions,GardenerimTableColumn,GardenerimTableInstance,GardenerimTableState,GardenerimTableChange,GardenerimTableKey} from '@gardenerim/css/runtime';

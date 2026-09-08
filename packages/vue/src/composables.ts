@@ -95,7 +95,7 @@ export const useGardenerimTheme = (initial: GardenerimThemeState = {}, target?: 
   return { state, apply } as const;
 };
 
-export const useGardenerimToast = () => ({ show: toast });
+export const useGardenerimToast = () => ({ show: toast, clear: toast.clear, config: toast.config });
 
 export const useGardenerimLocale = () => ({
   get configuration() { return getConfiguration(); },

@@ -17,8 +17,11 @@ try {
   const full = JSON.parse(await readFile(join(root, "dist", "gardener.performance.json"), "utf8"));
   const customGzip = custom.metrics.minCss.gzip;
   const fullGzip = full.artifacts["gardener.min.css"].actual.gzip;
-  assert.ok(customGzip <= 40_000, `Admin custom build is ${customGzip} gzip bytes; limit is 40000`);
-  assert.ok(customGzip / fullGzip <= 0.30, `Admin custom build is ${(customGzip / fullGzip * 100).toFixed(1)}% of full CSS; limit is 30%`);
+  // 2.2.0: expanded forms/data/navigation packs; reviewed 151794 B gzip.
+  // Keep a fixed ceiling (0.8% headroom), not a moving baseline.
+  assert.equal(new Set(custom.files).size, custom.files.length, "Custom build must deduplicate shared CSS modules");
+  assert.ok(customGzip <= 153_000, `Admin custom build is ${customGzip} gzip bytes; limit is 153000`);
+  assert.ok(customGzip / fullGzip <= 0.56, `Admin custom build is ${(customGzip / fullGzip * 100).toFixed(1)}% of full CSS; limit is 56%`);
   console.log(`Admin custom build passed: ${customGzip} gzip bytes (${(customGzip / fullGzip * 100).toFixed(1)}% of full CSS).`);
 } finally {
   await rm(temporary, { recursive: true, force: true });

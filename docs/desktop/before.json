@@ -1,0 +1,640 @@
+[
+  {
+    "name": "desktop-shell",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-desktop-shell",
+    "status": "css-ready",
+    "platforms": [
+      "desktop",
+      "tauri",
+      "electron"
+    ]
+  },
+  {
+    "name": "desktop-titlebar",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": ".g-titlebar",
+    "states": [
+      "normal",
+      "focused",
+      "unfocused",
+      "maximized"
+    ],
+    "adapters": [
+      "tauri",
+      "electron"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "tauri",
+      "electron"
+    ]
+  },
+  {
+    "name": "desktop-workbench",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-workbench",
+    "status": "css-ready",
+    "platforms": [
+      "desktop",
+      "tauri",
+      "electron"
+    ]
+  },
+  {
+    "name": "desktop-native-titlebar",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": ".g-native-titlebar",
+    "states": [
+      "normal",
+      "focused",
+      "unfocused",
+      "maximized"
+    ],
+    "parts": [
+      "g-native-titlebar-start",
+      "g-native-titlebar-title",
+      "g-native-titlebar-end"
+    ],
+    "adapters": [
+      "tauri",
+      "electron"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "tauri",
+      "electron"
+    ]
+  },
+  {
+    "name": "desktop-window-controls-composition",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": ".g-desktop-window-controls",
+    "parts": [
+      "g-desktop-window-button"
+    ],
+    "states": [
+      "minimize",
+      "maximize",
+      "restore",
+      "close"
+    ],
+    "adapters": [
+      "tauri",
+      "electron"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "tauri",
+      "electron"
+    ]
+  },
+  {
+    "name": "desktop-menubar-composition",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-roving-nav].g-desktop-menubar",
+    "cssSelector": ".g-desktop-menubar",
+    "parts": [
+      "g-desktop-menubar-item"
+    ],
+    "behaviors": [
+      "roving-nav"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-activity-bar-composition",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-roving-nav].g-desktop-activity-bar",
+    "cssSelector": ".g-desktop-activity-bar",
+    "parts": [
+      "g-desktop-activity-item"
+    ],
+    "behaviors": [
+      "roving-nav"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-dock-panel",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": ".g-desktop-dock-panel",
+    "parts": [
+      "g-desktop-panel-header",
+      "g-desktop-panel-body"
+    ],
+    "behaviors": [
+      "nav-toggle"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-split-pane",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-split-pane].g-desktop-split-pane",
+    "cssSelector": ".g-desktop-split-pane",
+    "parts": [
+      "g-split-panel",
+      "g-split-handle"
+    ],
+    "behaviors": [
+      "split-pane"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-inspector-panel",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": ".g-desktop-inspector-panel",
+    "parts": [
+      "g-desktop-panel-header",
+      "g-desktop-panel-body"
+    ],
+    "behaviors": [
+      "nav-toggle"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-status-bar",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-desktop-status-bar",
+    "parts": [
+      "g-desktop-status-group",
+      "g-desktop-status-item"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-command-palette",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-command-palette].g-desktop-command-palette",
+    "cssSelector": ".g-desktop-command-palette",
+    "behaviors": [
+      "command-palette"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "shortcut-recorder",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-shortcut-recorder].g-shortcut-recorder",
+    "cssSelector": ".g-shortcut-recorder",
+    "parts": [
+      "g-shortcut-recorder-control",
+      "g-shortcut-recorder-keys",
+      "g-shortcut-recorder-status"
+    ],
+    "behaviors": [
+      "shortcut-recorder"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-context-menu",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-context-menu] .g-desktop-context-menu",
+    "cssSelector": ".g-desktop-context-menu",
+    "parts": [
+      "g-desktop-menu-item",
+      "g-desktop-menu-separator"
+    ],
+    "behaviors": [
+      "context-menu"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-document-tabs",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-desktop-tabs].g-desktop-document-tabs",
+    "cssSelector": ".g-desktop-document-tabs",
+    "parts": [
+      "g-desktop-document-tab",
+      "g-desktop-document-tab-close"
+    ],
+    "states": [
+      "active",
+      "dirty",
+      "pinned"
+    ],
+    "behaviors": [
+      "desktop-tabs"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-drag-region",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": ".g-desktop-drag-region",
+    "states": [
+      "idle",
+      "dragging"
+    ],
+    "parts": [
+      "g-desktop-no-drag"
+    ],
+    "adapters": [
+      "tauri",
+      "electron"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "tauri",
+      "electron"
+    ]
+  },
+  {
+    "name": "window-loading",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-window-loading",
+    "parts": [
+      "g-window-loading-icon",
+      "g-window-loading-progress"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "update-available",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-update-available",
+    "parts": [
+      "g-desktop-notice-main",
+      "g-desktop-notice-actions"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-permission-request",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-desktop-permission-request",
+    "parts": [
+      "g-desktop-notice-icon",
+      "g-desktop-notice-main",
+      "g-desktop-notice-actions"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "native-file-picker",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-native-file-picker].g-native-file-picker",
+    "cssSelector": ".g-native-file-picker",
+    "parts": [
+      "g-native-file-picker-value"
+    ],
+    "behaviors": [
+      "native-file-picker"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "tray-menu-shell",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-dropdown] .g-tray-menu",
+    "cssSelector": ".g-tray-menu",
+    "behaviors": [
+      "dropdown"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "multi-window-placeholder",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-multi-window-placeholder",
+    "parts": [
+      "g-desktop-state-icon",
+      "g-desktop-state-actions"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-workspace-composition",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-desktop-workspace",
+    "parts": [
+      "g-desktop-workspace-main"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-window-switcher",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-window-switcher].g-desktop-window-switcher",
+    "cssSelector": ".g-desktop-window-switcher",
+    "parts": [
+      "g-desktop-window-switcher-panel",
+      "g-desktop-window-list",
+      "g-desktop-window-item",
+      "g-desktop-window-main"
+    ],
+    "behaviors": [
+      "window-switcher"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "recent-documents",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-recent-documents",
+    "parts": [
+      "g-recent-document",
+      "g-recent-document-main",
+      "g-recent-document-path"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-toolbar",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-desktop-toolbar",
+    "parts": [
+      "g-desktop-toolbar-group",
+      "g-desktop-toolbar-separator"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-bottom-panel",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": ".g-desktop-bottom-panel",
+    "parts": [
+      "g-desktop-panel-header",
+      "g-desktop-panel-body"
+    ],
+    "behaviors": [
+      "nav-toggle"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "background-task-center",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-background-task-center",
+    "parts": [
+      "g-background-task",
+      "g-background-task-main",
+      "g-background-task-progress"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "desktop-notification-center",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-desktop-notification-center",
+    "parts": [
+      "g-desktop-notification",
+      "g-desktop-notification-main"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "sync-status",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-sync-status",
+    "parts": [
+      "g-sync-status-dot"
+    ],
+    "states": [
+      "syncing",
+      "synced",
+      "offline",
+      "error"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "update-progress",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-update-progress",
+    "parts": [
+      "g-update-progress-header",
+      "g-update-progress-track",
+      "g-update-progress-value"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "crash-recovery",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-crash-recovery",
+    "parts": [
+      "g-desktop-state-icon",
+      "g-desktop-state-actions"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "single-instance-notice",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-single-instance-notice",
+    "parts": [
+      "g-desktop-notice-main",
+      "g-desktop-notice-actions"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "deep-link-handler",
+    "category": "desktop",
+    "type": "css",
+    "selector": ".g-deep-link-handler",
+    "parts": [
+      "g-desktop-notice-main",
+      "g-desktop-notice-actions"
+    ],
+    "status": "css-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  },
+  {
+    "name": "about-dialog",
+    "category": "desktop",
+    "type": "interactive",
+    "selector": "[data-g-dialog].g-about-dialog",
+    "cssSelector": ".g-about-dialog",
+    "parts": [
+      "g-about-dialog-icon"
+    ],
+    "behaviors": [
+      "dialog"
+    ],
+    "status": "runtime-ready",
+    "platforms": [
+      "web",
+      "mobile",
+      "desktop"
+    ]
+  }
+]

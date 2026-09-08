@@ -1,0 +1,8054 @@
+{
+  "verifiedAt": "2026-09-07T06:11:55.987Z",
+  "passed": true,
+  "components": 37,
+  "variants": 111,
+  "frameworks": [
+    "css",
+    "vue",
+    "react",
+    "angularjs",
+    "blazor"
+  ],
+  "newComponents": 0,
+  "addedParameters": [
+    "showHeader",
+    "showStatus",
+    "showImages",
+    "showDescription",
+    "showSave",
+    "showStock",
+    "showOriginalPrice",
+    "showCoupon",
+    "showSummary",
+    "showThumbnails",
+    "showCycle",
+    "imageFit",
+    "imageMaxHeight",
+    "listMaxHeight"
+  ],
+  "inventory": {
+    "reviewedAt": "2026-09-07T05:59:00.393Z",
+    "components": 37,
+    "variants": 111,
+    "newComponents": 0,
+    "items": [
+      {
+        "name": "product-card",
+        "title": "商品卡片",
+        "variants": [
+          "default",
+          "horizontal",
+          "compact"
+        ],
+        "focus": "图片/说明/收藏/原价可隐藏；停用或缺货禁止购买",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "cart-item",
+        "title": "购物车条目",
+        "variants": [
+          "default",
+          "compact",
+          "readonly"
+        ],
+        "focus": "禁用/缺货项、图片与收藏开关、只读模式",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "price-quantity",
+        "title": "价格与数量",
+        "variants": [
+          "default",
+          "inline",
+          "compact"
+        ],
+        "focus": "数量安全整数、步长和库存边界",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "product-detail",
+        "title": "商品详情",
+        "variants": [
+          "default",
+          "split",
+          "compact"
+        ],
+        "focus": "SKU 有效组合、库存步长与展示开关联动",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "checkout",
+        "title": "结算",
+        "variants": [
+          "default",
+          "steps",
+          "compact"
+        ],
+        "focus": "分步选择校验、条款、优惠、汇总与受控回写",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-product-card",
+        "title": "商品营销卡片",
+        "variants": [
+          "default",
+          "horizontal",
+          "compact"
+        ],
+        "focus": "图片/说明/收藏/原价可隐藏；停用或缺货禁止购买",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-product-list",
+        "title": "商品列表",
+        "variants": [
+          "list",
+          "grid",
+          "compact"
+        ],
+        "focus": "1–6 列、图片填充、列表高度与窄容器重排",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-product-detail",
+        "title": "商品购买详情",
+        "variants": [
+          "default",
+          "split",
+          "compact"
+        ],
+        "focus": "SKU 有效组合、库存步长与展示开关联动",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-product-gallery",
+        "title": "商品图片",
+        "variants": [
+          "thumbnails",
+          "horizontal",
+          "compact"
+        ],
+        "focus": "主图高度、填充、缩略图与受控索引",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "sku-selector",
+        "title": "商品规格",
+        "variants": [
+          "buttons",
+          "select",
+          "compact"
+        ],
+        "focus": "禁止未知组、禁用选项及缺货组合",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-quantity-stepper",
+        "title": "购买数量",
+        "variants": [
+          "default",
+          "inline",
+          "compact"
+        ],
+        "focus": "数量安全整数、步长和库存边界",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "price-display",
+        "title": "价格展示",
+        "variants": [
+          "default",
+          "sale",
+          "compact"
+        ],
+        "focus": "极大金额保留最小单位小数；多币种小数位与原价开关",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-cart-item",
+        "title": "购物车商品",
+        "variants": [
+          "default",
+          "compact",
+          "readonly"
+        ],
+        "focus": "禁用/缺货项、图片与收藏开关、只读模式",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-cart",
+        "title": "购物车",
+        "variants": [
+          "default",
+          "selectable",
+          "compact"
+        ],
+        "focus": "可购买商品全选/清除；未选中商品不参与计费；可隐藏汇总",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "mini-cart",
+        "title": "迷你购物车",
+        "variants": [
+          "default",
+          "expanded",
+          "compact"
+        ],
+        "focus": "展开收起、数量/移除、隐藏汇总与图片",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "cart-summary",
+        "title": "购物车汇总",
+        "variants": [
+          "default",
+          "detailed",
+          "compact"
+        ],
+        "focus": "独立汇总、折扣上限和空购物车免配送/税费",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-checkout",
+        "title": "订单结算",
+        "variants": [
+          "default",
+          "steps",
+          "compact"
+        ],
+        "focus": "分步选择校验、条款、优惠、汇总与受控回写",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-checkout-steps",
+        "title": "结算步骤",
+        "variants": [
+          "horizontal",
+          "vertical",
+          "compact"
+        ],
+        "focus": "步骤边界、方向、紧凑尺寸和受控值",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "address-selector",
+        "title": "收货地址选择",
+        "variants": [
+          "cards",
+          "list",
+          "compact"
+        ],
+        "focus": "原生单选、停用项和受控回写",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "address-card",
+        "title": "收货地址卡片",
+        "variants": [
+          "default",
+          "editable",
+          "compact"
+        ],
+        "focus": "编辑请求、只读和文本转义",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "shipping-method",
+        "title": "配送方式",
+        "variants": [
+          "cards",
+          "list",
+          "compact"
+        ],
+        "focus": "停用配送、原生单选和报价联动",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "pickup-selector",
+        "title": "门店自提",
+        "variants": [
+          "cards",
+          "list",
+          "compact"
+        ],
+        "focus": "停用门店与受控选择",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "coupon",
+        "title": "优惠券",
+        "variants": [
+          "default",
+          "inline",
+          "compact"
+        ],
+        "focus": "输入/中文合成/Enter、结果确认更新报价、清除恢复、失败和超时",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "promotion-list",
+        "title": "促销活动",
+        "variants": [
+          "default",
+          "cards",
+          "compact"
+        ],
+        "focus": "活动选择写入优惠码、卡片窄容器重排",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "invoice-information",
+        "title": "发票信息",
+        "variants": [
+          "personal",
+          "business",
+          "compact"
+        ],
+        "focus": "发票类型、企业税号、邮箱错误关联、受控即时输入",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "payment-method",
+        "title": "支付方式",
+        "variants": [
+          "cards",
+          "list",
+          "compact"
+        ],
+        "focus": "停用支付方式、原生单选与受控值",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "payment-sheet",
+        "title": "付款确认",
+        "variants": [
+          "default",
+          "summary",
+          "compact"
+        ],
+        "focus": "条款、支付方式、金额与异步服务结果",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "payment-result",
+        "title": "支付结果",
+        "variants": [
+          "success",
+          "error",
+          "pending"
+        ],
+        "focus": "success/error/pending 服务状态与重试边界",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-order-summary",
+        "title": "订单金额",
+        "variants": [
+          "default",
+          "detailed",
+          "compact"
+        ],
+        "focus": "安全整数总计、详细汇总与折扣上限",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-order-timeline",
+        "title": "订单时间线",
+        "variants": [
+          "vertical",
+          "horizontal",
+          "compact"
+        ],
+        "focus": "当前索引、横纵方向和窄容器布局",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "order-detail",
+        "title": "订单详情",
+        "variants": [
+          "default",
+          "split",
+          "compact"
+        ],
+        "focus": "只读订单信息、整数金额及安全链接",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "subscription-plan",
+        "title": "订阅方案",
+        "variants": [
+          "default",
+          "featured",
+          "compact"
+        ],
+        "focus": "只报价选定套餐和月/年周期；周期入口可隐藏",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "pricing-comparison",
+        "title": "套餐比较",
+        "variants": [
+          "table",
+          "cards",
+          "compact"
+        ],
+        "focus": "年度/月份报价、卡片/表格、滚动高度及订阅请求",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "commerce-usage-meter",
+        "title": "订阅用量",
+        "variants": [
+          "bar",
+          "segmented",
+          "compact"
+        ],
+        "focus": "使用量、超额、无限量与分段变体",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "billing-history",
+        "title": "账单历史",
+        "variants": [
+          "table",
+          "list",
+          "compact"
+        ],
+        "focus": "安全账单链接、表格滚动高度和多币种金额",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "refund-status",
+        "title": "退款进度",
+        "variants": [
+          "pending",
+          "success",
+          "error"
+        ],
+        "focus": "真实状态参数、时间线及失败/处理中变体",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      },
+      {
+        "name": "tax-summary",
+        "title": "税费明细",
+        "variants": [
+          "default",
+          "inclusive",
+          "compact"
+        ],
+        "focus": "含税不重复计税、空商品免税费及安全总计",
+        "frameworks": [
+          "css",
+          "vue",
+          "react",
+          "angularjs",
+          "blazor"
+        ],
+        "evidence": [
+          "runtime-specific.log",
+          "browser-chromium.json",
+          "browser-firefox.json",
+          "browser-webkit.json",
+          "extensions-chromium.json",
+          "blazor-browser.json",
+          "static-browser.json"
+        ]
+      }
+    ]
+  },
+  "tests": {
+    "commerce": 30,
+    "runtime": 722,
+    "schema": 48,
+    "html": 43,
+    "build": 11
+  },
+  "browsers": [
+    {
+      "components": 37,
+      "variants": 111,
+      "layouts": 222,
+      "rtl": 37,
+      "a11y": [
+        "product-card",
+        "cart-item",
+        "price-quantity",
+        "product-detail",
+        "checkout",
+        "commerce-product-card",
+        "commerce-product-list",
+        "commerce-product-detail",
+        "commerce-product-gallery",
+        "sku-selector",
+        "commerce-quantity-stepper",
+        "price-display",
+        "commerce-cart-item",
+        "commerce-cart",
+        "mini-cart",
+        "cart-summary",
+        "commerce-checkout",
+        "commerce-checkout-steps",
+        "address-selector",
+        "address-card",
+        "shipping-method",
+        "pickup-selector",
+        "coupon",
+        "promotion-list",
+        "invoice-information",
+        "payment-method",
+        "payment-sheet",
+        "payment-result",
+        "commerce-order-summary",
+        "commerce-order-timeline",
+        "order-detail",
+        "subscription-plan",
+        "pricing-comparison",
+        "commerce-usage-meter",
+        "billing-history",
+        "refund-status",
+        "tax-summary"
+      ],
+      "cart": true,
+      "sku": true,
+      "coupon": true,
+      "checkout": true,
+      "invoice": true,
+      "pricing": true,
+      "gallery": true,
+      "controlled": true,
+      "errors": [],
+      "results": [
+        {
+          "kind": "product-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "product-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "product-card",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "product-card",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "product-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "product-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cart-item",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "cart-item",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "cart-item",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cart-item",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cart-item",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "cart-item",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "product-detail",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "product-detail",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "product-detail",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "product-detail",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "product-detail",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "product-detail",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "checkout",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "checkout",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "checkout",
+          "mode": "steps",
+          "width": 360
+        },
+        {
+          "kind": "checkout",
+          "mode": "steps",
+          "width": 1100
+        },
+        {
+          "kind": "checkout",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "checkout",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "thumbnails",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "thumbnails",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "buttons",
+          "width": 360
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "buttons",
+          "width": 1100
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "select",
+          "width": 360
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "select",
+          "width": 1100
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "price-display",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "price-display",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "price-display",
+          "mode": "sale",
+          "width": 360
+        },
+        {
+          "kind": "price-display",
+          "mode": "sale",
+          "width": 1100
+        },
+        {
+          "kind": "price-display",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "price-display",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "selectable",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "selectable",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "steps",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "steps",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "vertical",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "vertical",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "address-selector",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "address-selector",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "address-selector",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "address-selector",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "address-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "address-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "address-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "address-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "address-card",
+          "mode": "editable",
+          "width": 360
+        },
+        {
+          "kind": "address-card",
+          "mode": "editable",
+          "width": 1100
+        },
+        {
+          "kind": "address-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "address-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "coupon",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "coupon",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "coupon",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "coupon",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "coupon",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "coupon",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "personal",
+          "width": 360
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "personal",
+          "width": 1100
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "business",
+          "width": 360
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "business",
+          "width": 1100
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "payment-method",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "payment-method",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "payment-method",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "payment-method",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "payment-method",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "payment-method",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "summary",
+          "width": 360
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "summary",
+          "width": 1100
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "payment-result",
+          "mode": "success",
+          "width": 360
+        },
+        {
+          "kind": "payment-result",
+          "mode": "success",
+          "width": 1100
+        },
+        {
+          "kind": "payment-result",
+          "mode": "error",
+          "width": 360
+        },
+        {
+          "kind": "payment-result",
+          "mode": "error",
+          "width": 1100
+        },
+        {
+          "kind": "payment-result",
+          "mode": "pending",
+          "width": 360
+        },
+        {
+          "kind": "payment-result",
+          "mode": "pending",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "vertical",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "vertical",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "order-detail",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "order-detail",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "order-detail",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "order-detail",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "order-detail",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "order-detail",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "featured",
+          "width": 360
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "featured",
+          "width": 1100
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "bar",
+          "width": 360
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "bar",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "segmented",
+          "width": 360
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "segmented",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "billing-history",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "billing-history",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "billing-history",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "billing-history",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "billing-history",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "billing-history",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "refund-status",
+          "mode": "pending",
+          "width": 360
+        },
+        {
+          "kind": "refund-status",
+          "mode": "pending",
+          "width": 1100
+        },
+        {
+          "kind": "refund-status",
+          "mode": "success",
+          "width": 360
+        },
+        {
+          "kind": "refund-status",
+          "mode": "success",
+          "width": 1100
+        },
+        {
+          "kind": "refund-status",
+          "mode": "error",
+          "width": 360
+        },
+        {
+          "kind": "refund-status",
+          "mode": "error",
+          "width": 1100
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "inclusive",
+          "width": 360
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "inclusive",
+          "width": 1100
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "compact",
+          "width": 1100
+        }
+      ]
+    },
+    {
+      "components": 37,
+      "variants": 111,
+      "layouts": 222,
+      "rtl": 37,
+      "a11y": [],
+      "cart": true,
+      "sku": true,
+      "coupon": true,
+      "checkout": true,
+      "invoice": true,
+      "pricing": true,
+      "gallery": true,
+      "controlled": true,
+      "errors": [],
+      "results": [
+        {
+          "kind": "product-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "product-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "product-card",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "product-card",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "product-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "product-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cart-item",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "cart-item",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "cart-item",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cart-item",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cart-item",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "cart-item",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "product-detail",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "product-detail",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "product-detail",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "product-detail",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "product-detail",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "product-detail",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "checkout",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "checkout",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "checkout",
+          "mode": "steps",
+          "width": 360
+        },
+        {
+          "kind": "checkout",
+          "mode": "steps",
+          "width": 1100
+        },
+        {
+          "kind": "checkout",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "checkout",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "thumbnails",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "thumbnails",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "buttons",
+          "width": 360
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "buttons",
+          "width": 1100
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "select",
+          "width": 360
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "select",
+          "width": 1100
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "price-display",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "price-display",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "price-display",
+          "mode": "sale",
+          "width": 360
+        },
+        {
+          "kind": "price-display",
+          "mode": "sale",
+          "width": 1100
+        },
+        {
+          "kind": "price-display",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "price-display",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "selectable",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "selectable",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "steps",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "steps",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "vertical",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "vertical",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "address-selector",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "address-selector",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "address-selector",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "address-selector",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "address-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "address-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "address-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "address-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "address-card",
+          "mode": "editable",
+          "width": 360
+        },
+        {
+          "kind": "address-card",
+          "mode": "editable",
+          "width": 1100
+        },
+        {
+          "kind": "address-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "address-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "coupon",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "coupon",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "coupon",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "coupon",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "coupon",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "coupon",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "personal",
+          "width": 360
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "personal",
+          "width": 1100
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "business",
+          "width": 360
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "business",
+          "width": 1100
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "payment-method",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "payment-method",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "payment-method",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "payment-method",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "payment-method",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "payment-method",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "summary",
+          "width": 360
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "summary",
+          "width": 1100
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "payment-result",
+          "mode": "success",
+          "width": 360
+        },
+        {
+          "kind": "payment-result",
+          "mode": "success",
+          "width": 1100
+        },
+        {
+          "kind": "payment-result",
+          "mode": "error",
+          "width": 360
+        },
+        {
+          "kind": "payment-result",
+          "mode": "error",
+          "width": 1100
+        },
+        {
+          "kind": "payment-result",
+          "mode": "pending",
+          "width": 360
+        },
+        {
+          "kind": "payment-result",
+          "mode": "pending",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "vertical",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "vertical",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "order-detail",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "order-detail",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "order-detail",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "order-detail",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "order-detail",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "order-detail",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "featured",
+          "width": 360
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "featured",
+          "width": 1100
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "bar",
+          "width": 360
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "bar",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "segmented",
+          "width": 360
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "segmented",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "billing-history",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "billing-history",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "billing-history",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "billing-history",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "billing-history",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "billing-history",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "refund-status",
+          "mode": "pending",
+          "width": 360
+        },
+        {
+          "kind": "refund-status",
+          "mode": "pending",
+          "width": 1100
+        },
+        {
+          "kind": "refund-status",
+          "mode": "success",
+          "width": 360
+        },
+        {
+          "kind": "refund-status",
+          "mode": "success",
+          "width": 1100
+        },
+        {
+          "kind": "refund-status",
+          "mode": "error",
+          "width": 360
+        },
+        {
+          "kind": "refund-status",
+          "mode": "error",
+          "width": 1100
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "inclusive",
+          "width": 360
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "inclusive",
+          "width": 1100
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "compact",
+          "width": 1100
+        }
+      ]
+    },
+    {
+      "components": 37,
+      "variants": 111,
+      "layouts": 222,
+      "rtl": 37,
+      "a11y": [],
+      "cart": true,
+      "sku": true,
+      "coupon": true,
+      "checkout": true,
+      "invoice": true,
+      "pricing": true,
+      "gallery": true,
+      "controlled": true,
+      "errors": [],
+      "results": [
+        {
+          "kind": "product-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "product-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "product-card",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "product-card",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "product-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "product-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cart-item",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "cart-item",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "cart-item",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cart-item",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cart-item",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "cart-item",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "product-detail",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "product-detail",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "product-detail",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "product-detail",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "product-detail",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "product-detail",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "checkout",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "checkout",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "checkout",
+          "mode": "steps",
+          "width": 360
+        },
+        {
+          "kind": "checkout",
+          "mode": "steps",
+          "width": 1100
+        },
+        {
+          "kind": "checkout",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "checkout",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "grid",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "grid",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "thumbnails",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "thumbnails",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "buttons",
+          "width": 360
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "buttons",
+          "width": 1100
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "select",
+          "width": 360
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "select",
+          "width": 1100
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "price-display",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "price-display",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "price-display",
+          "mode": "sale",
+          "width": 360
+        },
+        {
+          "kind": "price-display",
+          "mode": "sale",
+          "width": 1100
+        },
+        {
+          "kind": "price-display",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "price-display",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "readonly",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "readonly",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "selectable",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "selectable",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "expanded",
+          "width": 360
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "expanded",
+          "width": 1100
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "steps",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "steps",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "vertical",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "vertical",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "address-selector",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "address-selector",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "address-selector",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "address-selector",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "address-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "address-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "address-card",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "address-card",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "address-card",
+          "mode": "editable",
+          "width": 360
+        },
+        {
+          "kind": "address-card",
+          "mode": "editable",
+          "width": 1100
+        },
+        {
+          "kind": "address-card",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "address-card",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "coupon",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "coupon",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "coupon",
+          "mode": "inline",
+          "width": 360
+        },
+        {
+          "kind": "coupon",
+          "mode": "inline",
+          "width": 1100
+        },
+        {
+          "kind": "coupon",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "coupon",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "personal",
+          "width": 360
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "personal",
+          "width": 1100
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "business",
+          "width": 360
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "business",
+          "width": 1100
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "payment-method",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "payment-method",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "payment-method",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "payment-method",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "payment-method",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "payment-method",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "summary",
+          "width": 360
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "summary",
+          "width": 1100
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "payment-result",
+          "mode": "success",
+          "width": 360
+        },
+        {
+          "kind": "payment-result",
+          "mode": "success",
+          "width": 1100
+        },
+        {
+          "kind": "payment-result",
+          "mode": "error",
+          "width": 360
+        },
+        {
+          "kind": "payment-result",
+          "mode": "error",
+          "width": 1100
+        },
+        {
+          "kind": "payment-result",
+          "mode": "pending",
+          "width": 360
+        },
+        {
+          "kind": "payment-result",
+          "mode": "pending",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "detailed",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "detailed",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "vertical",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "vertical",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "horizontal",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "horizontal",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "order-detail",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "order-detail",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "order-detail",
+          "mode": "split",
+          "width": 360
+        },
+        {
+          "kind": "order-detail",
+          "mode": "split",
+          "width": 1100
+        },
+        {
+          "kind": "order-detail",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "order-detail",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "featured",
+          "width": 360
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "featured",
+          "width": 1100
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "cards",
+          "width": 360
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "cards",
+          "width": 1100
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "bar",
+          "width": 360
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "bar",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "segmented",
+          "width": 360
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "segmented",
+          "width": 1100
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "billing-history",
+          "mode": "table",
+          "width": 360
+        },
+        {
+          "kind": "billing-history",
+          "mode": "table",
+          "width": 1100
+        },
+        {
+          "kind": "billing-history",
+          "mode": "list",
+          "width": 360
+        },
+        {
+          "kind": "billing-history",
+          "mode": "list",
+          "width": 1100
+        },
+        {
+          "kind": "billing-history",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "billing-history",
+          "mode": "compact",
+          "width": 1100
+        },
+        {
+          "kind": "refund-status",
+          "mode": "pending",
+          "width": 360
+        },
+        {
+          "kind": "refund-status",
+          "mode": "pending",
+          "width": 1100
+        },
+        {
+          "kind": "refund-status",
+          "mode": "success",
+          "width": 360
+        },
+        {
+          "kind": "refund-status",
+          "mode": "success",
+          "width": 1100
+        },
+        {
+          "kind": "refund-status",
+          "mode": "error",
+          "width": 360
+        },
+        {
+          "kind": "refund-status",
+          "mode": "error",
+          "width": 1100
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "default",
+          "width": 360
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "default",
+          "width": 1100
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "inclusive",
+          "width": 360
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "inclusive",
+          "width": 1100
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "compact",
+          "width": 360
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "compact",
+          "width": 1100
+        }
+      ]
+    }
+  ],
+  "extensions": [
+    {
+      "engine": "chromium",
+      "checks": 13,
+      "states": [
+        {
+          "kind": "product-card",
+          "state": "empty"
+        },
+        {
+          "kind": "product-card",
+          "state": "loading"
+        },
+        {
+          "kind": "product-card",
+          "state": "error"
+        },
+        {
+          "kind": "product-card",
+          "state": "readonly"
+        },
+        {
+          "kind": "cart-item",
+          "state": "empty"
+        },
+        {
+          "kind": "cart-item",
+          "state": "loading"
+        },
+        {
+          "kind": "cart-item",
+          "state": "error"
+        },
+        {
+          "kind": "cart-item",
+          "state": "readonly"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "empty"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "loading"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "error"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "readonly"
+        },
+        {
+          "kind": "product-detail",
+          "state": "empty"
+        },
+        {
+          "kind": "product-detail",
+          "state": "loading"
+        },
+        {
+          "kind": "product-detail",
+          "state": "error"
+        },
+        {
+          "kind": "product-detail",
+          "state": "readonly"
+        },
+        {
+          "kind": "checkout",
+          "state": "empty"
+        },
+        {
+          "kind": "checkout",
+          "state": "loading"
+        },
+        {
+          "kind": "checkout",
+          "state": "error"
+        },
+        {
+          "kind": "checkout",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "readonly"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "empty"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "loading"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "error"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "readonly"
+        },
+        {
+          "kind": "price-display",
+          "state": "empty"
+        },
+        {
+          "kind": "price-display",
+          "state": "loading"
+        },
+        {
+          "kind": "price-display",
+          "state": "error"
+        },
+        {
+          "kind": "price-display",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "readonly"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "empty"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "loading"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "error"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "readonly"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "empty"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "loading"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "error"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "readonly"
+        },
+        {
+          "kind": "address-selector",
+          "state": "empty"
+        },
+        {
+          "kind": "address-selector",
+          "state": "loading"
+        },
+        {
+          "kind": "address-selector",
+          "state": "error"
+        },
+        {
+          "kind": "address-selector",
+          "state": "readonly"
+        },
+        {
+          "kind": "address-card",
+          "state": "empty"
+        },
+        {
+          "kind": "address-card",
+          "state": "loading"
+        },
+        {
+          "kind": "address-card",
+          "state": "error"
+        },
+        {
+          "kind": "address-card",
+          "state": "readonly"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "empty"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "loading"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "error"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "readonly"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "empty"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "loading"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "error"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "readonly"
+        },
+        {
+          "kind": "coupon",
+          "state": "empty"
+        },
+        {
+          "kind": "coupon",
+          "state": "loading"
+        },
+        {
+          "kind": "coupon",
+          "state": "error"
+        },
+        {
+          "kind": "coupon",
+          "state": "readonly"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "empty"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "loading"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "error"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "readonly"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "empty"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "loading"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "error"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "readonly"
+        },
+        {
+          "kind": "payment-method",
+          "state": "empty"
+        },
+        {
+          "kind": "payment-method",
+          "state": "loading"
+        },
+        {
+          "kind": "payment-method",
+          "state": "error"
+        },
+        {
+          "kind": "payment-method",
+          "state": "readonly"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "payment-result",
+          "state": "empty"
+        },
+        {
+          "kind": "payment-result",
+          "state": "loading"
+        },
+        {
+          "kind": "payment-result",
+          "state": "error"
+        },
+        {
+          "kind": "payment-result",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "readonly"
+        },
+        {
+          "kind": "order-detail",
+          "state": "empty"
+        },
+        {
+          "kind": "order-detail",
+          "state": "loading"
+        },
+        {
+          "kind": "order-detail",
+          "state": "error"
+        },
+        {
+          "kind": "order-detail",
+          "state": "readonly"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "empty"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "loading"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "error"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "readonly"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "empty"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "loading"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "error"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "readonly"
+        },
+        {
+          "kind": "billing-history",
+          "state": "empty"
+        },
+        {
+          "kind": "billing-history",
+          "state": "loading"
+        },
+        {
+          "kind": "billing-history",
+          "state": "error"
+        },
+        {
+          "kind": "billing-history",
+          "state": "readonly"
+        },
+        {
+          "kind": "refund-status",
+          "state": "empty"
+        },
+        {
+          "kind": "refund-status",
+          "state": "loading"
+        },
+        {
+          "kind": "refund-status",
+          "state": "error"
+        },
+        {
+          "kind": "refund-status",
+          "state": "readonly"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "empty"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "loading"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "error"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "product-card",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "product-card",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "product-card",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "cart-item",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "cart-item",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "cart-item",
+          "mode": "readonly",
+          "width": 320
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "product-detail",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "product-detail",
+          "mode": "split",
+          "width": 320
+        },
+        {
+          "kind": "product-detail",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "checkout",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "checkout",
+          "mode": "steps",
+          "width": 320
+        },
+        {
+          "kind": "checkout",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "split",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "thumbnails",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "buttons",
+          "width": 320
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "select",
+          "width": 320
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "price-display",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "price-display",
+          "mode": "sale",
+          "width": 320
+        },
+        {
+          "kind": "price-display",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "readonly",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "selectable",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "expanded",
+          "width": 320
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "detailed",
+          "width": 320
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "steps",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "vertical",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "address-selector",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "address-selector",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "address-selector",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "address-card",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "address-card",
+          "mode": "editable",
+          "width": 320
+        },
+        {
+          "kind": "address-card",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "coupon",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "coupon",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "coupon",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "personal",
+          "width": 320
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "business",
+          "width": 320
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "payment-method",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "payment-method",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "payment-method",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "summary",
+          "width": 320
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "payment-result",
+          "mode": "success",
+          "width": 320
+        },
+        {
+          "kind": "payment-result",
+          "mode": "error",
+          "width": 320
+        },
+        {
+          "kind": "payment-result",
+          "mode": "pending",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "detailed",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "vertical",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "order-detail",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "order-detail",
+          "mode": "split",
+          "width": 320
+        },
+        {
+          "kind": "order-detail",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "featured",
+          "width": 320
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "table",
+          "width": 320
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "bar",
+          "width": 320
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "segmented",
+          "width": 320
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "billing-history",
+          "mode": "table",
+          "width": 320
+        },
+        {
+          "kind": "billing-history",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "billing-history",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "refund-status",
+          "mode": "pending",
+          "width": 320
+        },
+        {
+          "kind": "refund-status",
+          "mode": "success",
+          "width": 320
+        },
+        {
+          "kind": "refund-status",
+          "mode": "error",
+          "width": 320
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "inclusive",
+          "width": 320
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "compact",
+          "width": 320
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "checks": 13,
+      "states": [
+        {
+          "kind": "product-card",
+          "state": "empty"
+        },
+        {
+          "kind": "product-card",
+          "state": "loading"
+        },
+        {
+          "kind": "product-card",
+          "state": "error"
+        },
+        {
+          "kind": "product-card",
+          "state": "readonly"
+        },
+        {
+          "kind": "cart-item",
+          "state": "empty"
+        },
+        {
+          "kind": "cart-item",
+          "state": "loading"
+        },
+        {
+          "kind": "cart-item",
+          "state": "error"
+        },
+        {
+          "kind": "cart-item",
+          "state": "readonly"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "empty"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "loading"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "error"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "readonly"
+        },
+        {
+          "kind": "product-detail",
+          "state": "empty"
+        },
+        {
+          "kind": "product-detail",
+          "state": "loading"
+        },
+        {
+          "kind": "product-detail",
+          "state": "error"
+        },
+        {
+          "kind": "product-detail",
+          "state": "readonly"
+        },
+        {
+          "kind": "checkout",
+          "state": "empty"
+        },
+        {
+          "kind": "checkout",
+          "state": "loading"
+        },
+        {
+          "kind": "checkout",
+          "state": "error"
+        },
+        {
+          "kind": "checkout",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "readonly"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "empty"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "loading"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "error"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "readonly"
+        },
+        {
+          "kind": "price-display",
+          "state": "empty"
+        },
+        {
+          "kind": "price-display",
+          "state": "loading"
+        },
+        {
+          "kind": "price-display",
+          "state": "error"
+        },
+        {
+          "kind": "price-display",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "readonly"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "empty"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "loading"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "error"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "readonly"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "empty"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "loading"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "error"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "readonly"
+        },
+        {
+          "kind": "address-selector",
+          "state": "empty"
+        },
+        {
+          "kind": "address-selector",
+          "state": "loading"
+        },
+        {
+          "kind": "address-selector",
+          "state": "error"
+        },
+        {
+          "kind": "address-selector",
+          "state": "readonly"
+        },
+        {
+          "kind": "address-card",
+          "state": "empty"
+        },
+        {
+          "kind": "address-card",
+          "state": "loading"
+        },
+        {
+          "kind": "address-card",
+          "state": "error"
+        },
+        {
+          "kind": "address-card",
+          "state": "readonly"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "empty"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "loading"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "error"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "readonly"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "empty"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "loading"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "error"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "readonly"
+        },
+        {
+          "kind": "coupon",
+          "state": "empty"
+        },
+        {
+          "kind": "coupon",
+          "state": "loading"
+        },
+        {
+          "kind": "coupon",
+          "state": "error"
+        },
+        {
+          "kind": "coupon",
+          "state": "readonly"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "empty"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "loading"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "error"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "readonly"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "empty"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "loading"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "error"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "readonly"
+        },
+        {
+          "kind": "payment-method",
+          "state": "empty"
+        },
+        {
+          "kind": "payment-method",
+          "state": "loading"
+        },
+        {
+          "kind": "payment-method",
+          "state": "error"
+        },
+        {
+          "kind": "payment-method",
+          "state": "readonly"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "payment-result",
+          "state": "empty"
+        },
+        {
+          "kind": "payment-result",
+          "state": "loading"
+        },
+        {
+          "kind": "payment-result",
+          "state": "error"
+        },
+        {
+          "kind": "payment-result",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "readonly"
+        },
+        {
+          "kind": "order-detail",
+          "state": "empty"
+        },
+        {
+          "kind": "order-detail",
+          "state": "loading"
+        },
+        {
+          "kind": "order-detail",
+          "state": "error"
+        },
+        {
+          "kind": "order-detail",
+          "state": "readonly"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "empty"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "loading"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "error"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "readonly"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "empty"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "loading"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "error"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "readonly"
+        },
+        {
+          "kind": "billing-history",
+          "state": "empty"
+        },
+        {
+          "kind": "billing-history",
+          "state": "loading"
+        },
+        {
+          "kind": "billing-history",
+          "state": "error"
+        },
+        {
+          "kind": "billing-history",
+          "state": "readonly"
+        },
+        {
+          "kind": "refund-status",
+          "state": "empty"
+        },
+        {
+          "kind": "refund-status",
+          "state": "loading"
+        },
+        {
+          "kind": "refund-status",
+          "state": "error"
+        },
+        {
+          "kind": "refund-status",
+          "state": "readonly"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "empty"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "loading"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "error"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "product-card",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "product-card",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "product-card",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "cart-item",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "cart-item",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "cart-item",
+          "mode": "readonly",
+          "width": 320
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "product-detail",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "product-detail",
+          "mode": "split",
+          "width": 320
+        },
+        {
+          "kind": "product-detail",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "checkout",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "checkout",
+          "mode": "steps",
+          "width": 320
+        },
+        {
+          "kind": "checkout",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "split",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "thumbnails",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "buttons",
+          "width": 320
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "select",
+          "width": 320
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "price-display",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "price-display",
+          "mode": "sale",
+          "width": 320
+        },
+        {
+          "kind": "price-display",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "readonly",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "selectable",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "expanded",
+          "width": 320
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "detailed",
+          "width": 320
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "steps",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "vertical",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "address-selector",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "address-selector",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "address-selector",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "address-card",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "address-card",
+          "mode": "editable",
+          "width": 320
+        },
+        {
+          "kind": "address-card",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "coupon",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "coupon",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "coupon",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "personal",
+          "width": 320
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "business",
+          "width": 320
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "payment-method",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "payment-method",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "payment-method",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "summary",
+          "width": 320
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "payment-result",
+          "mode": "success",
+          "width": 320
+        },
+        {
+          "kind": "payment-result",
+          "mode": "error",
+          "width": 320
+        },
+        {
+          "kind": "payment-result",
+          "mode": "pending",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "detailed",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "vertical",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "order-detail",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "order-detail",
+          "mode": "split",
+          "width": 320
+        },
+        {
+          "kind": "order-detail",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "featured",
+          "width": 320
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "table",
+          "width": 320
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "bar",
+          "width": 320
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "segmented",
+          "width": 320
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "billing-history",
+          "mode": "table",
+          "width": 320
+        },
+        {
+          "kind": "billing-history",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "billing-history",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "refund-status",
+          "mode": "pending",
+          "width": 320
+        },
+        {
+          "kind": "refund-status",
+          "mode": "success",
+          "width": 320
+        },
+        {
+          "kind": "refund-status",
+          "mode": "error",
+          "width": 320
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "inclusive",
+          "width": 320
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "compact",
+          "width": 320
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "checks": 13,
+      "states": [
+        {
+          "kind": "product-card",
+          "state": "empty"
+        },
+        {
+          "kind": "product-card",
+          "state": "loading"
+        },
+        {
+          "kind": "product-card",
+          "state": "error"
+        },
+        {
+          "kind": "product-card",
+          "state": "readonly"
+        },
+        {
+          "kind": "cart-item",
+          "state": "empty"
+        },
+        {
+          "kind": "cart-item",
+          "state": "loading"
+        },
+        {
+          "kind": "cart-item",
+          "state": "error"
+        },
+        {
+          "kind": "cart-item",
+          "state": "readonly"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "empty"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "loading"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "error"
+        },
+        {
+          "kind": "price-quantity",
+          "state": "readonly"
+        },
+        {
+          "kind": "product-detail",
+          "state": "empty"
+        },
+        {
+          "kind": "product-detail",
+          "state": "loading"
+        },
+        {
+          "kind": "product-detail",
+          "state": "error"
+        },
+        {
+          "kind": "product-detail",
+          "state": "readonly"
+        },
+        {
+          "kind": "checkout",
+          "state": "empty"
+        },
+        {
+          "kind": "checkout",
+          "state": "loading"
+        },
+        {
+          "kind": "checkout",
+          "state": "error"
+        },
+        {
+          "kind": "checkout",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-card",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-list",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-detail",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "state": "readonly"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "empty"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "loading"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "error"
+        },
+        {
+          "kind": "sku-selector",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "state": "readonly"
+        },
+        {
+          "kind": "price-display",
+          "state": "empty"
+        },
+        {
+          "kind": "price-display",
+          "state": "loading"
+        },
+        {
+          "kind": "price-display",
+          "state": "error"
+        },
+        {
+          "kind": "price-display",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-cart-item",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-cart",
+          "state": "readonly"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "empty"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "loading"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "error"
+        },
+        {
+          "kind": "mini-cart",
+          "state": "readonly"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "empty"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "loading"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "error"
+        },
+        {
+          "kind": "cart-summary",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-checkout",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "state": "readonly"
+        },
+        {
+          "kind": "address-selector",
+          "state": "empty"
+        },
+        {
+          "kind": "address-selector",
+          "state": "loading"
+        },
+        {
+          "kind": "address-selector",
+          "state": "error"
+        },
+        {
+          "kind": "address-selector",
+          "state": "readonly"
+        },
+        {
+          "kind": "address-card",
+          "state": "empty"
+        },
+        {
+          "kind": "address-card",
+          "state": "loading"
+        },
+        {
+          "kind": "address-card",
+          "state": "error"
+        },
+        {
+          "kind": "address-card",
+          "state": "readonly"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "empty"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "loading"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "error"
+        },
+        {
+          "kind": "shipping-method",
+          "state": "readonly"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "empty"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "loading"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "error"
+        },
+        {
+          "kind": "pickup-selector",
+          "state": "readonly"
+        },
+        {
+          "kind": "coupon",
+          "state": "empty"
+        },
+        {
+          "kind": "coupon",
+          "state": "loading"
+        },
+        {
+          "kind": "coupon",
+          "state": "error"
+        },
+        {
+          "kind": "coupon",
+          "state": "readonly"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "empty"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "loading"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "error"
+        },
+        {
+          "kind": "promotion-list",
+          "state": "readonly"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "empty"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "loading"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "error"
+        },
+        {
+          "kind": "invoice-information",
+          "state": "readonly"
+        },
+        {
+          "kind": "payment-method",
+          "state": "empty"
+        },
+        {
+          "kind": "payment-method",
+          "state": "loading"
+        },
+        {
+          "kind": "payment-method",
+          "state": "error"
+        },
+        {
+          "kind": "payment-method",
+          "state": "readonly"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "empty"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "loading"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "error"
+        },
+        {
+          "kind": "payment-sheet",
+          "state": "readonly"
+        },
+        {
+          "kind": "payment-result",
+          "state": "empty"
+        },
+        {
+          "kind": "payment-result",
+          "state": "loading"
+        },
+        {
+          "kind": "payment-result",
+          "state": "error"
+        },
+        {
+          "kind": "payment-result",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-order-summary",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "state": "readonly"
+        },
+        {
+          "kind": "order-detail",
+          "state": "empty"
+        },
+        {
+          "kind": "order-detail",
+          "state": "loading"
+        },
+        {
+          "kind": "order-detail",
+          "state": "error"
+        },
+        {
+          "kind": "order-detail",
+          "state": "readonly"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "empty"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "loading"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "error"
+        },
+        {
+          "kind": "subscription-plan",
+          "state": "readonly"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "empty"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "loading"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "error"
+        },
+        {
+          "kind": "pricing-comparison",
+          "state": "readonly"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "empty"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "loading"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "error"
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "state": "readonly"
+        },
+        {
+          "kind": "billing-history",
+          "state": "empty"
+        },
+        {
+          "kind": "billing-history",
+          "state": "loading"
+        },
+        {
+          "kind": "billing-history",
+          "state": "error"
+        },
+        {
+          "kind": "billing-history",
+          "state": "readonly"
+        },
+        {
+          "kind": "refund-status",
+          "state": "empty"
+        },
+        {
+          "kind": "refund-status",
+          "state": "loading"
+        },
+        {
+          "kind": "refund-status",
+          "state": "error"
+        },
+        {
+          "kind": "refund-status",
+          "state": "readonly"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "empty"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "loading"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "error"
+        },
+        {
+          "kind": "tax-summary",
+          "state": "readonly"
+        }
+      ],
+      "narrow": [
+        {
+          "kind": "product-card",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "product-card",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "product-card",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "cart-item",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "cart-item",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "cart-item",
+          "mode": "readonly",
+          "width": 320
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "price-quantity",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "product-detail",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "product-detail",
+          "mode": "split",
+          "width": 320
+        },
+        {
+          "kind": "product-detail",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "checkout",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "checkout",
+          "mode": "steps",
+          "width": 320
+        },
+        {
+          "kind": "checkout",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-card",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "grid",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-list",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "split",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-detail",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "thumbnails",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-product-gallery",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "buttons",
+          "width": 320
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "select",
+          "width": 320
+        },
+        {
+          "kind": "sku-selector",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "commerce-quantity-stepper",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "price-display",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "price-display",
+          "mode": "sale",
+          "width": 320
+        },
+        {
+          "kind": "price-display",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart-item",
+          "mode": "readonly",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "selectable",
+          "width": 320
+        },
+        {
+          "kind": "commerce-cart",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "expanded",
+          "width": 320
+        },
+        {
+          "kind": "mini-cart",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "detailed",
+          "width": 320
+        },
+        {
+          "kind": "cart-summary",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "steps",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "vertical",
+          "width": 320
+        },
+        {
+          "kind": "commerce-checkout-steps",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "address-selector",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "address-selector",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "address-selector",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "address-card",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "address-card",
+          "mode": "editable",
+          "width": 320
+        },
+        {
+          "kind": "address-card",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "shipping-method",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "pickup-selector",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "coupon",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "coupon",
+          "mode": "inline",
+          "width": 320
+        },
+        {
+          "kind": "coupon",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "promotion-list",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "personal",
+          "width": 320
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "business",
+          "width": 320
+        },
+        {
+          "kind": "invoice-information",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "payment-method",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "payment-method",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "payment-method",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "summary",
+          "width": 320
+        },
+        {
+          "kind": "payment-sheet",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "payment-result",
+          "mode": "success",
+          "width": 320
+        },
+        {
+          "kind": "payment-result",
+          "mode": "error",
+          "width": 320
+        },
+        {
+          "kind": "payment-result",
+          "mode": "pending",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "detailed",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-summary",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "vertical",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "horizontal",
+          "width": 320
+        },
+        {
+          "kind": "commerce-order-timeline",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "order-detail",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "order-detail",
+          "mode": "split",
+          "width": 320
+        },
+        {
+          "kind": "order-detail",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "featured",
+          "width": 320
+        },
+        {
+          "kind": "subscription-plan",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "table",
+          "width": 320
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "cards",
+          "width": 320
+        },
+        {
+          "kind": "pricing-comparison",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "bar",
+          "width": 320
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "segmented",
+          "width": 320
+        },
+        {
+          "kind": "commerce-usage-meter",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "billing-history",
+          "mode": "table",
+          "width": 320
+        },
+        {
+          "kind": "billing-history",
+          "mode": "list",
+          "width": 320
+        },
+        {
+          "kind": "billing-history",
+          "mode": "compact",
+          "width": 320
+        },
+        {
+          "kind": "refund-status",
+          "mode": "pending",
+          "width": 320
+        },
+        {
+          "kind": "refund-status",
+          "mode": "success",
+          "width": 320
+        },
+        {
+          "kind": "refund-status",
+          "mode": "error",
+          "width": 320
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "default",
+          "width": 320
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "inclusive",
+          "width": 320
+        },
+        {
+          "kind": "tax-summary",
+          "mode": "compact",
+          "width": 320
+        }
+      ],
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "blazor": {
+    "components": 37,
+    "variants": 111,
+    "controlledQuantity": true,
+    "instancePreserved": true,
+    "coupon": true,
+    "checkout": true,
+    "errors": []
+  },
+  "staticDemo": {
+    "components": 37,
+    "variants": 111,
+    "errors": [],
+    "passed": true
+  },
+  "finalBrowser": {
+    "darkNarrowRTL": 37,
+    "axe": 37,
+    "cssStandalone": 37,
+    "cssCoupon": true,
+    "catalogControls": 37,
+    "errors": []
+  },
+  "smoke": {
+    "passed": true,
+    "catalog": 37,
+    "parameterControls": true,
+    "mobileCheckoutIntegration": true,
+    "errors": []
+  },
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 140
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 89
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 77
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "sharedAssets": {
+    "gardener.css": "762b7b2d7a4923f955cbe747221843c5ccdec1d175c6a7a31a4afcf42d6fc62d",
+    "gardener.min.css": "64ae73e84e34f6de559ae3bbf6a17fa8a8393ec197e1d2c9be290907136eb03f",
+    "gardener.runtime.min.js": "461d27374275659b682141a5df436e4cac24c7439e689d7795d50ca14a159f23",
+    "commerce.js": "78fd7ea5c31e4239365ccb5107f74cc8b3d08af55d35e77fc369ca6c6d500ac9",
+    "components/commerce-compositions.min.css": "6f747baee0aff83677158f82cb0ec677088f20d2202fcf65189bcba00c5ed3c4"
+  },
+  "website": {
+    "components": 559,
+    "behaviors": 94,
+    "events": 104,
+    "locales": 7,
+    "pages": 14,
+    "messagesPerTranslatedLocale": 3318
+  },
+  "budgets": "Existing performance and 45 kB commerce source limits passed without increases.",
+  "limitations": [
+    "演示仅使用本地模拟服务，不创建真实订单、发票、订阅或付款。",
+    "界面金额用于预览，正式价格、库存、优惠、税费和交易状态由宿主后端确认。",
+    "自动无障碍扫描不替代目标业务的人工辅助技术验收。"
+  ]
+}

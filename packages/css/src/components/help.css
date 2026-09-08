@@ -27,6 +27,7 @@
   .g-tooltip-rich { position: absolute; z-index: var(--g-z-tooltip); width: min(18rem, calc(100vw - 1rem)); padding: var(--g-space-3); border: 1px solid #263244; border-radius: var(--g-radius-sm); background: #111827; color: #fff; box-shadow: var(--g-shadow-md); font-size: var(--g-font-size-xs); line-height: 1.5; pointer-events: none; }
   .g-tooltip-title { display: block; margin-block-end: var(--g-space-1); font-size: var(--g-font-size-sm); font-weight: 700; }
   .g-tooltip-description { color: rgb(255 255 255 / .78); }
+  :where(.g-tooltip-rich, .g-help-popover)[hidden] { display: none; }
   .g-help-popover { position: absolute; z-index: var(--g-z-tooltip); width: min(22rem, calc(100vw - 1rem)); padding: var(--g-space-4); border: 1px solid var(--g-color-border); border-radius: var(--g-radius-md); background: var(--g-color-surface-raised); box-shadow: var(--g-shadow-lg); }
   .g-help-popover-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--g-space-3); }
   .g-help-popover-title { font-size: var(--g-font-size-md); font-weight: 700; }
@@ -133,6 +134,7 @@
   @keyframes g-hotspot-pulse { from { opacity: .75; transform: scale(.45); } to { opacity: 0; transform: scale(1.25); } }
 
   @media (max-width: 639.98px) {
+    .g-troubleshooting { gap: var(--g-space-2); }
     .g-guidance-pair { grid-template-columns: 1fr; }
     .g-help-panel { border-inline-start: 0; border-block-start: 1px solid var(--g-color-border); }
     .g-contextual-help, .g-feature-hint { grid-template-columns: auto minmax(0, 1fr); }

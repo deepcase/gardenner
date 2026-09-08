@@ -38,6 +38,6 @@ for (const page of pages) {
 }
 
 test("HTML release inventory covers every example and both documentation pages", () => {
-  assert.equal(exampleFiles.length, 21);
-  assert.equal(pages.length, 23);
+  assert.equal(exampleFiles.length, 56);
+  assert.equal(pages.length, exampleFiles.length + 2);
 });

@@ -22,6 +22,24 @@ public sealed class GCard : GardenerimComponentBase
     protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GCard;
 }
 
+/// <summary>Gardenerim badge component.</summary>
+public sealed class GBadge : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GBadge;
+}
+
+/// <summary>Gardenerim tag component.</summary>
+public sealed class GTag : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GTag;
+}
+
+/// <summary>Gardenerim chip component.</summary>
+public sealed class GChip : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GChip;
+}
+
 /// <summary>Gardenerim badge-tag-chip component.</summary>
 public sealed class GBadgeTagChip : GardenerimComponentBase
 {
@@ -32,6 +50,12 @@ public sealed class GBadgeTagChip : GardenerimComponentBase
 public sealed class GAvatar : GardenerimComponentBase
 {
     protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GAvatar;
+}
+
+/// <summary>Gardenerim avatar-group component.</summary>
+public sealed class GAvatarGroup : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GAvatarGroup;
 }
 
 /// <summary>Gardenerim alert component.</summary>
@@ -562,6 +586,18 @@ public sealed class GTooltip : GardenerimComponentBase
     protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GTooltip;
 }
 
+/// <summary>Gardenerim popconfirm component.</summary>
+public sealed class GPopconfirm : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GPopconfirm;
+}
+
+/// <summary>Gardenerim confirm-dialog component.</summary>
+public sealed class GConfirmDialog : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GConfirmDialog;
+}
+
 /// <summary>Gardenerim toast component.</summary>
 public sealed class GToast : GardenerimComponentBase
 {
@@ -596,6 +632,18 @@ public sealed class GKpiStat : GardenerimComponentBase
 public sealed class GDescriptionList : GardenerimComponentBase
 {
     protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GDescriptionList;
+}
+
+/// <summary>Gardenerim descriptions component.</summary>
+public sealed class GDescriptions : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GDescriptions;
+}
+
+/// <summary>Gardenerim list component.</summary>
+public sealed class GList : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GList;
 }
 
 /// <summary>Gardenerim list-group component.</summary>
@@ -3038,4 +3086,370 @@ public sealed class GSolutionCommunityPage : GardenerimComponentBase
 public sealed class GSolutionStatusCenter : GardenerimComponentBase
 {
     protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GSolutionStatusCenter;
+}
+
+/// <summary>Gardenerim collapse component.</summary>
+public sealed class GCollapse : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GCollapse;
+}
+
+/// <summary>Gardenerim read-more component.</summary>
+public sealed class GReadMore : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GReadMore;
+}
+
+/// <summary>Gardenerim kpi-group component.</summary>
+public sealed class GKpiGroup : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GKpiGroup;
+}
+
+/// <summary>Gardenerim dashboard-widget component.</summary>
+public sealed class GDashboardWidget : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GDashboardWidget;
+}
+
+/// <summary>Gardenerim goal-tracker component.</summary>
+public sealed class GGoalTracker : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GGoalTracker;
+}
+
+/// <summary>Gardenerim gauge-chart component.</summary>
+public sealed class GGaugeChart : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GGaugeChart;
+}
+
+/// <summary>Gardenerim undo-history component.</summary>
+public sealed class GUndoHistory : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GUndoHistory;
+}
+
+/// <summary>Gardenerim markdown-viewer component.</summary>
+public sealed class GMarkdownViewer : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GMarkdownViewer;
+}
+
+/// <summary>Gardenerim responsive-container component.</summary>
+public sealed class GResponsiveContainer : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GResponsiveContainer;
+}
+
+/// <summary>Gardenerim help-search component.</summary>
+public sealed class GHelpSearch : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GHelpSearch;
+}
+
+/// <summary>Gardenerim help-glossary component.</summary>
+public sealed class GHelpGlossary : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GHelpGlossary;
+}
+
+/// <summary>Gardenerim ai-run-timeline component.</summary>
+public sealed class GAiRunTimeline : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GAiRunTimeline;
+}
+
+/// <summary>Gardenerim ai-structured-output component.</summary>
+public sealed class GAiStructuredOutput : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GAiStructuredOutput;
+}
+
+/// <summary>Gardenerim responsive-image component.</summary>
+public sealed class GResponsiveImage : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GResponsiveImage;
+}
+
+/// <summary>Gardenerim image component.</summary>
+public sealed class GImage : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GImage;
+}
+
+/// <summary>Gardenerim image-comparison component.</summary>
+public sealed class GImageComparison : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GImageComparison;
+}
+
+/// <summary>Gardenerim feature-grid component.</summary>
+public sealed class GFeatureGrid : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GFeatureGrid;
+}
+
+/// <summary>Gardenerim logo-cloud component.</summary>
+public sealed class GLogoCloud : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GLogoCloud;
+}
+
+/// <summary>Gardenerim testimonial component.</summary>
+public sealed class GTestimonial : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GTestimonial;
+}
+
+/// <summary>Gardenerim cta-section component.</summary>
+public sealed class GCtaSection : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GCtaSection;
+}
+
+/// <summary>Gardenerim newsletter component.</summary>
+public sealed class GNewsletter : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GNewsletter;
+}
+
+/// <summary>Gardenerim announcement-bar component.</summary>
+public sealed class GAnnouncementBar : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GAnnouncementBar;
+}
+
+/// <summary>Gardenerim site-footer component.</summary>
+public sealed class GSiteFooter : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GSiteFooter;
+}
+
+/// <summary>Gardenerim member-management component.</summary>
+public sealed class GMemberManagement : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GMemberManagement;
+}
+
+/// <summary>Gardenerim invitation-manager component.</summary>
+public sealed class GInvitationManager : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GInvitationManager;
+}
+
+/// <summary>Gardenerim role-manager component.</summary>
+public sealed class GRoleManager : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GRoleManager;
+}
+
+/// <summary>Gardenerim team-management component.</summary>
+public sealed class GTeamManagement : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GTeamManagement;
+}
+
+/// <summary>Gardenerim enterprise-integrations component.</summary>
+public sealed class GEnterpriseIntegrations : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GEnterpriseIntegrations;
+}
+
+/// <summary>Gardenerim desktop-preferences component.</summary>
+public sealed class GDesktopPreferences : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GDesktopPreferences;
+}
+
+/// <summary>Gardenerim desktop-session-manager component.</summary>
+public sealed class GDesktopSessionManager : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GDesktopSessionManager;
+}
+
+/// <summary>Gardenerim desktop-problems-panel component.</summary>
+public sealed class GDesktopProblemsPanel : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GDesktopProblemsPanel;
+}
+
+/// <summary>Gardenerim workflow-checklist component.</summary>
+public sealed class GWorkflowChecklist : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GWorkflowChecklist;
+}
+
+/// <summary>Gardenerim workflow-approval component.</summary>
+public sealed class GWorkflowApproval : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GWorkflowApproval;
+}
+
+/// <summary>Gardenerim workflow-builder component.</summary>
+public sealed class GWorkflowBuilder : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GWorkflowBuilder;
+}
+
+/// <summary>Gardenerim workflow-run-history component.</summary>
+public sealed class GWorkflowRunHistory : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GWorkflowRunHistory;
+}
+
+/// <summary>Gardenerim workflow-run-detail component.</summary>
+public sealed class GWorkflowRunDetail : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GWorkflowRunDetail;
+}
+
+/// <summary>Gardenerim workflow-trigger component.</summary>
+public sealed class GWorkflowTrigger : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GWorkflowTrigger;
+}
+
+/// <summary>Gardenerim communication-composer component.</summary>
+public sealed class GCommunicationComposer : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GCommunicationComposer;
+}
+
+/// <summary>Gardenerim communication-contacts component.</summary>
+public sealed class GCommunicationContacts : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GCommunicationContacts;
+}
+
+/// <summary>Gardenerim notification-preferences component.</summary>
+public sealed class GNotificationPreferences : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GNotificationPreferences;
+}
+
+/// <summary>Gardenerim communication-delivery component.</summary>
+public sealed class GCommunicationDelivery : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GCommunicationDelivery;
+}
+
+/// <summary>Gardenerim consent-preferences component.</summary>
+public sealed class GConsentPreferences : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GConsentPreferences;
+}
+
+/// <summary>Gardenerim legal-document component.</summary>
+public sealed class GLegalDocument : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GLegalDocument;
+}
+
+/// <summary>Gardenerim legal-agreement component.</summary>
+public sealed class GLegalAgreement : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GLegalAgreement;
+}
+
+/// <summary>Gardenerim consent-history component.</summary>
+public sealed class GConsentHistory : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GConsentHistory;
+}
+
+/// <summary>Gardenerim privacy-request component.</summary>
+public sealed class GPrivacyRequest : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GPrivacyRequest;
+}
+
+/// <summary>Gardenerim privacy-request-status component.</summary>
+public sealed class GPrivacyRequestStatus : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GPrivacyRequestStatus;
+}
+
+/// <summary>Gardenerim policy-updates component.</summary>
+public sealed class GPolicyUpdates : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GPolicyUpdates;
+}
+
+/// <summary>Gardenerim statistic component.</summary>
+public sealed class GStatistic : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GStatistic;
+}
+
+/// <summary>Gardenerim affix component.</summary>
+public sealed class GAffix : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GAffix;
+}
+
+/// <summary>Gardenerim resize-box component.</summary>
+public sealed class GResizeBox : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GResizeBox;
+}
+
+/// <summary>Gardenerim scrollbar component.</summary>
+public sealed class GScrollbar : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GScrollbar;
+}
+
+/// <summary>Gardenerim space component.</summary>
+public sealed class GSpace : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GSpace;
+}
+
+/// <summary>Gardenerim watermark component.</summary>
+public sealed class GWatermark : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GWatermark;
+}
+
+/// <summary>Gardenerim overflow-list component.</summary>
+public sealed class GOverflowList : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GOverflowList;
+}
+
+/// <summary>Gardenerim input-number component.</summary>
+public sealed class GInputNumber : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GInputNumber;
+}
+
+/// <summary>Gardenerim input-tag component.</summary>
+public sealed class GInputTag : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GInputTag;
+}
+
+/// <summary>Gardenerim color-picker component.</summary>
+public sealed class GColorPicker : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GColorPicker;
+}
+
+/// <summary>Gardenerim link component.</summary>
+public sealed class GLink : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GLink;
+}
+
+/// <summary>Gardenerim typography component.</summary>
+public sealed class GTypography : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GTypography;
+}
+
+/// <summary>Gardenerim icon component.</summary>
+public sealed class GIcon : GardenerimComponentBase
+{
+    protected override GardenerimComponentDefinition Definition => GardenerimCatalog.GIcon;
 }

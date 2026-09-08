@@ -1,0 +1,323 @@
+{
+  "checkedAt": "2026-09-07T10:07:32.083Z",
+  "scope": "Dashboard category component release review; no publication or deployment",
+  "components": 7,
+  "variants": 39,
+  "newOptions": [
+    "size",
+    "bordered",
+    "columns",
+    "showHeader",
+    "showLegend",
+    "showGrid",
+    "showAxisLabels",
+    "showMarkers",
+    "tableVisible",
+    "showTrend",
+    "showDescription",
+    "showTarget",
+    "showRemaining",
+    "showRange",
+    "showValue",
+    "showApply",
+    "showReset",
+    "maxHeight",
+    "tableHeight",
+    "pointRadius",
+    "lineWidth",
+    "donutWidth",
+    "serviceTimeout"
+  ],
+  "tests": {
+    "dashboard": 30,
+    "runtime": 816,
+    "schema": 48,
+    "html": 43,
+    "build": 11
+  },
+  "adapters": [
+    {
+      "package": "vue",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 142
+        }
+      ]
+    },
+    {
+      "package": "react",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 91
+        }
+      ]
+    },
+    {
+      "package": "angularjs",
+      "checks": [
+        {
+          "task": "test:schema",
+          "exitCode": 0,
+          "tests": 3
+        },
+        {
+          "task": "test:types",
+          "exitCode": 0,
+          "tests": 0
+        },
+        {
+          "task": "test:unit",
+          "exitCode": 0,
+          "tests": 79
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "pkg": "vue",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "react",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "angularjs",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "budget",
+      "code": 0
+    },
+    {
+      "pkg": "blazor",
+      "task": "test:contracts",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:types",
+      "code": 0
+    },
+    {
+      "pkg": "css",
+      "task": "test:html",
+      "code": 0
+    }
+  ],
+  "browsers": [
+    {
+      "engine": "chromium",
+      "layoutCases": 92,
+      "stateCases": 28,
+      "interactionChecks": 12,
+      "axeComponents": 7,
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "layoutCases": 92,
+      "stateCases": 28,
+      "interactionChecks": 12,
+      "axeComponents": 0,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "layoutCases": 92,
+      "stateCases": 28,
+      "interactionChecks": 12,
+      "axeComponents": 0,
+      "errors": []
+    }
+  ],
+  "extensions": [
+    {
+      "engine": "chromium",
+      "components": 7,
+      "darkRtl": 7,
+      "axe": 7,
+      "displayControls": true,
+      "geometry": true,
+      "controlledAggregate": true,
+      "services": [
+        "success",
+        "retry",
+        "timeout",
+        "none",
+        "cancel"
+      ],
+      "readonly": true,
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "components": 7,
+      "darkRtl": 7,
+      "axe": 0,
+      "displayControls": true,
+      "geometry": true,
+      "controlledAggregate": true,
+      "services": [
+        "success",
+        "retry",
+        "timeout",
+        "none",
+        "cancel"
+      ],
+      "readonly": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "components": 7,
+      "darkRtl": 7,
+      "axe": 0,
+      "displayControls": true,
+      "geometry": true,
+      "controlledAggregate": true,
+      "services": [
+        "success",
+        "retry",
+        "timeout",
+        "none",
+        "cancel"
+      ],
+      "readonly": true,
+      "errors": []
+    }
+  ],
+  "overview": [
+    {
+      "engine": "chromium",
+      "components": 7,
+      "checks": 8,
+      "filterChartLink": true,
+      "themeSync": true,
+      "responsive": true,
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "components": 7,
+      "checks": 8,
+      "filterChartLink": true,
+      "themeSync": true,
+      "responsive": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "components": 7,
+      "checks": 8,
+      "filterChartLink": true,
+      "themeSync": true,
+      "responsive": true,
+      "errors": []
+    }
+  ],
+  "blazor": {
+    "components": 7,
+    "variants": 39,
+    "extensionControls": true,
+    "localService": true,
+    "controlledEvents": true,
+    "parameterUpdates": true,
+    "results": [
+      "kpi-stat",
+      "filter-bar",
+      "chart-container",
+      "kpi-group",
+      "dashboard-widget",
+      "goal-tracker",
+      "gauge-chart"
+    ],
+    "errors": []
+  },
+  "standalone": {
+    "components": 7,
+    "variants": 39,
+    "parameters": true,
+    "reset": true,
+    "errors": []
+  },
+  "catalog": {
+    "components": 7,
+    "parameterControls": true,
+    "conditionalControls": true,
+    "errors": []
+  },
+  "assets": {
+    "gardener.css": "0c62b4ecea0c8fded9147f44c00766f6da83b9840fcdde0eea708c6f44dffb7c",
+    "gardener.min.css": "649b4669aaee34b63d1016760e83d2bbbe0a84d7d5f843d9f18ac272d7e39fcb",
+    "gardener.runtime.min.js": "ac0858f3be71605844e0c20d3800a8101d34c6087a403bab0e27bcc428242398",
+    "dashboard.js": "06c0bda3aba09e4f4fe923a470801b37db43b2fd2d684a6a561cc57da515a65b",
+    "components/data.min.css": "42ca190acb6d6950a9127d32c3cd5296f818491150cbbede360de64e7e1ca85e"
+  },
+  "budget": {
+    "status": "passed",
+    "dashboardBytes": 35668,
+    "dashboardLimit": 40000,
+    "package": {
+      "measurement": "self-report-conservative-upper-bound",
+      "rounding": {
+        "packedQuantum": 4096,
+        "unpackedQuantum": 65536
+      },
+      "limits": {
+        "packed": 4020000,
+        "unpacked": 28700000,
+        "files": 115
+      },
+      "actual": {
+        "packed": 4001792,
+        "unpacked": 28246016,
+        "files": 115
+      },
+      "pass": true
+    }
+  },
+  "website": {
+    "locales": 7,
+    "pages": 14,
+    "messagesPerTranslatedLocale": 3325,
+    "verified": true
+  },
+  "limitations": [
+    "SVG charts cover line, area, bar and donut; advanced zoom, maps and massive datasets require a chart engine.",
+    "Data services, authorization and persistence belong to the host; demos use local callbacks.",
+    "Automated accessibility checks do not replace manual assistive-technology acceptance."
+  ],
+  "warnings": [
+    "GardenerDemo retains its existing large-chunk build advisory."
+  ]
+}
